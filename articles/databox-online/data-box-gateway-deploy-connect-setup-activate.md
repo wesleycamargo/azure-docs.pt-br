@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260423"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450397"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Azure Data Box Gateway (Versão Prévia) 
 
@@ -86,7 +86,7 @@ Agora você está no **Dashboard** do seu dispositivo.
     - Você pode configurar sua interface de rede como IPv4.
 
     >[!NOTE] 
-    > É recomendável que você não alterne o endereço IP local do adaptador de rede de estático para DHCP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Em seguida, você pode exibir os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
+    > É recomendável que você não alterne o endereço IP local do adaptador de rede de estático para DHCP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
 
 4. Opcionalmente, configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui.
    

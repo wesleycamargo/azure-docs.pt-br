@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o LinkedIn Elevate | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o LinkedIn Elevate | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o LinkedIn Elevate.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116169"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822630"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Elevate
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn Elevate
 
 Neste tutorial, você aprenderá a integrar o LinkedIn Elevate ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LinkedIn da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -119,7 +119,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_01.png)
 
-    a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
+     a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
 
     b. Na caixa de texto **URL de resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
 
@@ -141,7 +141,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
       ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/userattribute.png)
 
-      a. Clique em Adicionar atributo para abrir a página de detalhes do atributo. Adicione o atributo department conforme mostrado abaixo.
+       a. Clique em Adicionar atributo para abrir a página de detalhes do atributo. Adicione o atributo department conforme mostrado abaixo.
 
       ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/adduserattribute.png)
 

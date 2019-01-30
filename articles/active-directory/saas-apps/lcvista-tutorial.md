@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8db80d6e-3275-419f-aa39-6115a7bc9800
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ec1783e6c9caabfbc5e03849b6d4c04b1f33d23
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 12e3719cb292ef0f2132597e6b849f79f596ff7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448148"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integração do Azure Active Directory ao LCVista
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LCVista usando a galeria
 1. configurar e testar o logon único do AD do Azure
@@ -137,7 +137,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar o logon único](./media/lcvista-tutorial/tutorial_lcvista_config.png)
 
-    a. Cole a **URL do Emissor** que você copiou do Azure AD na seção **ID da Entidade**. 
+     a. Cole a **URL do Emissor** que você copiou do Azure AD na seção **ID da Entidade**. 
 
     b. Cole a **URL do Serviço de Logon Único** que você copiou do Azure AD na seção **URL**.
 
@@ -154,7 +154,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     e. Clique em **Salvar** para salvar as configurações.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-lcvista-test-user"></a>Criando um usuário de teste do LCVista
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no LCVista. É preciso contatar a [equipe de suporte do Cliente LCVista](https://lcvista.com/contact) para adicionar os usuários no aplicativo LCVista. 
+Nesta seção, você criará um usuário chamado Brenda Fernandes no LCVista. É preciso contatar a [equipe de suporte do Cliente LCVista](https://lcvista.com/contact) para adicionar os usuários no aplicativo LCVista. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -224,7 +224,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso. Clique no bloco LCVista no Painel de Acesso e você será redirecionado para a página de logon Organização. Após fazer logon com êxito, você entrará no aplicativo LCVista. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso. Clique no bloco LCVista no Painel de Acesso e você será redirecionado para a página de logon Organização. Após fazer logon com êxito, você entrará no aplicativo LCVista. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

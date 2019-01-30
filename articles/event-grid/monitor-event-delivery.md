@@ -2,18 +2,18 @@
 title: Monitorar a entrega de mensagens da Grade de Eventos do Azure
 description: Descreve como monitorar a entrega de mensagens da Grade de Eventos do Azure.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: tomfitz
-ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/22/2019
+ms.author: spelluru
+ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626982"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464773"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da Grade de Eventos 
 
@@ -29,16 +29,16 @@ O portal exibe a métrica do status de entrega das mensagens de evento.
 
 Para tópicos, as métricas são:
 
-* **Publicação bem-sucedida**: evento enviado com êxito para o tópico e processado com uma resposta 2xx.
+* **Publicação Com Êxito**: evento enviado com êxito para o tópico e processado com uma resposta 2xx.
 * **Falha na Publicação**: evento enviado para o tópico, mas rejeitado com um código de erro.
-* **Sem correspondência**: evento publicado com êxito para o tópico, mas não corresponde a uma assinatura de evento. O evento foi cancelado.
+* **Sem correspondência**: evento publicado com êxito para o tópico, mas não correspondeu a uma assinatura de evento. O evento foi cancelado.
 
 Para assinaturas, as métricas são:
 
-* **Entrega bem-sucedida**: evento entregue com êxito ao ponto de extremidade da assinatura e recebeu uma resposta de 2xx.
-* **Falha de entrega**: evento enviado ao ponto de extremidade da assinatura, mas recebeu uma resposta 4xx ou 5xx.
+* **Entrega Com Êxito**: evento entregue com êxito ao ponto de extremidade da assinatura e que recebeu uma resposta 2xx.
+* **Entrega com Falha**: evento enviado ao ponto de extremidade da assinatura, mas que recebeu uma resposta 4xx ou 5xx.
 * **Eventos Expirados**: evento não foi entregue e todas as tentativas de repetição foram enviadas. O evento foi cancelado.
-* **Eventos correspondidos**: evento no tópico foi correspondido pela assinatura do evento.
+* **Eventos Correspondentes**: evento no tópico foi correspondido pela assinatura do evento.
 
 ## <a name="event-subscription-status"></a>Status da assinatura do evento
 

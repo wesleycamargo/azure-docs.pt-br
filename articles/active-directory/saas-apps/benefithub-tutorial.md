@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao BenefitHub | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o BenefitHub | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o BenefitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 0a838e003fa4fde6c4a1d458cc6dadf6c6672842
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee0e91cfc106cd065c233e3bba09ca2ceba04bb1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426863"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815745"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutorial: Integração do Azure Active Directory ao BenefitHub
+# <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutorial: Integração do Azure Active Directory com o BenefitHub
 
 Neste tutorial, você aprende a integrar o BenefitHub ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o BenefitHub por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/benefithub-tutorial/tutorial_benefithub_url1.png)
   
-    a. Na caixa de texto **Identificador**, digite: `urn:benefithub:passport`
+     a. Na caixa de texto **Identificador**, digite: `urn:benefithub:passport`
     
     b. Na caixa de texto **URL de Resposta**, digite: `https://passport.benefithub.info/saml/post/ac`
 
@@ -129,7 +129,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Esse valor de atributo não é real. Atualize esse valor com a organizationid real. Contate a [equipe de suporte do BenefitHub](https://www.benefithub.com/Home/ContactUs) para obter a organizationid real.
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/benefithub-tutorial/tutorial_attribute_04.png)
 
@@ -155,7 +155,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único no lado do **BenefitHub**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do BenefitHub](https://www.benefithub.com/Home/ContactUs). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-benefithub-test-user"></a>Criando um usuário de teste do BenefitHub
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no BenefitHub. Trabalhe com a [equipe de suporte do BenefitHub](https://www.benefithub.com/Home/ContactUs) para adicionar os usuários à plataforma BenefitHub. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você cria um usuário chamado Brenda Fernandes no BenefitHub. Trabalhe com a [equipe de suporte do BenefitHub](https://www.benefithub.com/Home/ContactUs) para adicionar os usuários à plataforma do BenefitHub. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -227,7 +227,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco BenefitHub no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo BenefitHub.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

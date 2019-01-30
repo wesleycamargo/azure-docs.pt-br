@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827407"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Você não pode fazer backup das unidades/volumes a seguir:
 * Volumes somente leitura: O volume deve ser gravável para que o VSS (Serviço de Cópias de Sombra de Volume) funcione.
 * Volumes offline: O volume deve estar online para que o VSS funcione.
 * Compartilhamento de rede: O volume deve ser local para o backup do servidor usando o backup online.
-* Volumes protegidos pelo Bitlocker: O volume deverá ser desbloqueado antes que o backup possa ocorrer.
+* Volumes protegidos pelo BitLocker: O volume deverá ser desbloqueado antes que o backup possa ocorrer.
 * Identificação de Sistema de Arquivos: O NTFS é o único sistema de arquivos com suporte.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>De quais tipos de arquivo e pasta no servidor posso fazer backup?<br/>

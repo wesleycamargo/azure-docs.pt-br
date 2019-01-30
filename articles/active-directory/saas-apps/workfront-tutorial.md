@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Workfront | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Workfront | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Workfront.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: aab8bd2f-f9dd-42da-a18e-d707865687d7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 155aa8ac1ee01ba46297e66763e0c0501ead32e2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d6e6914002bd5be7f8fff4822f383fc5ac058f87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144744"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814912"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Tutorial: integração do Azure Active Directory com o Workfront
+# <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Tutorial: Integração do Azure Active Directory ao Workfront
 
 Neste tutorial, você aprenderá a integrar o Workfront ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Workfront a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -139,7 +139,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     ![Configurar o logon único][23]
    
-    a. Como **Tipo**, selecione **SAML 2.0**.
+     a. Como **Tipo**, selecione **SAML 2.0**.
    
     b. Selecione **ID do Provedor de Serviços**.
    
@@ -152,7 +152,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     f. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Workfr
    
     ![Criar um usuário de teste do Workfront][21] 
    
-    a. Na caixa de texto **Nome**, digite "Brenda".
+     a. Na caixa de texto **Nome**, digite "Brenda".
    
     b. Na caixa de texto **Sobrenome**, digite "Fernandes".
    

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o FieldGlass | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Fieldglass | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FieldGlass.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0d8c1dc6d0044992692151465aa2b37f6a23445b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443945"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822222"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Azure Active Directory com o FieldGlass
+# <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Azure Active Directory com o Fieldglass
 
 Neste tutorial, você aprende a integrar o Fieldglass ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do FieldGlass da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/fieldglass-tutorial/tutorial_fieldglass_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL `https://www.fieldglass.com` ou siga o padrão: `https://<company name>.fgvms.com`
+     a. Na caixa de texto **Identificador**, digite a URL `https://www.fieldglass.com` ou siga o padrão: `https://<company name>.fgvms.com`
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
     | |
@@ -138,7 +138,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar logon único no lado do **Fieldglass**, você precisa enviar o **Certificado (Base64)** baixado e a **URL de Logoff, ID da Entidade SAML** para a [equipe de suporte do Fieldglass](https://www.fieldglass.com/customer-support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

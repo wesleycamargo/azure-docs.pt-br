@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554649"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810696"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do Video Indexer produzida pela API v2
 
@@ -166,7 +166,7 @@ Um rosto pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista d
 |audioEffects|A dimensão [audioEffects](#audioEffects).|
 |sentiments|A dimensão dos [sentimentos](#sentiments).|
 |visualContentModeration|A dimensão [visualContentModeration](#visualcontentmoderation).|
-|textualConentModeration|A dimensão [textualConentModeration](#textualconentmoderation).|
+|textualContentModeration|A dimensão [textualContentModeration](#textualcontentmoderation).|
 |emotions| A dimensão [emotions](#emotions).|
 |topics|A dimensão [topics](#topics).|
 
@@ -187,7 +187,7 @@ Exemplo:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ Exemplo:
 |Nome|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
 |confidence|A confiança de identificação da face.|
 |Descrição|Uma descrição da celebridade. |
-|thumbnalId|O ID da miniatura dessa face.|
+|thumbnailId|O ID da miniatura dessa face.|
 |knownPersonId|Se é uma pessoa conhecida, o seu ID interno.|
 |referenceId|Se for uma celebridade do Bing, o seu ID do Bing.|
 |referenceType|No momento, apenas Bing.|
@@ -662,7 +662,7 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |NOME|DESCRIÇÃO|
 |---|---|

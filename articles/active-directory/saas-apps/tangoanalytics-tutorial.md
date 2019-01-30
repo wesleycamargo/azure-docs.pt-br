@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2f7555d3-e9ba-40b2-9b3a-2f0ab38a4c08
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: eb0e309eed5594f806a65bc3f2820cdb9a861309
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cf9ea3b841fc798f0b4313c3a3935f562cb7fd45
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449121"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Tutorial: Integração do Azure Active Directory ao Tango Analytics
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Tango análise da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_url.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor `TACORE_SSO`
+     a. Na caixa de texto **Identificador**, digite o valor `TACORE_SSO`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
@@ -130,7 +130,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para configurar o logon único no lado do **Tango Analytics**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Tango Analytics](mailto:support@tangoanalytics.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -166,7 +166,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-tango-analytics-test-user"></a>Criação um usuário de teste do Tango Analytics
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Tango Analytics. Trabalhe com a [equipe de suporte do Tango Analytics](mailto:support@tangoanalytics.com) para adicionar os usuários na plataforma Tango Analytics. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Tango Analytics. Trabalhe em conjunto com a  [equipe de suporte do Tango Analytics](mailto:support@tangoanalytics.com)  para adicionar os usuários na plataforma Tango Analytics. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

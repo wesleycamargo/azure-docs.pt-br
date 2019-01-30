@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Microsoft Azure Active Directory com Vodeclic | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Vodeclic | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Vodeclic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444616"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815405"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: integração do Microsoft Azure Active Directory com o Vodeclic
+# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Azure Active Directory com o Vodeclic
 
 Neste tutorial, você aprenderá a integrar o Vodeclic ao Microsoft Azure AD (Microsoft Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 - Se você não tiver um ambiente de avaliação do Azure AD, [receba uma versão de avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. adicionar o Vodeclic da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Informações de logon único de domínio e URLs do Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
-    a. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
+     a. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
 
     b. Na caixa de **URL de Resposta**, digite uma URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-vodeclic-test-user"></a>Criar um usuário de teste do Vodeclic
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Vodeclic. Trabalhe com a [Equipe de suporte do Vodeclic](mailto:hotline@vodeclic.com) para adicionar os usuários na plataforma do Vodeclic. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Vodeclic. Trabalhe com a [Equipe de suporte do Vodeclic](mailto:hotline@vodeclic.com) para adicionar os usuários na plataforma do Vodeclic. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 > [!NOTE]
 > De acordo com os requisitos do aplicativo, talvez seja necessário que sua máquina seja incluída na lista de permissões. Para que isso seja possível, será necessário compartilhar seu endereço IP público com a [Equipe de suporte do Vodeclic](mailto:hotline@vodeclic.com).
@@ -211,7 +211,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao selecionar Vodeclic no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Vodeclic.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

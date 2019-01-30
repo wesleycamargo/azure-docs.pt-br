@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395149"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827373"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -47,9 +47,12 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Operações de trabalhos<sup>1,3</sup> <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | Operações de dispositivo de trabalhos<sup>1</sup> <br/> (atualizar gêmeos, invocar o método direto) | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Configurações e implantações de borda <sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) |
+| Taxa de iniciação do fluxo do dispositivo<sup>4</sup> | 5 novos fluxos/s | 5 novos fluxos/s | 5 novos fluxos/s |
+| Número máximo de fluxos de dispositivos conectados simultaneamente<sup>4</sup> | 50 | 50 | 50 |
+| Transferência máxima de dados de fluxo do dispositivo<sup>4</sup> (agregar volume por dia) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md). <br/><sup>2</sup>O tamanho do medidor de limitação é 8 KB. <br/><sup>3</sup>Você só pode ter um trabalho de importação/exportação de dispositivo ativo por vez.
+<sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md). <br/><sup>2</sup>O tamanho do medidor de limitação é 8 KB. <br/><sup>3</sup>Você só pode ter um trabalho de importação/exportação de dispositivo ativo por vez. <br/><sup>4</sup>Os fluxos de dispositivo do Hub IoT só estão disponíveis para S1, S2, S3 e SKU de F1.
 
 As *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT. A restrição de *conexões de dispositivo* não controla o número máximo de dispositivos conectados simultaneamente. A limitação da taxa de *conexões de dispositivo* depende do número de unidades provisionadas para o hub IoT.
 
@@ -68,7 +71,7 @@ IoT Hub impõe outros limites operacionais:
 
 | Operação | Limite |
 | --------- | ----- |
-| URIs de upload de arquivos | 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo. <br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
+| URIs de upload de arquivos | 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo. <br/>  10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
 | Trabalhos<sup>1</sup> | O histórico do trabalho é retido por até 30 dias <br/> O máximo de trabalhos simultâneos é 1 (para Gratuito) e S1, 5 (para S2), 10 (para S3). |
 | Pontos de extremidade adicionais | Hubs SKU pagos podem ter 10 pontos de extremidade adicionais. Hubs SKU gratuitos podem ter um ponto de extremidade adicional. |
 | Regras de roteamento de mensagem | Hubs SKU pagos podem ter 100 regras de roteamento. Hubs SKU gratuitos podem ter cinco regras de roteamento. |

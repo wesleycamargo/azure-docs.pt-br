@@ -4,7 +4,7 @@ description: Cobre as noções básicas sobre os conectores do Proxy de Aplicati
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230052"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461545"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
@@ -31,11 +31,11 @@ A melhor maneira de garantir que os links funcionem corretamente dentro e fora d
 
 Se você não pode usar domínios personalizados em seu locatário, há várias outras opções para fornecer essa funcionalidade. Todos esses também são compatíveis com domínios personalizados e entre si, assim você pode configurar domínios personalizados e outras soluções, se necessário. 
 
-**Opção 1: usar o navegador gerenciado** – essa solução é aplicável somente se você planeja recomendar ou exigir que os usuários acessem o aplicativo com o Intune Managed Browser. Ele manipulará todas as URLs publicadas. 
+**Opção 1: usar o navegador gerenciado**. Essa solução aplica-se somente se você planeja recomendar ou exigir que os usuários acessem o aplicativo com o Intune Managed Browser. Ele manipulará todas as URLs publicadas. 
 
-**Opção 2: usar a extensão do MyApps** – essa solução exige que os usuários instalem uma extensão de navegador do lado do cliente, mas manipulará todas as URLs publicadas e funciona com navegadores mais populares. 
+**Opção 2: usar a extensão do MyApps**. Essa solução exige que os usuários instalem uma extensão de navegador no lado do cliente que manipula todas as URLs publicadas e funciona com os navegadores mais populares. 
 
-**Opção 3: usar a configuração de conversão de link** – esta é uma configuração do lado do administrador que é invisível para os usuários. No entanto, ela apenas manipulará URLs em HTML e CSS. URLs internas inseridas no código geradas por meio de Javascript (por exemplo) não funcionarão.  
+**Opção 3: usar a configuração de conversão de link**. Essa é uma configuração do lado do administrador que é invisível para os usuários. No entanto, ela apenas manipulará URLs em HTML e CSS. URLs internas inseridas no código geradas por meio de Javascript (por exemplo) não funcionarão.  
 
 Esses três recursos mantêm seus vínculos de trabalho, independentemente de onde os usuários estão. Quando você tem aplicativos que apontam diretamente para portas ou pontos de extremidade internos, pode mapear essas URLs internas para as URLs de Proxy de Aplicativo externas publicadas. 
 
@@ -46,13 +46,13 @@ Esses três recursos mantêm seus vínculos de trabalho, independentemente de on
 >Ou, se o aplicativo que você precisa configurar com a conversão de link é o SharePoint, consulte [Configurar mapeamentos alternativos de acesso para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) a fim de conhecer outra abordagem de mapeamento de links. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>Opção 1: integração com o Intune Managed Browser 
+### <a name="option-1-intune-managed-browser-integration"></a>Opção 1: Integração do Intune Managed Browser 
 
 Você pode usar o Intune Managed Browser para proteger ainda mais seu aplicativo e conteúdo. Para usar essa solução, você precisa exigir/recomendar aos usuários que acessem o aplicativo por meio do Intune Managed Browser. Todas as URLs internas publicados com o Proxy de Aplicativo serão reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for ao navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
 
 Para saber mais, incluindo como definir essa opção, consulte a documentação do [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 
-### <a name="option-2-myapps-browser-extension"></a>Opção 2: extensão de navegador MyApps 
+### <a name="option-2-myapps-browser-extension"></a>Opção 2: Extensão do MyApps no navegador 
 
 Com a extensão de navegador My Apps, todas as URLs internas publicadas com o Proxy de Aplicativo são reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for à barra de endereço do navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
 
@@ -60,7 +60,7 @@ Para usar esse recurso, o usuário deve fazer o download da extensão e estar co
 
  
 
-### <a name="option-3-link-translation-setting"></a>Opção 3: configuração de conversão de link 
+### <a name="option-3-link-translation-setting"></a>Opção 3: Configuração de conversão de link 
 
 Quando a translação de link está habilitada, o serviço de Proxy de Aplicativo pesquisa o HTML e o CSS para links internos publicados e converte-os para que seus usuários obtenham uma experiência ininterrupta. 
 
@@ -85,7 +85,7 @@ Há dois tipos comuns de links internos em aplicativos locais:
 
 A translação de link está habilitada para cada aplicativo, para que você tenha controle sobre a experiência do usuário no nível por aplicativo. Ative a translação de link para um aplicativo quando desejar que os links *desse* aplicativo sejam convertidos, não os links *para* ele. 
 
-Por exemplo, suponha que você tenha três aplicativos publicados por meio do Proxy de Aplicativo que estão vinculados entre si: Benefícios, Despesas e Viagem. Há um quarto aplicativo, Comentários, que não está publicado pelo Proxy de Aplicativo.
+Por exemplo, suponha que você tem três aplicativos publicados por meio do Proxy de Aplicativo que estão vinculados entre si: Benefícios, Despesas e Viagem. Há um quarto aplicativo, Comentários, que não está publicado pelo Proxy de Aplicativo.
 
 Quando você habilita a translação de link para o aplicativo Benefícios, os links para Despesas e Viagem são redirecionados para as URLs externas para esses aplicativos, mas o link para Comentários não é redirecionado porque não há nenhuma URL externa. Os links de Despesas e Viagem para Benefícios não funcionam, pois a translação de link não foi habilitada para esses dois aplicativos.
 

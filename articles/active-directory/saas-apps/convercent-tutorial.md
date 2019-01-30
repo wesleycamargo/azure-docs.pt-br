@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f9c9d290-0e13-490b-b559-0be772d6a690
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: jeedes
-ms.openlocfilehash: add5be434ea8902de58dfdffc93b2c4829183667
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fc70285a4852db5f76e72cc7222dbfe2e0884e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447832"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822239"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Azure Active Directory ao Convercent
+# <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Azure Active Directory com o Convercent
 
 Neste tutorial, você aprenderá a integrar o Convercent ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Convercent da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -118,7 +118,7 @@ Nesta seção, você habilita o logon único do Azure AD no novo portal do Azure
     
     ![Configurar o logon único](./media/convercent-tutorial/tutorial_convercent_url1.png)
 
-     a. Clique em **"Mostrar configurações de URL avançadas"**. 
+      a. Clique em **"Mostrar configurações de URL avançadas"**. 
 
      b. Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão: `https://<instancename>.convercent.com/`
 
@@ -138,7 +138,7 @@ Nesta seção, você habilita o logon único do Azure AD no novo portal do Azure
 1. Para que o SSO seja configurado para seu aplicativo, entre em contato com a [equipe de suporte do Convercent](mailto:support@convercent.com) e forneça o **XML de metadados** baixado.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

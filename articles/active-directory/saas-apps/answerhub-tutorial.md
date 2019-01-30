@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao AnswerHub | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao AnswerHub | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AnswerHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 447a3911bc1f021fb1ca2658716de1910b5379b6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3bced675ad074de7050aee08d2a63b4831ba3606
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044061"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810339"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure ao AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Azure Active Directory ao AnswerHub
 
 Neste tutorial, você aprende a integrar o AnswerHub ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o AnswerHub por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -89,7 +89,7 @@ No AnswerHub, atribua o valor do **nome de usuário** no Azure AD como o valor d
 Para configurar e testar o logon único do Azure AD com o AnswerHub, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do AnswerHub](#creating-an-answerhub-test-user)** – para ter um equivalente de Brenda Fernandes no AnswerHub que esteja vinculado à representação de usuário do Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -148,7 +148,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
      ![Instalação do SAML](./media/answerhub-tutorial/ic785172.png "Instalação do SAML")  
   
-     a. Na caixa de texto **URL de Logon do IDP**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
+      a. Na caixa de texto **URL de Logon do IDP**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
   
      b. Na caixa de texto **URL de Logoff do IDP**, cole o valor da **URL de Saída** copiado do portal do Azure.
      
@@ -160,14 +160,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
      ![Chaves e Certificados](./media/answerhub-tutorial/ic785173.png "Chaves e Certificados")  
  
-     a. Abra o certificado codificado em Base 64 baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Chave Pública do IDP (Formato x509)**.
+      a. Abra o certificado codificado em Base 64 baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Chave Pública do IDP (Formato x509)**.
   
      b. Clique em **Salvar**.
 
 14. Na guia **Config. de IDP**, clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

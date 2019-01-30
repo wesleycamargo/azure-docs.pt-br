@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o FilesAnywhere | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o FilesAnywhere | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FilesAnywhere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2dab43499d5f55474117f88cfaa1cecd1a50bf3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115978"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integração do Azure Active Directory com o FilesAnywhere
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o FilesAnywhere da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -117,7 +117,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
 
     ![Configurar o logon único](./media/filesanywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+     a. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
 > Observe que o valor **215** é uma **clientid** e é apenas um exemplo. É necessário substituí-lo pelo valor de clientid real.
 
@@ -125,7 +125,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
     
     ![Configurar o logon único](./media/filesanywhere-tutorial/tutorial_filesanywhere_url1.png)
 
-    a. Clique na opção **Mostrar URL configurações avançadas**
+     a. Clique na opção **Mostrar URL configurações avançadas**
 
     b. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub domain>.filesanywhere.com/`
 
@@ -147,7 +147,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_04.png)
 

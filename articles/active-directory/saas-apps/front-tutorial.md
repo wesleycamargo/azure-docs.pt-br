@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Front | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Front | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Front.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d0bdf3ff282152f92e1b661bf19768489d1a029b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 72bbd6b39e6a2f59b718071f11882c37ef571cae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438606"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826370"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: integração do Azure Active Directory ao Front
+# <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: Integração do Azure Active Directory com o Front
 
 Neste tutorial, você aprenderá a integrar o Front ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Front por meio da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/front-tutorial/tutorial_front_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.frontapp.com`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.frontapp.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.frontapp.com/sso/saml/callback`
      
@@ -155,14 +155,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único no lado do aplicativo](./media/front-tutorial/tutorial_front_005.png)
 
-    a. Copie o valor da **ID da entidade** e cole-o na caixa de texto **Identificador**, na seção **Domínio e URLs do Front** no portal do Azure.
+     a. Copie o valor da **ID da entidade** e cole-o na caixa de texto **Identificador**, na seção **Domínio e URLs do Front** no portal do Azure.
 
     b. Copie o valor do **URL do ACS** e cole-o na caixa de texto **URL de Resposta**, na seção **Domínio e URLs do Front** no portal do Azure.
     
 1. Clique no botão **Salvar** .
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -199,7 +199,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-front-test-user"></a>Criar um usuário de teste do Front
 
-Nesta seção, você criará uma usuária chamada Britta Simon no Front. Trabalhe com a [equipe de suporte ao Cliente do Front](mailto:support@frontapp.com) para adicionar os usuários à plataforma Front. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Britta Simon no Front. Trabalhe com a [equipe de suporte ao Cliente do Front](mailto:support@frontapp.com) para adicionar os usuários à plataforma do Front. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

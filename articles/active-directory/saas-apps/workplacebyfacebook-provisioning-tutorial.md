@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: configurar o Workplace by Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Workplace do Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6341e67e-8ce6-42dc-a4ea-7295904a53ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 2b085d8b825055b5cb318da200eafb6d9000bf4b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 63faea6dffa47aa7b0b9a1cc27052c0b0885aca9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213094"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814337"
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workplace do Facebook para provisionamento automático de usuários
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Workplace by Facebook e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Workplace by Facebook.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Workplace by Facebook, são necessários os seguintes itens:
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 49384b8b-3836-4eb1-b438-1c46bb9baf6f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: e2a5020bec94614971b6e9e7f4dcf94a0df96108
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a16deb73c9dbd32795e82ca1a9c531c75c7db15a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888383"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818788"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Salesforce.
 
@@ -75,7 +75,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
 
-    a. Na caixa de texto **Nome de Usuário Administrador**, digite o nome da conta do Salesforce com o perfil **Administrador do Sistema** no Salesforce.com atribuído.
+     a. Na caixa de texto **Nome de Usuário Administrador**, digite o nome da conta do Salesforce com o perfil **Administrador do Sistema** no Salesforce.com atribuído.
 
     b. Na caixa de texto **Senha do Administrador**, digite a senha desta conta.
 

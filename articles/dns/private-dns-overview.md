@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200506"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826472"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Usar DNS do Azure para domínios privados
 
@@ -64,9 +64,9 @@ O DNS do Azure fornece os seguintes recursos:
 O DNS do Azure tem as seguintes limitações:
 
 * Apenas uma rede virtual de registro é permitida por zona privada.
-* Até 10 redes virtuais de resolução são permitidas por zona privada.
+* Até 10 redes virtuais de resolução são permitidas por zona privada. Esse limite será removido quando esse recurso estiver disponível em geral.
 * Uma rede virtual específica pode ser vinculada a apenas uma zona privada como uma rede virtual de registro.
-* Uma rede virtual específica pode ser vinculada a até 10 zonas privadas como uma rede virtual de resolução.
+* Uma rede virtual específica pode ser vinculada a até 10 zonas privadas como uma rede virtual de resolução. Esse limite será removido quando esse recurso estiver disponível em geral.
 * Se você especificar uma rede virtual de registro, os registros DNS das VMs dessa rede virtual, registrados na zona privada, não poderão ser visualizados nem recuperados nas APIs da CLI do Azure e no Azure PowerShell. Os registros da VM são realmente registrados e resolverão com sucesso.
 * O DNS inverso funciona apenas para o espaço IP privado na rede virtual de registro.
 * O DNS inverso para um IP privado que não está registrado na zona privada (por exemplo, um IP privado para uma máquina virtual em uma rede virtual que está vinculada como uma rede virtual de resolução a uma zona privada) retorna *internal.cloudapp.net* como o sufixo DNS. Entretanto, esse sufixo não é resolvível.

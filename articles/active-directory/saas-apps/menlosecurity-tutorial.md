@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Menlo Security | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Menlo Security | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Menlo Security.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9e63fe6b-0ad0-405d-9e41-6a1a40a41df8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: a1f7458d52ffdee4cb48e4be0f553e3d57413249
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 70b6693afe1a57e8acd62500d74f860dffc7c692
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428838"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808690"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutorial: Integração do Azure Active Directory com o Menlo Security
+# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutorial: Integração do Azure Active Directory ao Menlo Security
 
 Neste tutorial, você aprenderá a integrar o Menlo Security ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Menlo Security a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -137,22 +137,22 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     ![Configurar o logon único](./media/menlosecurity-tutorial/menlo_user_setup.png)
 
-    a. Marque a caixa de seleção **Habilitar a autenticação de usuário usando o SAML**.
+     a. Marque a caixa de seleção **Habilitar a autenticação de usuário usando o SAML**.
 
     b. Selecione **Permitir o Acesso Externo** como **Sim**.
 
     c. Em **Provedor SAML**, selecione **Azure Active Directory**.
 
-    d. **Ponto de extremidade SAML 2.0**: cole a **URL de serviço de logon único SAML** que você copiou do Portal do Azure.
+    d. **Ponto de extremidade SAML 2.0**: Cole a **URL de Serviço de Logon Único SAML** que você copiou do portal do Azure.
 
-    e. **Identificador de Serviço (Emissor)**: cole a **ID da entidade SAML** que você copiou do Portal do Azure.
+    e. **Identificador de serviço (emissor)**: Cole a **ID de Entidade do SAML** que você copiou do portal do Azure.
 
-    f. **Certificado X.509**: abra o **Certificado (Base64)** baixado do Portal do Azure no bloco de notas e copie-o nesta caixa.
+    f. **Certificado X.509**: Abra o **Certificado (Base64)** baixado do portal do Azure no bloco de notas e copie-o nesta caixa.
 
     g. Clique em **Salvar** para salvar as configurações.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -188,7 +188,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-menlo-security-test-user"></a>Criar um usuário de teste do Menlo Security
  
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Menlo Security. Trabalhe com a [Equipe de suporte ao cliente do Menlo Security](https://www.menlosecurity.com/menlo-contact) para adicionar os usuários à plataforma do Menlo Security. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Menlo Security. Trabalhe com a [Equipe de suporte ao cliente do Menlo Security](https://www.menlosecurity.com/menlo-contact) para adicionar os usuários à plataforma do Menlo Security. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

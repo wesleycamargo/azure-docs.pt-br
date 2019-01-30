@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao UserEcho | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao UserEcho | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o UserEcho.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bedd916b-8f69-4b50-9b8d-56f4ee3bd3ed
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ecdd37db662c6861e35f80bfbf4ac8ff7e0d08c9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3846a015e519d5b3ac848be7d55a6dbc18b2afbe
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443255"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814963"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Active Directory do Azure com o UserEcho
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Azure Active Directory ao UserEcho
 
 Neste tutorial, você aprenderá como integrar o UserEcho ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do AD do Azure ao UserEcho, você precisará dos 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o UserEcho da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -149,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Configurar o logon único](./media/userecho-tutorial/tutorial_userecho_09.png)
     
-    a. Para **Habilitado para SAML**, selecione **Sim**.
+     a. Para **Habilitado para SAML**, selecione **Sim**.
     
     b. Cole a **URL do Serviço de Logon Único SAML** copiada do Portal do Azure na caixa de texto **URL de SSO de SAML**.
     
@@ -160,7 +160,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     e. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -222,7 +222,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no UserEc
    
     ![Configurar o logon único](./media/userecho-tutorial/tutorial_userecho_13.png)
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda Fernandes.
+     a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda Fernandes.
     
     b.  Na caixa de texto **Email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
     

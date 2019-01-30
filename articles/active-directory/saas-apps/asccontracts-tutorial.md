@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f5eaa61af2c44265f36662e8a3b1f8ff8a747afe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5737bd76e7809035f21103f45a20fa8306061f30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449546"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integração do Azure Active Directory ao ASC Contracts
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar contratos ASC da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,12 +112,12 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.asccontracts.com/shibboleth`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.asccontracts.com/shibboleth`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a equipe ASC Networks Inc. (ASC) **613.599.6178** para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a equipe da ASC Networks Inc. (ASC) pelo telefone **+1-613-599-6178** para obter esses valores.
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -127,10 +127,10 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/asccontracts-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no **ASC Contracts**, contate o suporte de ASC Networks Inc. (ASC) em **613.599.6178** e forneça o **XML de Metadados** baixado. Eles configuram esse aplicativo para que tenham a conexão de SSO do SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no **ASC Contracts**, ligue para o suporte da ASC Networks Inc. (ASC) em **+1-613-599-6178** e forneça o **XML de Metadados** baixado. Eles configuram esse aplicativo para que tenham a conexão de SSO do SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -165,7 +165,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-an-asc-contracts-test-user"></a>Criação de um usuário de teste do ASC Contracts
 
-Trabalhe com a equipe de suporte da ASC Networks Inc. (ASC) em **613.599.6178** para obter os usuários adicionados na plataforma ASC Contracts.
+Fale com a equipe de suporte da ASC Networks Inc. pelo telefone **+1-613-599-6178** para adicionar os usuários à plataforma da ASC Contracts.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -201,7 +201,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco ASC Contracts no painel de acesso, você deverá entrar automaticamente no aplicativo ASC Contracts. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco ASC Contracts no painel de acesso, você deverá entrar automaticamente no aplicativo ASC Contracts. Para saber mais sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

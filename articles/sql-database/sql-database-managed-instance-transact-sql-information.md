@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843199"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463738"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
@@ -235,7 +235,7 @@ Nem o MSDTC nem [ Elastic Transactions ](https://docs.microsoft.com/azure/sql-da
 Não há suporte para alguns destinos específicos do Windows para XEvents:
 
 - Não há suporte para `etw_classic_sync target`. Armazene arquivos `.xel` no armazenamento de blobs do Azure. Consulte [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- Não há suporte para `event_file target`. Armazene arquivos `.xel` no armazenamento de blobs do Azure. Consulte [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- Não há suporte para `event_file target`. Armazene arquivos `.xel` no armazenamento de blobs do Azure. Consulte [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
@@ -503,6 +503,12 @@ Embora esse código funcione com os dados na mesma instância, ele precisou do M
 Os módulos CLR colocados na Instância Gerenciada e consultas distribuídas/servidores da vinculados que fazem referência à instância atual às vezes não podem resolver o IP da instância local. Esse é um problema temporário.
 
 **Solução alternativa**: Usar conexões de contexto no módulo CLR, se possível.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Os bancos de dados criptografados por TDE não oferecem suporte a backups iniciados pelo usuário
+
+Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que esteja criptografado com TDE (Transparent Data Encryption). A TDE força os backups a serem criptografados com chaves TDE internas, e a chave não pode ser exportada, de modo que não é possível restaurar o backup.
+
+**Solução alternativa**: Use backups automáticos e a restauração pontual, ou desabilite a criptografia no banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

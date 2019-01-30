@@ -4,7 +4,7 @@ description: Saiba onde os relatórios de atividade do usuário do Azure Active 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7d55c80b9d6ad76a456744efd624bf7134b8f03b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624905"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810101"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -112,6 +112,89 @@ Você pode acessar relatórios sobre eventos de risco detectados na seção **Se
 - [Entradas de risco](concept-risky-sign-ins.md)
 
     ![Relatórios de segurança](./media/howto-find-activity-reports/04.png "Relatórios de segurança")
+
+## <a name="troubleshoot-issues-with-activity-reports"></a>Solucionar problemas com relatórios de atividade
+
+### <a name="missing-data-in-the-downloaded-activity-logs"></a>Dados ausentes nos logs de atividade baixados
+
+#### <a name="symptoms"></a>Sintomas 
+
+Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registros para o momento que escolhi. Por quê? 
+
+ ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
+ 
+#### <a name="cause"></a>Causa
+
+Ao baixar logs de atividades no portal do Azure, limitamos a escala a 5000 registros, classificados primeiro pelos mais recentes. 
+
+#### <a name="resolution"></a>Resolução
+
+Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api.md) para buscar até um milhões de registros em qualquer momento determinado. Nossa abordagem recomendada é [executar um script com base em agendamento](tutorial-signin-logs-download-script.md) que chame as APIs de relatórios para buscar registros de maneira incremental durante um período de tempo (por exemplo, diariamente ou semanalmente). 
+
+### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Dados de auditoria ausentes para ações recentes no portal do Azure
+
+#### <a name="symptoms"></a>Sintomas
+
+Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
+
+ ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
+ 
+#### <a name="cause"></a>Causa
+
+As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
+
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
+|--------|--------|---------------|---------------|
+| Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
+| Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
+
+#### <a name="resolution"></a>Resolução
+
+Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se você não vir os logs mesmo após duas horas, [crie um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) e verificaremos o problema.
+
+### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Logs ausentes para recentes entradas de usuário no Azure AD
+
+#### <a name="symptoms"></a>Sintomas
+
+Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Sign-ins`, mas não é possível encontrá-los.
+
+ ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
+ 
+#### <a name="cause"></a>Causa
+
+As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
+
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
+|--------|--------|---------------|---------------|
+| Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
+| Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
+
+#### <a name="resolution"></a>Resolução
+
+Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se você não vir os logs mesmo após duas horas, [crie um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) e verificaremos o problema.
+
+### <a name="i-cant-view-more-than-30-days-of-report-data-in-the-azure-portal"></a>Não consigo exibir mais de 30 dias de dados de relatório no portal do Azure
+
+#### <a name="symptoms"></a>Sintomas
+
+Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal do Azure. Por quê? 
+
+ ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
+
+#### <a name="cause"></a>Causa
+
+Dependendo da sua licença, as Ações do Azure Active Directory armazenam relatórios de atividades para as durações a seguir:
+
+| Relatório           | &nbsp; |  AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ----   |  ---           | ---                 | ---                 |
+| Auditoria de Diretório  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
+| Atividade de Entrada | &nbsp; | Não disponível. Você pode acessar sua própria atividade de entrada por 7 dias na folha de perfil do usuário individual | 30 dias | 30 dias             |
+
+Para saber mais informações, confira [Políticas de retenção de relatório do Azure Active Directory](reference-reports-data-retention.md).  
+
+#### <a name="resolution"></a>Resolução
+
+Você tem duas opções para manter os dados por mais de 30 dias. Você pode usar as [APIs de emissão de relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio de programação e armazená-los em um banco de dados. Como alternativa, você pode integrar os logs de auditoria em um sistema SIEM de terceiros, como o Splunk ou SumoLogic.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620365"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820301"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -79,7 +79,7 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 | AADSTS50058 | UserInformationNotProvided - Isso significa que um usuário não está conectado. Esse é um erro comum que é esperado quando um usuário não é autenticado e ainda não fez login.</br>Se esse erro for incentivado em um contexto de SSO em que o usuário fez login anteriormente, isso significa que a sessão de SSO não foi encontrada ou é inválida.</br>Esse erro pode ser retornado para o aplicativo se prompt = none for especificado. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Informações de identificação de inquilino não foram encontradas na solicitação ou implícitas por nenhuma credencial fornecida. O usuário pode entrar em contato com o administrador do locatário para ajudar a resolver o problema. |
 | AADSTS50061 | SignoutInvalidRequest - A solicitação de saída é inválida. |
-| AADSTS50064 | CredentialAuthenticationError - A validação de credenciais falhou. |
+| AADSTS50064 | CredentialAuthenticationError: a validação de credenciais quanto ao nome de usuário ou senha falhou. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - Falha na saída. O aplicativo que iniciou a sessão não é um participante da sessão atual. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - Falha na saída. A solicitação de finalização especificou um identificador de nome que não correspondia à (s) sessão (ões) existente (s). |
 | AADSTS50071 | SignoutMessageExpired - A solicitação de logout expirou. |
@@ -254,6 +254,7 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - O recurso não está configurado para aceitar tokens somente de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - O usuário não está autorizado a registrar dispositivos no Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - O id_token não pode ser usado como concessão `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest: o aplicativo não foi encontrado no diretório/locatário. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Você pode ter configurado incorretamente o valor do identificador para o aplicativo ou ter enviado a solicitação de autenticação para o locatário errado. |
 | AADSTS700020 | InteractionRequired - A concessão de acesso requer interação. |
 | AADSTS700022 | InvalidMultipleResourcesScope - O valor fornecido para o escopo do parâmetro de entrada não é válido porque contém mais de um recurso. |
 | AADSTS700023 | InvalidResourcelessScope - O valor fornecido para o escopo do parâmetro de entrada não é válido ao solicitar um token de acesso. |

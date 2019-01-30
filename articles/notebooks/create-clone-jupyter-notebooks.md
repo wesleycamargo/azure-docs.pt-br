@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164408"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844051"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
@@ -30,7 +30,7 @@ Um projeto também mantém metadados e outras configurações que afetam o servi
 
 Seu painel **Meus Projetos** em `https://notebooks.azure.com/<userID>/projects` é onde você exibe, gerencia e cria projetos:
 
-[![](media/my-projects-dashboard.png "Painel Meus Projetos no Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![Painel Meus Projetos no Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 O que você pode fazer no painel depende se você estiver conectado com a conta que possui a ID de usuário:
 

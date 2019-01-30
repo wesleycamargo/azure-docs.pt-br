@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Weekdone | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Weekdone | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Weekdone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f7946ece91013696969dafda17b02c972f4b780
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 869deb1b68d30041b6780151a5712099982bd9b7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807942"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: integração do Azure Active Directory ao Weekdone
+# <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: Integração do Azure Active Directory com o Weekdone
 
 Neste tutorial, você aprenderá como integrar o Weekdone ao Azure AD (Azure Active Directory).
 
@@ -33,7 +33,7 @@ A integração do Weekdone ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Weekdone, você precisa dos seguintes itens:
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Weekdone da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -87,7 +87,7 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Week
 Para configurar e testar o logon único do Azure AD com o Weekdone, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Weekdone](#creating-a-weekdone-test-user)** – para ter um equivalente de Brenda Fernandes no Weekdone que esteja vinculado à representação de usuário no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
 
     > [!NOTE]
     > O arquivo de metadados de weekdone pode ser recuperado usando a mesma URL.

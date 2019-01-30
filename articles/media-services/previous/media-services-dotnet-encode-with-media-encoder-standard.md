@@ -1,6 +1,6 @@
 ---
 title: Codificar um ativo com o Media Encoder Standard usando o .NET | Microsoft Docs
-description: Este artigo mostra como usar o .NET para codificar um ativo com o Codificador de Mídia Padrão.
+description: Este artigo mostra como usar o .NET para codificar um ativo usando o Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241082"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809574"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET 
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. 

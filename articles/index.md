@@ -6,12 +6,12 @@ description: Saiba como compilar e gerenciar aplicativos avançados com os servi
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6ff3aa57ceedbf9cfe4920cc8c3ca2327a1f882c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306583"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246806"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1428,6 +1428,12 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>Gerenciamento de API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure-sphere/">
+                                                <img src="media/index/azure_sphere.svg" alt="" />
+                                                <p>Azure Sphere</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4276,6 +4282,25 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Gerenciamento de API</h3>
                                                     <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-sphere/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_sphere.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sphere</h3>
+                                                    <p>Criar dispositivos de MCU altamente seguros e conectados</p>
                                                 </div>
                                             </div>
                                         </div>

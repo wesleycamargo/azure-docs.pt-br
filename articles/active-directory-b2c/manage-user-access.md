@@ -3,19 +3,19 @@ title: Gerenciar o acesso de usuários no Azure Active Directory B2C | Microsoft
 description: Saiba como identificar menores, coletar dados de data de nascimento e de país, e obter a aceitação dos termos de uso em seu aplicativo usando o Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141623"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852024"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
@@ -34,9 +34,9 @@ Os aplicativos e as organizações podem optar por impedir que menores usem apli
 
 Se um usuário for identificado como menor, você pode configurar o fluxo de usuário no Azure AD B2C como uma de três opções:
 
-- **Retornar um id_token JWT assinado para o aplicativo**: o usuário é registrado no diretório e um token é retornado ao aplicativo. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar este método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
+- **Enviar um id_token JWT assinado para o aplicativo**: o usuário está registrado no diretório e um token é retornado para o aplicativo. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar este método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
 
-- **Enviar um token JSON não assinado para o aplicativo**: o Azure AD B2C notifica o aplicativo que o usuário é menor e fornece o status do consentimento dos pais do usuário. Em seguida, o aplicativo continua aplicando regras de negócio. Um token JSON não conclui uma autenticação bem-sucedida com o aplicativo. O aplicativo precisa processar o usuário não autenticado de acordo com as declarações incluídas no token JSON, que podem incluir **nome**, **email**, **ageGroup** e **consentProvidedForMinor**.
+- **Enviar um token JSON não assinado para o aplicativo**: o Azure AD B2C notifica o aplicativo de que o usuário é menor e fornece o status de consentimento parental do usuário. Em seguida, o aplicativo continua aplicando regras de negócio. Um token JSON não conclui uma autenticação bem-sucedida com o aplicativo. O aplicativo precisa processar o usuário não autenticado de acordo com as declarações incluídas no token JSON, que podem incluir **nome**, **email**, **ageGroup** e **consentProvidedForMinor**.
 
 - **Bloquear o usuário**: se um usuário for menor de idade e o consentimento dos pais não tiver sido fornecido, o Azure AD B2C poderá notificar o usuário de que ele está bloqueado. Nenhum token será emitido, o acesso será bloqueado e a conta de usuário não será criada durante um percurso de registro. Para implementar esta notificação, você fornece uma página de conteúdo HTML/CSS adequada para informar o usuário e apresentar as opções apropriadas. Nenhuma ação adicional do aplicativo é necessária para novos registros.
 
@@ -70,7 +70,7 @@ As etapas a seguir mostram a lógica que é usada para calcular o **ageGroup** u
 
 2. Se o nó **MinorConsent** estiver presente no elemento de país:
 
-    a. Calcule a data em que o usuário deve ter nascido para ser considerado um adulto. Por exemplo, se a data atual for 14 de março de 2015 e **MinorConsent** for 18, a data de nascimento deverá ser o mais tardar em 14 de março de 2000.
+     a. Calcule a data em que o usuário deve ter nascido para ser considerado um adulto. Por exemplo, se a data atual for 14 de março de 2015 e **MinorConsent** for 18, a data de nascimento deverá ser o mais tardar em 14 de março de 2000.
 
     b. Compare a data de nascimento mínima com a data de nascimento real. Se a data de nascimento mínima for antes da data de nascimento do usuário, o cálculo retornará **Menor** como o cálculo de faixa etária.
 

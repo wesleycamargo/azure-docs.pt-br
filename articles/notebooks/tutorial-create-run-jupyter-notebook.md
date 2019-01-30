@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244572"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849644"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 
@@ -128,7 +128,7 @@ Com o arquivo de dados pronto e o ambiente do projeto definido, agora você pode
 1. Como você tem um arquivo *Requirements.txt* nas configurações do ambiente, verá a mensagem “Aguardando o contêiner concluir a preparação”. Você pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no notebook; no entanto, não é possível executar células de código até que o ambiente esteja totalmente configurado.
 1. O notebook é aberto na interface do Jupyter com uma única célula de código vazia como o padrão.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Exibição inicial de um novo notebook no Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Exibição inicial de um novo notebook no Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Fazer um tour pela interface do notebook
 
@@ -144,7 +144,7 @@ Na parte superior da janela, você verá os seguintes itens:
 (F) Indicador de confiabilidade do notebook (o padrão é **Não Confiável**).
 (G) O kernel usado para executar o notebook, juntamente com um indicador de atividade.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Principais áreas de interface do usuário da interface do Jupyter")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Principais áreas de interface do usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 O Jupyter fornece um tour interno pelos elementos da interface do usuário principal. Inicie o tour selecionando o comando **Ajuda** > **Tour de Interface do Usuário** e clicando nos pop-ups.
 

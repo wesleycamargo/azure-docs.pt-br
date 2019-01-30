@@ -3,18 +3,18 @@ title: Integração do controle do código-fonte à Automação do Azure – Her
 description: Este artigo descreve a integração de controle de origem com o GitHub na Automação do Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a6ae91ba768f9aa002c2814133b26dd152c7ef25
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784801"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434862"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração do controle do código-fonte à Automação do Azure – Herdado
 
@@ -79,7 +79,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
 
     ![variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Controle de Origem de Automação** é adicionado como um aplicativo autorizado à sua conta do GitHub. Para exibir o aplicativo: na home page do GitHub, navegue até o seu **perfil** > **Configurações** > **Aplicativos**. Esse aplicativo permite que a Automação do Azure sincronize seu repositório do GitHub para uma conta da Automação.  
+    * **Controle de Origem de Automação** é adicionado como um aplicativo autorizado à sua conta do GitHub. Para exibir o aplicativo: na página inicial do GitHub, navegue até o seu **perfil** > **Configurações** > **Aplicativos**. Esse aplicativo permite que a Automação do Azure sincronize seu repositório do GitHub para uma conta da Automação.  
 
     ![Aplicativo do Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
@@ -99,7 +99,7 @@ O check-in de runbook permite que você envie por push as alterações feitas em
 1. Quando você clicar em **check-in**, uma mensagem de confirmação será exibida. Clique em **Sim** para continuar.  
    
     ![Mensagem de Check-in](media/automation-source-control-integration-legacy/automation_07_CheckinMessage.png)
-2. O check-in inicia o runbook do controle de origem: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Esse runbook se conecta ao GitHub e envia por push alterações da Automação do Azure para seu repositório. Para exibir o histórico de trabalho de check-in, volte para a guia **Integração de Controle do Código-fonte** e clique para abrir a página Sincronização de Repositório. Essa página mostra todos os seus trabalhos de controle do código-fonte.  Selecione o trabalho que você deseja exibir e clique para exibir os detalhes.  
+2. O check-in inicia o runbook de controle do código-fonte: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Esse runbook se conecta ao GitHub e envia por push alterações da Automação do Azure para seu repositório. Para exibir o histórico de trabalho de check-in, volte para a guia **Integração de Controle do Código-fonte** e clique para abrir a página Sincronização de Repositório. Essa página mostra todos os seus trabalhos de controle do código-fonte.  Selecione o trabalho que você deseja exibir e clique para exibir os detalhes.  
    
     ![Fazer Check-in de Runbook](media/automation-source-control-integration-legacy/automation_08_CheckinRunbook.png)
    
@@ -110,7 +110,7 @@ O check-in de runbook permite que você envie por push as alterações feitas em
 3. O nome do runbook modificado é enviado como um parâmetro de entrada para o runbook de check-in. Você pode [exibir os detalhes do trabalho](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) expandindo o runbook na página **Sincronização de Repositórios**.  
    
     ![Entrada de Check-in](media/automation-source-control-integration-legacy/automation_09_CheckinInput.png)
-4. Atualize seu repositório do GitHub depois que o trabalho for concluído para exibir as alterações.  Deve haver uma confirmação em seu repositório com uma mensagem de confirmação: **Nome do Runbook *Atualizado* na Automação do Azure.**  
+4. Atualize seu repositório do GitHub depois que o trabalho for concluído para exibir as alterações.  Deve haver uma confirmação em seu repositório com uma mensagem: ***Nome do Runbook* atualizado na Automação do Azure.**  
 
 ### <a name="sync-runbooks-from-source-control-to-azure-automation"></a>Sincronizar runbooks do controle de origem para a Automação do Azure
 O botão de sincronização na página Sincronização do Repositório permite efetuar pull em todos os runbooks no caminho da pasta do runbook do repositório para sua conta de Automação. O mesmo repositório pode ser sincronizado em mais de uma conta de Automação. A seguir, as etapas para sincronizar um runbook:
@@ -139,7 +139,8 @@ Para se desconectar de sua conta do GitHub, abra a página Sincronização de Re
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a integração de controle do código-fonte, veja os seguintes recursos:  
 
-* [Automação do Azure: integração de controle do código-fonte na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Automação do Azure: Integração do controle do código-fonte na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Vote em seu sistema de controle do código-fonte favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-* [Automação do Azure: integrando o controle do código-fonte do runbook usando o Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* [Automação do Azure: Integrar o controle do código-fonte do runbook usando o Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

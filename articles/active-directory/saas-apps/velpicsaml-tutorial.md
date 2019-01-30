@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Velpic SAML | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Velpic SAML | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Velpic SAML.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: eb59c61f89b3b23ce8b0a393ee1e0e842826e90b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113999"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811784"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory ao Velpic SAML
+# <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory com o Velpic SAML
 
 Neste tutorial, você aprenderá a integrar o Velpic SAML ao Azure AD (Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Velpic SAML usando a galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 
     ![Configurar o logon único](./media/velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite o valor como: `https://<sub-domain>.velpicsaml.net`
+     a. Na caixa de texto **URL de Logon**, digite o valor como: `https://<sub-domain>.velpicsaml.net`
 
     b. Na caixa de texto **Identificador**, cole o valor de **"URL do logon único"** `https://auth.velpic.com/saml/v2/<entity-id>/login`
     
@@ -151,7 +151,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_5.png)
 
-    a. Na caixa de texto **Nome**, digite o nome do plug-in SAML.
+     a. Na caixa de texto **Nome**, digite o nome do plug-in SAML.
 
     b. Na caixa de texto **URL do Emissor**, cole a **ID da Entidade SAML** que copiou da janela **Configurar logon** no portal do Azure.
 
@@ -208,7 +208,7 @@ Entre no site da empresa do seu Velpic SAML como um administrador e execute as s
 
     ![usuário](./media/velpicsaml-tutorial/velpic_8.png)
     
-    a. Na caixa de texto **Nome**, digite o nome de Brenda Fernandes.
+     a. Na caixa de texto **Nome**, digite o nome de Brenda Fernandes.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome de Brenda Fernandes.
 

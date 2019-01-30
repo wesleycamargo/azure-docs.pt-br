@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 531b90b905df8549846c6027fe547521d16cf082
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0c16369cca4fae89733ad281aa3332c393be2aff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868493"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828410"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -88,7 +88,7 @@ O exemplo a seguir cria uma política de autorização aberta e a adiciona à ch
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -185,7 +185,7 @@ O exemplo a seguir cria uma política de autorização com uma restrição de to
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -315,7 +315,7 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
         // Associate the content key authorization policy with the content key

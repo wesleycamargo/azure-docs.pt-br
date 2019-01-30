@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao 10,000ft Plans | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o 10,000ft Plans | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o 10,000ft Plans.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cc6b1036d98aca62360ed8a935d2d1719c7f4069
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 91c485d17b12a973f08660687a4135ff140a84b9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230345"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808044"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Azure Active Directory ao 10,000ft Plans
+# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Azure Active Directory com o 10,000ft Plans
 
 Neste tutorial, você aprenderá a integrar o 10,000ft Plans ao Azure AD (Azure Active Directory).
 
@@ -33,7 +33,7 @@ A integração do 10,000ft Plans ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o 10,000ft Plans, você precisa dos seguintes itens:
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Caso não tenha um ambiente de avaliação do Azure AD, obtenha uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar 10,000ft Plans pela galeria
 2. configurar e testar o logon único do AD do Azure
@@ -89,7 +89,7 @@ No 10,000ft Plans, atribua o valor do **nome de usuário** no Azure AD como o va
 Para configurar e testar o logon único do Azure AD com o 10,000ft Plans, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do 10,000ft Plans](#creating-a-10000ft-plans-test-user)** – para ter um equivalente de Brenda Fernandes no 10,000ft Plans que esteja vinculado à sua representação no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://app.10000ft.com`
+     a. Na caixa de texto **URL de Logon**, digite a URL: `https://app.10000ft.com`
 
     b. Na caixa de texto **Identificador**, digite a URL: `https://app.10000ft.com/saml/metadata`
 
@@ -134,7 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 7. Para configurar o logon único no lado do **10,000ft Plans**, é necessário enviar o **Certificado (Bruto) baixado, a URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do 10,000ft Plans](https://www.10000ft.com/plans/support).
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

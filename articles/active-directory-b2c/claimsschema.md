@@ -3,19 +3,19 @@ title: ClaimsSchema – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento ClaimsSchema de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568635"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849083"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| NOME | SIM | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| NOME | SIM | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
 | PartnerClaimType | SIM | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
@@ -163,7 +163,7 @@ O elemento **Enumeration** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | Texto | SIM | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
 |Valor | SIM | O valor da declaração associada à seleção dessa opção. |
-| SelectByDefault | Não  | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Os valores possíveis: True ou False. |
+| SelectByDefault | Não  | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Valores possíveis: Verdadeiro ou falso. |
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:
 

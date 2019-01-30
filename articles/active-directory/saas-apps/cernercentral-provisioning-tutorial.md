@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configurar Cerner Central para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar Cerner Central para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar automaticamente usuários para uma lista no Cerner Central.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc215061d5f2f139c5912f29f709346cb681ee86
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: eb34a6e7ded4c31c623031104aabbee16b5c4f1c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346624"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819468"
 ---
-# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cerner Central para provisionamento automático de usuário
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar Cerner Central para provisionamento automático de usuários
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Cerner Central e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para uma lista de usuários no Cerner Central. 
 
@@ -129,8 +129,8 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Cerner Central: Publicação de dados de identidade usando o Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
-* [Tutorial: Configurar o Cerner Central para logon único com o Azure Active Directory](cernercentral-tutorial.md)
+* [Cerner Central: publicar dados de identidade usando o Azure Active Directory](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Tutorial: configurar o Cerner Central para logon único com o Azure Active Directory](cernercentral-tutorial.md)
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 

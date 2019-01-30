@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302962"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852313"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerenciar, implantar e monitorar modelos com os Serviços do Azure Machine Learning
 
@@ -39,7 +39,7 @@ Cada etapa pode ser executada independentemente ou como parte de um comando de i
 
 O registro de modelo permite que você armazene e controle a versão de seus modelos na nuvem do Azure em seu workspace. O registro de modelo torna mais fácil organizar e manter o controle de seus modelos treinados.
  
-Modelos registrados são identificados por nome e versão. Cada vez que você registra um modelo com o mesmo nome de um já existente, o Registro incrementa a versão. Você também pode fornecer marcas de metadados adicionais durante o registro, que podem ser usadas ao pesquisar modelos. O Serviço do Azure Machine Learning dá suporte a modelos armazenados usando qualquer modelo que pode ser carregado usando o Python 3. 
+Modelos registrados são identificados por nome e versão. Cada vez que você registra um modelo com o mesmo nome de um já existente, o Registro incrementa a versão. Você também pode fornecer marcas de metadados adicionais durante o registro, que podem ser usadas ao pesquisar modelos. O Serviço do Azure Machine Learning dá suporte a quaisquer modelos que possam ser armazenados usando o Python 3. 
 
 Você não pode excluir modelos que estão sendo usados por uma imagem.
 
@@ -63,7 +63,7 @@ A imagem também pode incluir componentes do SDK para registro em log e monitora
 O Azure Machine Learning dá suporte para as estruturas mais populares, porém, em geral, qualquer estrutura que possa ser instalada com pip poderá funcionar.
 
 Quando seu workspace foi criado, também foram criados vários outros recursos do Azure usados pelo workspace.
-Todos os objetos usados para criar a imagem são armazenados na conta de Armazenamento do Azure no seu workspace. A imagem é criada e armazenada no Registro de Contêiner do Azure. Você pode fornecer as marcas de metadados adicionais durante a criação da imagem, que também são armazenadas pelo Registro de imagem e podem ser consultadas para localizar a imagem.
+Todos os objetos usados para criar a imagem são armazenados na conta de Armazenamento do Azure no seu workspace. Você pode fornecer as marcas de metadados adicionais ao criar a imagem. As marcas de metadados também são armazenadas pelo registro de imagem e podem ser consultadas para localizar a imagem.
 
 Para obter mais informações, consulte a seção sobre configuração e registro de imagens em [Implantar modelos](how-to-deploy-and-where.md#configureimage).
 

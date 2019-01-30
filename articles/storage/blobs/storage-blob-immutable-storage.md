@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f3a67c2eddba2b7bd734237466243da8f43a862a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634262"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848641"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Armazenar dados comercialmente críticos no Armazenamento de Blobs do Azure
 
@@ -197,7 +197,7 @@ Sim. Quando uma política de retenção baseada em tempo é criada pela primeira
 
 **O recurso está disponível nas nuvens nacionais e governamentais?**
 
-Armazenamento imutável está atualmente disponível somente em regiões públicas do Azure. Se você estiver interessado em uma nuvem nacional específica, envie um e-mail azurestoragefeedback@microsoft.com.
+O armazenamento imutável está disponível nas regiões do Azure Público, China e Governo. Se o armazenamento imutável não estiver disponível em sua região, envie um email para azurestoragefeedback@microsoft.com.
 
 ## <a name="sample-powershell-code"></a>Exemplos de código do PowerShell
 

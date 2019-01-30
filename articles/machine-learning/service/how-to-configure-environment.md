@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353219"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815864"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -55,7 +55,7 @@ Se você já tiver um ambiente de Python 3 ou desejar ver apenas as etapas bási
 
 - No Windows, você precisa do prompt de comando ou do prompt Anaconda (instalado pelo Anaconda e pelo Miniconda).
 
-## <a id="anotebooks"></a>Azure Notebooks
+## <a id="aznotebooks"></a>Azure Notebooks
 
 O [Azure Notebooks](https://notebooks.azure.com) (versão prévia) é um ambiente de desenvolvimento interativo na nuvem do Azure. Essa é a maneira mais fácil para começar o desenvolvimento do Azure Machine Learning.
 
@@ -64,17 +64,21 @@ O [Azure Notebooks](https://notebooks.azure.com) (versão prévia) é um ambient
 
 Para começar a desenvolver com o Azure Notebooks, consulte [Introdução ao serviço do Azure Machine Learning](quickstart-get-started.md).
 
+Por padrão, o Azure Notebooks usa uma camada de serviços gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
 ## <a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 
 A DSVM é uma imagem de VM (máquina virtual) personalizada. Ela foi projetada para trabalhos de ciência de dados pré-configurados com:
 
-  - Pacotes como o TensorFlow, PyTorch, Scikit-learn, XGBoost e o SDK do Azure Machine Learning.
-  - Ferramentas de ciência de dados populares como o Spark Standalone e Drill.
-  - Ferramentas do Azure como a CLI do Azure, o AzCopy e Gerenciador de Armazenamento.
-  - IDEs (ambientes de desenvolvimento integrados) como o Visual Studio Code, PyCharm e RStudio.
-  - Servidor do Jupyter Notebook. 
+  - Pacotes como TensorFlow, PyTorch, Scikit-learn, XGBoost e o SDK do Azure Machine Learning
+  - Ferramentas de ciência de dados populares como o Spark Standalone e Drill
+  - Ferramentas do Azure como a CLI do Azure, o AzCopy e o Gerenciador de Armazenamento
+  - IDEs (Ambientes de Desenvolvimento Integrados) como o Visual Studio Code e o PyCharm
+  - Servidor do Jupyter Notebook
 
-O SDK do Azure Machine Learning funciona na versão da DSVM para Ubuntu ou Windows. Para usar a DSVM como um ambiente de desenvolvimento, faça o seguinte:
+O SDK do Azure Machine Learning funciona na versão da DSVM para Ubuntu ou Windows. Porém, se você também planeja usar a DSVM como um destino de computação, somente o Ubuntu tem suporte.
+
+Para usar a DSVM como um ambiente de desenvolvimento, faça o seguinte:
 
 1. Crie uma DSVM em um dos seguintes ambientes:
 

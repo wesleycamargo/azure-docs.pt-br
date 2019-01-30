@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o ZPA (Zscaler Private Access) | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ZPA (Zscaler Private Access) | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ZPA (Zscaler Private Access).
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5858ab1846ccdc2e2b78f2be4173ea3cc17a3605
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5610316fdadb9a169c90e7e7761d9ddd2a74dcbe
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116565"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819111"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: integração do Azure Active Directory com o ZPA (Zscaler Private Access)
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integração do Azure Active Directory com o ZPA (Zscaler Private Access)
 
 Neste tutorial, você aprenderá a integrar o ZPA (Zscaler Private Access) ao Azure AD (Azure Active Directory).
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando ZPA (Zscaler Private Access) da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -117,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     
     ![Configurar o logon único](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_01.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
 
     b. Na caixa de texto **Identificador**, digite: `https://samlsp.private.zscaler.com/auth/metadata`
 
@@ -158,7 +158,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único no lado do aplicativo](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
 
-    a. Clique em **Selecionar Arquivo** e carregue o arquivo de metadados baixado.
+     a. Clique em **Selecionar Arquivo** e carregue o arquivo de metadados baixado.
 
     b. Clique no botão **Salvar** .
     

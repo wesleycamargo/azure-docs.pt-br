@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Inovação Colaborativa | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory à Inovação Colaborativa | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e a Inovação Colaborativa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 14dc0befdfe92970c194de852f6ef2dc98080ae7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 402b8be8ea3a569679baa833ef52fef9769bac30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442057"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819553"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory com Inovação Colaborativa
+# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory à Inovação Colaborativa
 
 Neste tutorial, você aprenderá a integrar Inovação Colaborativa ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Inovação Colaborativa da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -132,7 +132,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | emailaddress | user.userprincipalname |
     | Nome | user.userprincipalname |
 
-    a. Clique no atributo para abrir a janela **Editar Atributo**.
+     a. Clique no atributo para abrir a janela **Editar Atributo**.
 
     ![Configurar o logon único](./media/collaborativeinnovation-tutorial/url_update.png)
 
@@ -151,7 +151,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único o lado de **Inovação Colaborativa**, você precisa enviar o **XML de Metadados** baixado para a [equipe de suporte da Inovação Colaborativa](https://www.unilever.com/contact/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

@@ -4,7 +4,7 @@ description: Referência de códigos de erro no relatório de atividade de entra
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622424"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820148"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -43,7 +43,7 @@ Filtre o relatório para exibir todos os logins com falha selecionando **Falha**
 
 ![Atividade de entrada](./media/reference-sign-ins-error-codes/06.png "Atividade de entrada")
 
-A seleção de um item da lista filtrada abre o bloco **Detalhes da atividade: Login**. Essa visualização fornece informações adicionais sobre o evento de login com falha, incluindo o **código de erro de login** e **motivo de falha**.
+A seleção de um item da lista filtrada abre a folha **Detalhes da Atividade: Credenciais**. Essa visualização fornece informações adicionais sobre o evento de login com falha, incluindo o **código de erro de login** e **motivo de falha**.
 
 ![Atividade de entrada](./media/reference-sign-ins-error-codes/05.png "Atividade de entrada")
 
@@ -135,7 +135,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |53002|O aplicativo usado não é aprovado para o acesso condicional. O usuário precisa usar um dos aplicativos da lista de aplicativos aprovados para uso para obter acesso.|
 |53003|Acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O usuário precisa concluir o processo de registro de autenticação multifator antes de acessar este conteúdo. O usuário deve se registrar para a autenticação multifator.|
-|65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do aplicativo: Y para o recurso: Z.|
+|65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do Aplicativo: Y para o Recurso: Z.|
 |65004|O usuário se recusou a consentir para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|
 |65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos, os quais não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado. Se o aplicativo tem suporte para SAML, pode ser que você o tenha configurado com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Concessão inválida pelos seguintes motivos:<ul><li>A asserção do SAML 2.0 solicitada tem método de confirmação de entidade inválido</li><li>Não há suporte para o fluxo de aplicativo OnBehalfOf na V2</li><li>O token de atualização primário não está assinado com a chave da sessão</li><li>Token de atualização externo inválido</li><li>A concessão do acesso foi obtida para um locatário diferente.</li></ul>|

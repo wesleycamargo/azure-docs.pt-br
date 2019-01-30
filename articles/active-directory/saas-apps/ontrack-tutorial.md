@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o OnTrack | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao OnTrack | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o OnTrack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d2cafba2-3b4a-4471-ba34-80f6a96ff2b9
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 82e0788ad2f1e49cb593e504adc1e826516d4616
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6da60497ccb2a88cdba2a848a82c3fb0fc174525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424718"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808520"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: integração do Azure Active Directory com o OnTrack
+# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Azure Active Directory ao OnTrack
 
 Neste tutorial, você aprenderá a integrar o OnTrack com o Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o OnTrack pela galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de URLs e Domínio do OnTrack](./media/ontrack-tutorial/tutorial_ontrack_url.png)
 
-    a. Na caixa de texto **Identificador**,
+     a. Na caixa de texto **Identificador**,
     
     Para o ambiente de teste, digite a URL:`https://staging.insigniagroup.com/sso`
 
@@ -140,7 +140,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Os atributos **função do usuário** e **código Hyperion** são mapeados com a função do usuário do Autonation e o código do revendedor, respectivamente. Esses valores são apenas exemplos. Use o código correto para a integração. Você pode entrar em contato com o [suporte da Autonation](mailto:CustomerService@insigniagroup.com) para obter esses valores.
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/ontrack-tutorial/tutorial_attribute_04.png) 
 
@@ -159,7 +159,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único no lado do **OnTrack**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do OnTrack](mailto:CustomerService@insigniagroup.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -196,7 +196,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-an-ontrack-test-user"></a>Criar um usuário de teste do OnTrack
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no OnTrack. Trabalhe com a [equipe de suporte do OnTrack](mailto:CustomerService@insigniagroup.com) para adicionar os usuários na plataforma do OnTrack. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no OnTrack. Trabalhe com a  [equipe de suporte do OnTrack](mailto:CustomerService@insigniagroup.com)  para adicionar os usuários à plataforma do OnTrack. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -233,7 +233,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco OnTrack no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo OnTrack.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

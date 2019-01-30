@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441596"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821015"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure ao HR2day by Merces
+# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory ao HR2day by Merces
 
 Neste tutorial, você aprenderá a integrar o HR2day by Merces ao Azure AD (Azure Active Directory).
 
@@ -88,11 +88,11 @@ No HR2day by Merces, atribua o **nome de usuário** no Azure AD ao **Nome de usu
 
 Para configurar e testar o logon único do AD do Azure com o HR2day by Merces, você precisará concluir os seguintes blocos de construção:
 
-1. [Configurar o logon único do Azure AD](#configuring-azure-ad-single-sign-on): habilite seus usuários a usar esse recurso.
-1. [Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user): para testar o logon único do Azure AD com Brenda Fernandes.
-1. [Criar um usuário de teste do HR2day by Merces](#creating-an-hr2day-by-merces-test-user): crie um equivalente de Brenda Fernandes no HR2day by Merces que esteja vinculado à representação do usuário no Azure AD.
-1. [Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user): permita que Brenda Fernandes use o logon único do Azure AD.
-1. [Testar o logon único](#testing-single-sign-on): verifique se a configuração funciona.
+1. [Configurar o logon único do Azure AD](#configuring-azure-ad-single-sign-on): permite que seus usuários usem esse recurso.
+1. [Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user): testa o logon único do Azure AD com Brenda Fernandes.
+1. [Criar um usuário de teste do HR2day by Merces](#creating-an-hr2day-by-merces-test-user): cria um equivalente de Brenda Fernandes no HR2day by Merces que esteja vinculado à representação do usuário no Azure AD.
+1. [Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user): habilita Brenda Fernandes para usar o logon único do Azure AD.
+1. [Testar o logon único](#testing-single-sign-on): verifica se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<tenantname>.force.com/<instancename>`.
+     a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<tenantname>.force.com/<instancename>`.
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://hr2day.force.com/<companyname>`.
 
@@ -140,7 +140,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     | ------------------- | -------------------- |    
     | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
     
-      a. Para abrir a caixa de diálogo **Adicionar Atributo**, selecione **Adicionar Atributo**.
+       a. Para abrir a caixa de diálogo **Adicionar Atributo**, selecione **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/hr2day-tutorial/tutorial_attribute_04.png)
 
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/hr2day-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+     a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o **endereço de email** de Brenda Fernandes.
 

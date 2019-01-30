@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao New Relic | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o New Relic | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o New Relic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 80bd77504f1b2ab5b6e5c781eadb7c2cd4c99220
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6aade578aef40b6f009ed42b4798bc9cefce5793
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440738"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828325"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integração do Active Directory do Azure com o New Relic
+# <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integração do Azure Active Directory com o New Relic
 
 Neste tutorial, você aprenderá a integrar o New Relic ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o New Relic da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do New Relic](./media/new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Lembre-se de substituir sua própria ID da conta da New Relic.
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Lembre-se de substituir sua própria ID da conta da New Relic.
 
     b. Na caixa de texto **Identificador**, digite o valor: `rpm.newrelic.com`
 
@@ -140,7 +140,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
    
     ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
    
-   a. Clique em **Escolher Arquivo** para carregar seu certificado baixado do Active Directory do Azure.
+    a. Clique em **Escolher Arquivo** para carregar seu certificado baixado do Active Directory do Azure.
 
    b. Na caixa de texto **URL de Acesso Remoto**, cole o valor da **URL de Serviço de Logon Único do SAML** copiado do Portal do Azure.
    
@@ -149,7 +149,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
    d. Clique em **Salvar minhas alterações**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -204,7 +204,7 @@ Para permitir que os usuários do Azure Active Directory façam logon no New Rel
    
     ![Usuários ativos](./media/new-relic-tutorial/ic797042.png "Usuários ativos")
    
-    a. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
+     a. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
 
     b. Como **Função**, selecione **Usuário**.
 
@@ -249,7 +249,7 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao New Relic para que 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco New Relic no Painel de Acesso, você deverá ser automaticamente conectado ao seu aplicativo New Relic.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

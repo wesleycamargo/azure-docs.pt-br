@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9e17fda2bc05eb901d3a75d6b1d455232f48a9d7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bf2137803c7a6c70f9efe75524a4ed5cf51d6ca1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970409"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451435"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introdução ao módulo gêmeo e à identidade do módulo do Hub IoT usando back-end Python e dispositivo Python
 
@@ -85,7 +85,7 @@ Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e 
 
 Nesta seção, você criará um aplicativo Python no dispositivo simulado que atualiza as propriedades relatadas do módulo gêmeo.
 
-1. **Obter a cadeia de conexão do módulo** – agora se fizer logon no [Portal do Azure][lnk-portal]. Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
+1. **Obter a cadeia de conexão do módulo** – agora se fizer logon no [Portal do Azure][lnk-portal]. Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
 
   ![Detalhes do módulo do Portal do Azure][15]
 

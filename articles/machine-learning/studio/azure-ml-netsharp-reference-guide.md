@@ -1,17 +1,17 @@
 ---
-Título: Redes neurais Net# – titleSuffix: Descrição do Azure Machine Learning Studio: Sintaxe para a linguagem de especificação de redes neurais Net#, junto com exemplos de como criar um modelo de rede neural personalizado usando o Net# com o Azure Machine Learning Studio.
+Título: Criar redes neurais personalizadas com o titleSuffix do Net#: Descrição do Azure Machine Learning Studio: guia de sintaxe para a linguagem de especificação de redes neurais Net#. Saiba como criar modelos de redes neurais personalizadas no Azure Machine Learning Studio.
 serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: referência
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação de rede neural Net # para o Microsoft Azure Machine Learning Studio
 
-Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arquiteturas de rede neural. Usar Net# para definir a estrutura de uma rede neural torna possível definir estruturas complexas como redes neurais profundas ou convoluções de dimensões arbitrárias, que são conhecidas por aprimorar o aprendizado sobre dados como imagens, áudio ou vídeo.
+Net# é uma linguagem desenvolvida pela Microsoft usada para definir arquiteturas de redes neurais complexas, como redes neurais profundas ou convoluções de dimensões arbitrárias. Você pode usar as estruturas complexas para aprimorar o aprendizado sobre dados, como áudio, vídeo ou imagem.
 
 Você pode usar uma especificação de arquitetura Net# nestes contextos:
 
 + Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio: [Rede neural multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Rede neural de duas classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) e [Regressão de rede neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funções da rede neural em MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Funções da rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net#: 
@@ -26,17 +26,17 @@ Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvol
 
 Uma estrutura de rede neural composta por nós que são organizados em camadas e conexões ponderadas (ou bordas) entre os nós. As conexões são direcionais e cada conexão tem um nó de origem e um nó de destino.  
 
-Cada camada treinável (uma camada oculta ou de saída) tem um ou mais **pacotes de conexão**. Um grupo de conexões consiste de uma camada de origem e uma especificação das conexões dessa camada de origem. Todas as conexões em um determinado grupo compartilham a mesma camada de origem e a mesma camada de destino. Em Net#, um grupo de conexões é considerado como pertencente à camada de destino do grupo.
+Cada camada treinável (uma camada oculta ou de saída) tem um ou mais **pacotes de conexão**. Um grupo de conexões consiste de uma camada de origem e uma especificação das conexões dessa camada de origem. Todas as conexões em determinado pacote compartilham camadas de origem e destino. Em Net#, um grupo de conexões é considerado como pertencente à camada de destino do grupo.
 
-A Net# dá suporte diversos tipos de conjuntos de conexão, o que permite que você personalize o modo pelo qual as entradas são mapeadas para camadas ocultas e mapeadas para as saídas.
+A Net# é compatível com vários tipos de conjuntos de conexão, o que permite personalizar o modo como as entradas são mapeadas para camadas ocultas e para saídas.
 
 O grupo padrão ou standard é um **grupo completo**, no qual cada nó na camada de origem é conectado a todos os nós na camada de destino.
 
 Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avançados a seguir:
 
-+ **Grupos filtrados**. O usuário pode definir um predicado utilizando os locais do nó de camada de origem e de destino. Os nós são conectados sempre que o predicado é Verdadeiro.
++ **Grupos filtrados**. Você pode definir um predicado utilizando os locais do nó de camada de origem e de destino. Os nós são conectados sempre que o predicado é Verdadeiro.
 
-+ **Grupos convolucionais**. O usuário pode definir pequenas zonas próximas de nós na camada de origem. Cada nó na camada de destino está conectado a uma zona próxima de nós na camada de origem.
++ **Grupos convolucionais**. Você pode definir pequenas zonas próximas de nós na camada de origem. Cada nó na camada de destino está conectado a uma zona próxima de nós na camada de origem.
 
 + **Grupos de pooling** e **Grupos de normalização de resposta**. Estes são similares a grupos convolucionais, no sentido que o usuário define pequenas zonas próximas de nós na camada de origem. A diferença é que a ponderação das bordas nesses grupos não são treináveis. Em vez disso, uma função predefinida é aplicada aos valores de nó de origem para determinar o valor do nó de destino.
 
@@ -245,7 +245,7 @@ Para mais informações sobre camadas de pooling, consulte esses artigos:
 
 ## <a name="response-normalization-bundles"></a>Grupos de normalização de resposta
 
-A **normalização de resposta** é um esquema de normalização local que foi introduzido primeiramente por Geoffrey Hinton, entre outros, no artigo [Classificação ImageNet com redes neurais convolucionais profundas](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
+A **normalização de resposta** é um esquema de normalização local introduzido por Geoffrey Hinton, com outros autores, no artigo [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificação ImageNet com redes neurais convolucionais profundas). 
 
 A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (`α`, `β` e `k`) e uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela fórmula a seguir, na qual `f` é o nível de ativação de um neurônio, e `Nx` é o kernel (ou o conjunto contendo os neurônios na zona próxima a **x**), conforme definido pela seguinte estrutura convolucional:  
 

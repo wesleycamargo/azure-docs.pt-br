@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811954"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
 ## <a name="overview"></a>Visão geral
@@ -293,7 +293,7 @@ Crie um terceiro componente de Saída do arquivo para mostrar o fluxo de saída 
 *Criação de Saída do arquivo pelo muxer de áudio*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adicionando o arquivo SMIL .ISM
-Para o empacotamento dinâmico funcionar junto com os dois arquivos MP4 (e com o MP4 somente de áudio) em nosso ativo dos Serviços de Mídia, também precisamos de um arquivo de manifesto (também chamado de arquivo "SMIL": Linguagem de integração de multimídia sincronizada). Esse arquivo indica aos Serviços de Mídia do Azure quais são os arquivos MP4 que estão disponíveis para empacotamento dinâmico e quais deles devem ser considerados para o streaming de áudio. Um arquivo de manifesto típico para um conjunto de MP4s com um único fluxo de áudio tem a seguinte aparência:
+Para o empacotamento dinâmico funcionar junto com os dois arquivos MP4 (e com o MP4 somente de áudio) em nosso ativo dos Serviços de Mídia, também precisamos de um arquivo de manifesto (também chamado de arquivo “SMIL”: Linguagem de integração de multimídia sincronizada). Esse arquivo indica aos Serviços de Mídia do Azure quais são os arquivos MP4 que estão disponíveis para empacotamento dinâmico e quais deles devem ser considerados para o streaming de áudio. Um arquivo de manifesto típico para um conjunto de MP4s com um único fluxo de áudio tem a seguinte aparência:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -692,8 +692,8 @@ Antes de podermos reescrever o xml de lista de clipes gerado durante a inicializ
 
 Primeiro, precisamos de um meio para determinar de que ponto a que ponto queremos cortar o vídeo. Para tornar isso conveniente para o usuário menos técnico do fluxo de trabalho, publique duas propriedades na raiz do grafo. Para fazer isso, clique com o botão direito do mouse na superfície do designer e selecione "Adicionar Propriedade":
 
-* Primeira propriedade: "ClippingTimeStart" do tipo: "TIMECODE"
-* Segunda propriedade: "ClippingTimeEnd" do tipo: "TIMECODE"
+* Primeira propriedade: “ClippingTimeStart” do tipo: “TIMECODE”
+* Segunda propriedade: “ClippingTimeEnd” do tipo: “TIMECODE”
 
 ![Adicionar o diálogo Propriedade à hora de início de corte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

@@ -4,7 +4,7 @@ description: Uma introdução a como você pode usar o Azure AD para provisionar
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311446"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478477"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 
@@ -57,13 +57,13 @@ Alguns motivos comuns para usar esse recurso incluem:
 O **Serviço de provisionamento do Azure AD** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se aos pontos de extremidade da API de gerenciamento fornecidos por cada fornecedor de aplicativo. Esses pontos de extremidade de API de gerenciamento permitem que o Azure AD crie, atualize e remova usuários por meio de programação. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções. 
 
 ![Provisionamento](./media/user-provisioning/provisioning0.PNG)
-*Figura 1: o Serviço de provisionamento do Azure AD*
+*Figura 1: Serviço de provisionamento do Azure AD*
 
-![Provisionamento externo](./media/user-provisioning/provisioning1.PNG)
-*Figura 2: fluxo de trabalho de provisionamento do usuário "Externo" do Azure AD para aplicativos SaaS populares*
+![Provisionamento de saída](./media/user-provisioning/provisioning1.PNG)
+*Figura 2: fluxo de trabalho de provisionamento do usuário de "saída" do Azure AD para aplicativos SaaS populares*
 
-![Provisionamento interno](./media/user-provisioning/provisioning2.PNG)
-*Figura 3: fluxo de trabalho de provisionamento do usuário "Interno" de aplicativos de HCM (gerenciamento de capital humano) para o Azure Active Directory e o Windows Server Active Directory*
+![Provisionamento de entrada](./media/user-provisioning/provisioning2.PNG)
+*Figura 3: fluxo de trabalho de provisionamento do usuário de "entrada" de aplicativos de HCM (gerenciamento de capital humano) para o Azure Active Directory e o Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quais aplicativos e sistemas posso usar com o provisionamento de usuário automático do Azure AD?
@@ -103,7 +103,7 @@ Na tela de gerenciamento de aplicativo, o provisionamento é configurado na guia
 
 * É necessário fornecer **credenciais de administrador** para o serviço de provisionamento do Azure AD, assim ele poderá se conectar à API de gerenciamento de usuário fornecida pelo aplicativo. Esta seção também permitirá habilitar notificações por email, se as credenciais falharem, ou o trabalho de provisionamento entrará em [quarentena](#quarantine).
 
-* **Mapeamentos de atributo** podem ser configurados para especificar quais campos no sistema de origem (exemplo: Azure AD) passarão por sincronização de seus conteúdos, e com quais campos no sistema de destino (exemplo: ServiceNow). Se o aplicativo de destino oferecer suporte a isso, esta seção permitirá que você configure opcionalmente o provisionamento de grupos, além de contas de usuário. "Propriedades de correspondência" permitem que você selecione quais campos são usados para corresponder as contas entre os sistemas. "[Expressões](functions-for-customizing-application-data.md)" permitem que você modifique e transforme os valores recuperados do sistema de origem, antes de serem gravados no sistema de destino. Para saber mais, confira [Personalizar mapeamentos de atributo](customize-application-attributes.md).
+* Os **mapeamentos de atributo** podem ser configurados de forma que especifiquem quais campos no sistema de origem (exemplo: Azure AD) terão seu conteúdo sincronizado com quais campos no sistema de destino (exemplo: ServiceNow). Se o aplicativo de destino oferecer suporte a isso, esta seção permitirá que você configure opcionalmente o provisionamento de grupos, além de contas de usuário. "Propriedades de correspondência" permitem que você selecione quais campos são usados para corresponder as contas entre os sistemas. "[Expressões](functions-for-customizing-application-data.md)" permitem que você modifique e transforme os valores recuperados do sistema de origem, antes de serem gravados no sistema de destino. Para saber mais, confira [Personalizar mapeamentos de atributo](customize-application-attributes.md).
 
 ![Configurações](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -133,7 +133,7 @@ Quando o serviço de provisionamento for iniciado, a primeira sincronização a 
 
 1. Consultar todos os usuários e grupos do sistema de origem, recuperando todos os atributos definidos nos [mapeamentos de atributo](customize-application-attributes.md).
 2. Filtre os usuários e os grupos retornados usando qualquer [atribuição](assign-user-or-group-access-portal.md) configurada ou [filtros de escopo com base em atributo](define-conditional-rules-for-provisioning-user-accounts.md).
-3. Quando um usuário se encontra atribuído ou em escopo para provisionamento, o serviço consulta o sistema de destino em busca de um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties) designados. Exemplo: se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
+3. Quando um usuário se encontra atribuído ou em escopo para provisionamento, o serviço consulta o sistema de destino em busca de um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties) designados. Exemplo: Se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
 4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando-se os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário, que é usado para realizar todas as operações futuras nesse usuário.
 5. Se um usuário correspondente for encontrado, ele será atualizado usando-se os atributos fornecidos pelo sistema de origem. Depois que a conta de usuário é correspondida, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário, que é usado para realizar todas as operações futuras nesse usuário.
 6. Se os mapeamentos de atributo contiverem atributos "reference", o serviço realizará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.

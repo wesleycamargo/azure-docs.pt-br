@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao vxMaintain | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao vxMaintain | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433987"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819893"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: integração do Azure Active Directory ao vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integração do Azure Active Directory ao vxMaintain
 
 Neste tutorial, você aprenderá a integrar o vxMaintain ao Azure AD (Azure Active Directory).
 
@@ -106,7 +106,7 @@ Nesta seção, você pode habilitar o SSO do Azure AD no portal do Azure e confi
 
     ![Seção Domínio e URLs do vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. Na caixa **Identificador**, digite uma URL com a seguinte sintaxe: `https://<company name>.verisae.com`
+     a. Na caixa **Identificador**, digite uma URL com a seguinte sintaxe: `https://<company name>.verisae.com`
 
     b. Na caixa **URL de Resposta**, digite uma URL com a seguinte sintaxe: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
@@ -161,7 +161,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
  
 ### <a name="create-a-vxmaintain-test-user"></a>Criar um usuário de teste vxMaintain
 
-Nesta seção, você cria a usuária de teste Brenda Fernandes no vxMaintain. Para adicionar os usuários na plataforma do vxMaintain, trabalhe com a [equipe de suporte do vxMaintain](https://www.hubspot.com/company/contact). Antes de usar o SSO, crie e ative os usuários.
+Nesta seção, você cria a usuária de teste Brenda Fernandes no vxMaintain. Para adicionar os usuários à plataforma do vxMaintain, trabalhe com a  [equipe de suporte do vxMaintain](https://www.hubspot.com/company/contact). Antes de usar o SSO, crie e ative os usuários.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

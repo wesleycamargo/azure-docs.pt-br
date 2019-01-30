@@ -3,19 +3,19 @@ title: Exemplos de transformação de declarações de inteiros para o esquema d
 description: Exemplos de transformação de declarações de inteiros para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 988e25b6a5ef3f99ae7df9076a40e06b403bb029
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36412d16328e757b4c28b0c77638e6d87f83b8e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382333"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855730"
 ---
 # <a name="integer-claims-transformations"></a>Transformações de declarações de inteiros
 
@@ -29,7 +29,7 @@ Converte um tipo de dados Long em um tipo de dados String.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | longo | O ClaimType para converter em uma cadeia de caracteres. |
+| InputClaim | InputClaim | longo | O ClaimType para converter em uma cadeia de caracteres. |
 | OutputClaim | outputClaim | string | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é convertido em uma declaração `UserId` com um tipo de valor String.
@@ -48,7 +48,7 @@ Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é conve
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: 12334 (Long)
+    - **inputClaim**: 12334 (long)
 - Declarações de saída: 
-    - **outputClaim**: "12334" (String)
+    - **outputClaim**: "12334" (string)
 

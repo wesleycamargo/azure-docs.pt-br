@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310200"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451741"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -56,7 +56,7 @@ Neste momento, o HSM Dedicado do Azure fornece apenas HSMs com autenticação ba
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>P: O HSM Dedicado do Azure hospedará meus HSMs para mim?
 
-A Microsoft apenas oferece o HSM de Rede Gemalto SafeNet Luna por meio do serviço HSM Dedicado e não é possível hospedar nenhum dispositivo fornecido por clientes.
+A Microsoft oferece o HSM de Rede Gemalto SafeNet Luna apenas por meio do serviço HSM Dedicado e não é possível hospedar qualquer dispositivo fornecido por clientes.
 
 ### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>P: O HSM Dedicado do Azure oferece suporte a recursos PIN/ETF ou atende aos requisitos de certificação de v1 ou v2 de PCI HSM?
 

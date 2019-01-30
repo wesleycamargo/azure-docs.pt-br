@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configurar ServiceNow para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o ServiceNow para provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
 description: Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para o ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7ee10bcd06877b33669b79e104f0d32f87301c28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348099"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813251"
 ---
-# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar ServiceNow para o provisionamento automático de usuário com o Azure Active Directory
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar o ServiceNow para provisionamento automático de usuários com o Azure Active Directory
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no ServiceNow e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o ServiceNow.
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados.
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo ServiceNow. Depois de decidir, atribua esses usuários ao aplicativo ServiceNow seguindo estas instruções: [Atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo ServiceNow. Depois de decidir, siga estas instruções para atribuir esses usuários ao aplicativo ServiceNow: [Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]
@@ -78,7 +78,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 1. Na seção “Credenciais de Administrador”, realize as seguintes etapas:
    
-    a. Na caixa de texto **Nome de Instância do ServiceNow** , digite o nome da instância do ServiceNow.
+     a. Na caixa de texto **Nome de Instância do ServiceNow** , digite o nome da instância do ServiceNow.
 
     b. Na caixa de texto **Nome de Usuário do Administrador do ServiceNow**, digite o nome de usuário de um administrador.
 

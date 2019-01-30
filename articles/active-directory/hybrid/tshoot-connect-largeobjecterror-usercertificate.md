@@ -4,7 +4,7 @@ description: Este tópico fornece as etapas de correção de erros LargeObject c
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478613"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros LargeObject causados pelo atributo userCertificate
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: tratar erros de LargeObject causados pelo atributo userCertificate
 
 O Azure AD impõe um limite máximo de **15** valores de certificado no atributo **userCertificate**. Se o Azure AD Connect exportar um objeto com mais de 15 valores para o Azure AD, o Azure AD retornará um erro **LargeObject** com a mensagem:
 
@@ -41,7 +41,7 @@ Para obter a lista de objetos em seu locatário com erros LargeObject, use um do
 ## <a name="mitigation-options"></a>Opções de mitigação
 Até que o erro LargeObject seja resolvido, outras alterações de atributo no mesmo objeto não podem ser exportadas para o Azure AD. Para resolver o erro, considere as seguintes opções:
 
- * Atualize o Azure AD Connect para o build 1.1.524.0 ou posterior. No build 1.1.524.0 do Azure AD Connect, as regras de sincronização iniciais foram atualizadas para não exportar os atributos userCertificate e userSMIMECertificate se os atributos tiverem mais de 15 valores. Para obter detalhes sobre como atualizar o Azure AD Connect, consulte o artigo [Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Atualize o Azure AD Connect para o build 1.1.524.0 ou posterior. No build 1.1.524.0 do Azure AD Connect, as regras de sincronização iniciais foram atualizadas para não exportar os atributos userCertificate e userSMIMECertificate se os atributos tiverem mais de 15 valores. Para saber mais sobre como atualizar o Azure AD Connect, confira o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implemente uma **regra de sincronização de saída** no Azure AD Connect que exporta um **valor nulo em vez dos valores reais de objetos com mais de 15 valores de certificado**. Essa opção será adequada se você não precisar que nenhum dos valores de certificado seja exportado para o Azure AD para objetos com mais de 15 valores. Para obter detalhes sobre como implementar essa regra de sincronização, consulte a próxima seção [Implementando uma regra de sincronização para limitar a exportação do atributo userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 

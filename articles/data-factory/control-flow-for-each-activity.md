@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020771"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856937"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
@@ -235,6 +235,7 @@ Na atividade ForEach, forneça uma matriz a ser iterada para **items** da propri
 }
 
 ```
+
 ### <a name="example"></a>Exemplo
 **Cenário:** iterar em um InnerPipeline dentro de uma atividade ForEach com a atividade de execução de pipeline. O pipeline interno copia com definições de esquema parametrizadas.
 
@@ -469,108 +470,13 @@ Na atividade ForEach, forneça uma matriz a ser iterada para **items** da propri
     ]
     
 }
-
 ```
-## <a name="aggregating-metric-output"></a>Saída da métrica de agregação
-A expressão para coletar a saída de todas as iterações de ForEach é `@activity('NameofInnerActivity')`. Por exemplo, se uma atividade ForEach iterasse em uma "MyCopyActivity", a sintaxe seria: `@activity('MyCopyActivity')`. A saída é uma matriz, com cada item fornecendo detalhes sobre uma iteração específica.
 
-> [!NOTE]
-> Se você desejar obter detalhes sobre uma iteração específica, a sintaxe será: `@activity('NameofInnerActivity')[0]` para a iteração mais recente. Use o número de colchetes para acessar a iteração específica da matriz. Para acessar uma propriedade específica de uma iteração específica, você usaria: `@activity('NameofInnerActivity')[0].output` ou `@activity('NameofInnerActivity')[0].pipelineName`.
+## <a name="aggregating-outputs"></a>Agregar saídas
 
-**Detalhes de saída de matriz de todas as iterações:**
-```json
-[    
-    {      
-        "pipelineName": "db1f7d2b-dbbd-4ea8-964e-0d9b2d3fe676",      
-        "jobId": "a43766cb-ba13-4c68-923a-8349af9a76a3",      
-        "activityRunId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",      
-        "linkedServiceName": "ADFService",      
-        "status": "Succeeded",      
-        "statusCode": null,      
-        "output": 
-            {        
-                "progress": 100,        
-                "loguri": null,        
-                "dataRead": "6.00 Bytes",        
-                "dataWritten": "6.00 Bytes",        
-                "regionOrGateway": "West US",        
-                "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",        
-                "copyDuration": "00:00:05",        
-                "dataVolume": "6.00 Bytes",        
-                "throughput": "1.16 Bytes/s",       
-                 "totalDuration": "00:00:10"      
-            },      
-        "resumptionToken": 
-            {       
-                "ExecutionId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",        
-                "ResumptionToken": 
-                    {          
-                        "in progress": "217526fa-0218-42f1-b85c-e0b4f7b170ce/wu/cloud/"       
-                    },        
-                "ExtendedProperties": 
-                    {          
-                        "dataRead": "6.00 Bytes",          
-                        "dataWritten": "6.00 Bytes",          
-                        "regionOrGateway": "West US",          
-                        "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",          
-                        "copyDuration": "00:00:05",          
-                        "dataVolume": "6.00 Bytes",          
-                        "throughput": "1.16 Bytes/s",          
-                        "totalDuration": "00:00:10"        
-                    }      
-            },      
-        "error": null,      
-        "executionStartTime": "2017-08-01T04:17:27.5747275Z",      
-        "executionEndTime": "2017-08-01T04:17:46.4224091Z",     
-        "duration": "00:00:18.8476816"    
-    },
-    {      
-        "pipelineName": "db1f7d2b-dbbd-4ea8-964e-0d9b2d3fe676",      
-        "jobId": "54232-ba13-4c68-923a-8349af9a76a3",      
-        "activityRunId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",      
-        "linkedServiceName": "ADFService",      
-        "status": "Succeeded",      
-        "statusCode": null,      
-        "output": 
-            {        
-                "progress": 100,        
-                "loguri": null,        
-                "dataRead": "6.00 Bytes",        
-                "dataWritten": "6.00 Bytes",        
-                "regionOrGateway": "West US",        
-                "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",        
-                "copyDuration": "00:00:05",        
-                "dataVolume": "6.00 Bytes",        
-                "throughput": "1.16 Bytes/s",       
-                 "totalDuration": "00:00:10"      
-            },      
-        "resumptionToken": 
-            {       
-                "ExecutionId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",        
-                "ResumptionToken": 
-                    {          
-                        "in progress": "217526fa-0218-42f1-b85c-e0b4f7b170ce/wu/cloud/"       
-                    },        
-                "ExtendedProperties": 
-                    {          
-                        "dataRead": "6.00 Bytes",          
-                        "dataWritten": "6.00 Bytes",          
-                        "regionOrGateway": "West US",          
-                        "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",          
-                        "copyDuration": "00:00:05",          
-                        "dataVolume": "6.00 Bytes",          
-                        "throughput": "1.16 Bytes/s",          
-                        "totalDuration": "00:00:10"        
-                    }      
-            },      
-        "error": null,      
-        "executionStartTime": "2017-08-01T04:18:27.5747275Z",      
-        "executionEndTime": "2017-08-01T04:18:46.4224091Z",     
-        "duration": "00:00:18.8476816"    
-    }
-]
+Para agregar saídas da atividade __foreach__, use a opção _Variable_s e a atividade _Append Variable_.
 
-```
+Primeiro, declare uma `array` _variável_ no pipeline. Em seguida, invoque a atividade _Append Variable_ dentro de cada loop __foreach__. Posteriormente, você pode recuperar a agregação na sua matriz.
 
 ## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
 

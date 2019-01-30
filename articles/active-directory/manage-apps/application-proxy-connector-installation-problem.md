@@ -4,7 +4,7 @@ description: Como solucionar problemas que você poderá enfrentar ao instalar o
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a4e32697826b37f16bd0eacec3c5bfc34e94f73f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036916"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464639"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -38,7 +38,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço de Application Proxy de nuvem e a página de Logon da Microsoft
 
-**Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do Application Proxy do AAD, bem como página de logon do Microsoft.
+**Objetivo:** verificar se o computador do conector pode se conectar ao ponto de extremidade de registro do Proxy do Aplicativo do AAD, bem como à página de logon da Microsoft.
 
 1.  Abra um navegador e vá para a seguinte página da Web: <https://aadap-portcheck.connectorporttest.msappproxy.net> e verifique se a conectividade com data centers aos EUA Central e Leste dos EUA com portas 80 e 443 está funcionando.
 
@@ -48,7 +48,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Verifique se os componentes do computador e de back-end oferecem suporte para certificados de confiança de Application Proxy
 
-**Objetivo:** Verifique se que o computador do conector, o proxy de back-end e o firewall podem dar suporte ao certificado criado pelo conector para confiança futura.
+**Objetivo:** verificar se o computador do conector, o proxy de back-end e o firewall podem oferecer suporte ao certificado criado pelo conector para confiança futura.
 
 >[!NOTE]
 >O conector tenta criar um certificado SHA512 com suporte a TLS1.2. Se o computador ou o firewall back-end e o proxy não oferece suporte a TLS1.2, a instalação falha.
@@ -63,7 +63,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é usado para instalar o conector
 
-**Objetivo:** Verifique se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser um administrador de aplicativo ou administrador global para que a instalação tenha êxito.
+**Objetivo:** verificar se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser um administrador de aplicativo ou administrador global para que a instalação tenha êxito.
 
 **Para verificar se as credenciais estão corretas:**
 

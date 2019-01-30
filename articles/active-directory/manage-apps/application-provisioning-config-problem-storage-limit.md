@@ -4,7 +4,7 @@ description: Como solucionar problemas comuns enfrentados ao configurar provisio
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: fe96ecc0ba6904819f0262a2f470e37203a7952e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354312"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813365"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory 
 
@@ -30,7 +30,7 @@ Ao usar o portal do Azure para configurar [provisionamento automático de usuár
 
 Se o logon único baseado em SAML também estiver configurado para o mesmo aplicativo, a causa mais provável do erro é que o limite de armazenamento interno por aplicativo do Azure AD para certificados e credenciais foi excedido.
 
-Atualmente, o Azure AD tem uma capacidade máxima de armazenamento de 1 kb para todos os certificados, tokens secretas, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como um registro de entidade de serviço no Azure AD).
+Atualmente, o Azure AD tem uma capacidade máxima de armazenamento de 1024 bytes para todos os certificados, tokens secretas, credenciais e dados de configuração relacionados, associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure AD).
 
 Quando logon único baseado no SAML é configurado, o certificado usado para assinar os tokens SAML é armazenado aqui e geralmente consome mais 50% % do espaço.
 

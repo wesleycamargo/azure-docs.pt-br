@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5832444cd30d60f7b5fe7fe6108acd5604389474
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e6e6d0d51174250954f886790dccc650064a6f45
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821882"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar Concur para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Concur e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Concur.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 

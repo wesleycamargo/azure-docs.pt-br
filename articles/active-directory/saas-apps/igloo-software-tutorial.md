@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Igloo Software | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Igloo Software | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Igloo Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2eb625c1-d3fc-4ae1-a304-6a6733a10e6e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: d49a08c6f57f5248f17539cd9d0467d132f7a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: daa00db39ac55cd14b7720b534313407a98dde2c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447400"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817734"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: integração do Active Directory do Azure ao Igloo Software
+# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integração do Azure Active Directory com o Igloo Software
 
 Neste tutorial, você aprenderá a integrar o Igloo Software ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Igloo Software da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -151,7 +151,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configuração geral](./media/igloo-software-tutorial/ic783970.png "Configuração geral")
 
-    a. Na caixa de texto **Nome da Conexão** , digite um nome personalizado para a sua configuração.
+     a. Na caixa de texto **Nome da Conexão** , digite um nome personalizado para a sua configuração.
    
     b. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL de Serviço de Logon Único do SAML** copiado do Portal do Azure.
    
@@ -165,7 +165,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configuração de autenticação e resposta](./media/igloo-software-tutorial/IC783971.png "Configuração de autenticação e resposta")
   
-      a. Para **Provedor de Identidade**, selecione **Microsoft ADFS**.
+       a. Para **Provedor de Identidade**, selecione **Microsoft ADFS**.
       
       b. Para **Tipo de Identificador**, selecione **Endereço de Email**. 
 
@@ -179,14 +179,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Criação de usuário na entrada](./media/igloo-software-tutorial/IC783972.png "Criação de usuário na entrada") 
 
-     a. Para **Criação de usuário na Entrada**, selecione **Criar um novo usuário em seu site ao entrar**.
+      a. Para **Criação de usuário na Entrada**, selecione **Criar um novo usuário em seu site ao entrar**.
 
      b. Para **Configurações de Entrada**, selecione **Usar botão do SAML na tela “Entrar”**.
 
      c. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -260,7 +260,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Igloo Software no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Igloo Software.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -3,19 +3,19 @@ title: Localização – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento Localization de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9442302b8d15a3a6a4c9fe148b48845b3535204
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a0abf2fd3502238af0e0f02cb8f9917cfb90b586
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382297"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854956"
 ---
 # <a name="localization"></a>Localização
 
@@ -41,7 +41,7 @@ O elemento **Localization** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| habilitado | Não  | Os valores possíveis são `true` ou `false`. |
+| habilitado | Não  | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -222,7 +222,7 @@ Adicione elementos **LocalizedResources** dentro do elemento **Localization** ap
 
 Cada elemento **LocalizedResources** contém todos os elementos **LocalizedStrings** necessários com vários elementos **LocalizedString** e elementos **LocalizedCollections** com vários elementos **LocalizedCollection**.  O exemplo a seguir adiciona a localização em inglês da página de inscrição: 
 
-Observação: este exemplo faz referência aos tipos de declaração `Gender` e `City`. Para usar este exemplo, defina essas declarações. Para obter mais informações, veja [ClaimsSchema](claimsschema.md).
+Observação: Este exemplo faz referência aos tipos de declaração `Gender` e `City`. Para usar este exemplo, defina essas declarações. Para obter mais informações, veja [ClaimsSchema](claimsschema.md).
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">

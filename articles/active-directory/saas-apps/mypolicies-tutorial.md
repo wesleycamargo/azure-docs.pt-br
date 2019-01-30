@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao myPolicies | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o myPolicies | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o myPolicies.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: f4c34d224c65a6e339f12def01079a87247d2d60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8d6db758f01e3ef46a8c770477e1231ee8a8c08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809268"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory ao myPolicies
+# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory com o myPolicies
 
 Neste tutorial, você aprende a integrar o myPolicies ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o myPolicies por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/mypolicies-tutorial/tutorial_mypolicies_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantname>.mypolicies.com/`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantname>.mypolicies.com/`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
@@ -132,7 +132,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | emailaddress | user.mail |
     | Nome | user.userprincipalname |
     
-    a. Clique no atributo para abrir a caixa de diálogo **Editar Atributo**.
+     a. Clique no atributo para abrir a caixa de diálogo **Editar Atributo**.
     
     ![Configurar o logon único](./media/mypolicies-tutorial/tutorial_attribute_05.png)
     
@@ -155,7 +155,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único no lado do **myPolicies**, é necessário enviar o **Certificado (Base64)** baixado e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do myPolicies](mailto:support@mypolicies.com). 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-mypolicies-test-user"></a>Criando um usuário de teste do myPolicies
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no myPolicies. Trabalhe com a [equipe de suporte do myPolicies](mailto:support@mypolicies.com) para adicionar os usuários à plataforma myPolicies. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no myPolicies. Trabalhe com a [equipe de suporte do myPolicies](mailto:support@mypolicies.com) para adicionar os usuários à plataforma myPolicies. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

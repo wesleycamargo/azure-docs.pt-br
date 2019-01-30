@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Service: ingressar uma VM RHEL em um domínio gerenciado | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Unir uma VM do RHEL a um domínio gerenciado | Microsoft Docs'
 description: Ingresse uma máquina virtual do Red Hat Enterprise Linux nos Serviços de Domínio do Azure AD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bfad3b8c8347b885fd713d30c620d6c86377fab3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 44d6614c7e0f4f7a53a2f0579f8fe03c9d7847b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155213"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850902"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
 Este artigo mostra como ingressar em uma máquina virtual do RHEL (Red Hat Enterprise Linux) 7 em um domínio gerenciado dos Serviços de Domínio do Azure AD.
@@ -87,7 +87,7 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     ```
 
      > [!NOTE]
-     > **Solução de problemas:** se *realm discover* não puder localizar o domínio gerenciado:
+     > **Solução de problemas:** Se *realm discover* não puder localizar o domínio gerenciado:
      * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
      * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
      * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.

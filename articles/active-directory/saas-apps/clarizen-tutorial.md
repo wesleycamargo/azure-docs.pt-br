@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158664"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807721"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integração do Active Directory do Azure ao Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Active Directory do Azure ao Clarizen
 
 Neste tutorial, você aprenderá a integrar o Azure AD (Azure Active Directory) ao Clarizen. Essa integração oferece os seguintes benefícios:
 
@@ -98,7 +98,7 @@ Habilite o logon único do Azure AD no portal do Azure e configura o logon únic
 
     ![Caixas de URL de resposta e o identificador](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. Na caixa **Identificador**, digite o valor como: **Clarizen**
+     a. Na caixa **Identificador**, digite o valor como: **Clarizen**
 
     b. Na caixa **URL de Resposta**, digite uma URL usando o seguinte padrão: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
@@ -145,7 +145,7 @@ Habilite o logon único do Azure AD no portal do Azure e configura o logon únic
 
     ![Caixa de diálogo "Autenticação Federada"](./media/clarizen-tutorial/tutorial_clarizen_003.png "Autenticação Federada")
 
-    a. Selecione **Habilitar Autenticação Federada**.
+     a. Selecione **Habilitar Autenticação Federada**.
 
     b. Clique em **Carregar** para carregar o certificado baixado.
 
@@ -178,7 +178,7 @@ No portal do Azure, crie um usuário de teste chamado Brenda Fernandes.
 
     ![Caixa de diálogo "Usuário" com o nome, p endereço de email e a senha preenchidos](./media/clarizen-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+     a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email da conta de Brenda Fernandes.
 
@@ -208,7 +208,7 @@ Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá pro
 
     ![Caixa de diálogo "Convidar Pessoas"](./media/clarizen-tutorial/create_aaduser_003.png "Convidar Pessoas")
 
-    a. Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.
+     a. Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.
 
     b. Clique em **Convidar**.
 

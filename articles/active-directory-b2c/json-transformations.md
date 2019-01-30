@@ -3,19 +3,19 @@ title: Exemplos de transformação de declarações JSON do esquema do Identity 
 description: Exemplos de transformação de declarações JSON do esquema do Identity Experience Framework do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d712286cb4ea5e67474ec11d56d99eaf2cabec3e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e7096773f2aaa39abd965b4697f45a3b3f80f136
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850834"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
 
@@ -150,7 +150,7 @@ No exemplo a seguir, a transformação de declarações extrai o elemento `id` d
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id": 6353399}
+    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Parâmetros de entrada
     - **claimToExtract**: id
 - Declarações de saída: 

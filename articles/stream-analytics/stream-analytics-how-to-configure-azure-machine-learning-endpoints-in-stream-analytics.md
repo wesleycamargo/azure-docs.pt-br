@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104910"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451028"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Machine Learning ao Stream Analytics
 O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -69,7 +69,7 @@ Exemplo de corpo de solicitação:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto de extremidade RetrieveDefaultDefinition para UDF padrão
-Após a criação do esqueleto da UDF, é necessário obter a definição completa da UDF. O ponto de extremidade RetreiveDefaultDefinition ajuda a obter a definição padrão para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. A carga abaixo exige que você obtenha definição padrão da UDF para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. Ela não especifica o ponto de extremidade real, pois ele já foi fornecido durante a solicitação PUT. O Stream Analytics chamará o ponto de extremidade fornecido na solicitação se ele for fornecido explicitamente. Caso contrário, ele usa o ponto referenciado originalmente. Neste exemplo, a UDF usa um parâmetro de cadeia de caracteres única (uma sentença) e retorna uma saída única do tipo de cadeia de caracteres que indica o rótulo "sentimento" daquela sentença.
+Após a criação do esqueleto da UDF, é necessário obter a definição completa da UDF. O ponto de extremidade RetrieveDefaultDefinition ajuda a obter a definição padrão para uma função de valor escalar associada a um ponto de extremidade do Azure Machine Learning. A carga abaixo exige que você obtenha definição padrão da UDF para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. Ela não especifica o ponto de extremidade real, pois ele já foi fornecido durante a solicitação PUT. O Stream Analytics chamará o ponto de extremidade fornecido na solicitação se ele for fornecido explicitamente. Caso contrário, ele usa o ponto referenciado originalmente. Neste exemplo, a UDF usa um parâmetro de cadeia de caracteres única (uma sentença) e retorna uma saída única do tipo de cadeia de caracteres que indica o rótulo "sentimento" daquela sentença.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

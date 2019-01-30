@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o 23 Video | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o 23 Video | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o 23 Video.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5e73dd1d-3995-4a73-b9cf-1b2318d49cb3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b4b41551a1679948518846a63eee87bbd1bbfd9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6dc05b5ac26dfc9ef7eebf770d9f5378e8a85657
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222646"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823973"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Tutorial: integração do Active Directory do Azure com o 23 Video
+# <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Tutorial: Integração do Azure Active Directory com o 23 Video
 
 Neste tutorial, você aprenderá a integrar o 23 Video ao Azure AD (Azure Active Directory).
 
@@ -33,7 +33,7 @@ A integração do 23 Video ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do AD do Azure com o 23 Video, você precisa dos seguintes itens:
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o 23 Video por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -89,7 +89,7 @@ No 23 Video, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do AD do Azure com o 23 Video, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do 23 Video](#creating-a-23-video-test-user)** – para ter um equivalente de Brenda Fernandes no 23 Video que esteja vinculado à representação do usuário no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -135,7 +135,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no 23 Vid
    
     ![Atribuir usuário][402]
 
-    a. Na caixa de texto **Endereços de email** , digite o endereço de email de Brenda Fernandes no AD do Azure.  
+     a. Na caixa de texto **Endereços de email** , digite o endereço de email de Brenda Fernandes no AD do Azure.  
  
     b. Clique em **Adicionar o usuário**.   
 

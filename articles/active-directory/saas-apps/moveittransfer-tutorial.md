@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o MOVEit Transfer - Azure AD integration | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao MOVEit Transfer – Integração do Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o MOVEit Transfer - Azure AD integration.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 8ff7102d-be73-4888-ae81-d8e3d01dd534
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: e73ca95c27e7c9ef0799107dadc58c17aea5a9ca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 37ebd8c07b71cbc8ad9697c7019032f2bc4ffd2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435895"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826931"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Azure Active Directory com o MOVEit Transfer - Azure AD integration
+# <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Azure Active Directory ao MOVEit Transfer – Integração do Azure Active Directory
 
 Neste tutorial, você aprenderá a integrar o MOVEit Transfer - Azure AD integration ao Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar MOVEit Transfer - Azure AD integration pela galeria
 1. configurar e testar o logon único do AD do Azure
@@ -162,7 +162,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     
     ![Edite Configurações de Provedor de Identidade Federado](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
-    a. Selecione **SAML NameID** como **Nome de logon**.
+     a. Selecione **SAML NameID** como **Nome de logon**.
     
     b. Selecione **Outros** como **Nome completo** e, na caixa de texto **Nome do atributo**, coloque o valor: `http://schemas.microsoft.com/identity/claims/displayname`.
     
@@ -173,7 +173,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     e. Clique no botão **Salvar** .
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com Yonyx Interactive Guides | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Yonyx Interactive Guides | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e Yonyx Interactive Guides.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 07db4e01-319b-4cb6-9b93-4577bffd3cbc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: a7166ac295c8bac3c7bb8d2e053a6f49fe533cc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3a5ac71b04c3984499638d2032a065f768b7fe95
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448943"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815014"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com Yonyx Interactive Guides
+# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com o Yonyx Interactive Guides
 
 Neste tutorial, você aprende a integrar o Yonyx Interactive Guides ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Yonyx Interactive Guides da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Yonyx Interactive Guides](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.yonyx.com`
 
@@ -132,7 +132,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único no lado do **Yonyx Interactive Guides**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída**, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para A [equipe de suporte do Yonyx Interactive Guides](mailto:support@yonyx.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -159,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![A caixa de diálogo Usuário](./media/yonyx-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

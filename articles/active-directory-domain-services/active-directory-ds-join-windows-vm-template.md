@@ -4,7 +4,7 @@ description: Ingressar uma máquina virtual do Windows Server em um domínio ger
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157251"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856631"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado usando modelos do Resource Manager
 Este artigo mostra como ingressar uma máquina virtual do Windows Server em um domínio gerenciado do Azure AD Domain Services usando modelos do Resource Manager.
@@ -42,8 +42,8 @@ Você pode usar qualquer uma das opções a seguir para executar as etapas descr
 * **CLI do Azure**: [Instalar e configurar](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
-## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opção 1: Provisionar uma nova VM do Windows Server e ingressá-la em um domínio gerenciado
-**Nome do modelo de início rápido**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opção 1: Provisionar uma nova VM do Windows Server e uni-la a um domínio gerenciado
+**Nome do modelo de Início Rápido**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Execute as seguintes etapas para implantar uma máquina virtual do Windows Server e ingressá-la em um domínio gerenciado:
 1. Navegue até o [modelo de início rápido](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
@@ -59,7 +59,7 @@ Execute as seguintes etapas para implantar uma máquina virtual do Windows Serve
 11. Em **Domínio de Ingresso**, especifique o nome de domínio DNS do seu domínio gerenciado.
 12. Em **Nome de usuário de domínio**, especifique o nome da conta do usuário no domínio gerenciado que deve ser usado para ingressar a VM no domínio gerenciado.
 13. Em **Senha do Domínio**, especifique a senha da conta de usuário de domínio referida pelo parâmetro “domainUsername”.
-14. Opcional: é possível especificar um **Caminho de UO** para uma UO personalizada, à qual a máquina virtual será adicionada. Se você não especificar um valor para esse parâmetro, a máquina virtual será adicionada à UO de **Computadores AAD DC** no domínio gerenciado.
+14. Opcional: É possível especificar um **Caminho de UO** para uma UO personalizada, à qual a máquina virtual será adicionada. Se você não especificar um valor para esse parâmetro, a máquina virtual será adicionada à UO de **Computadores AAD DC** no domínio gerenciado.
 15. No campo **Nome do usuário administrador da VM**, especifique um nome de conta de administrador local para a máquina virtual.
 16. No campo **Senha de administrador da VM**, especifique uma senha para o administrador local da máquina virtual. Escolha uma senha forte para o administrador local da máquina virtual para protegê-la contra ataques de força bruta de senha.
 17. Clique em **Concordo com os termos e condições declarados acima**.
@@ -73,8 +73,8 @@ Execute as seguintes etapas para implantar uma máquina virtual do Windows Serve
 Depois que a implantação for concluída com êxito, sua máquina virtual do Windows recém-provisionada estará ingressada no domínio gerenciado.
 
 
-## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Opção 2: Ingressar uma VM do Windows Server existente em um domínio gerenciado
-**Modelo de início rápido**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Opção 2: Unir uma VM do Windows Server existente em um domínio gerenciado
+**Modelo de Início Rápido**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Execute as seguintes etapas para ingressar uma máquina virtual do Windows Server em um domínio gerenciado:
 1. Navegue até o [modelo de início rápido](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
@@ -87,7 +87,7 @@ Execute as seguintes etapas para ingressar uma máquina virtual do Windows Serve
 8. Em **Nome de usuário de ingresso no domínio**, especifique o nome da conta do usuário no domínio gerenciado que será usado para ingressar a VM no domínio gerenciado.
 9. Em **Senha de usuário de ingresso no domínio**, especifique a senha da conta de usuário de domínio referida pelo parâmetro “domainUsername”.
 10. Em **FQDN do Domínio**, especifique o nome de domínio do DNS do seu domínio gerenciado.
-11. Opcional: é possível especificar um **Caminho de UO** para uma UO personalizada, à qual a máquina virtual será adicionada. Se você não especificar um valor para esse parâmetro, a máquina virtual será adicionada à UO de **Computadores AAD DC** no domínio gerenciado.
+11. Opcional: É possível especificar um **Caminho de UO** para uma UO personalizada, à qual a máquina virtual será adicionada. Se você não especificar um valor para esse parâmetro, a máquina virtual será adicionada à UO de **Computadores AAD DC** no domínio gerenciado.
 12. Clique em **Concordo com os termos e condições declarados acima**.
 13. Clique em **Comprar** para provisionar a máquina virtual.
 

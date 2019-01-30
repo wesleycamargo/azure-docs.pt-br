@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Recognize | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Recognize | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Recognize.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448777"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824143"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: integração do Azure Active Directory com o Recognize
+# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Azure Active Directory ao Recognize
 
 Neste tutorial, você aprende a integrar o Recognize ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do Azure AD ao Recognize, você precisará dos se
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Recognize da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -117,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Recognize](mailto:support@recognizeapp.com) para obter a URL de Logon. Você pode obter o valor do Identificador abrindo a URL de Metadados do Provedor de Serviços na seção Configurações de SSO, explicada adiante no tutorial. . 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do Recognize](mailto:support@recognizeapp.com) para obter a URL de Logon. Você pode obter o valor do Identificador abrindo a URL de Metadados do Provedor de Serviços na seção Configurações de SSO, explicada mais à frente no tutorial. . 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -145,7 +145,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único no lado do aplicativo](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-    a. Em **Habilitar SSO**, selecione **ATIVADO**.
+     a. Em **Habilitar SSO**, selecione **ATIVADO**.
 
     b. Na caixa de texto **ID da Entidade IDP**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
     
@@ -161,12 +161,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único no lado do aplicativo](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. Abra o **link da URL de metadados** em um navegador em branco para baixar o documento de metadados. Em seguida, copie o value(entityID) do EntityDescriptor do arquivo e cole-o na caixa de texto **Identificador** na **seção Domínio e URLs do Recognize** do portal do Azure.
+1. Abra o **link da URL de metadados** em um navegador em branco para baixar o documento de metadados. Em seguida, copie o value(entityID) de EntityDescriptor do arquivo e cole-o na caixa de texto  **Identificador** na **seção Domínio e URLs do Recognize** do portal do Azure.
     
     ![Configurar o logon único no lado do aplicativo](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -218,7 +218,7 @@ Este aplicativo não dá suporte ao provisionamento de SCIM, mas tem uma sincron
    
    ![Novo Usuário](./media/recognize-tutorial/tutorial_recognize_005.png "Novo Usuário")
    
-   a. Em **Sincronização habilitada**, selecione **ATIVADO**.
+    a. Em **Sincronização habilitada**, selecione **ATIVADO**.
    
    b. Em **Escolher o provedor de sincronização**, selecione **Microsoft / Office 365**.
    

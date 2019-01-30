@@ -3,19 +3,19 @@ title: Predicados e PredicateValidations – Azure Active Directory B2C | Micros
 description: Exemplos de transformação de declarações da conta social para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432164"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850851"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -42,7 +42,7 @@ O elemento **Predicado** contém os seguintes atributos:
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | SIM | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
-| Método | SIM | O tipo de método a ser usado para validação. Os valores possíveis: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. O valor **IsLengthRange** verifica se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimos e máximos especificados. O valor **MatchesRegex** verifica se um valor de declaração de cadeia de caracteres corresponde a uma expressão regular. O valor **IncludesCharacters** verifica se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O valor **IsDateRange** verifica se um valor de declaração de data está dentro do intervalo de parâmetros mínimos e máximos especificados. |
+| Método | SIM | O tipo de método a ser usado para validação. Valores possíveis: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. O valor **IsLengthRange** verifica se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimos e máximos especificados. O valor **MatchesRegex** verifica se um valor de declaração de cadeia de caracteres corresponde a uma expressão regular. O valor **IncludesCharacters** verifica se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O valor **IsDateRange** verifica se um valor de declaração de data está dentro do intervalo de parâmetros mínimos e máximos especificados. |
 
 O elemento **Predicado** contém os seguintes elementos:
 

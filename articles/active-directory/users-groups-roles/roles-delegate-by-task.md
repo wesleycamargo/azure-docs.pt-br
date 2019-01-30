@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1e679a1d26ce219f7c0248e27d7f9cfffc5fdb4e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445014"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813841"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Funções de administrador por tarefa de identidade no Azure Active Directory
 
@@ -117,7 +117,7 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 Desabilitar dispositivo | Administrador de dispositivo em nuvem | 
 Habilitar dispositivo | Administrador de dispositivo em nuvem | 
 Ler a configuração básica | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Ler as chaves do Bitlocker | Leitor de segurança | Administrador de senhas, Administrador da segurança
+Ler as chaves do BitLocker | Leitor de segurança | Administrador de senhas, Administrador da segurança
 
 ## <a name="enterprise-applications"></a>Aplicativos empresariais
 

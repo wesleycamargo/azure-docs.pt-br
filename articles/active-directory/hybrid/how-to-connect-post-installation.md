@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs'
+title: 'Azure AD Connect: Próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs'
 description: Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 878b483c1f644bcfe39824766ca5495f111d1864
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f9c9af94b15c78783f95fb92be548321a35b15a6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306215"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473207"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
 Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  

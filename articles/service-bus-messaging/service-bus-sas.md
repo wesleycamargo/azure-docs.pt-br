@@ -3,9 +3,9 @@ title: Controle de acesso do Barramento de Serviço do Azure com Assinaturas de 
 description: Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284907"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846329"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -96,7 +96,7 @@ Um token SAS é válido para todos os recursos prefixados com o `<resourceURI>` 
 
 É recomendável que você regenere periodicamente as chaves usadas no objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . Os encaixes de chaves primárias e secundárias existem para que você possa usar as chaves gradualmente. Se seu aplicativo geralmente usa a chave primária, você pode copiar a chave primária para o encaixe de chave secundária e somente então regenerar a chave primária. O novo valor de chave primária pode então ser configurado para os aplicativos de cliente, que têm acesso contínuo usando a antiga chave primária no encaixe secundário. Depois que todos os clientes são atualizados, você pode regenerar a chave secundária para desativar finalmente a antiga chave primária.
 
-Se você souber ou suspeitar de uma chave comprometida e se você precisar revogar as chaves, será possível gerar novamente a [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e a [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituindo-as por novas chaves. Este procedimento invalida todos os tokens assinados com as chaves antigas.
+Se você souber ou suspeitar de uma chave comprometida e se você precisar revogar as chaves, será possível gerar novamente a [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e a [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituindo-as por novas chaves. Este procedimento invalida todos os tokens assinados com as chaves antigas.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço
 

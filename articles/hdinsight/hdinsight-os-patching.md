@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741582"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848148"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicação de patch no HDInsight 
-Como um serviço Apache Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs subjacentes usadas por clusters HDInsight. Desde 1º de agosto de 2016, alteramos a política de aplicação de patch no SO convidado para clusters HDInsight baseados em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido à aplicação de patch. A nova política continuará corrigindo VMs (máquinas virtuais) em clusters Linux todas as segundas-feiras ou quintas-feiras, começando às 0:00 UTC de maneira irregular entre nós em qualquer cluster determinado. No entanto, qualquer determinada VM será reinicializada somente, no máximo, uma vez a cada 30 dias devido à aplicação de patch do SO convidado. Além disso, a primeira reinicialização para um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster. Os patches terão efeito após a reinicialização das VMs.
+
+> [!IMPORTANT]
+> As imagens do Ubuntu ficam disponíveis para a criação do novo cluster HDInsight dentro de 3 meses depois de publicado. A partir de janeiro de 2019, os clusters em execução **não** contam com patch automaticamente. Os clientes devem usar ações de script ou outros mecanismos para aplicar o patch de um cluster em execução.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux
 As máquinas virtuais em um cluster HDInsight precisam ser reinicializadas ocasionalmente para que os patches de segurança importantes possam ser instalados. Desde 1º de agosto de 2016, novos clusters HDInsight baseados em Linux (versão 3.4 ou superior) são reinicializados usando a seguinte agenda:

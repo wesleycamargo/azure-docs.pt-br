@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3afe60e7a00cb4fc4aca5046da8e26aaf3c77a29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198806"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815218"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
 
@@ -137,7 +137,7 @@ Se esse fluxo de trabalho não for possível, usar a SSE [(Criptografia do Servi
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Qual método de criptografia é usado pela criptografia de disco do Azure?
 
-No Windows, o ADE usa o método de criptografia AES256 do Bitlocker (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, o ADE usa o padrão dmcrypt de aes-xts-plain64 com uma chave mestra de volume de 256 bits.
+No Windows, o ADE usa o método de criptografia AES256 do BitLocker (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, o ADE usa o padrão dmcrypt de aes-xts-plain64 com uma chave mestra de volume de 256 bits.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu usar EncryptFormatAll e especificar todos os tipos de volume, ele apagará os dados em unidades de dados que já tivermos criptografado?
 Não, os dados não serão apagados de unidades de dados que já tiverem sido criptografadas usando o Azure Disk Encryption. Semelhante ao modo como o EncryptFormatAll não criptografou novamente a unidade do sistema operacional, ele não criptografará novamente a unidade de dados já criptografada. Para obter mais informações, veja os [critérios do EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

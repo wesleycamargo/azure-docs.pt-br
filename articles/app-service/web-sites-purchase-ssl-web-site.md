@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714293"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820777"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o Serviço de Aplicativo do Azure
 
@@ -50,7 +50,7 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Ao terminar, cl
 | Configuração | DESCRIÇÃO |
 |-|-|
 | NOME | Um nome amigável para o seu certificado de Serviço de Aplicativo. |
-| Nome do Host do Domínio Raiz | Essa etapa é uma das partes mais importantes do processo de compra. Use o nome do domínio raiz que você mapeou para seu aplicativo. _Não_ preceda o nome de domínio com `www`. |
+| Nome do Host do Domínio Raiz | Se você especificar o domínio raiz aqui, você obtém um certificado que protege *os dois*: o domínio raiz e o subdomínio `www`. Para proteger apenas um subdomínio qualquer, especifique aqui o nome de domínio totalmente qualificado do subdomínio (por exemplo, `mysubdomain.contoso.com`). |
 | Assinatura | O datacenter onde o aplicativo Web está hospedado. |
 | Grupo de recursos | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que seu aplicativo de Serviço de Aplicativo, por exemplo. |
 | Certificado SKU | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado curinga](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -115,7 +115,7 @@ Use a tabela a seguir para ajudá-lo a configurar a associação na caixa de di�
 |-|-|
 | Nome do host | O nome de domínio ao qual adicionar a associação SSL. |
 | Impressão Digital do Certificado Privado | O certificado a ser associado. |
-| Tipo de SSL | <ul><li>**SSL de SNI** – várias associações SSL baseadas em SNI podem ser adicionadas. Esta opção permite que vários certificados SSL protejam vários domínios no mesmo endereço IP. Navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) dão suporte ao SNI (encontre informações de suporte ao navegador mais abrangentes em [Indicação de Nome de Servidor](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL baseado em IP** – apenas uma associação SSL baseada em IP pode ser adicionada. Esta opção permite apenas um certificado SSL para proteger um endereço IP público dedicado. Após configurar a associação, siga as etapas em [Remapear um registro para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Tipo de SSL | <ul><li>**SSL de SNI** – várias associações SSL baseadas em SNI podem ser adicionadas. Esta opção permite que vários certificados SSL protejam vários domínios no mesmo endereço IP. Navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) dão suporte ao SNI (encontre informações de suporte ao navegador mais abrangentes em [Indicação de Nome de Servidor](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL baseado em IP** – apenas uma associação SSL baseada em IP pode ser adicionada. Esta opção permite apenas um certificado SSL para proteger um endereço IP público dedicado. Depois de configurar a associação, siga as etapas em [Remapear um registro para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Verificar o acesso HTTPS
 
@@ -125,7 +125,7 @@ Visite seu aplicativo usando `HTTPS://<domain_name>`, em vez de `HTTP://<domain_
 
 Se você precisar rechavear seu certificado, selecione o certificado na página [Certificados do Serviço de Aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, selecione **Rechaveamento e Sincronização** na navegação à esquerda.
 
-Clique no botão **"Criar Nova Chave"** para iniciar o processo. Esse processo pode demorar de um a 10 minutos para ser concluído.
+Clique no botão **Rechaveamento** para iniciar o processo. Esse processo pode demorar de um a 10 minutos para ser concluído.
 
 ![inserir imagem de Rechaveamento SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 

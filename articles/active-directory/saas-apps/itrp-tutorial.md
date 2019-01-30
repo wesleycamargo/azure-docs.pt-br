@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o ITRP | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ITRP | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ITRP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e09716a3-4200-4853-9414-2390e6c10d98
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 0af96b750c7e316d1d394a00781f727358f2c4e8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1ba77414906f90d14809147e532379ae461008dc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428308"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817564"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: integração do Azure Active Directory com o ITRP
+# <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
 
 Neste tutorial, você aprenderá a integrar o ITRP ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o ITRP por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -148,18 +148,18 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     ![Logon Único](./media/itrp-tutorial/ic775573.png "Logon Único")   
 
-    a. Clique em **Habilitar**.
+     a. Clique em **Habilitar**.
 
-    b. Na caixa de texto **URL de Logoff Remoto**, cole a **URL de Saída** que você copiou do portal do Azure.
+    b. Na caixa de texto **URL de Logoff Remoto**, cole a **URL de Saída** que você copiou do portal do Azure.
 
-    c. Na caixa de texto **URL do SSO do SAML**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
+    c. Na caixa de texto **URL do SSO do SAML**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do portal do Azure.
 
     d. Na caixa de texto **Impressão Digital do Certificado**, cole o valor de **Impressão Digital** do certificado, que você copiou do Portal do Azure. 
       
 1. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -219,7 +219,7 @@ No caso do ITRP, o provisionamento é uma tarefa manual.
    
     ![Usuário](./media/itrp-tutorial/ic775577.png "Usuário") 
       
-    a. Digite o **Nome** e **Email** de uma conta válida do AAD que você deseja provisionar.
+     a. Digite o **Nome** e **Email** de uma conta válida do AAD que você deseja provisionar.
 
     b. Clique em **Salvar**.
 

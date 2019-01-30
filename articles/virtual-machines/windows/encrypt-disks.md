@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 48eb76e7e076b8496b32878b2292447b1ccbf7f6
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977116"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828070"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Criptografar discos virtuais em uma VM do Windows
 Para conformidade e segurança aprimorados da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Os discos são criptografados usando chaves criptográficas protegidas em um Azure Key Vault. Você controla essas chaves criptográficas e pode auditar seu uso. Este artigo descreve como criptografar discos virtuais em uma VM do Windows usando o Azure PowerShell. Você também pode [criptografar uma VM do Linux usando a CLI do Azure](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Visão geral da criptografia de disco
-Os discos virtuais em VMs do Windows são criptografados em repouso usando o Bitlocker. Não há custo para criptografar discos virtuais no Azure. As chaves criptográficas são armazenadas em um Azure Key Vault usando a proteção de software ou você pode importar ou gerar suas chaves nos Módulos de Segurança de Hardware (HSMs) certificados para os padrões FIPS 140-2 nível 2. Chaves criptográficas são usadas para criptografar e descriptografar discos virtuais conectados à sua VM. Você mantém o controle dessas chaves criptográficas e pode auditar seu uso. 
+Os discos virtuais em VMs do Windows são criptografados em repouso usando o BitLocker. Não há custo para criptografar discos virtuais no Azure. As chaves criptográficas são armazenadas em um Azure Key Vault usando a proteção de software ou você pode importar ou gerar suas chaves nos Módulos de Segurança de Hardware (HSMs) certificados para os padrões FIPS 140-2 nível 2. Chaves criptográficas são usadas para criptografar e descriptografar discos virtuais conectados à sua VM. Você mantém o controle dessas chaves criptográficas e pode auditar seu uso. 
 
 O processo de criptografia de uma VM é o seguinte:
 
 1. Crie uma chave de criptografia em um Cofre de chaves do Azure.
 1. Configure a chave de criptografia a ser usada para criptografar discos.
 1. Ative a criptografia de disco para seus discos virtuais.
-1. As chaves criptográficas necessárias são solicitadas do Azure Key Vault.
+1. A Azure Key Vault criptográficas necessárias são solicitadas do Cofre de Chaves do Azure.
 1. Os discos virtuais são criptografados usando a chave de criptografia fornecida.
 
 

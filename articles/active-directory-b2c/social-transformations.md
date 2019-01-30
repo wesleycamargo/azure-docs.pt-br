@@ -3,19 +3,19 @@ title: Exemplos de transformação de declarações da conta social para o esque
 description: Exemplos de transformação de declarações da conta social para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9b592e7f61b87860e4f6fa2aa4d46e253b6257e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9ef8f9c68a09e998c393584ceb6e3be53f91a9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382343"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848794"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
 
@@ -63,10 +63,10 @@ Use essa transformação de declarações para gerar um ClaimType `alternativeSe
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **chave**: 12334
+    - **key**: 12334
     - **identityProvider**: Facebook.com
 - Declarações de saída:
-    - **alternativeSecurityId**: { "emissor": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+    - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
@@ -100,10 +100,10 @@ O exemplo a seguir vincula uma nova identidade social com uma conta existente. P
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **item**: { "emissor": "facebook.com", "issuerUserId": "MTIzNDU=" }
-    - **coleção**: [ { "emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **item**: { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" }
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
 - Declarações de saída:
-    - **coleção**: [ { "emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "emissor": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 
 ## <a name="getidentityprovidersfromalternativesecurityidcollectiontransformation"></a>GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
@@ -128,7 +128,7 @@ A transformação de declarações a seguir lê a declaração **alternativeSecu
 ```
 
 - Declarações de entrada:
-    - **alternativeSecurityIdCollection**: [ { "emissor": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "emissor": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 - Declarações de saída:
     - **identityProvidersCollection**: [ "facebook.com", "google.com" ]
 
@@ -165,6 +165,6 @@ O exemplo a seguir desvincula uma das identidades sociais de uma conta existente
 
 - Declarações de entrada:
     - **identityProvider**: facebook.com
-    - **coleção**: [ { "emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "emissor": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 - Declarações de saída:
-    - **coleção**: [ { "emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]

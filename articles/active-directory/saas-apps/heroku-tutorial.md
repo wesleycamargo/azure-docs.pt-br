@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Heroku | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Heroku | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Heroku.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d7d72ec6-4a60-4524-8634-26d8fbbcc833
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: c78d1207c724622fe16fa8d0a0717d71fbb6d37c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1e329690c940c2afe9f42f5c8ba60b3ddbff629
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443674"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Tutorial: Integração do Azure Active Directory ao Heroku
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Heroku da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -113,7 +113,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/heroku-tutorial/tutorial_heroku_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:    
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:    
     `https://sso.heroku.com/saml/<company-name>/init`
 
     b. Na caixa de texto **URL do Identificador**, digite uma URL usando o seguinte padrão:            
@@ -132,7 +132,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Para habilitar o SSO no Heroku, execute as seguintes etapas:
    
-    a. Faça logon na conta do Heroku como administrador.
+     a. Faça logon na conta do Heroku como administrador.
 
     b. Clique na guia **Configurações** .
 
@@ -149,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Clique em **Próximo**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Aplicativos Empresariais do Active Directory**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Aplicativos Empresariais do Active Directory**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

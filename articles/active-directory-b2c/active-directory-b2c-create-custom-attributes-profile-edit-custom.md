@@ -3,21 +3,21 @@ title: Adicionar seus próprios atributos a políticas personalizadas no Azure A
 description: Um passo a passo sobre como usar propriedades de extensão e atributos personalizados e incluí-los na interface do usuário.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338737"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854047"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Active Directory B2C: usar atributos personalizados em uma política e edição de perfil personalizado
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Usar atributos personalizados em uma política de edição de perfil personalizada
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ Neste artigo, você pode criar um atributo personalizado em seu diretório do Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Siga as etapas no artigo [Azure Active Directory B2C: introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
+Siga as etapas no artigo [Azure Active Directory B2C: Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Use atributos personalizados para coletar informações sobre seus clientes no Azure Active Directory B2C usando políticas personalizadas
 Seu diretório do Microsoft Azure Active Directory B2C é fornecido com um conjunto interno de atributos. Os exemplos são **Nome Fornecido**, **Sobrenome**, **Cidade**, **Código Postal**, e **userPrincipalName**. Geralmente, você precisa criar seus próprios atributos, como esses exemplos:
@@ -53,14 +53,14 @@ As instruções para isso são incluídas na seção **Próximas etapas** neste 
 2. Selecione **Azure Active Directory** no menu de navegação à esquerda. Talvez seja necessário localizá-lo, para isso, selecione **Mais serviços**.
 3. Selecione **Registros do Aplicativo**. Selecione **Novo registro de aplicativo**.
 4. Forneça as seguintes entradas:
-    * um nome para o aplicativo Web: **WebApp-GraphAPI-DirectoryExtensions**.
-    * Tipo de aplicativo: **Web app/API**.
+    * Especifique um nome para o aplicativo Web: **WebApp-GraphAPI-DirectoryExtensions**.
+    * O tipo de aplicativo: **Aplicativo Web/API**.
     * A URL de logon: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Selecione **Criar**.
 6. Selecione o aplicativo web criado recentemente.
 7. Selecione **as configurações** > **Permissões necessárias**.
 8. Selecione a API **Azure Active Directory do Windows**.
-9. Insira uma marca de seleção em Permissões de Aplicativo: **Ler e gravar dados do diretório**. Em seguida, selecione **Salvar**.
+9. Insira uma marca de seleção em permissões de aplicativo: **Ler e gravar dados do diretório**. Em seguida, selecione **Salvar**.
 10. Escolha **Conceder permissões** e confirme **Sim**.
 11. Copiar os identificadores a seguir para a sua área de transferência e salve-os:
     * **ID do aplicativo**. Exemplo: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ As instruções para isso são incluídas na seção **Próximas etapas** neste 
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modifique a política personalizada para adicionar o **ApplicationObjectId**
 
-Ao seguir as etapas em [Azure Active Directory B2C: Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), você baixou e modificou os [arquivos de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) nomeados **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, e **PasswordReset.xml**. Nesta etapa, você fará mais modificações a esses arquivos.
+Depois de ter seguido as etapas de [Azure Active Directory B2C: Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), você baixou e modificou [arquivos de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) com os nomes **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** e **PasswordReset.xml**. Nesta etapa, você fará mais modificações a esses arquivos.
 
 * Abra o arquivo **Trustframeworkbase** e adicione a seção `Metadata` conforme mostrado no exemplo a seguir. Insira a ID de objeto que você registrou anteriormente para o valor `ApplicationObjectId` e a ID do aplicativo que você registrou para o valor `ClientId`: 
 
@@ -271,7 +271,7 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
 
 2. Use os mesmos atributos de extensão entre políticas internas e personalizadas. Quando você adiciona atributos de tensão ou personalizados, por meio da experiência do portal, esses atributos são registrados usando o **b2c-extensions-app** que existe em cada locatário B2C. Para realizar as etapas a seguir para usar os atributos de extensão em sua política personalizada:
 
-  a. Em seu locatário B2C no portal.azure.com, navegue até **Azure Active Directory** e selecione **Registros de aplicativo**.  
+   a. Em seu locatário B2C no portal.azure.com, navegue até **Azure Active Directory** e selecione **Registros de aplicativo**.  
   b. Localize seu **b2c-extensions-app** e selecione-o.  
   c. Em **Essentials**, registre a **ID de Aplicativo** e a **ID de objeto**.  
   d. Inclua-os em seus metadados de perfil técnico comuns do **AAD** dessa maneira:  

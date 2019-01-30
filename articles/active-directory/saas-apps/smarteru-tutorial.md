@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o SmarterU | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao SmarterU | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SmarterU.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 95fe3212-d052-4ac8-87eb-ac5305227e85
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 12c7a2751b980ef7951be9043a62dbb1ec50a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c12c55913653e547cce0c42bd06fb55b374a4a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439754"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823048"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: integração do Azure Active Directory com o SmarterU
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Azure Active Directory ao SmarterU
 
 Neste tutorial, você aprenderá a integrar o SmarterU ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SmarterU da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -132,7 +132,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Autoridade Externa](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
-      a. Selecione **Habilitar Autorização Externa**.
+       a. Selecione **Habilitar Autorização Externa**.
   
       b. Na seção **Controle de Logon Principal**, selecione a guia **SmarterU**.
   
@@ -147,7 +147,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
       g. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -197,9 +197,9 @@ No caso do SmarterU, o provisionamento será uma tarefa manual.
    
     ![Novo Usuário](./media/smarteru-tutorial/adduser.png)  
 
-    a. Clique em **+Usuário**.
+     a. Clique em **+Usuário**.
     
-    b. Digite os valores de atributo relacionados da conta de usuário do Azure AD nas seguintes caixas de texto: **Email Principal**, **ID do Funcionário**, **Senha**, **Verificar Senha**, **Nome Dado**, **Sobrenome**.
+    b. Digite os valores dos atributos relacionados da conta de usuário do Azure Active Directory nas seguintes caixas de texto: **Email Principal**, **ID do Funcionário**, **Senha**, **Verificar senha**, **Nome**, **Sobrenome**.
     
     c. Clique em **Ativo**. 
     
@@ -242,7 +242,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
- 
+ 
 Ao clicar no bloco do SmarterU no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo SmarterU.
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 

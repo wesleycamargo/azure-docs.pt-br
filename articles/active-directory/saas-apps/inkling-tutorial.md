@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Inkling | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Inkling | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Inkling.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 339c924fc03faddae6326b79cc376b59c567829e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 31e00c5810e33433d58820f4db300b935ad7baaf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116548"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811274"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Tutorial: Integração do Azure Active Directory ao Inkling
+# <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Tutorial: Integração do Azure Active Directory com o Inkling
 
 Neste tutorial, você aprenderá a integrar o Inkling ao Azure AD (Azure Active Directory).
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Inkling usando a galeria
 1. configurar e testar o logon único do AD do Azure
@@ -117,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     
     ![Configurar o logon único](./media/inkling-tutorial/tutorial_inkling_01.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/metadata/<user-id>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://api.inkling.com/saml/v2/acs/<user-id>`
 

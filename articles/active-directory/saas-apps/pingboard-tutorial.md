@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Pingboard | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Pingboard | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Pingboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 794e3f6fe568d76f0687caa36709185f2a538270
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 02aabb9260cb0140b61091a8002f70d464091ddd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436093"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Azure Active Directory ao Pingboard
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Pingboard por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![IDP de informações de logon único em Domínio e URLs do Pingboard](./media/pingboard-tutorial/tutorial_pingboard_url.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor como `http://app.pingboard.com/sp`
+     a. Na caixa de texto **Identificador**, digite o valor como `http://app.pingboard.com/sp`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](./media/pingboard-tutorial/create_aaduser_04.png)
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -199,7 +199,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Pingbo
 
     ![Convidar Pessoas](./media/pingboard-tutorial/create_testuser_name.png)
 
-    a. Na caixa de texto **Nome Completo Name**, digite o nome completo do usuário, como **Brenda Fernandes**.
+     a. Na caixa de texto **Nome Completo Name**, digite o nome completo do usuário, como **Brenda Fernandes**.
 
     b. Na caixa de texto **Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
 

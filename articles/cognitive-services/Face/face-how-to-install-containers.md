@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474805"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contêineres
 
@@ -55,9 +55,9 @@ Se sua solicitação for aprovada, você receberá um e-mail com instruções de
 
 Você deve criar um recurso Face no Azure se quiser usar o contêiner Face. Depois de criar o recurso, use a chave de assinatura e o URL do terminal do recurso para instanciar o contêiner. Para obter mais informações sobre como instanciar um contêiner, consulte [Instanciar um contêiner de uma imagem de contêiner transferida por download](#instantiate-a-container-from-a-downloaded-container-image).
 
-Execute as etapas a seguir para criar e recuperar informações de um recurso Face:
+Execute as seguintes etapas para criar e recuperar informações de um recurso de Detecção Facial:
 
-1. Crie um recurso de rosto no portal do Azure.  
+1. Crie um recurso de Detecção Facial no portal do Azure.  
    Se você quiser usar o container Face, crie primeiro um recurso Face correspondente no portal do Azure. Para saber mais, consulte [Início Rápido: criar uma conta de Serviços Cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
 
 1. Obtenha o URL do ponto de extremidade e a chave de assinatura do recurso do Azure.  
@@ -178,3 +178,4 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Analise [Visão geral da face](Overview.md) para saber mais sobre como detectar e identificar rostos  
 * Consulte a [API Face](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter detalhes sobre os métodos suportados pelo contêiner.
 * Consulte [Perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados à funcionalidade Face.
+* Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608010"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808452"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migração para Contoso: Refatorar um aplicativo local para um aplicativo Web do Azure e Banco de Dados SQL do Azure
 
@@ -130,7 +130,7 @@ Veja como a Contoso executará a migração:
 > [!div class="checklist"]
 > * **Etapa 1: Provisionar uma instância do Banco de Dados SQL no Azure**: a Contoso provisiona uma instância do SQL no Azure. Depois que o site do aplicativo for migrado para o Azure, o aplicativo da Web do serviço WCF apontará para esta instância.
 > * **Etapa 2: Migrar o banco de dados com o DMA**: a Contoso migra o banco de dados do aplicativo com o Assistente de Migração do Banco de Dados.
-> *  **Etapa 3: Provisionar aplicativos Web**: A Contoso provisiona os dois aplicativos Web.
+> * **Etapa 3: Provisionar aplicativos Web**: A Contoso provisiona os dois aplicativos Web.
 > * **Etapa 4: Configurar o Azure DevOps**: a Contoso cria um projeto do Azure DevOps e importa o repositório Git.
 > * **Etapa 5: Configurar cadeias de conexão**: a Contoso configura as sequências de conexão para que o aplicativo Web da camada da web, o aplicativo Web do serviço WCF e a instância do SQL possam se comunicar.
 > * **Etapa 6: Compilar e liberar pipelines**: Como etapa final, a Contoso configura os pipelines de build e lançamento para criar o aplicativo e implanta-os em dois aplicativos Web do Azure separados.
@@ -347,7 +347,7 @@ Agora, os administradores da Contoso configuram o Azure DevOps para executar o p
 
     ![Implantar serviço de aplicativo](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. Em **Selecione um arquivo ou pasta**, eles localizam o **arquivo SmartHotel.Registration.Wcf.zip** que estava criando durante a construção, e clilck **Salvar** .- sql
+18. Em **Selecionar um arquivo ou pasta**, localizam o **arquivo SmartHotel.Registration.Wcf.zip** que estava sendo criado durante o build e, então, clicam em **Salvar**.
 
     ![Salve o WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

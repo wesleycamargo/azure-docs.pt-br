@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Wdesk | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Wdesk | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Wdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 06900a91-a326-4663-8ba6-69ae741a536e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ff4d38240bf44cdb3112730b6f6962feed09a6a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee4e81d0af1648aa4ee61501c231585cf0b1cbfa
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444429"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811767"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integração do Azure Active Directory ao Wdesk
+# <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integração do Azure Active Directory com o Wdesk
 
 Neste tutorial, você aprenderá a integrar o Wdesk ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Wdesk da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
@@ -151,7 +151,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Logon** no Portal do Azure.
+       a. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Logon** no Portal do Azure.
    
       b. Copie a **URL de Metadados** e cole-a na caixa de texto **Identificador** no Portal do Azure.
        
@@ -168,7 +168,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -226,7 +226,7 @@ Para permitir que os usuários do Azure AD façam logon no Wdesk, eles devem ser
   
     ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser4.png)
  
-    a. Na caixa de texto **Email**, insira o email do usuário como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Email**, insira o email do usuário como **brittasimon@contoso.com**.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
@@ -271,7 +271,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Wdesk no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Wdesk.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

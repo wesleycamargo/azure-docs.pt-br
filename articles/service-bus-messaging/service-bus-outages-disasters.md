@@ -2,18 +2,19 @@
 title: Isolando aplicativos do Barramento de Serviço do Azure contra interrupções e desastres | Microsoft Docs
 description: Técnicas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393700"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846703"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -69,8 +70,8 @@ Em geral, a replicação passiva é mais econômica do que a replicação ativa 
 
 Quando a replicação passiva for usada, as mensagens de cenário a seguir poderão ser perdidas ou recebidas duas vezes:
 
-* **Perda ou atraso de mensagens**: suponha que o remetente tenha enviado com êxito uma mensagem m1 para a fila primária e então a fila ficou indisponível antes do destinatário receber m1. O remetente envia uma mensagem subsequente m2 para a fila secundária. Se a fila primária estiver temporariamente indisponível, o destinatário receberá m1 depois que a fila ficar disponível novamente. Em caso de desastre, talvez o receptor nunca receba m1.
-* **Recebimento duplicado**: suponha que o remetente enviar uma mensagem m para a fila primária. O Barramento de Serviço processa m com êxito, mas falha ao enviar uma resposta. Depois que a operação de envio atingir o tempo limite, o remetente enviará uma cópia idêntica de m para a fila secundária. Se o receptor for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, o receptor receberá ambas as cópias de m aproximadamente ao mesmo tempo. Se o receptor não for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, inicialmente o destinatário receberá somente a segunda cópia de m, mas depois receberá uma segunda cópia de m quando a fila primária ficar disponível.
+* **Perda ou atraso de mensagens**: Suponha que o remetente tenha enviado com êxito uma mensagem m1 para a fila primária e então a fila ficou indisponível antes do destinatário receber m1. O remetente envia uma mensagem subsequente m2 para a fila secundária. Se a fila primária estiver temporariamente indisponível, o destinatário receberá m1 depois que a fila ficar disponível novamente. Em caso de desastre, talvez o receptor nunca receba m1.
+* **Recebimento duplicado**: Suponha que o remetente envie uma mensagem m para a fila primária. O Barramento de Serviço processa m com êxito, mas falha ao enviar uma resposta. Depois que a operação de envio atingir o tempo limite, o remetente enviará uma cópia idêntica de m para a fila secundária. Se o receptor for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, o receptor receberá ambas as cópias de m aproximadamente ao mesmo tempo. Se o receptor não for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, inicialmente o destinatário receberá somente a segunda cópia de m, mas depois receberá uma segunda cópia de m quando a fila primária ficar disponível.
 
 O exemplo [Replicação geográfica com mensagens agenciadas do Barramento de Serviço][Geo-replication with Service Bus Brokered Messages] demonstra a replicação passiva de entidades de mensagens.
 

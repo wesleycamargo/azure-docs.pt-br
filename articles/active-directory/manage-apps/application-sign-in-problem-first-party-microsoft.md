@@ -4,7 +4,7 @@ description: Solucionar problemas comuns enfrentados ao entrar em aplicativos pr
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379257"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468693"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
@@ -34,7 +34,7 @@ Há três principais maneiras que um usuário pode obter acesso a um aplicativo 
 
 -   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários também podem ter o acesso concedido através do **consentimento do administrador**. Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
 
-Para solucionar o problema, inicie com as [Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar](#general-problem-areas-with-application-access-to-consider) e leia o [Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para obter mais detalhes.
+Para solucionar o problema, inicie com as [Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar](#general-problem-areas-with-application-access-to-consider). Para obter mais detalhes, leia o [Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar
 
@@ -204,7 +204,7 @@ Para verificar o status da Autenticação Multifator de um usuário, siga estas 
 
 9.  Selecione o usuário na lista de usuários e **Habilite**, **Desabilite** ou **Imponha** a autenticação multifator conforme o desejado.
 
-  * **Observação**: Se um usuário estiver em estado **Imposto** defina-o temporariamente como **Desabilitado** para permitir que volte à sua conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
+  * **Observação**: Se um usuário estiver em um estado **Imposto**, defina-o temporariamente como **Desabilitado** para deixá-lo entrar novamente na conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verificar as informações de contato de autenticação de um usuário
 

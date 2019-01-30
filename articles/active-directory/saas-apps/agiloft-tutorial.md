@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Agiloft | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Agiloft | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Agiloft.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f11d705cceb05c9e9cd0b340a680684eecf4f5d9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f851bd260c18509a3233bb3401383e0e04ba6259
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054192"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory ao Agiloft
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Agiloft da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de URLs e Domínio do Agiloft](./media/agiloft-tutorial/tutorial_agiloft_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
     | |
     |-|-|
     | `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
@@ -161,19 +161,19 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configuração do Agiloft](./media/agiloft-tutorial/setup4.png) 
 
-    a. Na caixa de texto **ID da Entidade do IdP/Emissor**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
+     a. Na caixa de texto  **ID da entidade do IdP/Emissor** , cole o valor da  **ID da entidade SAML** copiado no portal do Azure.
 
-    b. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL de Serviço de Logon Único** que você copiou do Portal do Azure.
+    b. Na caixa de texto  **URL de logon do IdP** , cole o valor da  **URL de serviço logon único** que você copiou no portal do Azure.
 
-    c. Na caixa de texto **URL de Logoff do IdP**, cole o valor da **URL de Saída** copiado do Portal do Azure.
+    c. Na caixa de texto  **URL de logoff do IdP** , cole o valor da  **URL de logoff** que você copiou no portal do Azure.
 
-    d. Abra seu **certificado codificado em base-64** no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Conteúdo do certificado X.509 fornecido pelo IdP**.
+    d. Abra o seu **certificado codificado em base 64** baixado do portal do Azure no bloco de notas, copie o conteúdo para a área de transferência e cole-o na caixa de texto  **Conteúdo do certificado X.509 fornecido pelo IdP** .
 
     e. Clique em **Concluir**.
 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -246,7 +246,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Agiloft no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Agiloft.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

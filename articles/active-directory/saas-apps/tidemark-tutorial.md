@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Tidemark | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Tidemark | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Tidemark.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: d99dc053849ef4e42db8486613c699de57a5c7c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3df867e411f4a45c0a7da884cbba69bc72b443af
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820488"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integração do Active Directory do Azure com o Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: Integração do Azure Active Directory com o Tidemark
 
 Neste tutorial, você aprenderá como integrar o Tidemark ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do AD do Azure com o Tidemark, você precisa dos 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Tidemark por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/tidemark-tutorial/tutorial_tidemark_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões: 
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões: 
     | |
     |--|
     | `https://<subdomain>.tidemark.com/login` |
@@ -142,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para configurar o logon único no lado do **Tidemark**, é necessário enviar o **Certificado (Base64), a ID da Entidade SAML, a URL do Serviço de Logon Único de SAML e a URL de Saída** baixados para a [equipe de suporte do Tidemark](http://www.tidemark.com/contact-us). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

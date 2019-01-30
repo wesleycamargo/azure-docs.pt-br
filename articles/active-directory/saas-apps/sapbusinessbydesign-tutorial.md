@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 82938920-33ba-47cb-b141-511b46d19e66
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: a7a08eb6062f134058bb63f5a3e2a78f661026ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1e3e4440b7d6adf9e5082217fe75b1c2d983a778
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445193"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817088"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: integração do Azure Active Directory ao SAP Business ByDesign
+# <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: Integração do Azure Active Directory ao SAP Business ByDesign
 
 Neste tutorial, você aprenderá a integrar o SAP Business ByDesign ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SAP Business ByDesign da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do SAP Business ByDesign](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<servername>.sapbydesign.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<servername>.sapbydesign.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<servername>.sapbydesign.com`
 
@@ -121,7 +121,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Seção Atributo do SAP Business ByDesign](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_attribute.png)
     
-    a. Na lista **Identificador de Usuário**, selecione a função **ExtractMailPrefix()**.
+     a. Na lista **Identificador de Usuário**, selecione a função **ExtractMailPrefix()**.
     
     b. Na lista de **Email** , selecione o atributo de usuário que você deseja usar na implementação. Por exemplo, se você quiser usar EmployeeID como identificador exclusivo de usuário e tiver armazenado o valor do atributo em ExtensionAttribute2, selecione user.extensionattribute2.     
 
@@ -139,7 +139,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Para que o SSO seja configurado para o aplicativo, execute as seguintes etapas:
    
-    a. Faça logon no portal do SAP Business ByDesign com direitos de administrador.
+     a. Faça logon no portal do SAP Business ByDesign com direitos de administrador.
    
     b. Navegue até **Tarefa Comum de Gerenciamento de Aplicativos e Usuários** e clique na guia **Provedor de Identidade**.
    
@@ -181,7 +181,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     k. Salve suas alterações.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Help Scout | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Help Scout | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Help Scout.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0bbdf576c38207349bb45e7b54f3ffc85ecf3d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 367967358d55eda40603b71893333080d7faa81a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449427"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816238"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integração do Azure Active Directory com o Help Scout
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Azure Active Directory ao Help Scout
 
 Neste tutorial, você aprenderá a integrar o Help Scout ao Azure AD (Azure Active Directory).
 
@@ -47,7 +47,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Help Scout por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -107,12 +107,12 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do Help Scout](./media/helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. **Identificador** é o **"URI do Público-Alvo (ID de Entidade do Provedor de Serviço)"** do Help Scout, começa com `urn:`
+     a. **Identificador** é o **"URI do Público-Alvo (ID de Entidade do Provedor de Serviço)"** do Help Scout, começa com `urn:`
 
     b. **URL de Resposta** é a **"URL de Postback (URL do Serviço do Consumidor de Declaração)"** do Help Scout, começa com `https://` 
 
     > [!NOTE] 
-    > Os valores nessas URLs são apenas para demonstração. Atualize esses valores com a URL de Resposta e o Identificador reais. Você obtém esses valores da guia **Logon único** na seção de Autenticação, que é explicada posteriormente no tutorial.
+    > Os valores nessas URLs são apenas para demonstração. É preciso atualizar esses valores com a URL de Resposta e o Identificador reais. Você obtém esses valores da guia **Logon único** na seção de Autenticação, que é explicada posteriormente no tutorial.
 
 1. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, marque a opção **Mostrar configurações de URL avançadas** e realize a seguinte etapa:
 
@@ -147,7 +147,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/helpscout-tutorial/settings3.png) 
  
-    a. Copie o valor da **URL de Postback (URL do Serviço do Consumidor de Declaração)** e cole o valor na caixa **URL de Resposta** no portal do Azure, na seção **Domínio e URLs** do Help Scout.
+     a. Copie o valor da **URL de Postback (URL do Serviço do Consumidor de Declaração)** e cole o valor na caixa **URL de Resposta** no portal do Azure, na seção **Domínio e URLs** do Help Scout.
     
     b. Copie o valor da **URI do Público-Alvo (ID de Entidade do Provedor de Serviço)** e cole o valor na caixa **Identificador** no portal do Azure, na seção **Domínio e URLs** do Help Scout.
 
@@ -155,7 +155,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/helpscout-tutorial/settings4.png) 
  
-    a. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Serviço de Logon Único** copiado do portal do Azure.
+     a. Na caixa de texto **URL de Logon do Único** , cole o valor da  **URL de Serviço de Logon Único** que você copiou no portal do Azure.
     
     b. Clique em **Carregar Certificado** para carregar o **Certificado(Base64)** baixado no portal do Azure.
 
@@ -166,7 +166,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     e. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -241,7 +241,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Help Scout no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Help Scout.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

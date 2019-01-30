@@ -3,18 +3,18 @@ title: Hybrid Runbook Worker da Automação do Azure
 description: Este artigo fornece informações sobre como instalar e usar o Hybrid Runbook Worker, que é um recurso do Azure Automation que você pode usar para executar runbooks em máquinas no datacenter local ou no provedor de nuvem.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634159"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820675"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -101,7 +101,7 @@ Se você usar um servidor proxy para comunicação entre o agente e o serviço d
 
 A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Worker se comunicar com a Automação do Azure:
 
-* Porta: Somente a TCP 443 é necessária para acesso de Internet de saída.
+* Porta: Somente a TCP 443 é necessária para acesso à Internet de saída.
 * URL global: *.azure-automation.net
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
@@ -115,6 +115,7 @@ Se você tiver uma conta de Automação do Azure definida para uma região espec
 | Centro-Oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Centro-Sul dos Estados Unidos |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | Leste dos EUA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| Oeste dos EUA 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Norte da Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
@@ -151,3 +152,4 @@ Para saber como solucionar problemas de seus trabalhadores com runbook híbrido,
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+

@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 72e327f3cfa81b1ff27fcad743f5bb9a98737ed9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bdee3d64348b734488f7fb19bf6c57353908ae9b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053599"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutorial: Integração do Azure Active Directory com o Achieve3000
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Achieve3000 por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do Achieve3000](./media/achieve3000-tutorial/tutorial_achieve3000_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://saml.achieve3000.com/district/<District Identifier>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://saml.achieve3000.com/district/<District Identifier>`
 
     b. Na caixa de texto **Identificador**, digite o valor: `achieve3000-saml`
 
@@ -131,7 +131,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | ------------------- | -------------------- |    
     | studentID               | user.mail |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar logon único Add](./media/achieve3000-tutorial/tutorial_officespace_04.png)
 
@@ -150,7 +150,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 8. Para configurar o logon único no lado do **Achieve3000**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Achieve3000](https://www.achieve3000.com/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -186,7 +186,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-an-achieve3000-test-user"></a>Criar um usuário de teste do Achieve3000
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Achieve3000. Trabalhe com a [equipe de suporte do Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os usuários à plataforma do Achieve3000. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Achieve3000. Trabalhe com a [equipe de suporte do Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os usuários à plataforma do Achieve3000. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -223,7 +223,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Achieve3000 no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Achieve3000.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

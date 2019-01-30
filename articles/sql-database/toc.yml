@@ -79,8 +79,12 @@ items:
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrar para uma Instância Gerenciada usando DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Proteger o seu banco de dados
-    href: sql-database-security-tutorial.md
+  - name: Segurança no Banco de Dados SQL do Azure
+    items:
+    - name: Segurança do banco de dados individual
+      href: sql-database-security-tutorial.md
+    - name: Segurança de Instância Gerenciada com logons do Azure AD
+      href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implementar um banco de dados distribuído geograficamente
     href: sql-database-implement-geo-distributed-database.md
   - name: Configurar a Sincronização de Dados SQL do Azure
@@ -692,9 +696,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 7d7e85b3a7934b03395960d5dcbdc1141f0effd8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b69adc5f54e2566f62049225ccb0fc438a33ca6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101084"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226801"

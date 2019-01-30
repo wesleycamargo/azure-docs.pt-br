@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao iQualify LMS | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o iQualify LMS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o iQualify LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: d1161480bfd7a4cfeeb81f02234586a515fdffed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fde32bd3929099a3a5b8baa8b03b898a6afbca26
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446126"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com o iQualify LMS
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o iQualify LMS da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Informações de logon único de Domínio e URLs do iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/`|
@@ -148,7 +148,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     | last_name | user.surname |
     | person_id | "your attribute" | 
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/iqualify-tutorial/atb2.png)
 
@@ -194,7 +194,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurações de Autenticação SAML](./media/iqualify-tutorial/setting4.png)
 
-    a. Na caixa **URL DO SERVIÇO DE LOGON ÚNICO SAML**, cole o valor copiado da **URL do Serviço de Logon Único SAML** na janela de configuração de aplicativos do Azure AD.
+     a. Na caixa **URL DO SERVIÇO DE LOGON ÚNICO SAML**, cole o valor copiado da **URL do Serviço de Logon Único SAML** na janela de configuração de aplicativos do Azure AD.
     
     b. Na caixa **URL DE LOGOFF SAML**, cole o valor copiado da **URL DE SAÍDA** na janela de configuração de aplicativos do Azure AD.
     
@@ -207,7 +207,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     f. Clique em **ATUALIZAR**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -287,7 +287,7 @@ Ao clicar no bloco iQualify LMS no Painel de Acesso, você deve acessar a págin
 
 Clique no botão **Entrar com o Azure AD** e você deverá ser automaticamente conectado no seu aplicativo do iQualify LMS.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

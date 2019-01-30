@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao T&E Express | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o T&E Express | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o T&E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: ff4d634fb7f6f8057e5f370a694e46ca5e0d772d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 67cc50f3b6812abc566620396369b195d106f2be
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114066"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815167"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: integração do Azure Active Directory com o T&E Express
+# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Azure Active Directory com o T&E Express
 
 Neste tutorial, você aprenderá a integrar o T&E Express ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o T&E Express da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único](./media/tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor como `https://<domain>.tyeexpress.com`
+     a. Na caixa de texto **Identificador**, digite o valor como `https://<domain>.tyeexpress.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 

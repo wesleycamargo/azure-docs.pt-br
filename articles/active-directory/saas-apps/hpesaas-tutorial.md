@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o HPE SaaS | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o HPE SaaS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o HPE SaaS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c8932714f9a9ebcbda82177be2fde37497f71d7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 19d98ec8157d6e2ce748a5cc95ee46c40c16c562
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445052"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814691"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: Integração do Active Directory do Azure ao HPE SaaS
+# <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: Integração do Azure Active Directory com o HPE SaaS
 
 Neste tutorial, você aprenderá a integrar o HPE SaaS ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do AD do Azure com o HPE SaaS, você precisa dos 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar o HPE SaaS da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/hpesaas-tutorial/tutorial_hpesaas_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://login.saas.hpe.com/msg`
+     a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://login.saas.hpe.com/msg`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.saas.hpe.com`
 
@@ -130,7 +130,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para configurar o logon único no lado do **HPE SaaS**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do HPE SaaS](https://saas.hpe.com/en-us/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

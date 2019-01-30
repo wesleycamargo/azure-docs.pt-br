@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265406"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827322"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre o backup de VM do Azure
 
@@ -40,7 +40,7 @@ Veja como o Backup do Azure completa um backup de VMs do Azure.
 
 O Backup do Azure não criptografa os dados como parte do processo de backup. O Backup do Azure dá suporte ao backup de VMs do Azure criptografadas, usando o Azure Disk Encryption.
 
-- Há suporte para backup de VMs criptografadas apenas com a BEK (Chave de Criptografia Bitlocker), e com BEK junto com KEK (Chave de Criptografia de Chave), para VMs do Azure gerenciadas e não gerenciadas.
+- Há suporte para backup de VMs criptografadas apenas com a BEK (Chave de Criptografia BitLocker), e com BEK junto com KEK (Chave de Criptografia de Chave), para VMs do Azure gerenciadas e não gerenciadas.
 - Tanto a BEK (segredos) quanto a KEK (chaves) submetidas a backup são criptografadas para que possam ser lidas e usadas somente quando restauradas no cofre de chaves por usuários autorizados.
 - Como também ocorre o backup da BEK, em cenários nos quais a BEK é perdida, usuários autorizados podem restaurar a BEK no cofre de chaves e recuperar a VM criptografada. O backup de chaves e segredos de VMs criptografadas ocorre de forma criptografada, de modo que usuários não autorizados, nem o Azure, podem ler ou usar chaves e segredos em backup. Somente os usuários com o nível correto de permissões podem fazer backup e restaurar VMs criptografadas, bem como chaves e segredos.
 
@@ -69,11 +69,11 @@ Se você quiser instantâneos durante a execução de aplicativos, o Backup do A
 
 A tabela a seguir explica os diferentes tipos de consistência.
 
-**Instantâneo** | **Baseado em VSS** | **Detalhes** | **Recuperação**
+**Instantâneo** | **Detalhes** | **Recuperação** | **Consideração**
 --- | --- | --- | ---
-**Consistente com o aplicativo** | Sim (somente Windows) | Backups consistentes com o aplicativo capturam o conteúdo da memória e operações de E/S pendentes. Instantâneos consistentes com o aplicativo usam o gravador VSS (ou pré/pós-script para Linux) que garantem a consistência dos dados do aplicativo antes do backup. | Ao recuperar com um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. O aplicativo é iniciado em um estado consistente.
-**Consistente com o sistema de arquivos** | Sim (somente Windows) |  Backups consistentes com o arquivo fornecem backups consistentes de arquivos de disco por meio de um instantâneo simultâneo de todos os arquivos.<br/><br/> Pontos de recuperação do Backup do Azure são consistentes com o arquivo para:<br/><br/> - Backups de VM do Linux que não têm pré/pós-scripts, ou cujo script falhou.<br/><br/> - Backups de VM do Windows nos quais o VSS falhou. | Ao recuperar usando um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. Os aplicativos precisam implementar seus próprios mecanismos de "correção" para garantir a consistência dos dados restaurados.
-**Controle de falhas** | Não  | Normalmente, o controle de falhas ocorre quando uma VM do Azure é desligada no momento do backup.  Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup.<br/><br/> Um ponto de recuperação de controle de falhas não garante a consistência de dados para o sistema operacional ou o aplicativo. | Não há garantias, mas, geralmente, a VM é inicializada e executa uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou gravações que não tenham sido transferidos para o disco serão perdidos. Os aplicativos implementam sua própria verificação de dados. Por exemplo, para um aplicativo de banco de dados, se o log de transações tiver entradas que não estão presentes no banco de dados, o software do banco de dados será executado até que os dados fiquem consistentes.
+**Consistente com o aplicativo** | Backups consistentes com o aplicativo capturam o conteúdo da memória e operações de E/S pendentes. Instantâneos consistentes com o aplicativo usam o gravador VSS (ou pré/pós-script para Linux) que garantem a consistência dos dados do aplicativo antes do backup. | Ao recuperar com um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. O aplicativo é iniciado em um estado consistente. | Windows: Todos os gravadores VSS foram bem-sucedidos<br/><br/> Linux: Pré/pós-scripts estão configurados e foram bem-sucedidos
+**Consistente com o sistema de arquivos** | Backups consistentes com o arquivo fornecem backups consistentes de arquivos de disco por meio de um instantâneo simultâneo de todos os arquivos.<br/><br/> | Ao recuperar usando um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. Os aplicativos precisam implementar seus próprios mecanismos de "correção" para garantir a consistência dos dados restaurados. | Windows: Alguns gravadores VSS falharam <br/><br/> Linux: Padrão (se os pré/pós-scripts não estão configurados ou falharam)
+**Controle de falhas** | Normalmente, o controle de falhas ocorre quando uma VM do Azure é desligada no momento do backup.  Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup.<br/><br/> Um ponto de recuperação de controle de falhas não garante a consistência de dados para o sistema operacional ou o aplicativo. | Não há garantias, mas, geralmente, a VM é inicializada e executa uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou gravações que não tenham sido transferidos para o disco serão perdidos. Os aplicativos implementam sua própria verificação de dados. Por exemplo, para um aplicativo de banco de dados, se o log de transações tiver entradas que não estão presentes no banco de dados, o software do banco de dados será executado até que os dados fiquem consistentes. | A VM está em estado de desligamento
 
 
 ## <a name="service-and-subscription-limits"></a>Limites de serviço e assinatura

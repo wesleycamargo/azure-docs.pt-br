@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o QuickHelp | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao QuickHelp | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o QuickHelp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 655c9ad3-2076-4e2c-8e47-9ed3bf04be56
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c99be60301085dddfd5c658ee1eed81b88238e54
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cbc25218079f8e8529777dd8e169a2e689eabc6b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421579"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824211"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Active Directory do Azure com o QuickHelp
+# <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Azure Active Directory ao QuickHelp
 
 Neste tutorial, você aprende a integrar o QuickHelp ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar QuickHelp a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -143,7 +143,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único][23]
    
-    a. Como **Tipo de SSO**, selecione **WSFederation**.
+     a. Como **Tipo de SSO**, selecione **WSFederation**.
    
     b. Para carregar o arquivo de metadados do Azure baixado, clique em **Procurar**, navegue até o arquivo e clique em **Carregar Metadados**.
    

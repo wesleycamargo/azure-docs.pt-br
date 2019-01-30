@@ -9,17 +9,17 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783175"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821440"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Enviar trabalhos de recorte do Azure Media Clipper
 O Azure Media Clipper exige que um método **submitSubclipCallback** seja implementado para manipular o envio de trabalhos de recorte. Essa função serve para implementar um HTTP POST da saída do Clipper para um serviço Web. Esse serviço Web é o local em que você pode enviar o trabalho de codificação. A saída do Clipper é uma predefinição de codificação do Media Encoder Standard dos trabalhos renderizados ou o conteúdo da API REST para chamadas de filtro de manifesto dinâmico. Esse modelo de passagem é necessário porque as credenciais da conta dos serviços de mídia não são seguras no navegador do cliente.
 
-O diagrama de sequência a seguir ilustra o fluxo de trabalho entre o cliente de navegador, o seu serviço Web e os Serviços de Mídia do Azure: ![Diagrama de Sequência do Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+O seguinte diagrama de sequência ilustra o fluxo de trabalho entre o cliente do navegador, o seu serviço Web e os Serviços de Mídia do Azure: ![Diagrama de sequência do Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
 
 No diagrama anterior, as quatro entidades são: o navegador do usuário final, o seu serviço Web, o ponto de extremidade CDN hospedando os recursos Clipper e os Serviços de Mídia do Azure. Quando o usuário final navega para a sua página da Web, a página obtém os recursos do Clipper JavaScript e do CSS no ponto de extremidade CDN de hospedagem. O usuário final configura o trabalho de recorte ou a chamada de criação de filtro de manifesto dinâmico em seu navegador. Quando o usuário final envia a chamada de criação de trabalho ou filtro, o navegador coloca a carga de trabalho em um serviço da Web que você deve implantar. Esse serviço da Web, por fim, envia o trabalho de recorte ou a ligação de criação de filtro para o Serviço de Mídia do Azure usando suas credenciais de conta dos serviços de mídia.
 
@@ -31,7 +31,7 @@ O exemplo de código a seguir ilustra um método **submitSubclipCallback** de ex
 // Parameter:
 // - subclip: object that represents the subclip (output contract).
 //
-// Returns: a Promise object that, when resolved, retuns true if the operation was accept in the back-end; otherwise, returns false.
+// Returns: a Promise object that, when resolved, returns true if the operation was accept in the back-end; otherwise, returns false.
 var onSubmitSubclip = function (subclip) {
     var promise = new Promise(function (resolve, reject) {
         // TODO: perform the back-end AJAX request to submit the subclip job.
@@ -99,7 +99,7 @@ O contrato de saída do trabalho para um recorte renderizado é um objeto JSON c
     "type": "job",
 
     /* Required if "type" === "job" */
-    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to sumit the subclip job.
+    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to submit the subclip job.
     The encoding profile ("Codecs" property) depends on the "singleBitrateMp4Profile" and "multiBitrateMp4Profile" option parameters
     specified when creating the widget instance. */
     /* REFERENCE: https://docs.microsoft.com/azure/media-services/media-services-advanced-encoding-with-mes */

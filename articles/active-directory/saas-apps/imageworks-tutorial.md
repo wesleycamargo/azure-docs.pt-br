@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d0ee49bf2a792e855ed020eba74db1d15278fad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4f1636d32782bcef31c1cea98eb9e91d6d7a5878
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442676"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Tutorial: Integração do Azure Active Directory com o IMAGE WORKS
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o IMAGE WORKS da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do IMAGE WORKS](./media/imageworks-tutorial/tutorial_imageworks_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
@@ -132,7 +132,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 1. Para configurar o logon único no lado do **IMAGE WORKS**, é necessário enviar o **Certificado (Base64), a URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** baixados para a [Equipe de suporte do IMAGE WORKS](mailto:iw-sd-support@fujifilm.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -169,7 +169,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-image-works-test-user"></a>Criar um usuário de teste do IMAGE WORKS
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no IMAGE WORKS. Trabalhe com a [Equipe de suporte do IMAGE WORKS](mailto:iw-sd-support@fujifilm.com) para adicionar a plataforma do IMAGE WORKS. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no IMAGE WORKS. Trabalhe com a [Equipe de suporte do IMAGE WORKS](mailto:iw-sd-support@fujifilm.com) para adicionar a plataforma do IMAGE WORKS. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -206,7 +206,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco IMAGE WORKS no Painel de Acesso, você deverá ser automaticamente conectado ao seu aplicativo IMAGE WORKS.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

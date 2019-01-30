@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438516"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823429"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar experimentos de aprendizado de máquina automatizado
 
@@ -219,7 +219,8 @@ Propriedade |  DESCRIÇÃO | Valor Padrão
 `iteration_timeout_minutes` |   Limita a quantidade de tempo (minutos) de duração de uma iteração específica. Se uma iteração exceder o valor especificado, ela será cancelada. Se não for definida, a iteração continuará sendo executada até ser encerrada. |   Nenhum
 `n_cross_validations`   |Número de divisões de validação cruzada| Nenhum
 `validation_size`   |Tamanho do conjunto de validação como percentual de toda a amostra de treinamento.|  Nenhum
-`preprocess` | Verdadeiro/Falso <br/>True habilita o experimento a executar o pré-processamento na entrada. Veja um subconjunto de pré-processamento<li>Dados ausentes: calcula os dados ausentes – numéricos com média, texto com maior ocorrência </li><li>Valores categóricos: se o tipo de dados for numérico e o número de valores exclusivos for menor que 5%, será convertido em codificação one-hot </li><li>Etc. Para ver a lista completa, confira [o repositório GitHub](https://aka.ms/aml-notebooks)</li><br/>Observação: se os dados forem esparsos, não será possível usar o pré-processamento = true |  Falso | 
+`preprocess` | Verdadeiro/Falso <br/>True habilita o experimento a executar o pré-processamento na entrada. Veja um subconjunto de pré-processamento<li>Dados ausentes: calcula os dados ausentes – numéricos com média, texto com maior ocorrência </li><li>Valores categóricos: se o tipo de dados for numérico e o número de valores exclusivos for menor que 5%, será convertido em codificação one-hot </li><li>Etc. Para ver a lista completa, confira [o repositório GitHub](https://aka.ms/aml-notebooks)</li><br/>Observação: se os dados forem esparsos, não será possível usar o pré-processamento = true |  Falso |
+`enable_cache`  | Verdadeiro/Falso <br/>Ao configurar como Verdadeiro, habilita o pré-processamento feito uma vez e reutiliza os mesmos dados pré-processados para todas as iterações. | True |
 `blacklist_models`  | O experimento de aprendizado de máquina automatizado testa vários algoritmos diferentes. Configure para excluir determinados algoritmos do experimento. Essa propriedade é útil se você está ciente de que os algoritmos não funcionam bem para seu conjunto de dados. Excluir algoritmos pode economizar recursos de computação e tempo de treinamento.<br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Nenhum
 `whitelist_models`  | O experimento de aprendizado de máquina automatizado testa vários algoritmos diferentes. Configure para incluir determinados algoritmos para o experimento. Essa propriedade é útil se você está ciente de que os algoritmos funcionam bem para seu conjunto de dados. <br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Nenhum
 `verbosity` |Controla o nível de log com INFO sendo o mais detalhado e CRITICAL sendo o mínimo. O nível de detalhes usa os mesmos valores que os definidos no pacote de registro em log do python. Valores permitidos são:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ Será possível exibir os resultados em um widget ou embutidos se você estiver 
 As métricas a seguir são salvas em cada iteração para uma tarefa de classificação.
 
 |Métrica principal|DESCRIÇÃO|Cálculo|Parâmetros adicionais
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC é a área embaixo da Curva característica operacional do receptor. Macro é a média aritmética do AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC é a área embaixo da Curva característica operacional do receptor. Micro é calculado globalmente combinando os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | AUC é a área embaixo da Curva característica operacional do receptor. Ponderada é a média aritmética da pontuação para cada classe, ponderada pelo número de instâncias verdadeiras em cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
@@ -298,7 +299,7 @@ weighted_accuracy|Precisão ponderada é a precisão em que o peso dado a cada e
 As métricas a seguir são salvas em cada iteração para uma tarefa de regressão ou de previsão.
 
 |Métrica principal|DESCRIÇÃO|Cálculo|Parâmetros adicionais
---|--|--|--|--|
+--|--|--|--|
 explained_variance|A variação explicada é a proporção na qual um modelo matemático responde pela variação de determinado conjunto de dados. É o percentual de redução na variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, ela é igual à variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
 r2_score|R2 é o coeficiente de determinação ou a redução de percentual em erros quadráticos, comparado a um modelo de linha de base que gera a média. Quando a média dos erros é 0, ela é igual à variação explicada.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
 spearman_correlation|Correlação de Spearman é uma medida não paramétrica da monotonicidade da relação entre dois conjuntos de dados. Diferentemente da correlação de Pearson, a correlação de Spearman não supõe que os dois conjuntos de dados estão distribuídos normalmente. Como outros coeficientes de correlação, esse varia entre -1 e +1 com 0 implicando nenhuma correlação. As correlações de -1 ou +1 implicam uma relação monotônica exata. Correlações positivas implicam que, à medida que x aumenta, y também. Correlações negativas implicam que, à medida que x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhum|
@@ -309,7 +310,7 @@ normalized_median_absolute_error|Erro absoluto mediano normalizado é o Erro abs
 root_mean_squared_error|A raiz do erro quadrático médio é a raiz quadrada da diferença esperada ao quadrado entre a média e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhum|
 normalized_root_mean_squared_error|A raiz do erro quadrático médio normalizado é a raiz do erro quadrático médio dividida pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dividir pelo intervalo dos dados|
 root_mean_squared_log_error|A raiz do erro de log quadrático médio é a raiz quadrada do erro logarítmico quadrático esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhum|
-normalized_root_mean_squared_log_error|A raiz do erro de log quadrático médio normalizado é a raiz do erro de log quadrático médio dividida pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividir pelo intervalo dos dados|
+normalized_root_mean_squared_log_error|A raiz do erro de log quadrático médio normalizada é a raiz do erro de log quadrático médio dividida pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividir pelo intervalo dos dados|
 
 ## <a name="explain-the-model"></a>Explicar o modelo
 
@@ -321,7 +322,7 @@ Há duas maneiras de gerar a importância do recurso.
 
 *   Quando um experimento é concluído, é possível usar o método `explain_model` em qualquer iteração.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -338,7 +339,7 @@ Há duas maneiras de gerar a importância do recurso.
 
 *   Para exibir a importância do recurso para todas as iterações, defina o sinalizador `model_explainability` como `True` em AutoMLConfig.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -355,7 +356,7 @@ Há duas maneiras de gerar a importância do recurso.
 
     Quando terminar, será possível usar o método retrieve_model_explanation para recuperar a importância do recurso para uma iteração específica.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

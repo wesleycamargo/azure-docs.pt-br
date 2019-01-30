@@ -4,7 +4,7 @@ description: Criar um certificado LDAP seguro para um Azure AD Domain Services g
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: a97b16451392ce0e84eb7b49a6fc71fb03adab12
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d7fbfda9249f8276feed13204e8d6b1062fe2672
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157285"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846346"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Criar um. Arquivo PFX, com o certificado LDAPS (LDAP) seguro para um domínio gerenciado
 
@@ -28,7 +28,7 @@ ms.locfileid: "50157285"
 Concluir [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
-## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2 – exportar o certificado LDAP seguro para um arquivo .PFX
+## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2: Exportar o certificado LDAP seguro para um arquivo .PFX
 Antes de iniciar esta tarefa,obtenha o certificado LDAP seguro de sua autoridade de certificação pública ou se criou um certificado autoassinado.
 
 Para exportar o certificado LDAPS para um. arquivo .PFX:

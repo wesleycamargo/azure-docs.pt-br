@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o etouches | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao etouches | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o etouches.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 6850763aa13e30265ca055482917edd28e4759d6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e4dcc91ecafab6fc0b7864658b0f7724ec04bf2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425030"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813909"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutorial: integração do Azure Active Directory com o etouches
+# <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutorial: Integração do Azure Active Directory ao etouches
 
 Neste tutorial, você aprenderá a integrar o etouches ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o etouches da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -109,7 +109,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do etouches](./media/etouches-tutorial/tutorial_etouches_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.eiseverywhere.com/<instance name>`
 
@@ -127,7 +127,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | ------------------- | -------------------- |
     | Email | user.mail |    
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Adicionar Atributo](./media/etouches-tutorial/tutorial_attribute_04.png)
 
@@ -151,7 +151,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![configuração do etouches](./media/etouches-tutorial/tutorial_etouches_06.png) 
 
-    a. Faça logon no aplicativo **etouches** usando os direitos de Administrador.
+     a. Faça logon no aplicativo **etouches** usando os direitos de Administrador.
    
     b. Vá para a configuração de **SAML**.
 
@@ -170,7 +170,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     i. Copie o valor da **ACS/URL de SSO** e cole-o na caixa de texto **URL de Entrada**, que está na seção **Domínio e URLs do etouches** no Portal do Azure.
    
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -196,7 +196,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![A caixa de diálogo Usuário](./media/etouches-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

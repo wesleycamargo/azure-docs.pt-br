@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao IMPAC Risk Manager | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao IMPAC Risk Manager | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o IMPAC Risk Manager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c086d58a7de4897f93699d2c22b6598896eb50e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ca0ea482b1cfb2f7af962ae1b7537f79bb60a62b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434473"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823140"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: integração do Azure Active Directory ao IMPAC Risk Manager
+# <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Azure Active Directory ao IMPAC Risk Manager
 
 Neste tutorial, você aprenderá a integrar o IMPAC Risk Manager ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o IMPAC Risk Manager da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do IMPAC Risk Manager](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url_new.png)
 
-    a. Na caixa de texto **Identificador**, digite um valor fornecido pelo IMPAC
+     a. Na caixa de texto **Identificador**, digite um valor fornecido pelo IMPAC
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
     | Ambiente | Padrão de URL |
@@ -152,7 +152,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único no lado do **IMPAC Risk Manager**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML** e **URL do Serviço de Logon Único SAML** para a [equipe de suporte do IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -188,7 +188,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-impac-risk-manager-test-user"></a>Criar um usuário de teste do IMPAC Risk Manager
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no IMPAC Risk Manager. Trabalhe com a [equipe de suporte do IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz) para adicionar os usuários na plataforma do IMPAC Risk Manager. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no IMPAC Risk Manager. Trabalhe com a [equipe de suporte do IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz) para adicionar os usuários à plataforma do IMPAC Risk Manager. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -225,7 +225,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do IMPAC Risk Manager no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo IMPAC Risk Manager.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

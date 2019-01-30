@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788541"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451214"
 ---
 # <a name="saas-application-technical-info-tab"></a>Guia Informações Técnicas para aplicativo SaaS
 
@@ -54,7 +54,7 @@ A tabela a seguir descreve os campos obrigatórios para Venda por meio da Micros
 |     Instruções de introdução              |   Orientações para compartilhar com seus clientes para ajudá-los a se conectar ao aplicativo SaaS. Marcas HTML básicas são permitidas, por exemplo: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, etc.                |
 |    URL da página de aterrissagem  |   A URL do site para o qual você direcionará seus clientes após a aquisição no portal do Azure. Essa URL também será o ponto de extremidade que receberá as APIs de conexão para facilitar o comércio com a Microsoft.                |
 |  Webhook de conexão    |  Para todos os eventos assíncronos que a Microsoft precisa para enviar para você em nome do cliente (exemplo: Assinatura do Azure está inválida), exigimos que você forneça um webhook de conexão. Se você ainda não tiver um sistema de webhooks em vigor, a configuração mais simples é definir um Aplicativo de lógica de ponto de extremidade HTTP que atenderá todos os eventos que são postados nele e, em seguida, tratá-os adequadamente. Para saber mais, confira <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos</a>                |
-|  ID de locatário do Azure AD e ID do aplicativo      |   No portal do Azure, exigimos que você crie um Aplicativo do Active Directory para que possamos validar que a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para esses campos, crie um Aplicativo do AD e cole a ID do locatário e a ID do aplicativo correspondentes necessárias. Observe que a ID do aplicativo é associada a yoaur publisherID. Portanto, verifique a mesma ID de aplicativo em todos as ofertas.             |
+|  ID de locatário do Azure AD e ID do aplicativo      |   No portal do Azure, exigimos que você crie um Aplicativo do Active Directory para que possamos validar que a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para esses campos, crie um Aplicativo do AD e cole a ID do locatário e a ID do aplicativo correspondentes necessárias. Observe que a ID do aplicativo é associada ao seu publisherID. Portanto, verifique a mesma ID de aplicativo em todos as ofertas.             |
 
 
 Por fim, se você selecionar **Vender por meio da Microsoft**, há outra guia Nova oferta denominada **Planos**. 

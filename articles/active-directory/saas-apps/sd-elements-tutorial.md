@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f0386307-bb3b-4810-8d4b-d0bfebda04f4
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d5c830df47ff212d2f4d93eb48001ce3a3e2207
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93f838ac846415de0f3caf14b36f4bdf36b241ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446917"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814793"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Active Directory do Azure com SD Elements
+# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Azure Active Directory com o SD Elements
 
 Neste tutorial, você aprende a integrar o SD Elements ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando elementos SD da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -88,7 +88,7 @@ No SD Elements, atribua o valor do **nome de usuário** no Azure AD como o valor
 
 Para configurar e testar o logon único do Azure AD com o SD Elements, é preciso concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 1. **[Criando um usuário de teste do SD Elements](#creating-a-sd-elements-test-user)** – para ter um equivalente de Brenda Fernandes no SD Elements que esteja vinculado à representação de usuário do Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
@@ -131,7 +131,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | nome |user.givenname |
     | sobrenome |user.surname |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_officespace_04.png)
 
@@ -167,7 +167,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sd-elements_10.png) 
    
-    a. Como **Tipo de SSO**, selecione **SAML**.
+     a. Como **Tipo de SSO**, selecione **SAML**.
    
     b. Na caixa de texto **ID da Entidade do Provedor de Identidade**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure. 
    
@@ -176,7 +176,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     d. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -230,7 +230,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no SD Ele
    
     ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. Na caixa de texto **Email**, insira o email do usuário, como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Email**, insira o email do usuário, como **brittasimon@contoso.com**.
    
     b. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
    

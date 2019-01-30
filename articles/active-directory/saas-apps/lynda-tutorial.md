@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f6c92789-8b64-4049-bac9-8cb928398433
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 12f61e30321514b6e1283e04c5723d9fe2a4e054
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b6d9e52063fe83853b50fc21e7db2461facc841
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449597"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825435"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Tutorial: Integração do Active Directory do Azure com o Lynda.com
+# <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Tutorial: Integração do Azure Active Directory com o Lynda.com
 
 Neste tutorial, você aprenderá a integrar o Lynda.com ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Lynda.com da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -200,7 +200,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para saber mais sobre o Painel de Acesso, confira  [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

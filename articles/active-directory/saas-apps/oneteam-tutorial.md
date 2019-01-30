@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2e94916c-64ae-4e1a-a8b5-bc6ef7d28c29
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 76b7c2ac18a683ccbe07c7c4cdc750399d8466c2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e44cd26e24c19c38a575f64eee590587f9464ba
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446964"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821100"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: integração do Azure Active Directory com o Oneteam
+# <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integração do Azure Active Directory com o Oneteam
 
 Neste tutorial, você aprenderá a integrar o Oneteam ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Oneteam da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/oneteam-tutorial/tutorial_oneteam_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.one-team.io/teams/<team name>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.one-team.io/teams/<team name>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
@@ -138,7 +138,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para obter o SSO configurado para o seu aplicativo, você pode gerar o tíquete de suporte com a [equipe de suporte de Oneteam](https://support.one-team.com/hc/requests/new) e fornecer a eles os **metadados** baixados. 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -216,7 +216,7 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao Oneteam para que el
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Oneteam no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Oneteam.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

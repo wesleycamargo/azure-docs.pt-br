@@ -3,19 +3,19 @@ title: Proteger seus serviços RESTful usando autenticação básica HTTP no Azu
 description: Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409296"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850668"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
 
@@ -30,7 +30,7 @@ Para obter mais informações, consulte [Autenticação básica na ASP.NET Web A
 ## <a name="prerequisites"></a>Pré-requisitos
 Execute as etapas descritas no artigo [Integrar as trocas de declarações da API REST ao percurso do usuário do Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).
 
-## <a name="step-1-add-authentication-support"></a>Etapa 1: Adicionar suporte à autenticação
+## <a name="step-1-add-authentication-support"></a>Etapa 1: Adicionar suporte a autenticação
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Etapa 1.1: Adicionar configurações de aplicativo ao arquivo web.config do projeto
 1. Abra o projeto do Visual Studio criado anteriormente. 
@@ -54,7 +54,7 @@ Execute as etapas descritas no artigo [Integrar as trocas de declarações da AP
     [System.Convert]::ToBase64String($bytes)
     ```
 
-### <a name="step-12-install-owin-libraries"></a>Etapa 1.2 Instalar bibliotecas OWIN
+### <a name="step-12-install-owin-libraries"></a>Etapa 1.2: Instalar bibliotecas OWIN
 Para começar, adicione os pacotes do NuGet de middleware do OWIN ao projeto usando o Console do Gerenciador de Pacotes do Visual Studio:
 
 ```
@@ -63,7 +63,7 @@ PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-### <a name="step-13-add-an-authentication-middleware-class"></a>Etapa 1.3 Adicionar uma classe do middleware de autenticação
+### <a name="step-13-add-an-authentication-middleware-class"></a>Etapa 1.3: Adicionar uma classe do middleware de autenticação
 Adicione a classe `ClientAuthMiddleware.cs` à pasta *App_Start*. Para fazer isso:
 
 1. Clique com o botão direito do mouse na pasta *App_Start*, selecione **Adicionar** e selecione **Classe**.
@@ -186,7 +186,7 @@ Adicione a classe `ClientAuthMiddleware.cs` à pasta *App_Start*. Para fazer iss
     }
     ```
 
-### <a name="step-14-add-an-owin-startup-class"></a>Etapa 1.4: Adicionar uma classe de inicialização OWIN
+### <a name="step-14-add-an-owin-startup-class"></a>Etapa 1.4: Adicionar uma classe de inicialização da OWIN
 Adicione uma classe de inicialização OWIN chamada `Startup.cs` à API. Para fazer isso:
 1. Clique com o botão direito do mouse no projeto, selecione **Adicionar** > **Novo Item** e pesquise por **OWIN**.
 
@@ -287,7 +287,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
     
     ![Adicionar elementos XML de autenticação básica](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>Etapa 5: Carregar a política para o seu locatário
+## <a name="step-5-upload-the-policy-to-your-tenant"></a>Etapa 5: Carregar a política ao seu locatário
 
 1. No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra **Azure AD B2C**.
 
@@ -301,7 +301,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 6. Carregue o arquivo *TrustFrameworkExtensions.xml* e verifique se a validação dele é aprovada.
 
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Etapa 6: Testar a política personalizada usando Executar Agora
+## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Etapa 6: Testar a política personalizada usando a opção Executar Agora
 1. Abra **Configurações do Azure AD B2C** e selecione **Estrutura de Experiência de Identidade**.
 
     >[!NOTE]

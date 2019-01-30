@@ -4,7 +4,7 @@ description: Associar a um domínio gerenciado do Azure Active Directory Domain 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: e421d3219f50c0dbb635dfe5b9cb3e9a24d4fa61
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1266a464e315dfb5b381cc1925591c80aed7f74
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158527"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856852"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Associar a um domínio gerenciado do Azure Active Directory Domain Services usando LDAP seguro (LDAPS)
 
@@ -28,7 +28,7 @@ ms.locfileid: "50158527"
 Concluir [Tarefa 4: configurar o DNS para acessar o domínio gerenciado pela Internet](active-directory-ds-ldaps-configure-dns.md).
 
 
-## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Tarefa 5: associar para o domínio gerenciado por LDAP usando LDP.exe
+## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Tarefa 5: Ligar para o domínio gerenciado por LDAP usando LDP.exe
 Você pode usar a ferramenta LDP.exe que está incluída no pacote da ferramenta de administração de servidor remoto para associar e pesquisar através de LDAP.
 
 Primeiro, abra o LDP e conecte-se ao domínio gerenciado. Clique em **Conexão** e clique em **conectar...**  no menu. Especifique o nome de domínio DNS do domínio gerenciado. Especifique a porta a ser usada para conexões. Para conexões LDAP, use a porta 389. Para LDAPS conexões que usam a porta 636. Clique em **Okey** botão para se conectar ao domínio gerenciado.
@@ -46,7 +46,7 @@ Selecione **exibição**e, em seguida, selecione **árvore** no menu. Deixe o ca
 Mais informações - [Noções básicas de consulta LDAP](https://technet.microsoft.com/library/aa996205.aspx)
 
 
-## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Tarefa 6 – bloquear o acesso LDAP seguro a seu domínio gerenciado pela Internet
+## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Tarefa 6: Bloquear o acesso LDAP seguro a seu domínio gerenciado pela Internet
 > [!NOTE]
 > Se você não habilitou o acesso LDAPS para o domínio gerenciado pela Internet, ignore esta tarefa de configuração.
 >

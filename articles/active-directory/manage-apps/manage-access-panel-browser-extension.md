@@ -4,7 +4,7 @@ description: Como usar a política de grupo para implantar o complemento do Inte
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715033"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471881"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Resolução de problemas da extensão do painel de acesso do Internet Explorer
 Este artigo ajuda você a solucionar os problemas a seguir:
@@ -28,7 +28,7 @@ Este artigo ajuda você a solucionar os problemas a seguir:
 * Você não consegue acessar seus aplicativos por meio do portal de meus aplicativos ao usar o Internet Explorer.
 * Consulte a mensagem "Instalação de Software", mesmo que você já tenha instalado o software.
 
-Se você for um administrador, consulte também: [como implantar a extensão do painel de acesso para o Internet Explorer usando a política de grupo](deploy-access-panel-browser-extension.md)
+Se você é um administrador, confira também: [Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>Execute a ferramenta de diagnóstico
 Você pode diagnosticar problemas de instalação com a extensão do painel de acesso fazendo download e executando a ferramenta de diagnóstico do painel de acesso:

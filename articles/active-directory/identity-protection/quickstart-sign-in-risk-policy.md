@@ -5,7 +5,7 @@ services: active-directory
 keywords: identity protection, acesso condicional a aplicativos, acesso condicional com Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822119"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468481"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detectado com o Azure Active Directory Identity Protection  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Início Rápido: Bloquear o acesso quando um risco de sessão for detectado com o Azure Active Directory Identity Protection  
 
 Para manter o ambiente protegido, convém bloquear a conexão de usuários suspeitos. O Azure AD (Azure Active Directory) Identity Protection analisa cada entrada e calcula a probabilidade de uma tentativa de entrada não ter sido realizada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado níveis de risco de entrada. Ao definir a condição de risco de entrada, é possível configurar uma política de acesso condicional de risco de entrada para responder a níveis de risco de entrada específicos. 
 

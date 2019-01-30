@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao PlanMyLeave | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o PlanMyLeave | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PlanMyLeave.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: b0d31cbe-7ae2-488b-9cf3-4927391fa744
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f5dde2d99844ecc71d72207296cf8c7dac29e46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0f4c26ac993954d1f3a742bb850a4e4717a93077
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424333"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820947"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: integração do Azure Active Directory com o PlanMyLeave
+# <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: Integração do Azure Active Directory com o PlanMyLeave
 
 Neste tutorial, você aprenderá a integrar o PlanMyLeave ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando PlanMyLeave da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do PlanMyLeave](./media/planmyleave-tutorial/tutorial_planmyleave_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com`
 
@@ -142,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único no lado do aplicativo](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-    a.  Na caixa de texto **URL de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
+     a.  Na caixa de texto **URL de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
 
     b.  Abra os metadados baixados, copie o valor **X509Certificate** e, em seguida, cole-o na caixa de texto **Certificado**.
 
@@ -151,7 +151,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     d. Clique em **Salvar**. 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -229,7 +229,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco PlanMyLeave no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo PlanMyLeave.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

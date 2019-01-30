@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Shmoop for Schools | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Shmoop For Schools | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Shmoop for Schools.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045950"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818941"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com o Shmoop for Schools
+# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com o Shmoop For Schools
 
 Neste tutorial, você aprenderá a integrar o Shmoop for Schools ao Azure Active Directory (Azure AD).
 
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
-    a. Na caixa **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+     a. Na caixa **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://schools.shmoop.com/<uniqueid>`
 
@@ -120,7 +120,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     ![Configurar o logon único](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > O Shmoop for Schools dá suporte a duas funções para os usuários: **Professor** e **Aluno**. Configure essas funções no Azure AD para que os usuários possam ser atribuídos às funções apropriadas. Para entender como configurar funções no Azure AD, confira [Gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+    > O Shmoop for Schools dá suporte a duas funções para usuários: **Professor** e **Aluno**. Configure essas funções no Azure AD para que os usuários possam ser atribuídos às funções apropriadas. Para entender como configurar funções no Azure AD, confira [Gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
     
 5. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostrado na imagem anterior.  Em seguida, execute as etapas a seguir:
 
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | -------------- | --------------- |
     | função           | user.assignedroles |
 
-    a. Para abrir a caixa de diálogo **Adicionar Atributo**, selecione **Adicionar Atributo**.
+     a. Para abrir a caixa de diálogo **Adicionar Atributo**, selecione **Adicionar Atributo**.
     
     ![Configurar o logon único ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
@@ -146,7 +146,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+7. Na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
     ![O link de download do Certificado](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -227,7 +227,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Quando você seleciona o bloco **Shmoop For Schools** no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Shmoop For Schools.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

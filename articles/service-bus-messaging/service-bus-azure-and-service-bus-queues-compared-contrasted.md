@@ -3,29 +3,29 @@ title: Comparações e contrastes entre filas do Armazenamento do Azure e filas 
 description: Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261053"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852789"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
-Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
+Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure atualmente: filas de Armazenamento e filas de Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
 
 ## <a name="introduction"></a>Introdução
-O Azure dá suporte a dois tipos de mecanismo de fila: **filas do Armazenamento** e **filas do Barramento de Serviço**.
+O Azure oferece suporte a dois tipos de mecanismos de fila: **filas de Armazenamento** e **filas de Barramento de Serviço**.
 
 As **filas do Armazenamento**, que fazem parte da infraestrutura do [armazenamento do Azure](https://azure.microsoft.com/services/storage/), apresentam uma interface GET/PUT/PEEK baseada em REST, oferecendo um sistema de mensagens confiável e persistente em e entre serviços.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Klue | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Klue | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Klue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123049"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824789"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory ao Klue
+# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory com o Klue
 
 Neste tutorial, você aprende a integrar o Klue ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Klue por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -115,7 +115,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/klue-tutorial/tutorial_klue_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:klue:<Customer ID>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:klue:<Customer ID>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
@@ -140,7 +140,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | last_name           | user.surname |
     | email               | user.userprincipalname|
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/klue-tutorial/tutorial_attribute_04.png)
 
@@ -206,7 +206,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Klue. O Klue dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o Klue, caso ele ainda não exista.
 
 > [!Note]
-> Se você precisar criar um usuário manualmente, contate a [equipe de suporte do Klue](mailto:support@klue.com).
+> Se você precisar criar um usuário manualmente, entre em contato com a  [equipe de suporte do Klue](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -243,7 +243,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do Klue no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo Klue.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468387"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -67,13 +67,16 @@ A licença fornecida com o modelo OVA é uma licença de avaliação válida por
 3. Em **Selecionar origem**, insira o local do OVF baixado.
 4. Em **Revisar detalhes**, selecione **Avançar**.
 5. Em **Selecionar nome e pasta** e **Selecionar configuração**, aceite as configurações padrão.
-6. Em **selecionar armazenamento**, para melhor desempenho, selecione **Thick Provision Eager Zeroed** em **Selecionar formato de disco virtual**.
+6. Em **selecionar armazenamento**, para melhor desempenho, selecione **Thick Provision Eager Zeroed** em **Selecionar formato de disco virtual**. O uso da opção de provisionamento dinâmico pode afetar o desempenho do servidor de configuração.
 7. No restante das páginas do assistente, aceite as configurações padrão.
 8. Em **Pronto para concluir**:
 
     * Para configurar a VM com as configurações padrão, selecione **Ligar após a implantação** > **Concluir**.
 
     * Para adicionar uma interface de rede adicional, desmarque **Ligar após a implantação** e, em seguida, selecione **Concluir**. Por padrão, o modelo de servidor de configuração é implantado com uma única NIC. É possível incluir NICs adicionais após a implantação.
+
+> [!IMPORTANT]
+> Não altere as configurações de recursos (memória/núcleos/restrição de CPU), nem modifique/exclua serviços ou arquivos instalados no servidor de configuração depois da implantação. Isso afetará o registro no servidor de configuração com os serviços do Azure e o desempenho do servidor de configuração.
 
 ## <a name="add-an-additional-adapter"></a>Adicionar mais um adaptador
 
@@ -119,7 +122,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
-Para atualizar o servidor de configuração para a versão mais recente, siga estas [etapas](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Para atualizar o servidor de configuração para a versão mais recente, siga estas [etapas](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, clique [aqui](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>Gerenciar o servidor de configuração
 
@@ -141,20 +144,28 @@ Para evitar interrupções na replicação em andamento, assegure-se de que o en
     Veja [Arquitetura de replicação do VMware para o Azure](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e suas funcionalidades.
 5. Onde obter a última versão do servidor de Configuração?
 
-    Para obter as etapas para atualizar o servidor de configuração por meio do portal, veja [Atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Baixe-o diretamente no [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
+    Para obter as etapas para atualizar o servidor de configuração por meio do portal, veja [Atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, confira [aqui](https://aka.ms/asr_how_to_upgrade).
 6. Em que local posso baixar a frase secreta para o servidor de configuração?
 
     Veja [este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para baixar a frase secreta.
-7. Em que local posso baixar as chaves de registro do cofre?
+7. Posso alterar a frase secreta?
+
+    **Não**, **recomendamos fortemente que você não altere a frase secreta** do servidor de configuração. Qualquer alteração na frase secreta interrompe a replicação de máquinas protegidas e leva a um estado de integridade crítico.
+8. Em que local posso baixar as chaves de registro do cofre?
 
     No **Cofre dos Serviços de Recuperação**, **Gerenciar** > **Infraestrutura do Site Recovery** > **Servidores de Configuração**. Em Servidores, selecione **Baixar chave de registro** para baixar o arquivo de credenciais do cofre.
-8. Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
+9. Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
 
     **Não**, não há suporte para o uso de um componente de servidor de configuração clonado.
 
-9. Posso alterar o IP do servidor de configuração?
+10. Posso alterar o IP do servidor de configuração?
 
     **Não**, é altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs estáticos e não IPs DHCP.
+11. Posso configurar o servidor de configuração no Azure?
+
+    É recomendável configurar o servidor de configuração no ambiente local com uma linha de visão direta com o v-Center e para minimizar as latências de transferência de dados. É possível fazer backups agendados do servidor de configuração para [fins de failback](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Para obter mais respostas a perguntas frequentes sobre o servidor de configuração, confira a [documentação sobre perguntas comuns a respeito do servidor de configuração](vmware-azure-common-questions.md#configuration-server).
 
 ## <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 

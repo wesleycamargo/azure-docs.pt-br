@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o GaggleAMP | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o GaggleAMP | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o GaggleAMP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 828dd1e1dcef900a7105143088f6782032b4f22e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fdec0ecf829bbceddd0dd2c876b5fdff9986c358
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826183"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Active Directory do Azure com o GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Azure Active Directory com o GaggleAMP
 
 Neste tutorial, você aprende a integrar o GaggleAMP ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do GaggleAMP da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -141,7 +141,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Logon único do GaggleAMP](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    a. Selecione **Outro** formulário no menu suspenso do **Provedor de identidade**.
+     a. Selecione **Outro** formulário no menu suspenso do **Provedor de identidade**.
     
     b. Na caixa de texto **Emissor do Provedor de Identidade**, cole o valor da **URL do Emissor do Certificado** que você copiou do Portal do Azure.
     

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581435"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849780"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito do Azure
 
@@ -32,7 +32,7 @@ No Centro de Contas, é possível adicionar um novo cartão de crédito, atualiz
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Adicionar um novo cartão de crédito ou débito
 
-1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
+1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions) como o [Administrador da Conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione uma assinatura.
 1. No lado direito da página, selecione **Gerenciar métodos de pagamento**.
 
@@ -49,7 +49,7 @@ Se você receber um erro depois de adicionar o cartão de crédito, consulte [Ca
 
 Caso seu cartão de crédito seja renovado e o número permaneça o mesmo, atualize os detalhes do cartão de crédito existente, como a data de vencimento. Se o número de seu cartão de crédito for alterado devido a perda, roubo ou vencimento do cartão, siga as etapas da seção [Adicionar um cartão de crédito como uma forma de pagamento](#addcard). Você não precisa atualizar o CVV.
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
+1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o [Administrador da Conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione a assinatura que está vinculada ao cartão.
 1. Selecione **Gerenciar formas de pagamento**.
 1. Selecione **Editar** ao lado do cartão que você deseja atualizar.
@@ -58,14 +58,14 @@ Caso seu cartão de crédito seja renovado e o número permaneça o mesmo, atual
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Usar um cartão de crédito diferente para a assinatura do Azure
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
+1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o [Administrador da Conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione a assinatura que está vinculada ao cartão.
 1. No lado direito da página, selecione **Gerenciar métodos de pagamento**.
 1. Clique em **Usar** ao lado do cartão que você deseja usar. Isso também atualiza quaisquer outras assinaturas associadas atualmente a esse cartão. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Remover um cartão de crédito ou débito da conta
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta.
+1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o [Administrador da Conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione a assinatura que está vinculada ao cartão.
 3. No lado direito da página, selecione **Gerenciar métodos de pagamento**.
 4. Clique em **Excluir** no cartão de crédito que você deseja excluir.
@@ -102,6 +102,6 @@ Infelizmente, o Azure não dá suporte a pagamentos únicos no momento para cart
 
 Para adicionar ou atualizar a ID de imposto, visite [**Perfil** no Centro de Contas do Azure](https://account.azure.com/Profile) e selecione **Registro fiscal**. Essa ID de imposto é usada para cálculos de isenção de impostos e aparece em sua fatura.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

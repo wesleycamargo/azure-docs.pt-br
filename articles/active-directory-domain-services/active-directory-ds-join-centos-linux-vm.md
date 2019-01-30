@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: ingressar uma VM CentOS em um domínio gerenciado | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Unir uma VM do CentOS a um domínio gerenciado | Microsoft Docs'
 description: Ingressar uma máquina virtual CentOS Linux aos Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cfa0ab1fdf72e3d363b5845c8602b0bea7ff6a12
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3a321246c948c38abc5840fd4e2113a648151a21
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155177"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850392"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CentOS Linux em um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual CentOS Linux no Azure a um domínio gerenciado do Azure AD Domain Services.
@@ -87,7 +87,7 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     ```
 
     > [!NOTE]
-    > **Solução de problemas:** se *realm discover* não puder localizar o domínio gerenciado:  
+    > **Solução de problemas:** Se *realm discover* não puder localizar o domínio gerenciado:  
       * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).  
       * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
       * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.  

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: ''
+ms.openlocfilehash: 418d334133e1c223f2349ce79a51b229072c31e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332312"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475315"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerenciar o uso e custos do Log Analytics
 
@@ -168,7 +168,7 @@ Para obter uma lista de computadores que estão enviando **tipos de dados cobrad
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Use essas consultas `union withsource = tt *` com moderação como verificações em tipos de dados que são caros para executar. 
+Use estas consultas `union withsource = tt *` com moderação como verificações em tipos de dados que são caros para executar. 
 
 Isso pode ser estendido para retornar a contagem de computadores por hora que estão enviando tipos de dados cobrados:
 
@@ -335,4 +335,5 @@ Ao receber um alerta, use as etapas na seção a seguir para solucionar problema
 * Altere a [configuração do contador de desempenho](data-sources-performance-counters.md).
 * Para modificar as configurações de coleta de eventos, analise [configuração de log de eventos](data-sources-windows-events.md).
 * Para modificar as configurações de coleta de syslog, analise [configuração de syslog](data-sources-syslog.md).
+
 

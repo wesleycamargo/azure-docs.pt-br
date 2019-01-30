@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495056"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855815"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
@@ -40,7 +40,7 @@ A imagem do Marketplace usada para criar as VMs é Oracle:Oracle-Database-Ee:12.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure 
 
-Entre na sua assinatura do Azure usando o comando [az login](/cli/azure/reference-index#az_login) e siga as instruções na tela.
+Entre na sua assinatura do Azure usando o comando [az login](/cli/azure/reference-index) e siga as instruções na tela.
 
 ```azurecli
 az login
@@ -48,7 +48,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos usando o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Crie um grupo de recursos usando o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westus`:
 
@@ -688,6 +688,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial: criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
+[Tutorial: Criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)

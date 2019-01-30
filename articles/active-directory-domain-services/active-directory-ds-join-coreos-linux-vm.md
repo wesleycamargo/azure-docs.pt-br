@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: ingressar uma VM CoreOS Linux em um domínio gerenciado | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Unir uma VM do CoreOS Linux a um domínio gerenciado | Microsoft Docs'
 description: Ingressar uma máquina virtual CoreOS Linux aos Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0552085eb5ee5e5b3d1379482e9463a7ae802388
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a2b8c3c0c38349b4c68f85a32bddb2c9b3e60c6f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158441"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850671"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CoreOS Linux em um domínio gerenciado
 Este artigo mostra como ingressar uma máquina virtual CoreOS Linux a um domínio gerenciado do Azure AD Domain Services.
@@ -112,7 +112,7 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 > [!NOTE]
-> **Solução de problemas:** se *adcli* não puder localizar o domínio gerenciado:
+> **Solução de problemas:** Se *adcli* não puder localizar o domínio gerenciado:
   * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
   * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
   * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.

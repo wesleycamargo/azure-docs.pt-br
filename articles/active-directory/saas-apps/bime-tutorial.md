@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Bime | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Bime | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Bime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 966c5dcb6f45590fe1b6a8bb2d8b53c37aeed6b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f00d9e094f7ced7c8ac31e2e2dae1657db1e82f2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446588"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815814"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory ao Bime
+# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory com o Bime
 
 Neste tutorial, você aprenderá a integrar o Bime ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do Azure AD ao Bime, você precisará dos seguint
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Bime da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -141,7 +141,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
    
     ![Configurar Logon Único](./media/bime-tutorial/ic775559.png "Configurar Logon Único")
    
-    a. Selecione **Habilitar autenticação SAML**.
+     a. Selecione **Habilitar autenticação SAML**.
 
     b. Na caixa de texto **URL de Acesso Remoto**, cole o valor da **URL de Serviço de Logon Único SAML** copiado do portal do Azure.
 
@@ -150,7 +150,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     d. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -204,7 +204,7 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
    
     ![Detalhes do Usuário](./media/bime-tutorial/ic775563.png "Detalhes do Usuário")
    
-    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
  

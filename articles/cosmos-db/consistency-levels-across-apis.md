@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034328"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806990"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
@@ -24,15 +24,48 @@ As seções a seguir mostram o mapeamento entre a consistência de dados solicit
 
 ## <a id="cassandra-mapping"></a>O mapeamento entre os níveis de consistência do Apache Cassandra e o Azure Cosmos DB
 
-A tabela a seguir mostra a “consistência de leitura” entre o cliente do Apache Cassandra 4.x e o nível de consistência padrão no Azure Cosmos DB. A tabela mostra as implantações de região única e de várias regiões.
+Esta tabela mostra o mapeamento de consistência entre o Apache Cassandra e os níveis de consistência no Azure Cosmos DB. Para cada um dos níveis de consistência de Leitura e Gravação do Cassandra, o Nível de Consistência do Cosmos DB correspondente fornece garantias mais fortes, isto é, mais rígidas.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB (várias regiões)** | **Azure Cosmos DB (região única)** |
+A seguinte tabela mostra o **mapeamento de consistência de gravação** entre o Azure Cosmos DB e o Cassandra:
+
+| Cassandra | Azure Cosmos DB | Garantia |
 | - | - | - |
-| ONE, TWO, THREE | Prefixo consistente | Prefixo consistente |
-| LOCAL_ONE | Prefixo consistente | Prefixo consistente |
-| QUORUM, ALL, SERIAL | Desatualização limitada é o padrão. Forte em versão prévia privada. | Strong |
-| LOCAL_QUORUM | Bounded staleness | Strong |
-| LOCAL_SERIAL | Bounded staleness | Strong |
+|ALL|Strong  | Transação atômica |
+| EACH_QUORUM   | Strong    | Transação atômica | 
+| QUORUM, SERIAL |  Strong |    Transação atômica |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo consistente |Prefixo Coerente Global |
+| EACH_QUORUM   | Strong    | Transação atômica |
+| QUORUM, SERIAL |  Strong |    Transação atômica |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo consistente | Prefixo Coerente Global |
+| QUORUM, SERIAL | Strong   | Transação atômica |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo consistente | Prefixo Coerente Global |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Bounded staleness | <ul><li>Desatualização limitada.</li><li>No máximo, K versões ou T tempo anteriores.</li><li>Último valor lido confirmado na região.</li></ul> |
+| ONE, LOCAL_ONE, ANY   | Prefixo consistente | Prefixo Coerente por Região |
+
+A seguinte tabela mostra o **mapeamento de consistência de leitura** entre o Azure Cosmos DB e o Cassandra:
+
+| Cassandra | Azure Cosmos DB | Garantia |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Strong  | Transação atômica|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Strong |   Transação atômica |
+|LOCAL_ONE, ONE | Prefixo consistente | Prefixo Coerente Global |
+| ALL, QUORUM, SERIAL   | Strong    | Transação atômica |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Prefixo consistente   | Prefixo Coerente Global |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Prefixo consistente   | Prefixo Coerente Global |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Strong |   Transação atômica |
+| LOCAL_ONE, ONE    | Prefixo consistente | Prefixo Coerente Global|
+| ALL, QUORUM, SERIAL   Forte  Transação atômica
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefixo consistente  | Prefixo Coerente Global |
+|ALL    |Strong |Transação atômica |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Prefixo consistente  |Prefixo Coerente Global|
+|ALL, QUORUM, SERIAL    Forte  Transação atômica
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefixo consistente  |Prefixo Coerente Global |
+|ALL    |Strong | Transação atômica |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefixo consistente | Prefixo Coerente Global |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Bounded staleness   | <ul><li>Desatualização limitada.</li><li>No máximo, K versões ou T tempo anteriores. </li><li>Último valor lido confirmado na região.</li></ul>
+| LOCAL_ONE, ONE |Prefixo consistente | Prefixo Coerente por Região |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefixo consistente | Prefixo Coerente por Região |
+
 
 ## <a id="mongo-mapping"></a>Mapeamento entre os níveis de coerência do MongoDB 3.4 do Azure Cosmos DB
 

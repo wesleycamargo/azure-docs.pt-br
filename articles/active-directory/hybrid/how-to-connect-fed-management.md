@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, gerenciamento do AD FS, AAD Connect, Conectar, entrada, p
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244450"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463891"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -77,7 +77,7 @@ Você pode usar o Azure AD Connect para verificar a integridade atual da confian
 
 A configuração da ID de logon alternativa do AD FS consiste em duas etapas principais:
 1. **Configurar o conjunto certo de declarações de emissão**: as regras de declaração de emissão no objeto de confiança de terceira parte confiável do Azure AD são modificadas para usar o atributo UserPrincipalName selecionado como a ID alternativa do usuário.
-2. **Habilitar a ID de logon alternativa na configuração do AD FS**: a configuração do AD FS é atualizada, de forma que o AD FS possa consultar usuários nas florestas apropriadas usando a ID alternativa. Há suporte para essa configuração no AD FS no Windows Server 2012 R2 (com KB2919355) ou posterior. Se os servidores do AD FS forem 2012 R2, o Azure AD Connect verificará a presença do KB obrigatório. Se o KB não for detectado, um aviso será exibido após a conclusão da configuração, conforme mostrado abaixo:
+2. **Habilitar a ID de logon alternativa na configuração do AD FS**: a configuração do AD FS é atualizada para que este possa consultar usuários nas florestas apropriadas usando a ID alternativa. Há suporte para essa configuração no AD FS no Windows Server 2012 R2 (com KB2919355) ou posterior. Se os servidores do AD FS forem 2012 R2, o Azure AD Connect verificará a presença do KB obrigatório. Se o KB não for detectado, um aviso será exibido após a conclusão da configuração, conforme mostrado abaixo:
 
     ![Aviso de ausência de KB no 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 

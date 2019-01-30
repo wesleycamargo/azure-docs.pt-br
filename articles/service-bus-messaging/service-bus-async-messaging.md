@@ -3,23 +3,23 @@ title: Sistema de mensagens assíncronas do Barramento de Serviço | Microsoft D
 description: Descrição da mensagem assíncrona do Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391456"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845071"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e alta disponibilidade
 
@@ -77,7 +77,7 @@ O recurso de [namespaces emparelhados][paired namespaces] dá suporte a cenário
 
 * Namespace principal: o namespace com o qual seu aplicativo interage para operações de envio e recebimento.
 * Namespace secundário: o namespace que atua como um backup para o namespace principal. A lógica de aplicativo não interage com esse namespace.
-* Intervalo de failover: o tempo necessário para aceitar falhas normais antes que o aplicativo alterne do namespace principal para o namespace secundário.
+* Intervalo de failover: o tempo de aceitação de falhas normais antes que o aplicativo alterne do namespace principal para o namespace secundário.
 
 Namespaces emparelhados dão suporte à *disponibilidade de envio*. A disponibilidade de envio preserva a capacidade de enviar mensagens. Para usar a disponibilidade de envio, seu aplicativo deve atender aos seguintes requisitos:
 
@@ -111,7 +111,7 @@ Esses parâmetros têm os seguintes significados:
 
 * *secondaryNamespaceManager*: uma instância inicializada de [NamespaceManager][NamespaceManager] para o namespace secundário que o método [PairNamespaceAsync][PairNamespaceAsync] pode usar para configurar o namespace secundário. O gerenciador de namespace é usado para obter a lista de filas no namespace e garantir que as filas obrigatórias de lista de pendências existam. Se essas filas não existirem, elas serão criadas. [NamespaceManager][NamespaceManager] requer a capacidade de criar um token com a declaração **Manage**.
 * *messagingFactory*: a instância de [MessagingFactory][MessagingFactory] para o namespace secundário. O objeto [MessagingFactory][MessagingFactory] é usado para enviar e, se a propriedade [EnableSyphon][EnableSyphon] estiver definida como **true**, receber mensagens de filas de lista de pendências.
-* *backlogQueueCount*: o número de filas de lista de pendências a serem criadas. Esse valor deve ser pelo menos 1. Ao serem enviadas mensagens à lista de pendências, umas dessas filas é escolhida aleatoriamente. Se você definir o valor como 1, somente uma fila poderá ser usada. Quando isso acontece e a fila de lista de pendências gera erros, o cliente não pode tentar uma fila de lista de pendências diferente e pode não enviar a mensagem. É recomendável definir esse valor como algum valor maior e usar como padrão o valor de 10. Você pode alterar isso para um valor maior ou menor, dependendo de quantos dados seu aplicativo envia por dia. Cada fila de lista de pendências pode manter até 5 GB de mensagens.
+* *backlogQueueCount*: o número de filas de listas de pendências a serem criadas. Esse valor deve ser pelo menos 1. Ao serem enviadas mensagens à lista de pendências, umas dessas filas é escolhida aleatoriamente. Se você definir o valor como 1, somente uma fila poderá ser usada. Quando isso acontece e a fila de lista de pendências gera erros, o cliente não pode tentar uma fila de lista de pendências diferente e pode não enviar a mensagem. É recomendável definir esse valor como algum valor maior e usar como padrão o valor de 10. Você pode alterar isso para um valor maior ou menor, dependendo de quantos dados seu aplicativo envia por dia. Cada fila de lista de pendências pode manter até 5 GB de mensagens.
 * *failoverInterval*: o tempo durante o qual você aceitará falhas no namespace principal antes de alternar qualquer entidade para o namespace secundário. Os failovers ocorrem em entidades individuais. Entidades em um único namespace frequentemente estão em nós diferentes no Barramento de Serviço. Uma falha em uma entidade não implica falha em outra. Você pode definir esse valor como [System.TimeSpan.Zero][System.TimeSpan.Zero] para realizar o failover para o secundário imediatamente após a primeira falha não transitória. Falhas que disparam o temporizador de failover são qualquer [MessagingException][MessagingException] em que a propriedade [IsTransient][IsTransient] é falsa ou um [System.TimeoutException][System.TimeoutException]. Outras exceções, como [UnauthorizedAccessException][UnauthorizedAccessException], não causam o failover, pois indicam que o cliente está configurado incorretamente. Um [ServerBusyException][ServerBusyException] não causa failover porque o padrão correto é esperar 10 segundos e, em seguida, enviar a mensagem novamente.
 * *enableSyphon*: indica que esse emparelhamento específico também deve encaminhar mensagens do namespace secundário de volta ao namespace primário. Em geral, aplicativos que enviam mensagens devem definir esse valor como **false**; aplicativos que recebem mensagens devem definir esse valor como **true**. A razão disso é que, com frequência, há menos receptores de mensagens do que remetentes de mensagens. Dependendo do número de destinatários, você pode optar por ter uma única instância do aplicativo lidando com as tarefas de encaminhamento. Usar muitos receptores tem implicações de cobranças para cada fila de lista de pendências.
 

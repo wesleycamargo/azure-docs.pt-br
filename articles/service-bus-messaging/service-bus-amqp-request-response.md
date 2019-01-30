@@ -3,23 +3,23 @@ title: AMQP 1.0 em operações baseadas em solicitação-resposta do Barramento 
 description: Lista de operações baseadas em solicitação-resposta do Barramento de Serviço do Microsoft Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852468"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Barramento de Serviço do Microsoft Azure: operações baseadas em solicitação-resposta
 
@@ -188,14 +188,14 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – não há mais mensagens|  
 |statusDescription|string|Não |A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que contém um **mapa** com as seguintes entradas:  
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens na qual cada mapa representa uma mensagem.|  
+| da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens na qual cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
@@ -220,7 +220,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **amqp-value*
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens na qual cada mapa representa uma mensagem.|  
+| da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens na qual cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
@@ -308,14 +308,14 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – não há mais mensagens|  
 |statusDescription|string|Não |A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que contém um mapa com as seguintes entradas:  
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|expiração|timestamp|SIM|Nova expiração.|  
+|expiração| timestamp|SIM|Nova expiração.|  
   
 ### <a name="peek-session-message"></a>Espirar Mensagem da Sessão  
 
@@ -344,14 +344,14 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – não há mais mensagens|  
 |statusDescription|string|Não |A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que contém um mapa com as seguintes entradas:  
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens na qual cada mapa representa uma mensagem.|  
+| da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens na qual cada mapa representa uma mensagem.|  
   
  O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
@@ -439,7 +439,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **amqp-value*
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|timestamp|SIM|Um filtro para incluir apenas as sessões atualizadas após determinado tempo.|  
+|last-updated-time| timestamp|SIM|Um filtro para incluir apenas as sessões atualizadas após determinado tempo.|  
 |skip|int|SIM|Ignore um número de sessões.|  
 |top|int|SIM|Número máximo de sessões.|  
   
@@ -449,7 +449,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|SIM|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – não há mais mensagens|  
 |statusDescription|string|Não |A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que contém um **mapa** com as seguintes entradas:  
@@ -662,7 +662,7 @@ O corpo da mensagem de resposta deve consistir em uma seção **amqp-value** que
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens, em que cada mapa representa uma mensagem.|  
+| da nuvem para o dispositivo|lista de mapas|SIM|Lista de mensagens, em que cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as seguintes entradas:  
   

@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8a30ba7eee7653e4a098df706450c6a4328cce9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429141"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Azure Active Directory com o UserVoice
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar UserVoice pela galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de URLs e Domínio do UserVoice](./media/uservoice-tutorial/tutorial_uservoice_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
 
@@ -143,18 +143,18 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Editar autenticação de usuário](./media/uservoice-tutorial/ic777521.png "Editar autenticação de usuário")
    
-    a. Clique em **SSO (Logon Único)**.
+     a. Clique em **SSO (Logon Único)**.
  
     b. Cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure na caixa de texto **Entrada remota de SSO**.
 
     c. Cole o valor da **URL de Saída** copiado do portal do Azure na caixa de texto **Entrada remota de SSO**.
  
-    d. Cole o valor da **Impressão digital** copiado do portal do Azure na caixa de texto **Impressão digital de certificado SHA1 atual**.
+    d. Cole o valor da **Impressão digital** copiado do portal do Azure na caixa de texto  **Impressão digital de certificado SHA1 atual** .
     
     e. Clique em **Salvar Configurações de Autenticação**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -214,7 +214,7 @@ Para permitir que os usuários do Azure AD façam logon no UserVoice, eles devem
    
     ![Convidar administradores](./media/uservoice-tutorial/ic777814.png "Convidar administradores")
    
-    a. Na caixa de texto Emails, digite o endereço de email da conta que você deseja provisionar e clique em **Adicionar**.
+     a. Na caixa de texto Emails, digite o endereço de email da conta que você deseja provisionar e clique em **Adicionar**.
    
     b. Clique em **Convidar**.
 

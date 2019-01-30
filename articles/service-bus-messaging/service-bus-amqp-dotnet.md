@@ -3,23 +3,23 @@ title: Barramento de Serviço do Azure com o .NET e AMQP 1.0 | Microsoft Docs
 description: Usando o Barramento de Serviço do Azure no .NET com AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
-ms.author: spelluru
-ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702231"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853197"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
 
@@ -76,7 +76,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | double |double |Valor do AMQP |
 | decimal |decimal128 |Valor do AMQP |
 | char |char |Valor do AMQP |
-| Datetime |timestamp |Valor do AMQP |
+| Datetime | timestamp |Valor do AMQP |
 | Guid |uuid |Valor do AMQP |
 | byte[] |binário |Valor do AMQP |
 | string |string |Valor do AMQP |
@@ -107,10 +107,10 @@ Há algumas pequenas diferenças no comportamento da API .NET do Barramento de S
 
 As [APIs .NET](/dotnet/api/) expõem diversas configurações que controlam o comportamento do protocolo AMQP:
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: controla o crédito inicial aplicado a um link. O padrão é 0.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: controla o tamanho máximo do quadro do AMQP oferecido durante a negociação em tempo de conexão aberta. O padrão é de 65.536 bytes.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: caso as transferências possam ser em lote, esse valor determina o atraso máximo para envio de disposições. Herdado pelos remetentes/destinatários por padrão. O remetente/destinatário individual pode substituir o padrão, que é 20 milissegundos.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controla se as conexões do AMQP são estabelecidas por uma conexão SSL. O padrão é **true**.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Controla o crédito inicial aplicado a um link. O padrão é 0.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Controla o tamanho máximo do quadro do AMQP oferecido durante a negociação em tempo de conexão aberta. O padrão é de 65.536 bytes.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Se as transferências possam ser dispostas em lote, esse valor determina o atraso máximo para envio de disposições. Herdado pelos remetentes/destinatários por padrão. O remetente/destinatário individual pode substituir o padrão, que é 20 milissegundos.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controla se as conexões AMQP são estabelecidas por meio de uma conexão SSL. O padrão é **true**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

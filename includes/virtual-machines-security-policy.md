@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227344"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841389"
 ---
 É importante proteger a sua máquina virtual (VM) para os aplicativos que são executados. Proteger suas VMs pode incluir um ou mais serviços do Azure e recursos que abrangem o acesso seguro a suas máquinas virtuais e armazenamento seguro de seus dados. Este artigo fornece informações que permite que você mantenha sua VM e aplicativos seguros.
 
@@ -23,7 +23,7 @@ A [Central de Segurança do Azure](../articles/security-center/security-center-i
 
 ## <a name="encryption"></a>Criptografia
 
-Para conformidade e segurança aprimorados da [VM do Windows](../articles/virtual-machines/windows/encrypt-disks.md) e da [VM do Linux](../articles/virtual-machines/linux/encrypt-disks.md), os discos virtuais no Azure podem ser criptografados. Discos virtuais em VMs do Windows são criptografados em repouso usando o Bitlocker. Os discos virtuais em VMs do Linux são criptografados em repouso usando dm-crypt. 
+Para conformidade e segurança aprimorados da [VM do Windows](../articles/virtual-machines/windows/encrypt-disks.md) e da [VM do Linux](../articles/virtual-machines/linux/encrypt-disks.md), os discos virtuais no Azure podem ser criptografados. Discos virtuais em VMs do Windows são criptografados em repouso usando o BitLocker. Os discos virtuais em VMs do Linux são criptografados em repouso usando dm-crypt. 
 
 Não há nenhuma taxa para criptografar discos virtuais no Azure. Chaves e criptográficas são armazenadas no Cofre de chaves do Azure usando a proteção de software ou você pode importar ou gerar as chaves em Módulos de segurança de Hardware (HSMs) certificados para padrões de nível 2 de FIPS 140-2. Essas chaves criptográficas são usadas para criptografar e descriptografar os discos virtuais conectados à sua VM. Você mantém o controle dessas chaves criptográficas e pode auditar seu uso. Uma entidade de serviço do Azure Active Directory fornece um mecanismo seguro para emitir essas chaves de criptografia, enquanto as VMs são ligadas e desligadas.
 

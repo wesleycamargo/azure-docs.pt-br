@@ -3,9 +3,9 @@ title: Referência da sintaxe SQLRuleAction no Azure | Microsoft Docs
 description: Detalhes sobre a gramática de SQLRuleAction.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: cd5bc1fb959872cfb98236feb5c32517ac7472ac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394175"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847723"
 ---
 # <a name="sqlruleaction-syntax"></a>Sintaxe SQLRuleAction
 
@@ -123,9 +123,9 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
  `<pattern>` deve ser uma expressão avaliada como uma cadeia de caracteres. Usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres curinga:  
   
--   `%`: qualquer cadeia de caracteres com zero ou mais caracteres.  
+-   `%`:  Qualquer cadeia de caracteres com zero ou mais caracteres.  
   
--   `_`: qualquer caractere único.  
+-   `_`: Qualquer caractere único.  
   
 ## <a name="escapechar"></a>escape_char  
   

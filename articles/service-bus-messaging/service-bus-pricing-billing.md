@@ -3,9 +3,9 @@ title: Preços e cobrança do Barramento de Serviço | Microsoft Docs
 description: Visão geral da estrutura de preços de Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406832"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852925"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
 
@@ -32,7 +32,7 @@ O Barramento de Serviço do Azure é oferecido nas camadas Standard e [Premium](
 
 O Barramento de Serviço usa os dois seguintes medidores para filas e tópicos/assinaturas:
 
-1. **Operações de sistema de mensagens**: definido como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substitui as mensagens enviadas ou recebidas como a unidade principal de uso cobrável para filas e tópicos/assinaturas.
+1. **Operações de Mensagens**: definidas como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substitui as mensagens enviadas ou recebidas como a unidade principal de uso cobrável para filas e tópicos/assinaturas.
 2. **Conexões agenciadas**: definidas como o número máximo de conexões persistentes abertas em filas, tópicos ou assinaturas durante um determinado período de amostragem de uma hora. Esse medidor se aplica somente à camada Standard, na qual você pode abrir conexões adicionais (anteriormente, as conexões eram limitadas a 100 por fila/tópico/assinatura) a uma taxa nominal por conexão.
 
 A camada **Standard** apresenta preços graduados para operações executadas com filas e tópicos/assinaturas, resultando em descontos por volume de até 80% altos níveis de uso. Há também um encargo de base da camada Standard de US $10 por mês, que permite que você execute até 12,5 milhões de operações por mês sem custos adicionais.
@@ -95,8 +95,8 @@ Encargos de Barramento de Serviço para o número máximo de conexões orientada
 
 Por exemplo: 
 
-1. Cada um dos 10.000 dispositivos se conecta por meio de uma única conexão AMQP e recebe comandos de um tópico do Barramento de Serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões * 12 horas * 31 dias / 744 = 5.000 conexões orientadas. Após o limite mensal de 1.000 conexões orientadas, você seria cobrado por 4.000 conexões orientadas, a uma taxa de US $0,03 por conexão orientada, para um total de US $120.
-2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões de recebimento de HTTP * 12 horas * 31 dias / 744 = 5.000 conexões orientadas.
+1. Cada um dos 10.000 dispositivos se conecta por meio de uma única conexão AMQP e recebe comandos de um tópico do Barramento de Serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos ficarem conectados 12 horas por dia, serão aplicados os encargos de conexão a seguir (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões * 12 horas * 31 dias / 744 = 5.000 conexões agenciadas. Após o limite mensal de 1.000 conexões orientadas, você seria cobrado por 4.000 conexões orientadas, a uma taxa de US $0,03 por conexão orientada, para um total de US $120.
+2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados por 12 horas todos os dias, você verá os seguintes encargos de conexão (além de quaisquer outros encargos do Barramento de Serviço): 10.000 conexões de recebimento HTTP * 12 horas por dia * 31 dias / 744 horas = 5.000 conexões agenciadas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Os encargos de conexão gerenciada são aplicáveis a filas e tópicos/assinaturas?
 

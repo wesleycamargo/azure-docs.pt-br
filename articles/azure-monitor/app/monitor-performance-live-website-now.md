@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199378"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819128"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicativos Web no tempo de execução com o Status Monitor do Application Insights
 
@@ -32,11 +32,13 @@ O Status Monitor é usado para instrumentar um aplicativo .NET hospedado no IIS 
 
 ![Captura de tela dos gráficos de visão geral do App Insights contendo informações sobre solicitações com falha, tempo de resposta do servidor e solicitações do servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-Você tem a opção de três rotas para aplicar o Application Insights nos aplicativos Web .NET:
+Você tem duas opções de rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
 * **Tempo de build:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web.
 * **Tempo de execução:** Instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
-* **Ambos:** Compile o SDK em seu código de aplicativo Web e também aplique as extensões de tempo de execução. Obtenha o melhor de ambas as opções.
+
+> [!NOTE]
+> Se você usar a instrumentação de tempo de compilação, a instrumentação de tempo de execução não funcionará mesmo estando ativada.
 
 Aqui está um resumo do que você tem com cada rota:
 

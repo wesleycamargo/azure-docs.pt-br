@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 19ac1819c3b098597819ec75adcedeca929e802d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248210"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464537"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma no Serviço de Kubernetes do Azure
 
@@ -38,7 +38,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 Este procedimento carrega e executa o exemplo de Contêiner de Serviços Cognitivos para detecção de idioma. O exemplo tem dois contêineres, um para o aplicativo cliente e outro para o contêiner de Serviços Cognitivos. Você precisa enviar essas imagens por push para seu próprio Registro de Contêiner do Azure. Depois que elas estiverem em seu próprio registro, crie um Serviço de Kubernetes do Azure para acessar essas imagens e executar os contêineres. Quando os contêineres estiverem em execução, use a CLI **kubectl** para observar o desempenho dos contêineres. Acesse o aplicativo cliente com uma solicitação HTTP e veja os resultados. 
 
-
+![Ideia conceitual da execução de contêineres de amostra](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>Os contêineres de exemplo
 
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-> [!div class="nextstepaction"]
-> [Usar o Serviço Conectado da Análise de Texto](../vs-text-connected-service.md)
+* Use mais [Contêineres de Serviços Cognitivos](../../cognitive-services-container-support.md)
+* Usar o Serviço Conectado da Análise de Texto](../vs-text-connected-service.md)
 
 
 <!--

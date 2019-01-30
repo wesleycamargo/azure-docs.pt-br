@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com a Área Restrita do Salesforce | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com a Área Restrita do Salesforce | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114489"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808809"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
+# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Azure Active Directory com a Área Restrita Salesforce
 
 Neste tutorial, você aprende a integrar o Salesforce Sandbox ao Azure AD (Azure Active Directory).
 
 As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce.
-Para obter mais detalhes, confira [Visão Geral da Área Restrita](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
+Para obter mais detalhes, confira  [Visão geral da Área Restrita](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
 
 A integração do Salesforce Sandbox ao Azure AD oferece os seguintes benefícios:
 
@@ -54,7 +54,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Salesforce Sandbox por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,21 +107,21 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Link Configurar logon único][4]
 
-2. Clique em **modo de logon único de alteração** parte superior da tela para selecionar o **SAML** modo.
+2. Clique em **Alterar modo de logon único** na parte superior da tela para selecionar o modo **SAML**.
 
       ![Link Configurar logon único](./media/salesforce-sandbox-tutorial/tutorial_general_300.png)
 
-3. Sobre o **selecionar um método de logon único** caixa de diálogo, clique em **selecionar** para **SAML** modo para habilitar o logon único.
+3. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
     ![Link Configurar logon único](./media/salesforce-sandbox-tutorial/tutorial_general_301.png)
 
-4. Sobre o **definir o logon único com SAML** , clique em **editar** botão para abrir **básicas de configuração de SAML** caixa de diálogo.
+4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
    
     ![Link Configurar logon único](./media/salesforce-sandbox-tutorial/tutorial_general_302.png)
 
 5. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    a. Clique em **Carregar arquivo de metadados**.
+     a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](./media/salesforce-sandbox-tutorial/upload_metadata.png)
 
@@ -158,15 +158,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-12. Para configurar o seu único logon configurações de SAML, clique em **novo com base em arquivo de metadados**.
+12. Para configurar as configurações de logon único do SAML, clique em **Novo do arquivo de metadados**.
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. Clique em **Escolher arquivo** para carregar o arquivo XML de metadados que você baixou do portal do Azure e clique em **criar**.
+13. Clique em **Escolher Arquivo** para carregar o arquivo XML de metadados que você baixou do portal do Azure e clique em **Criar**.
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-14. Sobre o **configurações de logon único SAML** página, campos popular automaticamente e clique em Salvar.
+14. Na página **Configurações de logon único do SAML**, os campos são preenchidos automaticamente, clique em Salvar.
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
@@ -176,7 +176,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 16. Se você desejar configurar o aplicativo no modo iniciado **SP**, os pré-requisitos disso estão a seguir:
 
-    a. Você deve ter um domínio verificado.
+     a. Você deve ter um domínio verificado.
 
     b. Você precisa configurar e habilitar seu domínio na Área Restrita do Salesforce, as etapas para isso serão explicadas posteriormente neste tutorial.
 
@@ -211,7 +211,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-23. Para configurar o seu único logon configurações de SAML, clique em **novo com base em arquivo de metadados**.
+23. Para configurar as configurações de logon único do SAML, clique em **Novo do arquivo de metadados**.
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
@@ -219,7 +219,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-25. Na página **Configurações do SAML Single Sign-On**, campos preenchidos automaticamente, digite o nome da configuração (por exemplo: *SPSSOWAAD_Test*) Na caixa de texto **Nome** e clique em Salve.
+25. Na página **Configurações do SAML Single Sign-On**, em que os campos são preenchidos automaticamente, digite o nome da configuração (por exemplo: *SPSSOWAAD_Test*) Na caixa de texto **Nome** e clique em Salvar.
 
     ![Configurar o logon único](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -244,24 +244,24 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Active Directory do Azure**, selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Criar um usuário do AD do Azure][100]
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo usuário** na parte superior da tela.
 
     ![Criação de um usuário de teste do AD do Azure](./media/salesforce-sandbox-tutorial/create_aaduser_01.png) 
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
     ![Criação de um usuário de teste do AD do Azure](./media/salesforce-sandbox-tutorial/create_aaduser_02.png)
 
-    a. No **nome** Inserir campo **Brendafernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa Senha.
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
 
@@ -289,7 +289,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **adicionar usuário**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar usuário**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 

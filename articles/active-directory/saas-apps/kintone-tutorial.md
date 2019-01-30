@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c2b947dc-e1a8-4f5f-b40e-2c5180648e4f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 693211245ee98849548bee4a52f7e424dd8b4cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 76e58ab9c7df77341e74c45cee438ac947ba507e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430450"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822409"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: integração do Azure Active Directory com o Kintone
+# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Azure Active Directory com o Kintone
 
 Neste tutorial, você aprenderá a integrar o Kintone ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Kintone da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -157,7 +157,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Autenticação SAML](./media/kintone-tutorial/ic785883.png "Autenticação SAML")
     
-    a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+     a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
    
     b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída** copiado do portal do Azure.
     
@@ -166,7 +166,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     d. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -229,7 +229,7 @@ No caso do Kintone, o provisionamento é uma tarefa manual.
    
     ![Novos Usuários](./media/kintone-tutorial/ic785890.png "novos Usuários")
    
-    a. Digite um **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+     a. Digite um **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
  
     b. Clique em **Salvar**.
 

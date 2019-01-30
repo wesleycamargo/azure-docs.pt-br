@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o ClickTime | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ClickTime | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ClickTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 065225bb6c206f980c19955c682fc2c8a5deb950
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1c7c3cf850ed48412c8a232e364f927248ed9bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441761"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811105"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: integração do Active Directory do Azure ao ClickTime
+# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Azure Active Directory com o ClickTime
 
 Neste tutorial, você aprenderá a integrar o ClickTime ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando ClickTime da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do ClickTime](./media/clicktime-tutorial/tutorial_clicktime_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL como: `https://app.clicktime.com/sp/`
+     a. Na caixa de texto **Identificador**, digite uma URL como: `https://app.clicktime.com/sp/`
     
     b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões: 
 
@@ -139,7 +139,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
    
     ![Configurações de segurança](./media/clicktime-tutorial/tic777280.png "as configurações de segurança")
    
-    a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
+     a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
    
     b. Na caixa de texto **Ponto de Extremidade de Provedor de Identidade**, cole a **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
    
@@ -148,7 +148,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     d.  Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![A caixa de diálogo Usuário](./media/clicktime-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -201,7 +201,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
    
     ![Pessoas](./media/clicktime-tutorial/tic777284.png "Pessoas")
    
-    a.  Na caixa de texto **nome completo**, digite o nome completo do usuário, por exemplo, **Brenda Fernandes**. 
+     a.  Na caixa de texto **nome completo**, digite o nome completo do usuário, por exemplo, **Brenda Fernandes**. 
   
     b.  Na caixa de texto **endereço de email**, digite o endereço de email do usuário, por exemplo, **brittasimon@contoso.com**.
        

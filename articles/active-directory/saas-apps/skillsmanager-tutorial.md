@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Skills Manager | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Skills Manager | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Skills Manager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: ee112cef53eec92ec449c66e0c927a78a087a32c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bdb053d1f9f85c446e4ac48b836c4b24bb40f93f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448050"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821800"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Tutorial: Integração do Azure Active Directory ao Skills Manager
+# <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Tutorial: Integração do Azure Active Directory com o Skills Manager
 
 Neste tutorial, você aprenderá a integrar o Skills Manager ao Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Skills Manager a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Skills Manager](./media/skillsmanager-tutorial/tutorial_skillsmanager_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://subdomain.skills-manager.com/kennametal`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://subdomain.skills-manager.com/kennametal`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
 
@@ -132,7 +132,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o logon único no lado do **Skills Manager**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** para a [equipe de suporte do Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -168,7 +168,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-skills-manager-test-user"></a>Criar um usuário de teste do Skills Manager
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Skills Manager. Trabalhe com a [equipe de suporte do Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk) para adicionar os usuários na plataforma do Skills Manager. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Skills Manager. Trabalhe com a  [equipe de suporte do Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk) para adicionar os usuários na plataforma do Skills Manager. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -205,7 +205,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Skills Manager no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Skills Manager.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

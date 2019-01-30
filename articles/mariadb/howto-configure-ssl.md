@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4bf18a44255903df09aae3382c0eb35a2a55eea5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/22/2019
+ms.openlocfilehash: 197281a4666179037cd689e7e8d488e73039174b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541805"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810288"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MariaDB
 O Banco de Dados do Azure para o MariaDB suporta a conexão do Banco de Dados do Azure para o servidor MariaDB aos aplicativos clientes usando o Secure Sockets Layer (SSL). Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -30,6 +30,8 @@ Outra maneira de associar o certificado SSL é usar a interface de linha de coma
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
+> [!NOTE]
+> Ao usar versões mais recentes da interface de linha de comando do MySQL no Windows, você pode receber um erro `SSL connection error: Certificate signature check failed`. Se isso ocorrer, substitua o parâmetro `--ssl-ca={filepath}` por `--ssl`.
 
 ## <a name="enforcing-ssl-connections-in-azure"></a>Impor conexões SSL no Azure 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
@@ -47,7 +49,7 @@ Executar o mysql **status** para verificar que você se conectou ao servidor Mar
 ```sql
 status
 ```
-Confirme se a conexão é criptografada, examinando a saída, que deve mostrar:  **SSL: a criptografia em uso é AES256-SHA** 
+Confirme se a conexão é criptografada, examinando a saída, que deve mostrar:  **SSL: A criptografia em uso é AES256-SHA** 
 
 ## <a name="sample-code"></a>Exemplo de código
 Para estabelecer uma conexão segura com o banco de dados do Azure para MariaDB sobre SSL do seu aplicativo, consulte os exemplos de código a seguir:

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao TimeOffManager | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o TimeOffManager | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o TimeOffManager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: e7f0f6bb778dedeea61b74b5ca0c2edbadd5279b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4ca13640f64c88164aa98c5434c252d844cebd72
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430280"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825164"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integração do Active Directory do Azure ao TimeOffManager
+# <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integração do Azure Active Directory com o TimeOffManager
 
 Neste tutorial, você aprenderá a integrar o TimeOffManager ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o TimeOffManager da galeria
 1. Configurar e testar logon único do Azure AD
@@ -130,7 +130,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     | Sobrenome |User.surname |
     | Email |User.mail |
     
-    a.  Para cada linha de dados na tabela acima, clique em **adicionar atributo do usuário**.
+     a.  Para cada linha de dados na tabela acima, clique em **adicionar atributo do usuário**.
     
     ![Atributos de Token SAML](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb.png "Atributos de Token SAML")
     
@@ -159,7 +159,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
    
    ![Configurações de Logon Único](./media/timeoffmanager-tutorial/ic795918.png "Configurações de Logon Único")
    
-   a. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509** .
+    a. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509** .
    
    b. Na caixa de texto **Emissor IdP**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure.
    
@@ -178,7 +178,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
       ![Configurações de Logon Único](./media/timeoffmanager-tutorial/ic795915.png "Configurações de Logon Único")
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -204,7 +204,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Página da caixa de diálogo do usuário](./media/timeoffmanager-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -258,7 +258,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco de TimeOffManager no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo TimeOffManager. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco de TimeOffManager no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo TimeOffManager. Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

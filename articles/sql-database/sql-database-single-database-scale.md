@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 706a2f8c7389daa6dcfaa95fe5118f509ee0d1f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600583"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812243"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
@@ -37,7 +37,7 @@ Este artigo descreve como escalar os recursos de computação e armazenamento di
 
 Depois de escolher inicialmente o número de vCores, você poderá escalar verticalmente de forma dinâmica um banco de dados individual com base na experiência real usando o [Portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), a [CLI do Azure](/cli/azure/sql/db#az-sql-db-update) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
-A alteração da camada de serviço e/ou tamanho da computação de um banco de dados cria uma réplica do banco de dados original com o novo tamanho de computação e, então, faz a transição das conexões para réplica. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. O período da transição varia, mas fica geralmente abaixo de 4 segundos e menos de 30 segundos 99% do tempo. Se houver muitas transações em andamento no momento de desabilitação das conexões, o período de transição poderá ser maior.
+A alteração da camada de serviço e/ou tamanho da computação de um banco de dados cria uma réplica do banco de dados original com o novo tamanho de computação e, então, faz a transição das conexões para réplica. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. O período de tempo para a alternância varia, mas geralmente é inferior a 30 segundos em 99% do tempo. Se houver muitas transações em andamento no momento de desabilitação das conexões, o período de transição poderá ser maior.
 
 A duração de todo o processo de expansão depende a camada tamanho e de serviço do banco de dados antes e após a alteração. Por exemplo, um banco de dados de 250 GB que está mudando para, de ou dentro de uma camada de serviço Uso Geral deverá ser concluído dentro de seis horas. Um banco de dados do mesmo tamanho cujos tamanhos de computação estão mudando dentro da camada de serviço Comercialmente Crítico deve concluir a escala vertical dentro de três horas.
 

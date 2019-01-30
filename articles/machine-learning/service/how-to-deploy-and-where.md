@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353304"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850579"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
 
@@ -245,7 +245,7 @@ Para implantar nas Instâncias de Contêiner do Azure, use as etapas a seguir:
     **Tempo estimado**: Aproximadamente 3 minutos.
 
     > [!TIP]
-    > Se houver erros durante a implantação, use `service.get_logs()` para visualizar os logs de serviço do AKS. As informações registradas podem indicar a causa do erro.
+    > Se houver erros durante a implantação, use `service.get_logs()` para visualizar os logs de serviço. As informações registradas podem indicar a causa do erro.
 
 Para obter mais informações, consulte a documentação de referência para as classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
@@ -300,7 +300,7 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attatch the cluster to your workgroup
+# Attach the cluster to your workgroup
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
@@ -335,7 +335,7 @@ print(service.state)
 **Tempo estimado**: Aproximadamente 3 minutos.
 
 > [!TIP]
-> Se houver erros durante a implantação, use `service.get_logs()` para visualizar os logs de serviço do AKS. As informações registradas podem indicar a causa do erro.
+> Se houver erros durante a implantação, use `service.get_logs()` para visualizar os logs de serviço. As informações registradas podem indicar a causa do erro.
 
 Para obter mais informações, consulte a documentação de referência para as classes [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
 

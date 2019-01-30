@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: ca10db225947fbd98b8d5919cdaa371710b0ce46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4cf7c8388b0a5a278298fff274ba49d542bae36
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442659"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806956"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integração do Azure Active Directory ao MaxxPoint
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o MaxxPoint da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -117,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     ![Configurar o logon único](./media/maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
-    a. Clique na opção **Mostrar configurações avançadas de URL**
+     a. Clique na opção **Mostrar configurações avançadas de URL**
 
     b. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
@@ -135,7 +135,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 1. Para obter o SSO configurado para seu aplicativo, ligue para a equipe de suporte do MaxxPoint no número **888-728-0950** e ela irá ajudá-lo sobre como disponibilizar o arquivo **XML de Metadados** baixado. 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, simplesmente clique na guia **Logon Único** e acesse a documentação inserida através da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, simplesmente clique na guia **Logon Único** e acesse a documentação inserida através da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

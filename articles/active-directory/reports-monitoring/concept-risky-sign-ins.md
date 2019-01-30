@@ -3,7 +3,7 @@ title: Relatório de entradas de risco no portal do Azure Active Directory | Mic
 description: Saiba mais sobre o relatório de entradas de risco no portal do Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244708"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807755"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
@@ -61,9 +61,9 @@ Todas as edições do Azure AD fornecem relatórios de entradas de risco. No ent
 
 As edições gratuitas e básicas do Azure AD fornecem uma lista de entradas arriscadas que foram detectadas para os usuários. Cada registro contém os seguintes atributos:
 
-- **Usuário** - o nome do usuário usado durante a operação de entrada
-- **IP** - o endereço IP do dispositivo usado para se conectar ao Azure Active Directory
-- **Local** - o local usado para se conectar ao Azure Active Directory
+- **Usuário**: o nome de usuário usado durante a operação de entrada.
+- **IP**: o endereço IP do dispositivo usado para se conectar ao Azure Active Directory.
+- **Local**: o local usado para se conectar ao Azure Active Directory. Trata-se do melhor esforço de aproximação com base em rastreamentos, dados de registro, pesquisas inversas e outras informações.
 - **Hora da entrada** - o horário em que a entrada foi realizada
 - **Status** - o status da entrada
 
@@ -106,6 +106,9 @@ Ao selecionar um evento de risco, você obtém uma exibição detalhada do relat
 - Fechar eventos de risco manualmente. 
 
 ![Entradas de risco](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Às vezes, você pode encontrar um evento de risco sem uma entrada correspondente no [relatório de entradas](concept-sign-ins.md). Isso ocorre porque o Identity Protection avalia o risco para as entradas **interativa** e **não interativa**, enquanto o relatório de entradas mostra apenas as entradas interativas.
 
 Ao selecionar um usuário, você obtém uma exibição detalhada do relatório deste usuário, que lhe habilita a:
 

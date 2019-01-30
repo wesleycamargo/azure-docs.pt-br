@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 98e6739e-eb24-46bd-9dd3-20b489839076
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4247a24905b5865635495774412237118e3372a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878ba9b5debd4c415a033ad5d885554f08185c1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427356"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815660"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Active Directory do Azure com o Work.com
+# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Azure Active Directory com o Work.com
 
 Neste tutorial, você aprenderá a integrar o Work.com ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Work.com da galeria
 1. Configurar e testar logon único do Azure AD
@@ -156,7 +156,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![SAML habilitado](./media/work-com-tutorial/ic781026.png "SAML habilitado")
     
-    a. Selecione **SAML Habilitado**.
+     a. Selecione **SAML Habilitado**.
     
     b. Clique em **Novo**.
 
@@ -164,7 +164,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Configurações de Logon Único do SAML](./media/work-com-tutorial/ic794114.png "Configurações de Logon Único do SAML")
     
-    a. Na caixa de texto **Nome** , digite um nome para a sua configuração.  
+     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.  
        
     > [!NOTE]
     > Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
@@ -200,7 +200,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Identidade Visual da Página de Logon](./media/work-com-tutorial/ic784366.png "Identidade Visual da Página de Logon")
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -226,7 +226,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Página da caixa de diálogo do usuário](./media/work-com-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -255,7 +255,7 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
    
     ![Editar Usuário](./media/work-com-tutorial/ic794118.png "Editar Usuário")
    
-    a. Na caixa de texto **Nome**, digite o **nome** do usuário, **Brenda**.
+     a. Na caixa de texto **Nome**, digite o **nome** do usuário, **Brenda**.
     
     b. Na caixa de texto **Sobrenome**, digite o **sobrenome** do usuário, **Fernandes**.
     

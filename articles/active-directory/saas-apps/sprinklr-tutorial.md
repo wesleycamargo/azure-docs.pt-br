@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 062671313e42e6c936135dafb3d7d2a5c8adef82
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241796"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816629"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Active Directory do Azure com o Sprinklr
+# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Azure Active Directory ao Sprinklr
 
 Neste tutorial, você aprenderá a integrar o Sprinklr ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Sprinklr da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -147,7 +147,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Logons Únicos](./media/sprinklr-tutorial/ic782910.png "Logons Únicos")
 
-    a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
+     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
 
     b. Selecione **Habilitado**.
 
@@ -170,7 +170,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -223,7 +223,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
    
     ![Editar usuário](./media/sprinklr-tutorial/ic782916.png "Editar usuário") 
 
-    a. Nas caixas de texto **Email**, **Nome** e **Sobrenome**, digite as informações de uma conta de usuário do Azure AD que você deseja provisionar.
+     a. Nas caixas de texto **Email**, **Nome** e **Sobrenome**, digite as informações de uma conta de usuário do Azure AD que você deseja provisionar.
 
     b. Selecione **Senha Desabilitada**.
 
@@ -240,7 +240,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
    
     ![Funções de Parceiro](./media/sprinklr-tutorial/ic782917.png "Funções de Parceiro")
 
-    a. Na lista **Global**, selecione **ALL\_Permissions**.  
+     a. Na lista **Global**, selecione **ALL\_Permissions**.  
 
     b. Clique em **Atualizar**.
 

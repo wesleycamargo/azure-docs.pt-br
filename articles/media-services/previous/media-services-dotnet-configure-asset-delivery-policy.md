@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: juliako
-ms.openlocfilehash: aee2477e0633974cba42ab26e102323cb9606810
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d96ed28be2fcb3941591854662f9aa20faf04e5d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784545"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810152"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configurar políticas de entrega de ativos usando o SDK do .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -38,7 +38,7 @@ Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você 
 
 Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
 
-Dependendo de como configurar a política de entrega de ativos, você pode empacotar e criptografar dinamicamente, bem como transmitir os seguintes protocolos de streaming: MPEG DASH, HLS e Smooth Streaming.
+Dependendo de como você configura a política de entrega de ativos, é possível empacotar, criptografar e transmitir dinamicamente os seguintes protocolos de transmissão: Smooth Streaming, HLS e MPEG DASH.
 
 A lista a seguir mostra os formatos usados para transmitir Smooth, HLS e DASH.
 
@@ -62,7 +62,7 @@ MPEG DASH
 
 ## <a name="clear-asset-delivery-policy"></a>Política de entrega de ativos clara
 
-O seguinte método **ConfigureClearAssetDeliveryPolicy** especifica para não aplicar criptografia dinâmica e entregar o fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e Smooth Streaming. Você talvez queira aplicar essa política para seus ativos de armazenamento criptografados.
+O método **ConfigureClearAssetDeliveryPolicy** a seguir especifica para não aplicar criptografia dinâmica nem entregar a transmissão em qualquer um dos seguintes protocolos:  Protocolos de MPEG DASH, HLS e Smooth Streaming. Você talvez queira aplicar essa política para seus ativos de armazenamento criptografados.
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .
 
@@ -79,7 +79,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicCommonEncryption
 
-O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy**, que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (outros protocolos de streaming serão bloqueados no streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
+O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy**, que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (outros protocolos de streaming serão bloqueados no streaming). O método utiliza dois parâmetros: **Asset** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**. Para saber mais, confira: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .
 
@@ -120,7 +120,7 @@ Os Serviços de Mídia do Azure também permitem que você adicione criptografia
 
         // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamic Encryption 
         // to append /? KID =< keyId > to the end of the url when creating the manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
         // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
@@ -156,7 +156,7 @@ Os Serviços de Mídia do Azure também permitem que você adicione criptografia
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicEnvelopeEncryption
-O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para Smooth Streaming, protocolos HLS e DASH (se você optar por não especificar outros protocolos, eles serão bloqueados do streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para Smooth Streaming, protocolos HLS e DASH (se você optar por não especificar outros protocolos, eles serão bloqueados do streaming). O método utiliza dois parâmetros: **Asset** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**. Para saber mais, confira: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .   
 
@@ -166,7 +166,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
         //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
         //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
+        //  manifest.  Omitting the IV will also cause the Dynamic Encryption service to generate a deterministic
         //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
         //  allows the AssetDelivery policy to be reused by more than one asset.
         //
@@ -283,7 +283,7 @@ O enum a seguir descreve os valores que você pode usar para configurar o métod
         None = 0,
 
         /// <summary>
-        /// Use PlayReady License acquistion protocol
+        /// Use PlayReady License acquisition protocol
         ///
         </summary>
         PlayReadyLicense = 1,
@@ -295,7 +295,7 @@ O enum a seguir descreve os valores que você pode usar para configurar o métod
         BaselineHttp = 2,
 
         /// <summary>
-        /// Use Widevine License acquistion protocol
+        /// Use Widevine License acquisition protocol
         ///
         </summary>
         Widevine = 3

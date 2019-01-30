@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o xMatters OnDemand | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o xMatters OnDemand | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o xMatters OnDemand.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1086343f165ad61b2e4fe91b5d52996722a33646
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820981"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: integração do Azure Active Directory com o xMatters OnDemand
+# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com o xMatters OnDemand
 
 Neste tutorial, você aprenderá como integrar o xMatters OnDemand ao Azure Active Directory (Azure AD).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o xMatters OnDemand da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -157,7 +157,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuração SAML")
 
-    a. Selecione **Habilitar SAML**.
+     a. Selecione **Habilitar SAML**.
 
     b. Na caixa de texto **Identidade do provedor de identidade**, cole o **valor da ID de entidade SAML** que você copiou do portal do Azure.
 
@@ -216,7 +216,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatte
 
     ![Adicionar um Usuário](./media/xmatters-ondemand-tutorial/IC781049.png "Adicionar um Usuário")
 
-    a. Selecione **Ativo**.
+     a. Selecione **Ativo**.
 
     b. Na caixa de texto **ID de usuário**, digite a ID de usuário, como Brittasimon@contoso.com.
 

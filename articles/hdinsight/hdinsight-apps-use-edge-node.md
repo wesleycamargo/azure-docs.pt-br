@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717459"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844816"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters do Apache Hadoop no HDInsight
 
@@ -65,8 +65,8 @@ Depois de criar um nó de borda, você pode conectar-se a ele usando SSH e execu
 >
 > Se você estiver usando uma tecnologia Apache, poderá encontrar ajuda nos sites do projeto Apache em [https://apache.org](https://apache.org), como o site do [Apache Hadoop](https://hadoop.apache.org/).
 
-> [!NOTE]  
-> Como os outros nós do cluster, os nós de borda também são gerenciados pelo patch.  Para obter mais informações, confira [Aplicação de patch do SO para HDInsight](./hdinsight-os-patching.md).
+> [!IMPORTANT]
+> As imagens do Ubuntu ficam disponíveis para a criação do novo cluster HDInsight dentro de 3 meses depois de publicado. A partir de janeiro de 2019, os clusters em execução (incluindo nó de borda) **não** contam com patch automaticamente. Os clientes devem usar ações de script ou outros mecanismos para aplicar o patch de um cluster em execução.  Para obter mais informações, confira [Aplicação de patch do SO para HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de borda a um cluster existente
 Nesta seção, você pode usar um modelo do Resource Manager para adicionar um nó de borda a um cluster HDInsight existente.  O modelo do Resource Manager pode ser encontrado no [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não realiza nenhuma ação.  Isso serve para demonstrar a chamada da ação de script de um modelo do Resource Manager.
@@ -153,7 +153,7 @@ Você pode excluir um nó de borda no portal do Azure.
 5. Clique em **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como adicionar um nó de borda e como acessar o nó de borda. Para saber mais, confira os seguintes artigos:
+Neste artigo, você aprendeu como adicionar um nó de borda e como acessar o nó de borda. Para saber mais, consulte os seguintes artigos:
 
 * [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar um aplicativo HDInsight em seus clusters.
 * [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): saiba como implantar um aplicativo do HDInsight não publicado no HDInsight.

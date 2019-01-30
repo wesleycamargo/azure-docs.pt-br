@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configurar LinkedIn Elevate para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o LinkedIn Elevate para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 1dcc198c1a1cc798e991f489e6897d4b930c0593
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3c45388878675f5e0ee7df486747c7df41729694
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348490"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807994"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Elevate para provisionamento automático de usuário
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar o LinkedIn Elevate para provisionamento automático de usuário
 
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no LinkedIn Elevate e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LinkedIn Elevate. 
@@ -57,7 +57,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 Esta seção orienta você pela conexão do Azure AD à API de provisionamento de conta de usuário do SCIM do LinkedIn Elevate e também pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no LinkedIn Elevate com base na atribuição de usuário e de grupo do Azure AD.
 
-**Dica:** você também pode optar por habilitar o logon único baseado em SAML para o LinkedIn Elevate seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+**Dica:** Você também pode optar por habilitar o logon único baseado em SAML para o LinkedIn Elevate seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Para configurar o provisionamento de conta de usuário automático para o LinkedIn Elevate no Azure AD:

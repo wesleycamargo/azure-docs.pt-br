@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353950"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816748"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -113,6 +113,26 @@ Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disc
 **Mensagem de erro**: Atualmente, o Backup do Azure não dá suporte para discos SSD padrão <br>
 
 Atualmente, o Backup do Azure dá suporte a discos SSD Standard apenas para os cofres atualizados para a [Restauração Instantânea](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: não é possível iniciar o backup porque outra operação de backup já está em andamento.
+
+**Erro de código**: UserErrorBackupOperationInProgress <br>
+**Mensagem de erro**: Não é possível iniciar o backup porque outra operação de backup já está em andamento<br>
+
+O seu trabalho de backup recente falhou porque há um trabalho de backup existente em andamento. Você não pode iniciar um novo trabalho de backup antes que o trabalho atual seja concluído. Verifique se a operação de backup em andamento foi concluída antes de iniciar ou agendar outras operações de backup. Para verificar o status de trabalhos de backup, execute as seguintes etapas:
+
+1. Entre no portal do Azure e clique em **Todos os serviços**. Digite Serviços de Recuperação e clique em **Cofres dos Serviços de Recuperação**. A lista de cofres de Serviços de Recuperação aparecerá.
+2. Na lista de cofres dos serviços de recuperação, selecione um cofre no qual o backup esteja configurado.
+3. No menu do dashboard do cofre, clique em **Trabalhos de Backup** para exibir todos os trabalhos de backup.
+
+    * Se um trabalho de backup estiver em andamento, aguarde a sua conclusão ou cancele-o.
+        * Para cancelar o trabalho de backup, clique com botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Se você reconfigurou o backup em um cofre diferente, verifique se não há trabalhos de backup em execução no antigo cofre. Se houver, cancele-os.
+        * Para cancelar o trabalho de backup, clique com botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Tente novamente a operação de backup.
+
+Se a operação de backup agendada estiver demorando muito tempo, entrando em conflito com a próxima configuração de backup, reveja as [Práticas recomendadas](backup-azure-vms-introduction.md#best-practices), o [Desempenho de Backup](backup-azure-vms-introduction.md#backup-performance) e a [Consideração sobre restauração](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções

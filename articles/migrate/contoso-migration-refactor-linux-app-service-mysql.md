@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6dd063f8d6520e3ee18dcb3899c1cca16d732707
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608708"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809677"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migração para Contoso: Refatore um aplicativo da central de serviços do Contoso Linux em várias regiões com o Serviço de Aplicativo do Azure, o Gerenciador de Tráfego e o MySQL do Azure
 

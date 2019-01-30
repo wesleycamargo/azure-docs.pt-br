@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao PolicyStat | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o PolicyStat | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PolicyStat.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: af5eb0f1-1c8e-4809-b0c4-8ccfb915ca42
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 571b1723c1c064415e4d8cbee3620799af14d508
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8dad5e3b5bfd908e8a3b3c1f1bcc78dd689757a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428257"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823871"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory ao PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
 
 Neste tutorial, você aprende a integrar o PolicyStat ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o PolicyStat por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -137,7 +137,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     |------------------- | -------------------- |
     | uid | ExtractMailPrefix([mail]) |
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/policystat-tutorial/tutorial_policystat_04.png)
 
@@ -169,7 +169,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configuração de Logon Único](./media/policystat-tutorial/ic808635.png "Configuração de Logon Único")
    
-    a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
+     a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
 
     b. Na caixa de texto **Atributo de Nome**, digite o **firstname** do usuário **Brenda**.
 
@@ -183,12 +183,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configuração de Logon Único](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
    
-    a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
+     a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
 
     b. Clique em **Salvar Alterações**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

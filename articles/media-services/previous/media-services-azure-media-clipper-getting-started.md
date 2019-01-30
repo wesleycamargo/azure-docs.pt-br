@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 27a330fa4d4f242a58d15ab3f08b70cef8b66d11
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783285"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810730"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar clipes com o Azure Media Clipper
 Esta seção mostra as etapas básicas de como começar a usar o Azure Media Clipper. As próximas seções fornecem informações específicas sobre como configurar o Azure Media Clipper.
@@ -89,7 +89,7 @@ var subclipper = new subclipper({
 
 Os parâmetros para a chamada do método de inicialização são:
 - `selector` {REQUIRED, string}: seletor de CSS do elemento HTML correspondente no qual o widget deve ser renderizado.
-- `restVersion` {REQUIRED, string}: a versão de API REST dos Serviços de Mídia do Azure a ser direcionada. A versão da REST define o formato da saída gerada pelo widget. Atualmente, há suporte apenas para 2.0.
+- `restVersion` {REQUIRED, string}: a versão da API REST de destino dos Serviços de Mídia do Azure. A versão da REST define o formato da saída gerada pelo widget. Atualmente, há suporte apenas para 2.0.
 - `submitSubclipCallback` {REQUIRED, promise} A função de retorno de chamada invocada ao clicar no botão “Enviar” do widget. A função de retorno de chamada deve esperar a saída gerada pelo widget (uma configuração do trabalho de renderização ou uma definição de filtro). Para obter mais informações, consulte Enviar retorno de chamada de subclipe.
 - `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: o nível de log a ser exibido no console do navegador. Valor padrão: 'error'
 - `minimumMarkerGap` {OPTIONAL, int}: o tamanho mínimo de um subclipe (em segundos). Observação: o valor deve ser maior ou igual a 6, que também é o padrão.
@@ -98,7 +98,7 @@ Os parâmetros para a chamada do método de inicialização são:
 - `keymap` {OPTIONAL, json object} Permite personalizar os atalhos de teclado do widget. Para obter mais informações, consulte [Atalhos de teclado personalizáveis](media-services-azure-media-clipper-keyboard-shortcuts.md).
 - `assetsPanelLoaderCallback` {OPTIONAL, promise} A função de retorno de chamada invocada para carregar (de forma assíncrona) uma nova página de ativos no painel de ativos sempre que o usuário rolar para baixo até a parte inferior do painel. Para obter mais informações, consulte Retorno de chamada de carregador do painel de ativos.
 - `height` {OPTIONAL, number} A altura total do widget (a altura mínima é de 600 px sem o painel de ativos e 850 px com o painel de ativos).
-- `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): os modos de sub-recorte permitidos. O valor padrão é 'all'.
+- `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): os modos de subclipping permitidos. O valor padrão é 'all'.
 - `filterAssetsTypes` (OPTIONAL, bool): filterAssetsTypes permite mostrar/ocultar a lista suspensa de filtros do painel de ativos. O valor padrão é true.
 - `speedLevels` (OPTIONAL, array): speedLevels permite configurar diferentes níveis de velocidade para o player de vídeo. Consulte a [documentação do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) para obter mais informações.
 - `resetOnJobDone` (OPTIONAL, bool): resetOnJobDone permite que o Clipper redefina o subclipper para um estado inicial quando um trabalho é enviado com êxito.

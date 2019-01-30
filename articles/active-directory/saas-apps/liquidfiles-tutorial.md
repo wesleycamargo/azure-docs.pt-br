@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao LiquidFiles | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o LiquidFiles | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o LiquidFiles.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cb517134-0b34-4a74-b40c-5a3223ca81b6
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: f1fc9be81cb5ada628c253351746dbaf11fe3b84
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 37b7f24cc3baf34e3a63eb10fc01e0c3e9016ec2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446080"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824976"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integração do Azure Active Directory ao LiquidFiles
+# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integração do Azure Active Directory com o LiquidFiles
 
 Neste tutorial, você aprende a integrar o LiquidFiles ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LiquidFiles por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -141,7 +141,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
-    a. Em **Método de Logon Único**, selecione **SAML 2**.
+     a. Em **Método de Logon Único**, selecione **SAML 2**.
 
     b. Na caixa de texto **URL de Logon do IDP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
@@ -156,7 +156,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     g. Clique em **Salvar**.  
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: guia de administração | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Guia de administração | Microsoft Docs'
 description: Criar uma UO (Unidade Organizacional) em um domínio gerenciado dos Serviços de Domínio do Azure AD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cd4964939aa9b9ebd96a2fb29e1a6f7bf422d477
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154821"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856257"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (UO) em um domínio gerenciado dos Serviços de Domínio do Azure AD
 Domínios gerenciados dos Serviços de Domínio do Azure AD incluem dois contêineres internos chamados 'Computadores do AADDC' e 'Usuários do AADDC', respectivamente. O contêiner 'Computadores do AADDC' tem objetos de computador para todos os computadores ingressados no domínio gerenciado. O contêiner 'Usuários do AADDC' inclui usuários e grupos no locatário do Azure AD. Ocasionalmente, pode ser necessário criar contas de serviço no domínio gerenciado para implantar cargas de trabalho. Para essa finalidade, você pode criar uma UO (unidade organizacional) personalizada no domínio gerenciado e criar contas de serviço dentro dessa UO. Este artigo mostra como criar uma UO em seu domínio gerenciado.
@@ -83,5 +83,5 @@ Agora que você criou uma UO personalizada, pode criar usuários, grupos, comput
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Configurar a Política de Grupo em um domínio gerenciado](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Centro Administrativo do Active Directory: introdução](https://technet.microsoft.com/library/dd560651.aspx)
+* [Centro Administrativo do Active Directory: Introdução](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guia passo a passo de contas de serviço](https://technet.microsoft.com/library/dd548356.aspx)

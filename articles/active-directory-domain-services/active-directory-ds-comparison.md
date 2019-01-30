@@ -1,10 +1,10 @@
 ---
-title: 'Serviços de Domínio do Azure AD: comparar os Serviços de Domínio do Azure AD com os controladores de domínio DIY | Microsoft Docs'
+title: 'Azure AD Domain Services: Comparar os Azure Active Directory Domain Services com os controladores de domínio DIY | Microsoft Docs'
 description: Comparação dos Azure Active Directory Domain Services com controladores de domínio DIY
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155790"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847621"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se os Azure AD Domain Services são adequados ao seu caso de uso
 Com o Azure AD Domain Services, você pode implantar suas cargas de trabalho nos Serviços de Infraestrutura do Azure sem precisar se preocupar em manter a infraestrutura de identidade no Azure. Esse serviço gerenciado é diferente de uma implantação típica do Windows Server Active Directory que você implanta e administra sozinho. O serviço é fácil de implantar e oferece monitoramento de integridade e correção automatizados. Estamos constantemente evoluindo o serviço a fim de adicionar suporte para cenários comuns de implantação.
@@ -106,9 +106,9 @@ Os domínios gerenciados dos Azure AD Domain Services estão disponíveis em uma
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>Opções de implantação de AD do tipo DIY (faça você mesmo)
 Você pode ter casos de uso de implantação nos quais precisa de alguns dos recursos oferecidos por uma instalação de AD do Windows Server. Nesses casos, considere uma das seguintes opções de DIY (faça você mesmo):
 
-* **Domínio de nuvem autônomo:** você pode configurar um "domínio de nuvem" autônomo usando máquinas virtuais do Azure que foram configuradas como controladores de domínio. Essa infraestrutura não se integra ao seu ambiente local do AD. Essa opção exigiria um conjunto diferente de "credenciais de nuvem" para fazer logon/administrar VMs na nuvem.
-* **Implantação de floresta de recursos:** você pode configurar um domínio na topologia de floresta de recursos, usando máquinas virtuais do Azure configuradas como controladores de domínio. Em seguida, você pode configurar uma relação de confiança do AD com seu ambiente local do AD. Você pode ingressar computadores em domínio (VMs do Azure) nessa floresta de recursos na nuvem. A autenticação do usuário acontece em um uma conexão de VPN/ExpressRoute para seu diretório local.
-* **Estender seu domínio local para o Azure:** você pode conectar uma rede virtual do Azure à sua rede local usando uma conexão VPN/ExpressRoute. Essa configuração permite que VMs do Azure sejam ingressadas em seu AD local. Outra alternativa é promover uma réplica dos controladores de domínio de seu domínio local no Azure como uma VM. Você pode configurá-lo para replicar em uma conexão de VPN/ExpressRoute para seu diretório local. Esse modo de implantação estende efetivamente seu domínio local para o Azure.
+* **Domínio de nuvem autônomo:** Você pode configurar um “domínio de nuvem” autônomo usando máquinas virtuais do Azure que foram configuradas como controladores de domínio. Essa infraestrutura não se integra ao seu ambiente local do AD. Essa opção exigiria um conjunto diferente de "credenciais de nuvem" para fazer logon/administrar VMs na nuvem.
+* **Implantação de floresta de recursos:** Você pode configurar um domínio na topologia de floresta de recursos, usando máquinas virtuais do Azure configuradas como controladores de domínio. Em seguida, você pode configurar uma relação de confiança do AD com seu ambiente local do AD. Você pode ingressar computadores em domínio (VMs do Azure) nessa floresta de recursos na nuvem. A autenticação do usuário acontece em um uma conexão de VPN/ExpressRoute para seu diretório local.
+* **Estender seu domínio local para o Azure:** Você pode conectar uma rede virtual do Azure à sua rede local usando uma conexão VPN/ExpressRoute. Essa configuração permite que VMs do Azure sejam ingressadas em seu AD local. Outra alternativa é promover uma réplica dos controladores de domínio de seu domínio local no Azure como uma VM. Você pode configurá-lo para replicar em uma conexão de VPN/ExpressRoute para seu diretório local. Esse modo de implantação estende efetivamente seu domínio local para o Azure.
 
 > [!NOTE]
 > Você pode determinar se uma opção de DIY é mais adequada para seus casos de uso de implantação. Considere [compartilhar comentários](active-directory-ds-contact-us.md) para nos ajudar a entender quais recursos ajudariam você a escolher os Azure AD Domain Services no futuro. Esses comentários nos ajudam a desenvolver o serviço a fim de atender melhor às suas necessidades de implantação e casos de uso.

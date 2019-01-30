@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828087"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicativo do Azure
 
@@ -36,7 +36,7 @@ A tabela a seguir lista e descreve cada etapa de publicação, além de fornecer
 |  **Etapa de publicação**           | **Hora**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | < 15 min    | Informações de oferta e configurações de oferta são validadas.                        |
-| Validar configurações de receita influenciadas | < 15 min  |      |
+| Validar configurações de receita influenciadas | < 15 min  | A atribuição de uso de recursos do Azure para a oferta é verificada.             |
 | Certificação                  | < 1 dia     | A oferta é analisada pela equipe de certificação do Azure. A oferta é exeminada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se atende aos critérios de qualificação. Para mais informações, consulte os [pré-requisitos](./cpp-prerequisites.md). Comentários serão fornecidos se um problema for encontrado. |
 | Validação de test drive          | < 2 horas   | (Opcional) Se há um Test Drive, a Microsoft valida que ele pode ser implantado e replicado.  |
 | Registro de embalagem e geração de leads | < 1 hora  | Os recursos técnicos da oferta são empacotados para uso do cliente e os sistemas de leads são configurados e implantados. |

@@ -8,24 +8,24 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1474bf13a6d364fcbd90adee09a1a60bcafc2ccb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985270"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438551"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obtenção de suporte para colaboração B2B
 
 Você leu a documentação, fez as coisas certas, mas ainda assim algo não funciona? Abra um tíquete de suporte (exige um plano de suporte):
 
 1. No [Portal do Azure](https://portal.azure.com), navegue até a folha Ajuda e Suporte e escolha Nova Solicitação de Suporte:
-  - Tipo de problema: técnico
+  - Tipo de problema: Técnicos
   - Assinatura: escolha a assinatura afetada
     - Serviço: Active Directory
-    - Plano de Suporte: escolha o plano de suporte relevante
+    - Plano de suporte: escolha o plano de suporte relevante
 
   ![nova solicitação de suporte](media/get-support/new-support-request.png)
 

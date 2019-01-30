@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752870"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851718"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um Registro de contêiner privado do Docker
 
@@ -33,6 +33,8 @@ az acr login --name <acrName>
 ```
 
 Ao fazer logon com `az acr login`, a CLI usa o token criado quando você executou [az login](/cli/azure/reference-index#az-login) para, sem interrupções, autenticar a sessão com o registro. Depois de você fazer logon dessa maneira, suas credenciais são armazenadas em cache e os comandos `docker` subsequentes não requerem um nome de usuário ou senha. Se o token expirar, você poderá atualizá-lo usando o comando `az acr login` novamente para se reautenticar. Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
+
+Para alguns cenários, convém fazer logon em um registro com sua própria identidade individual do Azure AD. Para cenários entre serviços ou lidar com as necessidades de um grupo de trabalho no qual você não deseja gerenciar o acesso individual, também é possível fazer logon com uma [identidade gerenciada de recursos do Azure](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Entidade de serviço
 

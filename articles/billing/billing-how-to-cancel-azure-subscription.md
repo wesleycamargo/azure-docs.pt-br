@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810322"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelar sua assinatura do Azure
 
@@ -37,10 +37,11 @@ Se você cancelar um plano de Suporte do Azure pago, ainda será cobrado pelo re
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Cancelar uma assinatura usando o portal do Azure
 
 1. Selecione sua assinatura na [página Assinaturas no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione a assinatura que você deseja cancelar e clique em **Cancelar assinatura**.
+2. Selecione a assinatura que você quer cancelar.
+3. Selecione **Visão Geral** e, em seguida, selecione **Cancelar assinatura**.
 
     ![Captura de tela que mostra o botão Cancelar](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Siga os prompts e conclua o cancelamento.
+3. Siga os prompts e conclua o cancelamento.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>O que acontecerá depois que eu cancelar minha assinatura?
 
@@ -58,6 +59,6 @@ Se você cancelou sua assinatura Pré-paga acidentalmente, poderá [reativá-la 
 
 Caso sua assinatura não seja Pré-paga, contate o suporte em até 90 dias após o cancelamento para reativar a assinatura.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

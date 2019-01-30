@@ -4,17 +4,17 @@ description: Efeitos e avaliações do Azure Policy determinam a conformidade. S
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3bbd9bc7f213f117b2389f0a2526a75fef6f0234
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318361"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853622"
 ---
 # <a name="getting-compliance-data"></a>Obtendo dados de conformidade
 
@@ -29,6 +29,8 @@ Antes de examinar os métodos de relatório de conformidade, vamos ver quando as
 
 > [!WARNING]
 > Se o estado de conformidade estiver sendo relatado como **Não registrado**, verifique se o **Provedor de Recursos Microsoft.PolicyInsights** está registrado e se o usuário tem as permissões apropriadas de controle de acesso baseado em função (RBAC) descritas [aqui](../overview.md#rbac-permissions-in-azure-policy).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Gatilhos de avaliação
 
@@ -145,9 +147,9 @@ As mesmas informações disponíveis no portal podem ser recuperadas com a API R
 Para usar os exemplos a seguir no Azure PowerShell, construa um token de autenticação com este exemplo de código. Em seguida, substitua o $restUri pela cadeia de caracteres nos exemplos para recuperar um objeto JSON que pode ser analisado.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -283,29 +285,33 @@ Para obter mais informações sobre como consultar os eventos de política, cons
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-O módulo do Azure PowerShell para a política está disponível na Galeria do PowerShell como [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Usando o PowerShellGet, você pode instalar o módulo usando `Install-Module -Name AzureRM.PolicyInsights` (verifique se você tem a versão mais recente do [Azure PowerShell](/powershell/azure/install-azurerm-ps) instalada):
+O módulo do Azure PowerShell para a política está disponível na Galeria do PowerShell como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Usando o PowerShellGet, você pode instalar o módulo usando `Install-Module -Name Az.PolicyInsights` (verifique se você tem a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) instalada):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-O módulo tem três cmdlets:
+O módulo tem os seguintes cmdlets:
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 Exemplo: obter o estado de resumo da política superior atribuída com o maior número de recursos sem conformidade.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -316,7 +322,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
 Exemplo: obter o registro de estado para o recurso avaliada mais recentemente (o padrão é pelo carimbo de data/hora em ordem decrescente).
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -342,7 +348,7 @@ PolicyDefinitionCategory   : tbd
 Exemplo: obter os detalhes para todos os recursos de rede virtual sem conformidade.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -368,7 +374,7 @@ PolicyDefinitionCategory   : tbd
 Exemplo: obter eventos relacionados aos recursos de rede virtual sem conformidade que ocorreram após uma data específica.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -393,16 +399,16 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-O campo **PrincipalOid** pode ser usado para obter um usuário específico com o cmdlet do Azure PowerShell `Get-AzureRmADUser`. Substitua **{principalOid}** pela resposta obtida do exemplo anterior.
+O campo **PrincipalOid** pode ser usado para obter um usuário específico com o cmdlet do Azure PowerShell `Get-AzADUser`. Substitua **{principalOid}** pela resposta obtida do exemplo anterior.
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Se você tiver um workspace do [Log Analytics](../../../log-analytics/log-analytics-overview.md) com a solução `AzureActivity` associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas Kusto simples e a tabela `AzureActivity`. Com os detalhes no Log Analytics, os alertas podem ser configurados para inspecionar a não conformidade.
+Se você tiver um workspace do [Log Analytics](../../../log-analytics/log-analytics-overview.md) com a solução `AzureActivity` associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas simples do Azure Data Explorer e a tabela `AzureActivity`. Com os detalhes no Log Analytics, os alertas podem ser configurados para inspecionar a não conformidade.
 
 ![Conformidade de política usando o Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
 

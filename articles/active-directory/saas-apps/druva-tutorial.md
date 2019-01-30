@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com Druva | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Druva | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Druva.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 985304244acdfafa4fa99dbbe876f35b3e6c58b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24f0a74f5abb625ba7350c2bd3a500fc2f296575
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439354"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824687"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: integração do Azure Active Directory com o Druva
+# <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: Integração do Azure Active Directory com o Druva
 
 Neste tutorial, você aprenderá a integrar o Druva ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Druva da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -132,7 +132,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | ------------------- | -------------------- |
     | insync\_auth\_token |Insira o valor gerado pelo token |
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
     
     ![Configurar o logon único](./media/druva-tutorial/tutorial_attribute_04.png)
     
@@ -162,7 +162,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurações de Logon Único](./media/druva-tutorial/ic795092.png "Configurações de Logon Único")
     
-    a. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único** copiado do Portal do Azure.
+     a. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único** copiado do Portal do Azure.
         
     b. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor da **URL de Saída** copiado do Portal do Azure
         
@@ -178,12 +178,12 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Token SSO](./media/druva-tutorial/ic795094.png "Token SSO")
     
-    a. Clique em **Copiar**, cole o valor copiado na caixa de texto **Valor** na seção **Adicionar Atributo** no Portal do Azure.
+     a. Clique em **Copiar**, cole o valor copiado na caixa de texto **Valor** na seção **Adicionar Atributo** no Portal do Azure.
     
     b. Clique em **fechar**
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -238,7 +238,7 @@ Para permitir que os usuários do Azure AD façam logon no Druva, eles devem est
    
    ![Criar Novo Usuário](./media/druva-tutorial/ic795099.png "Criar Novo Usuário")
    
-   a. Na caixa de texto **Endereço de email**, insira o email do usuário como **brittasimon@contoso.com**.
+    a. Na caixa de texto **Endereço de email**, insira o email do usuário como **brittasimon@contoso.com**.
    
    b. Na caixa de texto **Nome**, insira o nome de usuário, como **BrendaFernandes**.
    
@@ -282,7 +282,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Druva no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Druva.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

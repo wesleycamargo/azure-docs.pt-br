@@ -5,7 +5,7 @@ services: active-directory
 keywords: Solução de problemas de Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686187"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472765"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -95,7 +95,7 @@ Use uma conta Administrador Global somente de nuvem para todas as operações de
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Mensagem de aviso ao desinstalar o Azure AD Connect
 
-Se você tiver a Autenticação de Passagem habilitada em seu locatário e tentar desinstalar o Azure AD Connect, será mostrada a seguinte mensagem de aviso: "Os usuários não poderão entrar no Azure AD, a menos que você tenha outros agentes de Autenticação de Passagem instalados em outros servidores."
+Se a Autenticação de Passagem estiver habilitada em seu locatário e você tentar desinstalar o Azure AD Connect, será exibida a seguinte mensagem de aviso: “Os usuários não poderão entrar no Azure AD a menos que você tenha outros agentes de Autenticação de Passagem instalados em outros servidores.”
 
 Verifique se a configuração está [altamente disponível](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) antes de desinstalar o Azure AD Connect para evitar falha de entrada de usuário.
 
@@ -137,7 +137,7 @@ Para solucionar problemas de falhas de conexão do usuário, procure os logs de 
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Você pode obter detalhes descritivos do erro ("1328" no exemplo anterior) abrindo o prompt de comando e executando o comando a seguir. (Observação: substitua "1328" pelo número de erro real que você vê em seus logs):
+Para saber mais sobre o erro (“1328”, no exemplo anterior), abra o prompt de comando e execute o comando a seguir (observação: substitua “1328” pelo número real do erro que você vê em seus logs):
 
 `Net helpmsg 1328`
 

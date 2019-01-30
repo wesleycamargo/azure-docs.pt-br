@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994158"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447353"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar o Twilio para obter recursos de voz e SMS no Python
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -89,7 +89,7 @@ Primeiro, [configure uma nova VM Linux do Azure][azure_vm_setup] para agir como 
 
 ### <a name="set-the-dns-name-label"></a>Definir o rótulo do Nome DNS
   1. Vá para a página [Os Endereços IP Públicos][azure_ips].
-  2. Selecione o IP Público que corresponde à sua máquina virtual.
+  2. Selecione o IP Público que corresponde à sua Máquina Virtual.
   3. Defina o **Rótulo de Nome DNS** na seção **Configuração**. No caso deste exemplo, você verá algo semelhante a *rótulo-do-seu-domínio*.centralus.cloudapp.azure.com
 
 Assim que você for capaz de se conectar à máquina virtual por meio de SSH, você poderá instalar a estrutura da Web de sua escolha (as duas mais conhecidas do Python são [Flask](http://flask.pocoo.org/) e [Django](https://www.djangoproject.com)). Você pode instalar qualquer um deles apenas executando o comando `pip install`.

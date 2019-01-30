@@ -3,21 +3,21 @@ title: Como modificar a inscrição em políticas personalizadas e configurar um
 description: Um passo a passo sobre como adicionar declarações para inscrição e configurar a entrada do usuário
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 326b0289ebb7aa503d41d556bea15017c28f7a1e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344987"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853707"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: como modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630318"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809183"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -205,6 +205,9 @@ Se você estiver usando uma solução de backup local, os backups deverão ser e
 
 > [!Note]  
 > A restauração bare-metal (BMR) pode causar resultados inesperados e não é atualmente suportada.
+
+> [!Note]  
+> Atualmente, não há suporte para instantâneos do VSS (incluindo a guia Versões Anteriores) em volumes com camada de nuvem habilitada. Se a camada de nuvem estiver habilitada, use os instantâneos de compartilhamento do arquivo do Azure para restaurar um arquivo do backup.
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:

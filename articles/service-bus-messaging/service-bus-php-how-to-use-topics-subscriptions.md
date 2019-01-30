@@ -3,9 +3,9 @@ title: Como usar os tópicos de Barramento de Serviço com PHP | Microsoft Docs
 description: Saiba como usar tópicos do Barramento de Serviço com PHP no Azure.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: spelluru
-ms.openlocfilehash: 8b2cd62d9f1c2010956604a9f3c753d893f7c2ad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407273"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849304"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como usar tópicos e assinaturas do Barramento de Serviço com PHP
 
@@ -244,7 +244,7 @@ for($i = 0; $i < 5; $i++){
 Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. Este limite superior do tamanho do tópico é 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
-A maneira mais fácil de receber mensagens de uma assinatura é usar um método `ServiceBusRestProxy->receiveSubscriptionMessage`. As mensagens podem ser recebidas de dois modos diferentes: [*ReceiveAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é o padrão.
+A maneira mais fácil de receber mensagens de uma assinatura é usar um método `ServiceBusRestProxy->receiveSubscriptionMessage`. As mensagens podem ser recebidas em dois modos diferentes: [*ReceiveAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é o padrão.
 
 Quando o modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) for usado, o recebimento será uma operação única, ou seja, quando o Barramento de Serviço receber uma solicitação de leitura de uma mensagem em uma assinatura, ele marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço marcou a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 

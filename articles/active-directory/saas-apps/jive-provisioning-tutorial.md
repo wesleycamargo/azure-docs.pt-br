@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configurar o Jive para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Jive para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Jive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6fbfdbe7-d66c-4305-9fea-76d6a6a92830
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4396a16ec78d604b3d6c3bea5571d21ca48d5921
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d56a3a3c0d7e7e57ba01f6a82f086950f1b33ed5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346280"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811397"
 ---
-# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar o Jive para provisionamento automático de usuário
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar o Jive para provisionamento automático de usuários
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Jive e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Jive.
 
@@ -71,7 +71,7 @@ Como parte desse procedimento, é necessário fornecer um token de segurança do
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
-    a. Na caixa de texto **Nome do Usuário Administrador do Jive**, digite o nome da conta do Jive que tem o perfil do **Administrador de Sistema** atribuído no Jive.com.
+     a. Na caixa de texto **Nome do Usuário Administrador do Jive**, digite o nome da conta do Jive que tem o perfil do **Administrador de Sistema** atribuído no Jive.com.
    
     b. Na caixa de texto **Senha do Administrador do Jive** , digite a senha desta conta.
    

@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6a1e3d2362ab711ee50f9ca94737883893e2ffd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423789"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450321"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como certificar o AppSource para o Azure AD
 
@@ -49,7 +49,7 @@ Para obter mais informações sobre multilocação, consulte: [Como conectar qua
 
 Um *aplicativo de locatário único* é aquele que somente aceita entradas de usuários de uma instância definida do Azure AD. Os usuários externos (incluindo as contas corporativas ou de estudante de outras organizações, ou contas pessoais) podem entrar em um aplicativo de locatário único após adicionar cada usuário como conta convidado à instância do Azure AD em que o aplicativo está registrado. 
 
-É possível adicionar usuários como contas convidado ao Azure AD por meio de [Colaboração B2B do Azure AD](../b2b/what-is-b2b.md), sendo que isso pode ser feito [programaticamente](../../active-directory-b2c/code-samples.md). Ao usar o B2B, os usuários podem criar um portal de autoatendimento que não requer um convite para entrar. Para obter mais informações, consulte [Portal de autoatendimento para inscrição de colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+É possível adicionar usuários como contas de convidado ao Azure Active Directory por meio de [Colaboração B2B do Azure Active Directory](../b2b/what-is-b2b.md), sendo que isso pode ser feito [via programação](../../active-directory-b2c/code-samples.md). Ao usar o B2B, os usuários podem criar um portal de autoatendimento que não requer um convite para entrar. Para obter mais informações, consulte [Portal de autoatendimento para inscrição de colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
 
 Os aplicativos de locatário único podem habilitar a experiência *Entre em Contato Comigo*, mas se você quer habilitar a experiência de avaliação gratuita/clique simples recomendada pelo AppSource, em vez disso, habilite a multilocação no aplicativo.
 

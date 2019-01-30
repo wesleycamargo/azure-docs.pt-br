@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 03f1e128-5bcb-4e49-b6a3-fe22eedc6d5e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: e74a1a17638a3d968f2216950f6310205fce86f5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9bb638f2ff4f94ebb6c75a05fd7de772f8f9cdec
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422477"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Tutorial: Integração do Azure Active Directory ao TigerText Secure Messenger
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o TigerText Secure Messenger da galeria
 1. Configurar e testar logon único do Azure AD
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Seção Domínio e URLs do TigerText Secure Messenger](./media/tigertext-tutorial/tutorial_tigertext_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://home.tigertext.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://home.tigertext.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
 
@@ -126,7 +126,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para que o logon único seja configurado para o aplicativo, entre em contato com a [equipe de suporte do TigerText Secure Messenger](mailTo:prosupport@tigertext.com) e forneça os **metadados baixados**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -152,7 +152,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Diálogo do usuário](./media/tigertext-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

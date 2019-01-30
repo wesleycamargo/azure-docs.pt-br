@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975502"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468328"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do docker do Serviço Inteligente de Reconhecimento Vocal 
 
@@ -32,10 +32,11 @@ Esse contêiner tem as seguintes configurações:
 |--|--|--|
 |SIM|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
 |Não |[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
-|SIM|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
+|SIM|[Cobrança](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
 |SIM|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
 |Não |[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
-|Não |[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Não |[Proxy HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
+|Não |[Registro em log](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
 |SIM|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
@@ -77,6 +78,10 @@ Essa configuração pode ser localizada no seguinte local:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>Configurações das credenciais de proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Configurações de registro em log
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Reveja [Como instalar e executar contêineres](luis-container-howto.md)
 * Consulte [Perguntas frequentes (FAQ)](luis-resources-faq.md) para resolver problemas relacionados à funcionalidade LUIS.
+* Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

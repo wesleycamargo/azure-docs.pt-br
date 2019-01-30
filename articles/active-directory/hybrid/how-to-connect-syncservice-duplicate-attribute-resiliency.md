@@ -4,7 +4,7 @@ description: Novo comportamento de como lidar com objetos com conflitos de UPN o
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406187"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464860"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência do atributo duplicado 
 A Resiliência do Atributo Duplicado é um recurso do Azure Active Directory que eliminará o atrito causado por conflitos de **UserPrincipalName** e **ProxyAddress** ao executar uma das ferramentas de sincronização da Microsoft.
@@ -133,7 +133,7 @@ Este é exemplo da aparência da notificação por email de um conflito ProxyAdd
 ## <a name="resolving-conflicts"></a>Resolução de conflitos
 A estratégia da solução de problemas e as táticas de resolução desses erros não devem diferir da maneira como os erros de atributo duplicado eram tratados no passado. A única diferença é que a tarefa de temporizador examina o locatário no lado do serviço para adicionar automaticamente o atributo em questão ao devido objeto, assim que o conflito é resolvido.
 
-O seguinte artigo descreve diversas estratégias de solução de problemas: [Atributos inválidos ou duplicados impedem a sincronização de diretórios no Office 365](https://support.microsoft.com/kb/2647098).
+O seguinte artigo descreve diversas estratégias de solução de problemas: [Atributos inválidos ou duplicados impedem a sincronização de diretório no Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 Nenhum desses problemas conhecidos causa degradação do serviço nem a perda de dados. Muitos são estéticos, outros fazem com que os erros de atributo duplicado de "*pré-resiliência*" padrão sejam gerados, em vez de colocarem em quarentena o atributo em conflito e também fazem com que certos erros exijam uma correção manual extra.
@@ -143,7 +143,7 @@ Nenhum desses problemas conhecidos causa degradação do serviço nem a perda de
 1. Os objetos com configurações de atributo específicas continuam a receber erros de exportação em vez de colocar os atributos duplicados em quarentena.  
    Por exemplo: 
    
-    a. Um novo usuário é criado no AD com o UPN **Joe@contoso.com** e o ProxyAddress **smtp:Joe@contoso.com**
+     a. Um novo usuário é criado no AD com o UPN **Joe@contoso.com** e o ProxyAddress **smtp:Joe@contoso.com**
    
     b. Propriedades desse conflito de objetos com um Group existente, em que o ProxyAddress é **SMTP:Joe@contoso.com**.
    
@@ -155,7 +155,7 @@ Nenhum desses problemas conhecidos causa degradação do serviço nem a perda de
 1. A mensagem de erro detalhada para dois objetos em um conjunto de conflitos UPN é a mesma. Isso indica que ambos tiveram seus UPNS alterados/colocados em quarentena, quando, na verdade, apenas um deles teve os dados alterados.
 2. A mensagem de erro detalhada de um conflito UPN mostra o displayName incorreto para um usuário que teve seu UPN alterado/colocado em quarentena. Por exemplo: 
    
-    a. O **Usuário A** é sincronizado primeiro com **UPN = User@contoso.com**.
+     a. O **Usuário A** é sincronizado primeiro com **UPN = User@contoso.com**.
    
     b. O **Usuário B** tenta ser sincronizado em seguida com **UPN = User@contoso.com**.
    

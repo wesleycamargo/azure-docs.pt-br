@@ -4,7 +4,7 @@ description: Lista os atributos sincronizados com o Active Directory do Azure.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251791"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468585"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Active Directory do Azure
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect.  
 Os atributos são agrupados pelos aplicativos relacionados do AD do Azure.
 
@@ -427,11 +427,11 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 | Nome do atributo (interface do usuário do Connect) |Nome do atributo (AD local) | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado de cloudAnchor no AD do Azure. Esse atributo é novo no AD do Windows Server 2016 e Exchange 2016. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo online: permite que os clientes arquivem emails. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar UM (Unificação de Mensagens) – Caixa postal online: usado pela integração do Microsoft Lync Server para indicar ao Lync Server local que o usuário tem caixa postal nos serviços online. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo Morto Online: permite que os clientes arquivem emails. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros online e filtragem local nos clientes. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros online e filtragem local nos clientes. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros online e filtragem local nos clientes. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar UM (Unificação de Mensagens) – caixa postal online: usado pela integração do Microsoft Lync Server para indicar ao Lync Server local que o usuário tem caixa postal nos serviços online. |
 | msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Retenção de Litígio: permite que os serviços de nuvem determinem quais usuários estão em Retenção de Litígio. |
 | proxyAddresses| proxyAddresses |X |X |X |Somente o endereço x500 do Exchange Online é inserido. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite que uma caixa de correio do Exchange Online obtenha direitos de SendOnBehalfTo para usuários com caixa de correio do Exchange local. Exige o Azure AD Connect, build 1.1.552.0 ou posterior. |

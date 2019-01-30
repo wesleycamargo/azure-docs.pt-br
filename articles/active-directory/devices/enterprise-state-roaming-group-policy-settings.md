@@ -5,7 +5,7 @@ services: active-directory
 keywords: quais são as configurações da Política e do MDM para o Enterprise State Roaming, Enterprise State Roaming, nuvem do windows
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c6ec20b7467998d221858dfd852461ad33a64494
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 5ce3597bb52a22cfba6103b1d6cc5d0ff6371579
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035206"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447652"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
 Use essas configurações da política de grupo e do MDM (gerenciamento de dispositivos móveis) somente em dispositivos corporativos, já que as políticas são aplicadas ao dispositivo inteiro do usuário. A aplicação de uma política MDM para desabilitar a sincronização de configurações para um dispositivo pessoal de propriedade do usuário afetará negativamente o uso do dispositivo. Além disso, outras contas de usuário no dispositivo também serão afetadas pela política.
@@ -44,7 +44,7 @@ Essas configurações estão localizadas em: `Computer Configuration > Administr
 
 | NOME | DESCRIÇÃO |
 | --- | --- |
-| Contas: Bloquear Contas da Microsoft |Essa configuração de política impede que os usuários adicionem novas contas da Microsoft a este computador |
+| Contas: Bloquear contas da Microsoft |Essa configuração de política impede que os usuários adicionem novas contas da Microsoft a este computador |
 | Não sincronizar |Impede que os usuários movam dados de aplicativo e configurações do Windows |
 | Não sincronizar personalização |Desabilita a sincronização do grupo Temas |
 | Não sincronizar configurações do navegador |Desabilita a sincronização do grupo Internet Explorer |

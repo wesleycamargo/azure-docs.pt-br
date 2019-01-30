@@ -1,5 +1,5 @@
 ---
-title: Backup do Azure – backup offline para DPM e Servidor de Backup do Azure
+title: Backup do Azure - backup offline para DPM e Servidor de Backup do Azure
 description: Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure.
 services: backup
 author: saurabhsensharma
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606470"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818550"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho do backup offline do DPM e do Servidor de Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. O Backup do Azure compacta os backups inicias. O processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup iniciais compactados de forma offline no Azure.
@@ -42,7 +42,7 @@ Há suporte para o Backup Offline para todos os modelos de implantação de Back
 > * Backup de todas as cargas de trabalho e arquivos com o System Center Data Protection Manager (SC DPM) 
 > * Backup de todas as cargas de trabalho e arquivos com o Servidor de Backup do Azure <br/>
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o fluxo de trabalho de Backup Offline
 * Um [cofre de Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) foi criado. Para criar um, consulte as etapas [neste artigo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * O agente de Backup do Azure ou o Servidor de Backup do Azure ou SC DPM foi instalado no Windows Server/cliente do Windows conforme aplicável e o computador está registrado no Cofre de Serviços de Recuperação do Azure. Verifique se apenas a [versão mais recente do Backup do Azure](https://go.microsoft.com/fwlink/?linkid=229525) é usada. 
@@ -59,7 +59,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 
 * Um local de preparo, o que pode ser um compartilhamento de rede ou qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para manter sua cópia inicial, é criado. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, certifique-se de que a área de preparo tenha pelo menos 500 GB. (Um valor menor é usado devido à compactação).
 * Com relação a discos que serão enviados para o Azure, certifique-se de que apenas unidades de disco rígido internas SSD de 2,5 polegadas ou SATA II/III de 2,5 ou 3,5 polegadas sejam usados. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
-* As unidades SATA precisam estar conectadas a um computador (conhecido como um *computador de cópia*) de onde a cópia de dados de backup do *local de preparo* para unidades SATA é feita. Certifique-se de que o BitLocker está habilitado no *computador de cópia* 
+* As unidades SATA precisam estar conectadas a um computador (conhecido como um *computador de cópia*) de onde a cópia de dados de backup do *local de preparo* para unidades SATA é feita. Verifique se o BitLocker está habilitado no *computador de cópia* 
 
 ## <a name="workflow"></a>Fluxo de trabalho
 As informações desta seção ajudam você a concluir o fluxo de trabalho de backup offline para que os dados possam ser entregues em um datacenter do Azure e carregados no Armazenamento do Azure. Se você tem dúvidas sobre o serviço de Importação ou qualquer aspecto do processo, confira a documentação sobre a [Visão geral do serviço de importação](../storage/common/storage-import-export-service.md) indicada anteriormente.
@@ -74,12 +74,12 @@ As informações desta seção ajudam você a concluir o fluxo de trabalho de ba
 
     A descrição das entradas é a seguinte:
 
-    * **Local de preparo**: o local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
-    * **Nome do trabalho de importação do Azure**: o nome exclusivo pelo qual o serviço Importação do Azure e o Backup do Azure controlam a transferência de dados enviados em discos no Azure.
-    * **Configurações de Publicação do Azure**: forneça o caminho local para o arquivo de configurações de publicação.
-    * **ID da Assinatura do Azure**: a ID da assinatura do Azure para a assinatura da qual você fez o download do arquivo de configurações de Publicação do Azure. 
-    * **Conta de Armazenamento do Microsoft Azure**: o nome da conta de armazenamento na assinatura do Azure associada ao arquivo de configurações de Publicação do Azure.
-    * **Contêiner de Armazenamento do Microsoft Azure**: o nome do blob de armazenamento de destino na conta de armazenamento do Azure onde os dados de backup são importados.
+    * **Local de preparo**: O local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
+    * **Nome do trabalho de importação do Azure**: O nome exclusivo pelo qual o serviço Importação do Azure e o Backup do Azure controlam a transferência de dados enviados em discos no Azure.
+    * **Configurações de Publicação do Azure**: Forneça o caminho local para o arquivo de configurações de publicação.
+    * **ID de assinatura do Azure**: A ID de assinatura do Azure para a assinatura da qual você fez o download do arquivo de configurações da Publicação do Azure. 
+    * **Conta de Armazenamento do Azure**: O nome da conta de armazenamento na assinatura do Azure associada ao arquivo de configurações de Publicação do Azure.
+    * **Contêiner do Armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de armazenamento do Azure onde os dados de backup são importados.
 
      Salve o *local de preparo* e o *Nome do Trabalho de Importação do Azure* fornecidos, pois eles são necessários para preparar os discos.  
      

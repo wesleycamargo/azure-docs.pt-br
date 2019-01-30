@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao HackerOne | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Hackerone | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o HackerOne.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e33ad66fe0ced9a426a608f4193ff52dec4f7ee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe070505970516efcd4e2ae46dedff2792f95b08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441826"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Active Directory ao HackerOne
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o HackerOne da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -146,11 +146,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único](./media/hackerone-tutorial/tutorial_hackerone_004.png) 
 
-    a. Na caixa de texto **Domínio de Email** , digite um domínio registrado.
+     a. Na caixa de texto **Domínio de Email** , digite um domínio registrado.
 
-    b. Na caixa de texto **URL de Logon Único**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do Portal do Azure.
+    b. Nas caixas de texto   **URL de Logon Único**, cole o valor da  **URL do Serviço de Logon Único do SAML**  copiado no portal do Azure.
 
-    c. Abra seu **Arquivo de certificado** no bloco de notas baixado do Portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado X509**.
+    c. Abra o seu **Arquivo de certificado** baixado do portal do Azure no bloco de notas, copie o conteúdo para a área de transferência e cole-o na caixa de texto **Certificado X509**  .
     
     d. Clique em **Salvar**.
 
@@ -158,12 +158,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único](./media/hackerone-tutorial/tutorial_hackerone_005.png) 
 
-    a. Clique em **Executar teste**.
+     a. Clique em **Executar teste**.
 
     b. Se o valor do campo **Status** for igual a **Status do último teste: criado**, contate sua [equipe de suporte do HackerOne](mailto:support@hackerone.com) para solicitar uma análise da sua configuração.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

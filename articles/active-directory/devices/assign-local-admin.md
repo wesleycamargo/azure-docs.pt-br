@@ -4,7 +4,7 @@ description: Saiba como atribuir funções do Azure para o grupo de administrado
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: a4671d383c46bf0b932ce528f4eacb7255bad5e7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 97e20d4c6695001148aa2d97d74288e27c537e46
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105399"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450466"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -106,7 +106,7 @@ Você não pode atribuir grupos à função de administrador do dispositivo, som
 
 Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure Active Directory. Eles não podem ser limitados a um conjunto específico de dispositivos.
 
-Quando você remove os usuários da função de administrador do dispositivo, ele ainda tem o privilégio de administrador local em um dispositivo, desde que eles se conectem a ele. O privilégio é revogado durante o próximo logon, ou após 4 horas, quando um novo token de atualização primária é emitido.
+Quando você remove os usuários da função de administrador do dispositivo, ele ainda tem o privilégio de administrador local em um dispositivo, desde que eles se conectem a ele. O privilégio é revogado durante o próximo logon, ou após 4 horas, quando um novo token de atualização principal é emitido.
 
 
 

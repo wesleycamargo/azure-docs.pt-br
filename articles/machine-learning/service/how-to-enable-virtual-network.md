@@ -1,7 +1,7 @@
 ---
-title: Executar experimentos e fazer inferências dentro de uma Rede Virtual
+title: Executar experimentos e inferência em uma rede virtual
 titleSuffix: Azure Machine Learning service
-description: Saiba como executar com segurança experimentos de aprendizado de máquina e fazer inferências dentro de uma Rede Virtual do Microsoft Azure. Este artigo ensina a criar os destinos de computação usados para treinar modelos e fazer inferências dentro de uma Rede Virtual do Azure. Também aborda os requisitos para redes virtuais seguras, como exigir portas de entrada e saída.
+description: Executar experimentos de aprendizado de máquina e fazer inferências com segurança dentro de uma Rede Virtual do Microsoft Azure. Saiba como criar destinos de computação para treinamento de modelo e como fazer inferência dentro de uma Rede Virtual do Azure. Também aborda os requisitos para redes virtuais seguras, como exigir portas de entrada e saída.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248598"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856274"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Executar experimentos e fazer inferências com segurança dentro de uma Rede Virtual
 

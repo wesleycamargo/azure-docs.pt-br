@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: efb9d72de3b408ce741ed96aa2aecd2ed45e293c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee8931f1f9121f3e645b2f94eece919ae6b19075
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428932"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808843"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: integração do Active Directory do Azure ao Moxtra
+# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Azure Active Directory com o Moxtra
 
 Neste tutorial, você aprenderá a integrar o Moxtra ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Moxtra da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -129,7 +129,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!Note]
     > O valor do atributo **idpid** não é real. Você pode obter o valor real da seção **Referência rápida** na **Configuração Moxtra**.
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/moxtra-tutorial/tutorial_attribute_04.png)
 
@@ -163,7 +163,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Configurar o logon único](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. Na caixa de texto **Nome** , digite um nome para a sua configuração (por exemplo: *SAML*). 
+     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo, *SAML*). 
   
     b. Na caixa de texto **ID da Entidade IdP**, cole o valor da **ID da Entidade SAML** copiado no Portal do Azure. 
  
@@ -183,7 +183,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     h. Clique em **Atualizar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -230,7 +230,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Moxtra
 
 1. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
   
-    a. Na caixa de texto **Nome**, digite **Brenda**.
+     a. Na caixa de texto **Nome**, digite **Brenda**.
   
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
   

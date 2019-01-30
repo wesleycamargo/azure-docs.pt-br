@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com LinkedIn Sales Navigator | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao LinkedIn Sales Navigator | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o LinkedInSalesNavigator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4a30259c4aa00530e5aadd2cb98c19b63bd5d8a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425190"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817020"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Sales Navigator
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory ao LinkedIn Sales Navigator
 
 Neste tutorial, você aprenderá a integrar o LinkedIn Sales Navigator ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar LinkedIn Sales Navigator da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -122,7 +122,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
-    a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
+     a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
 
     b. Na caixa de texto **URL de Resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
 
@@ -147,7 +147,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/userattribute.png)
     
-    a. Clique em **Adicionar Atributo** para abrir a caixa de diálogo do atributo.
+     a. Clique em **Adicionar Atributo** para abrir a caixa de diálogo do atributo.
     
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
     
@@ -161,7 +161,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Realize as seguintes etapas no atributo **name**-
 
-    a. Clique no atributo para abrir a janela **Editar Atributo**.
+     a. Clique no atributo para abrir a janela **Editar Atributo**.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/url_update.png)
 
@@ -187,7 +187,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -261,7 +261,7 @@ Nesta seção, ao conceder acesso ao LinkedIn Sales Navigator a Brenda Fernandes
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco LinkedIn Sales Navigator no painel de acesso, você deverá ser redirecionado à página organizacional em que você precisa fornecer os detalhes da sua conta pessoal do LinkedIn. Ele vincula a sua conta pessoal à sua conta de negócios do LinkedIn. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando você clicar no bloco LinkedIn Sales Navigator no painel de acesso, você deverá ser redirecionado à página organizacional em que você precisa fornecer os detalhes da sua conta pessoal do LinkedIn. Ele vincula a sua conta pessoal à sua conta de negócios do LinkedIn. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

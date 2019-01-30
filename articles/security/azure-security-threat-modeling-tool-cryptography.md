@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844644"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824619"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de segurança: Criptografia | Mitigações 
 | Produto/Serviço | Artigo |
@@ -29,7 +29,7 @@ ms.locfileid: "52844644"
 | **Dispositivo IoT** | <ul><li>[Armazenar chaves de criptografia com segurança no dispositivo IoT](#keys-iot)</li></ul> | 
 | **Gateway de Nuvem IoT** | <ul><li>[Gerar uma chave simétrica aleatória com um tamanho suficiente para autenticação no Hub IoT](#random-hub)</li></ul> | 
 | **Cliente móvel do Dynamics CRM** | <ul><li>[Garantir que uma política de gerenciamento de dispositivos esteja aplicada, que ela exija um PIN de uso e permita a limpeza remota do dispositivo](#pin-remote)</li></ul> | 
-| **Cliente do Outlook do Dynamics CRM** | <ul><li>[Garantir que uma política de gerenciamento de dispositivos esteja aplicada, que exija PIN, senha ou bloqueio automático e criptografe todos os dados (por exemplo, o BitLocker)](#bitlocker)</li></ul> | 
+| **Cliente do Outlook do Dynamics CRM** | <ul><li>[Garanta que uma política de gerenciamento de dispositivos esteja aplicada, que exija PIN, senha ou bloqueio automático e criptografe todos os dados (por exemplo, o BitLocker)](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Garantir que as chaves de assinatura sejam trocadas quando o Servidor de identidade for usado](#rolled-server)</li><li>[Garantir que ID de cliente e segredo do cliente criptograficamente fortes sejam usados no Identity Server](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Usar somente codificações de bloco simétricas e comprimentos de chave aprovados
@@ -209,7 +209,7 @@ Como podemos ver, a chave primária do dispositivo não está presente no códig
 | **Referências**              | N/D  |
 | **Etapas** | Garanta que uma política de gerenciamento de dispositivos esteja aplicada, que ela exija um PIN de uso e permita a limpeza remota do dispositivo. |
 
-## <a id="bitlocker"></a>Garantir que uma política de gerenciamento de dispositivos esteja aplicada, que exija PIN, senha ou bloqueio automático e criptografe todos os dados (por exemplo, o BitLocker)
+## <a id="bitlocker"></a>Garanta que uma política de gerenciamento de dispositivos esteja aplicada, que exija PIN, senha ou bloqueio automático e criptografe todos os dados (por exemplo, o BitLocker)
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ Como podemos ver, a chave primária do dispositivo não está presente no códig
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Garanta que uma política de gerenciamento de dispositivos esteja aplicada, que exija PIN, senha ou bloqueio automático e criptografe todos os dados (por exemplo, o BitLocker). |
+| **Etapas** | Garanta que uma política de gerenciamento de dispositivos esteja aplicada, que exija PIN, senha ou bloqueio automático e criptografe todos os dados (por exemplo, o BitLocker) |
 
 ## <a id="rolled-server"></a>Garantir que as chaves de assinatura sejam trocadas quando o Servidor de identidade for usado
 

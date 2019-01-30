@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o TOPdesk - Público | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao TOPdesk – Público | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o TOPdesk – Public.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0873299f-ce70-457b-addc-e57c5801275f
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: ce74d4263e06c33c9beb66417b5ab8d61b8a259f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1043752ccead6276dbe6b18db7c0965cd90b43f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433911"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817139"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: integração do Azure Active Directory com o TOPdesk – Public
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Azure Active Directory ao TOPdesk – Público
 
 Neste tutorial, você aprenderá a integrar o TOPdesk – Public ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o TOPdesk – Public da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do TOPdesk – Public](./media/topdesk-public-tutorial/tutorial_topdesk-public_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net`
     
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net/tas/public/login/verify`
 
@@ -149,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Configurações técnicas](./media/topdesk-public-tutorial/ic790601.png "Configurações técnicas")
    
-    a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
+     a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
    
     b. Abra o arquivo de metadados baixado e localize o nó **AssertionConsumerService**.
 
@@ -161,7 +161,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Certificado](./media/topdesk-public-tutorial/ic790606.png "Certificado")
     
-    a. Abra o arquivo de metadados baixado do Portal do Azure.
+     a. Abra o arquivo de metadados baixado do Portal do Azure.
     
     b. Expanda o nó **RoleDescriptor** que contém um **xsi:type** de **fed:ApplicationServiceType**.
     
@@ -177,7 +177,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Assistente de configuração SAML](./media/topdesk-public-tutorial/ic790608.png "Assistente de configuração SAML")
     
-    a. Para carregar o arquivo de metadados baixado do Portal do Azure, em **Metadados de Federação**, clique em **Procurar**.
+     a. Para carregar o arquivo de metadados baixado do Portal do Azure, em **Metadados de Federação**, clique em **Procurar**.
 
     b. Para carregar o arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
 
@@ -190,7 +190,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     f. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -240,7 +240,7 @@ No caso do TOPdesk - Público, o provisionamento é uma tarefa manual.
    
     ![Nova pessoa](./media/topdesk-public-tutorial/ic790629.png "Nova pessoa")
    
-    a. Clique na guia Geral.
+     a. Clique na guia Geral.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, tal como Fernandes
  
@@ -286,7 +286,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco TOPdesk – Public no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo TOPdesk – Public.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

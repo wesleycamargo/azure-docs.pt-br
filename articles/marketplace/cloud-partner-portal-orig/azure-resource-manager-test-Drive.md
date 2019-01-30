@@ -1,6 +1,6 @@
 ---
 title: Test Drive do Azure Resource Manager | Microsoft Docs
-description: Criar um Test Drive do Marketplace usando o Azure Resource Manager
+description: Criar um test drive do Marketplace usando o Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139258"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451350"
 ---
 <a name="azure-resource-manager-test-drive"></a>Test Drive do Azure Resource Manager
 =================================

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Optimizely | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Optimizely | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Optimizely.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: be56218e174e5d8b0e6bde394f2dfd40fc91e87d
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 72e0f19a665b1e8cc91939ae24cc71341b5f1674
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141195"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819009"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory ao Optimizely
+# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory com o Optimizely
 
 Neste tutorial, você aprenderá a integrar o Optimizely ao Azure AD (Azure Active Directory).
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Optimizely da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -133,7 +133,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | ---------------| --------------- |
     | email | user.mail |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/optimizely-tutorial/tutorial_attribute_04.png)
 
@@ -161,7 +161,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 10. Em resposta ao seu email, o Optimizely fornece a URL de Entrada (SSO iniciado pelo SP) e os valores do Identificador (ID de Entidade de Provedor de Serviços).
 
-    a. Copie a **URL de SSO iniciado pelo SP** fornecida pelo Optimizely e cole na caixa de texto **URL de Logon** na seção **URLs e Domínio do Optimizely** no portal do Azure.
+     a. Copie a **URL de SSO iniciado pelo SP** fornecida pelo Optimizely e cole na caixa de texto **URL de Logon** na seção **URLs e Domínio do Optimizely** no portal do Azure.
 
     b. Copie a **ID da Entidade do Provedor de Serviços** fornecida pelo Optimizely e cole na caixa de texto **Identificador** na seção **URLs e Domínio do Optimizely** no portal do Azure.
 

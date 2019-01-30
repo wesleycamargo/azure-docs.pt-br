@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 515b89502a9794671c1086b9dc537cdac9779f79
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f9516cafc09b560b8c111d822aae8a26a04e4dc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447880"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integração do Azure Active Directory ao SpaceIQ
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SpaceIQ da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do SpaceIQ](./media/spaceiq-tutorial/tutorial_spaceiq_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: `https://api.spaceiq.com`
+     a. Na caixa de texto **Identificador**, digite a URL: `https://api.spaceiq.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://api.spaceiq.com/saml/<instanceid>/callback`
 
@@ -143,7 +143,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurações de Autenticação SAML](./media/spaceiq-tutorial/setting3.png)
 
-    a. Na caixa **URL do Emissor SAML**, cole o valor da **ID de Entidade SAML** na janela de configuração de aplicativos do Azure AD.
+     a. Na caixa **URL do Emissor SAML**, cole o valor da **ID de Entidade SAML** na janela de configuração de aplicativos do Azure AD.
     
     b. Copie o valor da **URL de Ponto de Extremidade de Retorno de Chamada SAML (somente leitura)** e cole o valor na caixa **URL de Resposta** no portal do Azure, na seção **Domínio e URLs** do SpaceIQ.
     
@@ -154,7 +154,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     e. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-spaceiq-test-user"></a>Criar um usuário de teste do SpaceIQ
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no SpaceIQ. Trabalhe com a [equipe de suporte do SpaceIQ](mailto:eng@spaceiq.com) para adicionar os usuários na plataforma SpaceIQ. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no SpaceIQ. Trabalhe com a [equipe de suporte do SpaceIQ](mailto:eng@spaceiq.com) para adicionar os usuários à plataforma do SpaceIQ. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -227,7 +227,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco SpaceIQ no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo SpaceIQ.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

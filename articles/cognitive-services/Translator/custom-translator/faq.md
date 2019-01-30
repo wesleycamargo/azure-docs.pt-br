@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626648"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854778"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -46,7 +46,7 @@ Os sistemas implantados podem ser acessados através da API de tradução de Tex
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como fazer alinhamento e a frase quebrar se meus dados já estão alinhado de frase?
 
-O Custom Translator ignora o alinhamento de sentenças e quebra de frases para arquivos TMX e para arquivos de texto com a extensão `.align`. O arquivo `.align` dão aos usuários uma opção para o processo de alinhamento e quebra de frases do Custom Translator para os arquivos perfeitamente alinhados e que não precisam de mais processamento. Recomendamos usar a extensão `.align` apenas para arquivos perfeitamente alinhados.
+O Custom Translator ignora o alinhamento de sentenças e quebra de frases para arquivos TMX e para arquivos de texto com a extensão `.align`. O arquivo `.align` dá aos usuários uma opção para ignorar o processo de alinhamento e quebra de frases do Tradutor Personalizado para os arquivos perfeitamente alinhados e que não precisam de mais processamento. Recomendamos usar a extensão `.align` apenas para arquivos perfeitamente alinhados.
 
 Se o número de sentenças extraídas não corresponder aos dois arquivos com o mesmo nome base, o Custom Translator ainda executará o alinhador de sentenças em arquivos `.align`.
 

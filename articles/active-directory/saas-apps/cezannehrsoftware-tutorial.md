@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Cezanne HR Software | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao software Cezanne HR | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cezanne HR Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: d617b7a1195f322ad33a47ae2fd99b7eb336b7b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d5edd1335d99c369fa3ef560470edab41276a7a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429899"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819723"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao Cezanne HR Software
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao software Cezanne HR
 
 Neste tutorial, você aprende a integrar o Cezanne HR Software ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Cezanne HR Software da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Cezanne HR Software](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
+     a. Na caixa de texto **URL de Logon**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. Na caixa de texto **Identificador**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
@@ -153,7 +153,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
-    a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
+     a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
 
     b. Na caixa de texto **Identificador de Entidade**, cole o valor da **ID da Entidade do SAML** que você copiou do portal do Azure. 
 
@@ -172,7 +172,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -223,7 +223,7 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
     ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
     
-    a. Defina **Internal User** como OFF.
+     a. Defina **Internal User** como OFF.
     
     b. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.  
  
@@ -235,7 +235,7 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
     ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
     
-    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
+     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
     
     b. Na caixa de texto **Senha**, digite a senha do usuário.
     
@@ -290,7 +290,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando clicar no bloco Cezanne HR Software no Painel de Acesso, você deverá fazer logon automaticamente no seu aplicativo Cezanne HR Software.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

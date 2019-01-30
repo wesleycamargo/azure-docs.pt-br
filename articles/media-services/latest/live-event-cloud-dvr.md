@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3646c6167f901fe43080d39df42fdb127b1c7fc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352352"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828138"
 ---
 # <a name="using-a-cloud-dvr"></a>Usando um DVR em nuvem
 
@@ -38,8 +38,7 @@ Um **LiveEvent** suporta até três **LiveOutput**  em execução simultânea, p
 > [!NOTE]
 > **LiveOutput** s inicie a criação e pare quando for excluído. Quando exclui o **LiveOutput**, você não está excluindo o **ativo** subjacente e o conteúdo no ativo. 
 >
-> Se você tiver publicado **localizadores de streaming** no ativo para o **LiveOutput**, o evento (até a duração da janela de DVR) continuará a ser exibido até a hora de término do **localizador de streaming** ou até você excluir o localizador, o que ocorrer primeiro.   
-  
+> Caso tenha publicado o ativo **LiveOutput** usando uma **StreamingLocator**, o **LiveEvent** (até a duração da janela DVR) continuará visível até que a expiração ou exclusão do **StreamingLocator**, o que ocorrer primeiro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

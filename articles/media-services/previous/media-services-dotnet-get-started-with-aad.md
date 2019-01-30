@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945562"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807313"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
 
@@ -80,7 +80,7 @@ Para se conectar à API dos Serviços de Mídia do Azure com a opção de autent
 
 Os valores desses parâmetros podem ser encontrados em **AzureEnvironments.AzureCloudEnvironment**. A constante **AzureEnvironments.AzureCloudEnvironment** é um auxiliar no SDK do .NET para obtenção das configurações de variável de ambiente corretas de um Data Center público do Azure. 
 
-Ela contém configurações de ambiente predefinidas para acessar os Serviços de Mídia apenas nos data centers públicos. Para regiões de nuvem soberana ou governamental, use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment** ou **AzureGermanCloudEnvironment**, respectivamente.
+Ela contém configurações de ambiente predefinidas para acessar os Serviços de Mídia apenas nos data centers públicos. Para regiões de nuvem soberana ou governamental, é possível usar **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** ou **AzureGermanCloudEnvironment**, respectivamente.
 
 O seguinte exemplo de código cria um token:
     
@@ -122,7 +122,7 @@ O seguinte exemplo mostra como criar o token do Azure AD e o contexto:
     }
 
 >[!NOTE]
->Se você receber uma exceção informando que “O servidor remoto retornou um erro: (401) Não autorizado”, consulte a seção [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) de Visão geral do acesso à API dos Serviços de Mídia do Azure com a autenticação do Azure AD.
+>Se você receber uma exceção informando que "O servidor remoto retornou um erro: (401) Não autorizado", confira a seção [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) em Visão geral sobre o acesso à API dos Serviços de Mídia do Microsoft Azure com a autenticação do Azure Active Directory.
 
 ## <a name="use-service-principal-authentication"></a>Usar a autenticação de entidade de serviço
     

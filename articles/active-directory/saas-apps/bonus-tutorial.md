@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Bonusly | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Bonusly | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Bonusly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 181577c6a170d28679e1ca486dc2a8c5a596f20d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422970"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812124"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: integração do Azure Active Directory ao Bonusly
+# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Active Directory com o Bonusly
 
 Neste tutorial, você aprenderá a integrar o Bonusly ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Bonusly da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -137,18 +137,18 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Página de Diálogo Saml do Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
    
-    a. Na caixa de texto **URL de destino do SSO de IdP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
+     a. Na caixa de texto **URL de destino do SSO de IdP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
    
     b. Na caixa de texto **Emissor IdP**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure. 
 
     c. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
 
-    d. Cole o valor da **Impressão digital** copiado do Portal do Azure na caixa de texto **Impressão Digital do Certificado**.
+    d. Cole o valor da **Impressão digital** copiado do Portal do Azure na caixa de texto **Impressão Digital do Certificado**.
    
 1. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -174,7 +174,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![A caixa de diálogo Usuário](./media/bonus-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -214,7 +214,7 @@ Para permitir que os usuários do Azure AD façam logon no Bonusly, eles devem e
    
     ![Adicionar Usuário](./media/bonus-tutorial/ic781045.png "Adicionar Usuário")  
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
  

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818023"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com REST
 
@@ -50,7 +50,7 @@ Neste tutorial, você aprenderá como:
 - Consulte o artigo [Acessando a API dos Serviços de Mídia do Azure com visão geral da autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs REST mostradas neste artigo. 
 
-    Neste tutorial, estamos usando o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Neste tutorial, estamos usando o **Postman**, mas qualquer ferramenta REST seria adequada. As outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter informações de autenticação do portal do Azure
 
@@ -79,7 +79,7 @@ Para obter as informações, siga estas etapas:
 5. Selecione um **aplicativo do Azure AD** existente ou crie um novo (mostrado abaixo).
 
     > [!NOTE]
-    > Para que a solicitação REST da Mídia do Azure seja bem-sucedida, o usuário chamador deve ter uma função de **Colaborador** ou **Proprietário** na conta dos Serviços de Mídia que ele está tentando acessar. Se você receber uma exceção informando que "O servidor remoto retornou um erro: (401) Não autorizado", consulte [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Para que a solicitação REST da Mídia do Azure seja bem-sucedida, o usuário chamador deve ter uma função de **Colaborador** ou **Proprietário** na conta dos Serviços de Mídia que ele está tentando acessar. Se você receber uma exceção informando que “O servidor remoto retornou um erro: (401) Não autorizado”, confira [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Se precisar criar um novo aplicativo do AD, siga estas etapas:
     
@@ -118,7 +118,7 @@ Você pode adicionar valores para parâmetros de conexão do AD ao seu arquivo a
 
 ## <a name="get-the-access-token-using-postman"></a>Obter o token de acesso usando o Postman
 
-Esta seção mostra como usar o **Postman** para executar uma API REST que retorna um Token de Portador JWT (token de acesso). Para chamar qualquer API REST dos Serviços de Mídia, você precisa adicionar o cabeçalho "Authorization" às e adicionar o valor de "Bearer *seu_token_de_acesso*" a cada chamada (conforme mostrado na próxima seção deste tutorial). 
+Esta seção mostra como usar o **Postman** para executar uma API REST que retorna um Token de Portador JWT (token de acesso). Para chamar qualquer API REST dos Serviços de Mídia, você precisa adicionar o cabeçalho "Authorization" às e adicionar o valor de "Bearer *seu_token_de_acesso*" a cada chamada (conforme mostrado na próxima seção deste tutorial). 
 
 1. Abra o **Postman**.
 2. Selecione **POST**.
@@ -188,5 +188,5 @@ A resposta retornada contém os ativos que estão em sua conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Teste este código de exemplo em [Autenticação do Azure AD para acesso aos Serviços de Mídia do Azure: ambos via API REST](https://github.com/willzhan/WAMSRESTSoln)
+* Teste este código de exemplo na [Autenticação do Azure AD para Acesso aos Serviços de Mídia do Azure: ambos via API REST](https://github.com/willzhan/WAMSRESTSoln)
 * [Carregar arquivos com .NET](media-services-dotnet-upload-files.md)

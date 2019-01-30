@@ -3,19 +3,19 @@ title: Referência – estruturas de confiança no Azure Active Directory B2C | 
 description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e a Estrutura de Experiência de Identidade.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185771"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845683"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas confiáveis com a Estrutura de Experiência de Identidade do Azure AD B2C
 
@@ -52,10 +52,10 @@ As TFs são a base do modelo de estrutura confiável da OIX (Open Identity Excha
 - **A descrição das informações de identidade digital que são oferecidas/exigidas pelos participantes**.
 
 - **As políticas técnicas para a produção e o consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Essas políticas escritas normalmente incluem as seguintes categorias de políticas:**
-    - Políticas de verificação de identidade, por exemplo: *Qual é o nível de avaliação das informações de uma pessoa?*
+    - Políticas de verificação de identidade, por exemplo: *Qual é o nível de verificação das informações de uma pessoa?*
     - Políticas de segurança, por exemplo: *Qual é o nível de proteção de confidencialidade e integridade das informações?*
-    - Políticas de privacidade, por exemplo: *Qual controle um usuário tem sobre PII (informações pessoais identificáveis)*?
-    - Políticas de persistência, por exemplo: *Se um provedor interromper as operações, como funcionará a continuidade e a proteção de PII?*
+    - Políticas de privacidade, por exemplo: *Qual controle um usuário tem sobre as próprias PII (informações de identificação pessoal)*?
+    - Políticas de sustentabilidade, por exemplo: *Se um provedor encerra as operações, como funciona a continuidade e a proteção das PII?*
 
 - **Os perfis técnicos para produção e consumo de informações de identidade digital. Esses perfis incluem:**
     - Interfaces de escopo para as quais as informações de identidade digital estão disponíveis em um LOA específico.

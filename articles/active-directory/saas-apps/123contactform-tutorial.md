@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: ecbe627697fc4f8b5fbfecf96c3cb65d9ffe4607
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 450fc8df69eb5ffb99cb6548e80cd4d3628e7419
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054345"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Tutorial: Integração do Azure Active Directory ao 123ContactForm
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o 123ContactForm por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -89,7 +89,7 @@ No 123ContactForm, atribua o valor do **nome de usuário** no Azure AD como o va
 Para configurar e testar o logon único do Azure AD com o 123ContactForm, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do 123ContactForm](#creating-a-123contactform-test-user)** – para ter um equivalente de Brenda Fernandes no 123ContactForm que esteja vinculado à representação de usuário do Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/123contactform-tutorial/url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
@@ -120,7 +120,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/123contactform-tutorial/url2.png)
 
-    a. Clique na opção **Mostrar configurações de URL avançadas**
+     a. Clique na opção **Mostrar configurações de URL avançadas**
 
     b. Na caixa de texto **URL de Logon**, digite uma URL como: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
@@ -139,7 +139,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/123contactform-tutorial/submit.png) 
 
-    a. Na caixa de texto **Email**, digite o email do usuário, ou seja, **BrittaSimon@Contoso.com**.
+     a. Na caixa de texto **Email**, digite o email do usuário, ou seja, **BrittaSimon@Contoso.com**.
 
     b. Clique em **Carregar** e procure o arquivo XML de Metadados baixado no portal do Azure.
 
@@ -149,14 +149,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configurar o logon único](./media/123contactform-tutorial/url3.png)
 
-    a. Se desejar configurar o aplicativo no **modo iniciado pelo IDP**, copie o valor do **IDENTIFICADOR** da instância e cole-o na caixa de texto **Identificador** da seção **Domínio e URLs do 123ContactForm** no portal do Azure.
+     a. Se desejar configurar o aplicativo no **modo iniciado pelo IDP**, copie o valor do **IDENTIFICADOR** da instância e cole-o na caixa de texto **Identificador** da seção **Domínio e URLs do 123ContactForm** no portal do Azure.
     
     b. Se desejar configurar o aplicativo no **modo iniciado pelo IDP**, copie o valor da **URL DE RESPOSTA** da instância e cole-o na caixa de texto **URL de Resposta** da seção **Domínio e URLs do 123ContactForm** no portal do Azure.
 
     c. Se desejar configurar o aplicativo no **modo iniciado pelo SP**, copie o valor da **URL DE LOGON** da instância e cole-o na caixa de texto **URL de Logon** da seção **Domínio e URLs do 123ContactForm** no portal do Azure.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -229,7 +229,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco 123ContactForm no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo 123ContactForm.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

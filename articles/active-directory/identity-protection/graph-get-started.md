@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, evento de risco, vulnerabilidade, política de segurança, Microsoft Graph
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
 ms.component: conditional-access
@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: a415258b8127bb78d8a8d1b5ef228234b34b3e26
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d1703df524976bac4880975585e9d2e4f8af72fd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287499"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475264"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). A primeira API, **identityRiskEvents**, permite que você consulte o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações associadas. Este artigo mostra como começar a consultar essa API. Para obter uma introdução detalhada, a documentação completa e acesso ao Explorador do Graph, consulte o [site do Microsoft Graph](https://developer.microsoft.com/graph/).
@@ -77,7 +77,7 @@ Antes de começar, será necessário:
    
     ![Criação de um aplicativo](./media/graph-get-started/44.png)
 
-    a. Na caixa de texto **Nome** , digite um nome para seu aplicativo (por exemplo: AADIP Aplicativo de API de Evento de Risco).
+     a. Na caixa de texto **Nome**, digite um nome para o seu aplicativo (por exemplo: Aplicativo de API do Evento de Risco AADIP).
    
     b. Como **tipo de aplicativo**, selecione **Web Application e / ou Web API**.
    
@@ -136,7 +136,7 @@ Antes de começar, será necessário:
    
     ![Criação de um aplicativo](./media/graph-get-started/24.png)
 
-    a. Na caixa de texto **Descrição da chave**, digite uma descrição (por exemplo, *AADIP Risk Event*).
+     a. Na caixa de texto **Descrição da chave**, digite uma descrição (por exemplo, *AADIP Risk Event*).
     
     b. Como **Duração**, selecione **Em um ano**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249023"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820233"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 
@@ -179,9 +179,9 @@ Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder soment
 
 Uma das chaves de proteção de dados na nuvem é responsável por possíveis estados em que os dados podem ocorrer e quais controles estão disponíveis para esse estado. Com relação às práticas recomendadas de criptografia e segurança de dados no Azure, as recomendações são feitas para os seguintes estados de dados.
 
-- Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
+- Em repouso: isso inclui todos os objetos, contêineres e tipos de armazenamento que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
 
-- Em trânsito: quando dados estão sendo transferidos entre componentes, locais ou programas, como através da rede, através de um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute) ou durante um processo de entrada/saída, ele é considerado como estando em trânsito.
+- Em trânsito: quando os dados estão sendo transferidos entre componentes, locais ou programas, como pela rede, por um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute) ou durante um processo de entrada/saída, considera-se que eles estão em trânsito.
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
@@ -216,9 +216,9 @@ Considere quais repositórios você está usando para armazenar dados. Por exemp
 
 Para cada repositório que você usar, aproveite o suporte para criptografia em repouso existente.
 
-- Armazenamento do Azure: consulte [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/storage-service-encryption),
+- Armazenamento do Microsoft Azure: Confira [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/storage-service-encryption)
 
-- SQL Azure: consulte [TDE (Transparent Data Encryption), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure: Confira [TDE (Transparent Data Encryption), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - Armazenamento em disco local ou em VM ([Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption))
 
@@ -370,7 +370,7 @@ O [Backup do Azure](https://docs.microsoft.com/azure/backup/backup-introduction-
 
 O [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ajuda a orquestrar a replicação, failover e recuperação dos aplicativos e cargas de trabalho para que eles estejam disponíveis a partir de um local secundário, caso o local principal fique inativo.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Garantia de conformidade: lista de verificação de inspeção detalhada dos serviços de nuvem (proteger)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Garantir a conformidade: lista de verificação de inspeção detalhada dos serviços de nuvem (proteger)
 
 A Microsoft desenvolveu a [Lista de verificação de inspeção detalhada dos serviços de nuvem](https://aka.ms/cloudchecklist.download) para ajudar as organizações a realizarem inspeções detalhadas conforme elas consideram migrar para a nuvem. Ela fornece uma estrutura para organizações de qualquer tamanho e tipo — empresas privadas e organizações do setor público, incluindo organizações governamentais de todos os níveis e organizações sem fins lucrativos — identificarem seus próprios objetivos e requisitos de desempenho, serviço, gerenciamento de dados e governança. Isso permite comparar ofertas de diferentes provedores de serviços de nuvem, levando à formação de uma base para um contrato de serviço de nuvem.
 

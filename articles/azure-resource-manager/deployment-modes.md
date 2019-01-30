@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4347254df59c62085b2bfb195496bf479cf7b35
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344564"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447931"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -26,7 +26,7 @@ Ao implantar os recursos, especifique que a implantação é uma atualização i
 
 Ao implantar recursos:
 
-* No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo.
+* No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Entretanto, os recursos que ainda são especificados, mas não estão sendo implantados em razão de uma condição avaliada como falsa, não são excluídos.
 * No modo incremental, o Gerenciador de recursos **deixa inalterados** recursos existentes no grupo de recursos, mas que não são especificados no modelo.
 
 Para ambos os modos, o Resource Manager tenta criar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e suas configurações são as mesmas, a operação resulta em nenhuma alteração. Se você alterar os valores de propriedade de um recurso, o recurso será atualizado com os novos valores. Se você tentar atualizar o local ou o tipo de um recurso existente, a implantação falhará com um erro. Em vez disso, implante um novo recurso com o local ou o tipo de que você precisa.

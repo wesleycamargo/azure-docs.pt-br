@@ -4,7 +4,7 @@ description: Este tópico descreve as contas usadas e criadas e as permissões n
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308776"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478596"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Contas usadas para o Azure AD Connect
 
@@ -39,9 +39,9 @@ O Azure AD Connect usa 3 contas para sincronizar informações do Active Directo
 
 Além desses três contas usadas para executar o Azure AD Connect, você precisará também as seguintes contas adicionais para instalar o Azure AD Connect.  Estes são:
 
-- **Conta de administrador local**: O administrador que está instalando o Azure AD Connect e quem tem permissões de administrador local no computador.
+- **Conta do administrador local**: o administrador que está instalando o Azure AD Connect e que tem permissões de Administrador local no computador.
 
-- **Conta de administrador de empresa do AD DS**: opcionalmente, usado para criar a "conta de conector do AD DS" acima.
+- **Conta de administrador corporativo do AD DS**: usada opcionalmente para criar a "conta do Conector AD DS" acima.
 
 - **Conta de administrador global do Azure AD**: usada para criar a conta do Azure AD Connector e configurar o Azure AD.
 
@@ -120,7 +120,7 @@ A seguir apresentamos um resumo das páginas do assistente de instalação perso
 >[!IMPORTANT]
 >Um novo módulo do PowerShell nomeado ADSyncConfig.psm1 foi introduzido com o build **1.1.880.0** (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões do Active Directory corretas para a conta do conector do Azure AD.
 >
->Para saber mais, consulte [Azure AD Connect: configurar as permissões de conta do conector do AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+>Para saber mais, confira [Azure AD Connect: configurar permissão da Conta do Conector AD DS](how-to-connect-configure-ad-ds-connector-account.md)
 
 A conta que você especifica na página **Conecte seus diretórios** deve estar presente no Active Directory antes da instalação.  O Azure AD Connect versão 1.1.524.0 e posterior tem a opção de permitir que o assistente do Azure AD Connect crie a **conta do Conector AD DS** usada para se conectar ao Active Directory.  
 
@@ -149,7 +149,7 @@ Ao atualizar de uma versão do Azure AD Connect para uma nova versão, você pre
 | --- | --- | --- |
 | Usuário que está executando o assistente de instalação |Administrador do servidor local |Binários de atualização. |
 | Usuário que está executando o assistente de instalação |Membro do ADSyncAdmins |Fazer alterações em Regras de Sincronização e outras configurações. |
-| Usuário que está executando o assistente de instalação |Se você usa um SQL Server completo: DBO (ou semelhante) do banco de dados de mecanismo de sincronização |Fazer alterações no nível de banco de dados, como a atualização de tabelas com novas colunas. |
+| Usuário que está executando o assistente de instalação |Se você usar um SQL Server completo: DBO (ou semelhante) do banco de dados do mecanismo de sincronização |Fazer alterações no nível de banco de dados, como a atualização de tabelas com novas colunas. |
 
 ## <a name="more-about-the-created-accounts"></a>Mais informações sobre as contas criadas
 ### <a name="ad-ds-connector-account"></a>Conta do AD DS conector

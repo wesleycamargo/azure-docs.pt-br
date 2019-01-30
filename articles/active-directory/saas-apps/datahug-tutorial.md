@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Datahug | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Datahug | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Datahug.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c67d794bd5947dc377cbdb7578e23ff3e05390
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7a7a9cffa2dab3cc50a393f15d7419728502f8e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814216"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: integração do Azure Active Directory ao Datahug
+# <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integração do Azure Active Directory com o Datahug
 
 Neste tutorial, você aprenderá a integrar o Datahug ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Datahug da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar o logon único](./media/datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
@@ -133,7 +133,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar o logon único](./media/datahug-tutorial/tutorial_datahug_cert.png)
 
-    a. Em **Opção de Assinatura**, selecione **Assinar declaração SAML**.
+     a. Em **Opção de Assinatura**, selecione **Assinar declaração SAML**.
     
     b. Em **Algoritmo de assinatura**, selecione **SHA1**.
  
@@ -148,7 +148,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 1. Para configurar logon único no lado do **Datahug**, é necessário enviar o **XML de metadados**, a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** baixados para o [suporte do Datahug](http://datahug.com/about/contact-us/). Eles configuram esse aplicativo para que tenham a conexão de SSO do SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -240,7 +240,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
-Quando você clicar no bloco Datahug no Painel de Acesso, você deverá fazer logon automaticamente no seu aplicativo Datahug. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando você clicar no bloco Datahug no Painel de Acesso, você deverá fazer logon automaticamente no seu aplicativo Datahug. Para obter mais informações sobre o Painel de Acesso, confira  [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

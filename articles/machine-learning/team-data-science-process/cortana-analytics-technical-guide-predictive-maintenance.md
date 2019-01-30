@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140176"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451710"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial
 
@@ -174,7 +174,7 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
    * Quando **'Banco de Dados SQL do Azure'** ficar verde no diagrama do modelo da solução, clique nele e em **'Abrir'**.
    * Você verá uma nova guia/janela do navegador exibindo a página do portal do Azure. Clique em **'Grupos de recursos'** no painel esquerdo.
    * Selecione a assinatura que você está usando para implantar a solução e selecione **'NomedaSolução\_ResourceGroup'**.
-   * No novo painel pop-out, clique no ícone ![ícone do SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) para acessar o banco de dados. O nome do banco de dados fica ao lado desse ícone (**por exemplo**, **'pmaintenancedb'**) e o **nome do servidor de banco de dados** está listado sob a propriedade Nome do servidor e deve ser parecido com NomedaSolução.database.windows.net.
+   * No novo painel pop-out, clique no ícone ![ícone do SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) para acessar o banco de dados. O nome do banco de dados fica ao lado desse ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de banco de dados** está listado sob a propriedade Nome do servidor e deve ser parecido com **NomedaSolução.database.windows.net**.
    * O **nome de usuário** e a **senha** do banco de dados são iguais ao nome de usuário e a senha previamente gravados durante a implantação da solução.
 2. Atualize a fonte de dados do arquivo de relatório de caminho frio com o Power BI Desktop.
    
@@ -182,7 +182,7 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
      
      ![Editar Consultas](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Você verá duas tabelas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique no ![Ícone de configurações de consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) ao lado de **“Fonte”** em **“ETAPAS APLICADAS”** no painel **“Configurações da Consulta”** à direita. Ignore as mensagens de aviso que aparecerem.
-   * Na janela aberta, substitua **'Servidor'** e **'Banco de Dados'** por seus próprios nomes do servidor e do banco de dados e clique em **'OK'**. Para o nome do servidor, especifique a porta 1433 (**NomeDaSuaSolução.database.windows.net, 1433**). Deixe o campo Banco de Dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem na tela.
+   * Na janela aberta, substitua **'Servidor'** e **'Banco de Dados'** por seus próprios nomes do servidor e do banco de dados e clique em **'OK'**. Para o nome do servidor, especifique a porta 1433 (**NomeSolução.database.windows.net, 1433**). Deixe o campo Banco de Dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem na tela.
    * Na próxima janela aberta, você verá duas opções no painel à esquerda (**Windows** e **Banco de Dados**). Clique em **'Banco de Dados'**, preencha o **'Nome de usuário'** e a **'Senha'** (são o nome de usuário e a senha inseridos quando você implantou pela primeira vez a solução e criou um Banco de Dados SQL do Azure). Em ***Selecione o nível no qual aplicar essas configurações***, marque a opção do nível do banco de dados. Clique em **'Conectar'**.
    * Clique na segunda tabela **PMResult** e clique no ![Ícone de Navegação](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) ao lado de **“Fonte”** em **“ETAPAS APLICADAS”** no painel **“Configurações da Consulta”** à direita e atualize os nomes do servidor e do banco de dados, como nas etapas acima e clique em OK.
    * Depois de ser guiado de volta à página anterior, feche a janela. Uma mensagem é exibida; clique em **Aplicar**. Por fim, clique no botão **Salvar** para salvar as alterações. Seu arquivo do Power BI agora estabeleceu uma conexão com o servidor. Se suas visualizações estiverem vazias, limpe as seleções nas visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das legendas. Use o botão de atualização para refletir os novos dados nas visualizações. Inicialmente, você só vê os dados propagados em suas visualizações, já que a atualização do data factory está agendada para a cada três horas. Após três horas, você verá novas previsões refletidas nas visualizações quando atualizar os dados.

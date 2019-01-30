@@ -4,7 +4,7 @@ description: Solucione problemas de um objeto que não está sincronizando com o
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478647"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
@@ -65,7 +65,7 @@ Clique com o botão direito do mouse na caixa **informações da pilha de chamad
 
 * Se o erro for proveniente de **SyncRulesEngine**, as informações da pilha de chamadas primeiro terão uma lista de todos os atributos no objeto. Role para baixo até ver o cabeçalho **InnerException =>**.  
   ![Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)  
-  A linha posterior mostra o erro. Na figura acima, o erro é proveniente de uma Regra de Sincronização personalizada criada pela Fabrikam.
+   A linha posterior mostra o erro. Na figura acima, o erro é proveniente de uma Regra de Sincronização personalizada criada pela Fabrikam.
 
 Se o erro em si não fornecer informações suficientes, será o momento de examinar os próprios dados. É possível clicar no link com o identificador de objeto e continuar solucionando problemas do [objeto importado do espaço conector](#cs-import).
 
@@ -86,7 +86,7 @@ Outra pesquisa útil é selecionar o Conector do Azure AD, em **Escopo**, seleci
 Esses objetos foram criados por outro mecanismo de sincronização ou por um mecanismo de sincronização com outra configuração de filtragem. Essa exibição é uma lista de objetos **órfãos** que não são mais gerenciados. Examine essa lista e considere a remoção desses objetos usando os cmdlets do [PowerShell do Azure AD](https://aka.ms/aadposh).
 
 ### <a name="cs-import"></a>Importação do CS
-Quando você abre um objeto CS, há várias guias na parte superior. A guia **Importação** exibe os dados preparados após uma importação.  
+ Quando você abre um objeto CS, há várias guias na parte superior. A guia **Importação** exibe os dados preparados após uma importação.  
 ![Objeto do CS](./media/tshoot-connect-object-not-syncing/csobject.png)    
 O **Valor Antigo** mostra o que está atualmente armazenado no Connect e o **Novo Valor**, o que foi recebido do sistema de origem e ainda não foi aplicado. Se houver um erro no objeto, as alterações não serão processadas.
 
@@ -95,7 +95,7 @@ O **Valor Antigo** mostra o que está atualmente armazenado no Connect e o **Nov
 A guia **Erro de Sincronização** só estará visível se houver um problema com o objeto. Para obter mais informações, consulte [Solucionar problemas de erros de sincronização](#troubleshoot-errors-in-operations-tab).
 
 ### <a name="cs-lineage"></a>Linhagem do CS
-A guia de linhagem mostra como o objeto do espaço conector está relacionado ao objeto de metaverso. Você pode ver quando o Conector realizou a última importação de uma alteração do sistema conectado e quais regras foram aplicadas para popular dados no metaverso.  
+ A guia de linhagem mostra como o objeto do espaço conector está relacionado ao objeto de metaverso. Você pode ver quando o Conector realizou a última importação de uma alteração do sistema conectado e quais regras foram aplicadas para popular dados no metaverso.  
 ![Linhagem do CS](./media/tshoot-connect-object-not-syncing/cslineage.png)  
 Na coluna **Ação**, você pode ver que há uma regra de sincronização de **Entrada** com a ação **Provisionar**. Isso indica que, desde que esse objeto do espaço do conector esteja presente, o objeto do metaverso permanece. Se, em vez disso, a lista de regras de sincronização mostrar uma regra de sincronização com direção de **Saída** e **Provisionar**, isso indicará que o objeto será excluído quando o objeto de metaverso for excluído.  
 ![Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
@@ -103,7 +103,7 @@ Você também pode ver na coluna **PasswordSync** que o espaço conector de entr
 
 Na guia de linhagem, é possível acessar o metaverso clicando em [Propriedades de Objeto do Metaverso](#mv-attributes).
 
-Na parte inferior de todas as guias, há dois botões: **Visualização** e **Log**.
+Há dois botões na parte inferior de todas as guias: **Versão prévia** e **Log**.
 
 ### <a name="preview"></a>Visualização
 A página de visualização é usada para sincronizar um único objeto. Isso será útil se você estiver solucionando problemas de algumas regras de sincronização personalizadas e desejar ver o efeito de uma alteração em um único objeto. É possível selecionar entre **Sincronização completa** e **Sincronização delta**. Também é possível selecionar entre **Gerar Visualização**, que mantém apenas a alteração na memória e **Confirmar Visualização**, que atualiza o metaverso e prepara todas as alterações para os espaços conectores de destino.  
@@ -126,7 +126,7 @@ Na janela **Resultados da Pesquisa**, clique no objeto.
 Se você não encontrou o objeto, isso indica que ele ainda não chegou ao metaverso. Continue pesquisando o objeto no [espaço conector](#connector-space-object-properties) do Active Directory. Pode haver um erro de sincronização que está impedindo a chegada do objeto ao metaverso ou pode haver um filtro aplicado.
 
 ### <a name="mv-attributes"></a>Atributos do MV
-Na guia Atributos, é possível ver os valores e qual Conector os forneceu.  
+ Na guia Atributos, é possível ver os valores e qual Conector os forneceu.  
 ![Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 Se um objeto não está sincronizando, observe os seguintes atributos no metaverso:
@@ -134,7 +134,7 @@ Se um objeto não está sincronizando, observe os seguintes atributos no metaver
 - O atributo **sourceAnchor** está presente? Caso contrário, você tem uma topologia de floresta de conta-recurso? Se um objeto for identificado como uma caixa de correio vinculada (o atributo **msExchRecipientTypeDetails** tem o valor 2), sourceAnchor será uma contribuição da floresta com uma conta do Active Directory habilitada. Verifique se a conta mestra foi importada e sincronizada corretamente. A conta mestra deve estar listada nos [conectores](#mv-connectors) do objeto.
 
 ### <a name="mv-connectors"></a>Conectores do MV
-A guia Conectores mostra todos os espaços conectores que contêm uma representação do objeto.  
+ A guia Conectores mostra todos os espaços conectores que contêm uma representação do objeto.  
 ![Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
 É necessário ter um conector para:
 

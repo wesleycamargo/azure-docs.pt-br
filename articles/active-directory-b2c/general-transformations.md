@@ -3,19 +3,19 @@ title: Exemplos de transformação de declarações gerais do esquema do Identit
 description: Exemplos de transformação de declarações gerais do esquema do Identity Experience Framework do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cae6ec9693c0fadba059e641fb75e68bbbaec92
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431319"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853079"
 ---
 # <a name="general-claims-transformations"></a>Transformações de declarações gerais
 
@@ -29,7 +29,7 @@ Verifica se a **inputClaim** existe ou não e define **outputClaim** como true o
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |Qualquer | A declaração de entrada cuja existência deve ser verificada. |
+| InputClaim | InputClaim |Qualquer | A declaração de entrada cuja existência deve ser verificada. |
 | OutputClaim | outputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declarações para verificar se uma declaração existe ou se contém algum valor. O valor retornado é um valor booliano que indica se a declaração existe. O exemplo a seguir verifica se o endereço de email existe.
@@ -60,7 +60,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | texto não criptografado | string | A declaração de entrada a ser criptografada |
 | InputClaim | sal | string | O parâmetro sal. Você pode criar um valor aleatório, usando a transformação de declarações `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Aponta para **chaves de política** existentes do Azure AD B2C. Para criar uma nova: no seu locatário do Azure AD B2C, selecione **Configurações do B2C > Identity Experience Framework**. Selecione **Chaves de Política** para exibir as chaves disponíveis no seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo B2C_1A_ pode ser adicionado automaticamente). Na caixa Segredo, insira qualquer segredo que você quiser, como 1234567890. Em Uso da chave, selecione **Segredo**. Selecione **Criar**. |
+| InputParameter | randomizerSecret | string | Aponta para **chaves de política** existentes do Azure AD B2C. Para criar um novo segredo: No seu locatário do Azure AD B2C, selecione **Configurações de B2C > Identity Experience Framework**. Selecione **Chaves de Política** para exibir as chaves disponíveis no seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo B2C_1A_ pode ser adicionado automaticamente). Na caixa Segredo, insira qualquer segredo que você quiser, como 1234567890. Em Uso da chave, selecione **Segredo**. Selecione **Criar**. |
 | OutputClaim | hash | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. A declaração configurada na inputClaim `plaintext`. |
 
 ```XML
@@ -82,7 +82,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
 
 - Declarações de entrada:
     - **texto não criptografado**: MyPass@word1
-    - **sal**: 487624568
+    - **salt**: 487624568
     - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Declarações de saída: 
     - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=

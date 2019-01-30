@@ -3,19 +3,19 @@ title: Gerenciar dados dos usuários no Azure Active Directory B2C | Microsoft D
 description: Saiba como excluir ou exportar dados de usuário no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140198"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854013"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados dos usuários no Azure Active Directory B2C
 
@@ -46,8 +46,8 @@ O processo para exportar os dados do cliente do Azure AD B2C é semelhante ao pr
 
 Os dados de usuário do Azure AD B2C são limitados a:
 
-- **Dados armazenados no Azure Active Directory**:Você pode recuperar dados em um percurso do usuário de autenticação no Azure AD B2C usando a ID de objeto ou qualquer nome de entrada, como um endereço de email ou nome de usuário. 
-- **Relatório de eventos de auditoria específicas do usuário**: Você pode indexar os dados usando a ID de objeto.
+- **Dados armazenados no Azure Active Directory**: Você pode recuperar dados em um percurso do usuário de autenticação no Azure AD B2C usando a ID de objeto ou qualquer nome de entrada, como um endereço de email ou nome de usuário. 
+- **Relatório de eventos de auditoria específico do usuário**: Você pode indexar dados usando a ID de objeto.
 
 No exemplo a seguir de uma exportação de fluxo de dados, as etapas descritas como sendo executadas pelo aplicativo também podem ser executadas por um processo de back-end ou por um usuário com uma função de administrador no Diretório:
 

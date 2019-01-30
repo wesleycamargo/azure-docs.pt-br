@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: cebcfb4614d1f685697bed6914f80237e175fb7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fa802e137f9fb76c531814f6128cabfc11a44f0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436549"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812328"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutorial: Integração do Active Directory do Azure com o Jive
+# <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutorial: Integração do Azure Active Directory com o Jive
 
 Neste tutorial, você aprenderá a integrar o Jive ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Fuse da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -134,13 +134,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_002.png)
 
-    a. Selecione **Habilitado** na guia **Geral**. b. Clique no botão "**Salvar todas as configurações de saml**".
+     a. Selecione **Habilitado** na guia **Geral**. b. Clique no botão "**Salvar todas as configurações de saml**".
 
 1. Navegue até a guia "**Metadados Idp**".
 
     ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_003.png)
 
-    a. Copie o conteúdo do arquivo XML de metadados baixado e cole-o na caixa de texto **Metadados do IDP (Provedor de Identidade)** .
+     a. Copie o conteúdo do arquivo XML de metadados baixado e cole-o na caixa de texto **Metadados do IDP (Provedor de Identidade)** .
 
     b. Clique no botão "**Salvar todas as configurações de saml**".
 
@@ -148,7 +148,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_004.png)
 
-    a. Na caixa de texto **Email**, copie e cole o nome de atributo do valor **email**.
+     a. Na caixa de texto **Email**, copie e cole o nome de atributo do valor **email**.
 
     b. Na caixa de texto **Nome**, copie e cole o nome do atributo do valor **nome**.
 

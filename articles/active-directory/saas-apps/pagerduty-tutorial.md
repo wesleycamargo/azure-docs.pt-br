@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o PagerDuty | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao PagerDuty | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PagerDuty.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0e571880d9893c0027c200c6f49dc704fea09ead
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 703bc11ec7b0de0e8b0cfe3b99b7516afe8cac0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443691"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810016"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: integração do Azure Active Directory com o PagerDuty
+# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integração do Azure Active Directory ao PagerDuty
 
 Neste tutorial, você aprenderá a integrar o PagerDuty ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o PagerDuty da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -109,7 +109,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
 
@@ -142,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Habilitar logon único](./media/pagerduty-tutorial/ic778537.png "Habilitar logon único")
 
-    a. Abra o certificado codificado em Base 64 baixado no Portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado X.509**
+     a. Abra o certificado codificado em Base 64 baixado no Portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado X.509**
   
     b. Na caixa de texto **URL de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do Portal do Azure.
   
@@ -178,7 +178,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![A caixa de diálogo Usuário](./media/pagerduty-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -208,7 +208,7 @@ No caso do PagerDuty, o provisionamento é uma tarefa manual.
    
     ![Convidar suas equipe](./media/pagerduty-tutorial/ic778540.png "Convidar suas equipe")
 
-    a. Digite o **Nome e Sobrenome** do usuário, por exemplo, **Brenda Fernandes**. 
+     a. Digite o **Nome e Sobrenome** do usuário, por exemplo, **Brenda Fernandes**. 
    
     b. Digite o endereço de **Email** do usuário, por exemplo, **brittasimon@contoso.com**.
    

@@ -1,6 +1,6 @@
 ---
 title: Serviços de Mídia do Azure - Aditamento do Protocolo Smooth Streaming (MS-SSTR) para HEVC | Microsoft Docs
-description: Esta especificação descreve o protocolo e formato para transmissão ao vivo baseada em MP4 fragmentado com HEVC nos Serviços de Mídia do Azure. Esse é um aditamento à documentação do protocolo Smooth Streaming (MS-SSTR) para incluir suporte para ingestão e transmissão de HEVC. Somente as alterações necessárias para entregar HEVC são especificadas neste artigo, exceto quando "(Sem Alteração)" indica que o texto é copiado apenas para esclarecimentos.
+description: Esta especificação descreve o protocolo e formato para transmissão ao vivo baseada em MP4 fragmentado com HEVC nos Serviços de Mídia do Azure. Esse é um adendo à documentação do protocolo Smooth Streaming (MS-SSTR) para incluir suporte à ingestão e transmissão de HEVC. Somente as alterações necessárias para entregar HEVC são especificadas neste artigo, exceto quando "(Sem Alteração)" indica que o texto é copiado apenas para esclarecimentos.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c87795c1203a8639ba224a646f8f0c5f5515b840
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317399"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812753"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Aditamento do Protocolo Smooth Streaming para HEVC
 

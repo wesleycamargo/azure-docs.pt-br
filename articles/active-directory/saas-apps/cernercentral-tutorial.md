@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Cerner Central | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Cerner Central | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cerner Central.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 400aa0a50c0f05937011adf62f76d1d96fde3fc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 82541e8d4eb0a3f603fd70e5ba6724debb4e006c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808129"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: integração do Azure Active Directory ao Cerner Central
+# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: Integração do Azure Active Directory com o Cerner Central
 
 Neste tutorial, você aprenderá a integrar o Cerner Central ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Cerner Central da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor usando os seguintes padrões:
+     a. Na caixa de texto **Identificador**, digite o valor usando os seguintes padrões:
 
     | |
     |--|

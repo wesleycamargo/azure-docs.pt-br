@@ -3,18 +3,18 @@ title: Iniciar/Parar VMs durante a solução de fora do horário comercial
 description: Essa solução de gerenciamento de VM inicia e para suas máquinas virtuais do Azure Resource Manager de acordo com um agendamento, e faz o monitoramento delas proativamente no Log Analytics.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194259"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846176"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial na Automação do Azure
 
@@ -59,7 +59,7 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
    ![Página Adicionar Solução de Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. Na página **Adicionar Solução**, selecione **Workspace**. Selecione um workspace do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um workspace, selecione **Criar Novo Workspace**. No **Workspace do Log Analytics**, execute as seguintes etapas:
-   - Especifique um nome para o novo **Workspace do Log Analytics**.
+   - Especifique um nome para o novo **Espaço de trabalho do Log Analytics**, como "ContosoLAWorkspace".
    - Selecione uma **Assinatura** à qual se vincular, escolhendo na lista suspensa, caso a assinatura selecionada por padrão não seja adequada.
    - Em **Grupo de Recursos**, você pode criar um novo grupo de recursos ou selecionar um existente.
    - Selecione um **Local**. No momento, os únicos locais disponíveis são: **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **Leste dos EUA**, **Leste do Japão**, **Sudeste da Ásia**, **Sul do Reino Unido** e **Europa Ocidental**.

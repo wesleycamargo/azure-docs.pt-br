@@ -2,18 +2,19 @@
 title: Recuperação de desastre em área geográfica do Barramento de Serviço do Azure | Microsoft Docs
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855164"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847995"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -35,11 +36,11 @@ O recurso de recuperação de desastre implementa a recuperação de desastre do
 
 Os seguintes termos são usados neste artigo:
 
--  *Alias*: o nome para uma configuração de recuperação de desastres que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
+-  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
--  *Metadados*: entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas. 
+-  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas. 
 
 -  *Failover*: o processo de ativação do namespace secundário.
 

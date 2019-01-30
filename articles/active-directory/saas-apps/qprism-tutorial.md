@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420267"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828053"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory ao QPrism
+# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory com o QPrism
 
 Neste tutorial, você aprende a integrar o QPrism ao Azure AD (Azure Active Directory).
 
@@ -47,7 +47,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do QPrism da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -105,14 +105,14 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do QPrism](./media/qprism-tutorial/tutorial_qprism_url.png)
 
-    a. Na caixa de texto **URL de Entrada**, digite uma URL que usa o seguinte padrão: `https://<customer domain>.qmyzone.com/login`
+     a. Na caixa de texto **URL de Entrada**, digite uma URL que usa o seguinte padrão: `https://<customer domain>.qmyzone.com/login`
 
     b. Na caixa de texto **Identificador**, digite uma URL que usa o seguinte padrão: `https://<customer domain>.qmyzone.com/metadata.php`
          
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de logon e o identificador reais. Contate a [equipe de suporte ao Cliente do QPrism](mailto:qsupport-ce@quatrro.com) para obter esses valores. 
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+1. Na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
      ![O link de download do Certificado](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -156,7 +156,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-qprism-test-user"></a>Criar um usuário de teste do QPrism
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no QPrism. Trabalhe com a [equipe de suporte do QPrism](mailto:qsupport-ce@quatrro.com) para adicionar os usuários na plataforma do QPrism. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no QPrism. Trabalhe com a [equipe de suporte do QPrism](mailto:qsupport-ce@quatrro.com) para adicionar os usuários na plataforma do QPrism. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -193,7 +193,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 No Painel de Acesso, ao selecionar o bloco QPrism, você deverá ser conectado automaticamente ao seu aplicativo QPrism.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

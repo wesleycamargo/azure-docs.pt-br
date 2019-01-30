@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584563"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856359"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
 
 Este artigo não se aplica aos clientes do Azure com um Contrato Enterprise (clientes da EA). Se você é um cliente da EA, consulte [Entenda sua fatura para clientes do Azure com um Contrato Enterprise](billing-understand-your-bill-ea.md).  
+
+Para obter uma explicação sobre como o faturamento funciona no programa Provedor de Soluções de Nuvem do Azure (Azure CSP), incluindo o ciclo de cobrança, o preço e o uso, confira [Visão geral da cobrança do Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Examine os encargos
 
@@ -33,7 +35,7 @@ Este artigo não se aplica aos clientes do Azure com um Contrato Enterprise (cli
 
 Se houver uma cobrança em sua fatura sobre a qual você deseja obter mais informações, compare o uso e os custos com o arquivo de uso ou com o portal do Azure.
 
-### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Opção 1: comparar o uso e os custos com o arquivo de uso
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Opção 1: Comparar o uso e os custos com o arquivo de uso
 
 O arquivo CSV de uso detalhado mostra os encargos por período de cobrança e de uso diário. Para obter o arquivo, consulte [Obtenha sua fatura de cobrança do Azure e os dados de uso diário](billing-download-azure-invoice-daily-usage-date.md).
 
@@ -69,7 +71,7 @@ Para obter mais informações, consulte:
 - [Entenda sua fatura do Azure](billing-understand-your-invoice.md)
 - [Entenda o uso detalhado do Azure](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Opção 2: comparar o uso e os custos com o portal do Azure
+### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Opção 2: Comparar o uso e os custos com o portal do Azure
 
 O portal do Azure também pode lhe ajudar a verificar seus encargos. Para obter uma visão geral rápida do uso e das cobranças faturadas, consulte os gráficos de gerenciamento de custos.
 

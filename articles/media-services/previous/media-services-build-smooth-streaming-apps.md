@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232678"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828308"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store
 
@@ -142,7 +142,7 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
    O controle MediaElement é usado para a reprodução de mídia. O controle deslizante denominado sliderProgress será usado na próxima lição para controlar o andamento da mídia.
 3. Pressione **CTRL+S** para salvar o arquivo.
 
-O controle MediaElement não oferece suporte a conteúdo de Smooth Streaming pronto para uso. Para habilitar o suporte do Smooth Streaming, você deve registrar o manipulador de fluxo de bytes do Smooth Streaming por extensão de nome de arquivo e tipo MIME.  Para se registrar, você deve usar o método MediaExtensionManager.RegisterByteStremHandler do namespace Windows.Media.
+O controle MediaElement não oferece suporte a conteúdo de Smooth Streaming pronto para uso. Para habilitar o suporte do Smooth Streaming, você deve registrar o manipulador de fluxo de bytes do Smooth Streaming por extensão de nome de arquivo e tipo MIME.  Para se registrar, você deve usar o método MediaExtensionManager.RegisterByteStreamHandler do namespace Windows.Media.
 
 Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controles.  Você deve definir esses manipuladores de eventos.
 

@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577934"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438485"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces do Serviço de Controle de Acesso desabilitado
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces desabilitados do Serviço de Controle de Acesso
 
 Em novembro de 2017, anunciamos que o Serviço de Coleta de Auditoria (ACS), um Serviço do Microsoft Azure Active Directory (Azure AD), está sendo desativado em 7 de novembro de 2018.
 
@@ -32,7 +32,7 @@ Em 3 de outubro de 2018, anunciamos (por e-mail e [uma postagem no blog](https:/
 
 ## <a name="why-your-namespace-is-disabled"></a>Por que o seu namespace está desabilitado
 
-Se você não aceitou a extensão, começaremos a desabilitar os namespaces do ACS a partir de 7 de novembro de 2018. Se você perdeu as comunicações e ainda gostaria de optar pela extensão até 4 de fevereiro de 2019, siga as instruções nas seções a seguir.
+Se você não aceitou a extensão, começaremos a desabilitar os namespaces do ACS a partir de 7 de novembro de 2018. Você já deve ter solicitado a extensão até 4 de fevereiro de 2019; caso contrário, não é possível habilitar os namespaces por meio do PowerShell.
 
 > [!NOTE]
 > Você deve ser um administrador de serviços ou coadministrador da assinatura para executar os comandos do PowerShell e solicitar uma extensão.
@@ -57,7 +57,7 @@ Você pode usar o ACS PowerShell para listar todos os namespaces do ACS e reativ
 
         Para obter ajuda sobre um comando específico, execute:
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -79,18 +79,45 @@ Você pode usar o ACS PowerShell para listar todos os namespaces do ACS e reativ
 
 ## <a name="request-an-extension"></a>Solicitar uma extensão
 
-1. Navegue até o portal de gerenciamento do namespace do ACS indo até `https://{your-namespace}.accesscontrol.windows.net`.
-1. Selecione o botão **Ler Termos** para ler os [Termos de Uso atualizados](https://azure.microsoft.com/support/legal/access-control/), que direcionarão você para uma página com os Termos de Uso atualizados.
+Estamos recebendo novas solicitações de extensão desde 21 de janeiro de 2019.
 
-    [![Selecione o botão de termos de leitura](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+Começaremos a desabilitar namespaces para clientes que solicitaram extensões até 4 de fevereiro de 2019. Você ainda pode reativar namespaces por meio do PowerShell, mas eles serão desativados novamente após 48 horas.
 
-1. Selecione **Solicitar extensão** no banner na parte superior da página. O botão só será ativado depois que você ler os [Termos de Uso atualizados](https://azure.microsoft.com/support/legal/access-control/).
+Depois de 4 de março de 2019, os clientes não poderão mais reativar os namespaces por meio do PowerShell.
 
-    [![Selecione o botão de solicitação de extensão](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+Extensões adicionais não serão mais aprovadas automaticamente. Se você precisar de mais tempo para migrar, entre em contato com o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support) para fornecer uma linha do tempo detalhada da migração.
 
-1. Depois que a solicitação de extensão for registrada, a página será atualizada com um novo banner na parte superior da página.
+### <a name="to-request-an-extension"></a>Para solicitar uma extensão
 
-    [![Página atualizada com faixa atualizada](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+1. Faça logon no portal do Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
+1. Preencha o novo formulário de solicitação de suporte, conforme mostrado no exemplo a seguir.
+
+    | Campo de solicitação de suporte | Valor |
+    |-----------------------|--------------------|
+    | **Tipo de problema** | `Technical` |
+    | **Assinatura** | Defina sua assinatura |
+    | **Serviço** | `All services` |
+    | **Recurso** | `General question/Resource not available` |
+    | **Tipo de problema** | `ACS to SAS Migration` |
+    | **Assunto** | Descreva o problema |
+
+  ![Nova solicitação de suporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
+1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
+
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+
+1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
+
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
+
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## <a name="help-and-support"></a>Ajuda e suporte
 
@@ -99,4 +126,4 @@ Você pode usar o ACS PowerShell para listar todos os namespaces do ACS e reativ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine as informações sobre a desativação do Serviço de Coleta de Acesso no [Como: migrar do serviço de controle de acesso do Azure](active-directory-acs-migration.md).
+- Confira as informações sobre a desativação do ACS em [Como migrar do Serviço de Controle de Acesso do Azure](active-directory-acs-migration.md).

@@ -4,7 +4,7 @@ description: Explica as expressões de provisionamento declarativo.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306045"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460483"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de Expressão de Provisionamento Declarativo está apenas usando funções e não é uma linguagem estruturada. Não existem métodos nem instruções. As funções são aninhadas no fluxo do programa expresso.
@@ -32,13 +32,13 @@ Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência d
 Os atributos são fortemente tipados. Uma função aceita somente atributos do tipo correto. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de função, quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado.
 
 ## <a name="language-definitions-and-identifiers"></a>Identificadores e definições de idioma
-* As funções têm um nome seguido por argumentos entre parênteses: FunctionName(argumento 1, argumento N).
+* As funções têm um nome seguido por argumentos entre parênteses: NomeFunção(argumento 1, argumento N).
 * Os atributos são identificados por colchetes, [NomeDoAtributo]
 * Parâmetros são identificados por sinais de porcentagem: %NomeDoParâmetro%
-* Constantes de cadeia de caracteres estão entre aspas: por exemplo, "Contoso" (Observação: deve-se usar aspas normais "", e não inglesas “”)
+* Constantes de cadeia de caracteres ficam entre aspas: por exemplo, "Contoso" (observação: deve-se usar aspas normais "", e não inglesas “”)
 * Valores numéricos são expressos sem aspas e espera-se que sejam de tipo decimal. Valores hexadecimais são prefixados com &H. Por exemplo, 98052, &HFF
-* Valores boolianos são expressos com constantes: True, False.
-* Literais e constantes internas são expressos apenas com seu nome: NULL, CRLF, IgnoreThisFlow
+* Valores boolianos são expressados com constantes: True, False.
+* Literais e constantes internos são expressados apenas com seu nome: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Funções
 O provisionamento declarativo usa muitas funções para habilitar a possibilidade de transformar valores de atributo. Essas funções podem ser aninhadas para que o resultado de uma função seja passada para outra função.
@@ -93,10 +93,10 @@ Por exemplo:
 
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Azure AD Connect Sync: referência de funções](reference-connect-sync-functions-reference.md)
+* [Sincronização do Azure AD Connect: Referência a funções](reference-connect-sync-functions-reference.md)
 

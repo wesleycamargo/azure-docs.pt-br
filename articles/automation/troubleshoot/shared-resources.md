@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848452"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475434"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solucionar erros com recursos compartilhados
 
@@ -39,6 +39,65 @@ Para resolver esse problema, você deve remover o módulo que está emperrado no
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>Cenário: Falha de módulo importar ou cmdlets não pode ser executados após a importação
+
+#### <a name="issue"></a>Problema
+
+Falha ao importar de um módulo ou importa com êxito, mas nenhum cmdlets são extraídos.
+
+#### <a name="cause"></a>Causa
+
+Algumas razões comuns para que um módulo não pode importar com êxito à automação do Azure são:
+
+* A estrutura não corresponde à estrutura em que a automação precisa estar.
+* O módulo depende de outro módulo que não tenha sido implantado em sua conta de Automação.
+* O módulo não tem suas dependências na pasta.
+* O cmdlet `New-AzureRmAutomationModule` está sendo usado para carregar o módulo e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL publicamente acessível.
+
+#### <a name="resolution"></a>Resolução
+
+Qualquer uma das soluções a seguir corrige o problema:
+
+* Certifique-se de que o módulo segue o formato a seguir: NomeMódulo.Zip **->** NomeMódulo ou Número de Versão **->** (NomeMódulo.psm1, NomeMódulo.psd1)
+* Abra o arquivo .psd1 e veja se o módulo tem dependências. Se tiver, carregue esses módulos para a conta de Automação.
+* Verifique se quaisquer .dlls referenciadas estão presentes na pasta do módulo.
+
+### <a name="all-modules-suspended"></a>Cenário: Update-AzureModule.ps1 é suspenso ao atualizar os módulos
+
+#### <a name="issue"></a>Problema
+
+Ao usar o runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) para atualizar os módulos do Azure, o processo de atualização de módulo é suspenso.
+
+#### <a name="cause"></a>Causa
+
+A configuração padrão para determinar quantos módulos são atualizados simultaneamente é 10 ao usar o script `Update-AzureModule.ps1`. O processo de atualização é propenso a erros quando muitos módulos estão sendo atualizados ao mesmo tempo.
+
+#### <a name="resolution"></a>Resolução
+
+Não é comum todos os módulos AzureRM serem necessários na mesma conta de automação. É recomendável importar apenas os módulos AzureRM que você precisa.
+
+> [!NOTE]
+> Evite importar o módulo **AzureRM**. Importar os módulos **AzureRM** faz com que todos os módulos **AzureRM.\*** sejam importados, e isso não é recomendado.
+
+Se o processo de atualização ficar suspenso, você precisará adicionar o parâmetro `SimultaneousModuleImportJobCount`ao script `Update-AzureModules.ps1` e fornecer um valor inferior ao padrão, que é 10. Caso implemente essa lógica, é recomendável iniciar com um valor de 3 ou 5. O `SimultaneousModuleImportJobCount` é um parâmetro do runbook do sistema `Update-AutomationAzureModulesForAccount` que é usado para atualizar módulos do Azure. Essa alteração torna a execução do processo mais demorada, mas tem mais chances de ser concluído. O exemplo a seguir mostra o parâmetro e onde colocá-lo no runbook:
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## <a name="run-as-accounts"></a>Contas Executar como
 
 ### <a name="unable-create-update"></a>Cenário: Não é possível criar ou atualizar uma conta Executar como
@@ -59,7 +118,7 @@ Você não tem as permissões necessárias para criar ou atualizar a conta Execu
 
 Para criar ou atualizar uma conta Executar como, você deve ter permissões apropriadas para os diversos recursos usados pela conta Executar como. Para saber mais sobre as permissões necessárias para criar ou atualizar uma conta Executar como, consulte [Permissões de conta Executar como](../manage-runas-account.md#permissions).
 
-Se o problema ocorrer devido a um bloqueio, verifique se o bloqueio está pronto para ser removido e navegue até o recurso bloqueado, em seguida, clique com o botão direito do mouse no bloqueio e escolha **Excluir** para remover o bloqueio.
+Se o problema for por causa de um bloqueio, verifique se é adequado removê-lo. Em seguida, navegue até o recurso que está bloqueado, clique com o botão direito do mouse no bloqueio e escolha **Excluir** para remover o bloqueio.
 
 ## <a name="next-steps"></a>Próximas etapas
 

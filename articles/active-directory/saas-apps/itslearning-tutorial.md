@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao itslearning | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o itslearning | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o itslearning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 60587ba3-1396-4b8a-9ac1-e22a98e5e0ac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: c6fc86d5179a5f7113e955ebc8f6b8994f30cb26
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9bd913c7894b47acd22814f7ad2e7fc70816ee9e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446074"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821799"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integração do Azure Active Directory ao itslearning
+# <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integração do Azure Active Directory com o itslearning
 
 Neste tutorial, você aprende a integrar o itslearning ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando itslearning da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/itslearning-tutorial/tutorial_itslearning_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL como:
+     a. Na caixa de texto **URL de Logon**, digite uma URL como:
     | |
     |--| 
     | `https://www.itslearning.com/index.aspx`|
@@ -131,7 +131,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Para configurar o lado do **itslearning** de logon único, você precisa enviar o **XML de Metadados** baixado para [a equipe de suporte do itslearning](mailto:support@itslearning.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -167,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-an-itslearning-test-user"></a>Como criar um usuário de teste do itslearning
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no itslearning. Trabalhe com a [equipe de suporte ao cliente do itslearning](mailto:support@itslearning.com) para adicionar os usuários na plataforma do itslearning. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no itslearning. Trabalhe com a [equipe de suporte ao cliente do itslearning](mailto:support@itslearning.com) para adicionar os usuários na plataforma do itslearning. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444622"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819876"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Ao criar ativos, as opções de criptografia a seguir poderão ser especificadas
   
     Se seu ativo tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Se você especificar para que o ativo seja criptografado com a opção **CommonEncrypted** ou uma opção **EnvelopeEncypted**, será necessário associar o ativo a uma **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](media-services-dotnet-create-contentkey.md). 
+Se você especificar para que o ativo seja criptografado com a opção **CommonEncrypted** ou uma opção **EnvelopeEncrypted**, será necessário associar o ativo a uma **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Se você especificar para que o ativo seja criptografado com uma opção **StorageEncrypted**, o SDK de Serviços de Mídia para .NET criará um **StorateEncrypted** **ContentKey** para o ativo.
+Se você especificar para que o ativo seja criptografado com uma opção **StorageEncrypted**, o SDK de Serviços de Mídia para .NET criará uma **ContentKey** de **StorageEncrypted** para o ativo.
 
 Este artigo mostra como usar o SDK de Serviços de Mídia, assim como extensões de SDK do .NET de Serviços de Mídia para carregar arquivos em um ativo de Serviços de Mídia.
 

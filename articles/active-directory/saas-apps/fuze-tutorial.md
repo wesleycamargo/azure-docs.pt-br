@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Fuze | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Fuze | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Fuze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a3fa8db14f2b155a471fd42d0d20ccf543fdbba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2fdad7df43310132684eae983eae2278629a9b63
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115748"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810186"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: integração do Azure Active Directory com o Fuze
+# <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: Integração do Azure Active Directory ao Fuze
 
 Neste tutorial, você aprenderá a integrar o Fuze ao Azure AD (Azure Active Directory).
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Fuze da galeria
 1. configurar e testar o logon único do AD do Azure

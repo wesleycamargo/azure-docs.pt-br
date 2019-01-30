@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o CompetencyIQ | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o CompetencyIQ | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o CompetencyIQ.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e262bf7e-cc7d-4d0e-aea7-861f00d8837d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8cb474c56e1802ccfe828f0040ae231f0748551e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dbceb69f846cec1fc08142543a02a76e76e10eca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818465"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: integração do Azure Active Directory com o CompetencyIQ
+# <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integração do Azure Active Directory com o CompetencyIQ
 
 Neste tutorial, você aprenderá a integrar o CompetencyIQ ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar o CompetencyIQ por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -134,7 +134,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 1. Para configurar logon único no lado do **CompetencyIQ**, é necessário enviar o **XML de Metadados**, a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** baixados para a [equipe de suporte do CompetencyIQ](https://www.competencyiq.com/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

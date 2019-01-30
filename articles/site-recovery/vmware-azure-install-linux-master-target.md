@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321391"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811852"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -185,7 +185,7 @@ O servidor de destino mestre do Azure Site Recovery requer uma versão específi
 #### <a name="download-and-install-additional-packages"></a>Baixar e instalar pacotes adicionais
 
 > [!NOTE]
-> Verifique se você tem conectividade com a Internet para baixar e instalar pacotes adicionais. Se você não tiver conexão com a Internet, precisará encontrar esses pacotes RPM e instalá-los manualmente.
+> Verifique se você tem conectividade com a Internet para baixar e instalar pacotes adicionais. Se você não tiver conexão com a Internet, precisará encontrar esses pacotes Deb e instalá-los manualmente.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 

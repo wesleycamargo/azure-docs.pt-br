@@ -4,7 +4,7 @@ description: Saiba como instalar e usar os modos de exibição do Log Analytics 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624634"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825197"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
 
 As exibições do Log Analytics do Azure Active Directory ajuda você a analisar e pesquisar os logs de atividades do Azure AD no locatário do Azure AD. Logs de atividade do Azure AD incluem:
 
-* Logs de auditoria: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) dá acesso ao histórico de todas as tarefas executadas em seu locatário.
-* Logs de entrada: com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
+* Logs de auditoria: O [relatório de atividade de logs de auditoria](concept-audit-logs.md) dá acesso ao histórico de todas as tarefas executadas em seu locatário.
+* Logs de entrada: Com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,8 +50,8 @@ Para usar as exibições do Log Analytics, você precisa:
 
 2. Quando você estiver usando o workspace, selecione **Resumo do Workspace**. Você deve ver as três exibições a seguir:
 
-    * **Eventos de Provisionamento de Conta do Azure AD**: esta exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e número de usuários desprovisionados e falhas correspondentes.    
-    * **Eventos de Entradas**: esta exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida acompanhando o número de entradas ao longo do tempo.
+    * **Eventos de provisionamento da conta do Azure AD**: Essa exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização, além de número de usuários desprovisionados e falhas correspondentes.    
+    * **Eventos de entradas**: Essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida de acompanhamento do número de entradas ao longo do tempo.
 
 3. Selecione qualquer uma dessas exibições para ir para os relatórios individuais. Você também pode definir alertas para qualquer um dos parâmetros do relatório. Por exemplo, vamos definir um alerta sempre que houver um erro de entrada. Para fazer isso, primeiro selecione a exibição **Eventos de Entradas**, selecione o relatório **Erros de entrada ao longo do tempo** e, em seguida, selecione **Analytics** para abrir a página de detalhes com a consulta real subjacente ao relatório. 
 

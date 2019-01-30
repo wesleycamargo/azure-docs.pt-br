@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao ThousandEyes | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ThousandEyes | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ThousandEyes.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 790e3f1e-1591-4dd6-87df-590b7bf8b4ba
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6af7a3322b1a01c1d822df78d827121c19e21e1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 046832913a07c99310280d37ac1c6792692dd0cf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444395"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824704"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Active Directory do Azure ao ThousandEyes
+# <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Azure Active Directory com o ThousandEyes
 
 Neste tutorial, você aprenderá a integrar o ThousandEyes ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do Azure AD com o ThousandEyes, serão necessári
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o ThousandEyes da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -144,7 +144,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/thousandeyes-tutorial/ic790069.png "Configurar o logon único")
 
-    a. Selecione **Habilitar Logon Único**.
+     a. Selecione **Habilitar Logon Único**.
 
     b. Na caixa de texto **URL de Página de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
 
@@ -211,7 +211,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Thousa
 
     ![Adicionar contas de usuário](./media/thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
 
     b. Na caixa de texto **Email**, digite o email do usuário como **brittasimon@contoso.com**.
 

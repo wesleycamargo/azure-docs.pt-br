@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o HubSpot | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao HubSpot | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o HubSpot.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 76a19668453b35b39359bef442f7f34a06623cbe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2806288378e5fa080164155b97a47a7046ecbba1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432188"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814895"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: integração do Azure Active Directory com o HubSpot
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Azure Active Directory ao HubSpot
 
 Neste tutorial, você aprenderá a integrar o HubSpot ao Azure AD (Azure Active Directory).
 
@@ -50,12 +50,12 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adição do HubSpot a partir da galeria
+1. Adição do HubSpot por meio da galeria
 2. configurar e testar o logon único do AD do Azure
 
-## <a name="adding-hubspot-from-the-gallery"></a>Adição do HubSpot a partir da galeria
+## <a name="adding-hubspot-from-the-gallery"></a>Adição do HubSpot por meio da galeria
 
 Para configurar a integração do HubSpot ao Azure AD, você precisará adicioná-lo da galeria à sua lista de aplicativos SaaS gerenciados.
 
@@ -79,9 +79,9 @@ Para configurar a integração do HubSpot ao Azure AD, você precisará adicion�
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o HubSpot, com base em um usuário de teste chamado “Brenda Fernandes”.
+Nesta seção, você configurará e testará o logon único do Azure AD com o HubSpot, com base em uma usuária de teste chamada "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do HubSpot é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no HubSpot.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do HubSpot é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no HubSpot.
 
 Para configurar e testar o logon único do Azure AD com o HubSpot, você precisa concluir os seguintes passos básicos:
 
@@ -117,7 +117,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações sobre logon único de domínio e URLs do HubSpot](./media/hubspot-tutorial/tutorial_hubspot_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`
+     a. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`
 
     b. Na caixa de texto **URL de resposta**, digite a URL com o seguinte padrão: `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`
 
@@ -130,7 +130,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     Na caixa de texto **URL de Logon**, digite a URL: `https://app.hubspot.com/login`
 
-6. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **Certificado (Base64)** e salve o arquivo do certificado no computador.
+6. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para baixar o **Certificado (Base64)** e salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/hubspot-tutorial/tutorial_hubspot_certificate.png)
 
@@ -156,15 +156,15 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/hubspot-tutorial/config4.png)
 
-    a. Clique no botão **Cópia** para copiar o valor **URl de audiência (ID da entidade do provedor de serviço)** e cole-o na caixa de texto **Identificador** na seção **Configuração básica de SAML** no Portal do Azure.
+     a. Clique no botão **Cópia** para copiar o valor **URl de audiência (ID da entidade do provedor de serviço)** e cole-o na caixa de texto **Identificador** na seção **Configuração básica de SAML** no Portal do Azure.
 
-    b. Clique no botão **Cópia** para copiar o valor **Entrar no URl, ACS, Destinatário ou Redirect** e cole-o na caixa de texto **URL de resposta** na seção **Configuração básica de SAML** no Portal do Azure.
+    b. Clique no botão **}copiar** para copiar o valor **URl, ACS, Destinatário ou Redirecionamento de Logon** e cole-o na caixa de texto **URL de resposta** na seção **Configuração básica de SAML** no Portal do Azure.
 
-    c. Na caixa de texto **Identificador do Provedor de Identidade ou URL do Emissor**, cole o valor da **Identificador do Azure AD**, que você copiou do Portal do Azure.
+    c. Na caixa de texto **Identificador do Provedor de Identidade ou URL do Emissor**, cole o valor do **Identificador do Azure AD**, que você copiou do Portal do Azure.
 
     d. Na caixa de texto **URL do Provedor de identidade de Logon único**, cole o valor da **URL de logon**, que você copiou do Portal do Azure.
 
-    e. Abra o arquivo **Certificate (Base64)** baixado no Bloco de Notas. Copie o conteúdo dele para a área de transferência e cole-o na caixa  **Certificado X.509**.
+    e. Abra o arquivo **Certificate(Base64)** baixado no Bloco de Notas. Copie o conteúdo dele para a área de transferência e cole-o na caixa **Certificado X.509**.
 
     f. Clique em **Verificar**.
 
@@ -184,7 +184,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/hubspot-tutorial/create_aaduser_02.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -214,11 +214,11 @@ No caso do HubSpot, o provisionamento é uma tarefa manual.
 
     ![Configurar o logon único](./media/hubspot-tutorial/user2.png)
 
-5. Insira o endereço de email do usuário, como **brittasimon@contoso.com** na caixa de texto **Adicionar endereços de email** e clique em **Avançar**.
+5. Insira o endereço de email do usuário como **brittasimon@contoso.com** na caixa de texto **Adicionar endereços de email** e clique em **Avançar**.
 
     ![Configurar o logon único](./media/hubspot-tutorial/user3.png)
 
-6. Na seção **Criar usuários**, analise cada guia individual e selecione as opções e as permissões apropriadas para o usuário e clique em **Avançar**.
+6. Na seção **Criar usuários**, analise cada guia individual, selecione as opções e as permissões apropriadas para o usuário e clique em **Avançar**.
 
     ![Configurar o logon único](./media/hubspot-tutorial/user4.png)
 

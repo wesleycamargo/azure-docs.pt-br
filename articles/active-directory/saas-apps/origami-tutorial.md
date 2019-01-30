@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Origami | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Origami | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Origami.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a28bb0ba-b564-46ba-accc-e587699295d4
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ec165253898ec77da2c7ae0e98cab578e773094
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e8c7dbb2b50e6c6c00b857e419f4e238e318a537
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429158"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809217"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory ao Origami
+# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory com o Origami
 
 Neste tutorial, você aprenderá a integrar o Origami ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Origami por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -139,7 +139,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_531.png)
 
-    a. Selecione **Habilitar Logon Único**.
+     a. Selecione **Habilitar Logon Único**.
 
     b. Na caixa de texto **URL da Página de Entrada do Provedor de Identidade**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
 
@@ -150,7 +150,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     e. Clique em **Salvar Alterações**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -206,7 +206,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
    
     ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. Na caixa de texto **Nome de Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Nome de Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
 
     b. Na caixa de texto **Senha** , digite uma senha.
 

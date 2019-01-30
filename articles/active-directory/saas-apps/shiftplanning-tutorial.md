@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Humanity | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Humanity | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Humanity.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 5858300027d77b6057e059960f1c997b4bfc1e56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a656535dee20d3133ab93d3aec4529cb59158f7d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429001"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814079"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: integração do Azure Active Directory com o Humanity
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integração do Azure Active Directory com o Humanity
 
 Neste tutorial, você aprenderá a integrar o Humanity ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Humanity da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -145,7 +145,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Logon Único](./media/shiftplanning-tutorial/iC786905.png "Logon Único")
    
-    a. Selecione **SAML Habilitado**.
+     a. Selecione **SAML Habilitado**.
 
     b. Selecione **Permitir Logon de Senha**.
 
@@ -158,7 +158,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 1. Clique em **Salvar Configurações**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -216,7 +216,7 @@ Para permitir que os usuários do Azure AD façam logon no Humanity, eles dever�
    
     ![Salvar Funcionários](./media/shiftplanning-tutorial/iC786625.png "Salvar Funcionários")
    
-    a. Nas caixas de texto correspondentes, digite o **Nome**, o **Sobrenome** e o **Email** de uma conta válida do AAD que você deseja provisionar.
+     a. Nas caixas de texto correspondentes, digite o **Nome**, o **Sobrenome** e o **Email** de uma conta válida do AAD que você deseja provisionar.
 
     b. Clique em **Salvar Funcionários**.
 

@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
-ms.component: metrics
-ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: metrics
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827441"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -112,7 +112,7 @@ Você será levado para o painel de criação de regra de alerta com as dimensõ
 
 ![Criar regra de alerta](./media/metrics-charts/016.png)
 
-Verifique esse [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métrica.
+Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métrica.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Limites de bloqueio do eixo y do gráfico
 
@@ -139,6 +139,17 @@ Depois de configurar o gráfico, clique no menu **Ações do Gráfico** no canto
 
 ![imagem de métrica](./media/metrics-charts/00013.png)
 
+## <a name="troubleshooting"></a>solução de problemas
+
+*Não vejo dados no gráfico.*
+
+* Os filtros se aplicam a todos os gráficos do painel. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
+
+* Se quiser definir filtros diferentes em gráficos diferentes, crie-os em folhas diferentes e os salve como favoritos separados. Se desejar, você poderá fixá-los ao painel para que eles sejam exibidos lado a lado.
+
+* Se você segmentar um gráfico por uma propriedade que não esteja definida na métrica, o gráfico ficará vazio. Tente limpar a segmentação (divisão) ou escolha uma propriedade diferente.
+
 ## <a name="next-steps"></a>Próximas etapas
 
   Leia [Criar painéis personalizados de KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para a criação de painéis acionáveis com métricas.
+

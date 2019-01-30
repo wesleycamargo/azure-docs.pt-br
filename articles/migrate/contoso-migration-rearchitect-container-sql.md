@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817224"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migração para Contoso: recriar a arquitetura de um aplicativo local para um contêiner do Azure e o Banco de Dados SQL do Azure
 
@@ -199,7 +199,7 @@ O contêiner do Azure é criado usando os arquivos exportados da VM da Web. O co
 
 ## <a name="step-3-provision-azure-service-fabric"></a>Etapa 3: Provisionar o Azure Service Fabric
 
-O contêiner SmartHotel360 será executado no cluster do Service Fabric. Os administradores da Contoso criam o Cluster do Service Fabric da seguinte maneira:
+O contêiner SmartHotel360 será executado no cluster do Azure Service Fabric. Os administradores da Contoso criam o Cluster do Service Fabric da seguinte maneira:
 
 1. Crie um recurso do Service Fabric do Azure Marketplace
 
@@ -282,7 +282,7 @@ A Contoso precisa de certificados de cluster para permitir o acesso do Azure Dev
 
 8. Para a implantação do Azure DevOps Services, eles precisam determinar o valor Base64 do certificado. Eles fazem isso na estação de trabalho do desenvolvedor local usando o PowerShell. Eles colam a saída para um arquivo de texto para uso posterior.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -530,7 +530,7 @@ Como primeira etapa, os administradores da Contoso provisionam um Azure Cosmos D
 5. No portal, eles abrem o novo banco de dados > **Coleção** > **Documentos** e clicam em **Novo Documento**.
 6. Eles colam o código JSON a seguir na janela do documento. Esses são dados de exemplo na forma de um único tweet.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Com o Cosmos DB provisionado, os administradores da Contoso podem configurar o a
 
 2. Eles preenchem os dois parâmetros a seguir:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

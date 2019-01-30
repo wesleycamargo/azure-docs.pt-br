@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805095"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447268"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gerenciando usuários no portal de parceiros de nuvem
 ======================================
@@ -36,20 +36,20 @@ Para **adicionar usuários e atribuir funções** para publicação de oferta, s
 <a name="step-2-click-add-user"></a>Etapa 2. Clique em Adicionar usuário.
 -----------------------
 
-![Selecionar Adducer](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Selecione Adicionar usuário](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>Etapa 3. Digite o endereço de email e selecione uma atribuição de função.
 --------------------------------------------------------
 
 É possível adicionar o novo usuário como "proprietário" ou "colaborador".
 
-**Email**: adicione os endereços de email dos colegas de equipe que trabalham na publicação da oferta. Há suporte para IDs da organização e para contas da Microsoft (Outlook, Hotmail e Live).
+**Email**: adicione os endereços de email dos colegas de equipe que trabalharão na publicação da oferta. Há suporte para IDs da organização e para contas da Microsoft (Outlook, Hotmail e Live).
 
 o Adicione um 'grupo de segurança/alias do email de grupo/equipe' caso o indivíduo que está trabalhando na oferta saia da organização.
 
 o Certifique-se de que as IDs de email fornecidas no Portal do Cloud Partner são monitoradas para qualquer comunicação da Microsoft.
 
-**Função**: consulte a tabela abaixo para identificar o tipo de função de usuário apropriada.
+**Função**: confira a tabela abaixo para identificar o tipo de função de usuário apropriada.
 
 ![Atribuir função](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
 ![Nível de funções](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
@@ -59,7 +59,8 @@ Atualmente, apenas proprietários podem acessar as guias Pagamentos e Cliente Az
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Etapa 4. Selecione o Nome do Publicador que você quer adicionar ao novo usuário e clique em Adicionar para concluir a adição do usuário.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> Os “nomes de editores” aos quais seu email é adicionado como proprietário ou colaborador são exibidos na lista suspensa Editor para seleção.
 
 ![Atribuir função - selecione publicador](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

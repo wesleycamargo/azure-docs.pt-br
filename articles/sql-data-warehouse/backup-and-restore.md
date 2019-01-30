@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308458"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465166"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 Aprenda a fazer backup e restauração do banco de dados no SQL Data Warehouse do Azure. Utilize instantâneos de data warehouse para recuperação ou copie seu data warehouse para um ponto de restauração anterior na região primária. Use backups de data warehouse com redundância geográfica para restaurar para uma região geográfica diferente. 
@@ -86,7 +86,7 @@ Cada instantâneo cria um ponto de restauração que representa a hora em que o 
 
 É possível manter o data warehouse restaurado e o atual ou excluir um deles. Se você deseja substituir o data warehouse atual pelo depósito de data warehouse, você pode renomeá-la usando [ALTERAR BANCO DE DADOS (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) com a opção MODIFICAR NOME. 
 
-Para restaurar um data warehouse, consulte [Restaurar um data warehouse usando o portal do Azure](sql-data-warehouse-restore-database-portal.md), [Restaurar de um data warehouse usando o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [Restaurar de um data warehouse usando o T-SQL](sql-data-warehouse-restore-database-rest-api.md).
+Para restaurar um data warehouse, confira [Restaurar um data warehouse usando o portal do Azure](sql-data-warehouse-restore-database-portal.md), [Restaurar um data warehouse usando o PowerShell](sql-data-warehouse-restore-database-powershell.md) ou [Restaurar um data warehouse usando APIs REST](sql-data-warehouse-restore-database-rest-api.md).
 
 Para restaurar um data warehouse excluído ou em pausa, será possível [criar um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md). 
 

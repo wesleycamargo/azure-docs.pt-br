@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 8488b968fe2ab823479d70a98ba86be97b28f67d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783615"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820964"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral
@@ -31,7 +31,7 @@ No momento, o MP **Azure Media Motion Detector** está em versão de Visualizaç
 Este artigo fornece detalhes sobre o **Azure Media Motion Detector** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET
 
 ## <a name="motion-detector-input-files"></a>Arquivos de entrada do Motion Detector
-Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
+Arquivos de vídeo. Atualmente, há suporte para os formatos a seguir: MP4, MOV e WMV.
 
 ## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá especificar uma predefinição de configuração. 
@@ -103,9 +103,9 @@ A tabela a seguir descreve os elementos do arquivo JSON de saída:
 | Duration |A duração do evento, em "tiques". |
 | Intervalo |O intervalo de cada entrada no evento, em "tiques". |
 | Eventos |Cada fragmento de evento contém o movimento detectado dentro dessa duração. |
-| type |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
+| Tipo |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
 | RegionID |Conforme explicado acima, isso sempre será 0 nesta versão. Esse rótulo oferece à API de Vídeo a flexibilidade de encontrar o movimento em várias regiões em versões futuras. |
-| Regiões |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/> Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
+| Regiões |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/>  Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
 | Fragmentos |Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração. |
 | Colchetes [] |Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado. |
 | locais |Essa nova entrada em eventos lista o local onde ocorreu o movimento. Isso é mais específico do que as zonas de detecção. |
@@ -280,7 +280,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

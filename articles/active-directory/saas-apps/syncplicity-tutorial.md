@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Syncplicity | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Syncplicity | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Syncplicity.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b74ca178d3bf380dc759ce0325d4047891a39d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 657373d1b9ee7e66ffca495bba598c11bd3f3933
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422385"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807554"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integração do Active Directory do Azure com o Syncplicity
+# <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integração do Azure Active Directory ao Syncplicity
 
 Neste tutorial, você aprenderá a integrar o Syncplicity ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Syncplicity da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -143,7 +143,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Logon Único \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")   
 
-    a. Na caixa de texto **Domínio Personalizado** , digite o nome do seu domínio.
+     a. Na caixa de texto **Domínio Personalizado** , digite o nome do seu domínio.
   
     b. Selecione **Habilitado** como **Status do Logon Único**.
 
@@ -158,7 +158,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     g. Clique em **SALVAR ALTERAÇÕES**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure

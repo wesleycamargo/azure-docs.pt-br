@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Teamphoria | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Teamphoria | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826710"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: integração do Azure Active Directory ao Teamphoria
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integração do Azure Active Directory ao Teamphoria
 
 Neste tutorial, você aprenderá a integrar o Teamphoria ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Teamphoria da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -142,9 +142,9 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **NOME DE EXIBIÇÃO**: insira o nome de exibição do plug-in na página de administração.
+     a. **NOME DE EXIBIÇÃO**: insira o nome de exibição do plug-in na página de administração.
 
-    b. **NOME DO BOTÃO**: O nome da guia que será exibida na página de login para efetuar login via SSO.
+    b. **NOME DO BOTÃO**: o nome da guia que será exibida na página de logon para entrar usando SSO.
 
     c. **CERTIFICADO**: abra o certificado baixado anteriormente do portal do Azure no bloco de notas, copie o conteúdo e cole-o nesta caixa.
 
@@ -203,7 +203,7 @@ Para permitir que usuários do Azure AD façam logon no Teamphoria, eles deverã
     
     ![Convidar Pessoas](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. Na caixa de texto **ENDEREÇO DE EMAIL**, digite o **endereço de email** de Brenda Fernandes.
+     a. Na caixa de texto **ENDEREÇO DE EMAIL**, digite o **endereço de email** de Brenda Fernandes.
 
     b. Na caixa de texto **NOME**, digite **Brenda**.
 

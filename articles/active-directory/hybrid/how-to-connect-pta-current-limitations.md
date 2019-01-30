@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect: autenticação de passagem – Limitações atuais | Microsoft Docs'
+title: 'Azure AD Connect: Autenticação de Passagem – Limitações atuais | Microsoft Docs'
 description: Este artigo descreve as limitações atuais da autenticação de passagem do Azure AD (Azure Active Directory)
 services: active-directory
 keywords: Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fabefcffdd7ee9a23d8989f897f30cbf027f42af
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d0816aebc033a0ac1c5b8a8f52106a586d20a9af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478273"
 ---
-# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
+# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: Limitações atuais
 
 >[!IMPORTANT]
 >A Autenticação de Passagem do Azure AD (Azure Active Directory) é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo. A autenticação de Passagem só está disponível na instância mundial do Azure AD, e não na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) nem na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/).
@@ -33,7 +33,7 @@ Há suporte para os cenários a seguir:
 
 - Entradas de usuário em aplicativos com base em navegador da Web.
 - Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- Entradas de usuário para aplicativos cliente herdados do Office e aplicativos do Office compatíveis com [autenticação moderna](https://aka.ms/modernauthga): versões do Office 2010, 2013 e 2016.
+- Credenciais de usuário para aplicativos cliente herdados do Office e aplicativos do Office compatíveis com [autenticação moderna](https://aka.ms/modernauthga): versões do Office 2010, 2013 e 2016.
 - Entradas de usuário para aplicativos de protocolo herdados, como o PowerShell versão 1.0 e outros.
 - Ingressos do Azure AD para dispositivos Windows 10.
 - Senhas de aplicativo para Autenticação Multifator.
@@ -53,12 +53,12 @@ Os cenários a seguir _não_ têm suporte:
 Habilitar a Sincronização de Hash de Senha dará a opção de fazer failover da autenticação se a sua infraestrutura local sofrer uma interrupção. Esse failover da Autenticação de Passagem para a Sincronização de Hash de Senha não é automático. Você precisará alterar manualmente o método de entrada usando o Azure AD Connect. Se o servidor que está executando o Azure AD Connect ficar inativo, será preciso a ajuda do Suporte da Microsoft para desativar a Autenticação de passagem.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido](how-to-connect-pta-quick-start.md): instale e execute com a Autenticação de Passagem do Azure AD.
+- [Início rápido](how-to-connect-pta-quick-start.md): Instale e execute a Autenticação de Passagem do Azure Active Directory.
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/ADFSTOPTADPDownload) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
-- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
-- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.
-- [Perguntas frequentes](how-to-connect-pta-faq.md): obtenha respostas para perguntas frequentes sobre o recurso de Autenticação de Passagem.
-- [Solução de problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
-- [Aprofundamento em segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.
-- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar o recurso Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso Autenticação de passagem.
+- [Perguntas frequentes](how-to-connect-pta-faq.md): Obtenha respostas para perguntas frequentes sobre o recurso Autenticação de Passagem.
+- [Solucionar problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso Autenticação de passagem.
+- [Análise aprofundada sobre segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas aprofundadas sobre o recurso Autenticação de passagem.
+- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre este recurso complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para gerar novas solicitações de recursos.
