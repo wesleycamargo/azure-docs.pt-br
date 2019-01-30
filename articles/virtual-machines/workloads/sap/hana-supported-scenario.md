@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576486"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855448"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados para instâncias grandes do HANA
 Este documento descreve os cenários com suporte, juntamente com os detalhes da arquitetura para as HANA Large Instances (HLI).
@@ -31,13 +31,13 @@ Antes de prosseguir com o provisionamento da unidade HLI, valide o projeto com a
 ## <a name="terms-and-definitions"></a>Termos e definições
 Vamos entender os termos e definições usados no documento.
 
-- SID: System Identifier para o sistema HANA.
-- HLI: Hana Large Instances.
-- DR: um site de recuperação de desastres.
-- DR Normal: Uma configuração do sistema com um recurso dedicado para fins de DR usado somente.
-- DR multiuso: um sistema no site de DR configurado para usar o ambiente de não produção junto com a instância de produção configurada para usar no evento de DR. 
-- SID único: um sistema com uma instância instalada.
-- Multi SID: Um sistema com várias instâncias configuradas. Também chamado de ambiente MCOS.
+- SID: identificador do sistema para o sistema HANA.
+- HLI: HANA em Instâncias Grandes.
+- DR: um site de recuperação de desastre.
+- DR normal: uma configuração do sistema com um recurso dedicado usado somente para fins de DR.
+- DR multipropósito: um sistema no site de DR configurado para usar o ambiente de não produção junto com a instância de produção configurada para uso no evento de DR. 
+- SID único:  um sistema com uma instância instalada.
+- Vários SID: Um sistema com várias instâncias configuradas. Também chamado de ambiente MCOS.
 
 
 ## <a name="overview"></a>Visão geral
@@ -56,11 +56,11 @@ Este documento descreve os detalhes dos dois componentes em cada arquitetura sup
 
 Cada servidor provisionado vem pré-configurado com os conjuntos de interfaces Ethernet. Aqui estão os detalhes das interfaces Ethernet configuradas em cada unidade HLI.
 
-- **A**: essa interface é usada para/pelo acesso do cliente.
-- **B**: essa interface é usada para a comunicação de nó a nó. Essa interface é configurada em todos os servidores (independentemente da topologia solicitada), mas só é usada para os 
+- **R**: essa interface é usada para acesso pelo cliente.
+- **B**: essa interface é usada para a comunicação entre nós. Essa interface é configurada em todos os servidores (independentemente da topologia solicitada), mas só é usada para os 
 - cenários de expansão.
-- **C**: essa interface é usada para o nó para a conectividade de armazenamento.
-- **D**: esta interface é usada para a conexão do dispositivo Node to ISCSI para a configuração do STONITH. Essa interface é configurada somente quando a configuração do HSR é solicitada.  
+- **C**: essa interface é usada na conectividade entre o nó e o armazenamento.
+- **D**: essa interface é usada pela conectividade entre o nó e o dispositivo ISCSI para a configuração do STONITH. Essa interface é configurada somente quando a configuração do HSR é solicitada.  
 
 | INTERFACES LÓGICAS DA NIC | TIPO SKU  | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
@@ -236,8 +236,8 @@ Os seguintes pontos de montagem são pré-configurados:
 ### <a name="key-considerations"></a>Considerações-chave
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: A distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Consulte a seção [Visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber quais tamanhos de banco de dados na memória são suportados com o ambiente multisid.
-- No DR: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade DR HLI. 
-- No DR: Os dados, os log-ups e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes.
+- Na recuperação de desastre: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade de DR HLI. 
+- Na recuperação de desastre: Os dados, os backups de log e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes.
 - O volume de inicialização para **classe SKU Tipo I** é replicado para o nó DR.
 
 
@@ -285,9 +285,9 @@ Os seguintes pontos de montagem são pré-configurados:
 ### <a name="key-considerations"></a>Considerações-chave
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: A distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Consulte a seção [Visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber quais tamanhos de banco de dados na memória são suportados com o ambiente multisid.
-- No DR: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade DR HLI. 
-- No DR: Os dados, os log-ups e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
-- No DR: Os dados, logbackups, log, volumes compartilhados para QA (marcados como “instalação da Instância do QA”) são configurados para a instalação da instância do QA.
+- Na recuperação de desastre: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade de DR HLI. 
+- Na recuperação de desastre: Os dados, os backups de log e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes. 
+- Na recuperação de desastre: os dados, backups de logs, logs e volumes compartilhados para QA (marcados como “instalação da Instância do QA”) são configurados para a instalação da instância do QA.
 - O volume de inicialização para **classe SKU Tipo I** é replicado para o nó DR.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR com STONITH
@@ -336,7 +336,7 @@ Os seguintes pontos de montagem são pré-configurados:
 ### <a name="key-considerations"></a>Considerações-chave
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: A distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Consulte a seção [Visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber quais tamanhos de banco de dados na memória são suportados com o ambiente multisid.
-- STONITH: Um SBD está configurado para a configuração do STONITH. No entanto, um uso de STONITH é opcional.
+- STONITH: um SBD está configurado para a configuração do STONITH. No entanto, um uso de STONITH é opcional.
 
 
 ## <a name="6-hsr-with-dr"></a>6. HSR com DR
@@ -392,11 +392,11 @@ Os seguintes pontos de montagem são pré-configurados:
 ### <a name="key-considerations"></a>Considerações-chave
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: A distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Consulte a seção [Visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber quais tamanhos de banco de dados na memória são suportados com o ambiente multisid.
-- STONITH: Um SBD está configurado para a configuração do STONITH. No entanto, um uso de STONITH é opcional.
-- No DR: **Dois conjuntos de volumes de armazenamento são necessários** para replicação de nó primário e secundário.
-- No DR: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade DR HLI. 
-- No DR: Os dados, os log-ups e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
-- No DR: Os dados, logbackups, log, volumes compartilhados para QA (marcados como “instalação da Instância do QA”) são configurados para a instalação da instância do QA.
+- STONITH: um SBD está configurado para a configuração do STONITH. No entanto, um uso de STONITH é opcional.
+- Na recuperação de desastre: **dois conjuntos de volumes de armazenamento são necessários** para replicação dos nós primário e secundário.
+- Na recuperação de desastre: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade de DR HLI. 
+- Na recuperação de desastre: Os dados, os backups de log e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes. 
+- Na recuperação de desastre: os dados, backups de logs, logs e volumes compartilhados para QA (marcados como “instalação da Instância do QA”) são configurados para a instalação da instância do QA.
 - O volume de inicialização para **classe SKU Tipo I** é replicado para o nó DR.
 
 
@@ -439,7 +439,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações-chave
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- Em espera: os volumes e os pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA na unidade em espera.
+- No modo de espera: os volumes e os pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA na unidade em espera.
  
 
 ## <a name="8-scale-out-with-standby"></a>8. Expansão com espera
@@ -470,7 +470,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de uso | 
 | --- | --- |
-|**Nos nós mestre, de trabalho e de espera**|
+| **Nos nós mestre, de trabalho e de espera**|
 |/hana/shared | Instalação do HANA para produção SID | 
 |/hana/data/SID/mnt00001 | Arquivos de dados são instalados para o SID de produção | 
 |/hana/log/SID/mnt00001 | Arquivos de log são instalados para o SID de produção | 
@@ -558,8 +558,8 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações-chave
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
--  No DR: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade DR HLI. 
-- No DR: Os dados, os log-ups e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
+-  Na recuperação de desastre: Os volumes e pontos de montagem são configurados (marcados como “Obrigatório para instalação do HANA”) para a instalação da Instância do HANA de produção na unidade de DR HLI. 
+- Na recuperação de desastre: Os dados, os backups de log e os volumes compartilhados (marcados como “Replicação de Armazenamento”) são replicados via instantâneo no site de produção. Esses volumes são montados somente durante o tempo de failover. Para obter mais informações, leia o documento [Procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes. 
 - O volume de inicialização para **classe SKU Tipo I** é replicado para o nó DR.
 
 

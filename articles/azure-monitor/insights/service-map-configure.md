@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231335"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381662"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -210,7 +210,7 @@ Uma maneira ainda mais fácil de garantir que o agente de Dependência esteja in
 "apiVersion": "2017-03-30",
 "location": "[resourceGroup().location]",
 "dependsOn": [
-"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
 ],
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
@@ -305,32 +305,32 @@ Para implantar o agente de dependência por meio da Desired State Configuration 
 ```
 configuration ServiceMap {
 
-Import-DscResource -ModuleName xPSDesiredStateConfiguration
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
-Node localhost
-{ 
-    # Download and install the Dependency agent
-    xRemoteFile DAPackage 
+    Node localhost
     {
-        Uri = "https://aka.ms/dependencyagentwindows"
-        DestinationPath = $DAPackageLocalPath
-    }
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
 
-    xPackage DA
-    {
-        Ensure="Present"
-        Name = "Dependency Agent"
-        Path = $DAPackageLocalPath
-        Arguments = '/S'
-        ProductId = ""
-        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-        InstalledCheckRegValueName = "DisplayName"
-        InstalledCheckRegValueData = "Dependency Agent"
-        DependsOn = "[xRemoteFile]DAPackage"
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
     }
-  }
 }
 ```
 
@@ -387,7 +387,7 @@ Se a instalação do Agente de Dependência for bem-sucedida, mas você não vir
 
 * O servidor está enviando dados de log e desempenho para o Log Analytics? Acesse a Pesquisa de Logs e execute a consulta a seguir para seu computador: 
 
-        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Uso | em que Computador == "admdemo-appsvr" | resumir sum(Quantity), any(QuantityUnit) por DataType
 
 Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Se sim, o Agente do Log Analytics está operando corretamente e se comunicando com o Log Analytics. Caso contrário, verifique o agente em seu servidor: [Solução de problemas do agente do Log Analytics para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [Solução de problemas do agente do Log Analytics para Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

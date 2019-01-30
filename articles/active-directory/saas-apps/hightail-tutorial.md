@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Hightail | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Hightail | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 1151044d5c1002c808ae1214086aff5fad84a55e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 59342aa95e50b29e58035892967be6d0407aae91
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431327"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812957"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integração do Azure Active Directory ao Hightail
+# <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: integração do Azure Active Directory com o Hightail
 
 Neste tutorial, você aprenderá a integrar o Hightail ao Azure AD (Azure Active Directory).
 
@@ -48,7 +48,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Hightail a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -139,7 +139,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | Email | user.mail |    
     | UserIdentity | user.mail |
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_officespace_04.png)
 
@@ -178,7 +178,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/hightail-tutorial/configure3.png)
 
-    a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+     a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
     b. Abra o Certificado codificado em base-64 no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado SAML**.
 

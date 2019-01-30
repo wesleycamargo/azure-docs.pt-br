@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Noções básicas sobre provisionamento declarativo | Microsoft Docs'
+title: 'Azure AD Connect: noções básicas sobre o provisionamento declarativo | Microsoft Docs'
 description: Explica o modelo de configuração de provisionamento declarativo no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310285"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471762"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Noções básicas sobre o provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
 
 ## <a name="overview"></a>Visão geral
@@ -48,7 +48,7 @@ O módulo de escopo está avaliando um objeto e determina as regras que estão n
 O escopo é definido como grupos e cláusulas. As cláusulas estão dentro de um grupo. Um E lógico é usado entre todas as cláusulas em um grupo. Por exemplo, (department =TI E country = Dinamarca). Um OU lógico é usado entre grupos.
 
 ![Escopo](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-O escopo nesta imagem deve ser lido como (department = TI e country = Dinamarca) ou (country = Suécia). Se o grupo 1 ou 2 for avaliado como true, a regra está no escopo.
+ O escopo nesta imagem deve ser lido como (department = TI e country = Dinamarca) ou (country = Suécia). Se o grupo 1 ou 2 for avaliado como true, a regra está no escopo.
 
 O módulo de escopo dá suporte às operações a seguir.
 
@@ -68,13 +68,13 @@ O módulo de escopo dá suporte às operações a seguir.
 ## <a name="join"></a>Ingressar
 O módulo de junção no pipeline de sincronização é responsável por localizar a relação entre o objeto de origem e um objeto de destino. Em uma regra de entrada, essa relação seria um objeto em um espaço de conector que localiza uma relação com um objeto no metaverso.  
 ![Junção entre cs e mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
-O objetivo é ver se já existe um objeto no metaverso, criado por outro Conector ao qual ele deve ser associado. Por exemplo, em uma floresta de recursos de conta, o usuário da floresta de contas deve ser unido ao usuário da floresta de recursos.
+ O objetivo é ver se já existe um objeto no metaverso, criado por outro Conector ao qual ele deve ser associado. Por exemplo, em uma floresta de recursos de conta, o usuário da floresta de contas deve ser unido ao usuário da floresta de recursos.
 
 As junções são usadas principalmente em regras de entrada para unir os objetos de espaço do conector ao mesmo objeto do metaverso.
 
 As junções são definidas como um ou mais grupos. Dentro de um grupo, há cláusulas. Um E lógico é usado entre todas as cláusulas em um grupo. Um OU lógico é usado entre grupos. Os grupos são processados na ordem de cima para baixo. Quando um grupo encontra uma correspondência exata com um objeto de destino, nenhuma outra regra de associação é avaliada. Se zero ou mais de um objeto for localizado, o processamento continuará para o próximo grupo de regras. Por esse motivo, as regras devem ser criadas na ordem com a mais explícita primeiro e a mais difusa no fim.  
 ![Definição de junção](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-As junções nesta figura são processadas de cima para baixo. Primeiro, o pipeline de sincronização vê se há uma correspondência em employeeID. Caso contrário, a segunda regra vê se o nome da conta pode ser usado para unir os objetos. Se essa não for uma correspondência, a terceira e última regra será uma correspondência mais difusa usando o nome de usuário.
+ As junções nesta figura são processadas de cima para baixo. Primeiro, o pipeline de sincronização vê se há uma correspondência em employeeID. Caso contrário, a segunda regra vê se o nome da conta pode ser usado para unir os objetos. Se essa não for uma correspondência, a terceira e última regra será uma correspondência mais difusa usando o nome de usuário.
 
 Se todas as regras de junção forem avaliadas e não houver exatamente uma correspondência, o **Tipo de Link** na página **Descrição** será usado. Se essa opção for definida como **Provisionar**, será criado um novo objeto de destino.  
 ![Provisionar ou ingressar](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -123,7 +123,7 @@ Veja um exemplo:
 
 Em *saída para AD – usuário Exchange híbrido* fluxo a seguir pode ser encontrado:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-esta expressão deve ser lida como: se a caixa de correio do usuário estiver localizada no Azure AD, então, flua o atributo do Azure AD para o AD. Caso contrário, não flua nada de volta para o Active Directory. Neste caso, ele manteria o valor existente no AD.
+ esta expressão deve ser lida como: se a caixa de correio do usuário estiver localizada no Azure AD, então, flua o atributo do Azure AD para o AD. Caso contrário, não flua nada de volta para o Active Directory. Neste caso, ele manteria o valor existente no AD.
 
 ### <a name="importedvalue"></a>ImportedValue
 A função ImportedValue é diferente de todas as outras funções, pois o nome do atributo deve ser colocado entre aspas, em vez de colchetes:   
@@ -158,9 +158,9 @@ Para esse cenário, você precisa alterar o escopo das regras de sincronização
 
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Azure AD Connect Sync: referência de funções](reference-connect-sync-functions-reference.md)
+* [Sincronização do Azure AD Connect: referência de funções](reference-connect-sync-functions-reference.md)

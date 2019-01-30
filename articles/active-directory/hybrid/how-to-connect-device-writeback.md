@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: habilitando write-back de dispositivo | Microsoft Docs'
+title: 'Azure AD Connect: Habilitando o write-back de dispositivo | Microsoft Docs'
 description: Este documento fornece detalhes sobre como habilitar write-back de dispositivo usando o Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361060"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412811"
 ---
-# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Habilitando o write-back de dispositivo
 > [!NOTE]
 > Uma assinatura do Azure AD Premium é necessária para write-back do dispositivo.
 > 
@@ -38,10 +38,10 @@ Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos �
 > <li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
 > <li>Somente um objeto de configuração de registro de dispositivo pode ser adicionado à floresta local do Active Directory. Esse recurso não é compatível com uma topologia onde o Active Directory local é sincronizado a vários diretórios do AD do Azure.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>Parte 1: instalar o Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalar o Azure AD Connect
 Instale o Azure AD Connect usando configurações expressas ou personalizadas. A Microsoft recomenda iniciar com todos os usuários e grupos sincronizados com êxito antes de habilitar o write-back do dispositivo.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Parte 2: habilitar o dispositivo write-back na conexão do Azure AD Connect
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Parte 2: Habilitar o write-back de dispositivo no Azure AD Connect
 1. Execute o assistente de instalação novamente. Selecione **Configurar opções de dispositivo** na página Tarefas Adicionais e clique em **Avançar**. 
 
     ![Configurar opções do dispositivo](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -57,10 +57,10 @@ Instale o Azure AD Connect usando configurações expressas ou personalizadas. A
 
 4. A página **Contêiner de dispositivo** fornece a opção de preparação do active directory, usando uma das duas opções disponíveis:
 
-    a. **Forneça credenciais de administrador de empresa**: se as credenciais de administrador corporativo são fornecidas para a floresta em que os dispositivos precisam ser gravados, o Azure AD Connect irá preparar a floresta automaticamente durante a configuração do Write-back de dispositivo.
+     a. **Fornecer credenciais de administrador corporativo**: Se as credenciais de administrador corporativo forem fornecidas para a floresta em que é necessário fazer o write-back dos dispositivos, o Azure AD Connect preparará a floresta automaticamente durante a configuração do write-back de dispositivo.
 
-    b. **Baixe o script do PowerShell**: o Azure AD Connect gera automaticamente um script do PowerShell que pode preparar o active directory para write-back do dispositivo. As credenciais de administrador corporativo não podem ser fornecidas no Azure AD Connect, recomenda-se realizar o download do script do PowerShell. Forneça o script PowerShell baixado **CreateDeviceContainer.psq** para o administrador da empresa da floresta onde os dispositivos serão gravados de volta.
-    ![Preparar a floresta do active diretory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **Baixar o script do PowerShell**: O Azure AD Connect gera automaticamente um script do PowerShell que pode preparar o Active Directory para o write-back de dispositivo. As credenciais de administrador corporativo não podem ser fornecidas no Azure AD Connect, recomenda-se realizar o download do script do PowerShell. Forneça o script PowerShell baixado **CreateDeviceContainer.psq** para o administrador da empresa da floresta onde os dispositivos serão gravados de volta.
+    ![Preparar a floresta do Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     As seguintes operações são executadas para preparar a floresta do active directory:
     * Se ainda não existirem, ele criará e configurará novos contêineres e objetos em CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].

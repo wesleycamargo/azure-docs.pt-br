@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: agendador | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: Agendador | Microsoft Docs'
 description: Este tópico descreve o recurso Agendador interno na sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462310"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
+# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Agendador
 Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
@@ -71,7 +71,7 @@ A configuração do agendador é armazenada no Azure AD. Se você tiver um servi
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
-d - dias, HH - horas, mm - minutos, ss - segundos
+ d - dias, HH - horas, mm - minutos, ss - segundos
 
 Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Altera o Agendador para executar a cada três horas.
@@ -92,7 +92,7 @@ Quando você fizer as alterações, não se esqueça de habilitar o agendador no
 Por padrão, o agendador é executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
 
 **Ciclo de sincronização delta**  
-Um ciclo de sincronização delta inclui as seguintes etapas:
+ Um ciclo de sincronização delta inclui as seguintes etapas:
 
 * Importação delta em todos os conectores
 * Sincronização delta em todos os conectores
@@ -123,7 +123,7 @@ Se o agendador estiver executando um ciclo de sincronização, talvez seja neces
 Se um ciclo de sincronização estiver em execução, você não poderá alterar a configuração. Você pode aguardar até que o agendador conclua o processo ou pode interrompê-lo para realizar suas alterações logo em seguida. Parar o ciclo atual não é prejudicial e as alterações serão processadas na próxima execução.
 
 1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle`do PowerShell.
-2. Se você usar uma versão anterior à 1.1.281, parando em seguida, o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Se você usar uma versão anterior à 1.1.281, parando em seguida, o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações:  ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
@@ -165,7 +165,7 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![Status de execução do conector](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
-Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincronização está ocioso. A segunda linha é de quando o Conector do Azure AD está em execução.
+ Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincronização está ocioso. A segunda linha é de quando o Conector do Azure AD está em execução.
 
 ## <a name="scheduler-and-installation-wizard"></a>Agendador e o assistente de instalação
 Se você iniciar o assistente de instalação, o agendador será temporariamente suspenso. Esse comportamento ocorre porque ele pressupõe que você fará alterações na configuração e as definições não poderão ser aplicadas se o mecanismo de sincronização estiver ativamente em execução. Por esse motivo, não deixe o assistente de instalação aberto, já que ele impede que o mecanismo de sincronização execute ações de sincronização.

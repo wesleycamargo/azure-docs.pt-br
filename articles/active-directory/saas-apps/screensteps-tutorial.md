@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao ScreenSteps | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o ScreenSteps | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ScreenSteps.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 105ec895635a882d562de48203222702a2c6bfed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50e59c9ab04c1f17d55461b0562491143c21e51d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421727"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815898"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integração do Active Directory do Azure com o ScreenSteps
+# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: integração do Azure Active Directory com o ScreenSteps
 
 Neste tutorial, você aprende a integrar o ScreenSteps ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o ScreenSteps por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -145,7 +145,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Criar um Ponto de Extremidade de Autenticação](./media/screensteps-tutorial/ic778526.png "Criar um Ponto de Extremidade de Autenticação")
     
-    a. Na caixa de texto **Título** , digite um título.
+     a. Na caixa de texto **Título** , digite um título.
     
     b. Na lista **Modo**, selecione **SAML**.
     
@@ -159,7 +159,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Ponto de Extremidade de Autenticação Remota](./media/screensteps-tutorial/ic778527.png "Ponto de Extremidade de Autenticação Remota")
 
-    a. Clique em **Carregar novo arquivo de Certificado SAML** e carregue o certificado que você baixou do Portal do Azure.
+     a. Clique em **Carregar novo arquivo de Certificado SAML** e carregue o certificado que você baixou do Portal do Azure.
     
     b. Cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure na caixa de texto **URL de Acesso Remoto**.
     
@@ -176,7 +176,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     h. Clique no botão **Tornar padrão para a conta** para usar esse ponto de extremidade para todos os usuários que fizerem logon no ScreenSteps. Como alternativa, você pode clicar no botão **Adicionar ao Site** usar esse ponto de extremidade para sites específicos em **ScreenSteps**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -213,7 +213,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-screensteps-test-user"></a>Criar um usuário de teste do ScreenSteps
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no ScreenSteps. Trabalhe com a [equipe de suporte ao cliente do ScreenSteps](https://www.screensteps.com/contact) para adicionar usuários na plataforma do ScreenSteps. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado Brenda Fernandes no ScreenSteps. Trabalhe com a  [Equipe de suporte ao cliente do ScreenSteps](https://www.screensteps.com/contact)  para adicionar usuários na plataforma do ScreenSteps. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -250,7 +250,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do ScreenSteps no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo ScreenSteps.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

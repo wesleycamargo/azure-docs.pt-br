@@ -4,21 +4,21 @@ description: Aprenda a usar o mapeamentos de expressão para transformar valores
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/21/2019
+ms.author: chmutali
+ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973716"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823669"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -37,7 +37,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo:  "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Anexar](#append)&nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Juntar](#join) &nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacríticos](#normalizediacritics) [Não](#not) &nbsp;&nbsp;&nbsp;&nbsp;[Substitua](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [ StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp;[alternar](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -209,6 +209,32 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 | **chave** |Obrigatório |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
 | **valor** |Obrigatório |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
+- - -
+### <a name="tolower"></a>ToLower
+**Função:**<br> ToLower (origem, cultura)
+
+**Descrição:**<br> Usa um valor de cadeia de caracteres de *origem* e o converte em letras minúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará a Cultura invariável.
+
+**Parâmetros:**<br> 
+
+| NOME | Obrigatório/repetição | Tipo | Observações |
+| --- | --- | --- | --- |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
+| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+
+- - -
+### <a name="toupper"></a>ToUpper
+**Função:**<br> ToUpper (origem, cultura)
+
+**Descrição:**<br> Usa um valor de cadeia de caracteres de *origem* e o converte em letras maiúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará a Cultura invariável.
+
+**Parâmetros:**<br> 
+
+| NOME | Obrigatório/repetição | Tipo | Observações |
+| --- | --- | --- | --- |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
+| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Retirar o nome de domínio conhecido
 Você precisa retirar um nome de domínio conhecido do email de um usuário para obter um nome de usuário. <br>
@@ -283,6 +309,18 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Austrália/Brisbane"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor userPrincipalName (UPN) gerado em letras minúsculas
+
+No exemplo a seguir, o valor do UPN é gerado pela concatenação dos campos de origem PreferredFirstName e PreferredLastName, e a função ToLower opera na cadeia de caracteres gerada para converter todos os caracteres em letras minúsculas. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Entrada/saída de exemplo:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
 

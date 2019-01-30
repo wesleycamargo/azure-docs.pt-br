@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 4f25768cc7e4f5865c6cfa96ebfe3b0df97deeb6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5dbf831677157f660f2c0a8dd2acefe1f6a218a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421365"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar TINFOIL SECURITY da galeria
 1. Configurar e testar logon único do Azure AD
@@ -122,7 +122,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | ------------------- | -------------------- |
     | accountid | UXXXXXXXXXXXXX |
     
-    a. Clique em **adicionar atributo de usuário**.
+     a. Clique em **adicionar atributo de usuário**.
     
     ![ADICIONAR atributo](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_attribute.png "Atributos")
     
@@ -156,7 +156,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Logon Único](./media/tinfoil-security-tutorial/ic798973.png "Logon Único")
    
-    a. Selecione **Habilitar SAML**.
+     a. Selecione **Habilitar SAML**.
    
     b. Clique em **Configuração Manual**.
    
@@ -169,7 +169,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     f. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD

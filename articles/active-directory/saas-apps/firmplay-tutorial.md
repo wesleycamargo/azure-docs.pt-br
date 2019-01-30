@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o FirmPlay - Employee Advocacy for Recruiting | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o FirmPlay – Employee Advocacy for Recruiting | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FirmPlay - Employee Advocacy for Recruiting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114521"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809795"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integração do Azure Active Directory com FirmPlay - Employee Advocacy for Recruiting
+# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: integração do Azure Active Directory com o FirmPlay – Employee Advocacy for Recruiting
 
 Neste tutorial, você aprenderá a integrar o FirmPlay - Employee Advocacy for Recruiting com o Azure Active Directory (Azure AD).
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o FirmPlay - Employee Advocacy for Recruiting a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -95,7 +95,7 @@ Para configurar e testar o logon único do Azure AD com o FirmPlay - Employee Ad
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criando um usuário de teste FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - para ter um equivalente de Brenda Fernandes no FirmPlay vinculado à representação dela no Azure AD.
+1. **[Criando um usuário de teste do FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** – para ter um equivalente de Brenda Fernandes no FirmPlay: Employee Advocacy for Recruiting que esteja vinculado à representação dela no Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 

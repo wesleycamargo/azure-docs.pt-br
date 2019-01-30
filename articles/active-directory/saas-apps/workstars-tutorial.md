@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 51a4a4e4-ff60-4971-b3f8-a0367b70d220
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 79826da8f3159c8b032a695b6bc732ca5adbb0c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d78289fcfc134f6bcba14de9f04637520e10180c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421154"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: integração do Azure Active Directory com o Workstars
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Workstars da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Workstars](./media/workstars-tutorial/tutorial_workstars_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: `https://workstars.com`
+     a. Na caixa de texto **Identificador**, digite a URL: `https://workstars.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.workstars.com/saml/login_check`
 
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![SAML do Workstars](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
-    a. Na caixa de texto **Nome do Provedor de Identidade**, digite **Office 365**.
+     a. Na caixa de texto **Nome do Provedor de Identidade**, digite **Office 365**.
 
     b. Na caixa de texto **ID da Entidade do Provedor de Identidade**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
 
@@ -160,7 +160,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     g. Clique em **Confirmar**.
     
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -233,7 +233,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Workstars no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Workstars.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

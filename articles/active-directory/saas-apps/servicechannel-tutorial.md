@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 22e72d454626941b932cef2750cba008da20a214
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 974149fdad8e8f5a617c428c6513f30930ff596b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114953"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: integração do Azure Active Directory com o ServiceChannel
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o ServiceChannel da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor como `http://adfs.<domain>.com/adfs/service/trust`
+     a. Na caixa de texto **Identificador**, digite o valor como `http://adfs.<domain>.com/adfs/service/trust`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<customer domain>.servicechannel.com/saml/acs`
 
@@ -134,7 +134,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     | --- | --- |    
     | Função| user.assignedroles |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial_servicechannel_04.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582489"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382995"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -26,7 +26,7 @@ Este artigo coleta em um só lugar muitas das perguntas mais freqüentes sobre a
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Quais são os pré-requisitos para usar a análise de tráfego?
 
-A análise de tráfego requer os seguintes pré-requisitos:
+A Análise de Tráfego exige os seguintes pré-requisitos:
 
 - Uma assinatura ativada do Watcher de Rede.
 - Os logs de fluxo do Network Security Group (NSG) habilitados para os NSGs que você deseja monitorar.
@@ -35,7 +35,6 @@ A análise de tráfego requer os seguintes pré-requisitos:
 
 Sua conta deve atender a uma das seguintes opções para ativar a análise de tráfego:
 
-- Sua conta deve ser atribuída a uma das seguintes funções no nível da assinatura: administrador da conta, administrador do serviço ou co-administrador.
 - Sua conta deve ter qualquer uma das seguintes funções de RBAC (controle de acesso baseado em função) no escopo da assinatura: proprietário, colaborador, leitor ou colaborador de rede.
 - Se sua conta não estiver atribuída a uma das funções listadas anteriormente, ela deverá ser atribuída a uma função personalizada à qual são atribuídas as ações a seguir, no nível da assinatura.
             
@@ -61,7 +60,7 @@ Para verificar funções atribuídas a um usuário para uma inscrição:
 Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [ Gerenciar controle de acesso baseado em função com o Azure PowerShell ](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Em quais regiões do Azure estão disponíveis análises de tráfego?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Em quais regiões do Azure a Análise de Tráfego está disponível?
 
 Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
 - Canadá Central
@@ -133,7 +132,7 @@ O provedor Microsoft.Insights deve estar registrado para que o log de fluxo func
 
 O painel pode levar até 30 minutos para aparecer pela primeira vez. A solução deve primeiro agregar dados suficientes para obter insights significativos. Então gera relatórios. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: “Não conseguimos encontrar nenhum dado neste workspace para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione um workspace diferente. ”?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: “Não foi possível encontrar nenhum dado neste workspace para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione um workspace diferente. ”?
 
 Experimente as opções a seguir:
 - Altere o intervalo de tempo na barra superior.
@@ -142,10 +141,10 @@ Experimente as opções a seguir:
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: “Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e seu workspace estiver sob o SKU gratuito, verifique aqui o uso do seu workspace para validar a cota, caso contrário, consulte as Perguntas frequentes para obter mais informações.”
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: “Analisando os logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e seu workspace estiver sob o SKU gratuito, verifique aqui o uso do seu workspace para validar a cota, caso contrário, consulte as Perguntas frequentes para obter mais informações.”
 
 Você pode ver esta mensagem porque:
-- A análise de tráfego foi ativada recentemente e pode ainda não ter agregado dados suficientes para obter insights significativos.
+- A Análise de Tráfego foi habilitada recentemente e pode ainda não ter agregado dados suficientes para obter insights significativos.
 - Você está usando a versão gratuita do espaço de trabalho do Log Analytics e excedeu os limites de cota. Pode ser necessário usar um workspace com uma capacidade maior.
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -225,16 +224,16 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>Como a Análise de Tráfego é precificada?
 
-A análise de tráfego é medida. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um workspace do Log Analytics. 
+A Análise de Tráfego é limitada. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um workspace do Log Analytics. 
 
-Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no workspace do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
+Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Centro-oeste dos EUA, se os dados dos logs de fluxo armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiverem 10 GB e os logs aprimorados ingeridos no workspace do Log Analytics tiverem 1 GB, os encargos aplicáveis serão: 10 x US$ 2,3 + 1 x US$ 2,76 = US$ 25,76
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como posso navegar usando o teclado na vista de mapa geográfico?
 
 A página do mapa geográfico contém duas seções principais:
     
-- **Banner**: o banner na parte superior do mapa geográfico fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, Implantação, Tráfego de países e Malicioso). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
-- **Mapa**: abaixo do banner, a seção do mapa mostra a distribuição de tráfego entre os datacenters e países do Azure.
+- **Faixa**: A faixa na parte superior do mapa geográfico fornece botões para seleção de filtros de distribuição de tráfego (por exemplo, Implantação, Tráfego de países e Mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
+- **Mapa**: Abaixo da faixa, a seção do mapa mostra a distribuição de tráfego entre os países e os datacenters do Azure.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     
@@ -263,8 +262,8 @@ A página do mapa geográfico contém duas seções principais:
 
 A página de topologia de redes virtuais contém duas seções principais:
     
-- **Banner**: o banner na parte superior da topologia de redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, redes virtuais conectadas, redes virtuais desconectadas e IPs públicos). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará as redes virtuais ativas em sua implantação.
-- **Topologia**: abaixo do banner, a seção de topologia mostra a distribuição de tráfego entre as redes virtuais.
+- **Faixa**: A faixa na parte superior da topologia de redes virtuais fornece botões para seleção de filtros de distribuição de tráfego (por exemplo, Redes virtuais conectadas, Redes virtuais desconectadas e IPs públicos). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará as redes virtuais ativas em sua implantação.
+- **Topologia**: Abaixo da faixa, a seção de topologia mostra a distribuição de tráfego entre as redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     
@@ -285,8 +284,8 @@ A página de topologia de redes virtuais contém duas seções principais:
 
 A página de topologia de sub-redes virtuais contém duas seções principais:
     
-- **Banner**: o banner na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
-- **Topologia**: abaixo do banner, a seção de topologia mostra a distribuição de tráfego entre as sub-redes virtuais.
+- **Faixa**: A faixa na parte superior da topologia de sub-redes virtuais fornece botões para seleção de filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
+- **Topologia**: Abaixo da faixa, a seção de topologia mostra a distribuição de tráfego entre as sub-redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     

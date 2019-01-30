@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107490"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413406"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -112,7 +112,8 @@ Dispositivos de armazenamento paravirtualizados | Não há suporte para disposit
 Dispositivos de E/S de bloqueio de várias filas | Sem suporte.
 Servidores físicos com o controlador de armazenamento CCISS da HP | Sem suporte.
 Convenção de nomenclatura de ponto de montagem/dispositivo | O nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo. Assegure que não existam dois pontos de montagem/dispositivos que se diferenciam apenas por maiúsculas e minúsculas. </br> Exemplo: Nomear dois dispositivos da mesma máquina virtual como *dispositivo1* e *Dispositivo1* não é permitido.
-Diretórios | Antes da [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Os diretórios a seguir (se configurados como partições/sistemas de arquivos separados), precisam estar todos no mesmo disco do sistema operacional no servidor de origem: /(raiz), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> Da [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) em diante, as restrições acima não se aplicam.
+Diretórios | Antes da [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Os diretórios a seguir (se configurados como partições/sistemas de arquivos separados), precisam estar todos no mesmo disco do sistema operacional no servidor de origem: /(raiz), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> Da [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) em diante, as restrições acima não se aplicam. Não há suporte para /boot no volume LVM em mais de um disco.
+Diretório de inicialização | Não há suporte para mais de um disco de inicialização em uma máquina virtual <br/><br/> Um computador sem o disco de inicialização não pode ser protegida
 
 Requisitos de espaço livre de | 2 GB na/partição raiz <br/><br/> 250 MB na pasta de instalação XFSv5 | Recursos XFSv5 em sistemas de arquivos XFS, como a soma de verificação dos metadados, têm suporte do Serviço de Mobilidade versão 9.10 em diante. Use o utilitário xfs_info para verificar o superbloco XFS da partição. Se ftype é definido como 1, isso indica que os recursos do XFSv5 estão sendo usados.
 
@@ -157,6 +158,7 @@ Rede Acelerada | Não
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Com suporte**
 --- | ---
+Dados dinâmicos | O disco do Sistema Operacional precisa ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
 Host SAN iSCSI/FC) | SIM
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos

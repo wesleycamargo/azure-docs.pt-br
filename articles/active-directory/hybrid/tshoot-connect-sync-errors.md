@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: solucionando erros durante a sincronização | Microsoft Docs'
+title: 'Azure AD Connect: Solução de erros durante a sincronização | Microsoft Docs'
 description: Explica como solucionar problemas de erros encontrados durante a sincronização com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250420"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463298"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solucionando erros durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do AD DS (Active Directory do Windows Server) para o Azure AD (Azure Active Directory). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que causam esses erros e possíveis maneiras de corrigi-los. Este artigo inclui os tipos de erro comuns e talvez não abranja todos os erros possíveis.
@@ -30,7 +30,7 @@ Com a versão mais recente do Azure AD Connect de \(agosto de 2016 ou superior\)
 
 A partir de 1º de setembro de 2016, o recurso [Duplicar a Resiliência do Atributo do Azure Active Directory](how-to-connect-syncservice-duplicate-attribute-resiliency.md) estará habilitado por padrão para todos os *novos* locatários do Azure Active Directory. Este recurso será habilitado automaticamente para locatários existentes nos próximos meses.
 
-O Azure AD Connect realiza três tipos de operações dos diretórios que mantém em sincronia: Importação, Sincronização e Exportação. Erros podem ocorrer em todas as operações. Este artigo se concentra principalmente em erros durante a Exportação para o Azure AD.
+O Azure AD Connect realiza três tipos de operações em diretórios que mantém em sincronia: Importação, Sincronização e Exportação. Erros podem ocorrer em todas as operações. Este artigo se concentra principalmente em erros durante a Exportação para o Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Erros durante a Exportação para o Azure AD
 A seção seguinte descreve os diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para o Azure AD usando o conector do Azure AD. Esse conector pode ser identificado pelo formato de nome, que é "contoso.*onmicrosoft.com*".
@@ -171,11 +171,11 @@ O motivo mais comum para o erro AttributeValueMustBeUnique é que dois objetos c
 O Azure Active Directory impõe várias restrições nos dados antes de permitir que dados sejam gravados no diretório. Essas restrições têm a finalidade de garantir que os usuários finais tenham as melhores experiências possíveis ao usar os aplicativos que dependem desses dados.
 
 #### <a name="scenarios"></a>Cenários
-a. O valor do atributo UserPrincipalName tem caracteres inválidos ou sem suporte.
+ a. O valor do atributo UserPrincipalName tem caracteres inválidos ou sem suporte.
 b. O atributo UserPrincipalName não segue o formato necessário.
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>Como corrigir o erro IdentityDataValidationFailed
-a. Certifique-se de que o atributo userPrincipalName tem caracteres com suporte e o formato necessário.
+ a. Certifique-se de que o atributo userPrincipalName tem caracteres com suporte e o formato necessário.
 
 #### <a name="related-articles"></a>Artigos relacionados
 * [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e) (Preparar para provisionar usuários por meio da sincronização de diretório para o Office 365)

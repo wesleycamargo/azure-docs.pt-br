@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260457"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449547"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas comuns: Replicação de Azure para Azure
 
@@ -101,8 +101,8 @@ A captura de tela a seguir ilustra o exemplo. Na captura de tela:
 ### <a name="how-far-back-can-i-recover"></a>A que tempo é possível fazer failback de recuperação?
 O ponto de recuperação mais antigo que você pode usar é de 72 horas.
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>O que acontecerá se eu tiver uma política de replicação de 24 horas e um problema impedir o Site Recovery de gerar pontos de recuperação por mais de 24 horas? Meus pontos de recuperação anteriores serão removidos?
-Não, o Site Recovery manterá todos os pontos de recuperação anteriores nesse caso. 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>O que acontecerá se eu tiver uma política de replicação de 24 horas e um problema impedir o Site Recovery de gerar pontos de recuperação por mais de 24 horas? Meus pontos de recuperação anteriores serão perdidos?
+Não, o Site Recovery manterá todos os pontos de recuperação anteriores. Dependendo da janela de retenção de pontos de recuperação, 24 horas neste caso, o Site Recovery substituirá o ponto mais antigo somente se houver uma geração de novos pontos. Neste caso, uma vez que não há nenhum novo ponto de recuperação gerado devido a algum problema, todos os pontos antigos permanecerão intactos quando chegarmos à janela de retenção.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Após a replicação ser habilitada em uma VM, como fazer para alterar a política de replicação? 
 Vá para **Cofre do Site Recovery** > **Infraestrutura do Site Recovery** > **Políticas de replicação**. Selecione a política que você deseja editar e salve as alterações. Qualquer alteração também será aplicada a todas as replicações existentes. 

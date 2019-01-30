@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: configurar o DocuSign para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o DocuSign para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6099c07a0f27966eb4c253b85d24afb0561a708b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d677e49266c4787fb1ae34203097b7004a515be9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812906"
 ---
-# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: configurar o DocuSign para o provisionamento automático de usuário
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: configurar o DocuSign para provisionamento automático do usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no DocuSign e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o DocuSign.
 
@@ -73,7 +73,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
-    a. Na caixa de texto **Nome de Usuário Administrador**, digite um nome de conta do DocuSign que tem o perfil **Administrador do Sistema** atribuído no DocuSign.com.
+     a. Na caixa de texto **Nome de Usuário Administrador**, digite um nome de conta do DocuSign que tem o perfil **Administrador do Sistema** atribuído no DocuSign.com.
    
     b. Na caixa de texto **Senha do Administrador**, digite a senha dessa conta.
 

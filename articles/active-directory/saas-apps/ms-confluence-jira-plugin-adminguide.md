@@ -4,7 +4,7 @@ description: Guia de administração para usar o Atlassian Jira e Confluence com
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77aba012d4e8d333d6f57f8f6a7a12927e6a35ec
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426869"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820539"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory
 
@@ -67,7 +67,7 @@ Considere as seguintes informações antes de instalar o plug-in:
 
 O plug-in é compartível com as versões a seguir do Jira e do Confluence:
 
-* Jira Core e Software: 6.0 to 7.12
+* JIRA Core e Software: 6.0 a 7.12
 * Jira Service Desk: 3.0.0 a 3.5.0
 * O JIRA também fornece suporte para 5.2. Para obter mais detalhes, clique em [Logon único do Microsoft Azure Active Directory para JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: 5.0 a 5.10
@@ -111,37 +111,37 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
 *   **URL de metadados**: a URL para obter metadados de federação do Microsoft Azure AD.
 
-*   **Identificadores**: a URL utilizada pelo Microsoft Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/.
+*   **Identificadores**: a URL utilizada pelo Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/.
 
-*   **URL de resposta**: a URL de resposta no seu provedor de identidade (IdP) que inicia a entrada do SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
+*   **URL de Resposta**: a URL de resposta no seu IdP (provedor de identidade) que inicia a entrada SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
 
-*   **URL de logon**: a URL de logon no seu IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
+*   **URL de logon**: a URL de logon no IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
 
-*   **ID da Entidade do IdP**: a ID de entidade que o IdP usa. Essa caixa é preenchida quando a URL de metadados é resolvida.
+*   **ID da entidade do IdP**: a ID da entidade que o IdP usa. Essa caixa é preenchida quando a URL de metadados é resolvida.
 
-*   **URL de Logon**: a URL de entrada do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
+*   **URL de logon**: a URL de entrada do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
 
-*   **URL de Logoff**: a URL de logoff do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
+*   **URL de logoff**: a URL de logoff do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
 
-*   **Certificado X.509**: o certificado X.509 do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
+*   **Certificado X.509**: certificado X.509 do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
 
-*   **Nome do botão de logon**: o nome do botão de entrada que sua organização deseja que os usuários vejam na página de entrada.
+*   **Nome do botão Logon**: o nome do botão de entrada que sua organização deseja que os usuários vejam na página de entrada.
 
-*   **Locais de ID de usuário do SAML**: o local onde a ID de usuário Jira ou Confluence é esperada na resposta SAML. Ele pode estar em **NameID** ou em um nome de atributo personalizado.
+*   **Locais da ID de usuário SAML**: o local onde a ID de usuário Jira ou Confluence é esperada na resposta SAML. Ele pode estar em **NameID** ou em um nome de atributo personalizado.
 
 *   **Nome do atributo**: nome do atributo em que a ID de usuário é esperada.
 
-*   **Habilitar a descoberta de realm inicial**: a seleção a ser feita caso a empresa esteja usando entrada com base nos Serviços de Federação do Active Directory (AD FS).
+*   **Habilitar a descoberta de realm inicial**: a seleção a ser feita caso a empresa esteja usando entrada com base no AD FS (Serviços de Federação do Active Directory).
 
-*   **Nome de domínio**: o nome de domínio se a entrada for baseada em AD FS.
+*   **Nome de Domínio**: o nome de domínio se a entrada for baseada em AD FS.
 
-*   **Habilitar saída única**: a seleção a ser feita caso você deseje sair do Azure Active Directory quando um usuário sair do Jira ou do Confluence.
+*   **Habilitar Saída Única**: a seleção a ser feita caso você deseje sair do Azure AD quando um usuário sair do Jira ou do Confluence.
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-* **Você está obtendo vários erros de certificado**: entre no Azure Active Directory e remova os vários certificados que estão disponíveis com relação ao aplicativo. Certifique-se de que apenas um certificado esteja presente.
+* **Você está recebendo vários erros de certificado**: entre no Azure AD e remova os vários certificados disponíveis no aplicativo. Certifique-se de que apenas um certificado esteja presente.
 
-* **Um certificado está prestes a expirar no Azure Active Directory**: complementos cuidam da sobreposição automática do certificado. Quando um certificado estiver prestes a expirar, um novo certificado deverá ser marcado como ativo e os certificados não utilizados deverão ser excluídos. Quando um usuário tenta entrar no Jira nesse cenário, o plug-in efetua fetch e salva o novo certificado.
+* **Um certificado está prestes a expirar no Azure AD**: os complementos encarregam-se da sobreposição automática do certificado. Quando um certificado estiver prestes a expirar, um novo certificado deverá ser marcado como ativo e os certificados não utilizados deverão ser excluídos. Quando um usuário tenta entrar no Jira nesse cenário, o plug-in efetua fetch e salva o novo certificado.
 
 * **Você deseja desabilitar o WebSudo (desabilite a sessão de administrador segura)**:
 
@@ -155,13 +155,13 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
   * Insira a URL em um navegador e verifique se você está recebendo o XML de metadados de federação.
 
-* **Há um erro de servidor interno**: revise os logs no diretório de logs da instalação. Se você estiver recebendo o erro quando o usuário estiver tentando entrar utilizando o SSO do Microsoft Azure AD, é possível compartilhar os logs com a equipe de suporte.
+* **Erro interno de servidor**: examine os logs no diretório de logs da instalação. Se você estiver recebendo o erro quando o usuário estiver tentando entrar utilizando o SSO do Microsoft Azure AD, é possível compartilhar os logs com a equipe de suporte.
 
-* **Há um erro de "ID de usuário não encontrado" quando o usuário tenta entrar**: crie a ID de usuário no Jira ou no Confluence.
+* **Há um erro de "ID de usuário não encontrado" quando o usuário tenta entrar**: Crie a ID de usuário no Jira ou no Confluence.
 
-* **Há um erro de "Aplicativo não encontrado" no Azure Active Directory**: veja se a URL apropriada está mapeada para o aplicativo no Azure Active Directory.
+* **Há um erro de "Aplicativo não encontrado" no Azure AD**: Verifique se a URL apropriada está mapeada para o aplicativo no Microsoft Azure AD.
 
-* **Você precisa de suporte**: contate a [Equipe de integração de SSP do Microsoft Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipe responde entre 24 e 48 horas dentro do horário comercial.
+* **Você precisa de suporte**: Alcance a [Equipe de integração de SSO do Microsoft Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipe responde entre 24 e 48 horas dentro do horário comercial.
 
   Também é possível criar um ticket de suporte com a Microsoft por meio do canal do Portal do Azure.
 
@@ -185,7 +185,7 @@ O plug-in funciona apenas com as versões locais do Jira e Confluence.
 
 O plug-in é compatível com estas versões:
 
-* Jira Core e Software: 6.0 to 7.12
+* JIRA Core e Software: 6.0 a 7.12
 * Jira Service Desk: 3.0.0 a 3.5.0
 * O JIRA também fornece suporte para 5.2. Para obter mais detalhes, clique em [Logon único do Microsoft Azure Active Directory para JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: 5.0 a 5.10

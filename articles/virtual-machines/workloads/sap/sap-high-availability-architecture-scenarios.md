@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: de009d1dbc979a534b0fed8cee2afc867c5b79d4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656917"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426906"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -231,9 +231,9 @@ ms.locfileid: "34656917"
 
 ## <a name="terminology-definitions"></a>Definições de terminologia
 
-**Alta disponibilidade**: diz respeito a um conjunto de tecnologias que minimiza as interrupções da TI, proporcionando a continuidade dos serviços de TI por meio de componentes redundantes e tolerantes a falhas ou protegidos contra failover no *mesmo* data center. Em nosso caso, o data center reside em uma região do Azure.
+**Alta disponibilidade**: Refere-se a um conjunto de tecnologias que minimiza as interrupções de TI proporcionando a continuidade dos negócios de serviços de TI por meio de componentes redundantes e tolerantes a falhas ou protegidos contra failover no *mesmo* data center. Em nosso caso, o data center reside em uma região do Azure.
 
-**Recuperação de desastre**: também se refere à minimizar interrupções de dos serviços de IT e à recuperação de dados, mas em *vários* data centers que podem estar a centenas de quilômetros uns dos outros. Em nosso caso, os data centers podem residir em várias regiões do Azure na mesma região geopolítica ou em locais estabelecidos por você como cliente.
+**Recuperação de desastre**: Também se refere à redução da interrupção dos serviços de TI e sua recuperação, mas em *vários* data centers que podem estar a centenas de quilômetros de distância uns dos outros. Em nosso caso, os data centers podem residir em várias regiões do Azure na mesma região geopolítica ou em locais estabelecidos por você como cliente.
 
 
 ## <a name="overview-of-high-availability"></a>Visão geral de alta disponibilidade
@@ -287,6 +287,19 @@ Um conjunto de disponibilidade é usado para alcançar alta disponibilidade de:
 * Servidores de aplicativos SAP redundantes.  
 * Clusters com dois ou mais nós (VMs, por exemplo) que protegem SPOFs como uma instância SAP ASCS/SCS ou um DBMS.
 
+
+### <a name="azure-availability-zones"></a>Zonas de Disponibilidade do Azure
+O Azure está no processo de distribuir um conceito de [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) em diferentes [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Nas regiões do Azure em que as Zonas de Disponibilidade são oferecidas, as regiões do Azure têm vários data centers, que são independentes em relação a fonte de alimentação, resfriamento e rede. O motivo para a oferta de diferentes zonas em uma única região do Azure é permitir que você implante aplicativos em duas ou três Zonas de Disponibilidade oferecidas. Supondo que os problemas em fontes de alimentação e/ou rede afetem apenas uma infraestrutura de Zona de Disponibilidade, a implantação do aplicativo dentro de uma região do Azure permanece totalmente funcional. Eventualmente com alguma capacidade reduzida, pois algumas máquinas virtuais em uma região podem ser perdidas. Mas as VMs nas outras duas zonas ainda estão em execução. As regiões do Azure que oferecem zonas são listadas em [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+
+Ao usar Zonas de Disponibilidade, há alguns aspectos a serem considerados. A lista de considerações é semelhante à seguinte:
+
+- Não é possível implantar Conjuntos de Disponibilidade do Azure em uma Zona de Disponibilidade. Você precisa escolher uma Zona de Disponibilidade ou um Conjunto de Disponibilidade como o quadro de implantação de uma VM.
+- Não é possível usar o [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para criar soluções de cluster de failover baseadas em Serviços de Cluster de Failover do Windows ou no Linux Pacemaker. Em vez disso, você precisará usar o [SKU do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- As Zonas de Disponibilidade do Azure não fornecem nenhuma garantia de determinada distância entre diferentes zonas em uma região
+- A latência da rede entre diferentes Zonas de Disponibilidade do Azure em diferentes regiões do Azure poderá variar conforme a região do Azure. Haverá casos em que você, como cliente, poderá executar razoavelmente a camada de aplicativo SAP implantada em diferentes zonas, pois a latência da rede de uma zona para a VM ativa do DBMS ainda é aceitável de um impacto do processo empresarial. Em outros casos, haverá cenários de cliente em que a latência entre a VM ativa do DBMS em uma zona e uma instância do aplicativo SAP em uma VM em outra zona poderá ser muito invasiva e não aceitável para os processos empresariais do SAP. Como resultado, as arquiteturas de implantação precisam ser diferentes com uma arquitetura ativa/ativa para o aplicativo ou uma arquitetura ativa/passiva, caso a latência seja muito alta.
+- O uso do [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) é obrigatório para a implantação em Zonas de Disponibilidade do Azure 
+
+
 ### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Manutenção planejada e não planejada de máquinas virtuais
 
 Dois tipos de eventos da plataforma Azure podem afetar a disponibilidade das máquinas virtuais:
@@ -305,13 +318,13 @@ Como o Armazenamento do Azure mantém três imagens dos dados por padrão, o uso
 Para saber mais, veja [Replicação do Armazenamento do Azure][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
-Managed Disks é um novo tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs (discos rígidos virtuais) armazenados em contas de armazenamento do Azure. Os discos gerenciados se alinham automaticamente ao conjunto de disponibilidade da máquina virtual à qual eles estão conectados. Eles aumentam a disponibilidade da máquina virtual e os serviços que estão sendo executados nela.
+O Managed Disks é um tipo de recurso do Azure Resource Manager cujo uso é recomendado em relação aos VHDs (discos rígidos virtuais), que são armazenados em contas de armazenamento do Azure. O Managed Disks se alinha automaticamente a um conjunto de disponibilidade do Azure da máquina virtual à qual ele está anexado. Eles aumentam a disponibilidade da máquina virtual e os serviços que estão sendo executados nela.
 
 Para saber mais, veja [Visão geral dos Azure Managed Disks][azure-storage-managed-disks-overview].
 
 Recomendamos que você use discos gerenciados porque eles simplificam a implantação e o gerenciamento de suas máquinas virtuais.
 
-O SAP atualmente dá suporte apenas a discos gerenciados Premium. Para saber mais, confira a Nota SAP [1928533].
+
 
 ## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Utilizando a alta disponibilidade da infraestrutura do Azure para atingir *alta disponibilidade* de aplicativos SAP
 
@@ -331,14 +344,14 @@ As seções a seguir abordam como alcançar alta disponibilidade para todos os t
 
 > Esta seção aplica-se a:
 >
-> ![Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
+> ![ Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
 >
 
 Normalmente, não é necessária uma solução específica de alta disponibilidade para servidor de aplicativos SAP e instâncias de diálogo. Você atinge alta disponibilidade por redundância e configura várias instâncias de caixa de diálogo em várias instâncias de máquinas virtuais do Azure. Você deve ter pelo menos duas instâncias do aplicativo SAP instaladas em duas máquinas virtuais do Azure.
 
-![Figura 1: servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
+![Figura 1: Servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
 
-_**Figura 1:** servidor de aplicativos SAP de alta disponibilidade_
+_**Figura 1:** Servidor de aplicativos SAP de alta disponibilidade_
 
 Você deve colocar todas as máquinas virtuais que hospedam instâncias do servidor de aplicativos SAP no mesmo conjunto de disponibilidade do Azure. Um conjunto de disponibilidade do Azure garante que:
 
@@ -354,14 +367,14 @@ O número de domínios de falha e atualização que podem ser usados por um conj
 
 Se você implanta algumas instâncias do servidor de aplicativos SAP em suas VMs dedicadas e supondo que temos cinco domínios de atualização, o quadro a seguir surge no final. O número máximo real de domínios de falha e atualização dentro de um conjunto de disponibilidade pode vir a mudar no futuro:
 
-![Figura 2: alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure][planning-guide-figure-3000]
-_**Figura 2:** alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure_
+![Figura 2: Alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure][planning-guide-figure-3000]
+_**Figura 2:** Alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure_
 
 Para saber mais, consulte [Gerenciar a disponibilidade de máquinas virtuais Windows no Azure][azure-virtual-machines-manage-availability].
 
 Para saber mais, confira a seção [Conjuntos de disponibilidade do Azure] [ planning-guide-3.2.3] do documento de planejamento e implantação de máquinas virtuais do Azure para SAP NetWeaver.
 
-**Somente discos não gerenciados:** como a conta de armazenamento do Azure é um possível ponto único de falha, é importante ter pelo menos duas contas de armazenamento do Azure nas quais pelo menos duas máquinas virtuais estejam distribuídas. Em uma configuração ideal, os discos de cada máquina virtual que está executando uma instância de diálogo SAP deveria ser implantada em uma conta de armazenamento diferente.
+**Somente discos não gerenciados:** Como a conta de armazenamento do Azure é um possível ponto único de falha, é importante ter pelo menos duas contas de armazenamento do Azure, nas quais pelo menos duas máquinas virtuais estejam distribuídas. Em uma configuração ideal, os discos de cada máquina virtual que está executando uma instância de diálogo SAP deveria ser implantada em uma conta de armazenamento diferente.
 
 > [!IMPORTANT]
 > Recomendamos que você use os discos gerenciados do Azure nas instalações de alta disponibilidade do SAP. Como os discos gerenciados alinham-se automaticamente ao conjunto de disponibilidade da máquina virtual à qual eles estão conectados, eles aumentam a disponibilidade da sua máquina virtual e dos serviços que estão em execução nela.  
@@ -369,14 +382,14 @@ Para saber mais, confira a seção [Conjuntos de disponibilidade do Azure] [ pla
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solução tem duas variantes:
 
-* **Agrupar a instância do SAP ASCS/SCS usando discos compartilhados em cluster**: para saber mais sobre essa arquitetura, confira [Agrupar instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco de cluster compartilhado] [ sap-high-availability-guide-wsfc-shared-disk].   
+* **Agrupar a instância do SAP ASCS/SCS em um cluster usando discos compartilhados clusterizados**: Para obter mais informações sobre essa arquitetura, confira [Agrupar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado clusterizado][sap-high-availability-guide-wsfc-shared-disk].   
 
-* **Agrupar a instância SAP ASCS/SCS usando compartilhamento de arquivos**: para saber mais sobre essa arquitetura, confira [Agrupar instância do SAP ASCS/SCS em um cluster de failover do Windows usando compartilhamento de arquivos] [ sap-high-availability-guide-wsfc-file-share].
+* **Agrupar a instância do SAP ASCS/SCS em um cluster usando um compartilhamento de arquivo**: Para obter mais informações sobre essa arquitetura, confira [Agrupar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivo][sap-high-availability-guide-wsfc-file-share].
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Linux
 
@@ -384,9 +397,12 @@ Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A so
 >
 Para saber mais sobre o clustering da instância do SAP ASCS/SCS usando a estrutura de cluster SLES, confira [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP] [ sap-suse-ascs-ha].
 
+Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em um cluster usando a estrutura de cluster do Red Hat, confira [Alta disponibilidade das Máquinas Virtuais do Azure para o SAP NetWeaver no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+
+
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuração multi-SID do SAP NetWeaver para uma instância do SAP ASCS/SCS em cluster
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > Atualmente, o multi-SID tem suporte apenas com o WSFC. Há suporte para multi-SID usando compartilhamento de arquivos e disco compartilhado.
 >
@@ -400,9 +416,9 @@ Para saber mais sobre a arquitetura de alta disponibilidade multi-SID, confira:
 
 O DBMS também é um ponto único de contato em um sistema SAP. Você precisa protegê-lo usando uma solução de alta disponibilidade. A figura a seguir mostra uma solução de alta disponibilidade Always On do SQL Server no Clustering de Failover do Windows Server e no balanceador interno de carga do Azure. O AlwaysOn do SQL Server replica os arquivos de log e dados do DBMS usando sua própria replicação DBMS. Nesse caso, você não precisa de disco compartilhado de cluster, o que simplifica toda a configuração.
 
-![Figura 3: exemplo de um DBMS SAP de alta disponibilidade com o Always On do SQL Server][sap-ha-guide-figure-2003]
+![Figura 3: Exemplo de um DBMS SAP de alta disponibilidade, com o AlwaysOn do SQL Server][sap-ha-guide-figure-2003]
 
-_**Figura 3:** exemplo de um DBMS SAP de alta disponibilidade com o Always On do SQL Server_
+_**Figura 3:** Exemplo de um DBMS SAP de alta disponibilidade, com o AlwaysOn do SQL Server_
 
 Para saber mais sobre o clustering do DBMS do SQL Server no Azure usando o modelo de implantação do Azure Resource Manager, confira estes artigos:
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319453"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382628"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -230,7 +230,7 @@ Quando uma nova política for aplicada, a agenda e a retenção da nova polític
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados são enviados para o Azure criptografados?
 
-Sim. Os dados são criptografados na máquina local usando AES256. Os dados são enviados por um link HTTPS seguro.
+Sim. Os dados são criptografados no computador local usando o AES256. Os dados são enviados por um link HTTPS seguro. Os dados são transmitidos na nuvem e são protegidos por um link HTTPS entre o armazenamento e o serviço de recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador de usuário. O túnel seguro é usado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados de backup também são criptografados no Azure?
 
