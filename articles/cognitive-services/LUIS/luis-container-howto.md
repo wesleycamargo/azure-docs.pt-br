@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055040"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463265"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -113,7 +113,8 @@ O diretório de montagem de entrada pode conter as versões de **Produção**, *
 |Staging|Get, Post|Azure e contêiner|`{APPLICATION_ID}_STAGING.gz`|
 |Produção|Get, Post|Azure e contêiner|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Importante:** Não renomeie, altere ou descompacte os arquivos de pacote do LUIS.
+> [!IMPORTANT]
+> Não renomeie, altere ou descompacte os arquivos de pacote do LUIS.
 
 ### <a name="packaging-prerequisites"></a>Pré-requisitos de empacotamento
 
@@ -383,3 +384,4 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 
 * Revise [Configurar contêineres](luis-container-configuration.md) para configurações
 * Consulte [Perguntas frequentes (FAQ)](luis-resources-faq.md) para resolver problemas relacionados à funcionalidade LUIS.
+* Usar mais [Contêineres dos Serviços Cognitivos](../cognitive-services-container-support.md)

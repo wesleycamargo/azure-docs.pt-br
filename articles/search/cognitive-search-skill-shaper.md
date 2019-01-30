@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313819"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410108"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidades cognitivas do Shaper
 
 A habilidade **Shaper** cria um tipo complexo para dar suporte a campos compostos (também conhecido como campos de várias partes). Um campo de tipo complexo tem várias partes, mas é tratado como um único item em um índice do Azure Search. Exemplos de campos consolidados úteis nos cenários de pesquisa incluem combinar um nome e sobrenome em um campo único, cidade e estado em um campo único ou nome e data de nascimento em m um campo único para estabelecer a identidade exclusiva.
 
-A habilidade de Shaper permite que você crie uma estrutura essencialmente, defina o nome dos membros de estrutura e atribuir valores a cada membro.
+A habilidade **Formatador** permite basicamente que você crie uma estrutura, defina o nome dos membros dessa estrutura e atribua valores a cada membro.
 
-Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para objetos mais complexos, é possível encadear várias etapas do Shaper.
+Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para objetos mais complexos, encadeie várias etapas do **Formatador**.
 
-Em resposta, o nome de saída é sempre "saída". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos a seguir "saída", mas a habilidade do Shaper em si retorna "saída" na resposta. Isso pode ser importante se você estiver depurando documentos enriquecidos e observar a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estruturação de resposta por conta própria.
+Em resposta, o nome de saída é sempre "saída". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos abaixo para "saída", mas a habilidade **Formatador** em si retorna "saída" na resposta. Isso pode ser importante se você estiver depurando documentos enriquecidos e observar a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estruturação de resposta por conta própria.
+
+> [!NOTE]
+> Essa habilidade não está associada a uma API de Serviços Cognitivos e você não é cobrado por utilizá-la. No entanto, você ainda deverá [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md) para substituir a opção de recurso **Gratuito** que limita você a um pequeno número de enriquecimentos por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Amostra 1: tipos complexos
 
-Considere um cenário onde você deseja criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimento*, respectivamente. No Azure Search, um campo de pesquisado de várias parte é chamado um *tipo complexo* e ainda não tem suporte fora da caixa. Nesta visualização, uma habilidade do Shaper pode ser usada para gerar campos de um tipo complexo no índice. 
+Considere um cenário onde você deseja criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimento*, respectivamente. No Azure Search, um campo de pesquisado de várias parte é chamado um *tipo complexo* e ainda não tem suporte fora da caixa. Nesta visualização, uma habilidade do **Formatador** pode ser usada para gerar campos de um tipo complexo no índice. 
 
 O exemplo a seguir fornece os nomes do membro como a entrada. A estrutura de saída (campo complexo no Azure Search) é especificada por meio de *targetName*. 
 
@@ -62,7 +65,7 @@ O exemplo a seguir fornece os nomes do membro como a entrada. A estrutura de sa�
 ```
 
 ### <a name="sample-input"></a>Entrada de exemplo
-Um documento JSON fornece entrada utilizável para esta habilidade Shaper poderia ser:
+Um documento JSON que fornece uma entrada utilizável para essa habilidade **Formatador** pode ser:
 
 ```json
 {
@@ -80,7 +83,7 @@ Um documento JSON fornece entrada utilizável para esta habilidade Shaper poderi
 
 
 ### <a name="sample-output"></a>Saída de exemplo
-A habilidade de Shaper gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimento*. 
+A habilidade **Formatador** gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimento*. 
 
 ```json
 {

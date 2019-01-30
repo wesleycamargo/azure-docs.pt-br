@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pausar e retomar computação no SQL Data Warehouse do Azure - PowerShell | Microsoft Docs'
+title: 'Início rápido: Pausar e retomar computação no SQL Data Warehouse do Azure – PowerShell | Microsoft Docs'
 description: Use o PowerShell para pausar a computação no SQL Data Warehouse do Azure para economizar custos. Retomar computação quando você estiver pronto para usar o Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,19 +10,19 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ae1373901ca22b39cf99173ae2a9280128491522
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9d2836f49fb92ab13f8e4170f2aab044c810cf3c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313802"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437149"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início Rápido: Pausar e retomar computação em um SQL Data Warehouse do Azure com PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Pausar e retomar computação em um SQL Data Warehouse do Azure com PowerShell
 Use o PowerShell para pausar a computação no SQL Data Warehouse do Azure para economizar custos. [Retomar computação](sql-data-warehouse-manage-compute-overview.md) quando você estiver pronto para usar o data warehouse.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Este tutorial requer o módulo do Azure PowerShell, versão 5.1.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` descobrir a versão que você tem atualmente. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este tutorial requer o módulo do Azure PowerShell, versão 5.1.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` descobrir a versão que você tem atualmente. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

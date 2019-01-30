@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: f073637810e9ed1acdf37b0e541ca3f1d518de2a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346682"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450552"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Implantar um novo dispositivo simulado
 
@@ -143,8 +143,8 @@ Agora, é possível usar os modelos de dispositivo personalizado na solução de
 
 Se você planeja explorar mais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 
-Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir solução**.
+Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir Solução**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este guia mostrou como implantar modelos de dispositivos personalizados no acelerador de solução de Monitoramento Remoto. A próxima etapa sugerida é saber como [conectar um dispositivo físico à solução de Monitoramento Remoto](iot-accelerators-connecting-devices-node.md).
+Este guia mostrou como implantar modelos de dispositivos personalizados no acelerador de solução de Monitoramento Remoto. A próxima etapa sugerida é saber como [conectar um dispositivo real à solução de Monitoramento Remoto](iot-accelerators-connecting-devices-node.md).

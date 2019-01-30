@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255874"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435049"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -101,10 +101,10 @@ Monitoramento de segurança, alertas e relatórios baseados no aprendizado de m�
 
 No portal do Azure, os relatórios se enquadram nas categorias a seguir:
 
-* **Relatórios de anomalias**: contêm eventos de entrada que nós identificamos como anômalos. Nossa meta é que você fique ciente dessas atividades e possa determinar se um evento é suspeito ou não.
-* **Relatórios de aplicativos integrados**: fornecem um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Azure AD oferece integração com milhares de aplicativos em nuvem.
+* **Relatórios de anomalias**: Contêm eventos de entrada que identificamos como anômalos. Nossa meta é que você fique ciente dessas atividades e possa determinar se um evento é suspeito ou não.
+* **Relatórios de Aplicativo Integrado**: fornecem insights de como os aplicativos de nuvem estão sendo usados na sua organização. O Azure AD oferece integração com milhares de aplicativos em nuvem.
 * **Relatórios de erros**: indicam erros que podem ocorrer ao provisionar contas para aplicativos externos.
-* **Relatórios específicos do usuário**: exibem dados de atividade de entrada/dispositivo de um usuário específico.
+* **Relatórios específicos do usuário**: Exibem dados de atividade de entrada do dispositivo para um usuário específico.
 * **Logs de atividades**: contêm um registro de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias ou 30 dias, bem como alterações de atividades do grupo e atividades de registro e redefinição de senha.
 
 Saiba mais:
@@ -124,8 +124,8 @@ Quando você usa o Azure AD B2C, os consumidores poderão se inscrever nos seus 
 Saiba mais:
 
 * [O que é o Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Visualização do Active Directory B2C do Azure: inscrever e conectar consumidores em seus aplicativos](../active-directory-b2c/active-directory-b2c-overview.md)
-* [Versão prévia do Azure Active Directory B2C: tipos de aplicativos](../active-directory-b2c/active-directory-b2c-apps.md)
+* [Versão Prévia do Azure Active Directory B2C: Inscrever e conectar consumidores em seus aplicativos](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Versão Prévia do Azure Active Directory B2C: tipos de aplicativos](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Registro de dispositivos
 
@@ -154,9 +154,8 @@ Com Azure AD Privileged Identity Management, você pode:
 
 Saiba mais:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Funções no Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [O que é o Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Atribuir funções de diretório do Azure AD no PIM](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -165,7 +164,7 @@ O Azure AD Identity Protection é um serviço de segurança que fornece uma vis�
 Saiba mais:
 
 * [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Canal 9: Azure AD e Identity Show: Versão Prévia do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Gerenciamento de identidade híbrida/conectar Azure Active Directory
 

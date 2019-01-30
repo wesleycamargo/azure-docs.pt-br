@@ -5,19 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: 1c05203de694cde882277bf269f3ff87438f9f26
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547721"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462412"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
 O recurso de réplica de leitura (visualização pública) permite replicar dados de um servidor do Banco de Dados do Azure para o servidor MySQL (mestre) para até cinco servidores (réplicas) somente leitura dentro da mesma região do Azure. As réplicas somente leitura são atualizadas de forma assíncrona usando a tecnologia de replicação baseada em posição do arquivo binário nativo (log binário) do mecanismo MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-As réplicas criadas no banco de dados do Azure para o serviço MySQL são novos servidores que podem ser gerenciados da mesma maneira que os servidores MySQL normais / autônomos. Esses servidores são cobrados na mesma taxa que um servidor autônomo.
+As réplicas criadas no banco de dados do Azure para o serviço MySQL são novos servidores que podem ser gerenciados da mesma maneira que os servidores MySQL normais / autônomos. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e pelo armazenamento provisionado em GB/mês. 
+
 
 Para saber mais sobre os recursos e problemas de replicação do MySQL, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 

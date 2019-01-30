@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754026"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427926"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -141,7 +141,10 @@ As atualizações automáticas do Windows podem causar a perda de disponibilidad
 
 O aplicativo juntamente com scripts de instalação podem ser baixados do [link de arquivo](https://go.microsoft.com/fwlink/?linkid=869566).
 
-O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/POA/POA_v1.2.2.sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
+O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/POA/POA.sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
+
+> [!IMPORTANT]
+> A v1.3.0 (última versão) do Aplicativo de Orquestração de Patches tem um problema conhecido em execução no Windows Server 2012. Se estiver executando o Windows Server 2012, baixe a v1.2.2 do aplicativo [aqui](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). Link do sfpkg [aqui](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
 
 ## <a name="configure-the-app"></a>Configurar o aplicativo
 
@@ -153,11 +156,11 @@ O comportamento do aplicativo de orquestração de patch pode ser configurado pa
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |A TaskApprovalPolicy indica a política a ser usada pelo Serviço do Coordinator para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. O Windows Update é instalado em um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. O Windows Update é instalado em um domínio de atualização por vez. (No máximo, todos os nós que pertencem a um domínio de atualização podem ir para o Windows Update.)<br> Consulte a seção [Perguntas Frequentes](#frequently-asked-questions) sobre como decidir qual é a política mais adequada para seu cluster.
 |LogsDiskQuotaInMB   |long  <br> (Padrão: 1024)               |Tamanho máximo dos logs do aplicativo de orquestração de patch em MB, que pode ser mantido localmente no nó.
 | WUQuery               | string<br>(Padrão: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (padrão: True)                 | Esse sinalizador permite a instalação das atualizações do sistema operacional Windows.            |
+| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (padrão: true)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
 | WUOperationTimeOutInMinutes | int <br>(Padrão: 90)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
 | WURescheduleCount     | int <br> (Padrão: 5)                  | O número máximo de vezes que o serviço reagendaria o Windows Update no caso de falha persistente na operação.          |
 | WURescheduleTimeInMinutes | int <br>(Padrão: 30) | O intervalo ao qual o serviço reagendaria o Windows Update no caso de persistência da falha. |
-| WUFrequency           | Cadeia de caracteres separada por vírgula (Padrão: "Semanais, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. O formato e os valores possíveis são: <br>-   Mensal, DD, HH:MM:SS, por exemplo, Mensal, 5,12:22:32. <br> -   Semanal, DIA, HH:MM:SS, por exemplo, Semanal, terça-feira, 12:22:32.  <br> -   Diário, HH:MM:SS, por exemplo, Diário, 12:22:32.  <br> -  Nenhum indica que o Windows Update não deve ser executado.  <br><br> Observe que os horários estão em UTC.|
+| WUFrequency           | Cadeia de caracteres separada por vírgula (Padrão: "Semanais, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. O formato e os valores possíveis são: <br>-   Mensal, DD, HH:MM:SS, por exemplo, Mensal, 5,12:22:32.<br>Os valores permitidos para o campo DD (dia) são números entre o intervalo de 1-28 e "last". <br> -   Semanal, DIA, HH:MM:SS, por exemplo, Semanal, terça-feira, 12:22:32.  <br> -   Diário, HH:MM:SS, por exemplo, Diário, 12:22:32.  <br> -  Nenhum indica que o Windows Update não deve ser executado.  <br><br> Observe que os horários estão em UTC.|
 | AcceptWindowsUpdateEula | BOOLEAN <br>(Padrão: true) | Ao definir esse sinalizador, o aplicativo aceita o Contrato de licença do usuário final para o Windows Update em nome do proprietário do computador.              |
 
 > [!TIP]
@@ -397,8 +400,14 @@ Um administrador deve intervir e determinar por que o aplicativo ou cluster se t
 
 - Correção de bug no fluxo de trabalho de redução de escala de cluster. Introduziu a lógica de coleta de lixo para tarefas de reparo POA pertencentes a nós inexistentes.
 
-### <a name="version-122-latest"></a>Versão 1.2.2 (mais recente)
+### <a name="version-122"></a>Versão 1.2.2
 
 - Diversas correções de bugs.
 - Binários agora são assinados.
-- O link de download do sfpkg agora aponta para uma versão específica.
+- Adição do link do sfpkg para o aplicativo.
+
+### <a name="version-130"></a>Versão 1.3.0
+
+- A definição de InstallWindowsOSOnlyUpdates como falso agora instala todas as atualizações disponíveis.
+- Alteração da lógica de desabilitação de atualizações automáticas. Isso corrige um bug em que as atualizações Automáticas não são desabilitadas no Server 2016 e posterior.
+- Restrição de posicionamento parametrizado para os dois microsserviços do POA para casos de uso avançados.

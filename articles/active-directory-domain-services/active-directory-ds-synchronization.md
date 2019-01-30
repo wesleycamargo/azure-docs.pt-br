@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: sincronização nos domínios gerenciados | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Sincronização em domínios gerenciados | Microsoft Docs'
 description: Compreender a sincronização em um domínio gerenciado do Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155551"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846924"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização em um domínio gerenciado dos Serviços de Domínio do Azure AD
 O diagrama a seguir ilustra o funcionamento da sincronização nos domínios gerenciados dos Serviços de Domínio do Azure AD.
@@ -50,12 +50,12 @@ Por outro lado, o seu locatário do Azure AD é um namespace muito mais simples.
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Exclusões - o que não é sincronizado com o domínio gerenciado
 Os seguintes atributos ou objetos não são sincronizados para seu locatário do Azure AD ou para seu domínio gerenciado:
 
-* **Atributos excluídos:** você pode optar por excluir determinados atributos da sincronização para seu locatário do Azure AD do seu domínio local usando o Azure AD Connect. Esses atributos excluídos não estão disponíveis no seu domínio gerenciado.
-* **Políticas de Grupo:** as políticas de grupo configuradas em seu domínio local não são sincronizadas com o domínio gerenciado.
-* **Compartilhamento Sysvol:** da mesma forma, o conteúdo do compartilhamento Sysvol no domínio local não é sincronizado com o domínio gerenciado.
-* **Objetos de computador:** objetos de computador dos computadores associados ao seu domínio local não são sincronizados com o seu domínio gerenciado. Esses computadores não têm uma relação de confiança com o domínio gerenciado e pertencem ao domínio local apenas. Em seu domínio gerenciado, você encontrará os objetos de computador somente para computadores que você ingressou explicitamente no domínio gerenciado.
-* **Atributos SIDHistory para usuários e grupos:** os SIDs do usuário principal e do grupo primário do seu domínio local são sincronizados com seu domínio gerenciado. No entanto, os atributos SidHistory existentes para usuários e grupos não são sincronizados do seu domínio local para seu domínio gerenciado.
-* **Estruturas de unidades organizacionais (UO):** as unidades organizacionais definidas em seu domínio local não serão sincronizadas ao seu domínio gerenciado. Há duas UOs internas em seu domínio gerenciado. Por padrão, o domínio gerenciado tem uma estrutura de UO simples. No entanto, você pode optar por [criar uma UO personalizada em seu domínio gerenciado](active-directory-ds-admin-guide-create-ou.md).
+* **Atributos excluídos:** você pode optar por excluir determinados atributos da sincronização do domínio local com seu locatário do Azure AD usando o Azure AD Connect. Esses atributos excluídos não estão disponíveis no seu domínio gerenciado.
+* **Políticas de grupo**: as políticas de grupo configuradas em seu domínio local não são sincronizadas com o domínio gerenciado.
+* **Compartilhamento Sysvol**: da mesma forma, o conteúdo do compartilhamento Sysvol no domínio local não é sincronizado com o domínio gerenciado.
+* **Objetos de computador:** objetos de computador dos computadores ingressados no domínio local não são sincronizados com o domínio gerenciado. Esses computadores não têm uma relação de confiança com o domínio gerenciado e pertencem ao domínio local apenas. Em seu domínio gerenciado, você encontrará os objetos de computador somente para computadores que você ingressou explicitamente no domínio gerenciado.
+* **Atributos SidHistory para usuários e grupos:** o usuário primário e os SIDs de grupo primário de seu domínio local são sincronizados com seu domínio gerenciado. No entanto, os atributos SidHistory existentes para usuários e grupos não são sincronizados do seu domínio local para seu domínio gerenciado.
+* **Estruturas de UOs (unidades organizacionais):** as unidades organizacionais definidas em seu domínio local não serão sincronizadas com o domínio gerenciado. Há duas UOs internas em seu domínio gerenciado. Por padrão, o domínio gerenciado tem uma estrutura de UO simples. No entanto, você pode optar por [criar uma UO personalizada em seu domínio gerenciado](active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Como os atributos específicos são sincronizados com o domínio gerenciado
 A tabela a seguir lista alguns atributos comuns e descreve como eles serão sincronizados com o domínio gerenciado.
@@ -69,7 +69,7 @@ A tabela a seguir lista alguns atributos comuns e descreve como eles serão sinc
 | Histórico de SID para usuários e grupos |SID de usuário e grupo primário local |O atributo SidHistory para usuários e grupos no domínio gerenciado é definido para corresponder ao SID do grupo ou usuário primário correspondente em seu domínio local. Esse recurso ajuda a facilitar o arrastar e deslocar de aplicativos no local para o domínio gerenciado, já que você não precisa reaplicar a ACL nos recursos. |
 
 > [!NOTE]
-> **Entrar para o domínio usando o formato UPN:** o atributo SAMAccountName pode ser gerado automaticamente para algumas contas de usuário em seu domínio gerenciado. Se vários usuários tiverem o mesmo atributo mailNickname ou os usuários tiverem prefixos UPN excessivamente longos, o SAMAccountName para esses usuários poderá ser gerado automaticamente. Portanto, o formato de SAMAccountName (por exemplo, ' CONTOSO100\pedrousuario') nem sempre é uma maneira confiável de entrar no domínio. O SAMAccountName gerado automaticamente dos usuários pode diferir do seu prefixo UPN. Use o formato UPN (por exemplo, 'joeuser@contoso100.com') para entrar no domínio gerenciado de forma confiável.
+> **Entrar no domínio gerenciado usando o formato UPN:** o atributo SAMAccountName pode ser gerado automaticamente para algumas contas de usuário em seu domínio gerenciado. Se vários usuários tiverem o mesmo atributo mailNickname ou os usuários tiverem prefixos UPN excessivamente longos, o SAMAccountName para esses usuários poderá ser gerado automaticamente. Portanto, o formato de SAMAccountName (por exemplo, ' CONTOSO100\pedrousuario') nem sempre é uma maneira confiável de entrar no domínio. O SAMAccountName gerado automaticamente dos usuários pode diferir do seu prefixo UPN. Use o formato UPN (por exemplo, 'joeuser@contoso100.com') para entrar no domínio gerenciado de forma confiável.
 >
 >
 

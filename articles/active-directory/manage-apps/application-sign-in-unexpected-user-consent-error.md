@@ -4,7 +4,7 @@ description: Discute os erros que podem ocorrer durante o processo de consentime
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354271"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477712"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
@@ -36,17 +36,17 @@ Determinadas condições devem ser verdadeiras para que um usuário conceda as p
 Esse erro ocorre quando um usuário que não é um administrador de empresa tenta usar um aplicativo que está solicitando permissões, as quais somente um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede concessão de permissões de erro
-* **AADSTS90093:** Um administrador do &lt;NomeExibiçãoLocatário&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.
+* **AADSTS90093:** um administrador do &lt;tenantDisplayName&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.
 
 Esse erro ocorre quando um administrador da empresa desativa a capacidade de consentimento dos usuários para aplicativos e, em seguida, um usuário não administrador tenta usar um aplicativo que exige consentimento. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 ## <a name="intermittent-problem-error"></a>Erro de problema intermitente
-* **AADSTS90090:** Parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt; clientAppDisplayName &gt;. tente novamente mais tarde.
+* **AADSTS90090:** parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt;clientAppDisplayName&gt;. tente novamente mais tarde.
 
 Esse erro indica que ocorreu um erro de serviço intermitente. Ele pode ser resolvido tentando consentir ao aplicativo novamente.
 
 ## <a name="resource-not-available-error"></a>Erro de recurso não disponível
-* **AADSTS65005:** O aplicativo &lt;NomeExibiçãoAplicativoCliente&gt; solicitou permissões para acessar um recurso&lt;NomeExibiçãoAplicativoRecurso&gt; que não está disponível. 
+* **AADSTS65005:** o aplicativo &lt;clientAppDisplayName&gt; solicitou permissões para acessar um recurso&lt;resourceAppDisplayName&gt; que não está disponível. 
 
 Contate o desenvolvedor do aplicativo.
 
@@ -56,7 +56,7 @@ Contate o desenvolvedor do aplicativo.
 Certifique-se de que esse recurso está disponível ou contate o administrador de &lt;NomeExibiçãoLocatário&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Erro de incompatibilidade de permissões
-* **AADSTS65005:** O aplicativo solicitou consentimento para acessar o recurso &lt;NomeExibiçãoAplicativoRecurso&gt;. A solicitação falhou porque não corresponde como o aplicativo configurado previamente durante o registro do aplicativo. Contate o fornecedor do aplicativo.**
+* **AADSTS65005:** o aplicativo solicitou consentimento para acessar o recurso &lt;resourceAppDisplayName&gt;. A solicitação falhou porque não corresponde como o aplicativo configurado previamente durante o registro do aplicativo. Contate o fornecedor do aplicativo.**
 
 Esses erros ocorrem quando o aplicativo que um usuário está tentando consentir está solicitando permissões para acessar um aplicativo de recurso que não pode ser localizado no diretório da organização (locatário). Essa situação pode ocorrer por vários motivos:
 

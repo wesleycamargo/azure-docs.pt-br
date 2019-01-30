@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404895"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819026"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
 
@@ -64,10 +64,10 @@ Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o
 2. Selecione **Criar** e, em seguida, selecione opções para os seguintes itens:
 
    * **Workspace do Log Analytics**: digite um nome para o workspace.
-   * **Assinatura**: se você tiver várias assinaturas, escolha a mesma que a da sua implantação do CF.
+   * **Assinatura**: se você tiver várias assinaturas, escolha a mesma da sua implantação do CF.
    * **Grupo de recursos**: é possível criar um novo grupo de recursos ou usar o mesmo com a implantação do CF.
-   * **Local**: insira o local.
-   * **Tipo de preço**: selecione **OK** para concluir.
+   * **Localização**: insira o local.
+   * **Tipo de preço**: Selecione **OK** para concluir.
 
 Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
@@ -78,12 +78,12 @@ Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.
 3. Digite "Cloud Foundry" na janela de pesquisa, selecione "Solução de Monitoramento Cloud Foundry".
 4. A página inicial do modelo da solução de monitoramento Cloud Foundry é carregada, clique em “Criar” para iniciar a folha do modelo.
 5. Insira os parâmetros necessários:
-    * **Assinatura**: selecione uma assinatura do Azure para o workspace do Log Analytics, normalmente a mesmo com a implantação do Cloud Foundry.
+    * **Assinatura**: selecione uma assinatura do Azure para o workspace do Log Analytics, normalmente a mesma da implantação do Cloud Foundry.
     * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o workspace do Log Analytics.
-    * **Localização do Grupo de Recursos**: selecione a localização do grupo de recursos.
+    * **Localização do grupo de recursos**: Selecione o local do grupo de recursos.
     * **OMS_Workspace_Name**: insira um nome de workspace. Se o workspace não existir, o modelo criará um novo.
-    * **OMS_Workspace_Region**: selecione a localização para o workspace.
-    * **OMS_Workspace_Pricing_Tier**: selecione o SKU do workspace do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **OMS_Workspace_Region**: selecione o local para o workspace.
+    * **OMS_Workspace_Pricing_Tier**: selecione a SKU do workspace do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
     * **Termos legais**: clique em Termos legais e clique em “Criar” para aceitar o termo legal.
 - Depois que todos os parâmetros forem especificados, clique em "Criar" para implantar o modelo. Quando a implantação for concluída, o status será exibido na guia de notificação.
 

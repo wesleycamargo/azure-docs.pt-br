@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: conceitos técnicos | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: Conceitos técnicos | Microsoft Docs'
 description: Explica os conceitos técnicos da sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309575"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463483"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: Conceitos técnicos
 Este artigo é um resumo do tópico [Entender a arquitetura](how-to-connect-sync-technical-concepts.md).
 
 O Azure AD Connect Sync tem como base uma plataforma sólida de sincronização de metadiretório.
@@ -86,7 +86,7 @@ Inerentemente, isso estabelece um vínculo e o fluxo de atributo pode prosseguir
 Sempre que uma regra determina que um novo objeto de espaço conector precisa ser criado, ele é chamado de provisionamento. No entanto, como essa operação só ocorre dentro do espaço conector, ele não se transfere para a fonte de dados conectada até que uma exportação seja executada.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Azure AD Connect Sync: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: personalizando opções de Sincronização](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 
 <!--Image references-->

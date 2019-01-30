@@ -10,18 +10,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158849"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463024"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
-Este artigo mostra como mover recursos do Azure para outra assinatura do Azure ou outro grupo de recursos na mesma assinatura. Você pode usar o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST para mover recursos.
+Este artigo mostra como mover recursos do Azure para outra assinatura do Azure ou outro grupo de recursos na mesma assinatura. Você pode usar o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST para mover recursos. Para percorrer um tutorial, veja [Tutorial: Mover recursos do Azure para outro grupo de recursos ou assinatura](./resource-manager-tutorial-move-resources.md).
 
 O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar nem excluir os recursos nos grupos de recursos, mas isso não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados.
 
@@ -56,6 +56,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Automação
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Data Explorer
 * Banco de Dados do Azure para MySQL
 * Banco de Dados do Azure para PostgreSQL
 * Azure DevOps – as organizações do Azure DevOps com compras de extensão que não são da Microsoft precisam [cancelar suas compras](https://go.microsoft.com/fwlink/?linkid=871160) para que possam mover a conta entre assinaturas.
@@ -98,7 +99,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Painéis do portal do Azure
 * Power BI - tanto o Power BI inserido Embedded como a coleção de workspaces do BI
 * IP público - SKU básica pode ser movido. O IP Público SKU padrão não pode ser movido.
-* Cofre dos Serviços de Recuperação – você deve estar registrado em uma [versão prévia pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Cofre dos Serviços de Recuperação – registre sua assinatura para [versão prévia pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Cache do Azure para Redis – se o Cache do Azure para instância do Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Confira [Limitações de redes virtuais](#virtual-networks-limitations).
 * Agendador
 * Pesquisa - não é possível mover vários recursos de Pesquisa em regiões diferentes em uma operação. Em vez disso, mova-os em operações separadas.
@@ -166,6 +167,7 @@ A partir de 24 de setembro de 2018, você poderá mover discos gerenciados. Esse
 Ainda não há suporte para os cenários a seguir:
 
 * Máquinas Virtuais com certificado armazenado no Key Vault podem ser movidas para um novo grupo de recursos na mesma assinatura, mas não entre assinaturas.
+* Managed Disks em zonas de disponibilidade não podem ser movidos para uma assinatura diferente
 * Os Conjuntos de Dimensionamento de Máquinas Virtuais com o Load Balancer do SKU Standard ou o IP público do SKU Standard não podem ser movidos
 * As máquinas virtuais criadas a partir dos recursos do Marketplace com os planos anexados não podem ser movidas entre grupos de recursos ou assinaturas. Desprovisione a máquina virtual na assinatura atual e implante-a novamente na nova assinatura.
 
@@ -305,7 +307,7 @@ A operação pode executar por vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações dos Serviços de Recuperação
 
-Para mover um cofre dos Serviços de Recuperação, você deve se registrar na [versão prévia pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Para mover um cofre dos Serviços de Recuperação, registre sua assinatura para a [versão prévia pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 No momento, você pode mover um cofre dos Serviços de Recuperação por região por vez. Não é possível mover cofres que fazem backup de Azure Files, Sincronização de Arquivos do Azure ou SQL em máquinas virtuais IaaS.
 

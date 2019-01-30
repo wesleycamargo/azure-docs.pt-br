@@ -4,7 +4,7 @@ description: Instruções passo a passo para configurar um sistema e identidades
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5240d46c1d754ec09f9d83a86424fdbd3cfaadb7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422926"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433298"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando chamadas da API REST
 
@@ -319,7 +319,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    az account get-access-token
    ``` 
 
-4. Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui: [Crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui: [Criar uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Crie uma VM usando o CURL para chamar o ponto de extremidade REST do Azure Resource Manager. O exemplo a seguir cria uma VM denominada *myVM* no grupo de recursos *myResourceGroup* com uma identidade gerenciada designada pelo usuário `ID1`, conforme identificado no corpo da solicitação pelo valor `"identity":{"type":"UserAssigned"}`. Substitua `<ACCESS TOKEN>` pelo valor recebido na etapa anterior quando você solicitou um token de acesso de portador e o valor de `<SUBSCRIPTION ID>` apropriado para seu ambiente.
  

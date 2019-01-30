@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582415"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857005"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -63,6 +63,24 @@ Para ver se você já tem limite de gastos ativado, vá para o [modo de exibiç�
 ![Captura de tela que mostra um aviso sobre a ativação do limite de gastos no Centro de Contas](./media/billing-getting-started/spending-limit-banner.PNG)
 
 Clique na faixa e siga os prompts para remover o limite de gastos. Se você não inseriu informações de cartão de crédito na inscrição, deverá inseri-las para remover o limite de gastos. Para saber mais, confira [Limite de gastos do Azure – Como funciona e como habilitá-lo ou removê-lo](https://azure.microsoft.com/pricing/spending-limits/).
+
+Você pode usar o serviço [Cloudyn](https://www.cloudyn.com/) para criar alertas que notificam os stakeholders automaticamente sobre anomalias de gastos ou risco de gastos em excesso. Você pode criar alertas usando relatórios que dão suporte para alertas com base no orçamento e nos limites de custo. Para obter mais informações sobre como usar Cloudyn, confira [Tutorial: examinar o uso e os custos](../cost-management/tutorial-review-usage.md).
+
+Este exemplo usa o relatório **Custo real ao longo do tempo** para enviar uma notificação quando os gastos em uma VM do Azure se aproximarem do seu orçamento total. Nesse cenário, você tem um orçamento total de US$ 20.000 e deseja receber uma notificação quando os custos estiverem se aproximando da metade de seu orçamento, US$ 9.000, e um alerta adicional quando os custos atingirem US$ 10.000.
+
+1. No menu na parte superior do portal do Cloudyn, selecione **Custos** > **Análise de custo** > **Custo real ao longo do tempo**. 
+2. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. 
+3. Na parte superior direita do relatório, selecione **Ações** e selecione **Agendar relatório**.
+4. Para enviar um email a si mesmo com o relatório a intervalos programados, selecione a guia **Agendamento** no diálogo **Salvar ou Agendar este relatório**. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. 
+5. Selecione a guia **Limite** e selecione **Custo real versus Limite**. 
+   1. Na caixa de limite **Alerta vermelho**, insira 10000. 
+   2. Na caixa de limite **Alerta amarela**, insira 9000. 
+   3. Na caixa **Número de alertas consecutivos**, digite o número de alertas consecutivos a receber. Depois que você receber o número total de alertas especificado, não será enviado mais nenhum alerta. 
+6. Clique em **Salvar**.
+
+    ![Exemplo mostrando alertas amarelos e vermelhos com base nos limites de gastos](./media/billing-getting-started/schedule-alert01.png)
+
+Você também pode escolher a métrica de limite **Percentual de Custo versus Orçamento** para criar alertas. Isso permite que você especifique os limites como porcentagens do orçamento, em vez de valores de moeda.
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Maneiras de monitorar os custos ao usar os serviços do Azure
 

@@ -3,7 +3,7 @@ title: Redefinir sua senha usando informações de segurança - Active Directory
 description: Como redefinir sua própria senha se você esquecer, usando suas informações de segurança e a verificação em duas etapas.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815932"
 ---
 # <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
 
-Se você esqueceu sua senha, nunca recebeu uma do suporte da sua empresa ou foi bloqueada da sua conta, pode usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha.
+Caso você tenha esquecido sua senha, nunca tenha recebido uma do suporte da empresa ou sua conta tenha sido bloqueada, você pode usar suas informações de segurança e o dispositivo móvel para redefinir sua senha.
 
 >[!NOTE]
 >Se você souber sua senha e quiser alterá-la, poderá seguir as etapas de [Alterar sua senha](#how-to-change-your-password) neste artigo.<br><br>
@@ -159,7 +159,7 @@ Aqui estão alguns casos de erro comuns e suas soluções:
 |Quando tento alterar minha senha, recebo um erro. |Sua senha tem uma palavra, frase ou padrão que torna sua senha facilmente adivinhada.| Tente novamente usando uma senha mais forte.|
 |Depois de inserir minha ID de usuário, vou para uma página que diz "Entre em contato com seu administrador".|A Microsoft determinou que a senha da sua conta de usuário é gerenciada pelo seu administrador em um ambiente local. Como resultado, você não pode redefinir sua senha no link "Não consigo acessar sua conta". |Entre em contato com seu administrador para mais ajuda.|
 |Depois de inserir minha ID de usuário, recebo um erro que diz "Sua conta não está habilitada para redefinição de senha".|Seu administrador não configurou sua conta para que você possa redefinir sua própria senha.|Seu administrador não ativou a redefinição de senha da sua organização no link "Não foi possível acessar sua conta" ou não o autorizou a usar o recurso.<br><br> Para redefinir sua senha, você deve selecionar o link "contatar um administrador" para enviar um e-mail ao administrador da sua empresa e informá-lo que deseja redefinir sua senha.|
-|Depois de inserir minha ID de usuário, recebo um erro que diz "Não foi possível confirmar sua conta".|O processo de login não conseguiu confirmar as informações da sua conta.|Existem duas razões pelas quais você pode estar vendo esta mensagem.<br><br>1. Seu administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se inscrever na redefinição de senha, consulte um dos artigos a seguir, com base no seu método de verificação: [Configure informações de segurança para usar um aplicativo do autenticador (visualização)](security-info-setup-auth-app.md), [Configure informações de segurança para usar uma ligação (versão prévia)](security-info-setup-phone-number.md), [Configure informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configure informações de segurança para usar e-mail (versão prévia)](security-info-setup-email.md) ou [Configurar informações de segurança para usar questões de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. Seu administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o "contatar um link de administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir sua senha.|
+|Depois de inserir minha ID de usuário, recebo um erro que diz "Não foi possível confirmar sua conta".|O processo de login não conseguiu confirmar as informações da sua conta.|Existem duas razões pelas quais você pode estar vendo esta mensagem.<br><br>1. Seu administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, consulte um dos artigos a seguir, com base em seu método de verificação: [Configurar informações de segurança para usar um aplicativo autenticador (versão prévia)](security-info-setup-auth-app.md), [Configurar informações de segurança para usar uma ligação (versão prévia)](security-info-setup-phone-number.md), [Configurar informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configurar informações de segurança para usar o email (versão prévia)](security-info-setup-email.md) ou [Configurar informações de segurança para usar perguntas de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. Seu administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o "contatar um link de administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir sua senha.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

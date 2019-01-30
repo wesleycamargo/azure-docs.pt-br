@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275574"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427552"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chamar um pacote do SSIS usando o Azure Data Factory - Atividade de Procedimento Armazenado | Microsoft Docs
 Este artigo descreve como chamar um pacote do SSIS a partir de um pipeline do Azure Data Factory usando uma atividade de procedimento armazenado. 
@@ -32,7 +32,7 @@ Este artigo descreve como chamar um pacote do SSIS a partir de um pipeline do Az
 Este artigo passo a passo usa um banco de dados SQL do Azure que hospeda o catálogo do SSIS. Você também pode usar uma Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Criar um Integration Runtime do Azure-SSIS
-Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo no [Tutorial: Implantar pacotes do SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Você não pode usar uma versão 1 do Data Factory para criar um Integration Runtime do Azure-SSIS. 
+Crie um Azure-SSIS Integration Runtime, caso não tenha um, seguindo as instruções passo a passo do [Tutorial: Implantar pacotes do SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Você não pode usar uma versão 1 do Data Factory para criar um Integration Runtime do Azure-SSIS. 
 
 ## <a name="azure-portal"></a>Portal do Azure
 Nesta seção, você usa a interface do usuário do portal do Azure para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
@@ -62,7 +62,7 @@ A primeira etapa é criar uma data factory usando o Portal do Azure.
 5. Selecione o **local** do data factory. Apenas os locais com suporte do Data Factory são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outros locais.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.
-8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
+8. No painel, você deve ver o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
@@ -165,7 +165,7 @@ Para obter mais informações sobre monitoramento de pipelines, consulte [Monito
 ## <a name="azure-powershell"></a>Azure PowerShell
 Nesta seção, você usa a interface do usuário do Azure PowerShell para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
 
-Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 O procedimento a seguir fornece as etapas para criar uma fábrica de dados. Você cria um pipeline com uma atividade de procedimento armazenado nesta data factory. A atividade de procedimento armazenado executa um procedimento armazenado no banco de dados SSISDB para executar o seu pacote do SSIS.
@@ -227,7 +227,7 @@ Crie um serviço vinculado para vincular o seu banco de dados SQL do Azure que h
         }
     ```
 2. No **Azure PowerShell**, mude para a pasta **C:\ADF\RunSSISPackage**.
-3. Execute o cmdlet **New-AzureRmDataFactoryLinkedService** para criar o serviço vinculado: **AzureStorageLinkedService**. 
+3. Execute o cmdlet **New-AzureRmDataFactoryLinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"

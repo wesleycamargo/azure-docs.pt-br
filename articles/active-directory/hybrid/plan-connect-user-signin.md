@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Conexão do usuário | Microsoft Docs'
+title: 'Azure AD Connect: Entrada do usuário | Microsoft Docs'
 description: Conexão do usuário do Azure AD Connect para configurações personalizadas.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365835"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463449"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.

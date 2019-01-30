@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981755"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432040"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para usuários de colaboração B2B
 
@@ -74,9 +74,9 @@ Na versão atual, a MFA está sempre na locação de recursos, por motivos de pr
 
 Se a Contoso tiver a política de MFA habilitada para App1, mas não para App2, se olharmos para a declaração de MFA da Contoso no token, veremos o seguinte problema:
 
-* Dia 1: um usuário tem MFA na Contoso e está acessando o App1, então nenhuma solicitação de MFA adicional é mostrada na Fabrikam.
+* Dia 1: Um usuário tem o MFA na Contoso e está acessando o App1; portanto, nenhum prompt adicional do MFA é mostrado na Fabrikam.
 
-* Dia 2: o usuário acessou o App 2 na Contoso, então agora ao acessar a Fabrikam, ele deve se registrar na MFA.
+* Dia 2: O usuário acessou o Aplicativo 2 na Contoso; portanto, agora ao acessar a Fabrikam, ele precisa se registrar no MFA nele.
 
 Esse processo pode ser confuso e pode levar a causar preenchimentos incompletos na entrada.
 
@@ -84,7 +84,7 @@ Além disso, mesmo se a Contoso tiver o recurso MFA, nem sempre aconteceria da F
 
 Finalmente, a MFA de locatários de recursos também funciona para IDs sociais e MSAs e para organizações parceiras que não tenham a MFA configurada.
 
-Portanto, a recomendação para MFA para usuários B2B é sempre exigir MFA no locatário que convida. Esse requisito poderia conduzir a uma MFA dupla em alguns casos, mas sempre que acessa o locatário que convida, a experiência dos usuários finais será previsível: Sally deve se registrar na MFA com o locatário que convida.
+Portanto, a recomendação para MFA para usuários B2B é sempre exigir MFA no locatário que convida. Esse requisito pode levar a um MFA duplo em alguns casos, mas sempre que se acessa o locatário de convite a experiência dos usuários finais é previsível: Sara precisará se registrar no MFA com o locatário de convite.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional com base em risco, no local e no dispositivo para usuários B2B
 

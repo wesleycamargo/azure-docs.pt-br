@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411219"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431734"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Dezembro de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e as alterações que foram introduzidas em dezembro de 2018.
@@ -52,7 +52,10 @@ Para obter mais informações sobre o Repositório de Consultas no SQL Data Ware
 ## <a name="lower-compute-tiers-for-azure-sql-data-warehouse-gen2"></a>Camadas inferiores de computação para o SQL Data Warehouse do Azure Gen2
 O SQL Data Warehouse do Azure Gen2 agora dá suporte a camadas inferiores de computação. Os clientes podem experimentar recursos de segurança, flexibilidade e desempenho líder do SQL Data Warehouse do Azure começando com 100 cDWU ([Unidades de Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) e aumentá-las para 30.000 cDWU em minutos. A partir de meados de dezembro de 2018, os clientes poderão se beneficiar do desempenho e da flexibilidade do Gen2 com camadas inferiores de computação nas [regiões](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions), com o restante das regiões disponíveis durante 2019.
 
-Removendo o ponto de entrada para o data warehouse da próxima geração, a Microsoft abre as portas para clientes orientados pelo valor que desejam avaliar todos os benefícios de um data warehouse seguro e de alto desempenho, sem adivinhar qual ambiente de avaliação é melhor para eles. Os clientes podem começar com apenas 100 cDWU, abaixo do ponto de entrada atual de 500 cDWU. O SQL Data Warehouse Gen2 continua dando suporte a operações de pausa e retomada e vai além de apenas flexibilidade na computação. O Gen2 também dá suporte à capacidade de armazenamento ilimitado de columnstore, juntamente com 2,5 vezes mais memória por consulta, até 128 consultas simultâneas e recursos de [cache adaptável](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/). Em média, esses recursos geram cinco vezes mais desempenho em comparação com a mesma Unidade de Data Warehouse no Gen1 pelo mesmo preço. Backups com redundância geográfica são um padrão no Gen2 com a proteção de dados interna garantida. O SQL Data Warehouse do Azure Gen2 está pronto para ser dimensionado de acordo com suas necessidades.
+Removendo o ponto de entrada para o data warehouse da próxima geração, a Microsoft abre as portas para clientes orientados pelo valor que desejam avaliar todos os benefícios de um data warehouse seguro e de alto desempenho, sem adivinhar qual ambiente de avaliação é melhor para eles. Os clientes podem começar com apenas 100 cDWU, abaixo do ponto de entrada atual de 500 cDWU. O SQL Data Warehouse Gen2 continua dando suporte a operações de pausa e retomada e vai além de apenas flexibilidade na computação. O Gen2 também dá suporte à capacidade de armazenamento ilimitado de columnstore, juntamente com 2,5 vezes mais memória por consulta, até 128 consultas simultâneas e recursos de [cache adaptável](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/). Em média, esses recursos geram cinco vezes mais desempenho em comparação com a mesma Unidade de Data Warehouse no Gen1 pelo mesmo preço. Backups com redundância geográfica são um padrão no Gen2 com a proteção de dados interna garantida. O SQL Data Warehouse Gen2 do Azure está pronto para ser dimensionado de acordo com as suas necessidades.
+
+## <a name="columnstore-background-merge"></a>Mesclagem em segundo plano de columnstore
+Por padrão, o SQL DW do Azure (SQL Data Warehouse do Azure) armazena dados em formato de coluna, com micropartições chamadas [rowgroups](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Às vezes, devido a restrições de memória no tempo de carregamento de dados ou de build de índice, os rowgroups podem ser compactados com um tamanho menor que o ideal de um milhão de linhas. Os rowgroups também podem se tornar fragmentados devido a exclusões. Rowgroups pequenos ou fragmentados resultam em maior consumo de memória, bem como em uma execução de consulta ineficiente. Com esta versão do SQL DW do Azure, a tarefa de manutenção de columnstore em segundo plano mescla pequenos rowgroups compactados para criar rowgroups maiores para melhor utilização da memória e aceleração da execução da consulta.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você conhece um pouco do SQL Data Warehouse, aprenda como [criar um SQL Data Warehouse][create a SQL Data Warehouse] rapidamente. Se você ainda não conhece o Azure, pode achar o [glossário do Azure][Azure glossary] útil enquanto aprende a nova terminologia. Ou, dê uma olhada em alguns desses outros Recursos do SQL Data Warehouse.  

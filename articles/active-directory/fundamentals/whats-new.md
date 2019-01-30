@@ -3,7 +3,7 @@ title: O que há de novo? Notas sobre a versão – Azure Active Directory | Mic
 description: Conheça as novidades do Azure Active Directory, como as últimas notas sobre a versão, problemas conhecidos, correções de bug, funcionalidades preteridas e alterações futuras.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -15,12 +15,12 @@ ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 9453ceb143201e2b66604c0833d6b35dd2d2ad49
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 23fff8fee9e6fd289944da4e946a2a28369ecdd2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995177"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449496"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -45,6 +45,9 @@ Esta página é atualizada mensalmente; portanto, visite-a regularmente. Se voc�
 **Categoria de serviço:** Gerenciamento de Usuários  
 **Funcionalidade do produto:** Diretório
 
+>[!Important]
+>Nós ouvimos e entendemos sua frustração devido a essa correção. Portanto, revertemos essa alteração até o momento em que possamos facilitar a correção, para que você possa implementar em sua organização.
+
 Corrigimos um bug no qual o sinalizador DirSyncEnabled de um usuário seria alternado erroneamente para **Falso** quando o objeto de AD DS (Active Directory Domain Services) fosse excluído do escopo de sincronização e, em seguida, movido para a Lixeira no Azure AD no ciclo de sincronização a seguir. Como resultado dessa correção, se o usuário for excluído do escopo de sincronização e, em seguida, restaurado da Lixeira do Azure AD, a conta do usuário permanecerá como sincronizada do AD local, conforme o esperado, e não poderá ser gerenciada na nuvem, já que a SoA (origem da autoridade) permanecerá como AD local.
 
 Antes dessa correção, havia um problema quando o sinalizador DirSyncEnabled era alternado para Falso. Isso resultava na impressão errada de que essas contas eram convertidas em objetos somente nuvem e que as contas poderiam ser gerenciadas na nuvem. No entanto, as contas ainda retinham a SoA como propriedades locais e todas as propriedades sincronizadas (atributos de sombra) provenientes do AD local. Essa condição causou vários problemas no Azure AD e em outras cargas de trabalho de nuvem (como o Exchange Online) que esperavam tratar essas contas como sincronizadas do AD, mas agora se comportavam como contas somente nuvem.
@@ -53,13 +56,13 @@ No momento, a única maneira de converter verdadeiramente uma conta do AD de sin
 
 Essa correção, consequentemente, impede atualizações diretas no atributo ImmutableID de um usuário sincronizado do AD, que em alguns cenários no passado foram necessários. Por padrão, o ImmutableID de um objeto no Azure AD, como o nome indica, é imutável. Os novos recursos implementados no Azure AD Connect Health e no cliente de Sincronização do Azure AD Connect estão disponíveis para tratar esses cenários:
 
-- **Atualizações do ImmutableID em grande escala para muitos usuários em um único disparo**
-
-  Por exemplo, ao implementar o Azure AD Connect, você comete um erro e agora precisa alterar o atributo SourceAnchor. Solução: Desabilite o DirSync no nível do locatário e limpe todos os valores ImmutableID inválidos. Para obter mais informações, consulte [Desativar a sincronização de diretório do Office 365](/office365/enterprise/turn-off-directory-synchronization).
-
 - **Atualização do ImmutableID em grande escala para muitos usuários em uma abordagem em etapas**
   
   Por exemplo, você precisa fazer uma migração longa entre florestas do AD DS. Solução: Use o Azure AD Connect para **Configurar Âncora de Origem** e, enquanto o usuário migra, copie os valores ImmutableID existentes do Azure AD para o atributo ms-DS-Consistency-Guid do usuário local do AD DS da nova floresta. Para obter mais informações, consulte [Usar ms-DS-ConsistencyGuid como sourceAnchor](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
+
+- **Atualizações do ImmutableID em grande escala para muitos usuários em um único disparo**
+
+  Por exemplo, ao implementar o Azure AD Connect, você comete um erro e agora precisa alterar o atributo SourceAnchor. Solução: Desabilite o DirSync no nível do locatário e limpe todos os valores ImmutableID inválidos. Para obter mais informações, consulte [Desativar a sincronização de diretório do Office 365](/office365/enterprise/turn-off-directory-synchronization).
 
 - **Corresponder novamente o usuário local com um usuário existente no Azure AD** Por exemplo, um usuário que foi recriado no AD DS gera uma duplicata na conta do Azure AD, em vez de correspondê-la novamente com uma conta do Azure AD (objeto órfão) existente. Solução: Use o Azure AD Connect Health no portal do Azure para remapeamento da Âncora de Origem/ImmutableID. Para obter mais informações, consulte [Cenário de objeto órfão](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
 
@@ -266,7 +269,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 ---
 
-### <a name="azure-ad-domain-services-email-notifications"></a>Notificações por email do Azure AD Domain Services
+### <a name="azure-ad-domain-services-email-notifications"></a>Notificações por Email de serviços de domínio do AD do Azure
 
 **Tipo:** New recurso  
 **Categoria de serviço:** Azure AD Domain Services  
@@ -276,7 +279,7 @@ Os Serviços de Domínio do Azure AD fornecem alertas no portal do Azure sobre c
 
 A partir de outubro, você poderá personalizar as configurações de notificação do seu domínio gerenciado para que, quando novos alertas ocorrerem, um e-mail seja enviado a um grupo designado de pessoas, eliminando a necessidade de verificar constantemente o portal em busca de atualizações.
 
-Para obter mais informações, consulte [Configurações de notificação nos Serviços de Domínio do Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
+Para obter mais informações, consulte [Configurações de notificação nos Serviços de Domínio do AD do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
 
 ---
 
@@ -288,7 +291,7 @@ Para obter mais informações, consulte [Configurações de notificação nos Se
 
 Temos o prazer de anunciar que agora você pode usar o domínio ForceDelete API para excluir nomes de domínios personalizados renomeando referências, como usuários, grupos e aplicativos de seu nome de domínio personalizado (contoso.com) volta para o (de nome de domínio padrão inicial de forma assíncrona Contoso.onmicrosoft.com).
 
-Essa alteração ajudará a excluir mais rapidamente os nomes de domínio personalizados, se a organização não usar mais o nome ou se for necessário usar o nome de domínio com outro Azure AD.
+Essa alteração ajuda você a excluir mais rapidamente seus nomes de domínio personalizados se sua organização não usar mais o nome ou se você precisar usar o nome de domínio com outro AD do Azure.
 
 Para obter mais informações, consulte [Excluir um nome de domínio personalizado](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
 
@@ -614,7 +617,7 @@ Os emails do Active Directory do Azure (Azure AD) agora apresentam um design atu
 - Revisões de acesso do Azure AD
 - Azure AD Connect Health 
 - Azure AD Identity Protection 
-- Azure AD Privileged Identity Management
+- Gerenciamento de identidades com privilégios do AD do Azure
 - Notificação de certificado expirando do Aplicativo Enterprise
 - Notificações do serviço de provisionamento do Aplicativo Enterprise
  
@@ -703,11 +706,11 @@ Para obter uma lista de todos os aplicativos que dão suporte ao provisionamento
 **Categoria de serviço:** AD Connect  
 **Funcionalidade do produto:** Monitoramento e relatório
  
-O Azure AD Connect Health apresenta a correção de autoatendimento para ajudá-lo a destacar e corrigir erros de sincronização. Esse recurso soluciona erros de sincronização de atributos duplicados e corrige objetos que são órfãos do Azure AD. Este diagnóstico tem os seguintes benefícios:
+O Azure AD Connect Health apresenta a correção de autoatendimento para ajudá-lo a destacar e corrigir erros de sincronização. Esse recurso soluciona erros de sincronização de atributos duplicados e corrige objetos que são órfãos do AD do Azure. Este diagnóstico tem os seguintes benefícios:
 
 - Diminui os erros de sincronização de atributos duplicados, fornecendo correções específicas
 
-- Aplica uma correção para cenários dedicados do Azure AD, resolvendo erros em uma única etapa
+- Aplica uma correção para cenários dedicados do AD do Azure, resolvendo erros em uma única etapa
 
 - Nenhuma atualização ou configuração é necessária para ativar e usar esse recurso
 
@@ -718,7 +721,7 @@ Para obter mais informações, consulte [Diagnosticar e corrigir erros de sincro
 ### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Atualizações visuais nas experiências de entrada do Azure AD e MSA
 
 **Tipo:** Recurso alterado  
-**Categoria de serviço:** Azure AD  
+**Categoria de serviço:** AD do Azure  
 **Funcionalidade do produto:** Autenticação de usuário
 
 Atualizamos a interface do usuário para a experiência de login de serviços on-line da Microsoft, como no Office 365 e no Azure. Essa alteração torna as telas menos confusas e mais simples. Para obter mais informações sobre essa alteração, consulte as [próximas melhorias no blog de experiência de logon do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/).
@@ -893,7 +896,7 @@ Use a proteção de senha do Azure AD para ajudar a eliminar senhas fáceis de a
 
 Especificamente, o Azure AD Password Protection ajuda você a:
 
-- Proteja as contas da organização no Azure AD e no Windows Server AD (Active Directory) 
+- Proteja as contas da sua organização no AD do Azure e no Active Directory (AD) do Windows Server. 
 - Impede que os usuários usem senhas em uma lista com mais de 500 das senhas mais usadas e mais de 1 milhão de variações de substituição de caracteres dessas senhas.
 - Administre a Proteção de Senha do Azure AD a partir de um único local no portal do Azure AD, tanto para o Azure AD quanto para o Windows Server AD local.
 
@@ -945,7 +948,7 @@ Para visualizar o guia de implantação do MFA, vá para o repositório [Guias d
 
 Os administradores agora podem delegar tarefas de gerenciamento de aplicativos sem atribuir a função de administrador global. As novas funções e capacidades são:
 
-- **Novas funções administrativas padrão do Azure AD:**
+- **Novas funções administrativas padrão do AD do Azure:**
 
     - **Administrador do Aplicativo.** Concede a capacidade de gerenciar todos os aspectos de todos os aplicativos, incluindo registro, configurações de SSO, atribuições de aplicativos e licenciamento, configurações de proxy de aplicativo e consentimento (exceto para recursos do Azure AD).
 

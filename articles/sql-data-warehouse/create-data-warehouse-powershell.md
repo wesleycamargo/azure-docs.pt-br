@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um SQL Data Warehouse do Azure - Azure PowerShell| Microsoft Docs'
+title: 'Início Rápido: Criar um SQL Data Warehouse do Azure – Azure PowerShell| Microsoft Docs'
 description: Criar rapidamente um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e data warehouse com o Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852632"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433604"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure com o Azure PowerShell
 
@@ -23,7 +23,7 @@ Crie rapidamente um SQL Data Warehouse do Azure usando o Azure PowerShell.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Este tutorial requer o módulo do Azure PowerShell, versão 5.1.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` descobrir a versão que você tem atualmente. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Este tutorial requer o módulo do Azure PowerShell, versão 5.1.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` descobrir a versão que você tem atualmente. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 
 > [!NOTE]

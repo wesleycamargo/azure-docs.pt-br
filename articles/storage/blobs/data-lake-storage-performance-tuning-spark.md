@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b7a43135ef0aa0ecfe80000d2d0d73c57e138102
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8be8fa68b48257a8d94d3ba6364d47c522bbf3de
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976076"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401989"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Diretrizes de ajuste de desempenho para Spark no HDInsight e Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Ao executar os trabalhos do Spark, aqui estão as configurações mais important
 
 **Executor-cores** – Isso define a quantidade de núcleos usados por executor, o que determina o número de threads paralelos que podem ser executados por executor.  Por exemplo, se executor-cores = 2, então cada executor pode executar duas tarefas paralelas no executor.  O valor de executor-cores necessário dependerá do trabalho.  Trabalhos com uso intensivo de E/S não exigem uma grande quantidade de memória por tarefa para que cada executor possa manipular mais tarefas paralelas.
 
-Por padrão, dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Esse número fornece um bom equilíbrio entre a simultaneidade e a quantidade de mudanças de contexto de vários threads.  
+Por padrão, dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Esse número fornece um bom equilíbrio entre a simultaneidade e a quantidade de trocas de contexto de vários threads.  
 
 ## <a name="guidance"></a>Diretrizes
 

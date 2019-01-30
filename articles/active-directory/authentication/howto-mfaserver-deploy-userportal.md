@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161545"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431530"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -88,7 +88,7 @@ Se sua organização usa o aplicativo Microsoft Authenticator como um dos métod
 
 A instalação do portal do usuário em um servidor diferente do Servidor de Autenticação Multifator do Azure exige as seguintes etapas:
 
-1. **No Servidor MFA**, navegue até o caminho de instalação (exemplo: C:\Arquivos de Progrtama\Servidor de Autenticação Multifator) e copie o arquivo **MultiFactorAuthenticationUserPortalSetup64** em um local acessível para o servidor da Internet onde ele será instalado.
+1. **No Servidor MFA**, procure o caminho de instalação (exemplo: C:\Program Files\Multi-Factor Authentication Server) e copie o arquivo **MultiFactorAuthenticationUserPortalSetup64** para uma localização acessível ao servidor para a Internet na qual ele será instalado.
 2. **No servidor Web voltado para a Internet**, execute o arquivo de instalação MultiFactorAuthenticationUserPortalSetup64 como administrador, mude o site, se desejar, e encurte o nome do diretório virtual, se desejar.
 3. Associe um certificado SSL ao site no IIS.
 
@@ -138,7 +138,7 @@ O servidor de Autenticação Multifator do Azure fornece várias opções para o
 | Usar perguntas de segurança para fallback | Permita perguntas de segurança caso a verificação em duas etapas falhe. Você pode especificar o número de perguntas de segurança que devem ser respondidas com sucesso. |
 | Permitir que os usuários associem token OATH de terceiros | Permita que os usuários especifiquem um token OATH de terceiros. |
 | Usar token OATH para fallback | Permita o uso de um token OATH caso a verificação em duas etapas não seja bem-sucedida. Você também pode especificar o tempo limite da sessão em minutos. |
-| Habilitar o registro em log | Habilite o registro em log no portal do usuário. Os arquivos de log estão localizados em: C:\Program Files\Servidor de Autenticação Multifator\Logs. |
+| Habilitar o registro em log | Habilite o registro em log no portal do usuário. Os arquivos de log estão localizados em: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 Essas configurações se tornarão visíveis para o usuário no portal quando forem habilitadas e ele se conectar ao portal do usuário.
 

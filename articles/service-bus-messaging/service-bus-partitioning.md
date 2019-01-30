@@ -2,18 +2,19 @@
 title: Criar tópicos e filas particionados do Barramento de Serviço | Microsoft Docs
 description: Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: spelluru
-ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285060"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856580"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -128,7 +129,7 @@ O Barramento de Serviço dá suporte ao encaminhamento automático de mensagens 
 * **Recursos de alta consistência**: se uma entidade usa recursos como sessões, detecção de duplicidades ou controle explícito de chave de particionamento, as operações de mensagens serão sempre roteadas para fragmentos específicos. Se qualquer um dos fragmentos tiver alto tráfego ou se o repositório subjacente não estiver íntegro, essas operações falharão e a disponibilidade será reduzida. Em geral, a consistência ainda é muito maior do que em entidades não particionadas; somente um subconjunto de tráfego tem problemas, em vez de todo o tráfego. Para obter mais informações, consulte esta [discussão sobre disponibilidade e consistência](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Gerenciamento**: operações como Criar, Atualizar e Excluir devem ser executadas em todos os fragmentos da entidade. Se qualquer fragmento não estiver íntegro, isso poderá resultar em falhas para essas operações. Para a operação Get, informações como contagens de mensagens devem ser agregadas de todos os fragmentos. Se qualquer fragmento não estiver íntegro, o status de disponibilidade será relatado como limitado.
 * **Cenários de mensagens de baixo volume**: para esses cenários, particularmente ao usar o protocolo HTTP, talvez você precise executar várias operações de recebimento para obter todas as mensagens. Para solicitações de recebimento, o front-end executa um recebimento em todos os fragmentos e armazena em cache todas as respostas recebidas. Uma solicitação de recebimento subsequente na mesma conexão se beneficiará desse armazenamento em cache, e as latências de recebimento serão menores. No entanto, se você tiver várias conexões ou se usar HTTP, isso estabelecerá uma nova conexão para cada solicitação. Assim, não há garantia de que ela chegará ao mesmo nó. Se todas as mensagens existentes forem bloqueadas e armazenadas em cache no outro front-end, a operação de recebimento resultará em **nulo**. As mensagens eventualmente expiram e você pode recebê-las novamente. O keep-alive de HTTP é recomendável.
-* **Procurar/inspecionar mensagens**: disponível apenas na antiga biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). O [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) nem sempre retorna o número de mensagens especificado na propriedade [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount). Há duas razões comuns para este comportamento. Uma razão é que o tamanho agregado da coleção de mensagens excede o tamanho máximo de 256 KB. Outra razão é que, se a fila ou o tópico tiver a [Propriedade EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) definida como **verdadeiro**, uma partição poderá não ter mensagens suficientes para concluir o número solicitado de mensagens. Em geral, se um aplicativo quiser receber um número específico de mensagens, ele deverá solicitar [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) repetidamente até obter o número de mensagens ou até não existirem mais mensagens para inspecionar. Para obter mais informações, incluindo exemplos de código, confira a documentação das API [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) ou [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch).
+* **Pesquisar/inspecionar mensagens**: disponível apenas na antiga biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). O [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) nem sempre retorna o número de mensagens especificado na propriedade [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount). Há duas razões comuns para este comportamento. Uma razão é que o tamanho agregado da coleção de mensagens excede o tamanho máximo de 256 KB. Outra razão é que, se a fila ou o tópico tiver a [Propriedade EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) definida como **verdadeiro**, uma partição poderá não ter mensagens suficientes para concluir o número solicitado de mensagens. Em geral, se um aplicativo quiser receber um número específico de mensagens, ele deverá solicitar [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) repetidamente até obter o número de mensagens ou até não existirem mais mensagens para inspecionar. Para obter mais informações, incluindo exemplos de código, confira a documentação das API [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) ou [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch).
 
 ## <a name="latest-added-features"></a>Últimos recursos adicionados
 

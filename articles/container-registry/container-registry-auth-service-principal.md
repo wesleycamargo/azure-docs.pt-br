@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754196"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390914"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
 
@@ -47,9 +47,7 @@ Você pode encontrar os scripts de exemplo anteriores para a CLI do Azure no Git
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Quando você tiver uma entidade de serviço para a qual você concedeu o acesso ao registro de contêiner, poderá usar suas credenciais nos aplicativos e serviços para interação com o registro.
-
-Embora a configuração de aplicativos individuais para usar as credenciais da entidade de serviço esteja fora do escopo deste artigo, você poderá encontrar instruções para alguns serviços e plataformas específicas aqui:
+Quando você tiver uma entidade de serviço para a qual você permitiu o acesso ao registro de contêiner, poderá usar suas credenciais nos aplicativos e nos serviços para interação remota com o registro. Use as credenciais da entidade de serviço de qualquer serviço do Azure que possa se autenticar em um registro de contêiner do Azure. Os exemplos incluem:
 
 * [Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure (AKS)](container-registry-auth-aks.md)
 * [Autenticar no Registro de Contêiner do Azure por meio do ACI (Instâncias de Contêiner do Azure)](container-registry-auth-aci.md)

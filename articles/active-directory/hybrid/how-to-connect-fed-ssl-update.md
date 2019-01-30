@@ -2,10 +2,10 @@
 title: 'Microsft Azure AD Connect: Atualizar o certificado SSL para um farm AD FS | Microsoft Docs'
 description: Este documento detalha as etapas para atualizar o certificado SSL de um farm do AD FS usando o Azure AD Connect.
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.component: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 8320eae9e1c12123a4379887124dee810998c4e3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cd9d20065c0be580c415100fae470b362b19a3de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309525"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474585"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado SSL para um farm dos Serviços de Federação do Active Directory (AD FS)
 
@@ -42,7 +42,7 @@ Você pode realizar toda a operação de atualização do certificado SSL para o
 
 ![Atualizar a tarefa SSL](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
-## <a name="step-1-provide-ad-fs-farm-information"></a>Etapa 1: fornecer informações do farm do AD FS
+## <a name="step-1-provide-ad-fs-farm-information"></a>Etapa 1: Fornecer informações do farm do AD FS
 
 O Azure AD Connect tenta obter as informações sobre o farm do AD FS automaticamente por:
 1. Consulta das informações do farm do AD FS (Windows Server 2016 ou superior).

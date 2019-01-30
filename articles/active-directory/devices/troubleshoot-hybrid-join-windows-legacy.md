@@ -4,7 +4,7 @@ description: Solução de problemas do Azure Active Directory híbrido ingressad
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800852"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445279"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -116,7 +116,7 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
 
     ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Também é possível encontrar informações de status no log de eventos em: **Log de Aplicativos e Serviços\Microsoft-Workplace Join**
+Você também pode encontrar as informações de status no log de eventos em: **Applications and Services Log\Microsoft-Workplace Join**
   
 **As causas mais comuns para a falha do ingresso do Azure AD híbrido são:** 
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c2151a4b1eb2a853ed343f6720b4f53af5e5e449
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631406"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449513"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementar o comportamento do modelo do dispositivo
 
@@ -23,7 +23,7 @@ O artigo [Entenda o esquema de modelo do dispositivo](iot-accelerators-remote-mo
 - **Método** arquivos JavaScript que são executados quando a solução invoca um método no dispositivo.
 
 > [!NOTE]
-> Os comportamentos do modelo do dispositivo são apenas para dispositivos simulados hospedados no serviço de simulação de dispositivo. Se você quiser criar um dispositivo físico, consulte [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).
+> Os comportamentos do modelo do dispositivo são apenas para dispositivos simulados hospedados no serviço de simulação de dispositivo. Se você quiser criar um dispositivo real, veja [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).
 
 Neste artigo, você aprenderá a:
 

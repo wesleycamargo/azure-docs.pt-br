@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993766"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391245"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Exibir logs para um serviço de contêiner do Service Fabric
 O Microsoft Azure Service Fabric é um orquestrador de contêineres e dá suporte a [contêineres de Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como exibir logs de contêiner de um serviço de contêiner em execução ou contêiner inativo para que você possa diagnosticar e solucionar problemas.
@@ -43,6 +43,8 @@ Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service
  ```
 
 A configuração **ContainersRetentionCount** especifica o número de contêineres mantidos quando ocorre uma falha. Se um valor negativo for especificado, todos os contêineres com falha serão mantidos. Quando o atributo **ContainersRetentionCount** não for especificado, nenhum contêiner será retido. O atributo **ContainersRetentionCount** também oferece suporte a Parâmetros de Aplicativo para que os usuários possam especificar valores diferentes para clusters de teste e produção. Use restrições de posicionamento para direcionar o serviço de contêiner para um determinado nó quando esses recursos forem usados com a finalidade de impedir que o serviço de contêiner se mova para outros nós. Todos os contêineres retidos usando esse recurso devem ser removidos manualmente.
+
+A configuração **RunInteractive** corresponde aos [sinalizadores](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` e `tty` do Docker. Quando essa configuração é definida como verdadeira no arquivo de manifesto, esses sinalizadores são usados para iniciar o contêiner.  
 
 ### <a name="rest"></a>REST
 Use a operação [Obter Logs de Contêiner Implantados no Nó](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) para obter os logs para um contêiner de falha. Especifique o nome do contêiner em execução no nó, nome do aplicativo, nome do manifesto de serviço e o nome do pacote de código.  Especifique `&Previous=true`. A resposta conterá os logs do contêiner para o contêiner inativo da instância do pacote de código.

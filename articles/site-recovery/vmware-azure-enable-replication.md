@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846650"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424142"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -59,7 +59,7 @@ Ao replicar máquinas virtuais VMware:
 8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. A rede deve estar na mesma região do que o cofre de Recuperação de Site. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. Se você não tiver uma rede, precisará [criar uma](#set-up-an-azure-network). Para criar uma rede usando o Resource Manager, clique em **Criar nova**. Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
 
     ![Habilitar a configuração de destino de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
+9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**. Se você não conseguir exibir/selecionar nenhuma máquina virtual específica, clique [aqui](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
 
     ![Habilitar máquinas virtuais de replicação selecionadas](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. Em **Propriedades** > **Configurar propriedades**, selecione a conta usada pelo servidor de processo para instalar automaticamente o Serviço de Mobilidade no computador.  

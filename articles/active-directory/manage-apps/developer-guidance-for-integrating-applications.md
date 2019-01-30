@@ -4,7 +4,7 @@ description: Escrito para profissionais de TI, este artigo fornece diretrizes pa
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: 844f569b7c425f6a67acabe491508aa8d5fb00f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d717b9a89b2c22712821d96014e2f60ee4c0e4d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669713"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463636"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Active Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (de linha de negócios) do Azure AD (Active Directory). O público-alvo são os administradores globais do Active Directory/Office 365.
@@ -41,8 +41,8 @@ Registrar um aplicativo permite que qualquer usuário faça o seguinte:
   * Active Directory do Azure como servidor de autorização oAuth (proteger uma API exposta pelo aplicativo)
 * Declarar as permissões exigidas necessárias para que o aplicativo funcione conforme o esperado, incluindo:
 
-     - Permissões de aplicativo (somente administradores globais). Por exemplo: associação de função em outro aplicativo do Azure AD ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
-     - Permissões (qualquer usuário). Por exemplo: Azure AD, Entrar e Ler o Perfil
+     - Permissões de aplicativo (somente administradores globais). Por exemplo:  associação de função em outro aplicativo do Azure AD ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
+     - Permissões (qualquer usuário). Por exemplo:  Perfil de Leitura, Entrada e Azure AD
 
 > [!NOTE]
 > Por padrão, qualquer membro pode registrar um aplicativo. Para saber como restringir as permissões para o registro de aplicativos para membros específicos, consulte [Como os aplicativos são adicionados ao Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).

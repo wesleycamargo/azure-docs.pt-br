@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426197"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435712"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha self-service do Azure AD
 
 Como funciona a SSPR (redefinição de senha por autoatendimento)? O que essa opção significa na interface? Continue lendo para saber mais sobre a SSPR do Azure AD (Azure Active Directory).
 
@@ -185,8 +185,8 @@ Esse controle designa se os usuários que visitam o portal de redefinição de s
 
 A reinicialização e a mudança de senha são totalmente suportadas em todas as configurações B2B (entre empresas). A reinicialização da senha do usuário B2B tem suporte nos três casos a seguir:
 
-   * **Usuários de uma organização de parceiros com um locatário existente do Azure Active Directory**: se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure Active Directory, *respeitaremos todas as políticas de redefinição de senha habilitadas no locatário*. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há nenhum custo adicional para os clientes do Office 365, e ela pode ser habilitada seguindo as etapas em nosso guia [Introdução ao gerenciamento de senha](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Usuários que se inscreveram usando a inscrição de autoatendimento**: se a organização com a qual você está fazendo parceria usou o recurso [inscrição para autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitiremos que redefinam a senha com o email com a qual se registraram.
+   * **Os usuários de uma organização parceira com um locatário existente do Azure AD**: Se a organização com a qual você tem uma parceria tiver um locatário do Azure AD, *respeitaremos quaisquer políticas de redefinição de senha habilitadas no locatário*. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há nenhum custo adicional para os clientes do Office 365, e ela pode ser habilitada seguindo as etapas em nosso guia [Introdução ao gerenciamento de senha](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+   * **Usuários que se inscreveram usando** a inscrição de autoatendimento: se a organização com a qual você está fazendo parceria usou o recurso [inscrição para autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitiremos que redefinam a senha com o email com a qual se registraram.
    * **Usuários B2B**: os novos usuários B2B criados com as novas [funcionalidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir suas senhas com o email com o qual se registraram durante o processo de convite.
 
 Para testar este cenário, acesse https://passwordreset.microsoftonline.com com um desses usuários parceiros. Se eles possuem um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.

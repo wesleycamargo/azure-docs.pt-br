@@ -17,14 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424945"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401870"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personalizar declarações emitidas no token SAML para aplicativos empresariais
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
 Hoje, o Azure AD (Azure Active Directory) dá suporte a logon único com a maioria dos aplicativos empresariais, incluindo os dois aplicativos pré-integrados na galeria de aplicativos do Azure AD, bem como aplicativos personalizados. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando o protocolo SAML 2.0, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como "declarações".
 
@@ -81,7 +81,7 @@ Você também pode usar as funções de transformações de declarações especi
 
 ## <a name="adding-claims"></a>Adicionando declarações
 
-Ao adicionar uma declaração, você pode especificar o nome do atributo (que não precisa seguir rigidamente um padrão de URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de usuário armazenado no diretório.
+Ao adicionar uma declaração, você pode especificar o nome do atributo (que não precisa seguir rigidamente um padrão de URI de acordo com a especificação SAML). Defina o valor com qualquer atributo de usuário armazenado no diretório ou use um valor constante como uma entrada estática para todos os usuários em sua organização.
 
 ![Adicionar Atributo de Usuário][7]
 

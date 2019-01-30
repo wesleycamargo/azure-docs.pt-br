@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096562"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844731"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
 
@@ -30,17 +30,17 @@ A janela será exibida conforme mostrado:
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para o Stream Analytics
 | Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
-| Eventos de Entrada Acumulados       | Número de eventos de entrada com lista de pendências. |
-| Erros de conversão de dados | Número de eventos de saída que não pôde ser convertido para o esquema de saída esperado. |
-| Eventos de Entrada Antecipados       | Notificar os usuários de eventos recebidos. |
+| Eventos de Entrada Acumulados       | Número de eventos de entrada com lista de pendências. Um valor diferente de zero nessa métrica indica que seu trabalho não consegue acompanhar o número de eventos de entrada. Se esse valor for aumentando lentamente ou for consistentemente diferente de zero, expanda seu trabalho. Você pode aprender mais visitando [Compreender e ajustar as Unidades de Streaming](stream-analytics-streaming-unit-consumption.md). |
+| Erros de conversão de dados | Número de eventos de saída que não pôde ser convertido para o esquema de saída esperado. A política de erro pode ser alterada para 'Remover' a fim de remover os eventos que encontram esse cenário. |
+| Eventos de Entrada Antecipados       | Eventos cujos carimbos de data/hora do aplicativo sejam anteriores à hora de chegada por mais de cinco minutos. |
 | Solicitações de função com falha | Número de chamadas à função Azure Machine Learning com falha (se presente). |
 | Eventos de função        | Número de eventos enviados à função Azure Machine Learning (se presente). |
 | Solicitações de função      | Número de chamadas à função Azure Machine Learning (se presente). |
-| Erros de desserialização de entrada       | Número de eventos que não pôdem ser desserializados.  |
+| Erros de desserialização de entrada       | Número de eventos de entrada que não puderam ser desserializados.  |
 | Bytes de evento de entrada      | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em bytes. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
-| Eventos de entrada           | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em termos de eventos. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
-| Fontes de Entrada Recebidas       | Número de eventos provenientes de uma fonte de entrada. |
-| Eventos de entrada atrasados      | Número de eventos que chegam atrasados da fonte que podem ter sido descartados ou ter tido o carimbo de data/hora ajustado, com base na configuração de Política de ordenação de eventos da configuração da definição da Janela de tolerância de chegada atrasada. |
+| Eventos de entrada           | Número de registros desserializados nos eventos de entrada. |
+| Fontes de Entrada Recebidas       | Número de eventos recebidos pelo trabalho. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
+| Eventos de entrada atrasados      | Eventos que chegaram mais tarde do que a janela de tolerância de chegada tardia configurada. Saiba mais sobre [Considerações sobre a ordem dos eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md). |
 | Eventos fora de ordem    | Número de eventos recebidos fora de ordem que foram descartados ou que receberam um carimbo de data/hora ajustado, com base na Política de ordenação de evento. Isso pode ser afetado pela configuração da definição da Janela de tolerância fora de ordem. |
 | Eventos de saída          | Quantidade de dados enviados pelo trabalho do Stream Analytics para o destino de saída, em números de evento. |
 | Erros de tempo de execução         | O número total de erros relatados ao processamento de consultas (excluindo-se os erros encontrados durante a ingestão de eventos ou a saída de resultados) |

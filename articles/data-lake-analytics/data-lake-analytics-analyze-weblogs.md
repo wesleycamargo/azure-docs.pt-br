@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246456"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402278"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar logs de site usando o Azure Data Lake Analytics
 Saiba como analisar os logs do site usando a Análise Data Lake, principalmente para descobrir quais referenciadores resultaram em erros ao tentar visitar o site.
@@ -165,7 +165,7 @@ Você pode adicionar operadores definidos pelo usuário a este aplicativo.  Para
 
 1. No **Gerenciador de Servidores**, expanda **Azure**, expanda **Data Lake Analytics**, expanda sua conta do Data Lake Analytics, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta de Armazenamento padrão do Data Lake e clique em **Gerenciador**.
 2. Clique duas vezes em **Exemplos** para abrir a pasta e, então, clique duas vezes em **Saídas**.
-3. Clique duas vezes em **UnsuccessfulResponsees.log**.
+3. Clique duas vezes em **UnsuccessfulResponses.log**.
 4. Também é possível clicar duas vezes no arquivo de saída no modo de exibição de grafos do trabalho a fim de navegar diretamente até a saída.
 
 ## <a name="see-also"></a>Consulte também

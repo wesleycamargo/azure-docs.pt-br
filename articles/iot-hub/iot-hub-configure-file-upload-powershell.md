@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: b99874ce87c6e161fcd62ec871c6aee277ec946e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232283"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425604"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de arquivo do Hub IoT usando o PowerShell
 
@@ -24,7 +24,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* [Cmdlets do PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* [Cmdlets do PowerShell do Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Um Hub IoT do Azure. Se você não tiver um hub IoT, poderá usar o [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) para criar um ou usar o portal para [Criar um hub IoT](iot-hub-create-through-portal.md).
 
@@ -96,15 +96,15 @@ Agora você pode configurar seu hub IoT para [fazer upload de arquivos para o hu
 
 A configuração requer os seguintes valores:
 
-* **Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+* **Contêiner de armazenamento**: Um contêiner de blobs em uma conta de armazenamento do Azure em sua assinatura atual do Azure a ser associado ao hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
-* **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo.
+* **Receber notificações para arquivos carregados**: Habilite ou desabilite notificações de upload de arquivo.
 
-* **TTL de SAS**: essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
+* **TTL de SAS**: Essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
 
-* **TTL de configurações de notificação de arquivo padrão**: o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
+* **TTL padrão das configurações de notificação de arquivo**: A vida útil de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
 
-* **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
+* **Contagem de entrega máxima de notificação de arquivo**: O número de vezes que o Hub IoT tenta entregar uma notificação de upload de arquivo. Defina como 10 por padrão.
 
 Use o cmdlet do PowerShell a seguir para configurar o arquivo de configurações de upload em seu Hub IoT:
 

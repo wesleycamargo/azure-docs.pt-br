@@ -7,61 +7,85 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090815"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818924"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solucionar problemas do Stream Analytics do Azure usando logs de diagnóstico
 
-Ocasionalmente, um trabalho do Stream Analytics do Azure interrompe o processamento de forma inesperada. É importante conseguir resolver esse tipo de evento. O evento pode ser causado por um resultado de consulta inesperado, pela conectividade a dispositivos ou por uma interrupção inesperada do serviço. Os logs de diagnóstico do Stream Analytics podem ajudá-lo a identificar a causa dos problemas assim que eles ocorrem e reduzir o tempo de recuperação.
+Ocasionalmente, um trabalho do Stream Analytics do Azure interrompe o processamento de forma inesperada. É importante conseguir resolver esse tipo de evento. As falhas podem ser causadas por um resultado de consulta inesperado, pela conexão com dispositivos ou por uma interrupção inesperada do serviço. Os logs de diagnóstico do Stream Analytics podem ajudá-lo a identificar a causa dos problemas assim que eles ocorrem e reduzir o tempo de recuperação.
 
 ## <a name="log-types"></a>Tipos de logs
 
-O Stream Analytics oferece dois tipos de logs: 
-* [Logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (sempre ativados). Os logs de atividades fornecem informações sobre as operações realizadas nos trabalhos.
-* [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configuráveis). Os logs de diagnóstico fornecem informações mais avançadas sobre tudo o que acontece com um trabalho. Os logs de diagnóstico são iniciados quando o trabalho é criado e terminam quando o trabalho é excluído. Eles abrangem eventos quando o trabalho é atualizado e durante sua execução.
+O Stream Analytics oferece dois tipos de logs:
+
+* [Logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (Always On), que fornecem informações sobre as operações realizadas nos trabalhos.
+
+* [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configuráveis), que fornecem informações mais avançadas sobre tudo o que acontece com um trabalho. Os logs de diagnóstico são iniciados quando o trabalho é criado e terminam quando o trabalho é excluído. Eles abrangem eventos quando o trabalho é atualizado e durante sua execução.
 
 > [!NOTE]
 > Você pode usar serviços como o Armazenamento do Azure, os Hubs de Eventos do Azure e o Azure Log Analytics para analisar dados que não estão em conformidade. Você é cobrado com base no modelo de preço desses serviços.
->
 
-## <a name="turn-on-diagnostics-logs"></a>Ativar os logs de diagnóstico
+## <a name="debugging-using-activity-logs"></a>Depurando com o uso de logs de atividades
 
-Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico, realize estas etapas:
+Os logs de atividades são ativados por padrão e fornecem insights de alto nível sobre as operações realizadas pelo trabalho do Stream Analytics. As informações presentes nos logs de atividades podem ajudar a encontrar a causa raiz dos problemas que afetam seu trabalho. Execute as seguintes etapas para usar os logs de atividades no Stream Analytics:
 
-1.  Entre no portal do Azure e acesse a folha do trabalho de streaming. Em **Monitoramento**, selecione **Logs de diagnóstico**.
+1. Entre no portal do Azure e selecione **Log de atividades** em **Visão Geral**.
+
+   ![Log de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+
+2. Você pode ver uma lista das operações que foram executadas. As operações que causaram a falha do trabalho têm uma bolha de informações em vermelho.
+
+3. Clique em uma operação para exibir o resumo. As informações fornecidas aqui geralmente são limitadas. Para obter mais detalhes sobre a operação, clique no **JSON**.
+
+   ![Resumo de operações do log de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+
+4. Role para baixo até a seção **Propriedades** do JSON, que fornece os detalhes do erro que causou a operação com falha. Neste exemplo, a falha ocorreu devido a um erro de tempo de execução de valores de latitude fora do limite.
+
+   ![Detalhes do erro JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
+
+5. Você pode realizar ações corretivas com base na mensagem de erro no JSON. Neste exemplo, será necessário adicionar verificações do valor de latitude entre -90 graus e 90 graus à consulta.
+
+6. Se a mensagem de erro nos logs de atividades não ajudar a identificar a causa raiz, habilite os logs de diagnóstico e use o Log Analytics.
+
+## <a name="send-diagnostics-to-log-analytics"></a>Enviar o diagnóstico para o Log Analytics
+
+É altamente recomendável ativar os logs de diagnóstico e enviá-los ao Log Analytics. Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico, realize estas etapas:
+
+1.  Entre no portal do Azure e navegue até o trabalho do Stream Analytics. Em **Monitoramento**, selecione **Logs de diagnóstico**. Em seguida, selecione **ativar o diagnóstico**.
 
     ![Navegação na folha para os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Selecione **Ativar diagnóstico**.
+2.  Crie um **Nome** em **Configurações de diagnóstico** e marque a caixa ao lado de **Enviar para o Log Analytics**. Em seguida, adicione um **workspace do Log Analytics** existente ou crie um. Marque as caixas de **Execução** e **Criação** em **LOG**, e **AllMetrics** em **MÉTRICA**. Clique em **Salvar**.
 
-    ![Ativar logs de diagnóstico do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
+    ![Configurações para os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3.  Na página **Configurações de diagnóstico**, em **Status**, selecione **Ativado**.
+3. Quando o trabalho do Stream Analytics é iniciado, os logs de diagnóstico são roteados para o seu workspace do Log Analytics. Navegue até o workspace do Log Analytics e escolha **Logs** na seção **Geral**.
 
-    ![Alterar o status dos logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
+   ![Logs do Log Analytics na seção Geral](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
-4.  Configure o destino de arquivamento (conta de armazenamento, hub de eventos, Log Analytics) desejado. Depois, selecione as categorias de logs que você deseja coletar (Execução, Criação). 
+4. Você pode [escrever sua própria consulta](../azure-monitor/log-query/get-started-portal.md) para pesquisar termos, identificar tendências, analisar padrões e fornecer insights com base nos seus dados. Por exemplo, você pode escrever uma consulta para filtrar apenas os logs de diagnóstico com a mensagem "Falha no trabalho de streaming". Os logs de diagnóstico do Azure Stream Analytics são armazenados na tabela **AzureDiagnostics**.
 
-5.  Salve a nova configuração de diagnóstico.
+   ![Resultados e consulta de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-A configuração de diagnóstico leva cerca de 10 minutos para entrar em vigor. Depois disso, os logs começarão a aparecer no destino de arquivamento configurado (que pode ser visto na página **Logs de diagnóstico**):
+5. Quando você tiver uma consulta que está procurando os registros certos, salve-a selecionando **Salvar** e forneça um Nome e uma Categoria. Você pode criar um alerta selecionando **Nova regra de alerta**. Em seguida, especifique a condição de alerta. Selecione **Condição** e insira o valor de limite e a frequência em que essa pesquisa de log personalizada é avaliada.  
 
-![Navegação na folha para os logs de diagnóstico – destinos de arquivamento](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
+   ![Consulta de pesquisa de log de diagnóstico](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
-Para obter informações sobre como configurar o diagnóstico, consulte [Coletar e consumir dados de diagnóstico nos recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+6. Escolha o grupo de ações e especifique detalhes do alerta, como nome e descrição, antes de criar a regra de alerta. Você pode rotear os logs de diagnóstico de vários trabalhos para o mesmo workspace do Log Analytics. Isso permite que você configure alertas uma vez para funcionarem em todos os trabalhos.  
 
 ## <a name="diagnostics-log-categories"></a>Categorias de logs de diagnóstico
 
 Atualmente, capturamos duas categorias de logs de diagnóstico:
 
-* **Criação**. Captura eventos de log relacionados a operações de criação de trabalho: criação de trabalho, adição e exclusão de entradas e saídas, adição e atualização da consulta, início e parada do trabalho.
-* **Execução**. Captura eventos que ocorrem durante a execução do trabalho:
+* **Criação**: Captura eventos de log relacionados a operações de criação de trabalho, como criação de trabalho, adição e exclusão de entradas e saídas, adição e atualização da consulta e início e parada do trabalho.
+
+* **Execução**: Captura eventos que ocorrem durante a execução do trabalho.
     * Erros de conectividade
     * Erros de processamento de dados, incluindo:
         * Eventos que não estão em conformidade com a definição de consulta (valores e tipos de campo sem correspondência, campos ausentes e assim por diante)
@@ -80,7 +104,7 @@ categoria | Categoria do log, **Execução** ou **Criação**.
 operationName | Nome da operação que está registrada. Por exemplo, **Enviar eventos: falha na gravação da Saída do SQL em mysqloutput**.
 status | Status da operação. Por exemplo, **Com Falha** ou **Com Êxito**.
 level | Nível do log. Por exemplo, **Erro**, **Aviso** ou **Informativo**.
-propriedades | Detalhes específicos à entrada de log, serializados como uma cadeia de caracteres JSON. Para obter mais informações, consulte as próximas seções.
+propriedades | Detalhes específicos à entrada de log, serializados como uma cadeia de caracteres JSON. Para obter mais informações, consulte as próximas seções deste artigo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propriedades do log de execução
 

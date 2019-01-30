@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788388"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382754"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer backup de um cliente ou servidor do Windows Azure usando o modelo de implantação do Gerenciador de Recursos
 Este artigo explica como fazer backup dos seus arquivos e pastas do Windows Server (ou cliente Windows) no Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de recursos.
@@ -48,9 +48,9 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena todos os ba
 
 6. Na seção **Grupo de recursos**:
 
-    * selecione **Criar novo** se quiser criar um novo Grupo de recursos.
+    * clique no menu suspenso **Selecionar existente…**  para ver a lista de Grupos de recursos disponíveis.
     Ou
-    * Selecione **Usar existente** e clique no menu suspenso para ver a lista de grupos de recursos disponíveis.
+    * selecione **Criar novo** se quiser criar um novo Grupo de recursos.
 
   Para obter informações completas sobre Grupos de recursos, confira a [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Quando você cria um cofre dos Serviços de Recuperação, determina como o arma
 
 1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre.
 
-    ![Selecionar o novo cofre da lista de cofres do Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Selecionar o novo cofre da lista de cofres do Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Quando você selecionar o cofre, a folha **Cofre de Serviços de Recuperação** será reduzida e a folha Configurações (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre serão abertas.
+    Quando você selecionar o cofre, a folha do cofre dos Serviços de Recuperação será reduzida e a folha **Visão Geral** (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre serão abertas.
 
-    ![Exibir a configuração de armazenamento para um novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Exibir a configuração de armazenamento para um novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. Na folha de configurações do novo cofre, use o slide vertical para rolar para baixo até a seção Gerenciar e clique em **Infraestrutura de Backup**.
+2. No novo cofre na seção **Configurações**, acesse **Propriedades**.
 
-  A folha Infraestrutura de Backup é aberta.
+  A folha **Propriedades** será aberta.
 
-3. Na folha Infraestrutura de Backup, clique em **Configuração de Backup** para abrir a folha **Configuração de Backup**.
+3. Na folha **Propriedades**, clique em **Atualizar** na folha **Configuração de Backup**. A folha **Configuração de Backup** será aberta.
 
-  ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Escolha a opção de replicação de armazenamento adequada para o cofre.
+4. Escolha a opção de replicação de armazenamento apropriada para o cofre e clique em **Salvar**.
 
   ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ A política de backup é a agenda de quando os pontos de recuperação são cria
 
 ### <a name="to-create-a-backup-schedule"></a>Para criar uma agenda de backup
 
-Defina o agendamento de backup no computador do qual que você deseja fazer backup. Observe que o tempo definido para o backup pode diferir da hora do computador local, porque o Backup do Azure não leva em consideração o horário de verão (DST). 
+Defina o agendamento de backup no computador do qual que você deseja fazer backup. Observe que o tempo definido para o backup pode diferir da hora do computador local, porque o Backup do Azure não leva em consideração o horário de verão (DST).
 1. Abra o Agente de Backup do Microsoft Azure. Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
 
     ![Iniciar o agente de Backup do Azure](./media/backup-configure-vault/snap-in-search.png)

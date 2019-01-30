@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634856"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412301"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerenciar acesso usando o RBAC e o Portal do Azure
 
@@ -67,7 +67,7 @@ Siga estas etapas para exibir o acesso para um único usuário, grupo, entidade 
 
 1. Clique na guia **Verificar acesso**.
 
-    ![Controle de acesso - verifique a guia de acesso](./media/role-assignments-portal/access-control-check-access.png)
+    ![Controle de acesso - verificar a guia de acesso](./media/role-assignments-portal/access-control-check-access.png)
 
 1. Na lista **Localizar**, selecione o tipo de entidade de segurança para a qual você deseja verificar o acesso.
 
@@ -75,11 +75,11 @@ Siga estas etapas para exibir o acesso para um único usuário, grupo, entidade 
 
     ![Verifique a lista de seleção de acesso](./media/role-assignments-portal/check-access-select.png)
 
-1. Clique na entidade de segurança para abrir o painel **designações**.
+1. Clique na entidade de segurança para abrir o painel **atribuições**.
 
     ![painel atribuições](./media/role-assignments-portal/check-access-assignments.png)
 
-    Neste painel, você pode ver as funções atribuídas à entidade de segurança selecionada e ao escopo. Se houver alguma atribuição de negação neste escopo ou herdada para esse escopo, ela será listada.
+    Nesse painel, você pode ver as funções atribuídas à entidade de segurança selecionada e o escopo. Se houver alguma atribuição de negação neste escopo ou herdada para esse escopo, ela será listada.
 
 ### <a name="view-all-role-assignments-at-a-scope"></a>Exibir todas as atribuições de função em um escopo
 
@@ -165,7 +165,7 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Conceda acesso a um usuário usando o RBAC e o portal do Microsoft Azure](quickstart-assign-role-user-portal.md)
-* [Tutorial: conceder acesso a um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Funções internas](built-in-roles.md)
+* [Tutorial: Conceder acesso a um usuário usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
+* [Tutorial: Permitir acesso a um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Solução de problemas do RBAC no Azure](troubleshooting.md)
 * [Organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md)

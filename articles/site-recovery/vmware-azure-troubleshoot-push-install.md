@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789900"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411740"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
@@ -141,6 +141,14 @@ Para ver a lista dos sistemas operacionais e versões do kernel com suporte do A
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>As partições/os volumes de inicialização e do sistema não estão no mesmo disco (ErrorID: 95309)
 
 Antes da versão 9.20, partições/volumes de inicialização e do sistema localizados em discos diferentes eram uma configuração sem suporte. Começando na [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), há suporte para essa configuração. Use a última versão para esse suporte.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Disco de inicialização não encontrado (ErrorID: 95310)
+
+Uma máquina virtual sem um disco de inicialização não pode ser protegida. Isso serve para garantir uma recuperação tranquila da máquina virtual durante a operação de failover. A ausência do disco de inicialização resulta em uma falha de inicialização do computador após o failover. Garanta que a máquina virtual contenha o disco de inicialização e repita a operação. Além disso, observe que não há suporte para mais de um disco de inicialização no mesmo computador.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Vários Discos de inicialização encontrados (ErrorID: 95311)
+
+Uma máquina virtual com vários discos de inicialização não é uma [configuração compatível](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partição do sistema em vários discos (ErrorID: 95313)
 

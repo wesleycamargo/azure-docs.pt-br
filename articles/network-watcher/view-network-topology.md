@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992195"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428150"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Exibir a topologia de uma Rede Virtual do Azure
 
@@ -46,7 +46,7 @@ Neste artigo, você aprenderá a exibir recursos em uma Rede Virtual do Microsof
 
 6. Selecione **Baixar topologia** para baixar a imagem como um arquivo editável, no formato svg.
 
-Os recursos mostrados no diagrama são um subconjunto dos componentes na rede virtual. Por exemplo, enquanto um Grupo de Segurança de Rede é exibido, as regras de segurança nele não são mostradas no diagrama. Embora não sejam diferenciadas no diagrama, as linhas representam uma das duas relações: *contenção* ou *associação*. Para ver a lista completa de recursos da rede virtual e o tipo de relação entre os recursos, gere a topologia com o [PowerShell](#powershell) ou a [CLI do Azure](#azure-cli).
+Os recursos mostrados no diagrama são um subconjunto dos componentes na rede virtual. Por exemplo, enquanto um Grupo de Segurança de Rede é exibido, as regras de segurança nele não são mostradas no diagrama. Embora não sejam diferenciadas no diagrama, as linhas representam uma das duas relações: *Independência* ou *associação*. Para ver a lista completa de recursos da rede virtual e o tipo de relação entre os recursos, gere a topologia com o [PowerShell](#powershell) ou a [CLI do Azure](#azure-cli).
 
 ## <a name = "azure-cli"></a>Exibir topologia – CLI do Azure
 
@@ -85,7 +85,7 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
 
 É possível executar os comandos nestas etapas:
 - No Azure Cloud Shell, selecione **Experimente** na parte superior direita de qualquer comando. O Azure Cloud Shell é um shell de interativo gratuito com ferramentas comuns do Azure pré-instaladas e configuradas para usar com sua conta.
-- Executar o PowerShell do seu computador. Se você executar o PowerShell do seu computador, as etapas neste artigo exigirão a versão 5.7.0 ou posterior do módulo AzureRm. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Executar o PowerShell do seu computador. Se você executar o PowerShell do seu computador, as etapas neste artigo exigirão a versão 5.7.0 ou posterior do módulo AzureRm. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
 A conta que você usa deve ter as [permissões](required-rbac-permissions.md) necessárias.
 
@@ -138,12 +138,12 @@ Todos os recursos retornados em uma topologia têm um dos seguintes tipos de rel
 
 Todos os recursos retornados em uma topologia têm as seguintes propriedades:
 
-- **Nome**: o nome do recurso.
-- **ID**: o URI do recurso.
-- **Local**: a região do Azure em que o recurso existe.
-- **Associações**: uma lista de associações com o objeto referenciado. Cada associação tem as seguintes propriedades:
-    - **AssociationType**: faz referência à relação entre o objeto filho e o pai. Os valores válidos são *Contém* ou *Associado*.
-    - **Nome**: o nome do recurso referenciado.
+- **Nome**: O nome do recurso
+- **Id**: O URI do recurso.
+- **Localização**: A região do Azure em que o recurso existe.
+- **Associações**: Uma lista de associações ao objeto referenciado. Cada associação tem as seguintes propriedades:
+    - **AssociationType**: Referencia a relação entre o objeto filho e o pai. Os valores válidos são *Contém* ou *Associado*.
+    - **Nome**: O nome do recurso referenciado.
     - **ResourceId**: o URI do recurso referenciado na associação.
 
 ## <a name="next-steps"></a>Próximas etapas

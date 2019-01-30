@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248003"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463211"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
@@ -70,7 +70,7 @@ Uma implantação básica cria os seguintes serviços em sua assinatura do Azure
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenamento de dados de configuração, regras, alarmes e outros armazenamentos frigoríficos |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenamento de dados de configuração, regras, alertas e outros armazenamentos frios |  
 | 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e pontos de verificação de streaming |
 | 1     | [Aplicativo Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar o aplicativo Web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciando identidades de usuários e segurança |
@@ -89,7 +89,7 @@ Uma implantação padrão cria os seguintes serviços em sua assinatura do Azure
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Serviço de Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Use um serviço de orquestração de contêineres do Kubernetes totalmente gerenciado, o padrão é de três agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Camada Padrão | Controle, comando e gerenciamento de dispositivos |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alarmes e mensagens |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alertas e mensagens |
 | 5     | [Contas de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de máquina virtual e 1 para os pontos de verificação de streaming |
 | 1     | [Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicativo sobre SSL |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciando identidades de usuários e segurança |

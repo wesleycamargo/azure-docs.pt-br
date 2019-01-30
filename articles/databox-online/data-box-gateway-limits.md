@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164426"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388415"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limites do Azure Data Box Gateway (versão prévia)
 
@@ -57,9 +57,9 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 As limitações a seguir se aplicam aos dados conforme são movidos para o Azure.
 
 - Sugerimos que mais de um dispositivo não deve gravar no mesmo contêiner.
-- Se você tiver um objeto existente do Azure (como um blob ou arquivo) na nuvem com o mesmo nome que o objeto que está sendo copiado, o dispositivo substituirá o arquivo na nuvem. 
+- Se você tiver um objeto existente do Azure (como um blob ou arquivo) na nuvem com o mesmo nome que o objeto que está sendo copiado, o dispositivo substituirá o arquivo na nuvem.
 - Uma hierarquia de diretórios vazios (sem nenhum arquivo) criada sob as pastas de compartilhamento não é carregada nos contêineres de blob.
-
+- Se você estiver copiando arquivos maiores que o tamanho do dispositivo, será recomendável usar o *Robocopy* ou o *rsync* para garantir que não haja falhas.
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Limites de tamanho da conta de armazenamento e tamanho do objeto do Azure
 
@@ -82,4 +82,4 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar para implantar o Gateway do Azure Data Box](data-box-gateway-deploy-prep.md)
+- [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

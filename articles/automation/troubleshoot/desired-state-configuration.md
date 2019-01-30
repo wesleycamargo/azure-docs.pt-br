@@ -3,18 +3,18 @@ title: Solução de problemas com a configuração de estado desejado do DSL (Az
 description: Este artigo fornece informações sobre solução de problemas de configuração de estado desejado (DSC)
 services: automation
 ms.service: automation
-ms.component: ''
+ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d2eae67fcff74a7016f7f6125e31a9c8c2bda97
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064230"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421634"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de configuração de estado desejado (DSC)
 
@@ -22,7 +22,7 @@ Este artigo fornece informações sobre como solucionar problemas com a DSC (Con
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com DSC (Configuração de estado desejado)
 
-### <a name="failed-not-found"></a>Cenário: o nó está com status de falha com um erro "Não encontrado"
+### <a name="failed-not-found"></a>Cenário: O nó está com o status Falha com um erro "Não encontrado"
 
 #### <a name="issue"></a>Problema
 
@@ -44,7 +44,7 @@ Esse erro normalmente ocorre quando o nó é atribuído a um nome de configuraç
   * Para atribuir uma configuração de nó a um nó usando o portal do Azure, abra a página **Nós de DSC**, selecione um nó e clique no botão **Atribuir configuração de nó**.  
   * Para atribuir uma configuração de nó a um nó usando um cmdlet do PowerShell, use o cmdlet **Set-AzureRmAutomationDscNode**
 
-### <a name="no-mof-files"></a> Cenário: Nenhuma configuração de nó (arquivos MOF) foi produzida quando uma configuração é compilada
+### <a name="no-mof-files"></a>Cenário: Nenhuma configuração de nó (arquivos MOF) foi produzida quando uma configuração é compilada
 
 #### <a name="issue"></a>Problema
 
@@ -65,7 +65,7 @@ Qualquer uma das soluções a seguir corrige o problema:
 * Verifique se a expressão ao lado da palavra-chave **Node** na definição de configuração não está sendo avaliada como $null.
 * Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que esteja passando os valores esperados e que a configuração exige de [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
-### <a name="dsc-in-progress"></a>Cenário: o relatório do nó DSC fica preso no estado "em progresso"
+### <a name="dsc-in-progress"></a>Cenário: O relatório do nó DSC fica preso no estado "Em andamento"
 
 #### <a name="issue"></a>Problema
 
@@ -83,7 +83,7 @@ Você atualizou sua versão do WMF e tem o WMI corrompido.
 
 Para corrigir o problema, siga as instruções no artigo [Problemas e limitações conhecidos do DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc).
 
-### <a name="issue-using-credential"></a> Cenário: não é possível usar uma credencial em uma configuração DSC
+### <a name="issue-using-credential"></a>Cenário: Não é possível usar uma credencial em uma configuração DSC
 
 #### <a name="issue"></a>Problema
 

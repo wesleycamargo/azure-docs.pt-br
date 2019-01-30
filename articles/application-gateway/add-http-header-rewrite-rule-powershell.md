@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 8429618a945ec70c52b925887790aa469e23ef89
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: cb3af5dc8368dc7e598bd0b05653b8ae921a5097
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729763"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452302"
 ---
 # <a name="rewrite-http-headers-in-an-existing-application-gateway"></a>Reescrever cabeçalhos HTTP em um Gateway de Aplicativo existente
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial requer que você execute o Azure PowerShell localmente. É necessário ter instalado o módulo Az versão 1.0.0 ou posterior. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para localizar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
+Este tutorial requer que você execute o Azure PowerShell localmente. É necessário ter instalado o módulo Az versão 1.0.0 ou posterior. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para localizar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -63,7 +63,7 @@ $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -
 ## <a name="retrieve-configuration-of-your-existing-application-gateway"></a>Recuperar configuração de um gateway de aplicativo existente
 
 ```azurepowershell
-$appgw1 = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
+$appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
 ```
 
 ## <a name="retrieve-configuration-of-your-existing-request-routing-rule"></a>Recuperar configuração da regra de roteamento de solicitação existente
@@ -75,9 +75,19 @@ $reqRoutingRule = Get-AzApplicationGatewayRequestRoutingRule -Name Rule1 -Applic
 ## <a name="update-the-application-gateway-with-the-configuration-for-rewriting-http-headers"></a>Atualizar o gateway de aplicativo com a configuração para reescrever cabeçalhos HTTP
 
 ```azurepowershell
-$appgw1 = Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name rewriteRuleSet1 -RewriteRule $rewriteRuleSet.RewriteRules
-$appgw2 = Set-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw -Name rule1 -RuleType $reqRoutingRule.RuleType -BackendHttpSettingsId $reqRoutingRule.BackendHttpSettings.Id -HttpListenerId $reqRoutingRule.HttpListener.Id -BackendAddressPoolId $reqRoutingRule.BackendAddressPool.Id -RewriteRuleSetId $rewriteRuleSet.Id
-$appgw3 =  Set-AzApplicationGateway -ApplicationGateway $appgw2
+Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name rewriteRuleSet1 -RewriteRule $rewriteRuleSet.RewriteRules
+Set-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw -Name rule1 -RuleType $reqRoutingRule.RuleType -BackendHttpSettingsId $reqRoutingRule.BackendHttpSettings.Id -HttpListenerId $reqRoutingRule.HttpListener.Id -BackendAddressPoolId $reqRoutingRule.BackendAddressPool.Id -RewriteRuleSetId $rewriteRuleSet.Id
+Set-AzApplicationGateway -ApplicationGateway $appgw
+```
+
+## <a name="delete-a-rewrite-rule"></a>Excluir uma regra de regravação
+
+```azurepowershell
+$appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
+Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw 
+$requestroutingrule= Get-AzApplicationGatewayRequestRoutingRule -Name "rule1" -ApplicationGateway $appgw
+$requestroutingrule.RewriteRuleSet= $null
+set-AzApplicationGateway -ApplicationGateway $appgw 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

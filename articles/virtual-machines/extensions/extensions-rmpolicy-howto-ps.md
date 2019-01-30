@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451826"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434982"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usar a Azure Policy para restringir a instalação de extensões nas VMs do Windows
 
 Se você quiser impedir o uso ou a instalação de certas extensões de suas VMs do Windows, você pode criar uma política do Azure usando o PowerShell para restringir as extensões de máquinas virtuais dentro de um grupo de recursos. 
 
-Este tutorial usa o Azure PowerShell na Cloud Shell, que é constantemente atualizada para a versão mais recente. Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Este tutorial usa o Azure PowerShell na Cloud Shell, que é constantemente atualizada para a versão mais recente. Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Criar um arquivo de regras
 
@@ -139,7 +139,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testar a política
 
-Para testar a política, tente usar a extensão de acesso da VM. A falha a seguir com a mensagem "Set-AzureRmVMAccessExtension : Recurso myVMAccess'  foi desautorizado pela política”.
+Para testar a política, tente usar a extensão de acesso da VM. O seguinte deve falhar com a mensagem "Set-AzureRmVMAccessExtension: O recurso 'myVMAccess' foi desautorizado pela política."
 
 ```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `

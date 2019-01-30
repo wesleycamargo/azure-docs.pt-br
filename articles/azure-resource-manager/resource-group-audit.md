@@ -4,36 +4,34 @@ description: Use o log de atividade para examinar erros e ações do usuário. M
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 636e4d5216f87440463fbaecd7f6c7a5a25c7502
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359384"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855374"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Exibir logs de atividade para auditar ações em recursos
 
 Com os logs de atividade, você pode determinar:
 
 * quais operações foram executadas nos recursos em sua assinatura
-* quem iniciou a operação (embora as operações iniciadas por um serviço de back-end não retornem um usuário como o chamador)
+* quem iniciou a operação
 * quando a operação ocorreu
 * o status da operação
 * os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
 O log de atividade contém todas as operações de gravação (PUT, POST, DELETE) executadas nos recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). É possível usar os logs de auditoria para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
 
-Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
+Os logs de atividades são mantidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
 
 Você pode recuperar informações dos logs de atividade por meio do Portal, do PowerShell, da CLI do Azure, da API REST do Insights ou da [Biblioteca .NET do Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -41,36 +39,39 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
 
 1. Para exibir os logs de atividade no portal, escolha **Monitorar**.
 
-    ![selecionar logs de atividade](./media/resource-group-audit/select-monitor.png)
+    ![Selecionar monitor](./media/resource-group-audit/select-monitor.png)
 
-   Ou, para filtrar automaticamente o log de atividades para um determinado recurso ou grupo de recursos, selecione **Log de atividades**. Observe que o log de atividades é automaticamente filtrado pelo recurso selecionado.
+1. Selecione **Log de Atividades**.
 
-    ![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
-2. No **Log de Atividades**, você vê um resumo das operações recentes.
+    ![Selecionar o log de atividades](./media/resource-group-audit/select-activity-log.png)
 
-    ![mostrar ações](./media/resource-group-audit/audit-summary.png)
-3. Para restringir o número de operações exibidas, selecione condições diferentes. Por exemplo, a imagem a seguir mostra os campos **Intervalo de tempo** e **Evento iniciado por** alterados para exibir as ações realizadas por um determinado usuário ou aplicativo no mês passado. Selecione **Aplicar** para exibir os resultados da consulta.
+1. Você verá um resumo das operações recentes. Um conjunto padrão de filtros é aplicado às operações.
 
-    ![definir opções de filtragem](./media/resource-group-audit/set-filter.png)
+    ![Exibir o resumo das operações recentes](./media/resource-group-audit/audit-summary.png)
 
-4. Se você precisar executar a consulta novamente mais tarde, selecione **Fixar filtros atuais** e nomeie-a.
+1. Para executar rapidamente um conjunto predefinido de filtros, selecione **Insights Rápidos** e escolha uma das opções.
 
-    ![salvar consulta](./media/resource-group-audit/save-query.png)
-5. Para executar rapidamente uma consulta, selecione uma das consultas internas, como falhas de implantação.
+    ![selecionar consulta](./media/resource-group-audit/quick-insights.png)
 
-    ![selecionar consulta](./media/resource-group-audit/select-quick-query.png)
+1. Para se concentrar em operações específicas, mude os filtros ou aplique novos. Por exemplo, a imagem a seguir mostra um novo valor para **Intervalo de Tempo**, e **Tipo de Recurso** está definido como contas de armazenamento. 
 
-   A consulta selecionada define automaticamente os valores de filtro obrigatórios.
+    ![Definir opções de filtragem](./media/resource-group-audit/set-filter.png)
 
-    ![exibir erros de implantação](./media/resource-group-audit/view-failed-deployment.png)
+1. Se você precisar executar a consulta novamente mais tarde, selecione **Fixar filtros atuais**.
 
-6. Selecione uma das operações para ver um resumo do evento.
+    ![Fixar filtros](./media/resource-group-audit/pin-filters.png)
 
-    ![exibir operação](./media/resource-group-audit/view-operation.png)  
+1. Nomeie o filtro.
+
+    ![Nomear filtros](./media/resource-group-audit/name-filters.png)
+
+1. O filtro está disponível no painel.
+
+    ![Mostrar filtro no painel](./media/resource-group-audit/show-dashboard.png)
 
 ## <a name="powershell"></a>PowerShell
 
-1. Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** . Forneça parâmetros adicionais para filtrar a lista de entradas. Se você não especificar uma hora de início e de término, as entradas da última hora retornarão. Por exemplo, para recuperar as operações de um grupo de recursos durante a execução na última hora:
+* Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** . Forneça parâmetros adicionais para filtrar a lista de entradas. Se você não especificar uma hora de início e de término, as entradas dos últimos sete dias serão retornadas.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
@@ -79,7 +80,7 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
     O exemplo a seguir mostra como usar o log de atividades para operações de pesquisa executadas durante um período especificado. As datas de início e de término são especificadas em um formato de data.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     Outra opção é usar funções de data para especificar o intervalo de datas, como os últimos 14 dias.
@@ -88,62 +89,78 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
-2. Dependendo da hora de início que você especificar, os comandos anteriores poderão retornar uma longa lista de operações para o grupo de recursos. Você pode, pelo fornecimento de critérios de pesquisa, filtrar os resultados para o que você está procurando. Por exemplo, se estiver tentando pesquisar como um aplicativo Web foi interrompido, você poderá executar o comando a seguir:
-
-  ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
-  ```
-
-    Que, para este exemplo, mostra que a ação de parada foi executada por someone@contoso.com.
-
-  ```powershell
-  Authorization     :
-  Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Action    : Microsoft.Web/sites/stop/action
-  Role      : Subscription Admin
-  Condition :
-  Caller            : someone@contoso.com
-  CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-  EventSource       : Administrative
-  EventTimestamp    : 8/28/2015 4:08:18 PM
-  OperationName     : Microsoft.Web/sites/stop/action
-  ResourceGroupName : ExampleGroup
-  ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Status            : Succeeded
-  SubscriptionId    : xxxxx
-  SubStatus         : OK
-  ```
-
-3. Você pode procurar as ações realizadas por um determinado usuário, mesmo para um grupo de recursos que não existe mais.
+* Você pode procurar as ações realizadas por um determinado usuário, mesmo para um grupo de recursos que não existe mais.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
-4. Você pode filtrar para mostrar operações com falha.
+* Você pode filtrar para mostrar operações com falha.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. Você pode focar em um erro examinando a mensagem de status dessa entrada.
+* Você pode focar em um erro examinando a mensagem de status dessa entrada.
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
-    Que retorna:
+* Você pode selecionar valores específicos para limitar os dados que são retornados.
 
-        code           message
-        ----           -------
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  ```
+
+* Dependendo da hora de início que você especificar, os comandos anteriores poderão retornar uma longa lista de operações para o grupo de recursos. Você pode, pelo fornecimento de critérios de pesquisa, filtrar os resultados para o que você está procurando. Por exemplo, você pode filtrar por tipo de operação.
+
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  ```
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para recuperar entradas de log, execute o comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
+* Para recuperar as entradas de log, execute o comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) com um deslocamento para indicar o período de tempo.
 
-  ```azurecli
-  az monitor activity-log list --resource-group <group name>
+  ```azurecli-interactive
+  az monitor activity-log list --resource-group ExampleGroup --offset 7d
+  ```
+
+  O exemplo a seguir mostra como usar o log de atividades para operações de pesquisa executadas durante um período especificado. As datas de início e de término são especificadas em um formato de data.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
+  ```
+
+* Você pode procurar as ações realizadas por um determinado usuário, mesmo para um grupo de recursos que não existe mais.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+  ```
+
+* Você pode filtrar para mostrar operações com falha.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g demoRG --status Failed --offset 1d
+  ```
+
+* Você pode focar em um erro examinando a mensagem de status dessa entrada.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+  ```
+
+* Você pode selecionar valores específicos para limitar os dados que são retornados.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+  ```
+
+* Dependendo da hora de início que você especificar, os comandos anteriores poderão retornar uma longa lista de operações para o grupo de recursos. Você pode, pelo fornecimento de critérios de pesquisa, filtrar os resultados para o que você está procurando. Por exemplo, você pode filtrar por tipo de operação.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
   ```
 
 ## <a name="rest-api"></a>API REST

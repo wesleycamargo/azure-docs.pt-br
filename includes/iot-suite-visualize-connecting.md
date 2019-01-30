@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665988"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453113"
 ---
 ## <a name="view-device-telemetry"></a>Exibir telemetria de dispositivo
 
@@ -39,7 +39,7 @@ Para invocar métodos em seus dispositivos, use a página **Dispositivos** na so
 
 1. Selecione o dispositivo que você provisionou na lista de dispositivos da página **Dispositivos**:
 
-    ![Selecionar o dispositivo físico](media/iot-suite-visualize-connecting/devicesselect.png)
+    ![Selecione seu dispositivo real](media/iot-suite-visualize-connecting/devicesselect.png)
 
 1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **Trabalhos**, em seguida, **Executar método**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Trabalhos** mostra os tipos de método comuns a todos os dispositivos selecionados.
 

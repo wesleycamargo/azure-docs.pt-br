@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855826"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390675"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar no Registro de Contêiner do Azure por meio das Instâncias de Contêiner do Azure
 
@@ -24,7 +24,7 @@ Neste artigo, você aprende a criar e configurar uma entidade de serviço do Azu
 
 Você deve usar uma entidade de serviço para a autenticação no ACI em **cenários “sem periféricos”**, como em aplicativos ou serviços que criam instâncias de contêiner de maneira automatizada ou autônoma.
 
-Por exemplo, se você tem um script automatizado que é executado à noite e que cria uma [instância de contêiner baseada em tarefa](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode usar uma entidade de serviço com permissões somente pull (Leitor) para se autenticar no Registro. Em seguida, você pode girar as credenciais da entidade de serviço ou revogar o acesso por completo, sem afetar outros serviços e aplicativos.
+Por exemplo, se você tem um script automatizado que é executado à noite e que cria uma [instância de contêiner baseada em tarefa](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode usar uma entidade de serviço com permissões somente pull para se autenticar no registro. Em seguida, você pode girar as credenciais da entidade de serviço ou revogar o acesso por completo, sem afetar outros serviços e aplicativos.
 
 As entidades de serviço também devem ser usadas quando o registro [usuário administrador](container-registry-authentication.md#admin-account) está desabilitado.
 

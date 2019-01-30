@@ -4,7 +4,7 @@ description: Saiba quais são os mapeamentos de atributo para aplicativos SaaS n
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473717"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você tiver provisionamento de usuário para um aplicativo SaaS de terceiros habilitado, o portal do Azure controla seus valores de atributo na forma de mapeamento de atributos.
@@ -64,8 +64,8 @@ Além desses quatro tipos básicos, os mapeamentos de atributo personalizados d�
 Na seção anterior, você já foi apresentado à propriedade de tipo de mapeamento de atributo.
 Além dessa propriedade, mapeamentos de atributo também dão suporte aos seguintes atributos:
 
-- **Atributo de origem** - O atributo de usuário do sistema de origem (exemplo: Azure Active Directory).
-- **Atributo de destino** – O atributo do usuário no sistema de destino (exemplo: ServiceNow).
+- **Atributo de origem** – o atributo de usuário do sistema de origem (exemplo: Azure Active Directory).
+- **Atributo de destino** – o atributo de usuário no sistema de destino (exemplo: ServiceNow).
 - **Combinar objetos utilizando esse atributo** – se esse mapeamento deve ou não ser utilizado para identificar com exclusividade usuários entre os sistemas de origem e destino. Normalmente, isso é definido no atributo userPrincipalName ou email no Azure AD, que costuma ser mapeado para um campo de nome de usuário em um aplicativo de destino.
 - **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
 - **Aplicar esse mapeamento**

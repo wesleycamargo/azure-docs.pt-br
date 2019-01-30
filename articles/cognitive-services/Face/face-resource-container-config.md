@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359435"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476913"
 ---
 # <a name="configure-containers"></a>Configurar contêineres
 
@@ -33,6 +33,7 @@ As definições de configuração no contêiner de Detecção Facial são hierá
 * [CloudAI](#cloudai-configuration-settings)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Configurações de credencial de proxy HTTP](#http-proxy-credentials-settings)
 * [Registro em log](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ A tabela a seguir descreve as definições de configuração com suporte sob o `
 | `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo de limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10.000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor é ignorado. |
 | `UseTLS` | BOOLEAN | Indica se o contêiner deve usar SSL / TLS para se comunicar com o servidor Fluentd. O valor padrão é falso. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Definições de configuração de registro em log
 
 As definições de configuração `Logging` gerenciam o suporte ao log do ASP.NET Core para o seu contêiner. Para o contêiner, você pode usar os mesmos valores e definições de configuração que usa para um aplicativo ASP.NET Core. Os provedores de registro em log a seguir são compatíveis com os contêineres de Detecção Facial:
@@ -212,3 +218,7 @@ Por exemplo, o comando a seguir define uma montagem de associação do Docker à
   ```
 
 O contêiner de Detecção Facial não usa montagens de entrada ou saída para armazenar dados de treinamento ou de banco de dados. Em vez disso, o contêiner de Detecção Facial fornece cenários de armazenamento para o gerenciamento de dados de treinamento e de banco de dados. Para obter mais informações sobre como usar cenários de armazenamento, confira [configurações de cenário de armazenamento](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Usar mais [Contêineres dos Serviços Cognitivos](../cognitive-services-container-support.md)

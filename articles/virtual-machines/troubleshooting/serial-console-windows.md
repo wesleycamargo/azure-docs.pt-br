@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432754"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console serial da máquina virtual para Windows
 
@@ -53,6 +53,9 @@ O console serial para máquinas virtuais está acessível somente por meio do po
   1. Role para baixo até a seção **Support + troubleshooting** e selecione **Console serial**. Um novo painel com o console serial abre e inicia a conexão.
 
 ## <a name="enable-serial-console-functionality"></a>Habilitar funcionalidade do console serial
+
+> [!NOTE]
+> Se você não estiver vendo nada no console serial, verifique se o diagnóstico de inicialização está habilitado na VM.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Ativar o console serial em imagens personalizadas ou antigas
 Imagens mais recentes do Windows Server no Azure têm [Console Administrativo Especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitado por padrão. O SAC é suportado em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
@@ -237,6 +240,7 @@ Não é possível digitar no prompt do SAC se a depuração de kernel está habi
 Colar no PowerShell no SAC resulta em um terceiro caractere se o conteúdo original tiver um caractere repetitivo. | Para uma solução alternativa, execute `Remove-Module PSReadLine` para descarregar o módulo PSReadLine da sessão atual. Esta ação não irá excluir ou desinstalar o módulo.
 Algumas entradas de teclado produzem saída de SAC estranha (por exemplo, **[A**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) sequências de escape não são suportadas pelo prompt do SAC.
 Colar longas cadeias de caracteres não funciona. | O console serial limita o comprimento de cadeias de caracteres colados em terminal a 2048 caracteres para impedir a sobrecarga da largura de banda de porta serial.
+O console serial não funciona com um firewall de conta de armazenamento. | Por design, o console serial não pode funcionar com firewalls de conta de armazenamento habilitados na conta de armazenamento do diagnóstico de inicialização.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

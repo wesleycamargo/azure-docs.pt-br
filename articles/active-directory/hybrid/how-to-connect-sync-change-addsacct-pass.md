@@ -1,11 +1,11 @@
 ---
-title: 'Sincronização do Azure AD Connect: alterando a senha da conta do AD DS | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect:  Alterando a senha da conta do AD DS | Microsoft Docs'
 description: Este documento de tópico descreve como atualizar o Azure AD Connect depois que a senha da conta do AD DS é alterada.
 services: active-directory
 keywords: Conta do AD DS, conta do Active Directory, senha
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 051ff6aa4e650f884a4712376b5dc420cc86fc3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1b487651e938beadcada78eaf51b3f50beb7acf1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470522"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS
 A conta do AD DS refere-se à conta de usuário usada pelo Azure AD Connect para se comunicar com o Active Directory local. Se você alterar a senha da conta do AD DS, será necessário atualizar o Azure AD Connect Synchronization Service com a nova senha. Caso contrário, o serviço não poderá mais sincronizar corretamente com o Active Directory local e você encontrará os seguintes erros:
@@ -54,6 +54,6 @@ Para atualizar o Synchronization Service com a nova senha:
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)

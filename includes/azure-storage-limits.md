@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249620"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392699"
 ---
 A tabela a seguir descreve os limites padrão para o Armazenamento do Azure. O limite de *entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. O limite de *saída* refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.
 
@@ -29,7 +29,7 @@ A tabela a seguir descreve os limites padrão para o Armazenamento do Azure. O l
 | Saída máxima para contas de armazenamento v1 de uso geral (regiões dos EUA) | 20 Gbps se RA-GRS/GRS estiver habilitado, 30 Gbps para LRS/ZRS <sup>2</sup> |
 | Saída máxima para contas de armazenamento v1 de uso geral (regiões fora dos EUA) | 10 Gbps, se o RA-GRS / GRS estiver ativado, 15 Gbps para o LRS / ZRS <sup>2</sup> |
 
-<sup>1</sup> As contas de armazenamento do Azure dão suporte a limites mais altos para a entrada e IOPS por solicitação. Para solicitar um aumento nos limites da conta, contate o [Suporte do Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> As contas de armazenamento Standard do Azure dão suporte a limites mais altos para a entrada por solicitação. Para solicitar um aumento nos limites de conta para a entrada, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> As opções de [replicação do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluem:
 * **RA-GRS**: armazenamento com redundância geográfica com acesso de leitura. Se o RA-GRS estiver habilitado, os destinos de saída para o local secundário serão idênticos àqueles para o local principal.

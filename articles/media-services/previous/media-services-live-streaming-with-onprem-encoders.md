@@ -1,6 +1,6 @@
 ---
 title: Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits – Azure | Microsoft Docs
-description: 'Este tópico descreve como configurar um canal que recebe um fluxo ao vivo com múltiplas taxas de bits de um codificador local. Depois, o fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de streaming, usando um destes protocolos de streaming adaptáveis: HLS, Smooth Streaming, DASH.'
+description: 'Este tópico descreve como configurar um canal que recebe um fluxo ao vivo com múltiplas taxas de bits de um codificador local. Em seguida, o fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de streaming, usando um destes protocolos de streaming adaptáveis: HLS, Smooth Streaming, DASH.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262226"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809015"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 
@@ -35,12 +35,12 @@ Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para process
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
 
 
-* Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* Um codificador dinâmico local envia um fluxo de taxa de bits única para o canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, pode especificar como deseja que o canal receba o fluxo de entrada. Você também pode especificar se quer que o canal execute a codificação ativa de seu fluxo. Você tem duas opções:
 
 * **Passagem**: especifique esse valor caso pretenda usar um codificador dinâmico local que tem um fluxo de múltiplas taxas de bits (um fluxo de passagem) como saída. Nesse caso, o fluxo de entrada é transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este artigo fornece detalhes sobre como trabalhar com canais desse tipo.
-* **Codificação ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Deixar um canal de codificação ativa em um estado **Executando** incorre em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* **Codificação Ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Deixar um canal de codificação ativa em um estado **Executando** incorre em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 > [!NOTE]
 > Este artigo aborda os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
@@ -115,7 +115,7 @@ Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o
 Você tem a opção de ingerir uma transmissão ao vivo de MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. No momento, você não pode ingerir RTMP sobre SSL.
 
 #### <a id="keyframe_interval"></a>Intervalo de quadro-chave
-Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Após o canal receber esse fluxo de entrada, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) e HTTP Live Streaming (HLS). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
+Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Depois que o canal recebe esse fluxo de entrada, você pode enviar sua transmissão ao vivo para os aplicativos cliente de reprodução em qualquer um dos seguintes formatos: Smooth Streaming, DASH (Dynamic Adaptive Streaming sobre HTTP) e HLS (HTTP Live Streaming). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
 
 A tabela a seguir mostra como a duração do segmento é calculada:
 
@@ -127,7 +127,7 @@ A tabela a seguir mostra como a duração do segmento é calculada:
 
 Você pode alterar a proporção de fragmentos por segmento configurando a saída do canal e definindo FragmentsPerSegment em ChannelOutputHls.
 
-Você também pode alterar o valor do intervalo de quadro-chave definindo a propriedade KeyFrameInterval em ChanneInput. Se você definir explicitamente o KeyFrameInterval, o FragmentsPerSegment da proporção de empacotamento do segmento HLS será calculado usando as regras descritas anteriormente.  
+Você também pode alterar o valor do intervalo de quadro-chave definindo a propriedade KeyFrameInterval em ChannelInput. Se você definir explicitamente o KeyFrameInterval, o FragmentsPerSegment da proporção de empacotamento do segmento HLS será calculado usando as regras descritas anteriormente.  
 
 Se você definir explicitamente KeyFrameInterval e FragmentsPerSegment, os Serviços de Mídia usarão os valores definidos por você.
 
@@ -178,8 +178,8 @@ Os valores possíveis para o estado atual de um canal incluem:
 
 * **Parado**: este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
 * **Iniciando**: o canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retornará ao estado **Parado**.
-* **Executando**: o canal pode processar fluxos ao vivo.
-* **Parando**: o canal está sendo interrompido. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Executando**: o canal pode processar transmissões ao vivo.
+* **Parando**: o canal está sendo parado. Nenhuma atualização ou streaming é permitido durante esse estado.
 * **Excluindo**: o canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
 
 A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.

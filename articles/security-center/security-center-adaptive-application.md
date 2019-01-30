@@ -3,7 +3,7 @@ title: Controles de aplicativo adaptáveis na Central de Segurança do Azure | M
 description: Este documento ajuda a usar controles de aplicativo adaptáveis na Central de Segurança do Azure para colocar aplicativos em execução em VMs do Azure na lista de permissões.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262890"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427127"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>O que são controles de aplicativo adaptáveis na Central de Segurança?
-Os controles de aplicativos adaptáveis são uma solução whitelisting de aplicativo ponta a ponta inteligente e automatizada do Azure Security Center. Ele ajuda a controlar quais aplicativos podem ser executados em suas VMs localizadas no Azure, o que, entre outros benefícios, ajuda a proteger suas VMs contra malware. A Central de Segurança usa o aprendizado de máquina para analisar os aplicativos em execução nas suas VMs e ajuda você a aplicar as regras específicas de lista de desbloqueio usando essa inteligência. Esse recurso simplifica bastante o processo de configuração e manutenção de políticas de lista branca de aplicativos, permitindo:
+Os controles de aplicativos adaptáveis são uma solução inteligente, automatizada e completa de adição de aplicativos à lista de permissões da Central de Segurança do Azure. Eles ajudam a controlar quais aplicativos podem ser executados nas VMs localizadas no Azure, o que, entre outros benefícios, ajuda a proteger suas VMs contra malware. A Central de Segurança usa o aprendizado de máquina para analisar os aplicativos em execução nas suas VMs e ajuda você a aplicar as regras específicas de lista de desbloqueio usando essa inteligência. Esse recurso simplifica bastante o processo de configuração e manutenção de políticas de lista branca de aplicativos, permitindo:
 
 - Bloquear ou alertar sobre tentativas de executar aplicativos mal-intencionados, incluindo aqueles que, de outra forma, poderiam ser perdidos por soluções antimalware.
 - Cumpra a política de segurança da sua organização que impõe o uso somente de software licenciado.
@@ -73,7 +73,7 @@ A seção **Grupos de VMs** contém três guias:
 
   ![Regras de controle de aplicativo](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. Em **Selecionar VMs**, revise a lista de VMs recomendadas e desmarque qualquer uma contra a qual você não deseje aplicar uma política de whitelising de aplicativo. Em seguida, você verá duas listas:
+3. Em **Selecionar VMs**, examine a lista de VMs recomendadas e desmarque aquelas às quais você não deseja aplicar uma política de adição de aplicativos à lista de permissões. Em seguida, você verá duas listas:
 
   - **Aplicativos recomendados**: uma lista de aplicativos que são frequentes nas VMs desse grupo e que devem ser autorizados a executar.
   - **Mais aplicativos**: uma lista de aplicativos que são menos frequentes nas VMs desse grupo ou que são conhecidos como exploráveis (veja mais abaixo) e recomendados para revisão.
@@ -87,7 +87,6 @@ A seção **Grupos de VMs** contém três guias:
 
 5. Após concluir suas seleções, selecione **Criar**. <br>
 Depois de selecionar Criar, o Azure Security Center cria automaticamente as regras apropriadas sobre a solução de lista branca de aplicativos integrada disponível nos servidores Windows (AppLocker).
-
 
 > [!NOTE]
 > - A Central de Segurança conta com um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes da camada standard da Central de Segurança devem esperar que seus grupos de máquinas virtuais sejam exibidos primeiro na guia *sem recomendações*.
@@ -122,7 +121,7 @@ Depois de selecionar Criar, o Azure Security Center cria automaticamente as regr
    > - Como mencionado anteriormente, por padrão, uma nova política de controle de aplicativo sempre é configurada no modo *Auditoria*. 
    >
 
-4. Em **Extensão de política**, você pode adicionar qualquer caminho de aplicativo que você deseja permitir. Após você adicionar esses caminhos, a Central de Segurança atualiza a política de lista de permissões do aplicativo nas VMs dentro do grupo selecionado de VMs e cria as regras apropriadas para esses aplicativos, além das regras que já estão em vigor.
+4. Em **Extensão de política**, adicione qualquer caminho de aplicativo que deseja permitir. Após você adicionar esses caminhos, a Central de Segurança atualiza a política de lista de permissões do aplicativo nas VMs dentro do grupo selecionado de VMs e cria as regras apropriadas para esses aplicativos, além das regras que já estão em vigor.
 
 5. Examinar as violações atuais existentes listados na **alertas recentes** seção. Clique em cada linha para ser redirecionado para a página **Alertas** na Central de Segurança do Azure e exibir todos os alertas que foram detectados pela Central de Segurança do Azure nas VMs associadas.
   - **Alertas**: quaisquer violações registradas.

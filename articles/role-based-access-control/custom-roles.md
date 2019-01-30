@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405607"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412041"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
@@ -84,7 +84,7 @@ Quando você cria uma função personalizada, ela aparece no portal do Azure com
 
     Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se você precisar fazer ajustes mais tarde, você pode atualizar a função personalizada.
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: criar uma função personalizada usando a CLI do Azure](tutorial-custom-role-cli.md).
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, confira [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: Criar uma função personalizada usando a CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriedades da função personalizada
 
@@ -116,3 +116,4 @@ Assim como funções internas, a propriedade `AssignableScopes` especifica os es
 - [Criar funções personalizadas usando o Azure PowerShell](custom-roles-powershell.md)
 - [Criar funções personalizadas usando a CLI do Azure](custom-roles-cli.md)
 - [Compreender as definições de função](role-definitions.md)
+- [Solução de problemas do RBAC no Azure](troubleshooting.md)

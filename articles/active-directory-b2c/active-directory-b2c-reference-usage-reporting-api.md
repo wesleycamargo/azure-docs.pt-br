@@ -3,19 +3,19 @@ title: Definições e exemplos da API de relatório de uso no Azure Active Direc
 description: Guia e exemplos de como obter relatórios sobre usuários, autenticações e autenticações multifator de locatário do Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445527"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844350"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acessando os relatórios de uso do Azure AD B2C por meio da API de geração de relatórios
 
@@ -28,7 +28,7 @@ O Azure AD B2C (Azure Active Directory B2C) fornece autenticação com base na e
 Este artigo se concentra em relatórios ligados à atividade de cobrança, que é baseada no número de usuários, nas autenticações faturáveis baseadas em início de sessão e nas autenticações multifator.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatório do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Criar um aplicativo, obter um segredo para ele e conceder acesso direitos para relatórios do locatário B2C do AD do Azure. Também são fornecidos aqui os exemplos de *script Bash* e de *script Python*. 
 
 ## <a name="powershell-script"></a>Script do PowerShell
@@ -100,13 +100,13 @@ if ($oauth.access_token -ne $null) {
 * **tenantUserCount**: o número de usuários no locatário por tipo de provedor de identidade, por dia, nos últimos 30 dias. (opcionalmente, um filtro `TimeStamp` fornece contas de usuário de uma data especificada até a data atual). O relatório fornece:
   * **TotalUserCount**: o número de todos os objetos de usuário.
   * **OtherUserCount**: o número de usuários do Azure Active Directory (não os usuários do Azure AD B2C).
-  * **LocalUserCount**: o número de contas de usuário do Azure AD B2C criadas com credenciais locais ao locatário do Azure AD B2C.
+  * **LocalUserCount**: o número de contas de usuário do Azure AD B2C criadas com credenciais locais do locatário do Azure AD B2C.
 
-* **AlternateIdUserCount**: o número de usuários do Azure AD B2C registrados com provedores de identidade externa (por exemplo, Facebook, uma conta da Microsoft ou outro locatário do Azure Active Directory, também conhecido como uma `OrgId`).
+* **AlternateIdUserCount**: o número de usuários do Azure AD B2C registrados com provedores de identidade externos (por exemplo, Facebook, uma conta Microsoft ou outro locatário do Azure Active Directory, também conhecido como `OrgId`).
 
 * **b2cAuthenticationCountSummary**: resumo do número diário de autenticações faturáveis nos últimos 30 dias, por dia e tipo de fluxo de autenticação.
 
-* **b2cAuthenticationCount**: o número de autenticações em um período de tempo. O padrão é nos últimos 30 dias.  (Opcional: os parâmetros `TimeStamp` inicial e final definem um período de tempo específico). A saída inclui `StartTimeStamp` (data mais antiga de atividade para este locatário) e `EndTimeStamp` (atualização mais recente).
+* **b2cAuthenticationCount**: o número de autenticações em um período de tempo. O padrão é nos últimos 30 dias.  (Opcional: os parâmetros `TimeStamp` inicial e final definem um período de tempo específico.) A saída inclui `StartTimeStamp` (data mais antiga de atividade para este locatário) e `EndTimeStamp` (atualização mais recente).
 
 * **b2cMfaRequestCountSummary**: resumo do número diário de autenticações multifator, por dia e por tipo (SMS ou voz).
 

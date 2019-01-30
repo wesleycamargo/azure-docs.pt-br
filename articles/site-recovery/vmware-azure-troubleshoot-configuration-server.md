@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050788"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435967"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
@@ -58,6 +58,16 @@ O computador de origem se registra no servidor de configuração quando você in
 
 Esse erro ocorre quando o serviço não pode ler os dados de conexão de transporte ao instalar o agente de mobilidade e registrar no servidor de configuração. Para resolver o problema, verifique se o TLS 1.0 está habilitado no computador de origem.
 
+## <a name="vcenter-discovery-failures"></a>Falhas de descoberta do vCenter
+
+Para resolver falhas de descoberta do vCenter, verifique se que esse vCenter Server está adicionado às configurações de proxy da lista de byPass. Para executar esta atividade:
+
+- Baixe a ferramenta PsExec [aqui](https://aka.ms/PsExec) para acessar o conteúdo de usuário do sistema.
+- Abra o Internet Explorer no conteúdo de usuário do sistema a seguinte linha de comando psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Adicione configurações de proxy no Internet Explorer e reinicie o serviço de tmanssvc.
+- Para definir as configurações de proxy do DRA, execute    cd C:\Program Files\Microsoft Azure Site Recovery Provider
+- Em seguida, execute DRCONFIGURATOR.EXE /configure /AddBypassUrls [adicione o Endereço IP/FQDN do vCenter Server fornecido durante a etapa **Configurar vCenter Server/servidor vSphere ESXi** da [implantação de Servidor de Configuração](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Alteração do endereço IP do servidor de configuração
 
 É altamente recomendável que você não altere o endereço IP de um servidor de configuração. Verifique se todos os endereços IP atribuídos ao servidor de configuração são endereços IP estáticos. Não use endereços IP DHCP.
@@ -70,7 +80,7 @@ Para evitar esse erro, verifique se não há uma diferença superior a 15 minuto
 
 Não é possível criar o certificado necessário para autenticar o Site Recovery. Tente instalar novamente após verificar que você a está executando como administrador local.
 
-## <a name="register-the-source-machine-with-the-configuration-server"></a>Registre o computador de origem no servidor de configuração
+## <a name="register-source-machine-with-configuration-server"></a>Registre a máquina de origem com o servidor de configuração
 
 ### <a name="if-the-source-machine-runs-windows"></a>Se o computador de origem estiver executando o Windows
 

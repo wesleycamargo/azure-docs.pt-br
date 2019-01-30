@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214446"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452812"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -70,7 +70,7 @@ A Integração Contínua/Implantação Contínua permite integrar e implantar au
 ## <a name="create-actionable-alerts-with-actions"></a>Crie alertas acionáveis com ações
 Uma das principais vantagens do monitoramento é que os administradores podem ser notificados de maneira proativa quanto a problemas atuais ou previstos. 
 
-- Crie [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md) com base em logs e métricas para identificar os estados de falha previsíveis. Você deve ter uma meta de deixar todos os alertas acionáveis, o que significa que eles representam condições críticas reais e buscam reduzir os falsos positivos. Use os [limites dinâmicos ](platform/alerts-dynamic-thresholds.md) para calcular automaticamente linhas de base em dados de métricas, em vez de definir os próprios limites estáticos. 
+- Crie [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md) com base em logs e métricas para identificar os estados de falha previsíveis. Você deve ter uma meta de deixar todos os alertas acionáveis, o que significa que eles representam condições críticas reais e buscam reduzir os falsos positivos. Use os [Limites Dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente linhas de base em dados de métricas, em vez de definir os próprios limites estáticos. 
 - Defina ações para que os alertas usem os meios mais eficazes para notificar os administradores. [Ações disponíveis para notificação ](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, email, notificações por push ou chamadas de voz.
 - Use ações mais avançadas de [conexão à ferramenta ITSM](platform/itsmc-overview.md) ou a outros sistemas de gerenciamento de alertas por meio de [ webhooks ](platform/activity-log-alerts-webhook.md).
 - Corrija também as situações identificadas nos alertas com os [runbooks de Automação do Azure](../automation/automation-webhooks.md) ou [Aplicativos Lógicos](/connectors/custom-connectors/create-webhook-trigger) que podem ser inicializados com alertas usando o webhooks. 

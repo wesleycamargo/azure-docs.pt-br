@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 69e3708ef4c31e2dd91b5f50baecc46ea129cf33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344908"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452217"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Visão geral do acelerador de solução da Simulação de Dispositivo
 
@@ -28,7 +28,7 @@ Ao desenvolver uma solução de IoT, teste e experimentação são partes essenc
 
 ![Simulação de drone de exemplo](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-Com a simulação de dispositivo, você pode definir modelos de dispositivo para simular os dispositivos físicos. Esse modelo inclui formatos de mensagem, propriedades gêmeas e métodos. Você também pode simular comportamentos complexos de dispositivo com JavaScript.
+Com a simulação de dispositivo, você pode definir modelos de dispositivo para simular os dispositivos reais. Esse modelo inclui formatos de mensagem, propriedades gêmeas e métodos. Você também pode simular comportamentos complexos de dispositivo com JavaScript.
 
 Você pode executar simulações para um ou milhares de dispositivos que se conectam a qualquer hub IoT. Para ajudar com o teste, você pode, opcionalmente, implantar um hub IoT junto com a simulação de dispositivo para um ambiente autônomo.
 

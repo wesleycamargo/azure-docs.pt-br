@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: Referência do PowerShell ADConnectivityTools | Microsoft Docs'
 description: Este documento fornece informações de referência para o módulo do PowerShell ADConnectivityTools.psm1.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d63c35d82a98d816c18dd299a8e0e81baa5bc8d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e398814e9ce8b98d8b1079d6f6c429e829c99d21
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425211"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462090"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADConnectivityTools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADConnectivityTools
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADConnectivityTools.psm1 que é incluído no Azure AD Connect.
 
 ## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
@@ -693,9 +693,9 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
-Para Custom-installations: sinaliza que será $True se o usuário escolher "Criar nova conta do AD" na janela de Conta da Floresta do AD do Assistente do AADConnect.
+Para instalações Personalizadas: sinaliza que será $True se o usuário escolher "Criar nova conta do AD" na janela de Conta da Floresta do AD do Assistente do AADConnect.
 $False se o usuário escolher "Usar conta existente do AD".
-Para Express-installations: o valor dessa variável deve ser $True para Express-installations.
+Para instalações Expressas: o valor dessa variável deve ser $True para instalações Expressas.
 
 ```yaml
 Type: Boolean

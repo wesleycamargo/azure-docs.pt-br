@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961494"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466084"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure
 
@@ -34,7 +34,7 @@ Esses requisitos são:
 ## <a name="quick-commands"></a>Comandos rápidos
 Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough). Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
-Pré-requisitos: grupo de recursos, rede virtual e sub-rede, grupo de segurança de rede com o SSH de entrada.
+Pré-requisitos: grupo de recursos, rede virtual e sub-rede, Grupo de Segurança de Rede com SSH de entrada.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Criar uma placa de interface de rede virtual com um nome DNS interno estático
 Crie a vNic com [az network nic create](/cli/azure/network/nic#az_network_nic_create). O sinalizador `--internal-dns-name` da CLI serve para configurar o rótulo DNS, que fornece o nome DNS estático para a vNic (placa de interface de rede virtual). O exemplo a seguir cria uma vNic chamada `myNic`, conecta-a à rede virtual `myVnet` e cria um registro de nome DNS interno chamado `jenkins`:
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Implantar uma VM e conectar a vNic
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O sinalizador `--nics` conecta a vNic à VM durante a implantação no Azure. O exemplo a seguir cria uma VM denominada `myVM` com Azure Managed Disks e anexa a vNic chamada `myNic` da etapa anterior:
+Crie uma VM com [az vm create](/cli/azure/vm). O sinalizador `--nics` conecta a vNic à VM durante a implantação no Azure. O exemplo a seguir cria uma VM denominada `myVM` com Azure Managed Disks e anexa a vNic chamada `myNic` da etapa anterior:
 
 ```azurecli
 az vm create \
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 A próxima etapa é criar uma rede virtual na qual iniciar as VMs. A rede virtual contém uma sub-rede para este passo a passo. Para obter mais informações sobre as redes virtuais do Azure, consulte [Criar uma rede virtual](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo a seguir cria uma rede virtual chamada `myVnet` e uma sub-rede chamada `mySubnet`:
+Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo a seguir cria uma rede virtual chamada `myVnet` e uma sub-rede chamada `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>Adicionar uma regra de entrada para permitir SSH
-Adicione uma regra de entrada para o grupo de segurança de rede com [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). O exemplo a seguir cria uma regra chamada `myRuleAllowSSH`:
+Adicione uma regra de entrada para o grupo de segurança de rede com [az network nsg rule create](/cli/azure/network/nsg/rule). O exemplo a seguir cria uma regra chamada `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implantar a VM na infra-estrutura de rede virtual
 Agora temos uma rede virtual, uma sub-rede, uma vNic e um grupo de segurança de rede atuando como um firewall, para proteger nossa sub-rede bloqueando todo o tráfego de entrada, exceto pela porta 22 para o SSH. Agora a VM pode ser implantada nessa infraestrutura de rede existente.
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM denominada `myVM` com Azure Managed Disks e anexa a vNic chamada `myNic` da etapa anterior:
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo a seguir cria uma VM denominada `myVM` com Azure Managed Disks e anexa a vNic chamada `myNic` da etapa anterior:
 
 ```azurecli
 az vm create \

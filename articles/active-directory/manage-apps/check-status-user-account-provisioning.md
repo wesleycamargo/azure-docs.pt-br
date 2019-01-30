@@ -4,7 +4,7 @@ description: Saiba como verificar o status dos trabalhos de provisionamento de a
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354385"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463058"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
@@ -42,7 +42,7 @@ Este artigo usa os seguintes termos, definidos a seguir:
 
 * **Sistema de origem** – o repositório de usuários do qual o serviço de provisionamento do Azure AD faz a sincronização. O Azure Active Directory é o sistema de origem para a maioria dos conectores de provisionamento previamente integrados, no entanto, há algumas exceções (exemplo: Sincronização de Entrada do Workday).
 
-* **Sistema de destino** – o repositório de usuários ao qual o serviço de provisionamento do Azure AD faz a sincronização. Geralmente é um aplicativo de SaaS (exemplos: Salesforce, ServiceNow, Google Apps, Dropbox for Business), mas, em alguns casos, pode ser um sistema local, como o Active Directory (exemplo: sincronização de entrada do Workday com o Active Directory).
+* **Sistema de destino** – o repositório de usuários ao qual o serviço de provisionamento do Azure AD faz a sincronização. Isso normalmente é um aplicativo SaaS (exemplos: Salesforce, ServiceNow, Google Apps, Dropbox for Business), porém, em alguns casos, pode ser um sistema local como o Active Directory (exemplo: Sincronização de Entrada do Workday para Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Como obter relatórios de provisionamento no portal de gerenciamento do Azure
@@ -68,7 +68,7 @@ O relatório de resumo de provisionamento fica visível na guia **Provisionament
 
 O relatório de resumo de provisionamento deve ser o primeiro local em que os administradores procuram para verificar a integridade operacional do trabalho de provisionamento.
 
- ![Relatório resumido](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Relatório resumido](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Logs de auditoria de provisionamento
 Todas as atividades realizadas pelo serviço de provisionamento são registradas nos logs de auditoria do Azure AD, que podem ser exibidos na guia **Logs de auditoria** na categoria **Provisionamento da Conta**. Alguns dos tipos de eventos de atividade incluídos no log são:
@@ -85,7 +85,7 @@ Ao examinar eventos de provisionamento para um usuário individual, os eventos g
 
 1. Evento de importação: o usuário é recuperado do sistema de origem.
 
-2. Evento de importação: sistema de destino é consultado para verificar a existência do usuário recuperado.
+2. Evento de importação: o sistema de destino é consultado para verificar a existência do usuário recuperado.
 
 3. Evento de regra de sincronização: os dados do usuário de sistemas de origem e destino são avaliados com relação aos filtros de escopo e às regras de mapeamento do atributo configurado para determinar qual ação, caso haja, deve ser executada.
 

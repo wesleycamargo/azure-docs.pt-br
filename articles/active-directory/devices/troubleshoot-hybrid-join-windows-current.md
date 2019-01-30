@@ -4,7 +4,7 @@ description: Solução de problemas do Azure Active Directory híbrido ingressad
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050558"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446095"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016 
 
@@ -45,7 +45,7 @@ Este documento fornece diretrizes de solução de problemas sobre como resolver 
 
 Para Windows 10 e Windows Server 2016, o ingresso do Azure Active Directory híbrido oferece suporte à atualização de 10 de novembro de 2015 e superior do Windows 10. Recomendamos usar a atualização de Aniversário.
 
-## <a name="step-1-retrieve-the-join-status"></a>Etapa 1: Recuperar o status do ingresso 
+## <a name="step-1-retrieve-the-join-status"></a>Etapa 1: Recuperar o status de ingresso 
 
 **Para recuperar o status do ingresso:**
 
@@ -59,7 +59,7 @@ Para Windows 10 e Windows Server 2016, o ingresso do Azure Active Directory híb
     | Device State                                                         |  +----------------------------------------------------------------------+
     
         AzureAdJoined: YES
-     EnterpriseJoined: NO DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platform Crypto Provider TpmProtected: YES KeySignTest: : MUST Run elevated to test.
+     EnterpriseJoined: NO DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Provedor de Criptografia de Plataforma Microsoft TpmProtected: YES KeySignTest: : DEVE Executar com privilégios elevados para testar.
                   Idp: login.windows.net TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn:ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn:ms-drs:enterpriseregistration.windows.net DomainJoined: YES DomainName: CONTOSO
     
     +----------------------------------------------------------------------+
@@ -69,7 +69,7 @@ Para Windows 10 e Windows Server 2016, o ingresso do Azure Active Directory híb
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: YES
+    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: SIM
 
 
 
@@ -77,7 +77,7 @@ Para Windows 10 e Windows Server 2016, o ingresso do Azure Active Directory híb
 
 Examine os seguintes campos e garanta que eles tenham os valores esperados:
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
+### <a name="azureadjoined--yes"></a>AzureAdJoined : SIM  
 
 Esse campo indica se o dispositivo ingressou no Azure AD. Se o valor for **NO**, a associação ao Azure AD ainda não terá sido concluída. 
 
@@ -103,19 +103,19 @@ Esse campo indica se o dispositivo ingressou no Azure AD. Se o valor for **NO**,
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined : YES  
+### <a name="domainjoined--yes"></a>DomainJoined : SIM  
 
 Esse campo indica se o dispositivo ingressou em um Active Directory local ou não. Se o valor for **NO**, o dispositivo não poderá executar um ingresso do Azure AD híbrido.  
 
 ---
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
+### <a name="workplacejoined--no"></a>WorkplaceJoined : NÃO  
 
 Esse campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *Ingressado no Espaço de Trabalho*). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor for **YES**, uma conta corporativa ou de estudante terá sido adicionada antes da conclusão do ingresso do Azure AD híbrido. Nesse caso, a conta é ignorada ao usar a versão de Atualização de Aniversário do Windows 10 (1607).
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES e AzureADPrt : YES
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES e AzureADPrt: SIM
   
 Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao se conectar ao dispositivo. Se os valores forem **NO**, talvez o motivo seja:
 

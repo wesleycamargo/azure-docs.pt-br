@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963940"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434182"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Entrada sem senha pelo telefone com o aplicativo Microsoft Authenticator (visualização pública)
 
@@ -37,16 +37,21 @@ Para versão prévia pública, um administrador deve primeiro adicionar uma pol�
 
 ### <a name="steps-to-enable"></a>Etapas para habilitar
 
-Verifique se você tem a versão mais recente da versão do Public Preview do Módulo do PowerShell do Azure Active Directory V2. Você pode querer desinstalar e reinstalar para confirmar isso, executando os seguintes comandos:
+1. Verifique se você tem a versão mais recente da liberação da Versão Prévia Pública do Módulo do PowerShell do Azure Active Directory V2. Você pode querer desinstalar e reinstalar para confirmar isso, executando os seguintes comandos:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Autentique-se para o locatário do Azure AD para usar o módulo do PowerShell do Azure AD V2. A conta usada deve ser um Administrador de Segurança ou um Administrador Global.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-Você pode ativar a visualização de entrada do telefone sem senha usando os seguintes comandos do PowerShell:
-
-1. `Connect-AzureAD`
-   1. Na caixa de diálogo de autenticação, entre com uma conta no locatário. A conta deve ser um Administrador de Segurança ou um Administrador Global.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Crie a política de Entrada do Autenticador:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Como os meus usuários finais habilitam entrada pelo telefone?
 

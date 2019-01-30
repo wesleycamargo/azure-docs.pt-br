@@ -4,6 +4,7 @@ serviços de modelo: machine-learning ms.service: machine-learning ms.componen
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 05/02/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implantar o Workspace do Azure Machine Learning Studio usando o Azure Resource Manager
 
 Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Workspace do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu workspace. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Workspace do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
@@ -126,10 +127,8 @@ Depois que o workspace estiver provisionado, você também poderá automatizar m
 * Saiba mais sobre [como criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* Consulte a [Ajuda de referência de modelos do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
+<!--Image references--> [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png [2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
 
 
 <!--Link references-->

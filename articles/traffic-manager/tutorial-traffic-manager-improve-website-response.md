@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 1b12e17bb8dd666bd48e937b7fed40e40f22ecf0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c9524396376f3de7d9468d94e3236929aadd374c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200761"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463908"
 ---
-# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego 
+# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego
 
 Este tutorial descreve como usar o Gerenciador de Tráfego para criar um site da seb altamente responsivo, direcionando o tráfego do usuário para o site com a menor latência. Normalmente, o data center com a menor latência corresponde ao mais próximo em termos de distância geográfica.
 
@@ -39,7 +39,7 @@ Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você impl
 - duas instâncias de sites básicos em execução em diferentes regiões do Azure - **Leste dos EUA** e **Europa Ocidental**.
 - duas VMs de teste para testar o Gerenciador de Tráfego do Microsoft Azure - uma VM no **Leste dos EUA** e a segunda VM na **Europa Ocidental**. As VMs de teste são usadas para ilustrar como o Gerenciador de Tráfego roteia o tráfego de usuário para o site que está executando na mesma região, pois ele fornece a menor latência.
 
-### <a name="sign-in-to-azure"></a>Entrar no Azure 
+### <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Entre no Portal do Azure em https://portal.azure.com.
 
@@ -89,24 +89,24 @@ Nesta seção, você criará duas VMs *myIISVMEastUS* e *myIISVMWEurope* nas reg
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página da Web padrão
 
-Nesta seção, você deve instalar o servidor IIS em duas VMs - *myIISVMEastUS*  & *myIISVMWEurope*e, em seguida, atualizar a página padrão do site. A página do site personalizada mostra o nome da VM que você está se conectando ao visitar o site em um navegador da web.
+Nesta seção, você deve instalar o servidor IIS em duas VMs - *myIISVMEastUS* & *myIISVMWEurope*e, em seguida, atualizar a página padrão do site. A página do site personalizada mostra o nome da VM que você está se conectando ao visitar o site em um navegador da web.
 
 1. Clique em **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em *myIISVMEastUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**. 
-3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM. 
+2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
+3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 4. Selecione **OK**.
 5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
 6. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Gerenciador do Servidor**.
 7. Inicie o Windows PowerShell na VM1 e usando os comandos a seguir para instalar o servidor do IIS e atualizar o arquivo htm padrão.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
      ![Instalar o IIS e personalizar a página da web](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
@@ -115,7 +115,7 @@ Nesta seção, você deve instalar o servidor IIS em duas VMs - *myIISVMEastUS* 
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurar nome DNS para as VMs que executam IIS
 
-O Gerenciador de Tráfego roteia o tráfego de usuário com base no nome DNS dos pontos de extremidade de serviço. Nesta seção, você configura os nomes DNS para os servidores IIS - *myIISVMEastUS* e *myIISVMWEurope*.
+O Gerenciador de Tráfego roteia o tráfego de usuário com base no nome DNS dos pontos de extremidade de serviço. Nesta seção, você configura os nomes DNS dos servidores IIS – *myIISVMEastUS* e *myIISVMWEurope*.
 
 1. Clique em **Todos os Recursos** no menu esquerdo e, em seguida, na lista de recursos, selecione *myIISVMEastUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
 2. Na página **Visão Geral**, em **Nome DNS**, selecione **Configurar**.
@@ -170,14 +170,14 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
     | Método de roteamento          | Selecione o método de roteamento **Desempenho**.                                       |
     | Assinatura            | Selecione sua assinatura.                          |
     | Grupo de recursos          | Selecione **Criar novo** e insira *myResourceGroupTM1*. |
-    | Local padrão                | Selecione **Leste dos EUA**.  Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
+    | Local padrão                | Selecione **Leste dos EUA**. Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
     |
-  
+
     ![Criar um perfil do Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
-Adicione as duas VMs executando os servidores IIS - *myIISVMEastUS*  & *myIISVMWEurope* para rotear o tráfego de usuário para o ponto de extremidade mais próximo ao usuário.
+Adicione as duas VMs executando os servidores IIS - *myIISVMEastUS* & *myIISVMWEurope* para rotear o tráfego de usuário para o ponto de extremidade mais próximo ao usuário.
 
 1. Na barra de pesquisa do portal, pesquise o nome do Perfil do Gerenciador de Tráfego que você criou na seção anterior e selecione o perfil do gerenciador de tráfego nos resultados que são exibidos.
 2. Em **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade** e clique em **Adicionar**.
@@ -192,10 +192,9 @@ Adicione as duas VMs executando os servidores IIS - *myIISVMEastUS*  & *myIISVMW
     |        |           |
 
 4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade chamado *myWestEuropeEndpoint* para o endereço IP público *ip myIISVMWEurope* que está associado à VM do servidor IIS denominado *myIISVMWEurope* .
-5.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
+5. Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
     ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
-  
 
 ## <a name="test-traffic-manager-profile"></a>Testar perfil de Gerenciador de Tráfego
 Nesta seção, você testa como o Gerenciador de Tráfego do Microsoft Azure roteia o tráfego de usuário para as VMs mais próximas executando o site para fornecer latência mínima. Para exibir o Gerenciador de Tráfego em ação, conclua as seguintes etapas:
@@ -205,32 +204,32 @@ Nesta seção, você testa como o Gerenciador de Tráfego do Microsoft Azure rot
     - Na VM de teste (*myVMEastUS*) que está localizada na região da **Europa Ocidental**, em um navegador da web, navegue até o nome DNS do seu perfil do Gerenciador de Tráfego.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinar o nome DNS do Perfil do Gerenciador de Tráfego
-Neste tutorial, para manter a simplicidade, você usará o nome DNS do perfil do Gerenciador de Tráfego do Microsoft Azure para visitar os sites da Web. 
+Neste tutorial, para manter a simplicidade, você usará o nome DNS do perfil do Gerenciador de Tráfego do Microsoft Azure para visitar os sites da Web.
 
 Você pode determinar o nome DNS do seu perfil do Gerenciador de Tráfego conforme a seguir:
 
-1.  Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
+1. Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
 1. Clique em **Visão Geral**.
 2. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego criado recentemente. Nas implantações de produção, você configura um nome de domínio intuitivo para apontar para o nome de domínio do Gerenciador de Tráfego, usando um registro DNS CNAME.
 
    ![Nome DNS do Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gerenciador de Tráfego em ação
-Nesta seção, você pode ver que o Gerenciador de Tráfego é a ação. 
+Nesta seção, você pode ver que o Gerenciador de Tráfego é a ação.
 
 1. Selecione **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em *myIISVMEastUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**. 
-3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM. 
+2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
+3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 4. Selecione **OK**.
-5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão. 
+5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
 1. Em um navegador da Web na VM *myVMEastUS*, digite o nome do DNS do seu perfil do Gerenciador de Tráfego para visualizar seu site. Uma vez que a máquina virtual está localizada no **Leste dos EUA**, você será encaminhado para o site mais próximo hospedado no servidor mais próximo do IIS *myIISVMEastUS* que está localizado no **Leste dos EUA**.
 
    ![Testar perfil de Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
-2. Em seguida, conecte-se à VM *myVMWestEurope* localizada na **Europa Ocidental** usando as etapas 1 a 5 e navegue para o nome de domínio de perfil do Gerenciador de Tráfego do Microsoft Azure dessa VM.  Desde a máquina virtual localizada na **Europa Ocidental**, você agora é roteado para o site hospedado o mais próximo do servidor do IIS *myIISVMWEurope* que está localizado na **Europa Ocidental**. 
+2. Em seguida, conecte-se à VM *myVMWestEurope* localizada na **Europa Ocidental** usando as etapas 1 a 5 e navegue para o nome de domínio de perfil do Gerenciador de Tráfego do Microsoft Azure dessa VM. Desde a máquina virtual localizada na **Europa Ocidental**, você agora é roteado para o site hospedado o mais próximo do servidor do IIS *myIISVMWEurope* que está localizado na **Europa Ocidental**.
 
    ![Testar perfil de Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
-   
+
 ## <a name="delete-the-traffic-manager-profile"></a>Excluir o perfil do Gerenciador de Tráfego
 Quando não for mais necessário, exclua os grupos de recursos (**ResourceGroupTM1** e **ResourceGroupTM2**). Para fazer isso, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Excluir**.
 
@@ -238,5 +237,3 @@ Quando não for mais necessário, exclua os grupos de recursos (**ResourceGroupT
 
 > [!div class="nextstepaction"]
 > [Distribuir tráfego para um conjunto de pontos de extremidade](traffic-manager-configure-weighted-routing-method.md)
-
-

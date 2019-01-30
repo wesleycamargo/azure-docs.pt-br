@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607074"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382779"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilite o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
@@ -87,6 +87,10 @@ Para configurar opções de ajuste automático individuais por meio do T-SQL, co
    ```
    
 Definir a opção de ajuste individual como ON substituirá qualquer configuração de banco de dados herdada e habilitará a opção de ajuste. Defini-la a como OFF substituirá qualquer configuração herdada por esse banco de dados e desabilitará a opção de ajuste. Definir a opção de ajuste automático como DEFAULT fará com que a configuração seja herdada da configuração de ajuste automático do nível de banco de dados.  
+
+> [!IMPORTANT]
+> No caso da [replicação geográfica ativa](sql-database-auto-failover-group.md), o Ajuste automático precisa ser configurado somente no banco de dados primário. As ações de ajuste aplicadas automaticamente, por exemplo, criação ou exclusão de índice, serão replicadas automaticamente para o secundário somente leitura. A tentativa de habilitar o Ajuste automático por meio do T-SQL no secundário somente leitura resultará em uma falha, pois não há suporte para uma configuração de ajuste diferente no secundário somente leitura.
+>
 
 Encontre mais sobre como as opções de T-SQL para configurar o ajuste automático, consulte [opções ALTER DATABASE SET (Transact-SQL) para o servidor lógico do banco de dados SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 

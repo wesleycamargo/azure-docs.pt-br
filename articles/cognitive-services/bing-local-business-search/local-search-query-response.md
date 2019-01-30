@@ -10,16 +10,16 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: a86db516e76a91d6e4bec378c47baf6eec13d032
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 73aa9756d7a3af4c6f7185533458e0e322b72666
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959045"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452370"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envio e uso de consultas e respostas da API da Pesquisa de empresa local do Bing
 
-Você pode obter resultados locais da API de Pesquisa de Empresa Local do Bing enviando uma consulta de pesquisa para seu terminal e incluindo o `Ocp-Apim-Subscription-Key`cabeçalho, que é obrigatório. Juntamente com os cabeçalhos [disponíveis](local-search-reference.md#headers) e [parâmetros](local-search-reference.md#query-parameters), as pesquisas podem ser personalizadas especificando [limites geográficos](specify-geographic-search.md) para a área a ser pesquisada e as [categorias](local-search-query-response.md) de lugares retornados.
+Você pode obter resultados locais da API de Pesquisa de Empresa Local do Bing enviando uma consulta de pesquisa para seu terminal e incluindo o `Ocp-Apim-Subscription-Key`cabeçalho, que é obrigatório. Juntamente com os cabeçalhos [disponíveis](local-search-reference.md#headers) e [parâmetros](local-search-reference.md#query-parameters), as pesquisas podem ser personalizadas especificando [limites geográficos](specify-geographic-search.md) para a área a ser pesquisada e as [categorias](local-search-query-response.md) de locais retornados.
 
 ## <a name="creating-a-request"></a>Criando uma solicitação
 
@@ -61,7 +61,7 @@ Os resultados do JSON retornados pela API incluem os seguintes atributos:
 * ID
 * Nome
 * routeablePoint
-* Telefone
+* telefone
 * url
 
 Para obter informações gerais sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência da [API de Pesquisa Local do Bing v7](local-search-reference.md).
@@ -145,7 +145,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido de negócios pesquisa local](quickstarts/local-quickstart.md)
+- [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
 - [Início rápido de negócios pesquisa Java local](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)
 - [Início rápido do Python para negócios de pesquisa local](quickstarts/local-search-python-quickstart.md)

@@ -1,46 +1,42 @@
 ---
-Título: Usando regressão linear no Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio 
+Título: Migrar a análise do Excel para o Azure Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio 
 serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---
-# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Usando regressão linear no Azure Machine Learning Studio
-> *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem sua experiência de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Azure Machine Learning. 
-> 
-> 
+# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrar a análise do Excel para o Azure Machine Learning Studio
 
-&nbsp; 
-
-
+> *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem suas experiências de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Azure Machine Learning Studio.
 
 ## <a name="goal"></a>Objetivo
+
 Nosso projeto começou com dois objetivos: 
 
 1. Usar a análise preditiva para melhorar a precisão das projeções de receita mensal de nossa organização 
-2. Usar o Azure Machine Learning para confirmar, otimizar, aumentar a velocidade e a escala de nossos resultados. 
+2. Usar o Azure Machine Learning Studio para confirmar, otimizar e aumentar a velocidade e a escala de nossos resultados. 
 
-Como muitas empresas, nossa organização passa por uma processo de previsão de receita mensal. Nossa pequena equipe de analistas de negócios foi encarregada de usar o Azure Machine Learning para dar suporte ao processo e aumentar a precisão da previsão. A equipe passou vários meses coletando dados de várias fontes e submetendo os atributos de dados à análise estatística, identificando os principais atributos relevantes à previsão de vendas de serviços. A etapa seguinte foi iniciar a criação de protótipos de modelos de regressão estatística com os dados no Excel. Em poucas semanas, tínhamos um modelo de regressão do Excel que superava os processos atuais de previsão de campo e finanças. Esse se tornou o resultado de previsão de linha de base. 
+Como muitas empresas, nossa organização passa por uma processo de previsão de receita mensal. Nossa pequena equipe de analistas de negócios foi encarregada de usar o Azure Machine Learning Studio para dar suporte ao processo e melhorar a precisão da previsão. A equipe passou vários meses coletando dados de várias fontes e submetendo os atributos de dados à análise estatística, identificando os principais atributos relevantes à previsão de vendas de serviços. A etapa seguinte foi iniciar a criação de protótipos de modelos de regressão estatística com os dados no Excel. Em poucas semanas, tínhamos um modelo de regressão do Excel que superava os processos atuais de previsão de campo e finanças. Esse se tornou o resultado de previsão de linha de base. 
 
-Passamos, então, à etapa seguinte e movemos nossa análise preditiva para o Azure Machine Learning, para descobrir como ele poderia melhorar o desempenho preditivo.
+Em seguida, realizamos a próxima etapa de mover nossa análise preditiva para o Studio e descobrir como ele poderia melhorar o desempenho preditivo.
 
 ## <a name="achieving-predictive-performance-parity"></a>Obtendo a paridade de desempenho preditivo
-Nossa maior prioridade era obter paridade entre os modelos de regressão do Azure Machine Learning e aqueles do Excel. Usando os mesmos dados e a mesma divisão para dados de treinamento e de teste, queríamos obter paridade de desempenho preditivo entre o Excel e o Azure Machine Learning. Inicialmente, falhamos. O modelo do Excel superou o do Azure Machine Learning. A falha ocorreu pela falta de compreensão da configuração da ferramenta de base no Machine Learning. Após uma sincronização com a equipe de produto do Machine Learning, compreendemos melhor a configuração de base necessária aos nossos conjuntos de dados e alcançamos paridade entre os dois modelos. 
+Nossa maior prioridade era obter a paridade entre os modelos de regressão do Studio e do Excel. Considerando os mesmos dados e a mesma divisão para dados de treinamento e de teste, queríamos obter a paridade de desempenho preditivo entre o Excel e o Studio. Inicialmente, falhamos. O modelo do Excel superou o modelo do Studio. A falha ocorreu devido à falta de compreensão da configuração da ferramenta base no Studio. Após uma sincronização com a equipe de produto do Studio, obtivemos uma melhor compreensão da configuração base necessária para nossos conjuntos de dados e obtivemos a paridade entre os dois modelos. 
 
 ### <a name="create-regression-model-in-excel"></a>Criar um modelo de regressão no Excel
 Nossa Regressão do Excel usou o modelo de regressão linear padrão encontrado nas Ferramentas de Análise do Excel. 
 
-Calculamos o *Erro de Média Absoluta %* e o usamos como a medida de desempenho para o modelo. Levamos três meses para chegar a um modelo de trabalho usando o Excel. Aproveitamos muito o aprendizado para o experimento com o Machine Learning Studio, que, em última análise, foi útil para entendermos os requisitos.
+Calculamos o *Erro de Média Absoluta %* e o usamos como a medida de desempenho para o modelo. Levamos três meses para chegar a um modelo de trabalho usando o Excel. Aproveitamos muito o aprendizado para o experimento do Studio, que, em última análise, foi útil para entender os requisitos.
 
-### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Criar um experimento comparável no Azure Machine Learning
-Seguimos estas etapas para criar nosso experimento no Machine Learning Studio: 
+### <a name="create-comparable-experiment-in-studio"></a>Criar um experimento comparável no Studio
+Seguimos estas etapas para criar nosso experimento no Studio: 
 
-1. Carregamos o conjunto de dados como arquivo csv no Machine Learning Studio (arquivo muito pequeno)
+1. Carregamos o conjunto de dados como um arquivo CSV no Studio (um arquivo muito pequeno)
 2. Criamos um novo experimento e usamos o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar os mesmos recursos de dados usados no Excel 
 3. Usamos o módulo [Dividir Dados][split] (com o modo *Expressão Relativa*) para dividir os dados nos mesmos conjuntos de dados de treinamento usados no Excel 
 4. Experimentamos o módulo de [Regressão Linear][linear-regression] (somente opções padrão), documentamos e comparamos os resultados com o nosso modelo de regressão do Excel
 
 ### <a name="review-initial-results"></a>Examinar os resultados iniciais
-Inicialmente, o modelo do Excel superou claramente o do Machine Learning Studio: 
+A princípio, o modelo do Excel superou claramente o modelo do Studio: 
 
 |  | Excel | Estúdio |
 | --- |:---:|:---:|
@@ -52,13 +48,13 @@ Inicialmente, o modelo do Excel superou claramente o do Machine Learning Studio:
 
 Quando apresentamos nosso processo e os resultados aos desenvolvedores e cientistas de dados à equipe do Machine Learning, eles forneceram rapidamente algumas dicas úteis. 
 
-* Quando você usa o módulo [Regressão Linear][linear-regression] no Machine Learning Studio, são fornecidos dois métodos:
+* Quando você usa o módulo [Regressão Linear][linear-regression] no Studio, dois métodos são fornecidos:
   * Gradiente Online Descendente: Talvez seja mais adequado para problemas de maior escala
   * Mínimos Quadrados Comuns: Esse é o método em que muitas pessoas pensam quando ouvem falar em regressão linear. Para conjuntos de dados pequenos, Mínimos Quadrados Comuns pode ser uma opção melhor.
 * Considere a possibilidade de ajustar o parâmetro L2 de Regularização de Peso para melhorar o desempenho. Ele é definido como 0,001 por padrão e, para nosso pequeno conjunto de dados, o definimos como 0,005 para melhorar o desempenho. 
 
 ### <a name="mystery-solved"></a>Mistério resolvido!
-Quando aplicamos as recomendações, atingimos desempenho de linha de base no Machine Learning Studio igual ao do Excel: 
+Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base no Studio que obtivemos no Excel: 
 
 |  | Excel | Estúdio (inicial) | Estúdio c/ quadrados mínimos |
 | --- |:---:|:---:|:---:|
@@ -86,7 +82,7 @@ Além disso, os coeficientes do Excel saíram-se bem em comparação com os peso
 ## <a name="next-steps"></a>Próximas etapas
 Queríamos usar o serviço Web do Machine Learning no Excel. Nossos analistas de negócios usam o Excel, e precisávamos de um modo para chamar o serviço Web do Machine Learning com uma linha de dados do Excel e fazer com que ele retornasse ao Excel o valor previsto. 
 
-Também queríamos otimizar nosso modelo, usando as opções e os algoritmos disponíveis no Machine Learning Studio.
+Também queríamos otimizar nosso modelo usando as opções e os algoritmos disponíveis no Studio.
 
 ### <a name="integration-with-excel"></a>Integração com o Excel
 A solução foi operacionalizar nosso modelo de regressão do Machine Learning criando um serviço Web com base no modelo treinado. Em alguns minutos, o serviço Web foi criado e pudemos chamá-lo diretamente no Excel para retornar um valor de receita prevista. 
@@ -104,7 +100,7 @@ Agora que tínhamos uma linha de base com nosso modelo do Excel, otimizamos noss
 
 Em seguida, planejamos incluir algoritmos adicionais, como [Bayesiano][bayesian-linear-regression] ou [Árvores de Decisão Aumentadas][boosted-decision-tree-regression] em nosso experimento para comparar o desempenho. 
 
-Se você quiser experimentar a regressão, um bom conjunto de dados para tentar é o conjunto de dados de exemplo de Regressão de Eficiência de Energia, que tem muitos atributos numéricos. O conjunto de dados integra os conjuntos de dados de exemplo no Machine Learning Studio. Você pode usar diversos módulos de aprendizado para prever a Carga de Aquecimento ou a Carga de Resfriamento. O gráfico abaixo é uma comparação de desempenho de diferentes aprendizados de regressão em relação ao conjunto de dados de Eficiência Energética, prevendo a Carga de Resfriamento de variável de destino: 
+Se você quiser experimentar a regressão, um bom conjunto de dados para tentar é o conjunto de dados de exemplo de Regressão de Eficiência de Energia, que tem muitos atributos numéricos. O conjunto de dados é fornecido como parte dos conjuntos de dados de exemplo no Studio. Você pode usar diversos módulos de aprendizado para prever a Carga de Aquecimento ou a Carga de Resfriamento. O gráfico abaixo é uma comparação de desempenho de diferentes aprendizados de regressão em relação ao conjunto de dados de Eficiência Energética, prevendo a Carga de Resfriamento de variável de destino: 
 
 | Modelo | Erro Absoluto Médio | Erro Quadrado Médio de Raiz | Erro Absoluto Relativo | Erro Quadrado Relativo | Coeficiente de Determinação |
 | --- | --- | --- | --- | --- | --- |
@@ -114,11 +110,11 @@ Se você quiser experimentar a regressão, um bom conjunto de dados para tentar 
 | Regressão Linear (Quadrados Mínimos Comuns) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
 
 ## <a name="key-takeaways"></a>Principais observações
-Aprendemos muito executando os experimentos de regressão do Excel e do Azure Machine Learning em paralelo. Criar o modelo de linha de base no Excel e compará-lo a modelos usando a [Regressão Linear][linear-regression] do Machine Learning nos ajudou a aprender sobre o Azure Machine Learning e descobrimos oportunidades para melhorar o desempenho da seleção e modelagem de dados. 
+Aprendemos muito executando os experimentos do Studio e a regressão do Excel em paralelo. A criação do modelo de linha de base no Excel e sua comparação com modelos usando a [Regressão Linear][linear-regression] do Machine Learning nos ajudou a aprender mais sobre o Studio e descobrimos oportunidades para melhorar o desempenho do modelo e da seleção de dados. 
 
-Também descobrimos que é aconselhável usar a [Seleção de Recursos com Base em Filtro][filter-based-feature-selection] para acelerar projetos de previsão futuros. Aplicando a seleção de recursos aos seus dados, você pode criar um modelo aprimorado no Machine Learning com melhor desempenho geral. 
+Também descobrimos que é aconselhável usar a [Seleção de Recursos com Base em Filtro][filter-based-feature-selection] para acelerar projetos de previsão futuros. Aplicando a seleção de recursos aos dados, você pode criar um modelo aprimorado no Studio com melhor desempenho geral. 
 
-A capacidade de transferir a previsão de análise preditiva do Machine Learning para o Excel permite sistematicamente um aumento significativo na capacidade de fornecer resultados com êxito para um amplo público de negócios. 
+A capacidade de transferir a previsão de análise preditiva do Studio para o Excel permite sistematicamente um aumento significativo na capacidade de fornecer resultados com êxito para um amplo público de usuários empresariais. 
 
 ## <a name="resources"></a>Recursos
 Estes são alguns recursos que ajudam a trabalhar com a regressão: 

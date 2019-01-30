@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160603"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429099"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para autenticação multifator
 
@@ -47,7 +47,7 @@ Para configurar uma lista de permissões de IP, vá para `HKLM\SOFTWARE\Microsof
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vazio | Forneça uma lista separada por ponto e vírgula de endereços IP. Inclua os endereços IP dos computadores dos quais as solicitações de serviço originam-se, como o servidor NAS/VPN. Os intervalos IP que são sub-redes não têm suporte. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Quando uma solicitação chega de um endereço IP existente na lista de permissões, a verificação em duas etapas é ignorada. A lista de permissões de IP é comparada ao endereço IP fornecido no atributo *ratNASIPAddress* da solicitação RADIUS. Se uma solicitação RADIUS chegar sem o atributo ratNASIPAddress, o seguinte aviso será registrado: "P_WHITE_LIST_WARNING::IP A lista de permissões está sendo ignorada, uma vez que o IP de origem está ausente na solicitação do RADIUS no atributo NasIpAddress."
+Quando uma solicitação chega de um endereço IP existente na lista de permissões, a verificação em duas etapas é ignorada. A lista de permissões de IP é comparada ao endereço IP fornecido no atributo *ratNASIPAddress* da solicitação RADIUS. Se uma solicitação RADIUS for recebida sem o atributo ratNASIPAddress, o seguinte aviso será registrado em log: "P_WHITE_LIST_WARNING: a Lista de Permissões de IP está sendo ignorada, pois o IP de origem está ausente da solicitação RADIUS no atributo NasIpAddress".
 
 ## <a name="next-steps"></a>Próximas etapas
 

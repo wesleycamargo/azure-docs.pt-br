@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 8785ef50cd7bd27e866b1fa546317021eed5da01
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599093"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432278"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
@@ -92,10 +92,8 @@ Para recuperar um banco de dados único, em pool ou de Instância Gerenciada at�
 
 ## <a name="deleted-database-restore"></a>Restauração de banco de dados excluído
 
-Você pode restaurar um banco de dados excluído para o momento da exclusão de um banco de dados excluído no mesmo servidor lógico usando o Portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou o [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Você pode restaurar um banco de dados excluído em um ponto anterior durante a retenção usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Você pode restaurar um banco de dados excluído para o momento da exclusão de um banco de dados excluído no mesmo servidor lógico usando o Portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou o [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Você pode [restaurar o banco de dados excluído na Instância Gerenciada usando o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Você pode restaurar um banco de dados excluído em um ponto anterior durante a retenção usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
-> [!Note]
-> A restauração do banco de dados excluído não está disponível na Instância Gerenciada.
 > [!TIP]
 > Para obter um script de exemplo do PowerShell que mostra como restaurar um banco de dados excluído, consulte [Restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959862"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462463"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure
 
@@ -60,6 +60,9 @@ Não é necessário descriptografar bancos de dados para operações no Azure. A
 - Replicação geográfica ativa
 - Criação de uma cópia do banco de dados
 - Restauração de arquivo de backup para a instância gerenciada do SQL do Azure
+
+> [!IMPORTANT]
+> Fazer backup somente cópia manual de um banco de dados criptografado por TDE gerenciada por serviço não é permitido na Instância Gerenciada do SQL do Azure, uma vez que o certificado usado para criptografia não está acessível. Use o recurso de ponto no tempo de restauração para mover esse tipo de banco de dados para outra Instância Gerenciada.
 
 Ao exportar um banco de dados protegido por Transparent Data Encryption, o conteúdo exportado do banco de dados não é criptografado. Esse conteúdo exportado é armazenado em arquivos BACPAC não criptografados. Certifique-se de proteger os arquivos BACPAC adequadamente e habilite a Transparent Data Encryption após a conclusão da importação do novo banco de dados.
 

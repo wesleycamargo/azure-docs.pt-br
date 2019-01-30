@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430163"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425869"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430163"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -328,9 +328,9 @@ Nas seções a seguir, trechos de partes da documentação no link acima são ag
 
 Há algumas informações específicas do SQL Server no IaaS que você deve conhecer antes de continuar:
 
-* **Suporte de versão do SQL**: para clientes SAP, tem suporte para SQL Server 2008 R2 e superior na máquina virtual do Microsoft Azure. Não há suporte para edições anteriores. Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) geral para obter mais detalhes. Em geral, o SQL Server 2008 também tem suporte da Microsoft. No entanto, devido à funcionalidade significativa para SAP que foi introduzida com o SQL Server 2008 R2, o SQL Server 2008 R2 é a versão mínima para SAP. Em geral, você deve considerar usar o SQL Server mais recente para executar a carga de trabalho SAP no IaaS do Azure. As versões mais recentes do SQL Server oferecem a melhor integração com alguns dos serviços do Azure e funcionalidade. Ou tem alterações que otimizam as operações em uma infraestrutura de IaaS do Azure. Portanto, o documento é restrito ao SQL Server 2016 e SQL Server 2017.
-* **Desempenho do SQL**: As máquinas virtuais hospedadas do Microsoft Azure desempenham bem em comparação a outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Confira o artigo [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Uso de imagens do Azure Marketplace**: a maneira mais rápida de implantar uma nova VM do Microsoft Azure é usar uma imagem do Azure Marketplace. Há imagens no Azure Marketplace que contêm o SQL Server mais recente. As imagens em que o SQL Server já está instalado não podem ser usadas imediatamente para aplicativos SAP NetWeaver. O motivo é que a ordenação do SQL Server padrão é instalada dentro dessas imagens e não a ordenação exigida pelos sistemas SAP NetWeaver. Para usar essas imagens, verifique as etapas documentadas no capítulo [Como usar uma imagem do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
+* **Suporte de Versão do SQL**: Para clientes SAP, há suporte para o SQL Server 2008 R2 e posterior na Máquina Virtual do Microsoft Azure. Não há suporte para edições anteriores. Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) geral para obter mais detalhes. Em geral, o SQL Server 2008 também tem suporte da Microsoft. No entanto, devido à funcionalidade significativa para SAP que foi introduzida com o SQL Server 2008 R2, o SQL Server 2008 R2 é a versão mínima para SAP. Em geral, você deve considerar usar o SQL Server mais recente para executar a carga de trabalho SAP no IaaS do Azure. As versões mais recentes do SQL Server oferecem a melhor integração com alguns dos serviços do Azure e funcionalidade. Ou tem alterações que otimizam as operações em uma infraestrutura de IaaS do Azure. Portanto, o documento é restrito ao SQL Server 2016 e SQL Server 2017.
+* **Desempenho do SQL**: As Máquinas Virtuais hospedadas do Microsoft Azure têm um bom desempenho em comparação com outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Confira o artigo [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+* **Usando imagens do Azure Marketplace**: A maneira mais rápida de implantar uma nova VM do Microsoft Azure é usar uma imagem do Azure Marketplace. Há imagens no Azure Marketplace que contêm o SQL Server mais recente. As imagens em que o SQL Server já está instalado não podem ser usadas imediatamente para aplicativos SAP NetWeaver. O motivo é que a ordenação do SQL Server padrão é instalada dentro dessas imagens e não a ordenação exigida pelos sistemas SAP NetWeaver. Para usar essas imagens, verifique as etapas documentadas no capítulo [Como usar uma imagem do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recomendações sobre a estrutura de VM/VHD para implantações do SQL Server relacionadas ao SAP
@@ -422,7 +422,7 @@ O Backup Automatizado fornece um serviço de backup automático para edições d
 
 Mais detalhes sobre os recursos desse método podem ser encontrados nesses artigos:
 
-- SQL Server 2014: [Backup Automatizado para em máquinas virtuais do SQL Server 2014 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
+- SQL Server 2014: [Backup Automatizado para Máquinas Virtuais do SQL Server 2014 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
 - SQL Server 2016/2017: [Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 Observando a documentação, você pode ver que a funcionalidade com as versões mais recentes do SQL Server foi aprimorada. Mais alguns detalhes sobre backups automatizados são liberados no artigo do SQL Server [SQL Server Managed Backup to Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). O limite de tamanho do backup teórico é 12 TB.  Os backups automatizados podem ser um bom método para tamanhos de backup de até 12 TB. Uma vez que vários blobs são gravados em paralelo, você pode esperar uma produtividade maior que 100 MB/s. 

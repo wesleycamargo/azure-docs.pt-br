@@ -4,7 +4,7 @@ description: Este documento detalha as opções de dispositivo disponíveis no A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 95c631c38b975c71d5e026d33391792ee811bbc6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320553"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477066"
 ---
-# <a name="azure-ad-connect-device-options"></a>Do Azure AD Connect: opções de dispositivo
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opções do dispositivo
 
 A documentação a seguir fornece informações sobre as várias opções de dispositivo disponíveis no Azure AD Connect. Você pode usar o Azure AD Connect para configurar as duas operações a seguir: 
-* **Ingresso no Azure AD híbrido**: se o ambiente tiver um volume de memória do AD local e você quiser os benefícios do Azure AD, poderá implementar dispositivos ingressados ao Azure AD híbrido. Esses dispositivos são ingressados ao Active Directory local e ao Azure Active Directory.
+* **Ingresso no Azure AD Híbrido**: se o ambiente tiver um volume de memória do AD local e você quiser os benefícios do Azure AD, você poderá implementar dispositivos ingressados ao Azure AD híbrido. Esses dispositivos são ingressados ao Active Directory local e ao Azure Active Directory.
 * **Write-back de dispositivo**: usado para habilitar o acesso condicional baseado em dispositivos para os dispositivos protegidos do AD FS (2012 R2 ou superior)
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Opções de logon único do usuário no Azure AD Connect

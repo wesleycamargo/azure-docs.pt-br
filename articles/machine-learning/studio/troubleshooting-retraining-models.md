@@ -1,5 +1,5 @@
 ---
-Título: Solução de problemas ao treinar novamente um serviço Web clássico do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço web de Azure Machine Learning Studio.
+Título: Solução de problemas ao treinar novamente um serviço Web clássico do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço Web do Azure Machine Learning Studio.
 serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
@@ -31,7 +31,7 @@ Com todas as peças no lugar, as principais etapas necessárias para readaptar o
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se você tem a URL correta do PATCH
 A URL do PATCH que você está usando deve ser a associada ao novo ponto de extremidade de pontuação adicionado ao serviço Web de pontuação. Há várias maneiras de obter a URL do PATCH:
 
-**Opção 1: de forma programática**
+**Opção 1: Programaticamente**
 
 Para obter a URL correta do PATCH:
 

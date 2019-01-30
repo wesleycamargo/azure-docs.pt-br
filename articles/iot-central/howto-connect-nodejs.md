@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198075"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410482"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
-Este artigo descreve como um desenvolvedor de dispositivos conecta um aplicativo Node.js genérico representando um dispositivo físico ao aplicativo Microsoft Azure IoT Central.
+Este artigo descreve, como um desenvolvedor de dispositivos, como se conectar a um aplicativo Node.js genérico representando um dispositivo real ao aplicativo Microsoft Azure IoT Central.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -97,7 +97,7 @@ No aplicativo Azure IoT Central, adicione um dispositivo real ao modelo de dispo
 
 ### <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
 
-As etapas a seguir mostram como criar um aplicativo cliente que implementa o dispositivo real que você adicionou ao aplicativo. Aqui, o aplicativo Node.js representa o dispositivo físico real. 
+As etapas a seguir mostram como criar um aplicativo cliente que implementa o dispositivo real que você adicionou ao aplicativo. Aqui, o aplicativo Node.js representa o dispositivo real. 
 
 1. Crie uma pasta chamada `connected-air-conditioner-adv` no computador. Navegue até essa pasta no ambiente de linha de comando.
 

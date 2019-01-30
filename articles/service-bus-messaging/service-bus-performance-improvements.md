@@ -3,18 +3,19 @@ title: Práticas recomendadas para melhorar o desempenho usando o Barramento de 
 description: Descreve como usar o Barramento de Serviço para otimizar o desempenho na troca de mensagens agenciadas.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392628"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848557"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -36,7 +37,7 @@ AMQP e SBMP são mais eficientes, pois mantêm a conexão com o Barramento de Se
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizando fábricas e clientes
 
-Os objetos de cliente do Barramento de Serviço, como [QueueClient][QueueClient] ou [MessageSender][MessageSender], são criados por meio de um objeto [MessagingFactory][MessagingFactory], que também oferece gerenciamento interno de conexões. É recomendável que você não feche fábricas de mensagens ou os clientes de fila, de tópico e de assinatura depois de enviar uma mensagem e então recriá-los ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando o mesmo alocador e objetos de cliente para diversas operações. É possível usar com segurança o objeto [QueueClient][QueueClient] para enviar mensagens de operações assíncronas simultâneas e de vários threads. 
+Os objetos de cliente do Barramento de Serviço, como [QueueClient][QueueClient] ou [MessageSender][MessageSender], são criados por meio de um objeto [MessagingFactory][MessagingFactory], que também oferece gerenciamento interno de conexões. É recomendável que você não feche fábricas de mensagens ou os clientes de fila, de tópico e de assinatura depois de enviar uma mensagem e então recriá-los ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando o mesmo alocador e objetos de cliente para diversas operações. Você pode usar esses objetos de cliente com segurança em operações assíncronas simultâneas e de vários threads. 
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 
@@ -71,7 +72,7 @@ O cliente agenda operações simultâneas realizando operações assíncronas. A
 
 ## <a name="receive-mode"></a>Modo de recebimento
 
-Ao criar um cliente de fila ou de assinatura, você poderá especificar um modo de recebimento: *Bloqueio de pico* ou *Receber e Excluir*. O modo de recebimento padrão é [PeekLock][PeekLock]. Ao operar nesse modo, o cliente envia uma solicitação para receber uma mensagem do Barramento de Serviço. Depois que o cliente tiver recebido a mensagem, ele enviará uma solicitação para concluir a mensagem.
+Ao criar um cliente de fila ou assinatura, você pode especificar um modo de recebimento: *PeekLock* ou *Receber e Excluir*. O modo de recebimento padrão é [PeekLock][PeekLock]. Ao operar nesse modo, o cliente envia uma solicitação para receber uma mensagem do Barramento de Serviço. Depois que o cliente tiver recebido a mensagem, ele enviará uma solicitação para concluir a mensagem.
 
 Ao definir o modo de recebimento como [ReceiveAndDelete][ReceiveAndDelete], as duas etapas serão combinadas em uma única solicitação. Essas etapas reduzem o número total de operações e podem melhorar a taxa de transferência geral da mensagem. Este ganho de desempenho vem com o risco de perda de mensagens.
 
@@ -127,42 +128,13 @@ A propriedade de vida útil (TTL) de uma mensagem é verificada pelo servidor no
 
 A pré-busca não afeta o número de operações faturáveis do sistema de mensagens e está disponível somente para o protocolo de cliente do Barramento de Serviço. O protocolo HTTP não dá suporte à pré-busca. A pré-busca está disponível para as operações de recebimento síncrono e assíncrono.
 
-## <a name="express-queues-and-topics"></a>Filas e tópicos expressos
-
-As entidades expressas possibilitam cenários de redução da latência e alta produtividade e têm suporte apenas na camada de mensagens Standard. As entidades criadas em [namespaces Premium](service-bus-premium-messaging.md) não dão suporte à opção expressa. Com as entidades expressas, caso uma mensagem seja enviada para uma fila ou um tópico, ela não será armazenada imediatamente no repositório de mensagens. Em vez disso, ela será armazenada em cache na memória. Se uma mensagem permanecer na fila por mais de alguns segundos, será automaticamente gravada em armazenamento estável, que o protegerá contra perda devido a uma interrupção. A gravação da mensagem em um cache de memória aumenta a taxa de transferência e reduz a latência porque não há nenhum acesso ao armazenamento estável no momento em que a mensagem é enviada. As mensagens consumidas em alguns segundos não são gravadas no repositório de mensagens. O exemplo a seguir cria um tópico expresso.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Se uma mensagem com informações importantes que não devem ser perdidas for enviada para uma entidade expressa, o remetente poderá impor o Barramento de Serviço para persistir imediatamente a mensagem em armazenamento estável ao definir a propriedade [ForcePersistence][ForcePersistence] como **true**.
-
-> [!NOTE]
-> As entidades expressas não dão suporte a transações.
-
-## <a name="partitioned-queues-or-topics"></a>Filas ou tópicos particionados
-
-Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma [fila ou tópico particionado](service-bus-partitioning.md), por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][EnablePartitioning] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
-
-> [!NOTE]
-> Não há suporte para entidades particionadas no [SKU Premium](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Várias filas
 
-Se não for possível usar uma fila ou tópico particionado, ou se a carga esperada não puder ser manipulada por uma única fila ou tópico particionada, você deverá usar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade em vez de usar o mesmo cliente para todas as entidades.
+Se a carga esperada não puder ser manipulada por uma única fila ou tópico particionado, você deverá usar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade em vez de usar o mesmo cliente para todas as entidades.
 
 ## <a name="development-and-testing-features"></a>Recursos de desenvolvimento e teste
 
-O Barramento de Serviço tem um recurso, usado especificamente para desenvolvimento que **nunca deve ser usado em configurações de produção**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+O Barramento de Serviço tem um recurso usado especificamente para desenvolvimento que **nunca deve ser usado em configurações de produção**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Quando novas regras ou filtros são adicionados ao tópico, é possível usar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para verificar se a nova expressão de filtro está funcionando conforme o esperado.
 
@@ -184,13 +156,13 @@ Meta: maximizar a taxa de transferência de uma única fila. O número de remete
 
 ### <a name="multiple-high-throughput-queues"></a>Várias filas de alta taxa de transferência
 
-Meta: maximize a taxa de transferência geral de diversas filas. A taxa de transferência de uma fila individual é moderada ou alta.
+Meta: maximizar a taxa de transferência geral de diversas filas. A taxa de transferência de uma fila individual é moderada ou alta.
 
 Para obter a taxa de transferência máxima em várias filas, use as configurações descritas para maximizar a taxa de transferência de uma única fila. Além disso, use fábricas diferentes para criar clientes que enviem ou recebam de filas diferentes.
 
 ### <a name="low-latency-queue"></a>Fila de baixa latência
 
-Meta: minimize a latência de ponta a ponta de uma fila ou um tópico. O número de remetentes e de receptores é pequeno. A taxa de transferência da fila é pequena ou moderada.
+Meta: minimizar a latência de ponta a ponta de uma fila ou um tópico. O número de remetentes e de receptores é pequeno. A taxa de transferência da fila é pequena ou moderada.
 
 * Desabilite o envio em lote no lado do cliente. O cliente envia uma mensagem imediatamente.
 * Desabilite o acesso ao repositório em lote. O serviço grava imediatamente a mensagem no repositório.
@@ -200,7 +172,7 @@ Meta: minimize a latência de ponta a ponta de uma fila ou um tópico. O número
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Fila com um grande número de remetentes
 
-Meta: maximizar a taxa de transferência de uma fila ou tópico com um grande número de remetentes. Cada remetente envia mensagens com uma taxa moderada. O número de receptores é pequeno.
+Meta: maximizar a taxa de transferência de uma fila ou um tópico com um grande número de remetentes. Cada remetente envia mensagens com uma taxa moderada. O número de receptores é pequeno.
 
 O Barramento de Serviço permite até 1000 conexões simultâneas a uma entidade do sistema de mensagens (ou 5000 usando AMQP). Esse limite é imposto no nível de namespace e tópicos/filas/assinaturas são controlados pelo limite de conexões simultâneas por namespace. Para filas, esse número é compartilhado entre remetentes e receptores. Se todas as 1000 conexões forem obrigatórias para os remetentes, substitua a fila por um tópico e uma assinatura única. Um tópico aceita até 1000 conexões simultâneas dos remetentes, enquanto a assinatura aceita 1000 conexões simultâneas adicionais dos receptores. Se mais de 1000 remetentes simultâneos forem necessários, os remetentes deverão enviar mensagens para o protocolo do Barramento de Serviço via HTTP.
 

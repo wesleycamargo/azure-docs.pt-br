@@ -5,26 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636638"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412058"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
-Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para um cliente VPN nativo do Windows, Mac IKEv2 ou Linux para conectar-se a uma rede virtual Ponto a Site que usa a autenticação de certificado nativa do Azure. Para saber mais sobre conexões Ponto a Site, confira [Sobre VPN Ponto a Site](point-to-site-about.md).
+Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para um cliente VPN nativo do Windows, Mac IKEv2 ou Linux para conectar-se a uma rede virtual Ponto a Site que usa a autenticação de certificado nativa do Azure.
+
+Os arquivos de configuração do cliente são específicos para a configuração de VPN da VNet. Se houver alterações na configuração de VPN Ponto a Site depois de gerar os arquivos de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, gere e instale novos arquivos de configuração de cliente VPN nos dispositivos do usuário. 
+
+* Para saber mais sobre conexões Ponto a Site, confira [Sobre VPN Ponto a Site](point-to-site-about.md).
+* Para obter instruções sobre o OpenVPN, confira [Configurar o OpenVPN para P2S](vpn-gateway-howto-openvpn.md) e [Configurar clientes do OpenVPN](vpn-gateway-howto-openvpn-clients.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->Os arquivos de configuração do cliente são específicos para a configuração de VPN da VNet. Se houver alterações na configuração de VPN Ponto a Site depois de gerar os arquivos de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, gere e instale novos arquivos de configuração de cliente VPN nos dispositivos do usuário.
->
 >
 
 ## <a name="generate"></a>Gerar os arquivos de configuração de cliente VPN

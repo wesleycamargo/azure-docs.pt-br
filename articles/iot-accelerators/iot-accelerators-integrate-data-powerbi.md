@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados de monitoramento remoto usando o Power BI - Azure | Microsoft Docs
+title: Visualizar dados de monitoramento remoto usando o Power BI – Azure | Microsoft Docs
 description: Este tutorial usa o Power BI Desktop e o Cosmos DB para integrar dados de uma solução de Monitoramento Remoto em uma visualização personalizada. Desse modo, os usuários podem criar seus próprios painéis personalizados e compartilha-los para os usuários que não estão na solução.
 author: asdonald
 manager: hegate
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470624"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitoramento remoto usando o Power BI
 
 Este tutorial explicará como conectar seus dados de solução de Monitoramento Remoto do CosmosDB no Power BI. Com esta conexão foi estabelecida, você pode criar seus próprios painéis personalizados e adicioná-los novamente ao painel da sua solução de Monitoramento Remoto. Este fluxos de trabalho permite a criação de grafos mais especializados, além dos originais. Use este tutorial para integrar com outros fluxos de dados ou criar painéis personalizados que serão consumidos fora de sua solução de Monitoramento Remoto. A criação de painéis no Power BI significa que você também pode fazer os painéis interagirem entre si à medida que você seleciona partes específicas. Por exemplo, você poderia ter um filtro que mostrasse apenas informações sobre seus caminhões simulados, e cada parte do seu painel interagiria para mostrar apenas as informações de caminhão simulado. Se você quiser usar uma ferramenta que não seja o Power BI, também poderá estender estas etapas para usar sua ferramenta de visualização preferida, e conectar-se ao Cosmos DB ou ao banco de dados personalizado, se você tiver configurado um. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter uma solução de Monitoramento Remoto em execução
 - Você deve ter acesso ao [Portal do Azure](https://portal.azure.com) e à sua assinatura na qual o Hub IoT e a solução estão em execução
@@ -84,11 +84,11 @@ Este tutorial explicará como conectar seus dados de solução de Monitoramento 
 
 ## <a name="creating-a-dashboard"></a>Criar um painel
 
-Após a conexão do fluxo, você estará pronto para criar seus painéis personalizados! O painel abaixo é um exemplo de como obter a telemetria que está sendo imitada por nossos dispositivos simulados e mostrar dinâmicas diferentes com relação a ela, por exemplo: 
+Após a conexão do fluxo, você estará pronto para criar seus painéis personalizados! O painel abaixo é um exemplo de como obter a telemetria que está sendo emitida por nossos dispositivos simulados e mostrar dinâmicas diferentes com relação a ela, por exemplo: 
 
 * Local do dispositivo em um mapa (à direita)
 * Dispositivos com seu status e gravidade. (lado superior esquerdo)
-* Dispositivos com as regras em vigor, e se há algum alarme disparado para eles (lado inferior esquerdo)
+* Dispositivos com as regras em vigor, e se há algum alerta disparado para eles (lado inferior esquerdo)
 
 ![Visualização do Power BI](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

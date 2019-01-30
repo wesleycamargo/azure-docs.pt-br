@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620754"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457102"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de escrever qualquer código para o dispositivo, implante o acelerador de solução de Monitoramento Remoto e adicione um novo dispositivo físico à solução.
+Antes de escrever qualquer código para o dispositivo, implante o acelerador de solução de Monitoramento Remoto e adicione um novo dispositivo real à solução.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implantar o acelerador de solução de Monitoramento Remoto
 
@@ -62,7 +62,7 @@ Para adicionar um dispositivo à sua solução de Monitoramento Remoto, conclua 
 
 1. Escolha **+ Novo dispositivo** e, em seguida, escolha **Físico** como o **Tipo de dispositivo**:
 
-    ![Adicionar um dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Adicionar um dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Insira **Physical-chiller** como a ID do dispositivo. Escolha as opções **Chave Simétrica** e **Gerar chaves automaticamente**:
 
@@ -72,7 +72,7 @@ Para adicionar um dispositivo à sua solução de Monitoramento Remoto, conclua 
 
     ![Recuperar credenciais](media/iot-suite-selector-connecting/credentials.png)
 
-Agora, você adicionou um dispositivo físico ao acelerador de solução de Monitoramento Remoto e anotou a cadeia de conexão do dispositivo. Nas seções a seguir, você implementará o aplicativo cliente que usa a cadeia de conexão do dispositivo para conectar-se à solução.
+Agora, você adicionou um dispositivo real ao acelerador de solução de Monitoramento Remoto e anotou a cadeia de conexão do dispositivo. Nas seções a seguir, você implementará o aplicativo cliente que usa a cadeia de conexão do dispositivo para conectar-se à solução.
 
 O aplicativo cliente implementa o modelo de dispositivo **Resfriador** interno. Um modelo de dispositivo de acelerador de solução especifica o seguinte sobre um dispositivo:
 

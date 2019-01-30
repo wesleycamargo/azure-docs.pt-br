@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7b321ab04df405c56cab0952942b0d6e142da6d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805071"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446571"
 ---
 # <a name="data-entities"></a>Entidades de dados
 
@@ -29,7 +29,7 @@ Este artigo define e fornece uma visão geral das entidades de dados. Além diss
 
 Uma entidade de dados é uma abstração da implementação física de tabelas de banco de dados. Por exemplo, em tabelas normalizadas, muitos dos dados de cada cliente podem ser armazenados em uma tabela de clientes e, em seguida, o restante pode ser distribuído em um pequeno conjunto de tabelas relacionadas. Nesse caso, a entidade de dados para o conceito de cliente aparece como uma exibição desnormalizada, na qual cada linha contém todos os dados da tabela de clientes e as tabelas relacionadas. Uma entidade de dados encapsula um conceito de negócio em um formato que facilita o desenvolvimento e a integração. A natureza abstrata de uma entidade de dados pode simplificar o desenvolvimento e a personalização de aplicativos. Posteriormente, a abstração também isola o código de aplicativo da inevitável rotatividade das tabelas físicas entre as versões.
 
-Para resumir: a entidade de dados fornece abstração e encapsulamento conceituais (exibição desnormalizada) dos esquemas de tabelas subjacentes para representar conceitos e funcionalidades de dados-chave.
+Resumidamente: a entidade de dados fornece abstração e encapsulamento conceituais (exibição desnormalizada) dos esquemas de tabelas subjacentes para representar conceitos e funcionalidades de dados-chave.
 
 ## <a name="capabilities"></a>Funcionalidades
 

@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104077"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847536"
 ---
 # <a name="manage-and-configure-projects"></a>Gerenciar e configurar projetos
 
 Um projeto no Azure Notebooks é essencialmente uma configuração da máquina virtual do Linux subjacente na qual os Jupyter Notebooks são executados, juntamente com uma pasta de arquivos e metadados descritivos. O painel do projeto no Azure Notebooks permite que você gerencie arquivos e configure as demais características do projeto:
 
-- Os metadados do projeto incluem um nome, uma descrição, um identificador que é usado ao compartilhar o projeto e a informação de se o projeto é público ou privado.
-- Você gerencia o notebook, os dados e outros arquivos do projeto como faria com qualquer outro sistema de arquivos.
-- Você configura o ambiente de um projeto por meio de scripts de inicialização ou diretamente por meio do terminal.
-- Por meio do terminal, você tem acesso aos logs.
+- A camada de computação na qual o projeto é executado, que pode ser a camada gratuita ou uma máquina virtual do Azure.
+- Os metadados do projeto, que incluem um nome, uma descrição, um identificador (que é usado ao compartilhar o projeto) e a informação sobre o projeto ser público ou privado.
+- O bloco de anotações do projeto, dados e outros arquivos, que você gerencia como qualquer outro sistema de arquivos.
+- O ambiente de um projeto, que você gerencia por meio de scripts de inicialização ou diretamente por meio do terminal.
+- Logs, que você acessa pelo terminal.
 
 > [!Note]
-> Você não poderá gerenciar um projeto do qual você não for proprietário, a menos que o proprietário do projeto tenha tornado você um colaborador. Caso contrário, os recursos de gerenciamento e de configuração descritos aqui não estarão disponíveis para você.
+> Os recursos de gerenciamento e configuração descritos aqui estão disponíveis somente para o proprietário do projeto que o criou inicialmente. No entanto, você pode clonar o projeto em sua própria conta; assim, você se torna o proprietário e pode configurar o projeto conforme desejado.
 
 O Azure Notebooks inicia a máquina virtual subjacente sempre que você executa um notebook ou outro arquivo. O servidor automaticamente salva arquivos e desliga após 60 minutos de inatividade. Você também pode interromper o servidor a qualquer momento com o comando **Desligar** (atalho de teclado: h).
+
+## <a name="compute-tier"></a>Camada de computação
+
+A lista suspensa **Executar** no painel do projeto é onde você pode selecionar a camada de computação na qual o projeto é executado. Por padrão, os projetos são executados na camada **Computação Gratuita**, que é limitada a 4 GB de memória e 1 GB de dados para evitar abusos:
+
+![Lista suspensa de camada de computação no painel do projeto](media/project-compute-tier-list.png)
+
+Você pode ignorar essas limitações usando uma máquina virtual diferente da provisionada em uma assinatura do Azure. Você também deve instalar o Jupyter nessa máquina virtual. As imagens da Máquina Virtual de Ciência de Dados são boas opções, pois elas incluem o Jupyter por padrão.
+
+Você pode se conectar a qualquer máquina virtual do Azure configurada adequadamente usando a opção **Computação Direta** na lista suspensa. A escolha dessa opção exige um nome (que aparecerá na lista), o endereço IP e a porta da VM (normalmente 8000, a porta padrão que o JupyterHub escuta) e as credenciais da VM:
+
+![Prompt que coleta informações do servidor para a opção de Computação Direta](media/project-compute-tier-direct.png)
+
+Se as seguintes condições forem verdadeiras, a lista suspensa também mostrará instâncias de [DSVM (Máquina Virtual de Ciência de Dados)](/azure/machine-learning/data-science-virtual-machine). (Se alguma dessas condições não for atendida, você poderá se conectar com a DSVM usando a opção de Computação Direta e inserindo os valores obtidos no portal do Azure.)
+
+- Você está conectado ao Azure Notebooks com uma conta que usa o AAD (Azure Active Directory), por exemplo, uma conta corporativa.
+- Sua conta está conectada a uma assinatura do Azure.
+- Você tem uma ou mais máquinas virtuais na assinatura, com, no mínimo, acesso de Leitor, que usa a Máquina Virtual de Ciência de Dados para a imagem do Linux (Ubuntu).
+
+![Instâncias de Máquina Virtual de Ciência de Dados na lista suspensa no painel do projeto](media/project-compute-tier-dsvm.png)
+
+Quando você seleciona uma instância de DSVM, o Azure Notebooks pode solicitar as credenciais de máquina específicas que usou quando criou a VM.
+
+Para criar uma nova instância de DSVM, siga as instruções para [Criar uma VM de Ciência de Dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você *precisa* usar a imagem da **Máquina Virtual de Ciência de Dados para Linux (Ubuntu)** porque o Azure Notebooks não exibe DSVMs que as imagens do Windows ou do CentOS.
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385508"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421599"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar o uso de recursos em relação aos limites
 
@@ -34,9 +34,9 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 4. Selecione o nome da assinatura para a qual você deseja exibir as informações de uso.
 5. Em **CONFIGURAÇÕES**, selecione **Uso + cota**.
 6. É possível selecionar as seguintes opções:
-    - **Tipos de recurso**: é possível selecionar todos os tipos de recurso ou os tipos específicos de recursos que você deseja exibir.
-    - **Provedores de**: é possível selecionar todos os provedores de recursos ou selecionar **Computação**, **Rede** ou **Armazenamento**.
-    - **Locais**: é possível selecionar todos os locais do Azure ou locais específicos.
+    - **Tipos de recurso**: Selecione todos os tipos de recurso ou os tipos específicos de recursos que deseja exibir.
+    - **Provedores**: Selecione todos os provedores de recursos ou selecione **Computação**, **Rede** ou **Armazenamento**.
+    - **Localizações**: Selecione todas as localizações do Azure ou localizações específicas.
     - É possível selecionar para mostrar todos os recursos ou somente os recursos em que pelo menos um é implantado.
 
     O exemplo na figura a seguir mostra todos os recursos de rede com pelo menos um recurso implantado no Leste dos EUA:
@@ -47,7 +47,7 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 
 ## <a name="powershell"></a>PowerShell
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell no computador, precisará do módulo do PowerShell do *AzureRM* versão 6.0.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se estiver executando o PowerShell localmente, também será possível executar o `Login-AzureRmAccount` para fazer logon no Azure.
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell no computador, precisará do módulo do PowerShell do *AzureRM* versão 6.0.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se estiver executando o PowerShell localmente, também será possível executar o `Login-AzureRmAccount` para fazer logon no Azure.
 
 Exiba seu uso em relação aos limites com [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). O exemplo a seguir obtém o uso dos recursos em que pelo menos um recurso é implantado no local Leste dos EUA:
 

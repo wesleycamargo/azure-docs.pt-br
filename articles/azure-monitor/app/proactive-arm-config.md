@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020397"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853588"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerenciar regras de detecção inteligente do Application Insights usando modelos do Azure Resource Manager
 
@@ -154,6 +154,17 @@ Abaixo está uma tabela de nomes de regra de detecção inteligente assim como a
 | Potencial perda de memória detectada (visualização) | extension_memoryleakextension |
 | Potencial problema de segurança detectado (visualização) | extension_securityextensionspackage |
 | Problema de utilização de recursos detectado (visualização) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
+
+Esta seção só se aplica aos alertas clássicos de detecção inteligente e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md e a nova experiência de alertas, confira o [artigo sobre visão geral de alertas](../platform/alerts-overview.md). Atualmente, os alertas de detecção inteligente dão suporte somente à experiência de alertas clássicos. A única exceção a isso é [alertas de detecção inteligente sobre os Serviços de Nuvem do Azure](./proactive-cloud-services.md). Para controlar a notificação de alertas de detecção inteligente nos Serviços de Nuvem do Azure, use [grupos de ação](../platform/action-groups.md).
+
+* Recomendamos o uso de destinatários específicos para notificações de alertas clássicos/de detecção inteligente.
+
+* Para alertas de detecção inteligente, a opção de caixa de seleção **em massa/em grupo**, se habilitada, envia para os usuários com funções de leitor, colaborador ou proprietário na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura do recurso do Application Insights fazem parte do escopo e receberão notificações. 
+
+> [!NOTE]
+> Se você estiver usando a opção de caixa de seleção **em massa/grupo** e desabilitá-la, não poderá reverter a alteração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

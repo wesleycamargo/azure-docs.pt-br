@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 099bdc25c27e264c3c7732243068307856840409
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030143"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437785"
 ---
 # <a name="test-your-app-in-azure"></a>Teste seu aplicativo no Azure 
 Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, você usa o Visual Studio 2017 para implantar seu aplicativo no compartilhamento de arquivos para que possa executar o aplicativo na VM no laboratório.  
@@ -30,7 +30,7 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Montar o compartilhamento de arquivos em seu computador local
 1. Em seu computador local, use o script da seção [Credenciais persistentes de compartilhamento de arquivo do Azure no Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) do artigo [Usar um compartilhamento de arquivos do Azure com o Windows](../storage/files/storage-how-to-use-files-windows.md). 
-2. Em seguida, use o comando `net use` para montar o compartilhamento de arquivos em seu computador. Aqui está o comando de exemplo: especifique o nome do seu Armazenamento do Azure e o nome do compartilhamento de arquivo antes de executar o comando. 
+2. Em seguida, use o comando `net use` para montar o compartilhamento de arquivos em seu computador. Aqui está o comando de exemplo: Especifique seu nome de armazenamento do Azure e o nome do compartilhamento de arquivo antes de executar o comando. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
 
@@ -56,7 +56,7 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 
     ![Selecione a VM do laboratório](media/test-app-in-azure/select-lab-vm.png)
 2. Selecione **Conectar** na barra de ferramentas para conectar-se à VM. 
-3. [Instale o Azure PowerShell](https://azure.microsoft.com/downloads/) usando o link **Instalar Windows** na seção **Ferramentas de linha de comando**. Para outras maneiras de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Instale o Azure PowerShell](https://azure.microsoft.com/downloads/) usando o link **Instalar Windows** na seção **Ferramentas de linha de comando**. Para outras maneiras de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 4. Siga as instruções na seção [Montar o compartilhamento de arquivos](#mount-the-file-share). 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publique seu aplicativo do Visual Studio

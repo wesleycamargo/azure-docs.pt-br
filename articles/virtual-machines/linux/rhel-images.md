@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229567"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402142"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imagens do Red Hat Enterprise Linux no Azure
 Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomes e retenção.
 
 Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+
+>[!Important]
+> Atualmente, as imagens RHEL disponíveis no Azure Marketplace dão suporte aos modelos de licenciamento BYOS (Bring-Your-Own-Subscription) ou PAYG (Pagamento Conforme o Uso). Não há suporte para o [Benefício de Uso Híbrido do Azure](../windows/hybrid-use-benefit-licensing.md) a troca dinâmica entre BYOS e PAYG. O modo de licenciamento de troca exige a reimplantação da VM com base na imagem correspondente.
+
+>[!Note]
+> Em caso de problemas relacionados a imagens RHEL na Galeria do Azure Marketplace, registre um tíquete de suporte na Microsoft.
 
 ## <a name="images-available-in-the-ui"></a>Imagens disponíveis na interface do usuário
 Quando você procurar por "Red Hat" no Marketplace ou quando você cria um recurso na interface do usuário do portal do Azure, você verá um subconjunto de imagens RHEL disponíveis e os produtos relacionados do Red Hat. Você sempre pode obter o conjunto completo de imagens VM disponíveis usando a CLI/PowerShell/API do Azure.

@@ -8,84 +8,51 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/17/2019
+ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993802"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820557"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para o Visual Studio Code
 
-As etapas a seguir mostram como instalar pacotes do Python, executando **HDInsight: PySpark Interativo**.
+As etapas a seguir mostram como configurar o ambiente interativo do PySpark no VS Code.
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Configurar o ambiente interativo do PySpark no MacOS e Linux
-Se você estiver usando o **python 3.x**, precisará usar o comando **pip3** para as seguintes etapas:
+Usamos comando **python/pip** para criar o ambiente virtual em seu caminho de Página Inicial. Se você deseja usar outra versão, precisa alterar a versão padrão do comando **python/pip** manualmente. Para obter mais detalhes, confira [update-alternatives](https://linux.die.net/man/8/update-alternatives).
 
-1. Garanta que **Python** e **pip** estejam instalados.
+1. Instale [Python](https://www.python.org/) e [pip](https://pip.pypa.io/en/stable/installing/).
+   
+   + Instale o Python de [https://pip.pypa.io/en/stable/installing](https://www.python.org/).
+   + Instale o pip de [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Se não for instalado pela instalação do Python)
+   + Confirme se o Python e o pip foram instalados com êxito usando os comandos a seguir. (Opcional)
  
-    ![Versão do pip do Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Versão do pip do Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Instale o Jupyter.
-    ```
-    sudo pip install jupyter
-    ```
-   Você verá a seguinte mensagem de erro no Linux e no macOS:
+    > [!NOTE]
+    > É recomendável instalar o Python manualmente em vez de usar a versão padrão do MacOS.
 
-   ![Erro 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. Instale **virtualenv** executando o comando a seguir.
+   
+   ```
+   pip install virtualenv
+   ```
 
-3. Instale o **libkrb5-dev** (somente para Linux). A seguinte mensagem de erro poderá ser exibida:
-
-   ![Erro 2](./media/set-up-pyspark-interactive-environment/error2.png)
+3. Somente para Linux, instale os pacotes obrigatórios executando os comandos abaixo se você vir a mensagem de erro.
+   
+    ![Versão do pip do Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
-3. Instale o **sparkmagic**.
    ```
-   sudo pip install sparkmagic
-   ```
-
-4. Verifique se **ipywidgets** está instalado corretamente executando o seguinte:
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![Instalar os kernels do wrapper](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
-
-5. Instale os kernels do wrapper. Execute **pip show sparkmagic**. A saída mostra o caminho para a instalação do **sparkmagic**. 
-
-    ![sparkmagic location](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. Vá ao local e, em seguida, execute:
-
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
+   sudo apt-get install python-dev
    ```
 
-   ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Verifique o status da instalação.
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    Para os kernels disponíveis: 
-    - **python2** e **pysparkkernel** correspondem a **python 2.x**. 
-    - **python3** e **pyspark3kernel** correspondem a **python 3.x**. 
-
-8. Reinicie o VS Code e, em seguida, retorne para o editor de scripts que está executando o **HDInsight: PySpark Interativo**.
+4. Reinicie o VS Code e, em seguida, retorne para o editor de scripts que está executando o **HDInsight: PySpark Interativo**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

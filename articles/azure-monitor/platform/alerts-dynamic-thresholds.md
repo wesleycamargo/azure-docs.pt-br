@@ -8,96 +8,75 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: df75ff9a359620781743732f4f12a6d3e7ec51c6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331667"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449003"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Alertas com limites dinâmicos no Azure Monitor (visualização privada limitada)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de Métrica com Limites Dinâmicos no Azure Monitor (Versão Prévia Pública)
 
-Alertas com limites dinâmicos são um aprimoramento dos alertas de métrica do Azure no Azure Monitor, que aproveitam recursos avançados de aprendizado de máquina (ML) para aprender o comportamento do histórico de métricas para calcular automaticamente as linhas de base e usá-las como limites de alerta.
+O Alerta de Métrica com detecção de Limites Dinâmicos aproveita ML (aprendizado de máquina) avançado para aprender o comportamento histórico das métricas e identificar padrões e anomalias que indicam problemas de serviço possíveis. Ele fornece suporte tanto de uma interface do usuário simples quanto de operações em escala permitindo aos usuários configurar regras de alerta por meio da API do Azure Resource Manager de maneira totalmente automatizada.
 
-Os benefícios de usar limites dinâmicos são:
+Depois que uma regra de alerta tiver sido acionada, ela será acionada somente quando a métrica monitorada não se comportar conforme o esperado com base em seus limites personalizados.
 
-- Salve as complicações associadas com a configuração de um limite rígido predefinido conforme o monitor aprende o desempenho histórico da métrica e aplica os algoritmos de ML para determinar limites de alerta.
-- Eles só podem identificar comportamentos e alertas sazonais em desvios do comportamento sazonal esperado. Alertas de métricas com limites dinâmicos não vão ser disparados se o seu serviço estiver regularmente ocioso nos finais de semana e com picos todas as segundas-feiras. Com suporte no momento: sazonalidade por hora, diariamente e semanalmente.
-- Aprendizado contínuo do desempenho de métrica e é adaptável às alterações de métrica.
+Adoraríamos receber seus comentários; envie-os para azurealertsfeedback@microsoft.com.
 
-Os alertas baseados em limites dinâmicos estão disponíveis em todas as fontes de métricas baseadas no Azure Monitor listadas neste [artigo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#what-resources-can-i-create-near-real-time-metric-alerts-for).
+## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Por que e quando é recomendado usar o tipo de condição dinâmica?
 
-## <a name="sign-up-to-access-the-preview"></a>Inscreva-se para acessar a versão prévia
+1. **Alertas Dimensionáveis** – regras de alerta de Limites Dinâmicos podem criar limites personalizados para centenas de séries de métricas por vez. Ainda assim, oferecendo a mesma facilidade da definição de uma regra de alerta em uma única métrica. Usando a interface do usuário ou os resultados da API do Azure Resource Manager em menos regras de alerta para gerenciar. A abordagem dimensionável é especialmente útil ao lidar com dimensões de métrica ou ao aplicar a vários recursos, como todos os recursos de assinatura. Isso se converte em uma economia de tempo significativa em gerenciamento e criação de regras de alertas. [Saiba mais sobre como configurar Alertas de Métrica com Limites Dinâmicos usando modelos](alerts-metric-create-templates.md).
 
-Para testar esse recurso, [inscreva-se para a versão prévia](https://aka.ms/DynamicThresholdMetricAlerts). Como sempre, adoraríamos receber seus comentários; envie-os para [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+1. **Reconhecimento Inteligente de Padrão de Métrica** – usando nossa exclusiva tecnologia de ML, podemos detectar padrões de métrica automaticamente e nos adaptar às mudanças de métricas ao longo do tempo, o que geralmente pode incluir a sazonalidade (horária/diária/semanal). Adaptar o comportamento das métricas ao longo do tempo e emitir alertas com base em desvios do padrão alivia a carga de conhecer o limite "certo" para cada métrica. O algoritmo de ML usado em limites dinâmicos foi projetado para evitar ruído (baixa precisão) ou limites amplos (baixo recall) que não têm um padrão esperado.
 
-## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Como configurar alertas com limites dinâmicos
+1. **Configuração intuitiva** – Limites Dinâmicos permitem a configuração de alertas de métrica usando conceitos de alto nível, diminuindo a necessidade de ter conhecimento de domínio abrangente sobre a métrica.
 
-Alertas com limites dinâmicos podem ser configurados por meio de alertas no Azure Monitor
+## <a name="how-to-configure-alerts-rules-with-dynamic-thresholds"></a>Como configurar alertas com Limites Dinâmicos?
 
-![Versão prévia dos alertas](media/alerts-dynamic-thresholds/0001.png)
+Alertas com Limites Dinâmicos podem ser configurados por meio de Alertas de Métrica no Azure Monitor. [Saiba mais sobre como configurar Alertas de Métrica](alerts-metric.md).
 
-## <a name="creating-an-alert-rule-with-dynamic-thresholds"></a>Criar uma regra de alerta com limites dinâmicos
+## <a name="how-are-the-thresholds-calculated"></a>Como os limites são calculados?
 
-1. No painel de Alertas, em Monitor, selecione o botão **Nova Regra de Alerta** para criar um novo alerta no Azure.
+O Limite Dinâmico aprende continuamente os dados da série de métrica e tenta modelá-los usando um conjunto de algoritmos e métodos. Ele detecta padrões nos dados, como periodicidade (por horária/diária/semanal) e é capaz de lidar com métricas ruidosas (como memória ou CPU do computador), bem como as métricas com baixa dispersão (como taxa de erro e disponibilidade).
 
-   ![Nova regra de alerta](media/alerts-dynamic-thresholds/002.png)
+Os limites são selecionados de modo que um desvio deles indique uma anomalia no comportamento da métrica.
 
-2. A seção "criar regra" é mostrada com três partes que consiste em: _Definir condição do alerta_, _Definir detalhes do alerta_ e _Definir grupo de ação_. Comece com a seção _Definir condição de alerta_ e use o link **Selecionar destino** para especificar o destino selecionando um recurso. Depois que um recurso apropriado for escolhido, clique no botão Concluído.
+## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que a configuração de 'Sensibilidade' em Limites Dinâmicos significa?
 
-   ![Selecionar o destino](media/alerts-dynamic-thresholds/0003.png)
+A sensibilidade do limite de alerta é um conceito de alto nível que controla a quantidade de desvio do comportamento da métrica necessária para disparar um alerta.
+Essa opção não exige o conhecimento de domínio sobre a métrica, como limite estático. As opções disponíveis são:
 
-3. Em seguida, use o botão **Adicionar critérios** para exibir uma lista de opções de sinais disponíveis para o recurso e, na lista de sinais, escolha uma opção de **métrica** apropriada. (Por exemplo, porcentagem de CPU.)
+- Alto – os limites serão rígidos e próximos do padrão da série da métrica. A regra de alerta será disparada ao menor desvio, resultando em mais alertas.
+- Médio – limites menos rígidos e mais equilibrados, menos alertas que com alta sensibilidade (padrão).
+- Baixo – os limites serão flexíveis, mais afastados do padrão da série de métrica. A regra de alerta só será disparada quando houver um desvio grande, resultando em menos alertas.
 
-   ![Adicionar critérios](media/alerts-dynamic-thresholds/004.png)
+## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quais são as opções de configuração de 'Operator' em Limites Dinâmicos?
 
-4. Na seção Lógica de alerta da tela Configurar lógica de sinal, você tem a opção de alternar a condição a um tipo de Dinâmico, que gerará automaticamente os Limites dinâmicos (linhas vermelhas) junto com a métrica (linha azul).
+A regra de alerta de Limites Dinâmicos pode criar limites personalizados com base no comportamento da métrica para os limites superior e inferior usando a mesma regra de alerta.
+Você pode escolher o alerta a ser disparado em uma das três condições a seguir:
 
-   ![Dinâmico](media/alerts-dynamic-thresholds/005.png)
+- Maior que o limite superior ou menor que o limite inferior (padrão)
+- Maior que o limite superior
+- Menor do que o limite inferior.
 
-5. Os limites que aparecem no gráfico são calculados com base nos últimos sete dias de dados históricos; quando um alerta é criado, os Limites dinâmicos vão adquirir dados históricos adicionais disponíveis e continuarão aprendendo com base nos novos dados para tornar os limites mais precisos.
+## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que as configurações avançadas em Limites Dinâmicos significam?
 
-6. Configurações adicionais de Lógica de alerta:
-   - Condição – você pode escolher o alerta a ser disparado em uma das três condições a seguir:
-       - Maior que o limite superior ou menor que o limite inferior (padrão)
-       - Maior que o limite superior
-       - Menor do que o limite inferior.
-   - Agregação de tempo: Média (padrão), soma, mín., máx.
-   - Sensibilidade do alerta:
-       - Alto – mais alertas, uma vez que o alerta será disparado com o menor desvio.
-       - Médio – menos sensível que o alto, menos alertas do que com alta sensibilidade (padrão)
-       - Baixo – o limite menos sensível.
+**Períodos de Falha** – Limites Dinâmicos também permitem que você configure o "Número de violações para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo: 
 
-    ![Configurações da lógica de alerta](media/alerts-dynamic-thresholds/00007.png)
+Para disparar um alerta quando o problema for contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos, use as seguintes configurações:
 
-7. Avaliado com base em:
-    -  Qual tempo de duração; o Alerta deve procurar a condição especificada escolhendo o **Período**.
+![Configurações de períodos de falha para problema contínuo de 20 minutos, 4 vezes consecutivas em um determinado agrupamento de período de 5 minutos](media/alerts-dynamic-thresholds/0008.png)
 
-    ![Avaliado com base em](media/alerts-dynamic-thresholds/007.png)
+Para disparar um alerta quando houver uma violação de um Limite Dinâmico em 20 minutos dos últimos 30 minutos com período de 5 minutos, use as seguintes configurações:
 
-   > [!NOTE]
-   > Suporte para os valores do período: 5 minutos, 10 minutos, 30 minutos e 1 hora.
+![Configurações de períodos de falha para problema para 20 minutos dos últimos 30 minutos com o agrupamento de período de 5 minutos](media/alerts-dynamic-thresholds/0009.png)
 
-   Para reduzir o ruído de alerta gerado por picos transitórios, é recomendável usar as configurações de “Violações de número para disparar o alerta”. Essa funcionalidade permite que você só receba um alerta se o limite for violado X vezes consecutivas ou se Y atingir tempo limite dos último períodos de Z. Por exemplo: 
+**Ignorar dados antes de** – os usuários também podem definir uma data de início a partida da qual o sistema deve começar a calcular os limites. Um caso de uso típico pode ocorrer quando um recurso estava em execução em um modo de teste e agora será promovido para atender a uma carga de trabalho de produção, portanto, o comportamento de qualquer métrica durante a fase de teste deve ser desconsiderado.
 
-    Para disparar um alerta quando o problema for contínuo por 15 minutos, 3 vezes consecutivas em um determinado período de 5 minutos, use as seguintes configurações:
+## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Alteração de comportamento lenta na métrica disparará um alerta?
 
-   ![Avaliado com base em](media/alerts-dynamic-thresholds/0008.png)
+Provavelmente, não. Limites Dinâmicos são bons para detectar desvios significativos, não problemas que se desenvolvem lentamente.
 
-    Para disparar um alerta quando houver uma violação de um Limite dinâmico em 15 minutos dos últimos 30 minutos com período de 5 minutos, use as seguintes configurações:
+## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Qual é a quantidade de dados usada para visualizar e então calcular os limites?
 
-   ![Avaliado com base em](media/alerts-dynamic-thresholds/0009.png)
-
-8. No momento, os usuários podem ter alertas com critérios de limite dinâmico como um único critério.
-
-   ![Criar regra](media/alerts-dynamic-thresholds/010.png)
-
-## <a name="q--a"></a>Perguntas e respostas
-
-- P: Se a métrica mudar lentamente ao longo do tempo, vai ser disparado um alerta com limites dinâmicos?
-
-- R: Provavelmente, não. Limites dinâmicos são bons para detectar desvios significativos, e não problemas que se desenvolvem lentamente.
-
-- P: Posso configurar limites dinâmicos por meio de uma API?
-
-- R: Estamos trabalhando nisso.
+Os limites que aparecem no gráfico, antes de uma regra de alerta ser criada na métrica, são calculados com base nos últimos 10 dias de dados históricos; quando uma regra de alerta é criada, os Limites Dinâmicos vão adquirir dados históricos adicionais disponíveis e continuarão aprendendo com base nos novos dados para tornar os limites mais precisos.

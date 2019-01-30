@@ -4,18 +4,18 @@ description: Uma visão geral da Configuração do Estado de Automação do Azur
 keywords: powershell dsc, configuração de estado desejada, powershell dsc azure
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f28f642d1a5fc30055c73a4b7d60c076c83d204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250094"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427059"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da Configuração de Estado da Automação do Azure
 
@@ -45,7 +45,7 @@ Nós gerenciados com a Configuração do Estado de Automação do Azure enviam d
 
 A porta e URLs a seguir são necessárias para a Configuração do Estado (DSC) se comunicar com a Automação do Azure:
 
-* Porta: Somente a TCP 443 é necessária para acesso de Internet de saída.
+* Porta: Somente a TCP 443 é necessária para acesso à Internet de saída.
 * URL global: *.azure-automation.net
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 5fb615ff042cc5cdd3b6b8e42e4d91b161ebf445
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602368"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467308"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introdução à arquitetura de referência do IoT do Azure
 
@@ -79,7 +79,7 @@ Como a solução ingere os dados de telemetria, é importante entender como o fl
 
 O roteamento pode expedir a telemetria para um ou mais pontos de extremidade de armazenamento, processos de análise e ações. Uma solução pode combinar os estágios em ordens diferentes e processá-los com tarefas simultâneas em paralelo.
 
-A solução de Monitoramento Remoto usa o [Azure Stream Analytics](/azure/stream-analytics/) para o processamento de stream. O mecanismo de regras na solução usa as consultas do Stream Analytics para gerar alarmes e ações. Por exemplo, a solução pode usar uma consulta para identificar quando a temperatura média no compartimento de armazenamento de um caminhão em cinco minutos cai abaixo de 36 graus.
+A solução de Monitoramento Remoto usa o [Azure Stream Analytics](/azure/stream-analytics/) para o processamento de stream. O mecanismo de regras na solução usa consultas do Stream Analytics para gerar alertas e ações. Por exemplo, a solução pode usar uma consulta para identificar quando a temperatura média no compartimento de armazenamento de um caminhão em cinco minutos cai abaixo de 36 graus.
 
 ### <a name="storage"></a>Armazenamento
 

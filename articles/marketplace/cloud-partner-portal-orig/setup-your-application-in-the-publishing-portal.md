@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805001"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448476"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar seu aplicativo no Portal de Publicação
 
@@ -83,8 +83,8 @@ A maioria dos editores deixará esses campos com os valores padrão, Usuário, N
 Aqui está uma explicação para esses campos:
 
 * Nome do arquivo do seu pacote: o nome do arquivo que você criou na etapa acima ao criar o arquivo zip que é o seu pacote CRM do AppSource. No exemplo acima, é "Microsoft\_SamplePackage.zip".
-* URL do local do pacote: essa é a URL para a conta de Armazenamento do Azure que contém o nome do arquivo de pacote especificado acima. Essa é a URL criada na etapa 9 da seção acima.
-* Há mais de um pacote CRM em seu arquivo de pacote: selecione Sim **APENAS** se você estiver dando suporte a várias versões de CRM com pacotes diferentes. Para a maioria dos parceiros, isso será "Não". Se selecionar Sim, você precisará criar pacotes do AppSource para cada versão de sua solução. _Observação: isso NÃO está perguntando se você tem vários arquivos **zip**. Se tiver vários arquivos zip de solução mas apenas uma versão, você ainda deverá selecionar "Não". A ferramenta de empacotamento os reunirá automaticamente._
+* URL do local do pacote: a URL para a conta de Armazenamento do Azure que contém o nome do arquivo de pacote especificado acima. Essa é a URL criada na etapa 9 da seção acima.
+* Há mais de um pacote crm em seu arquivo de pacote: Selecione Sim **APENAS** se você estiver dando suporte a várias versões de CRM com pacotes diferentes. Para a maioria dos parceiros, isso será "Não". Se selecionar Sim, você precisará criar pacotes do AppSource para cada versão de sua solução. _Observação: isso NÃO está perguntando se você tem vários arquivos **zip**. Se tiver vários arquivos zip de solução mas apenas uma versão, você ainda deverá selecionar "Não". A ferramenta de empacotamento os reunirá automaticamente._
 
 ### <a name="crm-package-availability"></a>Disponibilidade do Pacote CRM
 
@@ -100,19 +100,19 @@ Este é um resumo da proposta de valor da sua oferta. Ele será exibido na pági
 
 ### <a name="offer-description"></a>Descrição da oferta
 
-Esta é a descrição que será exibida na página de detalhes de seu aplicativo. O comprimento máximo permitido é de 1.300 caracteres
+Esta é a descrição que será exibida na página de detalhes de seu aplicativo. Máximo permitido é de 1300 caracteres
 
 ### <a name="industries"></a>Indústrias
 
-Selecione o setor com o qual seu aplicativo é melhor alinhado. Se o aplicativo for relacionado a vários setores, você poderá deixar isso em branco.
+Selecione o setor ao qual seu aplicativo está mais alinhado. Se o aplicativo for relacionado a vários setores, você poderá deixar isso em branco.
 
 ### <a name="categories"></a>Categorias
 
-Selecione as categorias que são relevantes para seu aplicativo. Selecione um máximo de 3.
+Selecione as categorias relevantes para seu aplicativo. Selecione um máximo de 3.
 
 ### <a name="app-type"></a>Tipo de aplicativo
 
-Selecione o tipo de avaliação que seu aplicativo permitirá no AppSource. 'Gratuito' significa que seu aplicativo é gratuito. 'Avaliação' significa que os clientes podem testar seu aplicativo por um curto período no AppSource. 'Solicitar avaliação' não é uma opção compatível para aplicativos Dynamics 365 for Customer Engagement. Não selecione essa opção.
+Selecione o tipo de avaliação permitirá que seu aplicativo no AppSource. 'Gratuito' significa que seu aplicativo é gratuito. 'Avaliação' significa que os clientes podem testar seu aplicativo por um curto período no AppSource. 'Solicitar avaliação' não é uma opção compatível para aplicativos Dynamics 365 for Customer Engagement. Não selecione essa opção.
 
 ### <a name="help-link-for-your-app"></a>Link de ajuda para o aplicativo
 
@@ -120,15 +120,15 @@ Insira a URL para uma página que tem informações de ajuda relacionadas para s
 
 ### <a name="supported-countriesregions"></a>Regiões e países com suporte
 
-Este campo determina os países/regiões em que a oferta estará disponível para avaliação.
+Este campo determina os países / regiões em que sua oferta estará disponível para avaliação.
 
 ### <a name="supported-languages"></a>Idiomas com suporte
 
-Selecione os idiomas com os quais o aplicativo é compatível. Se o aplicativo der suporte a idiomas adicionais que não estejam nesta lista, continue para publicar sua oferta e nos informe pelo email [appsource@microsoft.com](mailto:appsource@microsoft.com).
+Selecione os idiomas aos quais o aplicativo dá suporte. Se o aplicativo der suporte a idiomas adicionais que não estejam nesta lista, continue para publicar sua oferta e nos informe pelo email [appsource@microsoft.com](mailto:appsource@microsoft.com).
 
 ### <a name="app-version"></a>Versão do aplicativo
 
-Inserir o número de versão do aplicativo
+Insira o número de versão para seu aplicativo
 
 ### <a name="app-release-date"></a>Data de lançamento do aplicativo
 
@@ -150,15 +150,15 @@ Essa é uma chave que será combinada com a URL da versão prévia da oferta par
 
 ### <a name="offer-logo-png-format-48x48"></a>Logotipo da oferta (formato .png, 48 x 48)
 
-Isso será exibido na página de pesquisa do aplicativo. **Somente o formato .png é permitido.** Fazer upload de uma imagem .png com resolução de 48 \* 48 px
+Isso será exibido na página de pesquisa do aplicativo. **Somente o formato .png é permitido.** Carregar uma imagem png com resolução de 48PX\*48PX
 
 ### <a name="offer-logo-png-format-216x216"></a>Logotipo da oferta (formato .png, 216 x 216)
 
-Isso será exibido na página de detalhes do aplicativo. **Somente o formato .png é permitido.** Fazer upload de uma imagem .png com resolução de 216 \* 216 px
+Isso será exibido na página de detalhes do aplicativo. **Somente o formato .png é permitido.** Carregar uma imagem png com resolução de 216PX\*216PX
 
 ### <a name="videos"></a>vídeos
 
-Você pode fazer upload de no máximo quatro vídeos. Para cada vídeo que você deseja fazer upload, você precisa preencher o nome do vídeo, a URL (somente YouTube ou Vimeo) e a miniatura para associar ao vídeo. A miniatura deve estar no formato png e deve ter tamanho de 1.280 \* 720 px. Para adicionar novos vídeos, clique no sinal de mais. Miniaturas de vídeo aparecerão na página de detalhes do aplicativo.
+Você pode carregar no máximo quatro vídeos. Para cada vídeo que você deseja fazer upload, você precisa preencher o nome do vídeo, a URL (somente YouTube ou Vimeo) e a miniatura para associar ao vídeo. A miniatura deve estar no formato png e deve ter tamanho de 1.280 \* 720 px. Para adicionar novos vídeos, clique no sinal de mais. Miniaturas de vídeo aparecerão na página de detalhes do aplicativo.
 
 ### <a name="documents"></a>Documentos
 
@@ -176,7 +176,7 @@ Insira a URL para a política de privacidade do aplicativo
 
 ### <a name="terms-of-use"></a>Termos de uso
 
-Insira os Termos de uso do aplicativo. É necessário que os clientes do AppSource aceitem esses termos antes que possam experimentar o aplicativo
+Insira os termos de uso do aplicativo. Os clientes da AppSource são obrigados a aceitar estes termos antes de poderem experimentar a sua aplicação
 
 ### <a name="support-url"></a>URL do suporte
 
@@ -184,7 +184,7 @@ Insira a URL de suporte do aplicativo.
 
 ### <a name="lead-destination"></a>Destino do cliente potencial
 
-Selecione um sistema CRM em que seu lead será armazenado. Selecione "Tabela do Azure" aqui se você tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você selecionar aqui será o local de gravação dos detalhes dos usuários finais que experimentarem seu aplicativo no AppSource (leads). Dependendo do sistema CRM que você selecionar, clique na URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos
+Selecione um sistema CRM onde você lidera será armazenado. Selecione "Tabela do Azure" aqui se tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você seleciona aqui é onde escreveremos os detalhes dos usuários finais que experimentam seu aplicativo no AppSource (leads). Dependendo do sistema CRM selecionado, clique no URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos
 
 * [Tabela do Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628827"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431717"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
@@ -58,9 +58,9 @@ Esses dados estão disponíveis por meio do [Portal do Azure](https://portal.azu
 
 Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes informações:
 
-**MFA necessária:** se a MFA será necessário para a entrada ou não. O MFA pode ser necessário devido ao MFA por usuário, acesso condicional ou outros motivos. Os valores possíveis são **Sim** ou **Não**.
+**MFA obrigatório:** Indica se o MFA é ou não obrigatório para as credenciais. O MFA pode ser necessário devido ao MFA por usuário, acesso condicional ou outros motivos. Os valores possíveis são **Sim** ou **Não**.
 
-**Resultado da MFA:** para saber mais se a MFA foi atendida ou negada:
+**Resultado do MFA:** Mais informações sobre se o MFA foi atendido ou negado:
 
 - Se a MFA tiver sido atendida, esta coluna fornecerá mais informações sobre como a MFA foi atendida.
    - Autenticação Multifator do Azure
@@ -103,7 +103,7 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
       - usuário não encontrado
       - código de verificação já usado uma vez
 
-**Método de autenticação de MFA:** o método de autenticação de usuário usado para concluir a MFA. Os valores possíveis incluem:
+**Método de autenticação do MFA:** O método de autenticação utilizado pelo usuário para concluir o MFA. Os valores possíveis incluem:
 
 - mensagem de texto
 - Notificação de aplicativo móvel
@@ -112,7 +112,7 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 - Chamada telefônica (telefone comercial)
 - Chamada telefônica (telefone de autenticação alternativo)
 
-**Detalhe de autenticação MFA:** versão limpa do número de telefone, por exemplo: + X XXXXXXXX64.
+**Detalhes de autenticação do MFA:** Versão limpa do número de telefone, por exemplo: + X XXXXXXXX64.
 
 **Acesso condicional** Encontre informações sobre as políticas de acesso condicional que afetaram a tentativa de login, incluindo:
 

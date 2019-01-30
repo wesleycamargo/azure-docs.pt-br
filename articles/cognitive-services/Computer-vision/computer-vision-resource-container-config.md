@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579780"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477627"
 ---
 # <a name="configure-recognize-text-containers"></a>Configure os contêineres de Reconhecimento de Texto
 
@@ -32,6 +32,7 @@ As definições de configuração nos contêineres do API da Pesquisa Visual Com
 * [Cobrança](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Configurações de credencial de proxy HTTP](#http-proxy-credentials-settings)
 * [Registro em log](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -116,6 +117,11 @@ A tabela a seguir descreve as definições de configuração com suporte sob o `
 | `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo de limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10.000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor é ignorado. |
 | `UseTLS` | BOOLEAN | Indica se o contêiner deve usar SSL / TLS para se comunicar com o servidor Fluentd. O valor padrão é falso. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Definições de configuração de registro em log
 
 As definições de configuração `Logging` gerenciam o suporte ao log do ASP.NET Core para o seu contêiner. Você pode usar as mesmas configurações e valores para o contêiner que puder para um aplicativo ASP.NET Core. Os seguintes provedores de registro são suportados pelos contêineres do API da Pesquisa Visual Computacional:
@@ -164,3 +170,7 @@ Por exemplo, o comando a seguir define uma montagem de ligação do Docker para 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Usar mais [Contêineres dos Serviços Cognitivos](../cognitive-services-container-support.md)

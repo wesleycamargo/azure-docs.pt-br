@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354171"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810951"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -34,23 +34,32 @@ Este artigo fornece uma visão geral detalhada, orientação e inclui diagramas 
 
 Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
 
-1. Crie um **evento ao vivo**.
-2. Crie um novo objeto de **ativo**.
-3. Crie um **LiveOutput** e use o nome do ativo que você criou.
-4. Crie uma **Política de Streaming** e uma **Chave de Conteúdo** se quiser criptografar o conteúdo com DRM.
-5. Se não estiver usando o DRM, crie um **localizador de streaming** com os tipos internos de **política de streaming**.
-6. Liste os caminhos na **política de streaming** para retornar as URLs a serem usadas (elas são determinísticas).
-7. Obtenha o nome do host para o **ponto de extremidade de streaming** do qual você deseja transmitir (verifique se o ponto de extremidade de streaming está em execução). 
-8. Combine a URL da etapa 6 com o nome do host na etapa 7 para obter a URL completa.
-9. Se quiser que o **evento ao vivo** deixe de ser visível, você precisará interromper o evento de streaming, excluindo o **localizador de streaming**.
+1. Verifique se o **StreamingEndpoint** está em execução. 
+2. Crie um **LiveEvent**. 
+  
+    Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. Isso significa que a cobrança começa assim que o Evento ao Vivo começa a ser transmitido. Você deve chamar explicitamente Parar no recurso LiveEvent para interromper o faturamento adicional. Para obter mais informações, confira [Estados e cobrança do LiveEvent](live-event-states-billing.md).
+3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL no envio do feed de contribuição.<br/>Confira [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md).
+4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
+5. Crie um novo objeto de **ativo**.
+6. Crie um **LiveOutput** e use o nome do ativo que você criou.
 
-Para obter mais informações, consulte um [tutorial de streaming ao vivo](stream-live-tutorial-with-api.md) que se baseia o [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplo.
+     O **LiveOutput** arquivará a transmissão no **ativo**.
+7. Crie um **StreamingLocator** com os tipos de **StreamingPolicy** internos.
+
+    Se você pretende criptografar seu conteúdo, reveja a [Visão geral da proteção de conteúdo](content-protection-overview.md).
+8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas (elas são determinísticas).
+9. Obtenha o nome do host para o **ponto de extremidade de streaming** de onde você deseja transmitir.
+10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
+11. Se quiser que o **LiveEvent** deixe de ser visível, você precisará interromper o evento de streaming e excluir o **StreamingLocator**.
+
+Para obter mais informações, confira o [Tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md).
 
 ## <a name="overview-of-main-components"></a>Visão geral dos componentes principais
 
 Para fornecer transmissões on-demand ou ao vivo com os Serviços de Mídia do Azure, você precisa ter pelo menos um [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando sua conta de Serviços de Mídia é criada, um StreamingEndpoint **padrão** é adicionado à sua conta no estado **Parado**. Você precisa iniciar o StreamingEndpoint do qual deseja transmitir seu conteúdo para seus espectadores. Você pode usar o **StreamingEndpoint** padrão ou criar outro **StreamingEndpoint** personalizado com as configurações de CDN e configuração desejadas. Você pode decidir ativar vários StreamingEndpoints, cada um segmentando um CDN diferente e fornecendo um nome de host exclusivo para a entrega de conteúdo. 
 
-Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e processamento dos feeds de vídeo ao vivo. Quando você cria um LiveEvent, é criado um terminal de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4). Para o protocolo de ingestão Smooth Streaming, os esquemas de URL com suporte são `http://` ou `https://`. Para o protocolo de ingestão RTMP, os esquemas de URL com suporte são `rtmp://` ou `rtmps://`. Para obter mais informações, consulte [Codificadores de transmissão ao vivo recomendados](recommended-on-premises-live-encoders.md).
+Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e processamento dos feeds de vídeo ao vivo. Quando você cria um LiveEvent, é criado um terminal de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4). Para o protocolo de ingestão Smooth Streaming, os esquemas de URL com suporte são `http://` ou `https://`. Para o protocolo de ingestão RTMP, os esquemas de URL com suporte são `rtmp://` ou `rtmps://`. Para obter mais informações, consulte [Codificadores de transmissão ao vivo recomendados](recommended-on-premises-live-encoders.md).<br/>
+Ao criar um **LiveEvent**, você poderá especificar os endereços IP permitidos em um dos seguintes formatos: endereço IPv4 com quatro números e intervalo de endereços CIDR.
 
 Quando o **LiveEvent** começar a receber o feed de contribuição, você poderá usar o ponto de extremidade de visualização (URL de visualização para visualizar e validar que está recebendo a transmissão ao vivo antes de publicar mais. Depois de verificar se o fluxo de visualização é bom, você pode usar o LiveEvent para disponibilizar a transmissão ao vivo para entrega por meio de um ou mais **StreamingEndpoints** (pré-criados). Para conseguir isso, crie uma nova [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) no **LiveEvent**. 
 
@@ -62,14 +71,7 @@ Com os Serviços de Mídia, você pode entregar seu conteúdo criptografado dina
 
 Se desejar, você também pode aplicar a Filtragem dinâmica, que pode ser usada para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas aos jogadores. Para obter mais informações, consulte [Filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>Novos recursos para transmissão ao vivo na v3
-
-Com as APIs v3 dos serviços de mídia, você se beneficia dos novos recursos a seguir:
-
-- Novo modo de baixa latência. Para obter mais informações, consulte [latência](live-event-latency.md).
-- Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
-- Ingestão segura de RTMPS.<br/>Quando você cria um LiveEvent, obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
-- Você pode transmitir eventos ao vivo de até 24 horas longa quando usar os Serviços de Mídia do Microsoft Azure para transcodificação uma contribuição de taxa de bits única de feed em um fluxo de saída que tem várias taxas de bits. 
+Para obter informações sobre novos recursos de transmissão ao vivo na v3, confira [Orientação de migração para mudar dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md).
 
 ## <a name="liveevent-types"></a>Tipos de LiveEvent
 
@@ -108,7 +110,7 @@ Uma [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite 
 > [!NOTE]
 > **LiveOutput** s inicie a criação e pare quando for excluído. Quando exclui o **LiveOutput**, você não está excluindo o **ativo** subjacente e o conteúdo no ativo. 
 >
-> Se você tiver publicado **localizadores de streaming** no ativo para o **LiveOutput**, o evento (até a duração da janela de DVR) continuará a ser exibido até a hora de término do **localizador de streaming** ou até você excluir o localizador, o que ocorrer primeiro.   
+> Caso tenha publicado o ativo **LiveOutput** usando um **StreamingLocator**, o **LiveEvent** (até a duração da janela DVR) continuará visível até a expiração ou exclusão do **StreamingLocator**, o que ocorrer primeiro.
 
 Para obter mais informações, consulte [Usando o DVR na nuvem](live-event-cloud-dvr.md).
 

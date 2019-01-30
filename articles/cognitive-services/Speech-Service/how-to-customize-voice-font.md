@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867573"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413695"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar fontes de voz personalizadas
 
-A personalização de voz TTS (Conversão de Texto em Fala) permite que você crie uma voz exclusiva e reconhecível para sua marca: uma: *fonte de voz.* 
+A personalização de voz TTS (Conversão de Texto em Fala) permite que você crie uma voz exclusiva e reconhecível para sua marca: uma: *fonte de voz.*
 
-Para criar a fonte de voz, você faz uma gravação em estúdio e carrega os scripts associados como os dados de treinamento. Em seguida, o serviço cria um modelo de voz exclusivo ajustado para a gravação. É possível usar essa fonte de voz para a sintetização de voz. 
+Para criar a fonte de voz, você faz uma gravação em estúdio e carrega os scripts associados como os dados de treinamento. Em seguida, o serviço cria um modelo de voz exclusivo ajustado para a gravação. É possível usar essa fonte de voz para a sintetização de voz.
 
 Você pode começar com uma pequena quantidade de dados para uma prova de conceito. Mas quanto mais dados você fornecer, mais natural e profissional será a voz.
 
@@ -49,7 +49,7 @@ Um conjunto de dados de treinamento de voz consiste em um conjunto de arquivos d
 
 Você pode preparar esses arquivos de duas maneiras. Escreva um script e leia-o para o ator de voz ou use áudio disponível publicamente e transcreva-o para texto. No último caso, edite os erros de fluência dos arquivos de áudio, como "um" e outros sons de preenchimento, gagueira, palavras murmuradas ou pronunciamentos incorretos.
 
-Para produzir uma fonte de voz boa, faça as gravações em uma sala silenciosa com um microfone de alta qualidade. Volume consistente, velocidade de fala, densidade de fala e expressivos maneirismos da fala são essenciais para compilar uma excelente voz digital. 
+Para produzir uma fonte de voz boa, faça as gravações em uma sala silenciosa com um microfone de alta qualidade. Volume consistente, velocidade de fala, densidade de fala e expressivos maneirismos da fala são essenciais para compilar uma excelente voz digital.
 
 Para criar uma voz para uso de produção, é recomendável utilizar um estúdio de gravação profissional e um talento de voz. Para mais informações, consulte [Como gravar amostras de voz para uma voz personalizada](record-custom-voice-samples.md).
 
@@ -102,30 +102,30 @@ Após preparar o arquivo de áudio e transcrições, carregue os arquivos por me
 
     A tabela **Minha voz** será exibida. Estará vazia se você ainda não carregou nenhum conjunto de dados de voz.
 
-3. Para abrir a página e fazer upload de um novo conjunto de dados, selecione **Importar dados**. 
+3. Para abrir a página e fazer upload de um novo conjunto de dados, selecione **Importar dados**.
 
     ![Importar dados de voz](media/custom-voice/import-voice-data.png)
 
-4. Digite um nome e uma descrição nos campos fornecidos. 
+4. Digite um nome e uma descrição nos campos fornecidos.
 
-5. Selecione o local para as fontes de voz. Verifique se as informações de localidade correspondem ao idioma dos dados de gravação e dos scripts. 
+5. Selecione o local para as fontes de voz. Verifique se as informações de localidade correspondem ao idioma dos dados de gravação e dos scripts.
 
 6. Selecione o sexo do falante cuja voz está usando.
 
-7. Selecione o script e os arquivos de áudio para upload. 
+7. Selecione o script e os arquivos de áudio para upload.
 
 8. Selecione **Importar** para carregar os dados. Para conjuntos de dados maiores, a importação pode demorar vários minutos.
 
 > [!NOTE]
 > Usuários de assinatura gratuita podem fazer upload de dois conjuntos de dados de cada vez. Usuários de assinatura padrão podem fazer upload de cinco conjuntos de dados simultaneamente. Se o limite for alcançado, aguarde até que pelo menos um dos conjuntos de dados conclua a importação. Em seguida, tente novamente.
 
-Quando o upload estiver concluído, a tabela **Meus dados de voz** será exibida novamente. Você deverá ver uma entrada que corresponda ao conjunto de dados cujo upload acabou de fazer. 
+Quando o upload estiver concluído, a tabela **Meus dados de voz** será exibida novamente. Você deverá ver uma entrada que corresponda ao conjunto de dados cujo upload acabou de fazer.
 
 Os conjuntos de dados serão validados automaticamente após o upload. A validação de dados inclui uma série de verificações nos arquivos de áudio para verificar o formato, o tamanho e a taxa de amostragem do arquivo. As verificações nos arquivos de transcrição verificam o formato do arquivo e fazem alguma normalização de texto. Os enunciados são transcritos usando o reconhecimento de fala. Em seguida, o texto resultante é comparado com a transcrição fornecida.
 
 ![Meus Dados de Voz](media/custom-voice/my-voice-data.png)
 
-A tabela a seguir mostra os estados de processamento dos conjuntos de dados importados: 
+A tabela a seguir mostra os estados de processamento dos conjuntos de dados importados:
 
 | Estado | Significado
 | ----- | -------
@@ -143,19 +143,19 @@ Considere regravar quaisquer enunciados com pontuações baixas de pronúncia ou
 
 ## <a name="build-your-voice-font"></a>Compilar a fonte de voz
 
-Depois da validação do conjunto de dados, será possível utilizá-lo para criar a fonte de voz personalizada. 
+Depois da validação do conjunto de dados, será possível utilizá-lo para criar a fonte de voz personalizada.
 
 1.  No menu suspenso **Voz personalizada**, escolha **Modelos**.
- 
+
     A tabela **Minhas fontes de voz** é exibida, listando todas as fontes de voz personalizadas já criadas.
 
-1. Sob o título da tabela, selecione **Criar vozes**. 
+1. Sob o título da tabela, selecione **Criar vozes**.
 
     A página para criar uma fonte de voz é exibida. A localidade atual é mostrada na primeira linha da tabela. Altere a localidade para criar uma voz em outro idioma. A localidade deve ser igual à dos conjuntos de dados que estão sendo usados para criar a voz.
 
-1. Assim como fez durante o upload do conjunto de dados, insira um nome e uma descrição para ajudá-lo a identificar esse modelo. 
+1. Assim como fez durante o upload do conjunto de dados, insira um nome e uma descrição para ajudá-lo a identificar esse modelo.
 
-    Escolha um nome com cuidado. O nome que você inserir aqui será o nome utilizado para especificar a voz na solicitação de síntese de fala como parte da entrada SSML. Apenas letras, números e alguns caracteres de pontuação, como '-', '_' e '(', ')' são permitidos.
+    Escolha um nome com cuidado. O nome que você inserir aqui será o nome utilizado para especificar a voz na solicitação de síntese de fala como parte da entrada SSML. Apenas letras, números e alguns caracteres de pontuação, como `-`, `_` e `(', ')`, são permitidos.
 
     Um uso comum do campo **Descrição** é registrar os nomes dos conjuntos de dados que foram usados para criar o modelo.
 
@@ -167,7 +167,7 @@ Depois da validação do conjunto de dados, será possível utilizá-lo para cri
 
     ![Criar modelo](media/custom-voice/create-model.png)
 
-O novo modelo aparece na tabela **Minhas fontes de voz**. 
+O novo modelo aparece na tabela **Minhas fontes de voz**.
 
 ![Minhas Fontes de Voz](media/custom-voice/my-voice-fonts.png)
 
@@ -212,7 +212,7 @@ Quando o status da implantação for **Com Êxito**, o ponto de extremidade da f
 
 O teste online do ponto de extremidade também está disponível no portal de voz personalizada. Para testar o ponto de extremidade, escolha **Teste de pontos de extremidade** no menu suspenso **Voz personalizada**. A página de teste do ponto de extremidade é exibida. Escolha uma voz personalizada implantada e digite o texto a ser falado (em texto sem formatação ou em formato SSML) na caixa de texto.
 
-> [!NOTE] 
+> [!NOTE]
 > Ao usar SSML, a marca `<voice>` deve especificar o nome que você forneceu à voz personalizada ao criá-la. Se você enviar texto sem formatação, a voz personalizada será sempre usada.
 
 Para ouvir o texto falado na fonte de voz personalizada, selecione **Reproduzir**.
@@ -223,10 +223,18 @@ O ponto de extremidade personalizado é funcionalmente idêntico ao ponto de ext
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-A personalização de voz está disponível para inglês dos EUA (en-US), chinês do continente (zh-CN) e italiano (it-IT).
+A personalização de voz está disponível nestes idiomas:
+
+| Linguagem | Local |
+|----------|--------|
+| Chinês (continente) | zh-CN |
+| Inglês (EUA) | en-US |
+| Francês | fr-FR |
+| Alemão | de-DE |
+| Italiano | it-IT |
 
 > [!NOTE]
-> O treinamento de voz italiano começa com um conjunto de dados de mais de 2.000 enunciados. Modelos bilíngues chinês-inglês também são suportados com um conjunto de dados de mais de 2.000 enunciados.
+> O treinamento de voz em francês, alemão e italiano começa com um conjunto de dados com mais de 2.000 enunciados. Modelos bilíngues chinês-inglês também são suportados com um conjunto de dados de mais de 2.000 enunciados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

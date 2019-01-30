@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.date: 01/22/2019
+ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584489"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450874"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -39,7 +39,8 @@ A Instância Gerenciada do Banco de Dados SQL do Azure pode ser implantada em du
 | Hardware | Processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, SSD ligado vCore = 1 PP (núcleo físico) | Intel E5-2673 v4 (Broadwell) 2,3 GHz, SSD eNVM rápido, vCore = 1 LP (hyper-thread) |
 | Computação | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memória | 7 GB por vCore | 5.1 GB por vCore |
-| Armazenamento máximo (comercialmente crítico) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+| Armazenamento máximo (Uso Geral) |  8 TB | 1 TB |
+| Armazenamento máximo (comercialmente crítico) | 8 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 
@@ -53,8 +54,7 @@ A Instância Gerenciada tem dois níveis de serviço - Uso Geral e Comercialment
 | Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máximo de bancos de dados por instância | 100 | 100 |
 | Arquivos de banco de dados máximo por instância | Até 280 | 32.767 arquivos por banco de dados |
-| Dados/Log IOPS (aproximado) | 500-7500 por arquivo<br/>\*[Depende do tamanho do arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 por vCore) |
-| Instância de log de taxa de transferência | 22MB/s por instância | 3MB/s por vCore<br/>Máximo de 48MB/s |
+| Dados/Log IOPS (aproximado) | 500-7500 por arquivo<br/>\*[Depende do tamanho do arquivo] (https://docs.microsoft.com/azure/virtual-machines ce taxa de transferência de Log | 22MB/s por instância | 3MB/s por vCore<br/>Máximo de 48MB/s |
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Depende do tamanho do arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s por vCore |
 | Latência de E/S (aproximada) | 5-10 ms | 1-2 ms |
 | Tamanho máximo de TempDB | 192-1920 GB (24 GB por vCore) | Não há restrições - limitadas pelo tamanho de armazenamento de instância máxima |

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345089"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462192"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução Monitoramento Remoto
 
@@ -77,7 +77,7 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
 
 ## <a name="customize-the-layout"></a>Personalizar o layout
 
-Cada página na solução Monitoramento Remoto é composta de um conjunto de controles, conhecido como *painéis* no código-fonte. A página **Dashboard** é composta de cinco painéis: Visão geral, Mapa, Alarmes, Telemetria e Analytics. Você pode encontrar o código-fonte que define cada página e seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) do GitHub. Por exemplo, o código que define a página **Painel**, seu layout e os painéis na página está localizado na pasta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Cada página na solução Monitoramento Remoto é composta de um conjunto de controles, conhecido como *painéis* no código-fonte. A página **Painel** é composta por cinco painéis: Visão Geral, Mapa, Alertas, Telemetria e Análise. Você pode encontrar o código-fonte que define cada página e seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) do GitHub. Por exemplo, o código que define a página **Painel**, seu layout e os painéis na página está localizado na pasta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Como os painéis gerenciam seus próprios layout e dimensionamento, você pode modificar facilmente o layout de uma página. Faça as seguintes alterações no elemento **PageContent** no arquivo `src/components/pages/dashboard/dashboard.js` para:
 
@@ -365,7 +365,7 @@ A página **Painel** exibe KPIs no painel **Analytics**. Esses KPIs são calcula
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

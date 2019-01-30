@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190800"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411672"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -107,7 +107,7 @@ Para SSMS, SSDT e cadeias de conexão no PowerShell, aplicativos do Azure Functi
 
 **Problema:** usuários obtêm o erro **não é possível localizar o servidor '\<nome do servidor >' instância no modo de conexão 'ReadOnly'.**
 
-**Solução:** ao selecionar o **separar o servidor de processamento do pool de consulta** opção conexões de cliente usando a cadeia de conexão padrão (sem :rw) são redirecionadas para réplicas de pool de consulta. Se as réplicas no pool de consulta estiverem ainda online porque a sincronização ainda não foi concluída, as conexões de cliente redirecionada podem falhar. Para evitar conexões com falha, escolha não separar o servidor de processamento do pool de consulta até que uma operação de expansão e sincronização sejam concluídas. Você pode usar as métricas de memória e QPU para monitorar o status de sincronização.
+**Solução:** ao selecionar o **separar o servidor de processamento do pool de consulta** opção conexões de cliente usando a cadeia de conexão padrão (sem :rw) são redirecionadas para réplicas de pool de consulta. Se as réplicas no pool de consulta estiverem ainda online porque a sincronização ainda não foi concluída, as conexões de cliente redirecionada podem falhar. Para evitar conexões com falha, deve haver, pelo menos, dois servidores no pool de consulta ao executar uma sincronização. Cada servidor é sincronizado individualmente, enquanto os outros permanecem online. Se você optar por não ter o servidor de processamento no pool de consulta durante o processamento, você poderá optar por removê-lo do pool para processamento e, em seguida, adicioná-lo novamente ao pool após a conclusão do processamento, mas antes da sincronização. Use as métricas Memória e QPU para monitorar o status de sincronização.
 
 ## <a name="related-information"></a>Informações relacionadas
 

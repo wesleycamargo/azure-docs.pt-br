@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242408"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427161"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -43,7 +43,7 @@ Para configurar a autenticação baseada em certificado, as instruções a segui
 - O dispositivo do cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.
 
-## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
+## <a name="step-1-select-your-device-platform"></a>Etapa 1: Selecionar a plataforma do dispositivo
 
 Para a plataforma do dispositivo sob sua responsabilidade, a primeira etapa é examinar o seguinte:
 
@@ -55,7 +55,7 @@ As informações relacionadas existentes para as seguintes plataformas de dispos
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>Etapa 2: Configuração de autoridades de certificação
+## <a name="step-2-configure-the-certificate-authorities"></a>Etapa 2: Configurar autoridades de certificação
 
 Para configurar as autoridades de certificação no Azure Active Directory, carregue o seguinte para cada autoridade de certificação:
 
@@ -133,7 +133,7 @@ Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-Az
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>Etapa 3: configurar a revogação
+## <a name="step-3-configure-revocation"></a>Etapa 3: Configurar a revogação
 
 Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade**Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
 
@@ -161,7 +161,7 @@ As etapas a seguir descrevem o processo para atualizar e invalidar o token de au
 
 A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser).
 
-## <a name="step-4-test-your-configuration"></a>Etapa 4: testar a sua configuração
+## <a name="step-4-test-your-configuration"></a>Etapa 4: Testar a configuração
 
 ### <a name="testing-your-certificate"></a>Teste do seu certificado
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: afb28488fc47f018b6d192eb1b65a54499ac8ff9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 868af1903623f612a7a987c1247bd138bcf26002
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666356"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430527"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -63,7 +63,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
    ![Nuvem](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
    ![Nuvem](./media/howto-mfa-adfs/trustedip3.png)
-6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
+6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo:  InsideCorpNet.
 7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione **Dentro da rede corporativa**.
    ![Nuvem](./media/howto-mfa-adfs/trustedip4.png)
 8. Clique em **Concluir**.

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045289"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402312"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 
@@ -59,7 +59,7 @@ Uma expressão de U-SQL é uma expressão de C# combinada com operações lógic
   FROM @a;    
 ```
 
-O trecho a seguir analisa uma cadeia de caracteres de um valor DateTime em uma instrução DECLARE.
+O snippet a seguir analisa uma cadeia de caracteres de um valor DateTime em uma instrução DECLARE.
 
 ```
 DECLARE @d = DateTime.Parse("2016/01/01");
@@ -135,7 +135,7 @@ Cada arquivo de recurso e DLL de assembly carregado, como um tempo de execução
 
 Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar da versão 7 e da versão 8 da biblioteca NewtonSoft Json.Net, será preciso registrá-las em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
 
-## <a name="use-user-defined-functions-udf"></a>Funções definidas pelo usuário: UDF
+## <a name="use-user-defined-functions-udf"></a>Usar funções definidas pelo usuário: UDF
 As funções definidas pelo usuário ou UDF do U-SQL são rotinas de programação que aceitam parâmetros, executam uma ação (mo um cálculo complexo)e retornam o resultado dessa ação como um valor. O valor de retorno da UDF pode ser apenas um único escalar. A UDF do U-SQL pode ser chamado no script base U-SQL como qualquer outra função escalar C#.
 
 Recomendamos que você inicialize as funções do U-SQL definidas pelo usuário como **públicas** e **estáticas**.
@@ -426,7 +426,7 @@ O arquivo de saída é o seguinte:
 
 Esse exemplo demonstra um cenário de caso de uso mais complicado em que usamos uma variável global dentro da seção code-behind aplicada a todo um conjunto de linhas da memória.
 
-## <a name="use-user-defined-types-udt"></a>Tipos de CLR definidos pelo usuário: UDT
+## <a name="use-user-defined-types-udt"></a>Usar tipos definidos pelo usuário: UDT
 Os tipos definidos pelo usuário, ou UDT, são outro recurso de programação do U-SQL. O UDT do U-SQL atua como um tipo definido pelo usuário regular de C#. C# é uma linguagem fortemente tipada que permite o uso de tipos definidos pelo usuário personalizados e internos.
 
 O U-SQL não pode implicitamente serializar ou desserializar UDTs arbitrários quando o UDT é passado entre os vértices em conjuntos de linhas. Isso significa que o usuário precisa fornecer um formatador explícito usando a interface IFormatter. Isso fornece ao U-SQL métodos de serialização e desserialização para o UDT.
@@ -504,7 +504,7 @@ O construtor da classe:
 
 * SqlUserDefinedTypeAttribute(type formatter)
 
-* Digite o parâmetro formatter: Required para definir um formatador UDT, mais especificamente, o tipo da interface `IFormatter` deve ser passado aqui.
+* Formatador de tipo: Parâmetro necessário para definir um formatador de UDT – especificamente, o tipo da interface `IFormatter` precisa ser passado aqui.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -529,17 +529,17 @@ A interface `IFormatter` serializa e desserializa um grafo de objeto com o tipo 
 
 \<typeparam name="T"&gt;O tipo raiz para serialização e desserialização do grafo de objeto.
 
-* **Desserializar**: desserializa os dados no fluxo fornecido e reconstitui o grafo de objetos.
+* **Desserializar**: Desserializa os dados no fluxo fornecido e reconstitui o grafo de objetos.
 
-* **Serializar**: serializa um objeto ou grafo de objetos com determinada raiz para o fluxo fornecido.
+* **Serializar**: Serializa um objeto ou um grafo de objetos com a raiz especificada para o fluxo fornecido.
 
-Instância `MyType`: a instância do tipo.  
-Gravador `IColumnWriter`/leitor `IColumnReader`: o fluxo da coluna subjacente.  
-Contexto `ISerializationContext`: enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou destino para o fluxo durante a serialização.
+Instância `MyType`: Instância do tipo.  
+Gravador `IColumnWriter`/leitor `IColumnReader`: O fluxo da coluna subjacente.  
+Contexto `ISerializationContext`: Enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
 
-* **Intermediário**: especifica que o contexto de origem ou de destino não é um armazenamento persistente.
+* **Intermediário**: Especifica que o contexto de origem ou de destino não é um repositório persistente.
 
-* **Persistência**: especifica que o contexto de origem ou de destino é um armazenamento persistente.
+* **Persistência**: Especifica que o contexto de origem ou de destino é um repositório persistente.
 
 Como um tipo C# regular, uma definição de UDT do U-SQL pode incluir substituições para operadores como +/==/!=. Ele também pode incluir métodos estáticos. Por exemplo, se formos usar esse UDT como um parâmetro para uma função agregada MIN do U-SQL, teremos que definir a substituição do operador <.
 
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>Use agregações definidas pelo usuário: UDAGG
+## <a name="use-user-defined-aggregates-udagg"></a>Usar agregações definidas pelo usuário: UDAGG
 As agregações definidas pelo usuário são funções relacionadas à agregação que não são enviadas para uso imediato com o U-SQL. O exemplo pode ser uma agregação para executar um cálculo matemático personalizado, concatenações de cadeia de caracteres ou manipulações com cadeias de caracteres, etc.
 
 A definição de classe base da agregação definida pelo usuário é a seguinte:
@@ -945,9 +945,9 @@ Para declarar tipos de dados de entrada e saída corretos, use a seguinte defini
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1: primeiro parâmetro para accumulate
-* T2: primeiro parâmetro para accumulate
-* TResult: tipo de retorno de terminate
+* T1: Primeiro parâmetro para accumulate
+* T2: Primeiro parâmetro para accumulate
+* TResult: Tipo de retorno de terminate
 
 Por exemplo: 
 
@@ -1067,11 +1067,11 @@ Geralmente, o UDO é chamado explicitamente no script U-SQL como parte das segui
 ## <a name="use-user-defined-extractors"></a>Usar extratores definidos pelo usuário
 O U-SQL permite importar dados externos usando uma instrução EXTRACT. Uma instrução EXTRACT pode usar extratores de UDO internos:  
 
-* *Extractors.Text()*: fornece extração dos arquivos de texto delimitados de diferentes codificações.
+* *Extractors.Text()*: Fornece a extração de arquivos de texto delimitados de diferentes codificações.
 
-* *Extractors.Csv()*: fornece extração de arquivos CSV (valores separados por vírgula) de diferentes codificações.
+* *Extractors.Csv()*: Fornece a extração de arquivos CSV (valores separados por vírgula) de diferentes codificações.
 
-* *Extractors.Tsv()*: fornece extração de arquivos TSV (valores separados por tabulação) de diferentes codificações.
+* *Extractors.Tsv()*: Fornece a extração de arquivos TSV (Valores Separados por Tabulação) de diferentes codificações.
 
 Pode ser útil desenvolver um extrator personalizado. Isso pode ser útil durante a importação de dados para executar uma das seguintes tarefas:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Usar outputters definidos pelo usuário
 O outputter definido pelo usuário é outro UDO do U-SQL que permite estender uma funcionalidade interna do U-SQL. Assim como o extrator, há vários outputters internos.
 
-* *Outputters.Text()*: grava dados em arquivos de texto delimitados de codificações diferentes.
-* *Outputters.Csv()*: grava dados em arquivos CSV (valores separados por vírgula) de codificações diferentes.
-* *Outputters.Tsv()*: grava dados em arquivos TSV (valores separados por tabulação) de codificações diferentes.
+* *Outputters.Text()*: Grava dados em arquivos de texto delimitados de diferentes codificações.
+* *Outputters.Csv()*: Grava dados em arquivos CSV (valores separados por vírgula) de diferentes codificações.
+* *Outputters.Tsv()*: Grava dados em arquivos TSV (Valores Separados por Tabulação) de diferentes codificações.
 
 O outputter personalizado permite gravar dados em um formato definido personalizado. Isso pode ser útil para as seguintes tarefas:
 
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 Essa abordagem permite que criar um outputter flexível para qualquer esquema de metadados.
 
-Os dados de saída são gravados em um arquivo usando `System.IO.StreamWriter`. O parâmetro de fluxo é definido como `output.BaseStrea` como parte do `IUnstructuredWriter output`.
+Os dados de saída são gravados em um arquivo usando `System.IO.StreamWriter`. O parâmetro de fluxo é definido como `output.BaseStream` como parte do `IUnstructuredWriter output`.
 
 Observe que é importante liberar o buffer de dados para o arquivo depois de cada iteração de linha. Além disso, o objeto `StreamWriter` deve ser usado com o atributo Disposable habilitado (padrão) e a palavra-chave **using**:
 
@@ -1775,7 +1775,7 @@ Nesse cenário de caso de uso, o aplicador definido pelo usuário atua como um a
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 

@@ -3,19 +3,19 @@ title: Criar uma estratégia de gerenciamento de controle de acesso resiliente c
 description: Este documento fornece diretrizes sobre as estratégias que uma organização deve adotar para fornecer resiliência, visando reduzir o risco de bloqueio durante interrupções imprevistas
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101914"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452540"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -119,30 +119,48 @@ Uma política de acesso condicional de contingência é uma **política desabili
 * Use as políticas que restringem o acesso dentro dos aplicativos se um determinado nível de autenticação não for atingido, em vez de simplesmente fazer fallback para acesso completo. Por exemplo: 
   * Configure uma política de backup que envia a declaração de sessão restrita para Exchange e SharePoint.
   * Se sua organização usa o Microsoft Cloud App Security, considere fazer fallback para uma política que envolve o MCAS e, então, o MCAS permite acesso somente leitura, mas não uploads.
+* Dê um nome às suas políticas para garantir que seja fácil encontrá-las durante uma interrupção. Inclua os seguintes elementos no nome da política:
+  * Um *número de rótulo* para a política.
+  * Texto a ser exibido, essa política é somente para emergências. Por exemplo:  **HABILITAR EM EMERGÊNCIA**
+  * A *interrupção* à qual ela se aplica. Por exemplo:  **Durante Interrupção da MFA**
+  * Um *número de sequência* para mostrar a ordem em que você deve ativar as políticas.
+  * Os *aplicativos* aos quais ela se aplica.
+  * Os *controles* aos quais ela se aplica.
+  * As *condições* às quais ela se aplica.
+  
+Esse padrão de nomenclatura para as políticas de contingência será o seguinte: 
 
-O exemplo a seguir: **Exemplo A - política de CA de contingência para restaurar o acesso aos aplicativos de colaboração críticos**, é uma contingência corporativa típica. Nesse cenário, a organização normalmente requer MFA para todos os acessos do Exchange Online e SharePoint Online e a interrupção, nesse caso, é que o provedor de MFA para o cliente tem uma interrupção (quer seja a MFA do Azure, provedor MFA local ou a MFA de terceiros). Essa política mitiga essa interrupção, permitindo que os usuários de destino específicos acessem esses aplicativos em dispositivos confiáveis do Windows somente quando eles estão acessando o aplicativo a partir da rede corporativa confiável deles. Ela também exclui contas de emergência e administradores principais nessas restrições. Este exemplo exigirá um local de rede nomeado **CorpNetwork** e um grupo de segurança **ContingencyAccess** com os usuários de destino, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para fornecer o acesso exigido.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+O exemplo a seguir: **Exemplo A - política de CA de contingência para restaurar o acesso aos aplicativos de colaboração críticos**, é uma contingência corporativa típica. Nesse cenário, a organização normalmente requer MFA para todos os acessos do Exchange Online e SharePoint Online e a interrupção, nesse caso, é que o provedor de MFA para o cliente tem uma interrupção (quer seja a MFA do Azure, provedor MFA local ou a MFA de terceiros). Essa política mitiga essa interrupção, permitindo que os usuários de destino específicos acessem esses aplicativos em dispositivos confiáveis do Windows somente quando eles estão acessando o aplicativo a partir da rede corporativa confiável deles. Ela também exclui contas de emergência e administradores principais nessas restrições. Assim, os usuários de destino terão acesso ao Exchange Online e ao SharePoint Online, enquanto outros usuários ainda não terão acesso a aplicativos devido à interrupção. Este exemplo exigirá um local de rede nomeado **CorpNetwork** e um grupo de segurança **ContingencyAccess** com os usuários de destino, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para fornecer o acesso exigido. 
 
 **Exemplo A - políticas de CA de contingência para restaurar o acesso aos aplicativos de colaboração críticos:**
 
 * Política 1: Exigir dispositivos ingressados no domínio para Exchange e SharePoint
+  * Nome: EM001 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [1/4] – Exchange SharePoint – Exigir ingresso no Azure AD Híbrido
   * Usuários e Grupos: Incluir ContingencyAccess. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Qualquer
   * Controles de Concessão: Requer um dispositivo ingressado no domínio
   * Estado: Desabilitado
 * Política 2: Bloquear as plataformas que não sejam Windows
+  * Nome: EM002 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [2/4] – Exchange SharePoint – Bloquear acesso, exceto do Windows
   * Usuários e Grupos: Incluir todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Plataforma de dispositivo inclui todas as plataformas, excluir Windows
   * Controles de Concessão: Bloco
   * Estado: Desabilitado
 * Política 3: Bloquear redes que não sejam CorpNetwork
+  * Nome: EM003 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [3/4] – Exchange SharePoint – Bloquear acesso, exceto da rede corporativa
   * Usuários e Grupos: Incluir todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Locais incluem qualquer local, excluir CorpNetwork
   * Controles de Concessão: Bloco
   * Estado: Desabilitado
 * Política 4: Bloquear EAS explicitamente
+  * Nome: EM004 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [4/4] – Exchange – Bloquear EAS para todos os usuários
   * Usuários e Grupos: Incluir todos os usuários
   * Aplicativos de Nuvem: Incluir Exchange Online
   * Condições: Aplicativos do cliente: Exchange Active Sync
@@ -163,12 +181,14 @@ Neste exemplo, **Exemplo B - políticas de CA de contingência para permitir o a
 **Exemplo B - políticas de CA de contingência:**
 
 * Política 1: Bloquear todos que não estejam na equipe SalesContingency
+  * Nome: EM001 – HABILITAR EM EMERGÊNCIA: Interrupção de Conformidade do Dispositivo [1/2] – Salesforce – Bloquear todos os usuários, exceto SalesforceContingency
   * Usuários e Grupos: Incluir todos os usuários. Excluir SalesAdmins e SalesforceContingency
   * Aplicativos de Nuvem: Salesforce.
   * Condições: Nenhum
   * Controles de Concessão: Bloco
   * Estado: Desabilitado
 * Política 2: Bloquear a equipe de vendas de qualquer plataforma que não seja móvel (para reduzir a área da superfície do ataque)
+  * Nome: EM002 – HABILITAR EM EMERGÊNCIA: Interrupção de Conformidade do Dispositivo [2/2] – Salesforce – Bloquear todas as plataformas, exceto iOS e Android
   * Usuários e Grupos: Incluir SalesforceContingency. Excluir SalesAdmins
   * Aplicativos de Nuvem: Salesforce
   * Condições: Plataforma de dispositivo inclui todas as plataformas, excluir iOS e Android
@@ -179,7 +199,7 @@ Ordem de ativação:
 
 1. Exclua SalesAdmins e SalesforceContingency da política de conformidade de dispositivo existente para a Salesforce. Verifique se um usuário do grupo SalesforceContingency pode acessar a Salesforce.
 2. Habilitar política 1: Verifique se os usuários fora de SalesContingency não pode acessar a Salesforce. Verifique se os usuários em SalesAdmins e SalesforceContingency podem acessar a Salesforce.
-3. Habilitar política 2: Verifique se os usuários no grupo de SalesContigency não podem acessar a Salesforce dos laptops Windows/Mac deles, mas ainda podem acessar dos dispositivos móveis deles. Verifique se SalesAdmin ainda pode acessar a Salesforce de qualquer dispositivo.
+3. Habilitar política 2: Verifique se os usuários no grupo de SalesContingency não podem acessar a Salesforce dos laptops Windows/Mac deles, mas ainda podem acessar dos dispositivos móveis deles. Verifique se SalesAdmin ainda pode acessar a Salesforce de qualquer dispositivo.
 4. Desabilite a política de conformidade do dispositivo existente para a Salesforce.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Implantar sincronização de hash de senha, mesmo se você for federado ou usar a autenticação de passagem
@@ -215,14 +235,14 @@ Dependendo de quais mitigações ou contingências são usadas durante uma inter
 
 ## <a name="after-a-disruption"></a>Após uma interrupção
 
-Você deve desfazer as alterações feitas como parte do plano de contingência ativado quando for restaurado o serviço que causou a interrupção. 
+Desfaça as alterações feitas como parte do plano de contingência ativado quando for restaurado o serviço que causou a interrupção. 
 
 1. Habilitar as políticas regulares
 2. Desabilite as políticas de contingência. 
 3. Reverta todas as outras alterações feitas e documentadas durante a interrupção.
 4. Se você usou uma conta de acesso de emergência, lembre-se de regenerar as credenciais e proteger fisicamente os detalhes das novas credenciais como parte dos procedimentos de conta de acesso de emergência.
 5. Continue a [triagem de todos os eventos de risco relatados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) após a interrupção por atividade suspeita.
-6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) como destino de um conjunto de usuários. A revogação de todos os tokens de atualização é especificamente importante para contas com privilégios usadas durante a interrupção e fazê-lo irá forçá-las a autenticar novamente e atender ao controle das políticas restauradas.
+6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) como destino de um conjunto de usuários. A revogação de todos os tokens de atualização é importante para contas com privilégios usadas durante a interrupção e fazer isso as forçará a autenticarem-se novamente e cumprirem o controle das políticas restauradas.
 
 ## <a name="emergency-options"></a>Opções de emergência
 

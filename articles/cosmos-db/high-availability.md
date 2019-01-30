@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4fc17daf640e95ab028150cec029471a0c7bc565
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6ec59108652fa928dbbc2a3cbb04c51ae0440dde
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062988"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402381"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Interrupções regionais não são incomuns e o Azure Cosmos DB garante que seu 
 
 - Contas de várias regiões configuradas com várias regiões de gravação estarão altamente disponíveis para leituras e gravações. Failovers regionais são instantâneos e não exigem nenhuma alteração do aplicativo.
 
-- Contas de várias regiões com uma região de gravação única: Durante uma interrupção da região de gravação, essas contas permanecerão altamente disponíveis para leituras. No entanto, para gravações, você deve "habilitar o failover automático" em sua conta do Cosmos para realizar o failover da região afetada para outra região associada. O failover ocorrerá na ordem de prioridade de região especificada por você. Eventualmente, quando a região afetada ficar online novamente, os dados não replicados presentes na região de gravação afetada durante a interrupção serão disponibilizados por meio do feed de conflitos. Aplicativos podem ler o feed de conflitos, resolvê-los com base na lógica específica do aplicativo e gravar os dados atualizados de volta no contêiner do Cosmos conforme apropriado. Depois que a região de gravação anteriormente afetada se recupera, ela fica automaticamente disponível como uma região de leitura. É possível invocar um failover manual e configurar a região afetada como a região de gravação. Você pode fazer um failover manual usando a [CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover).  
+- Contas de várias regiões com uma região de gravação única: Durante uma interrupção da região de gravação, essas contas permanecerão altamente disponíveis para leituras. No entanto, para gravações, você deve "habilitar o failover automático" em sua conta do Cosmos para realizar o failover da região afetada para outra região associada. O failover ocorrerá na ordem de prioridade de região especificada por você. Eventualmente, quando a região afetada ficar online novamente, os dados não replicados presentes na região de gravação afetada durante a interrupção serão disponibilizados por meio do feed de conflitos. Aplicativos podem ler o feed de conflitos, resolvê-los com base na lógica específica do aplicativo e gravar os dados atualizados de volta no contêiner do Cosmos conforme apropriado. Depois que a região de gravação anteriormente afetada se recupera, ela fica automaticamente disponível como uma região de leitura. É possível invocar um failover manual e configurar a região afetada como a região de gravação. Você pode fazer um failover manual usando a [CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover). Não há **nenhuma perda de dados ou disponibilidade** antes, durante ou após o failover manual. O aplicativo continua sendo altamente disponível. 
 
 - Contas de várias regiões com uma região de gravação única: Durante uma interrupção de região de leitura, essas contas permanecerão altamente disponíveis para leituras e gravações. A região afetada será desconectada automaticamente da região de gravação e será marcada como offline. Os SDKs do Cosmos DB redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferenciais. Se nenhuma das regiões na lista de regiões preferenciais estiver disponível, as chamadas retornarão automaticamente à região de gravação atual. Não é necessária nenhuma alteração no código do aplicativo para lidar com a interrupção da região de leitura. Por fim, quando a região afetada ficar online novamente, a região de leitura afetada anteriormente será automaticamente sincronizada com a região de gravação atual e estará disponível novamente para fornecer solicitações de leitura. Leituras subsequentes são redirecionadas para a região recuperada sem exigir nenhuma alteração ao código do aplicativo. Durante o failover e o reingresso de uma região anteriormente com falha, as garantias de coerência de leitura continuam a ser cumpridas pelo Cosmos DB.
 

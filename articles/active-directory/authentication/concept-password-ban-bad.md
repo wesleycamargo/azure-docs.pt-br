@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739814"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421429"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -30,7 +30,7 @@ Os líderes do setor orientam que você não utilize a mesma senha em vários lu
 
 A Microsoft está sempre trabalhando para se manter um passo à frente dos cibercriminosos. Portanto, a equipe do Azure AD Identity Protection procura continuamente por senhas comumente usadas e comprometidas. Em seguida, bloqueiam as senhas consideradas muito comuns na lista de senhas proibidas globalmente. Os criminosos cibernéticos também usam estratégias semelhantes em seus ataques, portanto, a Microsoft não publica o conteúdo dessa lista publicamente. Essas senhas vulneráveis são bloqueadas antes de tornarem-se uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços atuais de segurança, consulte o [Relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/security/intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Versão prévia: lista de senhas proibidas personalizadas
+## <a name="preview-custom-banned-password-list"></a>Visualização: Lista personalizada de senhas banidas
 
 Algumas organizações podem querer levar a segurança um passo adiante, adicionando suas próprias personalizações no topo da lista de senhas proibidas, em que a Microsoft chama de lista de senhas proibidas personalizada. Os clientes empresariais, como a Contoso, podem optar por bloquear variantes de nomes de marca, termos específicos da empresa ou outros itens.
 
@@ -46,7 +46,7 @@ A proteção de contas somente na nuvem é útil, mas muitas organizações mant
 
 A lista de senhas proibidas corresponde as senhas na lista convertendo a cadeia de caracteres para minúsculas e comparando com as senhas proibidas conhecidas em uma distância de edição de 1 com correspondência difusa.
 
-Exemplo: a palavra senha está bloqueada para uma organização
+Exemplo: A palavra senha está bloqueada para uma organização
    - Um usuário tenta definir a senha para "P@ssword" que é convertida em "senha" e porque é uma variante de senha bloqueada.
    - Um administrador tenta definir uma senha de usuário para "Senha123!" que convertida para "senha123!" e porque é uma variante de senha que está bloqueada.
 

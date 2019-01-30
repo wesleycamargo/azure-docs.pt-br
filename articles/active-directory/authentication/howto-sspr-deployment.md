@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622313"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431649"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -24,7 +24,7 @@ Para garantir uma distribuição uniforme da funcionalidade de autoatendimento d
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Conclua uma distribuição piloto com um pequeno subconjunto da organização.
-   * Informações sobre distribuição piloto podem ser encontradas no [Tutorial: Concluir uma distribuição piloto de redefinição de senha de autoatendimento do Azure AD](tutorial-sspr-pilot.md).
+   * Encontre informações sobre como conduzir o piloto no [Tutorial: Concluir uma distribuição piloto de redefinição de senha self-service do Azure AD](tutorial-sspr-pilot.md).
 1. Instrua o suporte técnico.
    * Como eles ajudarão os usuários?
    * Você forçará que os usuários usem SSPR e não permitirá que sua assistência técnica ajude os usuários?
@@ -41,12 +41,12 @@ Para garantir uma distribuição uniforme da funcionalidade de autoatendimento d
 
 Muitos clientes acham que a maneira mais fácil de fazer com que os usuários usem o SSPR é por meio de uma campanha de email que inclua instruções que sejam fáceis de seguir. [Criamos emails simples e outras garantias que podem ser usadas como modelos para ajudar na distribuição](https://www.microsoft.com/download/details.aspx?id=56768):
 
-* **Em breve**: um modelo de email que você usa nas semanas ou nos dias antes da distribuição para permitir que os usuários saibam que eles precisam fazer algo.
-* **Disponível agora**: um modelo de email que você usa no dia do lançamento do programa para orientar os usuários a se registrarem e confirmarem seus dados de autenticação. Se os usuários se registrarem agora, eles terão o SSPR disponível quando precisarem.
-* **Lembrete de inscrição**: um modelo de email para alguns dias ou algumas semanas após a implantação para lembrar aos usuários de se registrarem e confirmarem seus dados de autenticação.
-* **Cartazes de SSPR**: cartazes que podem ser personalizados e exibidos na organização nos dias e semanas que antecedem e após a distribuição.
-* **Cartões de mesa de SSPR**: cartões de mesa que podem ser colocados no refeitório, salas de conferência ou em mesas para incentivar que os usuários concluam o registro.
-* **Adesivos de SSPR**: modelos de adesivos que podem ser personalizados e impressos para colocar em laptops, monitores, teclados ou telefones celulares para lembrar como acessar a SSPR.
+* **Em breve**: Um modelo de email que você usa nas semanas ou nos dias antes da distribuição para permitir que os usuários saibam que precisam fazer algo.
+* **Disponível agora**: Um modelo de email que você usa no dia do lançamento do programa para orientar os usuários a se registrarem e confirmarem seus dados de autenticação. Se os usuários se registrarem agora, eles terão o SSPR disponível quando precisarem.
+* **Lembrete de inscrição**: Um modelo de email para alguns dias ou algumas semanas após a implantação para lembrar aos usuários de se registrarem e confirmarem seus dados de autenticação.
+* **Cartazes da SSPR**: Cartazes que podem ser personalizados e exibidos na organização nos dias e nas semanas que antecedem e após a distribuição.
+* **Cartões de mesa da SSPR**: Cartões de mesa que podem ser colocados no refeitório, em salas de conferência ou em mesas para incentivar os usuários a concluírem o registro.
+* **Adesivos da SSPR**: Modelos de adesivos que podem ser personalizados e impressos para serem colocados em laptops, monitores, teclados ou celulares para lembrar como acessar a SSPR.
 
 ![Exemplo de email de SSPR][Email]
 

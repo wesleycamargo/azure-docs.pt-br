@@ -5,7 +5,7 @@ services: active-directory
 keywords: Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913778"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465421"
 ---
-# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de Passagem do Azure Active Directory: aprofundamento técnico
+# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de passagem do Azure Active Directory: Análise técnica aprofundada
 Este artigo descreve como funciona a Autenticação de Passagem do Azure AD (Azure Active Directory). Para obter informações técnicas e de segurança aprofundadas, veja o artigo [Aprofundamento sobre segurança](how-to-connect-pta-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como a Autenticação de Passagem do Azure Active Directory funciona?
@@ -50,13 +50,13 @@ O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas:
 ![Autenticação de Passagem](./media/how-to-connect-pta-how-it-works/pta2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
-- [Início rápido](how-to-connect-pta-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
+- [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários têm suporte e quais não têm.
+- [Início rápido](how-to-connect-pta-quick-start.md): Instale e execute a Autenticação de Passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoPTADP) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
-- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
-- [Perguntas frequentes](how-to-connect-pta-faq.md): encontre respostas para perguntas frequentes.
-- [Solução de problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
-- [Aprofundamento em segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.
-- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
+- [Bloqueio inteligente](../authentication/howto-password-smart-lockout.md): Configure a capacidade de Bloqueio Inteligente no seu locatário para proteger contas de usuário.
+- [Perguntas frequentes](how-to-connect-pta-faq.md): encontre respostas para as perguntas frequentes.
+- [Solucionar problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso Autenticação de passagem.
+- [Análise aprofundada sobre segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas aprofundadas sobre o recurso Autenticação de passagem.
+- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre este recurso complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para gerar novas solicitações de recursos.
 

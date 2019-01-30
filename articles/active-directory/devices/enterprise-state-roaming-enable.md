@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, nuvem do windows, como habilitar o enterprise state roaming
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128716"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448373"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitar o Enterprise State Roaming no Active Directory do Azure
 Enterprise State Roaming está disponível para qualquer organização com uma licença Azure AD Premium ou Enterprise Mobility + Security (EMS). Para saber mais sobre como obter uma assinatura do Azure AD, confira a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).

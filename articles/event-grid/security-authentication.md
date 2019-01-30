@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413466"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382913"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -29,9 +29,9 @@ Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos
 
 Como muitos outros serviços que dão suporte a webhooks, a Grade de Eventos do Azure exige que você comprovar a "propriedade" de seu ponto de extremidade do Webhook antes de começar a entrega de eventos para esse ponto de extremidade. Esse requisito impede que um usuário mal-intencionado inunde seu ponto de extremidade com eventos. Quando você usa qualquer um dos três serviços do Azure listado abaixo, a infraestrutura do Azure trata automaticamente essa validação:
 
-* Aplicativo Lógico do Azure,
-* Automação do Azure,
-* Azure Functions para Gatilho de Grade de Eventos.
+* Aplicativos Lógicos do Azure com [Conector da Grade de Eventos](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Automação do Azure por meio de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Azure Functions com [Gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md)
 
 Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma função do Azure baseada no gatilho HTTP, o código do ponto de extremidade precisará participar de um handshake de validação com o EventGrid. A Grade de Eventos dá suporte a duas maneiras de validar a assinatura.
 

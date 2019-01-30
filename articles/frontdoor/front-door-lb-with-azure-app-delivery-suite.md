@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service – balanceamento de carga com o pacote de entrega de aplicativos do Azure | Microsoft Docs
+title: Azure Front Door Service – Balanceamento de carga com o pacote de entrega de aplicativos do Azure | Microsoft Docs
 description: Este artigo ajuda você a saber mais sobre como o Azure recomenda realizar o balanceamento de carga com seu pacote de entrega de aplicativos
 services: frontdoor
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026000"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820811"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 
 ## <a name="introduction"></a>Introdução
-O Microsoft Azure fornece vários serviços regionais e globais para gerenciar como é feita a distribuição e o balanceamento de carga do tráfego de rede: Gerenciador de Tráfego, Front Door Service, Gateway de Aplicativo e Load Balancer.  Junto com as muitas regiões e arquiteturas de zona do Azure, usar esses serviços juntos permite que você crie aplicativos de alto desempenho, robustos e dimensionáveis.
+O Microsoft Azure fornece vários serviços globais e regionais para gerenciar a forma como o tráfego de rede é distribuído e como sua carga é balanceada: Gerenciador de Tráfego, Front Door Service, Gateway de Aplicativo e Load Balancer.  Junto com as muitas regiões e arquiteturas de zona do Azure, usar esses serviços juntos permite que você crie aplicativos de alto desempenho, robustos e dimensionáveis.
 
 ![Pacote de entrega de aplicativos ][1]
  
@@ -51,16 +51,16 @@ O Load Balancer é uma parte integral da pilha do Azure SDN e fornece serviços 
 
 ## <a name="choosing-a-global-load-balancer"></a>Como escolher um balanceador de carga global
 Ao escolher um balanceador de carga global entre o Gerenciador de Tráfego e o Azure Front Door para o roteamento global, você deve considerar o que é semelhante e o que é diferente entre os dois serviços.   Ambos os serviços fornecem
-- **Redundância de várias áreas geográficas**: se uma região ficar inativa, o tráfego será roteado sem interrupção para a região mais próxima sem qualquer intervenção do proprietário do aplicativo.
-- **Roteamento para a região mais próxima:** automaticamente o tráfego é roteado para a região mais próxima
+- **Múltipla redundância geográfica:** se uma região ficar inativa, o tráfego será roteado sem interrupção para a região mais próxima sem qualquer intervenção do proprietário do aplicativo.
+- **Roteamento para a região mais próxima:** o tráfego será automaticamente roteado para a região mais próxima
 
 </br>A tabela a seguir descreve as diferenças entre o Gerenciador de Tráfego e o Azure Front Door Service:</br>
 
 | Gerenciador de Tráfego | Azure Front Door Service |
 | --------------- | ------------------------ |
-|**Qualquer protocolo:** uma vez que o Gerenciador de Tráfego funciona na camada de DNS, você pode rotear qualquer tipo de tráfego de rede: HTTP, TCP, UDP etc. | **Aceleração de HTTP:** com o Front Door, o tráfego é transmitido por proxy na Borda da rede da Microsoft.  Por isso, solicitações HTTP (S) obtêm melhorias de latência e produtividade reduzindo a latência para negociação de SSL e usando conexões quente do AFD para seu aplicativo.|
-|**Roteamento local:** com o roteamento em uma camada DNS, o tráfego sempre vai de ponto a ponto.  O roteamento da filial para o datacenter local pode seguir um caminho direto, inclusive na sua própria rede, usando o Gerenciador de Tráfego. | **Escalabilidade independente:** uma vez que o Front Door funciona com solicitação HTTP, solicitações para diferentes caminhos de URL podem ser roteadas para diferentes pools de serviço regionais/de back-end (microsserviços) com base em regras e na integridade de cada microsserviço de aplicativo.|
-|**Formato de cobrança:** a cobrança com base no DNS é dimensionada com seus usuários e para serviços com mais usuários, atingindo um platô para reduzir o custo de um uso mais alto. |**Segurança embutida:** o Front Door habilita regras como limitação de taxa e ACL de IP para permitir que você proteja seu back-ends antes que o tráfego chegue a seu aplicativo. 
+|**Qualquer protocolo:** uma vez que o Gerenciador de Tráfego funciona na camada do DNS, você pode rotear qualquer tipo de tráfego de rede: HTTP, TCP, UDP e outros. | **Aceleração de HTTP:** com o Front Door, o tráfego é transmitido por proxy na borda da rede da Microsoft.  Por isso, solicitações HTTP (S) obtêm melhorias de latência e produtividade reduzindo a latência para negociação de SSL e usando conexões quente do AFD para seu aplicativo.|
+|**Roteamento local:** com o roteamento em uma camada do DNS, o tráfego sempre vai de ponto a ponto.  O roteamento da filial para o datacenter local pode seguir um caminho direto, inclusive na sua própria rede, usando o Gerenciador de Tráfego. | **Escalabilidade independente:** como o Front Door funciona com solicitação HTTP, solicitações para diferentes caminhos de URL podem ser roteadas para diferentes pools de serviço regionais/de back-end (microsserviços) com base em regras e na integridade de cada microsserviço de aplicativo.|
+|**Formato de cobrança:** a cobrança com base no DNS é dimensionada de acordo com seus usuários e, para serviços com mais usuários, atinge um platô para reduzir o custo quando o uso é maior. |**Segurança embutida:** o Front Door habilita regras como limitação de taxa e ACL de IP para permitir que você proteja seus back-ends antes que o tráfego chegue ao aplicativo. 
 
 </br>Devido aos benefícios de desempenho, capacidade de operação e segurança para cargas de trabalho HTTP com o Front Door, é recomendável que os clientes usem o Front Door para suas cargas de trabalho HTTP.    O Gerenciador de Tráfego e o Front Door podem ser usados em paralelo para atender a todo o tráfego para seu aplicativo. 
 

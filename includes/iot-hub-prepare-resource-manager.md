@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2eacb55eaf355a4eef17b9e16075d8d12167266d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 44eea4ec4fd335cd0061807521f96f2887751f7a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165064"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457049"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Preparar para autenticar solicitações do Azure Resource Manager
 Autentique todas as operações que podem ser executadas nos recursos usando o [Azure Resource Manager][lnk-authenticate-arm] com o Azure Active Directory (AD). A maneira mais fácil de configurar isso é usar o PowerShell ou Azure CLI.
@@ -43,7 +43,7 @@ As etapas a seguir mostram como configurar a autenticação de senha para um apl
    * **{Display name}:** um nome de exibição para seu aplicativo, como **MySampleApp**
    * **{Home page URL}:** a URL da home page do seu aplicativo, como **http://mysampleapp/home**. Essa URL não precisa levar para um aplicativo real.
    * **{Application identifier}:** um identificador exclusivo, como **http://mysampleapp**. Essa URL não precisa levar para um aplicativo real.
-   * **{Password}:** Uma senha que você usa para autenticar com o seu aplicativo.
+   * **{Password}:** uma senha que você usa para autenticar com o seu aplicativo.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
@@ -69,4 +69,4 @@ Você terminou de criar o aplicativo do Azure AD que permitirá autenticar a par
 * Senha
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps

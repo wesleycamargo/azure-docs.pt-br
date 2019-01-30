@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167521"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430155"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implantar Autenticação Multifator do Microsoft Azure baseada em nuvem
 
@@ -74,14 +74,14 @@ Antes de habilitar a Autenticação Multifator do Microsoft Azure, a organizaç�
 1. .Forneça um nome significativo para a política.
 1. Em **usuários e grupos**:
    * Na guia **Incluir**, selecione o botão de opção **Todos os usuários**
-   * RECOMENDADO: Na guia **Excluir**, marque a caixa **Usuários e grupos** e escolha um grupo a ser usado para exclusões quando os usuários não têm acesso aos métodos de autenticação.
+   * RECOMENDADO: Na guia **Excluir**, marque a caixa **Usuários e grupos** e escolha um grupo a ser usado para exclusões quando os usuários não tiverem acesso aos métodos de autenticação.
    * Clique em **Concluído**.
 1. Em **Aplicativos na nuvem**, selecione o botão de opção **Todos os aplicativos na nuvem**.
-   * OPCIONALMENTE: Na guia **Excluir**, escolha os aplicativos de nuvem que sua organização não exige o MFA.
+   * OPCIONALMENTE: Na guia **Excluir**, escolha os aplicativos na nuvem para os quais sua organização não exige o MFA.
    * Clique em **Concluído**.
 1. Na seção **Condições**:
-   * OPCIONALMENTE: Se você tiver habilitado o Azure Identity Protection, será possível optar por avaliar o risco de entrada como parte da política.
-   * OPCIONALMENTE: Se você tiver configurado locais confiáveis ou localizações nomeadas, será possível especificar para incluir ou excluir esses locais da política.
+   * OPCIONALMENTE: Se você tiver habilitado o Azure Identity Protection, poderá optar por avaliar o risco de conexão como parte da política.
+   * OPCIONALMENTE: Se você tiver configurado localizações confiáveis ou nomeadas, poderá especificar para incluir ou excluir essas localizações da política.
 1. Em **Concessão**, verifique se o botão de opção **Conceder acesso** está selecionado.
     * Marque a caixa para **Exigir autenticação multifator**.
     * Clique em **Selecionar**.

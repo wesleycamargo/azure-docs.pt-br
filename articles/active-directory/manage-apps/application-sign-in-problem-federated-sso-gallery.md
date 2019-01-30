@@ -4,7 +4,7 @@ description: Diretrizes para os erros específicos ao entrar em um aplicativo co
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354441"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477293"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo na galeria configurado para logon único federado
 
@@ -34,7 +34,7 @@ Para solucionar o problema é necessário verificar a configuração do aplicati
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: aplicativo com o identificador ‘ https://contoso.com’ não encontrado no diretório*.
+*Erro AADSTS70001: o aplicativo com identificador ‘https://contoso.com’ não foi localizado no diretório*.
 
 **Possível causa**
 
@@ -66,7 +66,7 @@ Após atualizar o valor do Identificador no Azure AD e correspondê-lo com o val
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo.
 
-*Erro AADSTS50011: o endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo*
+*Erro AADSTS50011: o endereço de resposta ‘https://contoso.com’ não corresponde aos endereços de resposta configurados para o aplicativo*
 
 **Possível causa**
 
@@ -133,7 +133,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 
@@ -261,6 +261,19 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 10. Marque **Tornar o novo certificado ativo** para substituir o certificado ative. Em seguida, clique em **Salvar** na parte superior do painel e aceite para ativar o certificado de substituição.
 
 11. Na seção **Certificado de Autenticação SAML**, clique em **remover** para remover o certificado **Não Usado**.
+
+## <a name="saml-request-not-present-in-the-request"></a>A solicitação SAML não está presente na solicitação
+
+*Erro AADSTS750054: SAMLRequest ou SAMLResponse deve estar presente como parâmetro de cadeia de caracteres na solicitação HTTP para a Associação de redirecionamento SAML.*
+
+**Possível causa**
+
+O Azure AD não pôde identificar a solicitação SAML dentro dos parâmetros de URL na solicitação HTTP. Isso pode acontecer quando o aplicativo não está usando a Associação de redirecionamento HTTP para enviar a solicitação SAML para o Azure AD.
+
+**Resolução**
+
+O aplicativo precisa enviar a solicitação SAML codificada no cabeçalho do local usando a Associação de redirecionamento HTTP. Para obter mais informações sobre como implementá-la, leia a seção sobre Associação de redirecionamento HTTP no [Documento de especificação de protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as declarações SAML enviadas para um aplicativo
 

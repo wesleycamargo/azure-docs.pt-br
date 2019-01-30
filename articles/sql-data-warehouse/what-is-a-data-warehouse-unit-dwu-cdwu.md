@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1a1da9fd0fff09bab027c4b4cc4e3085c5439f2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301238"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411095"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWUs (Unidades do Data Warehouse) cDWUs (Unidades do Data Warehouse de computação)
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e o desempenho, e como alterar o número unidades. 
@@ -91,6 +91,8 @@ O SQL Data Warehouse é um sistema de dimensionamento horizontal que pode provis
 
 Alterar as unidades de data warehouse exige as permissões descritas em [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql). 
 
+Funções internas para recursos do Azure, como Colaborador do BD SQL e Colaborador do SQL Server, podem alterar as configurações da DWU. 
+
 ## <a name="view-current-dwu-settings"></a>Exibir configurações atuais de DWU
 
 Para exibir a configuração atual de DWU:
@@ -134,7 +136,7 @@ Com o T-SQL, é possível exibir as configurações atuais de DWU ou cDWU, alter
 Para alterar as DWUs ou as cDWUs:
 
 1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
-2. Use a instrução TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW. 
+2. use a declaração TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) . O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW

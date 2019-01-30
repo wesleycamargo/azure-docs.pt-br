@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427716"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438772"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como habilitar a redefinição de senha do Windows 7, 8 e 8.1
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: habilitar a redefinição de senha do Windows 7, 8 e 8.1
 
 Como administrador, você habilitou o SSPR (autoatendimento de redefinição de senha), mas os usuários continuam ligando para a assistência técnica para redefinir a senha, porque não conseguem encontrar a janela do navegador para acessar o [portal de SSPR](https://aka.ms/sspr). Nos computadores com o Windows 10, é possível habilitar o link "Redefinir senha" na tela de logon usando o tutorial [Redefinição de senha do Azure AD na tela de logon](tutorial-sspr-windows.md). Com essas diretrizes, será possível habilitar os usuários do Windows 7, 8 e 8.1 a redefinir a senha usando o SSPR na tela de logon do Windows.
 
@@ -74,7 +74,7 @@ Se for necessário outro registro em log, uma chave do Registro no computador po
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
 ```
 
-* Para habilitar o registro em log detalhado, crie um REG_DWORD: “EnableLogging” e configure-o como 1.
+* Para habilitar o log detalhado, crie REG_DWORD: "EnableLogging" e defina como 1.
 * Para desabilitar o registro em log detalhado, altere o REG_DWORD: “EnableLogging” para 0.
 
 Se os seus computadores com Windows 7, 8 e 8.1 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com deverá ter permissão.

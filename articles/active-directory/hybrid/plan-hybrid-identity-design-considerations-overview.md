@@ -4,7 +4,7 @@ description: Visão geral e mapa de conteúdo do guia de considerações de desi
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d0930de0ac3272d2858e961ec2038093dcc9ccc9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344875"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463007"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considerações do design de identidade híbrida do Active Directory do Azure
 Dispositivos baseados no consumidor estão proliferando no mundo corporativo, e aplicativos SaaS (software como serviço) em nuvem são fáceis de adotar. Assim, a manutenção do controle de acesso de aplicativo dos usuários em plataformas de data centers e nuvem internas é um desafio.  

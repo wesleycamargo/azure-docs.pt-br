@@ -1,5 +1,5 @@
 ---
-title: Criação de um sistema de proteção de conteúdo multi-DRM com controle de acesso - Serviços de Mídia do Azure | Microsoft Docs
+title: Criação de um sistema de proteção de conteúdo multi-DRM com controle de acesso – Serviços de Mídia do Azure | Microsoft Docs
 description: Aprenda a licenciar o Kit de Portabilidade de Cliente do Smooth Streaming da Microsoft.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191234"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812978"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso 
 
@@ -145,7 +145,7 @@ A tabela abaixo mostra o mapeamento.
 | **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 
-Em outras palavras, tanto IDP quanto STS são usados pelo Microsoft Azure Active Directory. A [API do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/) é usada para o player. Os serviços de mídia do Azure e o Player de Mídia do Azure suportam CENC em DASH, FairPlay em HLS, PlayReady em streaming suave e criptografia AES-128 para DASH, HLS e suave.
+Em outras palavras, tanto IDP quanto STS são usados pelo Microsoft Azure Active Directory. A [API do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/) é usada para o player. Os Serviços de Mídia do Azure e o Player de Mídia do Azure são compatíveis com CENC em DASH, FairPlay em HLS, PlayReady em streaming suave e criptografia AES-128 para DASH, HLS e suave.
 
 O diagrama a seguir mostra a estrutura geral e o fluxo com o mapeamento de tecnologia anterior:
 

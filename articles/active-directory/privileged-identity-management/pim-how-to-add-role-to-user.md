@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 69bc2bb5fa06f4edc0283961063d2302c7905b4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724937"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438993"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Atribuir funções de diretório do Azure AD no PIM
 
 Com o Azure AD (Azure Active Directory), um Administrador Global pode tornar atribuições de funções do diretório **permanentes**. Essas atribuições de função podem ser criadas usando o [portal do Azure](../users-groups-roles/directory-assign-admin-roles.md) ou usando [comandos do PowerShell](/powershell/module/azuread#directory_roles).
 
-O serviço Azure AD Privileged Identity Management (PIM) permite que os administradores de função com privilégios também tornem atribuições de funções do diretório permanentes. Além disso, os administradores de função com privilégios podem tornar os usuários **qualificados** para funções do diretório. Um administrador qualificado pode ativar a função quando necessário e suas permissões expirarão assim que forem feitas. Para obter informações sobre as funções possíveis de gerenciar usando o PIM, veja [Funções de diretório do Azure AD que você pode gerenciar no PIM](pim-roles.md).
+O serviço Azure AD Privileged Identity Management (PIM) permite que os Administradores de Função com Privilégios também tornem atribuições de função do diretório permanentes. Além disso, os Administradores de Função com Privilégios podem tornar os usuários **qualificados** para funções do diretório. Um administrador qualificado pode ativar a função quando necessário e suas permissões expirarão assim que forem feitas.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Qualificar um usuário para uma função
 

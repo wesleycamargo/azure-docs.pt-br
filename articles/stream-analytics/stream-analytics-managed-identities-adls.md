@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090424"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410448"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar o Stream Analytics no Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)
 
@@ -21,9 +21,9 @@ O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada 
 
 Acesse a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) para se inscrever para essa versão prévia e ler mais sobre os novos recursos.
 
-Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1: por meio do portal do Azure e por meio da implantação de modelo do Azure Resource Manager.
+Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1 por meio do portal do Azure, da implantação de modelo do Azure Resource Manager e das ferramentas do Azure Stream Analytics para Visual Studio.
 
-## <a name="enable-managed-identity-with-azure-portal"></a>Habilitar a Identidade Gerenciada com o portal do Azure
+## <a name="azure-portal"></a>Portal do Azure
 
 1. Comece criando um novo trabalho do Stream Analytics ou abrindo um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **Identidade Gerenciada (versão prévia)** localizada em **Configurar**.
 
@@ -64,6 +64,28 @@ Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um tr
    ![Lista de acesso do Stream Analytics no portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Para saber mais sobre permissões de sistema de arquivos do Data Lake Storage Gen1, veja [Controle de acesso no Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+## <a name="stream-analytics-tools-for-visual-studio"></a>Ferramentas do Stream Analytics para Visual Studio
+
+1. Em JobConfig.json, defina **Usar Identidade atribuída pelo Sistema** como **Verdadeiro**.
+
+   ![Identidades gerenciadas de configuração de trabalho do Stream Analytics](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. Na janela Propriedades de saída do coletor de saída do ADLS Gen1, clique na lista suspensa do modo Autenticação e selecione **Identidade Gerenciada (versão prévia)**.
+
+   ![Identidades gerenciadas de saída do ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. Preencha o restante das propriedades e clique em **Salvar**.
+
+4. Clique em **Enviar para o Azure** no editor de consultas.
+
+   Quando você envia o trabalho, as ferramentas executam duas ações:
+
+   * Criam automaticamente uma entidade de serviço para a identidade do trabalho do Stream Analytics no Azure Active Directory. O ciclo de vida da identidade que acaba de ser criada será gerenciado pelo Azure. Quando o trabalho do Stream Analytics é excluído, a identidade associada (ou seja, a entidade de serviço) é excluída automaticamente pelo Azure.
+
+   * Definem automaticamente as permissões **Escrever** e **Executar** para o caminho de prefixo do ADLS Gen1 usado no trabalho e o atribui a essa pasta e todos os filhos.
+
+5. Gere os modelos do Resource Manager com a propriedade a seguir usando [o pacote Nuget CI/CD do Stream Analytics](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versão 1.5.0 ou superior em um computador de build (fora do Visual Studio). Siga as etapas de implantação de modelo do Resource Manager na próxima seção para obter a entidade de serviço e permitir acesso a ela por meio do PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Implantação de modelo do Resource Manager
 
@@ -153,3 +175,5 @@ Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um tr
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma saída do Data Lake Storage com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md) 

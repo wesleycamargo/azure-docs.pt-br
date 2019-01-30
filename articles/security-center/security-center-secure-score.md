@@ -3,7 +3,7 @@ title: Pontuação segura no Azure Security Center | Microsoft Docs
 description: " Priorize suas recomendações de segurança usando a pontuação segura na Central de Segurança do Azure. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261291"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425874"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar sua pontuação segura na Central de segurança do Azure
 
@@ -45,7 +45,7 @@ Para visualizar sua pontuação geral segura:
 2. Na parte superior, é possível ver os destaques da Classificação de Segurança:
    - A **Classificação de segurança geral** representa a classificação por políticas, por assinatura selecionada
    - **Classificação de segurança por categoria** mostra quais recursos precisam de mais atenção
-   - **Principais recomendações por impacto da classificação de segurança** fornece uma lista das recomendações que mais melhorarão sua classificação de segurança se você corrigi-las.
+   - **Principais recomendações por impacto da classificação de segurança** fornece uma lista das recomendações que mais melhorarão sua classificação de segurança se você implementá-las.
  
    ![Pontuação segura](./media/security-center-secure-score/secure-score-dashboard.png)
 

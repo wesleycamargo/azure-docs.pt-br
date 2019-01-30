@@ -1,6 +1,6 @@
 ---
-title: Elevar o acesso de um Administrador global no Azure Active Directory | Microsoft Docs
-description: Descreve como elevar o acesso de um Administrador global no Azure Active Directory usando o portal do Azure ou a API REST.
+title: Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure | Microsoft Docs
+description: Descreve como elevar o acesso para um Administrador Global gerenciar todas as assinaturas e grupos de gerenciamento no Azure Active Directory usando a API REST ou o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321658"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437463"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso de um Administrador global no Azure Active Directory
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 
-Caso você seja um [Administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) no Azure Active Directory (Azure AD), pode haver momentos em que você deseje fazer o seguinte:
-
-- Recuperar o acesso a uma assinatura do Azure quando um usuário tiver perdido o acesso
-- Conceder que acesso a uma assinatura do Azure a outro usuário ou a si mesmo
-- Ver todas as assinaturas do Azure em uma organização
-- Permitir o acesso de um aplicativo de automação (como um aplicativo de faturamento ou de auditoria) a todas as assinaturas do Azure
-
-Este artigo descreve as diferentes maneiras pelas quais você pode elevar seu acesso no AD do Azure.
+Como um Administrador Global no Azure AD (Azure Active Directory), talvez você não tenha acesso a todas as assinaturas e grupos de gerenciamento em seu diretório. Este artigo descreve maneiras de elevar o acesso para todas as assinaturas e grupos de gerenciamento.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="why-would-you-need-to-elevate-your-access"></a>Por que você precisa elevar o acesso?
 
-Os recursos do Azure AD e do Azure são protegidos independentemente um do outro. Ou seja, as atribuições de função do Azure AD não concedem acesso aos recursos do Azure, e as atribuições de função do Azure não concedem acesso ao Azure AD. No entanto, se você for um Administrador Global no AD do Azure, poderá atribuir a si mesmo acesso a todas as assinaturas e grupos de gerenciamento do Azure em seu diretório. Use esse recurso se você não tiver acesso aos recursos do Azuresubscription, como máquinas virtuais ou contas de armazenamento, e quiser usar o privilégio de administrador global para obter acesso a esses recursos.
+Se você for um Administrador Global, poderá haver ocasiões em que você queira fazer o seguinte:
+
+- Recuperar o acesso a um grupo de gerenciamento ou assinatura do Azure quando um usuário tiver perdido o acesso
+- Conceder a outro usuário ou a você mesmo acesso a uma assinatura ou grupo de gerenciamento do Azure
+- Ver todas as assinaturas ou grupos de gerenciamento do Azure em uma organização
+- Permitir o acesso de um aplicativo de automação (como um aplicativo de faturamento ou de auditoria) a todas as assinaturas do Azure ou grupos de gerenciamento
+
+## <a name="how-does-elevate-access-work"></a>Como elevar um trabalho de acesso?
+
+Os recursos do Azure AD e do Azure são protegidos independentemente um do outro. Ou seja, as atribuições de função do Azure AD não concedem acesso aos recursos do Azure, e as atribuições de função do Azure não concedem acesso ao Azure AD. No entanto, se você for um [Administrador Global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) no Azure AD, poderá atribuir a si mesmo acesso a todas as assinaturas e grupos de gerenciamento do Azure em seu diretório. Use esse recurso se você não tiver acesso aos recursos do Azuresubscription, como máquinas virtuais ou contas de armazenamento, e quiser usar o privilégio de administrador global para obter acesso a esses recursos.
 
 Quando você elevar seu acesso, você receberá a função [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) no Azure no escopo da raiz (`/`). Isso permite que você visualize todos os recursos e atribua acesso a qualquer assinatura ou grupo de gerenciamento no diretório. As atribuições de função do Administrador de Acesso do Usuário podem ser removidas usando o PowerShell.
 
@@ -55,19 +57,29 @@ Siga estas etapas para elevar o acesso de um administrador global usando o porta
 
    ![Azure Active Directory – captura de tela](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Em **Gerenciamento de acesso para recursos do Azure**, defina a opção para **Sim**.
+1. Em **Gerenciamento de acesso para recursos do Azure**, defina a alternância como **Sim**.
 
    ![Gerenciamento de acesso para recursos do Azure - captura de tela](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Quando você define a opção para **Sim**, recebe a função de Administrador do Acesso do Usuário no RBAC do Azure no escopo raiz (/). Isso concede a você permissão para atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Essa opção está disponível apenas para usuários com a função de administrador global no Azure AD.
+   Quando você define a alternância como **Sim**, recebe a função de Administrador do Acesso do Usuário no RBAC do Azure no escopo raiz (/). Isso concede a você permissão para atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Essa alternância está disponível apenas para usuários com a função de administrador global no Azure AD.
 
-   Quando você define a opção para **Não**, a função Administrador de Acesso do Usuário no RBAC do Azure é removida da sua conta de usuário. Você não pode mais atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Você pode exibir e gerenciar somente as assinaturas do Azure e os grupos de gerenciamento aos quais você recebeu acesso.
+   Quando você define a alternância como **Não**, a função Administrador de Acesso do Usuário no RBAC do Azure é removida da sua conta de usuário. Você não pode mais atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Você pode exibir e gerenciar somente as assinaturas do Azure e os grupos de gerenciamento aos quais você recebeu acesso.
 
 1. Clique em **Salvar**, para salvar suas configurações.
 
-   Essa configuração não é uma propriedade global, aplicando-se somente ao usuário conectado no momento.
+   Essa configuração não é uma propriedade global, aplicando-se somente ao usuário conectado no momento. Você não pode elevar o acesso para todos os membros da função de Administrador Global.
 
-1. Execute as tarefas que você precisa fazer com o acesso elevado. Ao terminar, retorne a opção para **Não**.
+1. Saia e entre novamente para atualizar o seu acesso.
+
+    Agora você deve ter acesso a todas as assinaturas e grupos de gerenciamento em seu diretório. Você observará que você foi atribuído à função de Administrador de Acesso do Usuário no escopo de raiz.
+
+   ![Atribuições de função de assinatura com escopo de raiz – captura de tela](./media/elevate-access-global-admin/iam-root.png)
+
+1. Faça as alterações que você precisa fazer no acesso com privilégios elevados.
+
+    Para obter informações sobre como atribuir funções, veja [Gerenciar o acesso usando o portal do Azure e o RBAC](role-assignments-portal.md). Se você estiver usando o Azure AD PIM (Privileged Identity Management), veja [Descobrir recursos do Azure para gerenciar no PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Atribuir funções de recurso do Azure no PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. Ao terminar, defina a alternância **Gerenciamento de acesso para recursos do Azure** de voltar como **Não**. Como essa é uma configuração por usuário, você deve estar conectado como o mesmo usuário que foi usado para elevar o acesso.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -89,16 +101,22 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
+CanDelegate        : False
 ```
 
 ### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Remover uma atribuição de função no escopo raiz (/)
 
-Para remover a atribuição de função de Administrador de Acesso do Usuário para um usuário no escopo raiz (`/`), use o comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+Para remover uma atribuição de função de Administrador de Acesso do Usuário para usuário no escopo de raiz (`/`), siga estas etapas.
 
-```azurepowershell
-Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
-  -RoleDefinitionName "User Access Administrator" -Scope "/"
-```
+1. Entre como um usuário que possa remover o acesso com privilégios elevados. Esse pode ser o mesmo usuário que foi usado para elevar o acesso ou outro Administrador Global com acesso elevado no escopo de raiz.
+
+
+1. Use o comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) para remover a atribuição de função de Administrador de Acesso do Usuário.
+
+    ```azurepowershell
+    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+      -RoleDefinitionName "User Access Administrator" -Scope "/"
+    ```
 
 ## <a name="rest-api"></a>API REST
 

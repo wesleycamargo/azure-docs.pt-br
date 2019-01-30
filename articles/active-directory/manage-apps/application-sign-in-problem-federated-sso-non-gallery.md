@@ -4,7 +4,7 @@ description: Diretrizes para os problemas específicos que você pode enfrentar 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354241"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469705"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado
 
@@ -34,7 +34,7 @@ Para solucionar o problema é necessário verificar a configuração do aplicati
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: aplicativo com o identificador ‘ https://contoso.com’ não encontrado no diretório*.
+*Erro AADSTS70001: o aplicativo com identificador ‘https://contoso.com’ não foi localizado no diretório*.
 
 **Possível causa**
 
@@ -66,7 +66,7 @@ Após atualizar o valor do Identificador no Azure AD e correspondê-lo com o val
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo. 
 
-*Erro AADSTS50011: o endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo* 
+*Erro AADSTS50011: o endereço de resposta ‘https://contoso.com’ não corresponde aos endereços de resposta configurados para o aplicativo* 
 
 **Possível causa** 
 
@@ -134,7 +134,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 

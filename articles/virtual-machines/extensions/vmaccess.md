@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452047"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413831"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerenciar usuários administrativos, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI do Azure
 ## <a name="overview"></a>Visão geral
@@ -53,7 +53,7 @@ Há duas maneiras de usar a extensão VMAccess em VMs Linux:
 * Use a CLI do Azure e os parâmetros necessários.
 * [Use os arquivos JSON brutos processados pela Extensão VMAccess](#use-json-files-and-the-vmaccess-extension) e depois tome atitudes em relação a eles.
 
-Os exemplos seguintes usam comandos [az vm user](/cli/azure/vm/user). Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
+Os exemplos seguintes usam comandos [az vm user](/cli/azure/vm/user). Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index).
 
 ## <a name="update-ssh-key"></a>Atualizar chave SSH
 O exemplo a seguir atualiza a chave SSH para o usuário `azureuser` na VM denominada `myVM`:

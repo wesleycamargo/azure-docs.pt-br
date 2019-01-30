@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242348"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404670"
 ---
 Você pode tirar proveito das várias oportunidades de monitorar suas VMs coletando, exibindo e analisando o diagnóstico e os dados de log. Para fazer um simples [monitoramento](../articles/azure-monitor/overview.md) da VM, você pode usar a tela Visão geral da VM no portal do Azure. Você pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar o diagnóstico em suas VMs a fim de coletar dados de métrica adicionais. Você também pode usar opções de monitoramentos mais avançadas, como o [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e o [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -60,13 +60,11 @@ Algumas coisas que você pode fazer com os logs de diagnóstico incluem:
 
 - [Salve-os em uma conta de armazenamento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias) usando as Configurações de Diagnóstico do Recurso.
 - [Transmita-os para os Hubs de Eventos](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para consumo por um serviço de terceiros ou uma solução de análises personalizadas, como o PowerBI.
-- Analise-os com o [Log Analytics do OMS](../articles/log-analytics/log-analytics-azure-storage.md).
+- Analise-os com o [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Monitoramento avançado
 
-- [O OMS (Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/) fornece recursos de monitoramento, alertas e correção de alertas nos ativos locais e da nuvem. Você pode instalar uma extensão em uma [VM Linux](../articles/virtual-machines/linux/extensions-oms.md) ou em uma [VM Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala o agente do OMS e registra a VM em um workspace do OMS existente.
-
-- O [Log Analytics](../articles/log-analytics/log-analytics-overview.md) é um serviço no OMS que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes.
+- O [Log Analytics](../articles/log-analytics/log-analytics-overview.md) é um serviço que monitora os ambientes locais e de nuvem para manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. Instale uma extensão em uma [VM do Linux](../articles/virtual-machines/linux/extensions-oms.md) ou uma [VM do Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala o agente do Log Analytics e registra a VM em um workspace existente do Log Analytics.
 
     Para VMs Windows e Linux, o método recomendado para coletar métricas e logs é instalando o agente do Log Analytics. A maneira mais fácil de instalar o agente do Log Analytics em uma VM é por meio da [Extensão de VM do Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o workspace do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
 

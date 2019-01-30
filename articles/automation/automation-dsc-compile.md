@@ -3,18 +3,18 @@ title: Configurações de compilação na Configuração do Estado de Automaçã
 description: Este artigo descreve como compilar as configurações da DSC (Configuração de Estado Desejado) para Automação do Azure.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257149"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423401"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -130,7 +130,7 @@ Para obter informações sobre como transmitir PSCredentials como parâmetros, c
 
 ## <a name="composite-resources"></a>Recursos de composição
 
-**Recursos de Composição** permitem que você use as configurações DSC como recursos aninhados dentro de uma configuração. Isso permite que você aplique várias configurações para um único recurso. Consulte [recursos de composição: utilizando uma configuração DSC como um recurso](/powershell/dsc/authoringresourcecomposite) para saber mais sobre **Recursos de Composição**.
+**Recursos de Composição** permitem que você use as configurações DSC como recursos aninhados dentro de uma configuração. Isso permite que você aplique várias configurações para um único recurso. Confira [Recursos de composição: Usando uma configuração DSC como um recurso](/powershell/dsc/authoringresourcecomposite) para saber mais sobre **Recursos de Composição**.
 
 > [!NOTE]
 > Para que os **Recursos de Composição** sejam compilados corretamente, primeiro você deverá garantir que todos os Recursos DSC em que a composição confie sejam instalados primeiro no repositório dos Módulos de Conta de Automação do Azure ou eles não serão importados corretamente.
@@ -197,7 +197,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Você pode compilar a configuração da DSC acima com o PowerShell. O PowerShell a seguir adiciona duas configurações de nó ao Servidor de Pull da Configuração do Estado  de Automação do Azure: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
+Você pode compilar a configuração da DSC acima com o PowerShell. O seguinte comando do PowerShell adiciona duas configurações de nó ao Servidor de Pull de Configuração de Estado da Automação do Azure: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -261,7 +261,7 @@ Configuration CredentialSample
 }
 ```
 
-Você pode compilar a configuração da DSC acima com o PowerShell. O PowerShell abaixo adiciona duas configurações de nó ao Servidor de Pull da Configuração do Estado de Automação do Azure: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
+Você pode compilar a configuração da DSC acima com o PowerShell. O seguinte comando do PowerShell adiciona duas configurações de nó ao Servidor de Pull de Configuração de Estado da Automação do Azure: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> Após a conclusão da compilação, você poderá receber um erro informando: **O módulo 'Microsoft.PowerShell.Management' não foi importado porque o snap-in 'Microsoft.PowerShell.Management' já foi importado.** Esse aviso pode ser ignorado sem problemas.
+> Quando a compilação for concluída, você poderá receber um erro indicando: **O módulo 'Microsoft.PowerShell.Management' não foi importado porque o snap-in 'Microsoft.PowerShell.Management' já foi importado.** Esse aviso pode ser ignorado sem problemas.
 
 ## <a name="importing-node-configurations"></a>Como importar configurações de nó
 
