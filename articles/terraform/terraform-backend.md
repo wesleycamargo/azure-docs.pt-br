@@ -7,12 +7,12 @@ ms.service: terraform
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: db02a613e742c811341641e33b9a179b52045bd4
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 149d2bb5ca26afd530be60c5a22e449b8b2ae1ff
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077361"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381888"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Armazene o estado Terraform no armazenamento do Azure
 
@@ -114,7 +114,7 @@ Para obter mais informações sobre a criptografia de armazenamento do Azure, co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a configuração de Terraform com suporte nas [documentação de back-end do Terraform][terraform-backend].
+Saiba mais sobre a configuração de back-end do Terraform na [documentação de back-end do Terraform][terraform-backend].
 
 <!-- LINKS - internal -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md

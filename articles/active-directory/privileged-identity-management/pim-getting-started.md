@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 95582fb62f19dcc34aa03a6550f4dbc46257cf7f
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7d97f68c04656c1f8e227069bb3d33aba13d4b53
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494352"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435066"
 ---
 # <a name="start-using-pim"></a>Comece a usar o PIM
 
@@ -33,7 +33,7 @@ Para usar o PIM, você deve ter uma das seguintes licenças:
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
-Para obter mais informações, consulte [Requisitos de inscrição para usar o PIM](subscription-requirements.md).
+Para obter mais informações, veja [Requisitos de licença para usar o PIM](subscription-requirements.md).
 
 ## <a name="first-person-to-use-pim"></a>Primeira pessoa a usar o PIM
 

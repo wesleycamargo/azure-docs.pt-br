@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 7a7acb7da2e5999fc844fe6c6c2e191783df9190
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fd2d18ea2d129729c5c3835e39a94df7166c3f11
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093948"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402023"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso HTTPS no Serviço de Kubernetes do Azure (AKS)
 
@@ -25,7 +25,7 @@ Você também pode:
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
-- [Crie um controlador de entrada que use seus próprios certificados TLS][aks-ingress-own-tls]
+- [Criar um controlador de ingresso que usa seus próprios certificados TLS][aks-ingress-own-tls]
 - [Crie um controlador de ingresso que use o Let's Encrypt para gerar automaticamente certificados TLS com um endereço IP público estático][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -172,6 +172,19 @@ $ kubectl apply -f certificates.yaml
 certificate.certmanager.k8s.io/tls-secret created
 ```
 
+Para verificar se o certificado foi criado com êxito, use o comando `kubectl describe certificate tls-secret`.
+
+Se o certificado tiver sido emitido, você verá uma saída semelhante à seguinte:
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
+```
+
 ## <a name="run-demo-applications"></a>Executar aplicativos de demonstração
 
 Um controlador de entrada e uma solução de gerenciamento de certificados foi configurado. Agora, vamos executar duas demonstrações de aplicativos no cluster do AKS. Neste exemplo, o Helm é utilizado para executar várias instâncias de um aplicativo simples hello world.
@@ -315,7 +328,7 @@ Você também pode:
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
-- [Crie um controlador de entrada que use seus próprios certificados TLS][aks-ingress-own-tls]
+- [Criar um controlador de ingresso que usa seus próprios certificados TLS][aks-ingress-own-tls]
 - [Crie um controlador de ingresso que use o Let's Encrypt para gerar automaticamente certificados TLS com um endereço IP público estático][aks-ingress-static-tls]
 
 <!-- LINKS - external -->

@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808087"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401956"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o Serviço do Azure Machine Learning: Arquitetura e conceitos
 
@@ -28,7 +28,7 @@ O fluxo de trabalho geralmente segue esta sequência:
 
 1. Desenvolver scripts de treinamento de aprendizado de máquina em **Python**.
 1. Criar e configurar um **destino de computação**.
-1. **Enviar os scripts** para o destino de computação configurado para ser executado nesse ambiente. Durante o treinamento, o destino de computação armazena registros de execução para um **datastore**. Lá, os registros são salvos em um **experimento**.
+1. **Enviar os scripts** para o destino de computação configurado para ser executado nesse ambiente. Durante o treinamento, os scripts podem ler ou gravar no **armazenamento de dados**. Além disso, os registros de execução são salvos como **execuções** no **workspace** e agrupados em **experimentos**.
 1. **Consulte o experimento** quanto a métricas registradas nas execuções atuais e anteriores. Se as métricas não indicarem um resultado desejado, volte para a etapa 1 e itere em seus scripts.
 1. Depois que uma execução satisfatória for encontrada, registre o modelo persistente no **registro de modelo**.
 1. Desenvolva um script de pontuação.

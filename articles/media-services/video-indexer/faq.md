@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306957"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402040"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -28,18 +28,17 @@ O Video Indexer é um serviço de inteligência artificial que faz parte dos S
 
 ### <a name="what-can-i-do-with-video-indexer"></a>O que posso fazer com o Video Indexer?
 
-O Video Indexer pode executar os seguintes tipos de operações em arquivos de mídia:
+Algumas das operações que podem ser executadas pelo Video Indexer em arquivos de mídia incluem:
 
-* Identificar e extrair fala e identificar os falantes.
-* Identificar e extrair texto na tela em um vídeo.
-* Identificar e classificar os objetos em um arquivo de vídeo.
-* Identifica marcas como a Microsoft de faixas de áudio e texto na tela em um vídeo.
+* Identificar e extrair a fala e identificar os locutores.
+* Identificar e extrair o texto na tela em um vídeo.
+* Detectar objetos em um arquivo de vídeo.
+* Identificar marcas (por exemplo: Microsoft) de faixas de áudio e de texto na tela em um vídeo.
 * Detectar e reconhecer rostos de um banco de dados de celebridades e um banco de dados de rostos definido pelo usuário.
-* Extrair palavras-chave do conteúdo de áudio e vídeo com base em texto visual e falado.
-* Extrair tópicos discutidos, mas não necessariamente explicitamente mencionados no conteúdo de áudio e vídeo com base em texto visual e falado.
-* Criar legendas ou textos da faixa de áudio.
+* Extrair os tópicos discutidos, mas não necessariamente mencionados no conteúdo de áudio e vídeo.
+* Criar legendas ocultas ou subtítulos com base na faixa de áudio.
 
-Para obter mais informações, consulte [Visão Geral](video-indexer-overview.md).
+Para obter mais informações e mais recursos do Video Indexer, confira [Visão geral](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Como fazer para começar a utilizar o Video Indexer?
 

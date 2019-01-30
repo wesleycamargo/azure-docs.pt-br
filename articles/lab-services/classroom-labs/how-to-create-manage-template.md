@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 2f34b6c71c448f7273ba7477f18f5abb8f89cdec
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706850"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391195"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerenciar um modelo de sala de aula no Azure Lab Services
 Um modelo em um laboratório é uma imagem básica da máquina virtual a partir do qual todas as máquinas virtuais de todos os usuários são criadas. Configure a máquina virtual do modelo para que ela seja configurada exatamente com o que você deseja fornecer aos usuários de laboratório. Você pode fornecer um nome e uma descrição do modelo exibido para os usuários do laboratório. Em seguida, publique o modelo para tornar as instâncias do modelo de VM disponíveis para os usuários do laboratório. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo.
@@ -85,14 +85,14 @@ Primeiro, você pode configurar e publicar um modelo ao criar um laboratório de
     
     ![Painel de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 
-## <a name="set-up-a-template-after-creating-a-lab"></a>Configurar um modelo depois de criar um laboratório 
-Você também pode configurar um modelo depois de criar o laboratório.   
-
+ 
 ## <a name="set-or-update-template-title-and-description"></a>Definir ou atualizar modelo de título e descrição
 Use as etapas a seguir para definir o título e descrição para a primeira vez e atualizá-los mais tarde. 
 
 1. Na seção **Modelo** seção, mova o mouse sobre **Nome** do modelo ou **descrição** do modelo e selecione-o. 
 2. Insira o **novo nome** ou **nova descrição** para o modelo e pressione **ENTER**.
+
+    ![Nome e descrição do modelo](../media/how-to-create-manage-template/template-name-description.png)
 
 ## <a name="set-up-or-update-a-template-vm"></a>Configurar ou atualizar um modelo de VM
  Você se conecta à VM modelo e instala todo o software necessário antes de disponibilizá-la para os alunos. Use as seguintes etapas para configurar um modelo VM pela primeira vez ou atualizar a VM. 
@@ -100,30 +100,28 @@ Use as etapas a seguir para definir o título e descrição para a primeira vez 
 1. Aguarde até que a máquina virtual do modelo esteja pronta. Quando estiver pronto, o botão **Iniciar** deverá ser habilitado. Para iniciar a máquina virtual, selecione **Iniciar**.
 
     ![Iniciar a VM modelo](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. Para se conectar à máquina virtual, selecione **Conectar** e siga as instruções. 
+1. Leia o aviso e selecione **Iniciar**. 
 
-    ![Conectar à VM modelo](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+    ![Iniciar o modelo – aviso](../media/how-to-create-manage-template/start-template-warning.png)
+1. Depois que ela for iniciada, para se conectar à VM, selecione **Conectar** e siga as instruções. 
 1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Gerenciador de Armazenamento do Azure etc.). 
 2. Desconecte (feche sua sessão de área de trabalho remota) da VM modelo. 
 3. **Pare** a VM modelo selecionando **Parar**. 
 
-    ![Parar a VM modelo](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-
-## <a name="publish-the-template-vm"></a>Publicar a VM modelo
+## <a name="publish-the-template-vm"></a>Publicar a VM modelo  
 Se você não publique o modelo ao criar o laboratório, você pode publicá-lo mais tarde. Antes de publicar, você talvez queira se conectar ao modelo de VM e atualizá-lo com qualquer software. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo. 
 
 1. Selecione **Publicar** na seção **Modelo**. 
 
     ![Publicar a VM modelo](../media/tutorial-setup-classroom-lab/public-access.png)
-1. Sobre o **publicar o modelo** caixa de mensagem, examine a mensagem e selecione **publicar**. Esse processo pode levar alguns tempo, dependendo de quantas VMs estiverem sendo criadas, que é igual ao número de usuários permitidos no laboratório.
+1. Sobre o **publicar o modelo** caixa de mensagem, examine a mensagem e selecione **publicar**. Esse processo poderá levar algum tempo, dependendo de quantas VMs estão sendo criadas.
     
     > [!IMPORTANT]
     > Depois que um modelo é publicado, ele não pode ser cancelado. No entanto você poderá republicar o modelo. 
-4. Alterne para a página **Máquinas virtuais** e confirme que você vê cinco máquinas virtuais no estado **Não Atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. 
+4. Aguarde até o status do modelo ser alterado para **Publicado**. 
 
-    ![Máquinas virtuais](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Aguarde até que as máquinas virtuais sejam criadas. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
+    ![Status de publicação](../media/how-to-create-manage-template/publish-status.png)
+1. Alterne para a página **Máquinas virtuais** e confirme que você vê cinco máquinas virtuais no estado **Não Atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Aguarde até que as máquinas virtuais sejam criadas. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
