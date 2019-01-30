@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960644"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246426"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração do firewall de pilha do Azure
 É recomendável que você use um dispositivo de firewall para ajudar a proteger o Azure Stack. Embora firewalls podem ajudar com coisas como ataques (DDOS) de negação de serviço distribuído, detecção de intrusão e inspeção de conteúdo, eles também podem se tornar um gargalo de produtividade para os serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -34,7 +35,7 @@ Para organizações empresariais, a rede externa pode ser a rede corporativa exi
 ### <a name="network-address-translation"></a>Conversão de Endereços de Rede
 Conversão de endereço de rede (NAT) é o método recomendado para permitir que a máquina virtual de implantação DVM () para acessar os recursos externos e a internet durante a implantação, bem como as VMs do Console de recuperação de emergência (ERCS) ou com privilégios ponto de extremidade (PEP) durante a o registro e solução de problemas.
 
-NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicos. No entanto, não é recomendável fazer isso porque limita a experiência do usuário de locatário e aumenta a complexidade. As duas opções seria um 1:1 NAT que ainda requer um IP público por IP do usuário no pool ou muitas: 1 NAT que requer um NAT regra por usuário VIP que contém associações para todas as portas de um usuário pode usar.
+NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicos. No entanto, não é recomendável fazer isso porque limita a experiência do usuário de locatário e aumenta a complexidade. As duas opções seria um 1:1 NAT que ainda requer um IP público por IP do usuário no pool ou muitas: 1 NAT que exigirá uma regra NAT por usuário VIP que contém associações para todas as portas em que um usuário poderia utilizar.
 
 Estas são algumas das desvantagens do uso do NAT para o VIP público:
 - NAT adiciona sobrecarga ao gerenciar regras de firewall, como os usuários controlar seus próprios pontos de extremidade e suas próprias regras de publicação na pilha de (de SDN) rede definida pelo software. Os usuários devem entre em contato com o operador do Azure Stack para obter seus VIPs publicados e para atualizar a lista de porta.
@@ -54,7 +55,7 @@ Normalmente, os endereços IP roteáveis públicos são especificados para o poo
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Cenário de firewall de rede de perímetro ou de intranet de Enterprise
 Uma implantação corporativa de perímetro ou da intranet, Azure Stack é implantado em um firewall com várias zonas ou entre o firewall de borda e o firewall de rede corporativa interna. Em seguida, o seu tráfego é distribuído entre a rede de perímetro (ou DMZ) segura, e as zonas não seguras como descrito abaixo:
 
-- **Zona segura**: essa é a rede interna que usa endereços IP roteáveis internos ou corporativos. A rede segura pode ser dividida, ter acesso de saída à internet por meio de NAT no Firewall e geralmente é acessada de qualquer lugar dentro de seu datacenter por meio da rede interna. Todas as redes do Azure Stack devem residir em uma zona de segurança, exceto para o pool de VIP público da rede externa.
+- **Zona segura**: Essa é a rede interna que usa endereços IP roteáveis internos ou corporativos. A rede segura pode ser dividida, ter acesso de saída à internet por meio de NAT no Firewall e geralmente é acessada de qualquer lugar dentro de seu datacenter por meio da rede interna. Todas as redes do Azure Stack devem residir em uma zona de segurança, exceto para o pool de VIP público da rede externa.
 - **Zona de perímetro**. A rede de perímetro é onde externos ou aplicativos, como servidores Web são normalmente implantados de internet. Geralmente, ele é monitorado por um firewall para evitar ataques, como DDoS e invasão (hacking) enquanto ainda permite que o tráfego de entrada especificado pela internet. Somente o rede externa pool de VIP público do Azure Stack deve residir na zona de rede de Perímetro.
 - **Zona não segura**. Isso é a rede externa, a internet. Ele **não é** recomendável implantar o Azure Stack na zona não segura.
 

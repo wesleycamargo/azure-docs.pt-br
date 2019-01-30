@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/08/2019
+ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6b2b72403365dc0f6cc61232e0b70801b57a29e2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 898fb12c4e38804cca71be6ef08b078f92633e32
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095457"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240146"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar certificados PKI de pilha do Azure
 
@@ -84,7 +85,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
     > [!Note]  
     > AD FS e o gráfico serão necessárias se você estiver usando o AD FS como seu sistema de identidade.
     
-     - Coloque os certificados nos diretórios apropriados criados na etapa anterior. Por exemplo:  
+     - Coloque os certificados nos diretórios apropriados criados na etapa anterior. Por exemplo:   
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
@@ -97,7 +98,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
     Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Verifique a saída e todos os certificados passarem todos os testes. Por exemplo:
+4. Verifique a saída e todos os certificados passarem todos os testes. Por exemplo: 
 
 ```PowerShell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.

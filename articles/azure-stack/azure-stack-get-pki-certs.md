@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6716f9b959169d6aa9bc5546f6f69c26bdd23320
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 602517f13b762f5dd7a13e652a5e8bf5de56e403
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099842"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245626"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Geração de solicitação de assinatura de certificados de pilha do Azure
 
@@ -36,7 +37,7 @@ O sistema deve atender aos seguintes pré-requisitos antes de gerar o CSR(s) par
 
  - Verificador de preparação do Microsoft Azure Stack
  - Atributos de certificado:
-    - Nome de região
+    - Nome da região
     - Nome de domínio totalmente qualificado (FQDN) externo
     - Assunto
  - Windows 10 ou Windows Server 2016
@@ -54,7 +55,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure:
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2.  Declare a **assunto** como um dicionário ordenado. Por exemplo: 
+2.  Declare a **assunto** como um dicionário ordenado. Por exemplo:  
 
     ```PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
@@ -62,7 +63,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure:
     > [!note]  
     > Se for fornecido um nome comum (CN) será substituído pelo primeiro nome DNS da solicitação de certificado.
 
-3.  Declare um diretório de saída que já existe. Por exemplo:
+3.  Declare um diretório de saída que já existe. Por exemplo: 
 
     ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"

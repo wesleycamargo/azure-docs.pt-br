@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: f17a76b62c511e1cdcd98e387fe0132e2bd15c16
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971786"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238060"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Uso e cobrança do Azure Stack
 
@@ -61,5 +62,5 @@ Cada cliente tem sua identidade representada por um locatário diferente do Azur
 - [Registrar com o Azure Stack](azure-stack-registration.md)
 - [Relatar dados de uso do Azure Stack para o Azure](azure-stack-usage-reporting.md)
 - [API de uso de recursos do provedor](azure-stack-provider-resource-api.md)
-- [API de uso de recursos de locatário](azure-stack-tenant-resource-usage-api.md)
+- [API de uso de recurso de locatário](azure-stack-tenant-resource-usage-api.md)
 - [Perguntas Frequentes relacionadas ao uso](azure-stack-usage-related-faq.md)
