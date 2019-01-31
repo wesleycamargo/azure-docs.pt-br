@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Saiba como usar os armazenamentos de dados o treinamento de armazenamento de dados com o Serviço do Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187126"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252108"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Acesse os dados durante o treinamento de seus armazenamentos de dados
 Use um datastore para acessar e interagir com seus dados nos fluxos de trabalho do AML.

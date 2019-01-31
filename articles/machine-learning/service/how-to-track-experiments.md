@@ -6,17 +6,17 @@ services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 99b3a65feb232526cffecac4fec68d56fcd16ccb
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 83e17d4988753e757d6e30299e648af083b0a1a5
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846278"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239155"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Acompanhe métricas de treinamento e experimentos no Azure Machine Learning
 
@@ -27,7 +27,7 @@ No serviço do Azure Machine Learning, você pode acompanhar suas experiências 
 
 As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, veja a [Documentação de referência de classe de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tipo| Função do Python | Observações|
+|Type| Função do Python | Observações|
 |----|:----|:----|
 |Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>run.log("accuracy", 0.95) |Registre um valor numérico ou de string para a execução com o nome dado. Registrar uma métrica em log para uma execução faz essa métrica ser armazenada no registro de execução no experimento.  Você pode registrar em log a mesma métrica várias vezes dentro de uma execução, sendo o resultado considerado um vetor dessa métrica.|
 |Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Faça uma lista de valores para a execução com o nome fornecido.|
@@ -236,8 +236,8 @@ r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
 # check the returned run type and status
 print(type(r), r.get_status())
 
-# you can only cancel a run if the status is Running
-if r.get_status() == 'Running':
+# you can cancel a run if it hasn't completed or failed
+if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
 Observe que, no momento, somente os tipos ScriptRun e PipelineRun oferecem suporte a operações de cancelamento.

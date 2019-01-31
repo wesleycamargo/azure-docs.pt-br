@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456996"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação do Azure
 É possível especificar metadados e propriedades para um ou mais blobs como parte de um trabalho de importação ou exportação. Para definir metadados ou propriedades para blobs criados como parte de um trabalho de importação, você fornece um arquivo de metadados ou de propriedades no disco rígido que contém os dados a serem importados. Para um trabalho de exportação, os metadados e as propriedades são gravados em um arquivo de metadados ou de propriedades incluído no disco rígido retornado para você.  
@@ -30,7 +30,7 @@ O formato de um arquivo de metadados é o seguinte:
 </Metadata>  
 ```
   
-|Elemento XML|Tipo|DESCRIÇÃO|  
+|Elemento XML|Type|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento raiz|O elemento raiz do arquivo de metadados.|  
 |`metadata-name`|Cadeia de caracteres|Opcional. O elemento XML especifica o nome dos metadados do blob e seu valor especifica o valor da configuração dos metadados.|  
@@ -52,7 +52,7 @@ O formato de um arquivo de propriedades é o seguinte:
 </Properties>  
 ```
   
-|Elemento XML|Tipo|DESCRIÇÃO|  
+|Elemento XML|Type|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento raiz|O elemento raiz do arquivo de propriedades.|  
 |`Last-Modified`|Cadeia de caracteres|Opcional. A hora da última modificação do blob. Somente para trabalhos de exportação.|  

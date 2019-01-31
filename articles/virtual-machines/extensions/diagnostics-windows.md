@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 2a4f55ea15c933094befb8855185c4b7e353dee3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 26e902cb31a77ffb1516f084bb71b5a99a89fba9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188636"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
 
@@ -84,13 +84,13 @@ A configuração precisa ser atualizada para incluir o seguinte:
   * A ID do recurso pode ser criada usando o seguinte padrão: "/subscriptions/{*ID da assinatura para a assinatura com a VM*}/resourceGroups/{*O nome do grupo de recursos para a VM*}/providers/Microsoft.Compute/virtualMachines/{*O nome da VM*}".
   * Por exemplo, se a ID de assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos for **MyResourceGroup** e o nome da VM for **MyWindowsVM**, o valor de *resourceID* será:
     
-      ```
+      ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
   * Para obter mais informações sobre como as métricas são geradas com base na configuração de métricas e contadores de desempenho, veja a [Tabela de métricas do Diagnóstico do Azure no armazenamento](diagnostics-template.md#wadmetrics-tables-in-storage).
 * O elemento **StorageAccount** precisa ser atualizado com o nome da conta de armazenamento de diagnóstico.
   
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
         <WadCfg>

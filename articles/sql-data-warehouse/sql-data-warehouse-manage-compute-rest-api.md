@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8db4d5cb69b65e60cd77d85d743798168bc6d813
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b1763bf08b15a5b40619522ee212eefe3a72ee76
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300826"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455655"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para SQL Data Warehouse do Azure
 APIs REST para gerenciar computação no SQL Data Warehouse do Azure.
@@ -36,7 +36,7 @@ Content-Type: application/json; charset=UTF-8
 
 ## <a name="pause-compute"></a>Pausar computação
 
-Para pausar um banco de dados, use a API REST [Pausar o banco de dados](/rest/api/sql/databases/pause). O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+Para pausar um banco de dados, use a API REST [Pausar o banco de dados](/rest/api/sql/databases/pause) . O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -44,7 +44,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## <a name="resume-compute"></a>Retomar a computação
 
-Para iniciar um banco de dados, use a API REST [Retornar o banco de dados](/rest/api/sql/databases/resume). O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
+Para iniciar um banco de dados, use a API REST [Retomar o banco de dados](/rest/api/sql/databases/resume) . O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1

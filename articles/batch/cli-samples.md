@@ -3,7 +3,7 @@ title: Exemplos da CLI do Azure – Lote | Microsoft Docs
 description: Exemplos da CLI do Azure para o serviço em lotes
 services: batch
 documentationcenter: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 ms.date: 01/29/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9eeb5879e0b8c2fefbc75986a655da8f78d608f6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 58e9799becd3f150f6fadd932ff4b599da9432d1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316072"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468148"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Exemplos da CLI do Azure para o Lote do Azure
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: Como escolher algoritmos de Azure Machine Learning Studio para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 20debfe2a1f3cf92e1a90867ca2b3a01852f7f9c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267344"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244463"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos do Azure Machine Learning Studio
 

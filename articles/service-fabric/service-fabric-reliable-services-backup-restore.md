@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727708"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095763"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós a fim de manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para algumas pessoas, em certos casos é recomendável fazer o backup dos dados do serviço (em um repositório externo).
@@ -227,7 +227,7 @@ Após a habilitação do backup incremental, fazer um backup incremental pode fa
   - Um backup completo da réplica nunca foi feito desde que esta se tornou primária.
   - Alguns dos registros de log foram truncados desde que o último backup foi feito.
 
-Quando o backup incremental é habilitado, `KvsActorStateProvider` não usa o buffer circular para gerenciar seus registros de log e o trunca periodicamente. Se nenhum backup for feito pelo usuário por um período de 45 minutos, o sistema automaticamente truncará os registros de log. Esse intervalo pode ser configurado especificando `logTrunctationIntervalInMinutes` no construtor `KvsActorStateProvider` (semelhante à habilitação do backup incremental). Os registros de log também poderão ser truncados se a réplica primária precisar compilar outra réplica enviando todos os seus dados.
+Quando o backup incremental é habilitado, `KvsActorStateProvider` não usa o buffer circular para gerenciar seus registros de log e o trunca periodicamente. Se nenhum backup for feito pelo usuário por um período de 45 minutos, o sistema automaticamente truncará os registros de log. Esse intervalo pode ser configurado especificando `logTruncationIntervalInMinutes` no construtor `KvsActorStateProvider` (semelhante à habilitação do backup incremental). Os registros de log também poderão ser truncados se a réplica primária precisar compilar outra réplica enviando todos os seus dados.
 
 Ao fazer a restauração usando uma cadeia de backup, semelhante aos Reliable Services, BackupFolderPath deve conter subdiretórios com um subdiretório contendo o backup completo e outros subdiretórios contendo backups incrementais. A API de restauração acionará FabricException com a mensagem de erro apropriada se a validação da cadeia de backup falhar. 
 
