@@ -12,14 +12,14 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161521"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início Rápido: Usar o Golang para consultar um Banco de Dados SQL do Azure
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início rápido: Usar o Golang para consultar um Banco de Dados SQL do Azure
 
 Neste início rápido, você usará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para conectar-se a um Banco de Dados SQL do Azure. Em seguida, você executará instruções Transact-SQL para consultar e modificar dados. O [Golang](https://golang.org/) é uma linguagem de programação de software livre que facilita a criação de softwares simples, confiáveis e eficientes.  
 
@@ -28,8 +28,6 @@ Neste início rápido, você usará a linguagem de programação [Golang](https:
 Para concluir este tutorial, você precisará:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal-firewall.md) configurada para o endereço IP público do seu computador.
 
 - O Golang e o software relacionado para seu sistema operacional instalado:
 

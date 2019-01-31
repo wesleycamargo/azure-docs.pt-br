@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 4d2acf64f7798f845c2993b108b7074283c40be6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744829"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160008"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início Rápido: Usar o .NET Core (C#) para consultar um banco de dados SQL do Azure
 
@@ -28,8 +28,6 @@ Neste início rápido, você usará o [.NET Core](https://www.microsoft.com/net/
 Para este tutorial, é necessário:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do seu computador.
 
 - [.NET Core para seu sistema operacional](https://www.microsoft.com/net/core) instalado. 
 
