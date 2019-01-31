@@ -8,21 +8,21 @@ manager: daveba
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 45d3cebf9b410cb51106ac9255ff3ad461ea47d3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7921e35158a78eca246932e9b3a1af46d4db8834
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190013"
 ---
-# <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início rápido: Configurar locais nomeados no Azure Active Directory
+# <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início Rápido: Configurar locais nomeados no Azure Active Directory
 
 Com locais nomeados, você pode rotular os intervalos de endereços IP confiáveis em sua organização. O Azure AD usa localizações nomeadas para:
 - Detectar falsos positivos em [eventos de risco](concept-risk-events.md). Conectar de um local confiável diminui o risco de entrada do usuário.   

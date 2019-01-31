@@ -1,25 +1,25 @@
 ---
-title: 'Início Rápido: API de Verificação Ortográfica do Bing'
+title: 'Início rápido: API de Verificação Ortográfica do Bing'
 titlesuffix: Azure Cognitive Services
 description: Mostra como começar a usar a API de Verificação Ortográfica do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4af90c0e1ffd6dbadcb31eb6141bc24f746d01f9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e5fa4db8754924b8c2bacfc8bf624380aae063c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316393"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148941"
 ---
-# <a name="quickstart-your-first-spell-check-request"></a>Início Rápido: sua primeira solicitação de verificação ortográfica
+# <a name="quickstart-your-first-spell-check-request"></a>Início Rápido: Sua primeira solicitação de verificação ortográfica
 
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para verificar se uma cadeia de caracteres de texto possui erros de gramática e ortografia, você poderia enviar uma solicitação GET para o ponto de extremidade a seguir:  
   

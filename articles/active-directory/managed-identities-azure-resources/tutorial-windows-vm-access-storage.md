@@ -3,23 +3,23 @@ title: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows p
 description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: 3c253fbebff534b1dcaae8d75322fe524e82a368
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.date: 01/24/2019
+ms.author: priyamo
+ms.openlocfilehash: c19c5031c27ac37aee3707911268965912c20994
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158189"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Microsoft Azure por meio da chave de acesso
 
@@ -36,6 +36,8 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -119,17 +121,17 @@ $keysContent = $keysResponse.Content | ConvertFrom-Json
 $key = $keysContent.keys[0].value
 ```
 
-Em seguida, criamos um arquivo chamado "test.txt". Em seguida, use a chave de acesso de armazenamento para autenticar com o cmdlet do `New-AzureStorageContent`, carregar o arquivo em nosso contêiner de blob e então baixar o arquivo.
+Em seguida, criamos um arquivo chamado "test.txt". Em seguida, use a chave de acesso de armazenamento para autenticar com o cmdlet do `New-AzStorageContent`, carregar o arquivo em nosso contêiner de blob e então baixar o arquivo.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Certifique-se instalar os cmdlets do Armazenamento do Azure primeiro, usando `Install-Module Azure.Storage`. Então carregue o blob recém-criado usando o cmdlet do PowerShell `Set-AzureStorageBlobContent`:
+Certifique-se instalar os cmdlets do Armazenamento do Azure primeiro, usando `Install-Module Az.Storage`. Então carregue o blob recém-criado usando o cmdlet do PowerShell `Set-AzStorageBlobContent`:
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
-Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
+$ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
+Set-AzStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 Resposta:
@@ -146,10 +148,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-Você também pode baixar o blob que acabou de criar, usando o cmdlet do PowerShell `Get-AzureStorageBlobContent`:
+Você também pode baixar o blob que acabou de criar, usando o cmdlet do PowerShell `Get-AzStorageBlobContent`:
 
 ```powershell
-Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
+Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 Resposta:

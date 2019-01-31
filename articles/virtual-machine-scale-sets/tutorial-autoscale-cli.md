@@ -3,7 +3,7 @@ title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento c
 description: Saiba como usar a CLI do Azure para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais conforme a demanda de CPU aumenta e diminui
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471298"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170701"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
 
@@ -41,13 +41,13 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a ex
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#create) da seguinte forma:
+Crie um grupo de recursos com [az group create](/cli/azure/group) da seguinte forma:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo abaixo criará um conjunto de dimensionamento com contagem de instâncias de *2* e gerará chaves SSH se elas não existirem:
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo abaixo criará um conjunto de dimensionamento com contagem de instâncias de *2* e gerará chaves SSH se elas não existirem:
 
 ```azurecli-interactive
 az vmss create \
@@ -137,7 +137,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando o **stress** mostrar a saída semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
+Quando **stress** exibe uma saída semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
 
 Para confirmar que o **stress** gera carga de CPU, examine a carga do sistema ativo com o utilitário **top**:
 
@@ -165,7 +165,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Novamente, quando o **stress** mostrar a saída semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
+Novamente, quando **stress** exibe uma saída semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, pressione a tecla *Enter* para retornar ao prompt.
 
 Feche a conexão com a segunda instância de VM. **stress** continuará a ser executado na instância de VM.
 

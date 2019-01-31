@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: criar um projeto de classificação de imagem com o SDK de Visão Personalizada para C#'
+title: 'Início Rápido: criar um projeto de classificação de imagem com o SDK de Visão Personalizada para C#'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, faça upload de imagens, treine seu projeto e faça uma previsão usando o SDK do .NET com C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: aaffd5e47c8465d44c2dbcdde3f40cf6e6995e55
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 01c4da98bbc89a49007aa7064907abd9ed01cc0d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079078"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227532"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Início Rápido: criar um projeto de classificação de imagem com o SDK do .NET de Visão Personalizada
 
@@ -33,7 +33,7 @@ Para escrever um aplicativo .NET que usa a Visão Personalizada, você precisar�
 
 Clone ou baixe o projeto [Exemplos de .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Navegue até a pasta **CustomVision/ImageClassification** e abra _ImageClassification.csproj_ no Visual Studio.
 
-Este projeto do Visual Studio cria um novo projeto de Visão Personalizada denominado __Meu Novo Projeto__, que pode ser acessado pelo [site da Visão Personalizada](https://customvision.ai/). Ele então carrega as imagens para treinar e testar um classificador. Neste projeto, o classificador serve para determinar se uma árvore é uma __Cicuta__ ou uma __Cerejeira__.
+Este projeto do Visual Studio cria um novo projeto de Visão Personalizada denominado __My New Project__, que pode ser acessado pelo [site da Visão Personalizada](https://customvision.ai/). Ele então carrega as imagens para treinar e testar um classificador. Neste projeto, o classificador serve para determinar se uma árvore é uma __Cicuta__ ou uma __Cerejeira__.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 

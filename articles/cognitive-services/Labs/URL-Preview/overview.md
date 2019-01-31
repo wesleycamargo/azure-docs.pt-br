@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465807"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218166"
 ---
 # <a name="what-is-project-url-preview"></a>O que é a visualização de URL do projeto?
 O ponto de extremidade da Visualização de URL usa um parâmetro de consulta de URL e retorna uma resposta JSON com o nome do recurso de destino, uma breve descrição e um link para uma imagem para exibir uma visualização. A resposta também inclui o sinalizador [isFamilyFriendly](url-preview-reference.md#query-parameters) que indica se a URL contém conteúdo adulto, pirateado ou outro conteúdo ilegal. 
@@ -26,7 +26,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 A resposta: 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -44,7 +44,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## <a name="scenarios"></a>Cenários 
 
 A API de Visualização de URL suporta descrições resumidas dos recursos da Web. Os desenvolvedores a utilizam para criar experiências de visualização avançadas.  Os usuários podem compartilhar ou marcar páginas da Web, notícias, blogs, fóruns, etc. Essa API também pode ser usada para a moderação de conteúdo.    

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cc730650f7bd570f237c06b074afb3678b54448f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999882"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901455"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função disparada pelo Armazenamento de Blobs do Azure
 
@@ -113,8 +113,6 @@ Agora que você tem um contêiner de blob, você pode testar a função carregan
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você criou uma função que é executada quando um blob é adicionado a um Armazenamento de Blobs ou atualizado nele. 
+Você criou uma função que é executada quando um blob é adicionado a um Armazenamento de Blobs ou atualizado nele. Para obter mais informações sobre gatilhos de armazenamento de blobs, consulte [Associações de Armazenamento de Blobs do Azure Functions](functions-bindings-storage-blob.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Para obter mais informações sobre gatilhos de armazenamento de blobs, consulte [Associações de Armazenamento de Blobs do Azure Functions](functions-bindings-storage-blob.md).

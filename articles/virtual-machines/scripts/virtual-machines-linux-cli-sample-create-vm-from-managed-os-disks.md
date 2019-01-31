@@ -3,7 +3,7 @@ title: Exemplo de script da CLI do Azure – Criar uma VM, anexando um disco ger
 description: Exemplo de script da CLI do Azure – Criar uma VM, anexando um disco gerenciado como disco do sistema operacional
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5d86710fd9173cd0bc3416fedec226f97f12d9d2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 319803a8b6c07de6efafa80789248c60a9cdad06
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847668"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241434"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Criar uma máquina virtual usando um disco de sistema operacional gerenciado existente com a CLI
 
@@ -38,7 +38,7 @@ Esse script cria uma máquina virtual anexando um disco gerenciado existente com
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-attach-existing-managed-os-disk/create-vm-attach-existing-managed-os-disk.sh "Create VM from a managed disk")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -50,7 +50,7 @@ az group delete --name myResourceGroup
 
 Esse script usa os seguintes comandos para obter as propriedades do disco gerenciado, anexar um disco gerenciado em uma nova VM e criar uma VM. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtém propriedades de disco gerenciado usando o nome do disco e o nome do grupo de recursos. A propriedade ID é usada para anexar um disco gerenciado a uma nova VM |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria uma VM usando um disco do sistema operacional gerenciado |

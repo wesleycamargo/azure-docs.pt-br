@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7952ea9a83e6a2a7689bfdf34e39c7862a6daf73
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264081"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217910"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Início Rápido: Analisar o conteúdo de texto para material indesejável em Python
 
@@ -61,7 +61,7 @@ Para simplificar, você analisará o texto diretamente do script. Defina uma nov
 
 ## <a name="query-the-moderator-service"></a>Consultar o serviço do Moderador
 
-Criar uma instância **ContentModeratorClient** usando sua URL de ponto de extremidade e a chave de assinatura. Em seguida, use a instância **TextModerationOperations** do membro para chamar a API de moderação. Confira a documentação de referência **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** para obter mais informações sobre como chamá-la.
+Criar uma instância **ContentModeratorClient** usando sua URL de ponto de extremidade e a chave de assinatura. Em seguida, use a instância **TextModerationOperations** do membro para chamar a API de moderação. Confira a documentação de referência **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** para obter mais informações sobre como chamá-la.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

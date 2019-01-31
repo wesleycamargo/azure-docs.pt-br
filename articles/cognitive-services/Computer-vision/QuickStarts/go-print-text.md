@@ -1,22 +1,22 @@
 ---
-title: 'Início Rápido: Extrair texto impresso – REST, Go'
+title: 'Início rápido: Extrair texto impresso – REST, Go'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrai texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com Go.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f862f5b6f71b12bb26ab6e1f0c1cced0d7a8271d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f79e0ba448ba0ea97305316ea945852d9fab56ad
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581845"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206034"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o Go na Pesquisa Visual Computacional
 

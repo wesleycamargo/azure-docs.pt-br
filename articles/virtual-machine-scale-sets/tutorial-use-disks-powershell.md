@@ -3,7 +3,7 @@ title: Tutorial – Criar e usar discos para conjuntos de dimensionamento com o 
 description: Saiba como usar o Azure PowerShell para criar e usar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebe4d877063f47cefcc5fd842fe2a096256a1702
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429456"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881674"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
@@ -48,7 +48,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 **Disco temporário** – discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a instância da VM. Tratam-se de discos de alto desempenho que podem ser usados para operações como o processamento de dados temporário. No entanto, se a instância de VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da instância de VM. Os discos temporários são rotulados */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
-| Tipo | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
+| Type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
 | [Propósito geral](../virtual-machines/windows/sizes-general.md) | Série A, B e D | 1600 |
 | [Computação otimizada](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
@@ -62,7 +62,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 Outros discos de dados podem ser adicionados caso você precise instalar aplicativos e armazenar dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU da VM, podem ser anexados dois discos de dados.
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
-| Tipo | Tamanhos comuns | Máximo de discos de dados por VM |
+| Type | Tamanhos comuns | Máximo de discos de dados por VM |
 |----|----|----|
 | [Propósito geral](../virtual-machines/windows/sizes-general.md) | Série A, B e D | 64 |
 | [Computação otimizada](../virtual-machines/windows/sizes-compute.md) | Série F | 64 |

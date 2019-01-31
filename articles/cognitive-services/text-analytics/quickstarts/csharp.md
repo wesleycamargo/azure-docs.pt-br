@@ -6,18 +6,18 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 8cfc826e76e937df416e88528e1ae2339d4d079d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 5b6ae20445b74aa1713f9af5765684a9c01e2953
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390697"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224302"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
 Este artigo mostra como detectar a linguagem, analisar o sentimento e extrair frases-chave usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com C#. O código foi escrito para funcionar em um aplicativo .Net Core, com referências mínimas a bibliotecas externas; portanto, você também pode executá-lo no Linux ou no macOS.

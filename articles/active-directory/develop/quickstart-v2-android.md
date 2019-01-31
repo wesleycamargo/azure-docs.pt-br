@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 808ee8bb34aa4bb81ce1bcdd50193efa05f5692d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427005"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103757"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: conectar usuários e chamar a API do Microsoft Graph em um aplicativo Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -38,8 +38,8 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registrar e baixar
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registrar e configurar o aplicativo e o exemplo de código
-> #### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registre e configure seu aplicativo e exemplo de código
+> #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
 > 1. Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo.
 > 1. No campo **Nome do Aplicativo**, insira um nome para o seu aplicativo.
@@ -55,7 +55,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-android/green-check.png) Seu aplicativo já está configurado com esses atributos
 
-#### <a name="step-2-download-the-project"></a>Etapa 2: Baixar o projeto
+#### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto
 
 * [Baixar o projeto do Android Studio](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 

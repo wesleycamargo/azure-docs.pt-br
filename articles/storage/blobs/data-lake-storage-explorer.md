@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: usar o Gerenciador de Armazenamento do Azure para gerenciar dados no Azure Data Lake Storage Gen2 '
+title: 'Início Rápido: usar o Gerenciador de Armazenamento do Azure para gerenciar dados no Azure Data Lake Storage Gen2 '
 description: Neste início rápido, você aprenderá a usar o Gerenciador de Armazenamento do Azure para criar um sistema de arquivos em uma conta do Azure Data Lake Storage Gen2, bem como um diretório e um arquivo. Em seguida, você aprenderá a baixar o arquivo para seu computador local e exibir todo o arquivo em um diretório.
 services: storage
 author: tamram
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6f3aa81f0fa2497db02d069e93e007b43c37beb9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423589"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250445"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Início rápido: usar o Gerenciador de Armazenamento do Azure para gerenciar dados em uma conta do Azure Data Lake Storage Gen2
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Início Rápido: usar o Gerenciador de Armazenamento do Azure para gerenciar dados em uma conta do Azure Data Lake Storage Gen2
 
 Neste início rápido, você aprenderá como usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um diretório e um blob. Em seguida, você aprenderá a baixar o blob para seu computador local e exibir todos os blobs em um diretório. Você também aprenderá como criar um instantâneo de um blob, gerenciar as políticas de acesso do diretório e criar uma assinatura de acesso compartilhado.
 

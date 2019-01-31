@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4cca3db778347e9bd8c8b881d85f0882f6b90f72
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581701"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216244"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API da Pesquisa Visual Computacional
 
@@ -120,7 +120,7 @@ Quando esse método é invocado, chamaremos o classificador de 86 categorias pri
 
 Todos os parâmetros de consulta v1 se comportarão da mesma maneira nesse caso.  Se visualFeatures=categories não for especificado, será habilitado implicitamente.
 
-### <a name="Step3"> Etapa 3: Recuperando e entendendo a saída JSON para analyze&visualFeatures=Tags, descrição</a>
+### <a name="Step3">Etapa 3: Recuperando e entendendo a saída JSON para analyze&visualFeatures=Tags, descrição</a>
 
 Aqui está um exemplo:
 ```
@@ -150,7 +150,7 @@ Aqui está um exemplo:
     }
   }
 ```
-Campo   | Tipo  | Conteúdo
+Campo   | Type  | Conteúdo
 ------|------|------|
 Marcas    | objeto    | Objeto de nível superior para matriz de tags
 tags[].Name | string    | Palavra-chave do classificador de tags
@@ -210,7 +210,7 @@ Para modelos específicos a um domínio que usam a Opção dois (análise avanç
 
 O campo de categorias é uma lista de uma ou mais das [86 categorias](../Category-Taxonomy.md) na taxonomia original. Observe também que as categorias que terminam com um sublinhado corresponderão à categoria e seus filhos (por exemplo, people_ assim como people_group, para o modelo de celebridades).
 
-Campo   | Tipo  | Conteúdo
+Campo   | Type  | Conteúdo
 ------|------|------|
 Categorias | objeto | Objeto de nível superior
 categories[].name    | string   | Nome da taxonomia de 86 categorias

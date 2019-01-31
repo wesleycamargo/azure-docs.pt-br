@@ -3,19 +3,19 @@ title: MFA com base em risco e SSPR com a proteção de identidade do Azure Iden
 description: Neste tutorial, você habilitará integrações com o Azure Identity Protection para a Autenticação Multifator e redefinição de senha de autoatendimento a fim de reduzir o comportamento de risco.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 504e314151409732cba23af97224683eb35a7c81
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434913"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075475"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar eventos de risco para disparar a Autenticação Multifator e alterações de senha
 

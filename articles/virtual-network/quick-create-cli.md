@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
-ms.openlocfilehash: 9a2272c61932fe4628a0c90101446b6105cab29e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8e46058432743febd70a017ee5131081a052364b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413644"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195385"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início Rápido: Criar uma rede virtual usando a CLI do Azure
 
@@ -38,7 +38,7 @@ Antes de poder criar uma rede virtual, você deverá criar um grupo de recursos 
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo cria uma rede virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *padrão*:
+Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo cria uma rede virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *padrão*:
 
 ```azurecli-interactive
 az network vnet create \
