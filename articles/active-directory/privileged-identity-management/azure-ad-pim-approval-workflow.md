@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1c4b3819494ecb4c0897edeb08e2ce45d867b626
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665835"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179065"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM
 
@@ -30,7 +30,7 @@ Com o Gerenciamento de Identidade Privilegiada (PIM) do Azure AD, você pode con
 
 Como um aprovador delegado, você receberá uma notificação por e-mail quando uma solicitação de função de diretório do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no PIM.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 

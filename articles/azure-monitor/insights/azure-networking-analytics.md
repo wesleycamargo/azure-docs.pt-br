@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191693"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900282"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de monitoramento de rede do Azure no Log Analytics
 
 O Log Analytics oferece as seguintes soluções para monitorar suas redes:
 * Monitor de Desempenho de Rede (NPM) para
- * Monitorar a integridade da sua rede
+    * Monitorar a integridade da sua rede
 * Análise do Gateway de Aplicativo do Azure para revisão
- * Logs do Gateway de Aplicativo do Azure
- * Métricas do Gateway de Aplicativo do Azure
+    * Logs do Gateway de Aplicativo do Azure
+    * Métricas do Gateway de Aplicativo do Azure
 * Soluções para monitorar e auditar a atividade de rede na rede de nuvem
-* [Análise de Tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Análise de Grupo de Segurança de Rede do Azure
+    * [Análise de Tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Análise de Grupo de Segurança de Rede do Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de Desempenho de Rede (NPM)
 

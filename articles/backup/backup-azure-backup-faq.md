@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382628"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300724"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -28,19 +28,15 @@ Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se e
 
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se a minha organização tiver um cofre, como posso isolar dados de servidores diferentes no cofre ao restaurar dados?
-
 Os dados do servidor que você deseja recuperar juntos devem usar a mesma frase secreta ao configurar o backup. Se você quiser isolar a recuperação para um servidor ou servidores específicos, use uma frase secreta somente para esse servidor ou servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover meu cofre entre assinaturas?
-
  Não. O cofre é criado em um nível de assinatura e não pode ser transferido para outra assinatura.
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de backup para outro cofre?
-
  Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso alterar de GRS para LRS depois de um backup?
-
  Não. Um cofre do Recovery Services só pode alterar as opções de armazenamento antes que os backups sejam armazenados.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
@@ -58,14 +54,12 @@ Não, não há suporte para ILR.
 ## <a name="vmware-and-hyper-v-backup"></a>Backup do VMware e Hyper-V
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Posso fazer backup de servidores do VMware vCenter para o Azure?
-
 Sim. Você pode usar o Servidor de Backup do Azure para fazer backup dos hosts VMware vCenter Server e ESXi no Azure.
 
 - [Saiba mais](backup-mabs-protection-matrix.md) sobre as versões compatíveis.
 - [Siga estas etapas](backup-azure-backup-server-vmware.md) para fazer backup de um servidor VMware.
 
 ### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>É necessário uma licença separada para recuperar um cluster do VMware/Hyper-V local completo?
-
 Você não precisa separar licenciamento para a proteção de VMware/Hyper-V.
 
 - Se você for um cliente do System Center, use o System Center Data Protection Manager (DPM) para proteger as VMs do VMware.
@@ -74,14 +68,10 @@ Você não precisa separar licenciamento para a proteção de VMware/Hyper-V.
 ## <a name="dpm-and-azure-backup-server-backup"></a>Backup do DPM e do Servidor de Backup do Azure
 
 ### <a name="which-dpm-versions-are-supported"></a>Há suporte para quais versões do DPM?
-
 As versões compatíveis do DPM estão resumidas na [matriz de suporte](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Recomendamos que você instale as atualizações mais recentes do DPM e execute a [versão mais recente](https://aka.ms/azurebackup_agent) do agente de Backup do Azure no servidor do DPM.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registrar o servidor em vários cofres?
-
  Não. Um servidor do DPM ou do Backup do Azure pode ser registrado em apenas um cofre.
-
-
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico? <br/>
 Sim.
@@ -94,8 +84,6 @@ Sim.
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se eu instalei o agente do Backup do Azure para proteger meus arquivos e pastas, posso instalar o System Center DPM para fazer backup de cargas de trabalho locais no Azure?
 Sim. Mas você deve configurar o DPM primeiro e depois instalar o agente de Backup do Azure.  Instalar os componentes nesta ordem garante que o agente de Backup do Azure funcione com o DPM. Instalar o agente antes de instalar o DPM não é aconselhável e não há suporte para isso.
 
-
-
 ## <a name="general-backup"></a>Backup geral
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Há limites no agendamento de backup?
@@ -104,7 +92,7 @@ Sim.
 - Você pode fazer backup do DPM até duas vezes por dia. Você pode definir a política de agendamento para agendamentos diários, semanais, mensais e anuais.
 - Você faz backup de VMs do Azure uma vez por dia.
 
-## <a name="what-operating-systems-are-supported-for-backup"></a>Há suporte para backup de quais sistemas operacionais?
+### <a name="what-operating-systems-are-supported-for-backup"></a>Há suporte para backup de quais sistemas operacionais?
 
 O Backup do Azure dá suporte a esses sistemas operacionais para backup de arquivos e pastas, além de aplicativos protegidos usando o Servidor de Backup do Azure e o DPM.
 
@@ -128,10 +116,8 @@ Windows Server 2008 de 64 bits | Standard, Enterprise, Datacenter | Com as atual
 Para backups do Linux na VM do Azure, o Backup do Azure oferece suporte para [a lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), exceto o principal sistema operacional Linux e sistema operacional de 32 bits. Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na VM e exista suporte para Python.
 
 
-## <a name="are-there-size-limits-for-data-backup"></a>Há limites de tamanho para o backup de dados?
-
+### <a name="are-there-size-limits-for-data-backup"></a>Há limites de tamanho para o backup de dados?
 Os limites de tamanho são os seguintes:
-
 
 Sistema operacional/computador | Limite de tamanho da fonte de dados
 --- | --- | ---
@@ -141,8 +127,7 @@ Windows Server 2012 ou posterior | 54.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
 VM do Azure | 16 discos de dados<br/><br/> Disco de dados de até 4095 GB
 
-## <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
-
+### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
 A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **Fonte de dados** | **Detalhes**
@@ -155,7 +140,6 @@ Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da 
 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup em um cofre dos Serviços de Recuperação?
-
 Não há nenhum limite para a quantidade de dados das quais você pode fazer backup usando um cofre dos Serviços de Recuperação.
 
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?
@@ -163,7 +147,7 @@ Não há nenhum limite para a quantidade de dados das quais você pode fazer bac
 
 Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
 
-## <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
+### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
 
  Os dados dos quais é feito backup do Azure Backup Agent, DPM e Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Com a compactação e a criptografia aplicadas, os dados no cofre são 30% a 40% menores.
 
@@ -177,9 +161,6 @@ Não, o Backup do Microsoft Azure não dá suporte a exclusão ou limpeza de ite
 - O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup.
 - Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos.
 - O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
-
-
-
 
 ## <a name="retention-and-recovery"></a>Retenção e recuperação
 
@@ -199,15 +180,14 @@ Sim, você pode personalizar políticas. Por exemplo, você pode configurar os r
 Não. O tempo de recuperação do ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação se comporta como um ponto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, isso afeta o armazenamento de backup total cobrável?
-
 Os produtos típicos de ponto de retenção de longo prazo armazenam dados de backup como pontos completos.
+
     - Os pontos completos *não oferecem economia* de armazenamento, mas são mais fáceis e rápidos de restaurar.
     - As cópias incrementais *oferecem economia* de armazenamento, mas exigem que você restaure uma cadeia de dados, o que afeta o tempo de recuperação.
 
 A arquitetura de armazenamento do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Isso garante que a largura de banda de entrada e saída seja usada com eficiência. A quantidade de armazenamento de dados e o tempo necessário para recuperar os dados são mantidos em um mínimo. Saiba mais sobre [backups incrementais](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Há um limite para o número de pontos de recuperação que podem ser criados?
-
 Você pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que faz backup de dados no Azure.
 
 - Saiba mais sobre [backup e retenção](./backup-introduction-to-azure-backup.md#backup-and-retention).
@@ -220,7 +200,6 @@ Não há limite para o número de recuperações do Backup do Azure.
  Não. A recuperação é gratuita e você não é cobrado pelo tráfego de saída.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero minha política de backup?
-
 Quando uma nova política for aplicada, a agenda e a retenção da nova política serão seguidas.
 
 - Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política.
@@ -229,20 +208,17 @@ Quando uma nova política for aplicada, a agenda e a retenção da nova polític
 ## <a name="encryption"></a>Criptografia
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados são enviados para o Azure criptografados?
-
 Sim. Os dados são criptografados no computador local usando o AES256. Os dados são enviados por um link HTTPS seguro. Os dados são transmitidos na nuvem e são protegidos por um link HTTPS entre o armazenamento e o serviço de recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador de usuário. O túnel seguro é usado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados de backup também são criptografados no Azure?
-
 Sim. Os dados no Azure são criptografados em repouso.
+
 - Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure.
 - Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento).
 
 A Microsoft não descriptografa os dados de backup em nenhum momento.
 
-
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?
-
 A chave de criptografia deve ter pelo menos 16 caracteres, quando você estiver usando o agente de backup do Azure. Para VMs do Azure, não há nenhum limite para o comprimento das chaves usadas pelo KeyVault do Azure.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados? A Microsoft pode recuperar os dados?

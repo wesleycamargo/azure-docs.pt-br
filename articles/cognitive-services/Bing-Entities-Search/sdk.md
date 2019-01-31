@@ -6,22 +6,22 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 1/24/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8212f4ca5178a5af55a2b91e879f54727711092b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 882662660c3edb55db3feb353c0dfa2a4bacb425
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814994"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156234"
 ---
-# <a name="bing-search-sdk"></a>SDK de Pesquisa de Entidade do Bing
-Os exemplos da API de Pesquisa de Entidade do Bing incluem cenários em que:
-1.  Pesquisa por entidades como Tom Cruise e obtém informações importantes.
-2.  Trata a desambiguidade de termos para consultas com possíveis intenções múltiplas.
-3.  Pesquisa uma entidade local, como um restaurante e obtém informações importantes sobre ela.
+# <a name="bing-search-sdk"></a>SDK de Pesquisa do Bing
+Os exemplos de API de Pesquisa de Entidade do Bing incluem cenários em que:
+1.  Pesquisa entidades como Tom Cruise e obtém informações valiosas.
+2.  Trata a desambiguidade de termos para consultas com possivelmente várias intenções.
+3.  Pesquisa uma entidade local, como um restaurante, e obtém informações importantes sobre a entidade.
 4.  Pesquisa empresas locais, como restaurantes, e obtém informações importantes.
 5.  Dispara uma solicitação incorreta e tratamento de erro.
 

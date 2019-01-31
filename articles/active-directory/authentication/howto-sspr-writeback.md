@@ -3,19 +3,19 @@ title: Como configurar write-back de senha para SSPR do Azure AD
 description: Usar o Azure AD e o Azure AD Connect para o write-back de senhas para um diretório local
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5ec079e0dfecbd6c4752bab2b8eb821fb01fdabd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c495bc496202bccfc47633527fbd84a200be059
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432346"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080371"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar o write-back de senha
 

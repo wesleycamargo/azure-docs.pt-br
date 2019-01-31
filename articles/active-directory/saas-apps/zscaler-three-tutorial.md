@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f352e00d-68d3-4a77-bb92-717d055da56f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 442d7478669a206f04cb799cb86b807cfe7b0624
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 272f4b6b3a54a006947b6a4ef6480a9168e047c0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790141"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Azure Active Directory com Zscaler Three
 
@@ -38,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com o Zscaler Three, são necessários os seguintes itens:
 
-- Uma assinatura do Azure AD
+- Uma assinatura do AD do Azure
 - Uma assinatura do Zscaler Three habilitada para logon único
 
 > [!NOTE]
@@ -54,7 +54,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Zscaler Três da Galeria
-2. Configurar e testar logon único do Azure AD
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-zscaler-three-from-the-gallery"></a>Adicionando Zscaler Três da Galeria
 
@@ -86,7 +86,7 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Zsca
 
 Para configurar e testar o logon único do Azure AD com o Zscaler Three, é necessário concluir os seguintes blocos de construção:
 
-1. **[Configurar Logon Único do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os usuários usem esse recurso.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar Logon Único do Zscaler Three](#configure-zscaler-three-single-sign-on)** - para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Criar um usuário de teste do Zscaler Three](#create-zscaler-three-test-user)** – para ter um equivalente de Brenda Fernandes no Zscaler Three vinculado à representação do usuário no Azure AD.
@@ -233,15 +233,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![Criar um usuário do Azure AD][100]
+    ![Criar um usuário do AD do Azure][100]
 
 2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criar um usuário de teste do Azure AD](common/create_aaduser_01.png) 
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
 
 3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Criar um usuário de teste do Azure AD](common/create_aaduser_02.png)
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
