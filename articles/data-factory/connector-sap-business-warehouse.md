@@ -166,28 +166,28 @@ Ao copiar dados do SAP BW, os seguintes mapeamentos são usados de tipos de dado
 
 | Tipo de dados do SAP BW | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| ACCP | int |
-| CHAR | Cadeia de caracteres |
-| CLNT | Cadeia de caracteres |
+| ACCP | Int |
+| CHAR | String |
+| CLNT | String |
 | CURR | Decimal |
-| CUKY | Cadeia de caracteres |
+| CUKY | String |
 | DEC | Decimal |
-| FLTP | Duplo |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | int |
-| LANG | Cadeia de caracteres |
-| LCHR | Cadeia de caracteres |
+| INT4 | Int |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | Cadeia de caracteres |
-| UNIDADE | Cadeia de caracteres |
-| DATS | Cadeia de caracteres |
-| NUMC | Cadeia de caracteres |
-| TIMS | Cadeia de caracteres |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Próximas etapas
