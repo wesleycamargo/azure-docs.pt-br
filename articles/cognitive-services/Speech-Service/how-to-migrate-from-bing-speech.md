@@ -6,16 +6,16 @@ services: cognitive-services
 author: wsturman
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416273"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217995"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar da Fala do Bing para o Serviço de Fala
 
@@ -90,7 +90,7 @@ Acesse a [página de suporte](support.md) do Serviço de Fala para obter suporte
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Experimentar o Serviço de Fala gratuitamente](get-started.md)
-* [Início Rápido: Reconhecimento de fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)
+* [Início Rápido: reconhecer a fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Consulte também
 * [Notas de versão do Serviço de Fala](releasenotes.md)

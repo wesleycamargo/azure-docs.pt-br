@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526939"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454667"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparando discos rígidos para um trabalho de importação
 Para preparar um ou mais discos rígidos para um trabalho de importação, execute estas etapas:
@@ -172,7 +172,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)
 * [Definindo propriedades e metadados durante o processo de importação](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [Referência rápida para comandos usados frequentemente](storage-import-export-tool-quick-reference-v1.md) 
+* [Referência rápida para comandos usados frequentemente](storage-import-export-tool-quick-reference-v1.md) 
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)

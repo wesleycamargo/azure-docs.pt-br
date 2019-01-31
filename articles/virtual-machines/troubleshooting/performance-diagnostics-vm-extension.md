@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194157"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096782"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -123,7 +123,7 @@ Para remover a extensão de uma máquina virtual, siga estas etapas:
 ## <a name="template-deployment"></a>Implantação de modelo
 As extensões de máquina virtual do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager. Isso executará a extensão da VM de Diagnóstico de Desempenho do Azure durante uma implantação de modelo do Azure Resource Manager. Aqui está um exemplo de modelo:
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -207,14 +207,14 @@ As extensões de máquina virtual do Azure podem ser implantadas com modelos do 
     }
   ]
 }
-````
+```
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 O comando `Set-AzureRmVMExtension` pode ser usado para implantar a extensão da máquina virtual do Diagnóstico de Desempenho do Azure em uma máquina virtual existente.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
@@ -227,7 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## <a name="information-on-the-data-captured"></a>Informações sobre os dados capturados
 A ferramenta PerfInsights coleta vários logs, configurações, dados de diagnóstico, etc., dependendo do cenário selecionado. Para saber mais, confira a [Documentação de PerfInsights](https://aka.ms/perfinsights).

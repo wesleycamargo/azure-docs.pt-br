@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111177"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182023"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>APIs do Cliente Java do Microsoft Azure Service Fabric
 
@@ -71,7 +71,7 @@ Siga as etapas mencionadas abaixo para gerar o código cliente Java do Service F
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   O comando a seguir considera o arquivo de especificação ``servicefabric.json`` como entrada e gera o código cliente java na pasta ``java-rest-api-     code`` e circunscreve o código no namespace ``servicefabricrest``. Após essa etapa, deve-se localizar duas pastas ``models``, ``implemenation`` e dois arquivos ``ServiceFabricClientAPIs.java`` e ``package-info.java`` gerados na pasta ``java-rest-api-code``.
+   O comando a seguir considera o arquivo de especificação ``servicefabric.json`` como entrada e gera o código cliente java na pasta ``java-rest-api-     code`` e circunscreve o código no namespace ``servicefabricrest``. Após essa etapa, deve-se localizar duas pastas ``models``, ``implementation`` e dois arquivos ``ServiceFabricClientAPIs.java`` e ``package-info.java`` gerados na pasta ``java-rest-api-code``.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Inclua e use o cliente gerado em seu projeto

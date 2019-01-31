@@ -3,23 +3,23 @@ title: Como criar e excluir uma identidade gerenciada atribuída ao usuário usa
 description: Instruções passo a passo sobre como criar e excluir identidades gerenciadas atribuídas ao usuário usando o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
-ms.openlocfilehash: 5270bcff74f8738bb8449a158e1da16c25157e61
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.author: priyamo
+ms.openlocfilehash: fb133ec9c19195568eb876526adaff193028cb16
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452846"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197476"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e excluir uma identidade gerenciada atribuída ao usuário usando o Azure Resource Manager
 

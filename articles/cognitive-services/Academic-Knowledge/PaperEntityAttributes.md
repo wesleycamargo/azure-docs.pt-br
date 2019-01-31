@@ -6,23 +6,23 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: ae238a3c3af091b764147fcde8aa2a98986da92e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d36a39f10f9e0129af3b730a65387d7108209004
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158883"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168372"
 ---
 # <a name="paper-entity"></a>Entidade Artigo
 
 <sub> *Os atributos a seguir são específicos da entidade Artigo. (Ty = '0') </sub>
 
 
-NOME    |DESCRIÇÃO                                        |Tipo       | Operações
+NOME    |DESCRIÇÃO                                        |Type       | Operações
 ------- | ------------------------------------------------- | --------- | ----------------------------
 ID      |ID da Entidade                                          |Int64      |É igual a
 Ti      |Título do artigo                                        |Cadeia de caracteres     |Igual a,<br/>StartsWith

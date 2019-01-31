@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8365f7e60dfb78aba16bea9708c99195a6b76b11
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a10bf35618d7f543957d1f839618397f08698d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972888"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095414"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos serviço a serviço
 
@@ -71,5 +71,5 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
-- Saiba sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
+- Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
+- Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD

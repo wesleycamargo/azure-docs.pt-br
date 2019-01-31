@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d7d064d9be3b180985c343b8dffc20f274fae048
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287080"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163119"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Permitir acesso a outros administradores para gerenciar o PIM
 
@@ -31,7 +31,7 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
 ## <a name="grant-access-to-manage-pim"></a>Conceder acesso para gerenciar PIM
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
@@ -39,7 +39,7 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
 1. Clique em **Funções**.
 
-    ![Funções do diretório do Azure AD Privileged Identity Management - Funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![Funções de diretório do AD do Azure do PIM - funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Clique na função **Administrador com Função com Privilégios** para abrir a página de membros.
 
@@ -69,7 +69,7 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
 Antes de remover alguém da função Administrador com Função com Privilégios, sempre verifique se ainda haverá pelo menos dois usuários atribuídos a ela.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 

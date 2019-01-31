@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820557"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910641"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para o Visual Studio Code
 
@@ -22,9 +22,9 @@ As etapas a seguir mostram como configurar o ambiente interativo do PySpark no V
 
 Usamos comando **python/pip** para criar o ambiente virtual em seu caminho de Página Inicial. Se você deseja usar outra versão, precisa alterar a versão padrão do comando **python/pip** manualmente. Para obter mais detalhes, confira [update-alternatives](https://linux.die.net/man/8/update-alternatives).
 
-1. Instale [Python](https://www.python.org/) e [pip](https://pip.pypa.io/en/stable/installing/).
+1. Instale [Python](https://www.python.org/downloads/) e [pip](https://pip.pypa.io/en/stable/installing/).
    
-   + Instale o Python de [https://pip.pypa.io/en/stable/installing](https://www.python.org/).
+   + Instale o Python de [https://www.python.org/downloads/](https://www.python.org/downloads/).
    + Instale o pip de [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Se não for instalado pela instalação do Python)
    + Confirme se o Python e o pip foram instalados com êxito usando os comandos a seguir. (Opcional)
  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c69bab9d2956568473dd6def86ecbd9bbb6577cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359213"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081595"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportar modelos do Azure Resource Manager com o PowerShell
 
@@ -36,18 +36,18 @@ Este artigo mostra as duas abordagens.
 Para ilustrar as duas abordagens de exportação de um modelo, vamos começar implantando uma solução em sua assinatura. Se você já tiver um grupo de recursos em sua assinatura que queira exportar, não é preciso implantar essa solução. No entanto, o restante deste artigo refere-se ao modelo dessa solução. O script de exemplo implanta uma conta de armazenamento.
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
 ## <a name="save-template-from-deployment-history"></a>Salvar modelo do histórico de implantações
 
-Você pode recuperar um modelo do histórico de implantações usando o comando [Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate). O exemplo a seguir salva o modelo implantado anteriormente:
+Você pode recuperar um modelo do histórico de implantações usando o comando [Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate). O exemplo a seguir salva o modelo implantado anteriormente:
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
 Ele retorna o local do modelo.
@@ -62,10 +62,10 @@ Abra o arquivo e observe que é o modelo exato que foi usado para implantação.
 
 ## <a name="export-resource-group-as-template"></a>Exportar grupo de recursos como modelo
 
-Em vez de recuperar um modelo do histórico de implantações, você pode recuperar um modelo que representa o estado atual de um grupo de recursos usando o comando [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Use esse comando quando você fez muitas alterações no seu grupo de recursos e nenhum modelo existente representa todas as alterações. Ele destina-se ser um instantâneo do grupo de recursos, que você pode usar para reimplantar no mesmo grupo de recursos. Para usar o modelo exportado para outras soluções, você deve modificá-lo significativamente.
+Em vez de recuperar um modelo do histórico de implantações, você pode recuperar um modelo que representa o estado atual de um grupo de recursos usando o comando [Export-AzureRmResourceGroup](/powershell/module/az.resources/export-azresourcegroup). Use esse comando quando você fez muitas alterações no seu grupo de recursos e nenhum modelo existente representa todas as alterações. Ele destina-se ser um instantâneo do grupo de recursos, que você pode usar para reimplantar no mesmo grupo de recursos. Para usar o modelo exportado para outras soluções, você deve modificá-lo significativamente.
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
 Ele retorna o local do modelo.
@@ -111,7 +111,7 @@ Abra o arquivo e observe que ele é diferente do modelo no GitHub. Ele tem parâ
 Você pode reimplantar esse modelo, mas ele exige a suposição de um nome exclusivo para a conta de armazenamento. O nome do parâmetro é ligeiramente diferente.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```

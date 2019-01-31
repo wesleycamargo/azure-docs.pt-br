@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f071d97df6932bec5ae4161511ba33369cc1828c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9f60775bd057f0ad114bd7d7d0d42514a83186c5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461170"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186834"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: Práticas recomendadas para alterar a configuração padrão
 O objetivo deste tópico é descrever as alterações com e sem suporte para a sincronização do Azure AD Connect.

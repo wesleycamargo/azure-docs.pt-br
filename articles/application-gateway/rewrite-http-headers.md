@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198518"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103421"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de Aplicativo (visualização pública)
 
@@ -94,8 +94,6 @@ Essa funcionalidade dá suporte à regravação de cabeçalhos para as seguintes
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retorna a lista de codificações com suporte pelo cliente          |
 | ciphers_used               | Retorna a cadeia de caracteres de criptografia usada para uma conexão SSL estabelecida |
-| client_latitude            | para determinar o país, região e cidade, dependendo do endereço IP do cliente |
-| client_longitude           | para determinar o país, região e cidade, dependendo do endereço IP do cliente |
 | client_port                | porta do cliente                                                  |
 | client_tcp_rtt             | informações sobre a conexão TCP do cliente; disponível em sistemas que são compatíveis com a opção de soquete TCP_INFO |
 | client_user                | ao usar a autenticação de HTTP, o nome de usuário fornecido para autenticação |

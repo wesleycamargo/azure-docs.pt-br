@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849202"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157458"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 Uma NVA é uma VM que executa uma função de rede, como roteamento, firewall ou otimização de WAN.
 
-Criar uma NVA na sub-rede *DMZ* com [az vm create](/cli/azure/vm#az_vm_create). Quando você cria uma VM, o Azure cria e atribui um endereço IP público para a VM, por padrão. O parâmetro `--public-ip-address ""` instrui o Azure para não criar e atribuir um endereço IP público para a VM, pois a VM não precisa estar conectada à internet. Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
+Criar uma NVA na sub-rede *DMZ* com [az vm create](/cli/azure/vm). Quando você cria uma VM, o Azure cria e atribui um endereço IP público para a VM, por padrão. O parâmetro `--public-ip-address ""` instrui o Azure para não criar e atribuir um endereço IP público para a VM, pois a VM não precisa estar conectada à internet. Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ O comando pode demorar até um minuto para executar.
 
 Crie duas VMs na rede virtual para que seja possível validar esse tráfego da sub-rede *Pública* roteada para a sub-rede *Privada* por meio da NVA em uma etapa posterior. 
 
-Crie uma VM na sub-rede *Pública* com [az vm create](/cli/azure/vm#az_vm_create). O parâmetro `--no-wait` permite que o Azure execute o comando em segundo plano para que você possa continuar com o próximo comando. Para simplificar este artigo, uma senha é utilizada. Normalmente, chaves são usadas em implantações de produção. Se você utilizar chaves, também deverá configurar o encaminhamento de agente SSH. Para obter mais informações, consulte a documentação do cliente SSH. Substitua `<replace-with-your-password>` no comando a seguir com uma senha de sua escolha.
+Crie uma VM na sub-rede *Pública* com [az vm create](/cli/azure/vm). O parâmetro `--no-wait` permite que o Azure execute o comando em segundo plano para que você possa continuar com o próximo comando. Para simplificar este artigo, uma senha é utilizada. Normalmente, chaves são usadas em implantações de produção. Se você utilizar chaves, também deverá configurar o encaminhamento de agente SSH. Para obter mais informações, consulte a documentação do cliente SSH. Substitua `<replace-with-your-password>` no comando a seguir com uma senha de sua escolha.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

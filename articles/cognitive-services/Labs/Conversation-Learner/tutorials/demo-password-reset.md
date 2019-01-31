@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 409647da146a2844384204cb03de5028d45e5763
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792383"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227328"
 ---
 # <a name="demo-password-reset"></a>Demonstração: Redefinição de senha
 Este tutorial apresenta um bot simples de suporte técnico que pode ajudar com a redefinição de senha da plataforma Conversation Learner. O modelo do bot pode aprender fluxos de diálogo não triviais e sequências de vários turnos, incluindo uma classe fora do domínio. A tarefa pode ser feita sem código ou entidades.

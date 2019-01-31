@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1f184d54c0d9edc8e203b697c06c2178436172ff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340028"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206929"
 ---
 # <a name="supported-languages"></a>Idiomas com suporte
 
@@ -36,7 +36,7 @@ A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas n
 | en-GB | Inglês (Reino Unido) |pl-PL | Polonês (Polônia) |
 | en-IN | Inglês (Índia) | pt-BR | Português (Brasil)  |
 | en-NZ | Inglês (Nova Zelândia) |pt-PT | Português (Portugal)  |
-| pt-BR | Inglês (Estados Unidos) | ru-RU | Russo (Rússia) |
+| en-US | Inglês (Estados Unidos) | ru-RU | Russo (Rússia) |
 | es-ES | Espanhol (Espanha) | sv-SE | Sueco (Suécia) |
 | es-MX | Espanhol (México) |zh-CN | Chinês (mandarim, simplificado)  |
 | fi-FI | Finlandês (Finlândia) |zh-HK | Chinês (RAE de Hong Kong) |
@@ -51,6 +51,6 @@ A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas n
 |-----|-----|-----|-----|
 | ar-EG | Árabe (Egito), padrão moderno | It-IT | Italiano (Itália) |
 | de-DE | Alemão (Alemanha) | ja-JP | Japonês (Japão) |
-| pt-BR | Inglês (Estados Unidos) | pt-BR | Português (Brasil) |
+| en-US | Inglês (Estados Unidos) | pt-BR | Português (Brasil) |
 | es-ES | Espanhol (Espanha) | ru-RU | Russo (Rússia) |
 | fr-FR | Francês (França) | zh-CN | Chinês (mandarim, simplificado) |

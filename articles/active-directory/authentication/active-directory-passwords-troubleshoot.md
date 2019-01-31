@@ -3,19 +3,19 @@ title: Solução de problemas de redefinição de senha por autoatendimento – 
 description: Solução de problemas de autoatendimento de redefinição de senha do Azure AD
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: d16af67676c2d329e6ecb9e6ba83cb1afee748f0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 76df049bd782c4e50b0d8abdf2f209162d82320a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428964"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079793"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
