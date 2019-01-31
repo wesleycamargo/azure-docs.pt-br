@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360612"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883697"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de suporte do Backup do Azure
 
@@ -30,13 +30,13 @@ Número de cofres | Até 500 cofres dos Serviços de Recuperação em uma assina
 Computadores em um cofre | Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 computadores locais que executam o agente do Backup do Azure (agente do MABS [Serviços de Recuperação do Microsoft Azure]) podem ser registrados em um único cofre.
 Fonte de dados no armazenamento do cofre | Máximo de 54.400 GB. Não há nenhum limite para backups de VM do Azure.
 Backups no cofre | VMs do Azure: uma vez por dia; computadores protegidos pelo DPM/MABS: duas vezes por dia; computadores copiados em backup diretamente usando o agente do MARS: três vezes por dia.  
-Mover o cofre | Você pode mover os cofres dos Serviços de Recuperação de backup entre assinaturas e grupos de recursos. [Saiba mais](backup-azure-move-recovery-services-vault.md).
+Mover o cofre | Para mover um cofre dos Serviços de Recuperação, inscreva-se em uma versão prévia privada. Para testar, gravar em AskAzureBackupTeam@microsoft.com.
 Mover dados entre cofres | Não há suporte para a movimentação de dados de backup entre cofres.
 Tipo de replicação de armazenamento | Modifique o tipo de replicação de armazenamento (GRS/LRS) de um cofre antes que os backups sejam armazenados. Após o início dos backups no cofre, o tipo de replicação não poderá ser modificado.
 
 
 
-## <a name="on-premises-backup-support"></a>Suporte de backup local 
+## <a name="on-premises-backup-support"></a>Suporte de backup local
 
 Veja a seguir os itens compatíveis, caso deseje fazer backup de computadores locais.
 
@@ -77,8 +77,8 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de VMs do Azure.
 Veja a seguir os itens compatíveis, caso deseje fazer backup de computadores Linux.
 
 **Backup** | **Linux (endossado pelo Azure)**
---- | --- 
-**Computador Linux local (sem o DPM nem o MABS)**. |  Não. O agente do MARS só pode ser instalado em computadores Windows. 
+--- | ---
+**Computador Linux local (sem o DPM nem o MABS)**. |  Não. O agente do MARS só pode ser instalado em computadores Windows.
 **VM do Azure (sem o DPM nem o MABS)** | Backup consistente com aplicativo usando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperação em nível de arquivo.<br/><br/> Faça a restauração com a criação de uma VM de um ponto de recuperação ou um disco.
 **Computador local/VM do Azure com o DPM** | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
 **Computador local/VM do Azure com o MABS** | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com arquivo não disponível para VMs do Azure.
@@ -110,7 +110,7 @@ Segurança dos dados:
 **Computador** | **Em trânsito** | **Em repouso**
 --- | --- | ---
 Computadores Windows locais sem o DPM/MABS | ![SIM][green] | ![SIM][green]
-VMs do Azure | ![SIM][green] | ![SIM][green] 
+VMs do Azure | ![SIM][green] | ![SIM][green]
 Locais/VMs do Azure com o DPM | ![SIM][green] | ![SIM][green]
 Locais/VMs do Azure com o MABS | ![SIM][green] | ![SIM][green]
 
@@ -121,7 +121,7 @@ Locais/VMs do Azure com o MABS | ![SIM][green] | ![SIM][green]
 O backup dá suporte à compactação do tráfego de backup, conforme resumido na tabela abaixo. Observe que:
 
 - Para VMs do Azure, a extensão de VM lê os dados diretamente da conta de armazenamento do Azure na rede de armazenamento; portanto, não é necessário compactar esse tráfego.
-- Se estiver usando o DPM ou o MABS, você poderá compactar os dados antes de serem copiados em backup no DPM/MABS, para economizar largura de banda. 
+- Se estiver usando o DPM ou o MABS, você poderá compactar os dados antes de serem copiados em backup no DPM/MABS, para economizar largura de banda.
 
 **Computador** | **Compactar no DPM/MABS (TCP)** | **Compactar (HTTPS) no cofre**
 --- | --- | ---
@@ -134,8 +134,8 @@ Locais/VMs do Azure com o MABS | ![SIM][green] | ![SIM][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
-**Configuração** | **Limites** 
---- | --- 
+**Configuração** | **Limites**
+--- | ---
 Número máximo de pontos de recuperação por instância protegida (computador/carga de trabalho) | 9999
 Tempo máximo de expiração para um ponto de recuperação | Sem limite
 Frequência máxima de backup para o DPM/MABS | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho.
@@ -147,7 +147,7 @@ Pontos de recuperação no disco do DPM/MABS | 64 para servidores de arquivos, 4
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Fazer backup de VMs do Azure](backup-azure-arm-vms-prepare.md)
-- [Fazer backup de computadores Windows diretamente](tutorial-backup-windows-server-to-azure.md), sem um servidor de backup.
+- [Fazer backup direto de computadores Windows](tutorial-backup-windows-server-to-azure.md), sem um servidor de backup.
 - [Configurar o MABS](backup-azure-microsoft-azure-backup.md) para backup no Azure e, em seguida, fazer backup de cargas de trabalho no MABS.
 - [Configurar o DPM](backup-azure-dpm-introduction.md) para backup no Azure e, em seguida, fazer backup de cargas de trabalho no DPM.
 
