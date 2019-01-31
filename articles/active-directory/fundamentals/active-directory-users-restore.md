@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 70d62275506a730e889b60dbdf8cab87c69f08f1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450312"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102010"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover permanentemente um usuário excluído recentemente usando o Azure Active Directory
 Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o usuário é excluído automaticamente e permanentemente.

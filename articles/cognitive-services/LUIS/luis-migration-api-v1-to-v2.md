@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b2057c6649f0dcec5f5c9b2d5923be2446f4d6b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427501"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208611"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para a v2 para aplicativos do LUIS
 O [ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) foram preteridos. Use este guia para entender como migrar para o [ponto de extremidade](https://aka.ms/luis-endpoint-apis) versão 2 e para as APIs de [criação](https://aka.ms/luis-authoring-apis). 

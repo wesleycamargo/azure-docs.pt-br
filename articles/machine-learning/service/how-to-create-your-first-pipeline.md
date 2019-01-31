@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Crie e execute um pipeline de aprendizado de máquina com o SDK do Azure Machine Learning para Python. Você pode usar pipelines para criar e gerenciar os fluxos de trabalho que reúnem fases de aprendizado de máquina (ML). Essas fases incluem preparação de dados, treinamento do modelo, implantação de modelo e fases de inferência.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5d0fe5d010fc53db3ca280620d224d405d0ccf42
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478188"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251649"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de aprendizado de máquina usando o SDK do Azure Machine Learning
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: blobs
+ms.openlocfilehash: 81e0e89a8ad17c92a707bae001d2861404cd0d10
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229295"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238832"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 As contas de GPv2 de Armazenamento do Microsoft Azure permitem que você forneça conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Aproveitar a hospedagem no Armazenamento do Microsoft Azure permite que você use arquiteturas sem servidor incluindo [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS.

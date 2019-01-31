@@ -2,19 +2,18 @@
 title: Modelo de dados para os Backup do Azure
 description: Este artigo aborda detalhes de modelo de dados do Power BI para relatórios de Backup do Azure.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877126"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299411"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios de Backup do Azure
 Este artigo descreve o modelo de dados do Power BI usado para criar relatórios de Backup do Azure. Usando esse modelo de dados, você pode filtrar os relatórios existentes com base em campos relevantes e, mais importante, criar seus próprios relatórios usando tabelas e campos no modelo. 

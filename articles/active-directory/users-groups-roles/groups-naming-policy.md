@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 08009324ea44b9c31602ebddd19e50588a0dbc65
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321714"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296844"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomenclatura para o Office 365 no Azure Active Directory (versão prévia)
 
@@ -81,14 +81,14 @@ Certifique-se de desinstalar qualquer versão anterior do Azure Active Directory
 1. Abra o aplicativo Windows PowerShell como um administrador.
 2. Desinstale qualquer versão anterior do AzureADPreview.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. Instale a versão mais recente do AzureADPreview.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 Se você for solicitado sobre como acessar um repositório não confiável, digite **Y**. Pode levar alguns minutos para que o novo módulo instalar.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configure a política de nomenclatura de grupos para um locatário usando o Azure AD PowerShell
@@ -97,10 +97,10 @@ Se você for solicitado sobre como acessar um repositório não confiável, digi
 
 2. Execute os comandos a seguir para preparar para executar os cmdlets.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   Na tela **Entrar na sua conta** que abre, digite sua conta de administrador e senha para conectar-se ao serviço e selecione **Entrar**.
 
 3. Siga as etapas em [cmdlets do Azure Active Directory para definir as configurações de grupo](groups-settings-cmdlets.md) para criar configurações de grupo para este locatário.
@@ -109,35 +109,35 @@ Se você for solicitado sobre como acessar um repositório não confiável, digi
 
 1. Busque a atual política de nomenclatura para exibir as configurações atuais.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Exiba as configurações do grupo atual.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Defina a política de nomenclatura e palavras bloqueadas personalizadas
 
 1. Defina os prefixos e sufixos de nome de grupo no Azure AD PowerShell. Para o recurso funcionar corretamente, [GroupName] deve ser incluído na configuração.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Defina as palavras bloqueadas personalizadas que você deseja restringir. O exemplo a seguir ilustra como você pode adicionar suas próprias palavras personalizadas.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Salve as configurações para a nova política ser efetivada, como no exemplo a seguir.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 É isso. Você definiu sua política de nomenclatura e adicionou suas palavras bloqueadas.
 
@@ -147,14 +147,14 @@ Para saber mais, consulte o artigo [Cmdlets do Azure Active Directory para defin
 
 Aqui está um exemplo de script do PowerShell para exportar várias palavras bloqueadas:
 
-````
+```
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
-````
+```
 
 Aqui está um exemplo de script do PowerShell para importar várias palavras bloqueadas:
 
-````
+```
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -166,27 +166,27 @@ if ($Settings.Count -eq 0)
 $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
-````
+```
 
 ## <a name="remove-the-naming-policy"></a>Remover a política de nomenclatura
 
 1. Esvazie os prefixos e sufixos de nome de grupo no PowerShell do Azure AD.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =""
-  ````
+  ```
   
 2. Esvazie as palavras bloqueadas personalizadas. 
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=""
-  ````
+  ```
   
 3. Salve as configurações.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
 
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Experiências de políticas de nomenclaturas nos aplicativos do Office 365

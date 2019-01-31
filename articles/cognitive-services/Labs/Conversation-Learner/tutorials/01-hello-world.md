@@ -1,23 +1,23 @@
 ---
-title: Como criar um modelo do Conversation Learner "Olá, Mundo" - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como criar um modelo de Aprendiz de Conversa "Olá, Mundo" - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como criar um modelo do Conversation Learner "Olá, Mundo".
+description: Saiba como criar um modelo de Aprendiz de Conversa "Olá, Mundo".
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c08e3d2e8f712f5eb7c56585507a283c7fd040c1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b2c43ad2475ab75d251e57fca6009eb1fa2e1f00
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796430"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225288"
 ---
-# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Como criar um modelo "Olá, Mundo" com o Conversation Learner
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Como criar um modelo "Olá, Mundo" com o Aprendiz de Conversa
 
 Este tutorial apresenta a introdução ao Conversation Learner, incluindo criação de ações, aprendizagem interativa do Bot e correções de diálogos registrados provenientes de usuários finais.
 
@@ -46,14 +46,14 @@ Agora, você deve ver a exibição do modelo criado.
 
 ### <a name="create-an-action"></a>Criar uma ação
 1. No painel esquerdo, clique em "Ações" e, em seguida, no botão "Nova ação".
-    - Uma Ação pode ser uma mensagem de texto que o Conversation Learner retorna para o usuário, uma chamada à API ou um cartão.
+    - Uma Ação pode ser uma mensagem de texto retornada pelo Aprendiz de Conversa para o usuário, uma chamada de API ou um cartão.
 2. No campo "Resposta do Bot...", digite "Olá".
     - Essa é a resposta que o Bot retornará.
 3. Clique no botão "Criar".
 
 Você criou a primeira ação que o Bot pode executar, ou seja, retornar uma resposta de texto.
 
-### <a name="train-dialogs"></a>Diálogos de Treinamento
+### <a name="train-dialogs"></a>Caixas de Diálogo de Treinamento
 É o treinamento do modelo sobre como responder aos enunciados do usuário.
 
 #### <a name="first-training-dialog"></a>Primeiro Diálogo de Treinamento
