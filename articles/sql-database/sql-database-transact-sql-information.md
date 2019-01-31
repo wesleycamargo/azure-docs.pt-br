@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997674"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467808"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL
 
@@ -39,7 +39,7 @@ As principais instruções de DDL (linguagem de definição de dados) estão dis
 
 - As instruções CREATE e ALTER DATABASE têm mais de três dúzias de opções. As instruções incluem o a localização de arquivos, FILESTREAM e opções do Service Broker que se aplicam somente ao SQL Server. Isso pode não importar se você criar bancos de dados antes de migrar, mas se você estiver migrando o código T-SQL que cria bancos de dados, você deverá comparar [CREATE DATABASE (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn268335.aspx) com a sintaxe do SQL Server em [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) para certificar-se de que todas as opções que você usar tenham suporte. CREATE DATABASE para o Banco de Dados SQL do Azure também tem as opções de objetivo de serviço e escala elástica que se aplicam apenas ao Banco de Dados SQL.
 - As instruções CREATE e ALTER TABLE têm opções de FileTable que não podem ser usadas no Banco de Dados SQL, porque não há suporte para FILESTREAM.
-- Há suporte para as instruções de logon CREATE e ALTER, mas o Banco de Dados SQL não oferece todas as opções. Para tornar seu banco de dados mais portátil, o Banco de Dados SQL estimula o uso de usuários de banco de dados independente em vez de logons, sempre que possível. Para obter mais informações, consulte [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) e [Controle e concessão de acesso de banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- Há suporte para as instruções de logon CREATE e ALTER, mas o Banco de Dados SQL não oferece todas as opções. Para tornar seu banco de dados mais portátil, o Banco de Dados SQL estimula o uso de usuários de banco de dados independente em vez de logons, sempre que possível. Para obter mais informações, consulte [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) e [Controle e concessão de acesso de banco de dados](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Sintaxe do Transact-SQL sem suporte no Banco de Dados SQL do Azure
 

@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f295245cc14000e48cb3db55dc291edf02bb660e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: files
+ms.openlocfilehash: ac78510a3f736d9d5a3f2aafcc1f77ef20e6d81a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467757"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
+# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início rápido: Criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows, no Linux e no macOS. Este guia percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando o [Portal do Azure](https://portal.azure.com/).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.

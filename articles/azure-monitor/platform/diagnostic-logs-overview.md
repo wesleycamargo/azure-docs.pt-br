@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467461"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885840"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Coletar e consumir dados de log dos recursos do Azure
 
@@ -31,7 +31,7 @@ Esses logs diferem de [Log de atividades](activity-logs-overview.md). O Log de A
 
 Esses logs também diferem dos logs de diagnóstico no nível do SO guest. Os logs de diagnóstico do sistema operacional convidado são aqueles coletados por um agente em execução dentro de uma máquina virtual ou outro tipo de recurso com suporte. Os logs de diagnóstico no nível do recurso não exigem um agente e capturam dados específicos ao recurso da própria plataforma do Azure, enquanto os logs de diagnóstico no nível do sistema operacional convidado capturam dados do sistema operacional e de aplicativos em execução em uma máquina virtual.
 
-Nem todos os serviços suportam os logs de diagnóstico descritos aqui. [Este artigo contém uma lista de seção quais serviços oferecem suporte a logs de diagnóstico](./../../azure-monitor/platform/tutorial-dashboards.md).
+Nem todos os serviços suportam os logs de diagnóstico descritos aqui. [Este artigo contém uma lista de seção quais serviços oferecem suporte a logs de diagnóstico](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>O que você pode fazer com os Logs de Diagnóstico
 Aqui estão algumas coisas que você pode fazer com os Logs de Diagnóstico:
@@ -229,7 +229,7 @@ A adição de uma configuração de diagnóstico mostra a exibição Configuraç
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Serviços com suporte, categorias e esquemas para logs de diagnóstico
 
-[Consulte este artigo](../../azure-monitor/platform/tutorial-dashboards.md) para obter uma lista de serviços com suporte e as categorias de log e os esquemas usados por esses serviços.
+[Consulte este artigo](../../azure-monitor/platform/diagnostic-logs-schema.md) para obter uma lista de serviços com suporte e as categorias de log e os esquemas usados por esses serviços.
 
 ## <a name="next-steps"></a>Próximas etapas
 

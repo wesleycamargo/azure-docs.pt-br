@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8a7b61705f6efc5a76212fdd1345a022f58e0686
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526459"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470403"
 ---
 # <a name="encrypt-table-data"></a>Criptografar dados de tabela
 A Biblioteca de Cliente do Armazenamento do Azure para .NET dá suporte à criptografia de propriedades de entidade para as operações de inserção e substituição. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.    

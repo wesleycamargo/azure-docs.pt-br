@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: e507a7c45e286473abe9b9e4365e80fb29eba2a4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b70c5e71c585524579171782dfdeda308592b30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47043978"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478672"
 ---
 Para entender o que um ponto de extremidade de previsão do LUIS retorna, exiba um resultado de previsão em um navegador da Web. Para consultar um aplicativo público, você precisa de sua própria chave e a ID do aplicativo. A ID do aplicativo de IoT pública, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, é fornecida como parte da URL na etapa um.
 

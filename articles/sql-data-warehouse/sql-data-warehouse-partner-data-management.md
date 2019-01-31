@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3669f93538670e9b2c5fcd5080480a54ef1299f5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 6e58fa83bfdce5e5363ef61d1e3deaa61397301a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669452"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461926"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Parceiros de gerenciamento de dados do SQL Data Warehouse
 Para criar sua solução de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gerenciamento de dados com suporte ao Azure SQL Data Warehouse.

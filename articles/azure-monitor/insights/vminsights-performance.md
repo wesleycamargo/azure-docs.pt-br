@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186981"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464289"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como mapear o desempenho com o Azure Monitor para VMs (versão prévia)
 O Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que segmentam vários KPIs (principais indicadores de desempenho) para ajudá-lo a determinar o desempenho de uma máquina virtual. Os gráficos mostram a utilização de recursos durante um período de tempo para que você possa identificar afunilamentos, anomalias ou alternar para uma perspectiva listando cada máquina para exibir a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com o desempenho, o Monitor do Azure para VMs é focado no sistema operacional, conforme manifestado no processador, na memória, nos adaptadores de rede e nos discos. O desempenho complementa o recurso de monitoramento de integridade e ajuda a expor problemas que indicam uma possível falha do componente do sistema, suporte ao ajuste e otimização para obter eficiência ou suportar o planejamento da capacidade.  
@@ -102,8 +102,8 @@ Os seguintes gráficos de utilização de capacidade são fornecidos:
 
 ![Diretamente o insights VM-desempenho da VM a exibir](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerting-and-alert-management"></a>Gerenciamento de alerta e alerta 
-As métricas de desempenho ativadas como parte do Monitor do Azure para VMs não incluem regras de alerta pré-configuradas. Embora existam [alertas de integridade](vminsights-health.md#alerting-and-alert-management) correspondentes a problemas de desempenho detectados na VM do Azure, como alta utilização da CPU, pouca memória disponível, I/O de disco, pouco espaço em disco etc., esses alertas de integridade são aplicados somente a todas as VMs conectadas à mesma área de trabalho do Log Analytics ativada para o Monitor do Azure para VMs. 
+## <a name="alerts"></a>Alertas 
+As métricas de desempenho ativadas como parte do Monitor do Azure para VMs não incluem regras de alerta pré-configuradas. Embora existam [alertas de integridade](vminsights-health.md#alerts) correspondentes a problemas de desempenho detectados na VM do Azure, como alta utilização da CPU, pouca memória disponível, I/O de disco, pouco espaço em disco etc., esses alertas de integridade são aplicados somente a todas as VMs conectadas à mesma área de trabalho do Log Analytics ativada para o Monitor do Azure para VMs. 
 
 No entanto, só podemos coletar e armazenar um subconjunto das métricas de desempenho necessárias no espaço de trabalho do Log Analytics. Se sua estratégia de monitoramento exigir análise ou alerta que inclua outras métricas de desempenho para avaliar efetivamente a capacidade ou a integridade da máquina virtual, ou você precisar da flexibilidade para especificar seus próprios critérios de alerta ou lógica, é possível configurar a [coleta desses desempenhos contadores](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) no Log Analytics e definir [alertas de log](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json). Embora o Log Analytics permita que você realize análises complexas com outros tipos de dados e forneça uma retenção mais longa para suportar a análise de tendências, as métricas, por outro lado, são leves e capazes de suportar cenários quase em tempo real. Eles são coletados pelo [Agente de Diagnóstico do Azure](../../virtual-machines/windows/monitor.md) e armazenados no repositório de métricas do Monitor do Azure, permitindo que você crie alertas com menor latência e a um custo menor.
 
