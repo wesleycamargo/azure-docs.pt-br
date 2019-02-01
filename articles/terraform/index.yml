@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 802e7e3c7c06c5027e0ff6ba384d1438d0edf010
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5f8e4ead27c05ec9efd08628773ba698dbbcdbca
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076137"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458679"
 documentType: LandingData
 title: Terraform na documentação do Azure
 metadata:
@@ -43,12 +43,13 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Criar um cluster Kubernetes com AKS e Terraform</a>.
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Crie um cluster Kubernetes com AKS</a>.
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Crie um cluster Kubernetes com o Gateway de Aplicativo como controlador de entrada com o AKS</a>.
     - html: <a href="/azure/terraform/terraform-vm-msi">Criar uma VM Terraform com autenticação de MSI habilitada usando uma imagem do Azure Marketplace</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Crie um cluster de VMs com balanceamento de carga usando os módulos do Azure Terraform</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Crie um cluster de VMs com balanceamento de carga no Azure Cloud Shell</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure um conjunto de dimensionamento de VMs com rede e armazenamento.</a>
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provisionar conjunto de dimensionamento da VM a partir de uma imagem personalizada do Packer.</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configurar um conjunto de dimensionamento de VMs com rede e armazenamento</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provisionar conjunto de dimensionamento de VMs de uma imagem personalizada do Packer</a>
 - title: Exemplos
   items:
   - type: paragraph

@@ -76,11 +76,11 @@ items:
     items:
     - name: Visão geral
       href: distribute-data-globally.md
-    - name: Níveis de Consistência
+    - name: Níveis de consistência
       href: consistency-levels.md
     - name: Escolher nível certo de consistência
       href: consistency-levels-choosing.md
-    - name: Níveis de consistência do APIs do Cosmos DB
+    - name: Níveis de consistência e APIs do Azure Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Compensações de consistência, disponibilidade e desempenho
       href: consistency-levels-tradeoffs.md
@@ -98,9 +98,9 @@ items:
     items:
     - name: Visão geral
       href: partitioning-overview.md
-    - name: Partições lógicas
+    - name: Particionamento e dimensionamento horizontal
       href: partition-data.md
-    - name: Criando uma chave de partição sintética
+    - name: Crie uma chave de partição sintética
       href: synthetic-partition-keys.md
   - name: Taxa de transferência provisionada
     items:
@@ -108,11 +108,11 @@ items:
       href: request-units.md
     - name: Aprovisionar a taxa de transferência para contêineres e bancos de dados
       href: set-throughput.md
-  - name: Trabalhando com a conta do Azure Cosmos
+  - name: Como trabalhar com a conta do Azure Cosmos
     href: account-overview.md
   - name: Contêineres e itens
     items:
-    - name: Trabalhando com bancos de dados, contêineres e itens
+    - name: Como trabalhar com bancos de dados, contêineres e itens
       href: databases-containers-items.md
     - name: Referência da linguagem SQL
       href: sql-api-query-reference.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: Visão geral
         href: index-overview.md
-      - name: Política de indexação
+      - name: Política de índice
         href: index-policy.md
       - name: Tipos de índice
         href: index-types.md
@@ -136,17 +136,17 @@ items:
         href: read-change-feed.md
       - name: Alterar o processador de feed
         href: change-feed-processor.md
-      - name: Alterar o feed com Azure Functions
+      - name: Disparar Azure Functions
         href: change-feed-functions.md
     - name: Vida útil
       href: time-to-live.md
     - name: Restrições exclusivas da chave
       href: unique-keys.md
-    - name: Transações e simultaneidade otimista
+    - name: Controle de transações e simultaneidade otimista
       href: database-transactions-optimistic-concurrency.md
   - name: Programação do lado do servidor
     items:
-    - name: Procedimentos armazenados, gatilhos e UDFs
+    - name: procedimentos armazenados, gatilhos e UDFs
       href: stored-procedures-triggers-udfs.md
     - name: API de consulta do JavaScript
       href: javascript-query-api.md
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Otimizar o custo de várias regiões
       href: optimize-cost-regions.md
-    - name: Otimizar suas cargas de trabalho de desenvolvimento/teste
+    - name: Otimizar o custo de desenvolvimento/teste
       href: optimize-dev-test.md
-    - name: Otimizar com a capacidade reservada
+    - name: Otimizar o custo com a capacidade reserva
       href: cosmos-db-reserved-capacity.md
   - name: Segurança
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Preparação corporativa
     items:
-    - name: Backup online e restauração
+    - name: Backup online e restauração sob demanda
       href: online-backup-and-restore.md
     - name: Conformidade
       href: compliance.md
@@ -254,17 +254,9 @@ items:
       items:
       - name: Desempenho de consulta de ajuste
         href: sql-api-query-metrics.md
-      - name: Programação do lado do servidor
-        items:
-        - name: Gravar procedimentos armazenados, gatilhos e UDFs
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Gravar procedimentos e gatilhos armazenados com a API de consulta JavaScript
-          href: how-to-write-javascript-query-api.md
-        - name: Usar procedimentos armazenados, gatilhos e UDFs
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Tipos de dados
         items:
-        - name: Datetime
+        - name: DateTime
           href: working-with-dates.md
         - name: Geoespacial
           href: geospatial.md
@@ -337,7 +329,7 @@ items:
         - name: Aplicativo Node.js e React
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Migrar dados
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Consultar dados
         href: tutorial-query-mongodb.md
       - name: 4- Distribuir dados globalmente
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: Guias de instruções
   items:
-  - name: Gerenciar conta do banco de dados
+  - name: Gerenciar conta do Azure Cosmos
     href: how-to-manage-database-account.md
   - name: Distribuição global
     items:
-    - name: Gerenciar consistência
+    - name: Gerenciar níveis de consistência
       href: how-to-manage-consistency.md
-    - name: Gerenciar conflitos
+    - name: Configurar políticas de resolução de conflitos
       href: how-to-manage-conflicts.md
   - name: Taxa de transferência provisionada
     items:
-    - name: Aprovisionar a taxa de transferência de contêinter
+    - name: Provisionar a taxa de transferência em um contêiner
       href: how-to-provision-container-throughput.md
-    - name: Aprovisionar a taxa de transferência de bancos de dados
+    - name: Provisionar a taxa de transferência em um banco de dados
       href: how-to-provision-database-throughput.md
   - name: Trabalhar com itens e contêineres
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: Configurar o tempo de vida útil
       href: how-to-time-to-live.md
+    - name: Trabalhar com os dados usando o Gerenciador de Armazenamento do Azure
+      href: storage-explorer.md
+    - name: Trabalhar com os dados usando o Azure Cosmos Explorer
+      href: data-explorer.md
     - name: Indexação
       items:
-      - name: Configurar indexação
+      - name: Gerenciar indexação
         href: how-to-manage-indexing-policy.md
+  - name: Programação do lado do servidor
+    items:
+    - name: Gravar procedimentos armazenados, gatilhos e UDFs
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: Gravar procedimentos e gatilhos armazenados com a API de consulta JavaScript
+      href: how-to-write-javascript-query-api.md
+    - name: Usar procedimentos armazenados, gatilhos e UDFs
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Segurança
     items:
     - name: Configurar firewall do IP
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Configurar CORS (Compartilhamento de Recursos Entre Origens)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Proteger com o Key Vault
+    - name: Proteger chaves do Azure Cosmos usando o Key Vault
       href: access-secrets-from-keyvault.md
   - name: Preparação corporativa
     items:
     - name: Restaurar dados a partir de backup
       href: how-to-backup-and-restore.md
-  - name: Gerenciar
+  - name: Gerenciar recursos do Azure Cosmos DB
     items:
     - name: Gerenciar usando o PowerShell
       href: manage-account-with-powershell.md
     - name: Gerenciar usando a CLI do Azure
       href: manage-with-cli.md
-    - name: Gerenciar usando o Gerenciador de Armazenamento
-      href: storage-explorer.md
-    - name: Gerenciar usando o Data Explorer
-      href: data-explorer.md
   - name: Registro em log
     items:
     - name: Registro em log de diagnóstico
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Aplicativos de mídia social
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094471"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511914"

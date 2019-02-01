@@ -13,7 +13,7 @@ items:
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Importação, índice e consulta passo a passo baseados em portal
+    - name: Carregar e consultar um índice
       href: search-get-started-portal.md
     - name: Enriquecer com IA (pesquisa cognitiva)
       href: cognitive-search-quickstart-blob.md
@@ -216,14 +216,14 @@ items:
         href: search-filters-facets.md
       - name: Sintaxe de expressão do filtro
         href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-    - name: Desempenho e otimização
-      href: search-performance-optimization.md
   - name: Administração e análise
     items:
     - name: Administração (portal)
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
+    - name: Desempenho e otimizações
+      href: search-performance-optimization.md
     - name: Monitorar a atividade e o registro em log
       href: search-monitor-usage.md
     - name: Análise do tráfego de pesquisa
@@ -297,9 +297,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: e65adf41bc6555e8e2bcd74be07e6a1b2b96514d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 133f3e44b7efc81f13aba5db68269678ddac9554
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203820"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464221"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0049468330a9fcb26f023de2a8adb5dfd1544321
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436799"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457540"
 documentType: LandingData
 title: Documentação do Banco de dados SQL do Azure
 metadata:
@@ -15,10 +15,11 @@ metadata:
   author: CarlRabeler
   manager: craigg
   ms.service: sql-database
+  ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 07/07/2018
+  ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
   description: O Banco de Dados SQL do Azure é um banco de dados como serviço relacional (DBaaS) baseado na versão estável mais recente do Mecanismo de Banco de Dados do Microsoft SQL Server. O Banco de dados SQL é um banco de dados seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infra-estrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.
@@ -54,10 +55,10 @@ sections:
         src: media/index/i_scale.svg
       title: Escalabilidade
     - href: /azure/sql-database/sql-database-single-index
-      html: <p>Use o banco de dados individual hospedado em servidores lógicos para seus aplicativos de SaaS e microsserviços que precisam de um banco de dados individual com os desempenhos previsíveis.</p>
+      html: <p>Use o banco de dados individual gerenciado por um servidor do Banco de Dados SQL para seus aplicativos SaaS e microsserviços que precisam de um banco de dados individual com os desempenhos previsíveis.</p>
       image:
         src: media/index/i_db.svg
-      title: Banco de Dados Individual
+      title: Banco de dados individual
     - href: /azure/sql-database/sql-database-elastic-pool
       html: <p>Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis.</p>
       image:
@@ -103,36 +104,36 @@ sections:
         src: media/index/logo_arm.svg
       title: Modelo do Azure Resource Manager
     rows:
-    - title: Criar um Único Banco de Dados SQL
+    - title: Criar banco de dados individual
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
-    - title: Criar uma Instância Gerenciada do SQL
+    - title: Criar Instância Gerenciada
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-    - title: Criar pool elástico do SQL
+    - title: Criar pool elástico
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: Dimensionar um Único Banco de Dados SQL
+    - title: Dimensionar banco de dados individual
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
       - href: 
-    - title: Dimensionar pool elástico do SQL
+    - title: Dimensionar pool elástico
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: Dimensionar uma Instância Gerenciada
+    - title: Dimensionar instância gerenciada
       values:
       - href: 
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
@@ -147,11 +148,11 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: Aprenda a criar, gerenciar e migrar bancos de dados usando o Banco de Dados SQL
+    text: Saiba como criar, gerenciar e migrar bancos de dados usando o Banco de Dados SQL
   - type: list
     style: ordered
     items:
-    - html: Criar e projetar o esquema para um novo Banco de Dados SQL usando <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: Criar e projetar o esquema para um novo banco de dados individual usando <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrar um banco de dados existente para o Azure usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">RESTAURAR Banco de Dados</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistente de Migração de Banco de Dados</a> ou <a href="/azure/sql-database/sql-database-import">Importar BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteja seu banco de dados SQL</a>
     - html: Distribuir dados globalmente usando o <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Banco de dados distribuído geograficamente</a>
@@ -197,7 +198,7 @@ sections:
     items:
     - title: Linha de comando
       html: <p><a href="/powershell/module/azurerm.sql/#sql">PowerShell do Azure</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Banco de dados Elástico)</a></p><p><a href="/cli/azure/sql">CLI do Azure</a></p>
-    - title: Linguagens
+    - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST
       html: <p><a href="/rest/api/sql/">referência da API REST (a página pode estar em inglês)</a></p>
