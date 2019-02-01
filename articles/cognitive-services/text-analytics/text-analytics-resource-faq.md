@@ -6,16 +6,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2d04d93cf11f6c42a6411dc27b6bbeb2a9028773
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603389"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226546"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>FAQ (perguntas frequentes) sobre o Serviço Cognitivo de Análise de Texto
 
@@ -53,5 +53,5 @@ A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solic
 
 ## <a name="see-also"></a>Consulte também
 
- [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Serviços Cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [Stack Overflow: API de Análise de Texto   
+ [Stack Overflow: Serviços Cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

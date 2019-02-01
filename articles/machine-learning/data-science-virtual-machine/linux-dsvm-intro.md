@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b5f2bee7ab0277b94da699be486594a602b94a29
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081856"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241688"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure
 
@@ -77,11 +77,11 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
     a. **Noções básicas**:
    
    * **Nome**: o nome do servidor de ciência de dados que você está criando.
-   * **Nome de usuário**: a primeira ID de entrada da conta.
-   * **Senha**: primeira senha da conta (você pode usar a chave pública SSH, em vez de senha).
+   * **Nome de usuário**: A primeira ID de entrada da conta.
+   * **Senha**: Primeira senha da conta (você pode usar a chave pública SSH, em vez de senha).
    * **Assinatura**: Se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
    * **Grupo de recursos**: Você pode criar um grupo novo ou usar um grupo existente.
-   * **Localização**: selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
+   * **Localização**: Selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
    
    b. **Tamanho**:
    
@@ -117,12 +117,12 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
-     * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
-     * **Logon**: nome de usuário na VM Linux.
-     * **Porta SSH**: deixe em 22, o valor padrão.
-     * **Tipo de sessão**: altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
+     * **Host**: O nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
+     * **Logon**: Nome de usuário na VM Linux.
+     * **Porta SSH**: Deixe em 22, o valor padrão.
+     * **Tipo de sessão**: Altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
    * **Guia Mídia**: se você não precisar usar suporte de som e impressão de cliente, poderá desativar esses recursos.
-   * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
+   * **Pastas compartilhadas**: Caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
 Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
 
@@ -154,7 +154,7 @@ O Python 3.5 está instalado em */anaconda/envs/py35/bin*.
 
 Para invocar a sessão interativa do Python, basta digitar **Python** no shell. Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python.
 
-Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo: 
+Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ```pip``` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo: 
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Antes de executar no contexto do Spark no Microsoft R Server, execute uma etapa 
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Você pode interromper os serviços Hadoop relacionados quando não precisar mais deles executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` Um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é fornecido e disponibilizado no diretório `/dsvm/samples/MRS`. 
+Você pode interromper os serviços Hadoop relacionados quando não precisar mais deles executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` Um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é fornecido e disponibilizado no diretório `/dsvm/samples/MRS`. 
 
 ### <a name="ides-and-editors"></a>IDEs e editores
 Você tem a opção de vários editores de código. Isso inclui vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse e IntelliJ. gEdit, Eclipse, IntelliJ, RStudio e PyCharm são editores gráficos, e você precisa estar conectado a uma área de trabalho gráfica para usá-los. Há atalhos do menu do aplicativo e da área de trabalho para iniciar esses editores.
@@ -227,11 +227,11 @@ Para saber mais, confira [SQuirrel SQL](http://squirrel-sql.sourceforge.net/inde
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas de linha de comando para acessar o Microsoft SQL Server
 O pacote de driver ODBC do SQL Server também vem com duas ferramentas de linha de comando:
 
-**bcp**: o utilitário em massa bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. O utilitário bcp pode ser usado para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela ou então entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
+**bcp**: O utilitário em massa bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. O utilitário bcp pode ser usado para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela ou então entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
 
 Para saber mais, confira [Conectando-se com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: você pode inserir instruções de Transact-SQL com o utilitário sqlcmd, bem como procedimentos do sistema e arquivos de script no prompt de comando. Esse utilitário usa o ODBC para executar lotes do Transact-SQL.
+**sqlcmd**: Você pode inserir instruções de Transact-SQL com o utilitário sqlcmd, bem como procedimentos do sistema e arquivos de script no prompt de comando. Esse utilitário usa o ODBC para executar lotes do Transact-SQL.
 
 Para saber mais, confira [Conectando-se com o sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -254,13 +254,13 @@ Para acessar o **Postgres**:
 ### <a name="azure-tools"></a>Ferramentas do Azure
 As ferramentas do Azure a seguir são instaladas na VM:
 
-* **Interface de linha de comando do Azure**: a CLI do Azure permite a você criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas **azure help**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Gerenciador de Armazenamento do Microsoft Azure**: o Gerenciador de Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar e baixar os dados nos blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando **StorageExplorer**. Você precisa estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
-* **Bibliotecas do Azure**: veja a seguir algumas das bibliotecas pré-instaladas.
+* **Interface de linha de comando do Azure**: A CLI do Azure permite criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas **azure help**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Gerenciador de Armazenamento do Microsoft Azure**: O Gerenciador de Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar e baixar os dados nos blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando **StorageExplorer**. Você precisa estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
+* **Bibliotecas do Azure**: Veja a seguir algumas das bibliotecas pré-instaladas.
   
-  * **Python**: as bibliotecas relacionadas ao Azure no Python que estão instaladas são **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
-  * **R**: as bibliotecas relacionadas ao Azure em R que estão instaladas são **AzureML** e **RODBC**.
-  * **Java**: a lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
+  * **Python**: As bibliotecas relacionadas ao Azure no Python que estão instaladas são **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
+  * **R**: As bibliotecas relacionadas ao Azure em R que estão instaladas são **AzureML** e **RODBC**.
+  * **Java**: A lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
 
 Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Firefox previamente instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
 
@@ -282,10 +282,10 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 A VM vem com algumas ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
 
 * **Microsoft Cognitive Toolkit** : um kit de ferramentas de aprendizado profundo.
-* **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
+* **Vowpal Wabbit**: Um algoritmo de aprendizado rápido online.
 * **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
-* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
-* **R**: uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
+* **Python**: O Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
+* **R**: Uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
   
         install.packages(<lib name>)
 

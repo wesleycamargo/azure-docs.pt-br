@@ -3,17 +3,17 @@ title: Diretrizes de Ajuste de Desempenho do MapReduce do Azure Data Lake Storag
 description: Diretrizes de Ajuste de Desempenho do MapReduce do Azure Data Lake Storage Gen2
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976115"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249105"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Orientação de ajuste de desempenho para o MapReduce no HDInsight e no Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho dos trabal
 * **Uma conta do Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar uma conta, consulte [Início Rápido: Criar uma conta de armazenamento do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Usando o MapReduce no HDInsight**.  Para obter mais informações, consulte [Usar o MapReduce no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter os conceitos gerais de desempenho, consulte [Diretrizes de Ajuste de Desempenho do Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>parâmetros
 

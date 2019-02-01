@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 838e839aeb0b6d227d9350c4b5cd1f3f1a8cad8e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9953176dd3833e29e5e518944c6fecb32fcd0500
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837181"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: integração do Azure Active Directory com o Halosys
 
@@ -132,7 +132,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 1. Para configurar o logon único no lado do **Halosys**, é necessário enviar o **XML de Metadados** baixado e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do Halosys](https://halosys.com/halosys#contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

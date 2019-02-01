@@ -6,18 +6,18 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815864"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247401"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -64,7 +64,7 @@ O [Azure Notebooks](https://notebooks.azure.com) (versão prévia) é um ambient
 
 Para começar a desenvolver com o Azure Notebooks, consulte [Introdução ao serviço do Azure Machine Learning](quickstart-get-started.md).
 
-Por padrão, o Azure Notebooks usa uma camada de serviços gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Por padrão, o Azure Notebooks usa uma camada de serviços gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 

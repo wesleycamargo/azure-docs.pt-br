@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: feb192b32928ef66f5722b4a0141eab437bddd27
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 00752e0b42b907699e9f314c2f216b69c9d3b2e8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506729"
 documentType: LandingData
-title: Documentação de gerenciamento do usuário do Azure Active Directory
+title: Documentação de gerenciamento de usuário corporativo – Azure Active Directory
 metadata:
   document_id: 
   title: Usuários, grupos, funções e documentação de licenças do Azure Active Directory
@@ -17,7 +17,7 @@ metadata:
   manager: mtillman
   ms.service: active-directory
   ms.topic: landing-page
-  ms.date: 08/12/2018
+  ms.date: 01/31/2019
   ms.author: curtand
 abstract:
   description: As ferramentas de gerenciamento de usuários do Azure AD, como grupos e atribuições de função do administrador, ajudarão a realizar as principais tarefas mais rápido e acompanhar o crescimento. Você pode atribuir licenças, acessar os aplicativos de SaaS dos grupos, em vez de indivíduos, ou delegar permissões para distribuir a sobrecarga do gerenciamento de identidades do Azure AD.

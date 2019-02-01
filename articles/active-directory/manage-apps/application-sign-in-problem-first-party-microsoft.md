@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171789"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
@@ -178,7 +178,7 @@ Para redefinir a senha de um usuário, siga estas etapas:
 
 Para habilitar a redefinição de senhas por autoatendimento, execute as etapas de implantação abaixo:
 
--   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
@@ -204,7 +204,7 @@ Para verificar o status da Autenticação Multifator de um usuário, siga estas 
 
 9.  Selecione o usuário na lista de usuários e **Habilite**, **Desabilite** ou **Imponha** a autenticação multifator conforme o desejado.
 
-  * **Observação**: Se um usuário estiver em um estado **Imposto**, defina-o temporariamente como **Desabilitado** para deixá-lo entrar novamente na conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
+  * **Observação**: Se um usuário estiver em um estado Imposto, defina-o temporariamente como **Desabilitado** para deixá-lo entrar novamente na conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verificar as informações de contato de autenticação de um usuário
 
