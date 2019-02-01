@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470317"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077294"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -62,7 +62,7 @@ Exemplo:
 
 **P: O Azure AD Connect Health dá suporte à Nuvem do Azure Alemanha?**
 
-Não há suporte para o Azure AD Connect Health na nuvem da Alemanha, exceto para o [recurso de relatório de erros de sincronização](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
+Não há suporte para o Azure AD Connect Health na nuvem da Alemanha, exceto para o [recurso de relatório de erros de sincronização](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
 | Funções | Recursos | Há suporte na nuvem da Alemanha |
 | ------ | --------------- | --- |
@@ -71,7 +71,7 @@ Não há suporte para o Azure AD Connect Health na nuvem da Alemanha, exceto par
 | Connect Health para ADFS | Monitoramento/insights/alertas/análise | Não  |
 | Connect Health para ADDS | Monitoramento/insights/alertas/análise | Não  |
 
-Para garantir a conectividade do agente do Connect Health para sincronização, configure o [requisito de instalação](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) corretamente.   
+Para garantir a conectividade do agente do Connect Health para sincronização, configure o [requisito de instalação](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) corretamente.
 
 ## <a name="installation-questions"></a>Perguntas sobre a instalação
 
@@ -163,7 +163,7 @@ O serviço Azure AD Connect Health verificou todos os computadores que ele monit
 
 Você pode usar o seguinte script do PowerShell para executar essa verificação manualmente. Ele implementa a lógica acima.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -190,7 +190,7 @@ O <i>Get-MsolDirSyncProvisioningError</i> só retornará erros de provisionament
 
 **P: Por que minhas auditorias do ADFS não estão sendo geradas?**
 
-Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [Logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado. 
+Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [Logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado.
 
 
 ## <a name="related-links"></a>Links relacionados

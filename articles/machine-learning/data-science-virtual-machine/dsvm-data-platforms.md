@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105540"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478076"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados compatíveis com a Máquina Virtual de Ciência de Dados
 
@@ -95,7 +95,7 @@ Antes de executar no contexto do Spark no Microsoft R Server, na edição da DSV
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Você pode interromper os serviços Hadoop relacionados quando não precisar mais deles executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` Um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é apresentado e disponibilizado no diretório `/dsvm/samples/MRS`. 
+Você pode interromper os serviços Hadoop relacionados quando não precisar mais deles executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` Um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é apresentado e disponibilizado no diretório `/dsvm/samples/MRS`. 
 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Como é configurado/instalado no DSVM? 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384710"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883391"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -111,7 +111,7 @@ No portal do OMS, instale as soluções de gerenciamento da Galeria de Soluçõe
 Agora, as regras de alerta com base em consultas do Log Analytics são gerenciadas na [experiência de alerta unificado](../../azure-monitor/platform/alerts-metric.md). Veja [Como estender alertas do Log Analytics para os Alertas do Azure](../../azure-monitor/platform/alerts-extend-tool.md) e obtenha detalhes sobre como configurar e usar alertas no Portal do Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Como fazer para acessar meus painéis?
-O recurso [Meu Painel](dashboards.md) do Log Analytics foi preterido. Este recurso permitiu que você tenha uma coleção particular de partes do Designer de Exibição e é substituído pela funcionalidade interna do painel do Azure. Você pode continuar a visualizar dados no Log Analytics usando o [Designer de Exibição](view-designer.md) para exibições compartilhadas. Você também pode fixar visualizações desses modos de exibição, ou para [consultas individuais](../learn/tutorial-logs-dashboards.md) para Painéis do Azure.
+O recurso **Meu Painel** do Log Analytics foi preterido. Este recurso permitiu que você tenha uma coleção particular de partes do Designer de Exibição e é substituído pela funcionalidade interna do painel do Azure. Você pode continuar a visualizar dados no Log Analytics usando o [Designer de Exibição](view-designer.md) para exibições compartilhadas. Você também pode fixar visualizações desses modos de exibição, ou para [consultas individuais](../learn/tutorial-logs-dashboards.md) para Painéis do Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Como fazer para verificar meu uso?
 Veja e gerencie facilmente seu uso e o custo do Log Analytics selecionando **Uso e custos estimados** no workspace.

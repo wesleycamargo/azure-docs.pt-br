@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138034"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469593"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
 Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas que ajudam a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita em [O que é o TDSP (Processo de Ciência de Dados de Equipe)?](overview.md). Cada uma dessas etapas exige recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
@@ -72,7 +72,7 @@ Essas perguntas são essenciais para o planejamento de seus ambientes de armazen
 Tome o ambiente do Azure Machine Learning Studio como exemplo:
 
 * Para obter uma lista dos formatos e dos tipos de dados com suporte no Azure Machine Learning Studio, confira a seção [Formatos de dados e tipos de dados com suporte](../studio/import-data.md#data-formats-and-data-types-supported) .
-* Para obter informações sobre as limitações de dados para o Azure Machine Learning Studio, confira a seção **De que tamanho deverá ser o conjunto de dados para os meus módulos?** de [Importando e exportando dados para o Machine Learning](../studio/faq.md#machine-learning-studio-questions)
+
 
 Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](../../azure-subscription-service-limits.md).
 

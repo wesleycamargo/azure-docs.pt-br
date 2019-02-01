@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0324a6f71a0a30fc9f3005a041b4c5413e6af8da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d61176030285556545e5619669d07c62d908a4e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317291"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471446"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Práticas recomendadas para o Azure SQL Data Warehouse
 Este artigo é uma coleção de melhores práticas para ajudá-lo a obter o desempenho ideal do SQL Data Warehouse do Azure.  Alguns conceitos neste artigo são básicos e fáceis de explicar, outros são mais avançados e os abordamos apenas superficialmente neste artigo.  A finalidade deste artigo é dar algumas orientações básicas e aumentar o reconhecimento dos pontos importantes a serem considerados ao criar seu data warehouse.  Cada seção apresenta um conceito e aponta para artigos mais detalhados que abordam o conceito com maior profundidade.

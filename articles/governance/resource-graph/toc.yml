@@ -32,11 +32,16 @@ items:
   - name: Explore seus recursos do Azure com o Gráfico de Recursos
     displayName: vms, public ip
     href: ./concepts/explore-resources.md
+  - name: Trabalhar com grandes conjuntos de dados
+    displayName: page, first, skip, token
+    href: ./concepts/work-with-data.md
   expanded: true
 - name: Referência
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.resourcegraph/
+  - name: CLI do Azure
+    href: /cli/azure/ext/resource-graph/graph
   - name: API REST
     href: /rest/api/azureresourcegraph/resources/resources
 - name: Recursos
@@ -49,9 +54,9 @@ items:
     href: https://feedback.azure.com/forums/915958-azure-governance
   - name: Canal do YouTube de Governança
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-ms.openlocfilehash: b3721eb06144a65fcef23efdac8865e17b7d2e73
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1ec6153b3e80f3546ca15bbac27a280bfd8ce517
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846925"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506712"

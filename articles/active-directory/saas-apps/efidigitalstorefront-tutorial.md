@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 33c148fc-d490-4bb9-90c1-d5933679ce4e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 7df615caf3ca1b8ca7dd7d4da876c840e20defd8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b93e63acbad5a43b898e80dc706dfe17837f0183
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833118"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: Integração do Azure Active Directory com o EFI Digital StoreFront
 
@@ -125,7 +125,7 @@ Nesta seção, você permite o logon único do Azure AD no Portal do Azure e con
 1. Para configurar o logon único no lado do **EFI Digital StoreFront**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do EFI Digital StoreFront](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD

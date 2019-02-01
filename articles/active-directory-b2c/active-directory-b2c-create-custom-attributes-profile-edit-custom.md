@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854047"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175257"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Usar atributos personalizados em uma política de edição de perfil personalizada
 
@@ -46,7 +46,6 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
 >O diretório do Azure Active Directory B2C geralmente inclui um aplicativo web chamado `b2c-extensions-app`. Este aplicativo é usado principalmente pelas políticas internas B2C para as declarações personalizadas criadas por meio do portal do Microsoft Azure. Recomenda-se que apenas usuários avançados usem registrem extensões para as políticas personalizadas B2C usando este aplicativo.  
 As instruções para isso são incluídas na seção **Próximas etapas** neste artigo.
 
-
 ## <a name="create-a-new-application-to-store-the-extension-properties"></a>Criação de um aplicativo novo para armazenar as propriedades de extensão
 
 1. Abra uma sessão de navegação e navegue até o [portal do Azure](https://portal.azure.com). Entrar com as credenciais administrativas do diretório do B2C que você deseja configurar.
@@ -66,8 +65,6 @@ As instruções para isso são incluídas na seção **Próximas etapas** neste 
     * **ID do aplicativo**. Exemplo: `103ee0e6-f92d-4183-b576-8c3739027780`.
     * **ID de objeto**. Exemplo: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
-
-
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modifique a política personalizada para adicionar o **ApplicationObjectId**
 
 Depois de ter seguido as etapas de [Azure Active Directory B2C: Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), você baixou e modificou [arquivos de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) com os nomes **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** e **PasswordReset.xml**. Nesta etapa, você fará mais modificações a esses arquivos.
@@ -76,31 +73,31 @@ Depois de ter seguido as etapas de [Azure Active Directory B2C: Introdução às
 
     ```xml
     <ClaimsProviders>
-        <ClaimsProvider>
-          <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfile Id="AAD-Common">
           <DisplayName>Azure Active Directory</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              
+
           <!-- Provide objectId and appId before using extension properties. -->
           <Metadata>
             <Item Key="ApplicationObjectId">insert objectId here</Item>
             <Item Key="ClientId">insert appId here</Item>
           </Metadata>
           <!-- End of changes -->
-              
+
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
           </CryptographicKeys>
           <IncludeInSso>false</IncludeInSso>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-        </ClaimsProvider>
+      </ClaimsProvider>
     </ClaimsProviders>
     ```
 
 > [!NOTE]
-> Às vezes, quando o **TechnicalProfile** grava pela primeira vez para a propriedade de extensão recém-criada, pode ocorrer um erro ocasional. A propriedade de extensão é criada na primeira vez que ela é usada.  
+> Às vezes, quando o **TechnicalProfile** grava pela primeira vez para a propriedade de extensão recém-criada, pode ocorrer um erro ocasional. A propriedade de extensão é criada na primeira vez que ela é usada.
 
 ## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>Usar a nova propriedade de extensão / atributo personalizado em um percurso do usuário
 
@@ -130,13 +127,13 @@ Depois de ter seguido as etapas de [Azure Active Directory B2C: Introdução às
 
     ```xml
     <BuildingBlocks>
-      <ClaimsSchema> 
-        <ClaimType Id="extension_loyaltyId"> 
-          <DisplayName>Loyalty Identification Tag</DisplayName> 
-          <DataType>string</DataType> 
-          <UserHelpText>Your loyalty number from your membership card</UserHelpText> 
-          <UserInputType>TextBox</UserInputType> 
-        </ClaimType> 
+      <ClaimsSchema>
+        <ClaimType Id="extension_loyaltyId">
+          <DisplayName>Loyalty Identification Tag</DisplayName>
+          <DataType>string</DataType>
+          <UserHelpText>Your loyalty number from your membership card</UserHelpText>
+          <UserInputType>TextBox</UserInputType>
+        </ClaimType>
       </ClaimsSchema>
     </BuildingBlocks>
     ```
@@ -157,7 +154,7 @@ Depois de ter seguido as etapas de [Azure Active Directory B2C: Introdução às
         <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
         <InputClaim ClaimTypeReferenceId="userPrincipalName" />
         <InputClaim ClaimTypeReferenceId="givenName" />
-            <InputClaim ClaimTypeReferenceId="surname" />
+        <InputClaim ClaimTypeReferenceId="surname" />
 
         <!-- Add the loyalty identifier -->
         <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -167,7 +164,7 @@ Depois de ter seguido as etapas de [Azure Active Directory B2C: Introdução às
         <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
         <OutputClaim ClaimTypeReferenceId="givenName" />
         <OutputClaim ClaimTypeReferenceId="surname" />
-        
+
         <!-- Add the loyalty identifier -->
         <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
         <!-- End of changes -->
@@ -279,15 +276,15 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
-              <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
-                <DisplayName>Azure Active Directory</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                <!-- Provide objectId and appId before using extension properties. -->
-                <Metadata>
-                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-                </Metadata>
+          <DisplayName>Azure Active Directory</DisplayName>
+          <TechnicalProfile Id="AAD-Common">
+            <DisplayName>Azure Active Directory</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <!-- Provide objectId and appId before using extension properties. -->
+            <Metadata>
+              <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+              <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+            </Metadata>
   ```
 
 3. Mantenha a consistência com a experiência do portal. Crie esses atributos usando a interface do usuário do portal antes de usá-los em suas políticas personalizadas. Quando você cria um atributo **ActivationStatus** no portal, é necessário fazer referência a ele da seguinte maneira:
@@ -296,7 +293,6 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
   extension_ActivationStatus in the custom policy.
   extension_<app-guid>_ActivationStatus via Graph API.
   ```
-
 
 ## <a name="reference"></a>Referência
 

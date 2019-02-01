@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119740"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094522"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -148,7 +148,7 @@ Por padrão, `ServerTelemetryChannel` usa a pasta de dados do aplicativo local d
 
 
 Por meio de arquivo de configuração:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Por meio de código:
 
 - Remover ServerTelemetryChannel do arquivo de configuração
 - Adicione este trecho de código à configuração:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ Por padrão, `ServerTelemetryChannel` usa a pasta de dados do aplicativo local d
 
 O trecho de código a seguir mostra como definir `ServerTelemetryChannel.StorageFolder` no `ConfigureServices()`  método de sua `Startup.cs` classe:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 

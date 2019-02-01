@@ -1,0 +1,59 @@
+items:
+- name: Documentação do Azure Advisor
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é o Azure Advisor?
+    href: advisor-overview.md
+- name: Tutoriais
+  items:
+  - name: Introdução ao Assistente
+    href: advisor-get-started.md
+- name: Guias de instruções
+  items:
+  - name: Melhore a disponibilidade dos aplicativos do Azure
+    href: advisor-high-availability-recommendations.md
+  - name: Aumente a segurança dos recursos
+    href: advisor-security-recommendations.md
+  - name: Melhore o desempenho dos aplicativos do Azure
+    href: advisor-performance-recommendations.md
+  - name: Reduza os custos de serviço
+    href: advisor-cost-recommendations.md
+- name: Referência
+  items:
+  - name: Central de Segurança
+    href: https://azure.microsoft.com/services/security-center/
+  - name: Assistente do BD SQL
+    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+  - name: Serviço de Aplicativo
+    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+  - name: API REST
+    href: https://docs.microsoft.com/rest/api/advisor/
+  - name: CLI
+    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+  - name: PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+- name: Recursos
+  items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/advisor
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=advisor
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=advisor
+  - name: vídeos
+    href: https://azure.microsoft.com/resources/videos/index/?services=advisor
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=azure+advisor
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?service=advisor
+ms.openlocfilehash: 1f6f848d9e69d0e478c2027b4e3f09089b4714bb
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509891"

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300843"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460379"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar computação no SQL Data Warehouse do Azure
 Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse do Azure. Reduzir os custos pausando o data warehouse, ou dimensionar o data warehouse para atender às demandas de desempenho. 
@@ -97,7 +97,7 @@ Para etapas de pausa e retomada, consulte os inícios rápidos do [Portal do Azu
 ## <a name="drain-transactions-before-pausing-or-scaling"></a>Esvaziar as transações antes de pausar ou dimensionar
 É recomendável que as transações existentes sejam concluídas antes de iniciar uma operação de pausa ou de escala.
 
-Ao pausar ou dimensionar o SQL Data Warehouse, nos bastidores, suas consultas são canceladas quando você inicia a pausa ou dimensionar a solicitação.  Cancelar uma simples consulta SELECT é uma operação rápida e quase não terá impacto sobre o tempo que leva para pausar ou dimensionar sua instância.  No entanto, as consultas transacionais, que modificam os dados ou a estrutura dos dados, não conseguirão parar rapidamente.  **As consultas transacionais, por definição, devem ser concluídas na íntegra ou reverter suas alterações.**  Reverter o trabalho concluído por uma consulta transacional pode levar tanto tempo, ou até mais, quanto a alteração original que a consulta estava aplicando.  Por exemplo, se você cancelar uma consulta que estava excluindo linhas que já estava em execução por uma hora, poderá levar uma hora para o sistema inserir de volta as linhas que foram excluídas.  Se você executar a pausa ou o dimensionamento enquanto as transações estiverem em andamento, a pausa ou o dimensionamento poderão demorar muito tempo porque eles têm que esperar a reversão ser concluída antes de prosseguir.
+Ao pausar ou dimensionar o SQL Data Warehouse, nos bastidores, suas consultas são canceladas quando você inicia a pausa ou dimensionar a solicitação.  Cancelar uma simples consulta SELECT é uma operação rápida e quase não terá impacto sobre o tempo que leva para pausar ou dimensionar sua instância.  No entanto, as consultas transacionais, que modificam os dados ou a estrutura dos dados, não conseguirão parar rapidamente.  **As consultas transacionais, por definição, devem ser concluídas na íntegra ou reverter suas alterações.**   Reverter o trabalho concluído por uma consulta transacional pode levar tanto tempo, ou até mais, quanto a alteração original que a consulta estava aplicando.  Por exemplo, se você cancelar uma consulta que estava excluindo linhas que já estava em execução por uma hora, poderá levar uma hora para o sistema inserir de volta as linhas que foram excluídas.  Se você executar a pausa ou o dimensionamento enquanto as transações estiverem em andamento, a pausa ou o dimensionamento poderão demorar muito tempo porque eles têm que esperar a reversão ser concluída antes de prosseguir.
 
 Consulte também [Noções básicas sobre transações](sql-data-warehouse-develop-transactions.md) e [Otimizar transações](sql-data-warehouse-develop-best-practices-transactions.md).
 

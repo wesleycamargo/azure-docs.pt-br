@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 0884726e59d9ab3f5a5cfe7bb0608f6b5a5da250
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448714"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181190"
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gerenciamento de unidades administrativas no Azure AD – visualização pública
 Este artigo descreve as unidades administrativas – um novo contêiner de recursos do Azure Active Directory que pode ser usado para delegar permissões administrativas e aplicar políticas a subconjuntos de usuários. No Active Directory do Azure, unidades administrativas permitem aos administradores centrais delegar permissões para administradores regionais ou definir a diretiva em um nível granular.
@@ -31,7 +31,7 @@ Isso é útil em organizações com divisões independentes, por exemplo, uma gr
 >
 
 
-Do ponto de vista do administrador central, uma unidade administrativa é um objeto de diretório que pode ser criado e populado com recursos. **Nesta versão de pré-visualização, esses recursos podem ser somente os usuários.** Após criada e populada, a unidade administrativa pode ser usada como um escopo para restringir a permissão concedida somente para os recursos contidos na unidade administrativa.
+Do ponto de vista do administrador central, uma unidade administrativa é um objeto de diretório que pode ser criado e populado com recursos. **Nesta versão de pré-visualização, esses recursos podem ser somente os usuários.**  Após criada e populada, a unidade administrativa pode ser usada como um escopo para restringir a permissão concedida somente para os recursos contidos na unidade administrativa.
 
 ## <a name="managing-administrative-units"></a>Gerenciando unidades administrativas
 Nesta versão de visualização, você pode criar e gerenciar unidades administrativas usando os cmdlets do Módulo do Active Directory do Azure para Windows PowerShell. Para saber mais sobre como fazer isso, consulte [Trabalhando com unidades administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)

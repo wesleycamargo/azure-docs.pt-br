@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054159"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190897"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ Monitoramento, detecção, diagnóstico e solução de problemas permitem dar co
 ## <a name="event-tracing-for-windows"></a>Rastreamento de Eventos para Windows
 [Rastreamento de Eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) é a tecnologia recomendada para mensagens de rastreamento na Malha do Serviço. Alguns benefícios de usar ETW são:
 
-* **O ETW é rápido.** Ele foi criado como uma tecnologia de rastreamento que tem impacto mínimo sobre os tempos de execução de código.
+* **O ETW é rápido.**  Ele foi criado como uma tecnologia de rastreamento que tem impacto mínimo sobre os tempos de execução de código.
 * **O rastreamento ETW funciona perfeitamente nos ambientes de desenvolvimento locais e também nas configurações de cluster reais.** Isso significa que você não precisa reescrever o código de rastreamento quando estiver pronto para implantar seu código em um cluster real.
-* **O código do sistema da Malha do Serviço também usa o ETW para rastreamento interno.** Isso permite exibir os rastreamentos do aplicativo intercalados com os rastreamentos do sistema do Service Fabric. Ele também ajuda você a entender mais facilmente as sequências e as inter-relações entre o código do aplicativo e os eventos no sistema subjacente.
+* **O código do sistema da Malha do Serviço também usa o ETW para rastreamento interno.**  Isso permite exibir os rastreamentos do aplicativo intercalados com os rastreamentos do sistema do Service Fabric. Ele também ajuda você a entender mais facilmente as sequências e as inter-relações entre o código do aplicativo e os eventos no sistema subjacente.
 * **Há suporte interno nas ferramentas do Visual Studio da Malha do Serviço para exibir os eventos do ETW.** Os eventos do ETW aparecem na exibição de Eventos de Diagnóstico do Visual Studio depois que o Visual Studio estiver configurado corretamente com o Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Exibir eventos do sistema da Malha do Serviço no Visual Studio
-O Service Fabric emite eventos do ETW para ajudar os desenvolvedores de aplicativos a entender o que está acontecendo na plataforma. Se você ainda não tiver feito isso, vá em frente e siga as etapas em [Criando seu primeiro aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Essas informações ajudarão você a colocar um aplicativo para funcionar com o Visualizador de Eventos de Diagnóstico mostrando as mensagens de rastreamento.
+O Service Fabric emite eventos do ETW para ajudar os desenvolvedores de aplicativos a entender o que está acontecendo na plataforma. Se você ainda não tiver feito isso, vá em frente e siga as etapas em [Criando seu primeiro aplicativo no Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Essas informações ajudarão você a colocar um aplicativo para funcionar com o Visualizador de Eventos de Diagnóstico mostrando as mensagens de rastreamento.
 
 1. Se a janela de eventos de diagnóstico não for mostrada automaticamente, acesse a guia **Exibir** no Visual Studio, escolha **Outras Janelas** e **Visualizador de Eventos de Diagnóstico**.
 2. Cada evento tem informações de metadados padrão que informam de que nó, aplicativo e serviço ele surge. Também é possível filtrar a lista de eventos usando a caixa **Filtrar eventos** na parte superior da janela de eventos. Por exemplo, você pode filtrar por **Nome do Nó** ou **Nome do Serviço.** E quando estiver examinando os detalhes de um evento, você também poderá pausar usando o botão **Pausar** na parte superior da janela e continuar mais tarde sem qualquer perda de eventos.

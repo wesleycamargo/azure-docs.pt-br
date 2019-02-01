@@ -3,24 +3,24 @@ title: Perguntas frequentes e problemas conhecidos com identidades gerenciadas p
 description: Problemas conhecidos com identidades gerenciadas para recursos do Azure.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: daveba
-ms.openlocfilehash: a23bd99b05184316ee1547ab0917547b5d0da18f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421922"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189452"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -90,7 +90,7 @@ A extensão funciona em CentOS 6.9. No entanto, devido à falta de suporte do si
 No Windows e em determinadas versões do Linux, se a extensão for interrompida, o cmdlet a seguir poderá ser usado para reiniciá-lo:
 
 ```powershell
-Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
+Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
 Em que: 

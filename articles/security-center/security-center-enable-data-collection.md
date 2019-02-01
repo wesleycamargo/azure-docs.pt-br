@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 40f3275b2f16a80f1199afdc0d7965cbd4433f50
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5150f782d13e198c59e8d79f09ba0ffead5426d3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082435"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100525"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu workspace.
@@ -279,7 +279,7 @@ Há diversas maneiras de instalar o Microsoft Monitoring Agent manualmente. Veri
      
             $PublicConf = '{
                 "workspaceId": "WorkspaceID value",
-                "MultipleConnectistopOnons": true
+                "MultipleConnections": true
             }' 
  
             $PrivateConf = '{

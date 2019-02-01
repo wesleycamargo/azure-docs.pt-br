@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: faq
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: ce61a89069caf90695a2cb6c54f61de8fa8cb112
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1c55ef6fdfefbd50442da63637ba98bc43865d27
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226925"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206095"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -32,7 +32,7 @@ A API de texto retorna um código de erro que informa que o texto é mais longo 
 O conteúdo é seu e talvez não sejam retido pela Microsoft sem o seu consentimento. A Microsoft usa medidas de segurança do setor para ajudar a proteger seu conteúdo.
 
 #### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>Posso usar o Content Moderator para examinar imagens de exploração infantil ilegal?
-Não. No entanto, as organizações qualificadas podem usar o [Serviço de Nuvem PhotoDNA](https://www.microsoft.com/photodna "Serviço de Nuvem do Microsoft PhotoDNA") para examinar este tipo de conteúdo.
+ Não. No entanto, as organizações qualificadas podem usar o [Serviço de Nuvem PhotoDNA](https://www.microsoft.com/photodna "Serviço de Nuvem do Microsoft PhotoDNA") para examinar este tipo de conteúdo.
 
 #### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>Até quantas equipes de revisão um usuário pode participar? O usuário pode alternar entre equipes?
 Um usuário pode se integrar a uma equipe por vez.

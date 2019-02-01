@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 311cf4ad22f8e7fdcee976e0cb4b26b9dd2a13a5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c3eb96c15991c3b470164bf504c68fbc266e69a8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Azure Active Directory com Zscaler ZSCloud
 
@@ -38,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com o Zscaler ZSCloud, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
+- Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Zscaler ZSCloud
 
 > [!NOTE]
@@ -54,7 +54,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Zscaler ZSCloud por meio da galeria
-2. Configurar e testar logon único do Azure AD
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Adicionando o Zscaler ZSCloud por meio da galeria
 
@@ -87,9 +87,9 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Zsca
 Para configurar e testar o logon único do Azure AD com o Zscaler ZSCloud, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um usuário de teste do Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)** – para ter um equivalente de Brenda Fernandes no Zscaler ZSCloud que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
@@ -227,21 +227,21 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Clique em **OK** para fechar a caixa de diálogo **Opções da Internet**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![Criar um usuário do Azure AD][100]
+    ![Criar um usuário do AD do Azure][100]
 
 2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criar um usuário de teste do Azure AD](common/create_aaduser_01.png) 
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
 
 3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Criar um usuário de teste do Azure AD](common/create_aaduser_02.png)
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
@@ -258,7 +258,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Zscale
 >[!Note]
 >Se for necessário criar um usuário manualmente, contate a  [Equipe de suporte do Zscaler ZSCloud](https://help.zscaler.com/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir usuário de teste do Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
 Nesta seção, você habilitará a Brenda Fernandes a usar o logon único do Azure através da concessão de acesso ao Zscaler ZSCloud.
 

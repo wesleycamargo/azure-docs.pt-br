@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818499"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Azure Active Directory ao Signagelive
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Signagelive, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Signagelive](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Signagelive](mailto:support@signagelive.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -117,7 +117,7 @@ Para configurar o logon único do Azure AD com o Signagelive, execute as seguint
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
