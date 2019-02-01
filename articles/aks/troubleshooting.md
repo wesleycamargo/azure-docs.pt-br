@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654063"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468828"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -66,28 +66,3 @@ Certifique-se de que o grupo de segurança de rede (NSG) padrão não seja modif
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Eu estou tentando atualizar ou dimensionar e estou recebendo erro "mensagem: Não é permitido alterar a propriedade 'imageReference'".  Como faço para corrigir esse problema?
 
 Você pode estar recebendo este erro porque modificou as tags nos nós do agente dentro do cluster do AKS. Modificar e excluir tags e outras propriedades de recursos no grupo de recursos MC_ * pode levar a resultados inesperados. Modificar os recursos sob o grupo MC_ * no cluster do AKS quebra o objetivo de nível de serviço (SLO).
-
-## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Como faço para renovar o segredo da entidade de serviço em meu cluster do AKS?
-
-Por padrão, os clusters do AKS são criados com uma entidade de serviço que tem um tempo de término de um ano. Conforme você se aproxima da data do término, pode redefinir as credenciais para estender a entidade de serviço por um período adicional.
-
-O exemplo a seguir executa estas etapas:
-
-1. Obtém a ID de entidade de serviço do seu cluster usando o comando [az aks show](/cli/azure/aks#az-aks-show).
-1. Lista o segredo do cliente da entidade de serviço usando [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
-1. Estende a entidade de serviço por mais um ano usando o comando [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). O segredo do cliente da entidade de serviço deve permanecer o mesmo para o cluster do AKS ser executado corretamente.
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

@@ -1,19 +1,19 @@
 ---
-title: Provisionar taxa de transferência para o Azure Cosmos DB
+title: Taxa de transferência de provisionamento nos contêineres e bancos de dados do Azure Cosmos
 description: Saiba como definir a taxa de transferência provisionada para seus contêineres e bancos de dados do Azure Cosmos DB.
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 3e992dd8ab24e4e60b81c6565ea4ec3971a9336b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbcfaab7dc1b716b3978f1b19870d945e0eabf89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036403"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459052"
 ---
-# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Taxa de transferência de provisionamento nos contêineres e bancos de dados do Azure Cosmos
+# <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
 Um banco de dados do Azure Cosmos é uma unidade de gerenciamento para um conjunto de contêineres. Um banco de dados é composto por um conjunto de contêineres independentes de esquema. Um contêiner do Azure Cosmos é a unidade de escalabilidade para taxa de transferência e armazenamento. Um contêiner é particionado horizontalmente em um conjunto de máquinas em uma região do Azure e é distribuído em todas as regiões do Azure associadas à sua conta do Azure Cosmos.
 

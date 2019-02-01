@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999740"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222908"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de Visualização de URL de Projeto v7
 
@@ -31,10 +31,10 @@ Use somente os dados de Visualização de URL para visualizar snippets de códig
 Para solicitar resultados de Visualização de URL, envie uma solicitação para o ponto de extremidade a seguir. Use os cabeçalhos e os parâmetros de URL para definir mais especificações.
 
 Ponto de extremidade GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 A solicitação precisa usar o protocolo HTTPS e incluir o seguinte parâmetro de consulta:
 
@@ -73,7 +73,7 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 ## <a name="query-parameters"></a>Parâmetros de consulta
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL. A consulta precisa ser uma URL absoluta com um esquema HTTP ou HTTPS; não damos suporte para URLs relativas ou outros esquemas como ftp://
 
-|NOME|Valor|Tipo|Obrigatório|
+|NOME|Valor|Type|Obrigatório|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** Atualmente, a API de Visualização de URL dá suporte apenas à geografia dos EUA e ao idioma inglês.<br /><br />|Cadeia de caracteres|SIM|
 |<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|SIM|
@@ -90,7 +90,7 @@ O esquema de resposta é uma [WebPage] ou uma ErrorResponse, como na API de Pesq
 ### <a name="error"></a>Erro
 Define o erro ocorrido.
 
-|Elemento|DESCRIÇÃO|Tipo|
+|Elemento|DESCRIÇÃO|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|O código de erro que identifica a categoria de erro. Para obter uma lista dos possíveis códigos, confira [Códigos de erro](#error-codes).|Cadeia de caracteres|
 |<a name="error-message" />message|Uma descrição do erro.|Cadeia de caracteres|
@@ -102,7 +102,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse
 O objeto de nível superior incluído pela resposta quando a solicitação falha.
 
-|NOME|Valor|Tipo|
+|NOME|Valor|Type|
 |----------|-----------|----------|
 |_type|Dica de tipo.|Cadeia de caracteres|
 |<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Error](#error)[]|
@@ -110,7 +110,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="webpage"></a>WebPage
 Define as informações sobre uma página da Web na visualização.
 
-|NOME|Valor|Tipo|
+|NOME|Valor|Type|
 |----------|-----------|----------|
 |Nome|O título de página, não necessariamente o título HTML|Cadeia de caracteres|
 |url|A URL que foi realmente rastreada (a solicitação pode ter seguido os redirecionamentos)|Cadeia de caracteres|
@@ -119,7 +119,7 @@ Define as informações sobre uma página da Web na visualização.
 |primaryImageOfPage/contentUrl|A URL de uma imagem representativa a ser incluída na visualização|Cadeia de caracteres|
 
 ### <a name="identifiable"></a>Identifiable
-|NOME|Valor|Tipo|
+|NOME|Valor|Type|
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|Cadeia de caracteres|
 

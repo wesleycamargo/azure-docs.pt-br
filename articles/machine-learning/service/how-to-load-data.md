@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Aprenda sobre o carregamento de dados com o SDK de preparação de dados de aprendizado de máquina do Azure. Você pode carregar diferentes tipos de dados de entrada, especificar tipos e parâmetros de arquivos de dados ou usar a funcionalidade de leitura inteligente do SDK para detectar automaticamente o tipo de arquivo.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263808"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247520"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 

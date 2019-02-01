@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170592"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220256"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com um Aprendiz de conversa 
 
@@ -25,8 +25,7 @@ O ensino pode ser decomposto em duas etapas distintas: Extração de entidade e 
 
 ## <a name="entity-extraction"></a>Extração de entidade
 
-Nos bastidores, o Aprendiz de conversa usa o 
-[LUIS](https://www.luis.ai) para extrair a entidade.  Se você estiver familiarizado com o LUIS, essa experiência aplica-se à extração de entidade no Aprendiz de conversa.
+Nos bastidores, o Aprendiz de conversa usa o [LUIS](https://www.luis.ai) para extrair a entidade.  Se você estiver familiarizado com o LUIS, essa experiência aplica-se à extração de entidade no Aprendiz de conversa.
 
 Os modelos de extração de entidade estão cientes do *conteúdo* e do *contexto* dentro de uma declaração do usuário.  Por exemplo, se a palavra "Rio de Janeiro" foi rotulada como cidade em uma declaração como "Como está o clima no Rio de Janeiro", a extração de entidade será capaz de reconhecer esse mesmo conteúdo ("Rio de Janeiro") como uma cidade em outra declaração como "População do Rio de Janeiro", mesmo que as declarações sejam muito diferentes.  Por outro lado, se "Vinícius" tiver sido reconhecido como um nome em "Agendar uma reunião com Vinícius", um novo nome nunca visto anteriormente poderá ser reconhecido em um contexto semelhante, como "Marcar uma reunião com Marcos".  O aprendizado de máquina infere quando se trata de conteúdo, contexto ou ambos, tendo como base exemplos de treinamento.
 

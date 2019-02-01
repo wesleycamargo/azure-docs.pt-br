@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022269"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versão atual](connector-sap-business-warehouse.md)
 
@@ -184,7 +184,7 @@ Ao copiar dados do SAP BW, os seguintes mapeamentos são usados de tipos de dado
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| UNIDADE | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

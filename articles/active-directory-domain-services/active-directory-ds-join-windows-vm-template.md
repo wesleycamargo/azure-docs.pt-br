@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203327"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado usando modelos do Resource Manager
 Este artigo mostra como ingressar uma máquina virtual do Windows Server em um domínio gerenciado do Azure AD Domain Services usando modelos do Resource Manager.
@@ -100,7 +100,7 @@ Depois que a implantação for concluída com êxito, as máquinas virtuais do W
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Visão geral do Azure PowerShell](/powershell/azure/overview)
 * [Modelo de início rápido do Azure – Ingresso no domínio de uma nova VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Modelo de início rápido do Azure – Ingresso no domínio de uma VM existente](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

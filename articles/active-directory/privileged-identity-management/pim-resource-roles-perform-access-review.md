@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b9c998351432a591ece0a61d60256aea89a6f8f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189711"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180884"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM
 O Privileged Identity Management (PIM) para recursos do Azure simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure. 
@@ -32,7 +32,7 @@ Se você for um administrador com privilégios de função interessado em revis�
 ## <a name="add-the-privileged-identity-management-application"></a>Adicionar o aplicativo Privileged Identity Management
 Você pode usar o aplicativo PIM do Azure Active Directory (Azure AD) no [portal do Azure](https://portal.azure.com/) para executar a revisão. Se você não tiver o aplicativo em seu portal, siga estas etapas para começar.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório em que você vai operar.
 3. Selecione **Todos os serviços** e use a caixa **Filtrar** para pesquisar o *Azure AD Privileged Identity Management*.
 4. Verifique **Fixar no painel** e, em seguida, selecione **Criar**. O aplicativo do PIM é aberto.

@@ -2,17 +2,17 @@
 title: Usar o Azure Data Lake Storage Gen2 Versão Prévia com clusters HDInsight do Azure
 description: Aprenda a consultar dados do Azure Data Lake Storage Gen2 Versão Prévia para armazenar os resultados da sua análise.
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 0b171c7ed13eab84d84bb797e154a3acec8fbac7
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ed7242a254064ceada05ed40a88e8f2ebabdf57a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633667"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251224"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Usar o Azure Data Lake Storage Gen2 Versão Prévia com clusters HDInsight do Azure
 
