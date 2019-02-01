@@ -3,19 +3,19 @@ title: Integração de write-back de senha local com a SSPR do Azure AD
 description: Obter write-back de senhas da nuvem para infraestrutura do AD local
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 68823ffb7b274b8afc31de9d85bded3da853fcac
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1e90e0499372f78b91f3e21284f37178aff70ff
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438058"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075628"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -124,7 +124,7 @@ Depois que um usuário envia uma redefinição de senha, a solicitação de rede
 
 * **Etapa 1: Criptografia de senha com chave RSA de 2048 bits**: depois que um usuário envia uma senha para write back local, a senha enviada em si é criptografada com uma chave RSA de 2048 bits.
 * **Etapa 2: Criptografia em nível de pacote com AES-GCM**: todo o pacote (senha + metadados necessários) é criptografado usando AES-GCM. Essa criptografia impede que qualquer pessoa com acesso direto ao canal do barramento de serviço subjacente exiba ou viole o conteúdo.
-*  **Etapa 3: Toda a comunicação ocorre via TLS/SSL**: toda a comunicação com o Barramento de Serviço ocorre em um canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
+* **Etapa 3: Toda a comunicação ocorre via TLS/SSL**: toda a comunicação com o Barramento de Serviço ocorre em um canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
 * **Substituição de chave automática a cada seis meses**: todas as chaves serão substituídas a cada seis meses ou sempre que o write-back de senha for desabilitado e, em seguida, habilitado novamente no Azure AD Connect, para garantir a segurança máxima do serviço.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de largura de banda de write-back de senha

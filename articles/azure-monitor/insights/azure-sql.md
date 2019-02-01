@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546702"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884774"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -37,10 +37,10 @@ A Análise de SQL do Azure é uma solução de monitoramento somente em nuvem qu
 
 | Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
-| [Diagnóstico do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Sim** | Os dados de métrica e de log do Azure são enviados ao Log Analytics diretamente pelo Azure. |
-| [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não  | O Log Analytics não lê os dados pré-existentes de uma conta de armazenamento. |
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não  | Agentes diretos do Windows não são usados pela solução. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não  | Agentes do Linux diretos não são usados pela solução. |
+| [Diagnóstico do Azure](../platform/collect-azure-metrics-logs.md) | **Sim** | Os dados de métrica e de log do Azure são enviados ao Log Analytics diretamente pelo Azure. |
+| [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não  | O Log Analytics não lê os dados pré-existentes de uma conta de armazenamento. |
+| [Agentes do Windows](../platform/agent-windows.md) | Não  | Agentes diretos do Windows não são usados pela solução. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não  | Agentes do Linux diretos não são usados pela solução. |
 | [Grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) | Não  | Uma conexão direta do agente do Operations Manager ao Log Analytics não é necessária. |
 
 ## <a name="configuration"></a>Configuração
@@ -185,7 +185,7 @@ Os alertas automatizados na solução baseiam-se em gravar uma consulta do Log A
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criando alertas para o Banco de Dados SQL do Azure
 
-Você pode [criar alertas](../../azure-monitor/platform/alerts-metric.md) facilmente com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas consultas de [consultas de logs](../../azure-monitor/log-query/log-query-overview.md) que podem ser usadas com um alerta do log:
+Você pode [criar alertas](../platform/alerts-metric.md) facilmente com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas consultas de [consultas de logs](../log-query/log-query-overview.md) que podem ser usadas com um alerta do log:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>CPU alta no Banco de Dados SQL do Azure
 
@@ -297,6 +297,6 @@ Enquanto a solução for gratuita para usar, aplica-se o consumo de telemetria d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Usar [Pesquisas de Log](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados do Azure SQL.
-- [Criar seus próprios painéis](../../azure-monitor/platform/dashboards.md) mostrando os dados do Azure SQL.
-- [Criar alertas](../../azure-monitor/platform/alerts-overview.md) quando ocorrerem eventos específicos do Azure SQL.
+- Usar [Pesquisas de Log](../log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados do Azure SQL.
+- [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados do Azure SQL.
+- [Criar alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos do Azure SQL.

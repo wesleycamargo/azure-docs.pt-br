@@ -6,17 +6,17 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: f765e99a4186e0790bfcad22dd2d1a17a98050c9
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 887f376eafadfb556ce69611195301b25b24bbd5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450942"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104245"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory do Azure (Azure AD) são de propriedade e gerenciados pelos proprietários do grupo. Os proprietários do grupo são atribuídos para gerenciar um grupo e seus membros por um proprietário de recurso (administrador). Os proprietários do grupo não precisam ser membros do grupo. Depois que um proprietário de grupo for atribuído, somente um proprietário de recurso poderá adicionar ou remover proprietários.

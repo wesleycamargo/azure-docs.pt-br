@@ -3,19 +3,19 @@ title: Administradores gerenciam usuários e dispositivos - Azure MFA | Microsof
 description: Isso descreve como alterar as configurações de usuário, como forçar os usuários a fazer o processo de verificação novamente.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: c5d2b492d2126aa98012fbbac4008c78ced47e93
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 620a36b8b39b826a289567a133c78bae8b7e77b8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421497"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075033"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 

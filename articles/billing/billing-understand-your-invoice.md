@@ -3,7 +3,7 @@ title: Compreenda sua fatura do Azure | Microsoft Docs
 description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azure
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581539"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901013"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreenda os termos na sua fatura do Microsoft Azure
 
@@ -100,7 +100,7 @@ A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados
 | Termo |DESCRIÇÃO |
 | --- | --- |
 | NOME |Identifica o serviço de nível superior para o uso |
-| Tipo |Define o tipo de serviço do Azure e pode afetar a tarifa |
+| Type |Define o tipo de serviço do Azure e pode afetar a tarifa |
 | Recurso |Identifica a unidade de medida para o medidor sendo consumido |
 | Região |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter |
 | Consumido |O valor do medidor usado durante o período de cobrança |
@@ -114,6 +114,6 @@ A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Como fazer para ter certeza de que os encargos na minha fatura estão corretos?
 Se há um encargo na fatura sobre o qual você deseja obter mais detalhes, consulte [Entenda sua fatura do Microsoft Azure.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

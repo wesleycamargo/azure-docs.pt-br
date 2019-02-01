@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b9ad1157469303f4065a3c27ccf6514aaa35155
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402193"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901183"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
@@ -180,7 +180,7 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Tipo | SIM | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
+| Type | SIM | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
 | NOME | SIM | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | DESCRIÇÃO | Não  | Descrição opcional do alerta. |
 | Severidade | SIM | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
@@ -447,6 +447,7 @@ O exemplo usa [parâmetros de solução padrão]( solutions-solution-file.md#par
 ```
 
 O arquivo de parâmetro a seguir fornece valores de amostras para esta solução.
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
