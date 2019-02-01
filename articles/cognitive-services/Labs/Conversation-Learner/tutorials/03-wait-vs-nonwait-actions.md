@@ -1,25 +1,25 @@
 ---
-title: Como usar ações aguardar e não aguardar com um modelo do Conversation Learner - Serviços Cognitivos da Microsoft| Microsoft Docs
+title: Como usar as ações de espera e não espera com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar as ações aguardar e não aguardar com o modelo do Conversation Learner.
+description: Saiba como usar as ações de espera e não espera com o modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 95cf223004c50583701e65d3adf02f57bd541fae
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2869e6c59388adf548e5f239d3a831a5a3f060dd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796427"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214255"
 ---
-# <a name="wait-and-non-wait-actions"></a>Ações aguardar e não aguardar
+# <a name="wait-and-non-wait-actions"></a>Ações de espera e não espera
 
-Este tutorial mostra a diferença entre ações aguardar e ações não aguardar no Conversation Learner.
+Este tutorial mostra a diferença entre as ações de espera e as ações de não espera no Aprendiz de Conversa.
 
 ## <a name="video"></a>Vídeo
 

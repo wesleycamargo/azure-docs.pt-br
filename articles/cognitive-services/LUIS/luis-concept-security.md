@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 3de58f244012ee0460812fba1ceb5ab12f60aa51
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 14b1199891599123a14d30e85a032f05974d7d0d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210232"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acesso de criação e do usuário de ponto de extremidade
 O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores. Para um aplicativo público, o acesso de ponto de extremidade está disponível a todos que têm sua conta LUIS e que tem a ID do aplicativo público. 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8fa70705d1dff5c3150fa5868938a3c50ef863fe
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815556"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194841"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de Pesquisa Personalizada do Bing
 
@@ -111,5 +111,5 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|

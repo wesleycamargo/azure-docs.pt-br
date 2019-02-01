@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 74ad3110faabb6618ffe91e5a896b9b7f4bc0d3a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713957"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221242"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar resultados do LUIS às funções do Application Insights e do Azure
 Este tutorial adiciona informações de solicitação e resposta do LUIS ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou com o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.

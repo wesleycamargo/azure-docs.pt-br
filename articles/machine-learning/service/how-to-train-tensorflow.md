@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Saiba como executar o treinamento distribuído e de nó único de modelos do TensorFlow com o estimador do TensorFlow
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094094"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244718"
 ---
 # <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Treinar modelos do TensorFlow com o Serviço do Azure Machine Learning
 
@@ -49,7 +49,7 @@ Parâmetro | DESCRIÇÃO
 --|--
 `source_directory` | O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada em seu computador local para a computação remota
 `script_params` | Especificando os argumentos de linha de comando para o seu script de treinamento de dicionário `entry_script`, na forma de < argumento de linha de comando, valor > pares
-`compute_target` | Destino de computação remota que seu script de treinamento será executado, neste caso, um cluster da Computação do Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute))
+`compute_target` | Destino de computação remota no qual seu script de treinamento será executado, neste caso, um cluster ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) da Computação do Machine Learning
 `entry_script` | FilePath (relativo ao `source_directory`) do script de treinamento para ser executado na computação remota. Esse arquivo e quaisquer arquivos adicionais que ele depende devem ser localizados nesta pasta
 `conda_packages` | A lista de pacotes do Python a serem instalados via conda, necessária ao seu script de treinamento. Nesse caso, o script de treinamento usa `sklearn` para carregar os dados, então, especifique esse pacote para ser instalado.  O construtor tem outro parâmetro chamado `pip_packages` que você pode usar para qualquer pacote pip necessário
 `use_gpu` | Defina esse sinalizador como `True` para aproveitar a GPU para treinamento. Usa `False` como padrão.

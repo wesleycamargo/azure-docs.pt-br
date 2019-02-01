@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554853"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471990"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no workspace.

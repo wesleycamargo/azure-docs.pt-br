@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2363dde7dc2462adde730fa9a4883ffb6c558f3f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796412"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228297"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Como usar entidades multivalor com um modelo de Aprendiz de Conversa
 Este tutorial mostra a propriedade multivalor de entidades.
@@ -73,7 +73,7 @@ Agora você tem duas ações.
 
 ![](../media/tutorial6_actions.PNG)
 
-### <a name="train-the-model"></a>Treinar o modelo
+### <a name="train-the-model"></a>Treinar o Modelo
 
 1. No painel esquerdo, clique em "Caixas de Diálogo de Treinamento" e, em seguida, no botão "Nova Caixa de Diálogo de Treinamento".
 2. No painel de chat, onde está escrito "Digite sua mensagem...", digite "oi".

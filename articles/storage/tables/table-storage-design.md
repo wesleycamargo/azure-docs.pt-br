@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237767"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472551"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projetar tabelas escalonáveis e de alto desempenho
 
@@ -132,7 +132,7 @@ O nome da conta, o nome de tabela e **PartitionKey** juntas identificam a parti�
 
 No serviço Tabela, um nó individual atende a uma ou mais partições completas e o serviço é dimensionado pelo balanceamento dinâmico de carga das partições nos nós. Se um nó estiver sob carga, o serviço Tabela pode *dividir* o intervalo de partições atendidas por esse nó em nós diferentes. Quando o tráfego baixa, o serviço pode *mesclar* os intervalos de partições de nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, consulte o artigo Armazenamento do Microsoft Azure: [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, confira o artigo [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Transações de Grupo de Entidades
 No serviço Tabela, EGTs (Transações de Grupo de Entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs são, às vezes, também conhecidas como *transações de lote*. EGTs só podem operar em entidades armazenadas na mesma partição (ou seja, compartilham a mesma chave de partição em uma determinada tabela). Portanto, sempre que você precisar de comportamento transacional atômico entre várias entidades, certifique-se de que as entidades estejam na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs; caso contrário, o processamento pode ser retardado.
