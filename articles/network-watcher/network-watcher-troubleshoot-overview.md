@@ -75,10 +75,10 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não |
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | sim |
 | ConnectionMarkedStandy | O serviço subjacente está marcado como em espera.| sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada | sim|
+| Authentication | Incompatibilidade de chave pré-compartilhada | sim|
 | PeerReachability | O gateway correspondente não está acessível. | sim|
 | IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | sim|
-| Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
