@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316567"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454837"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato de arquivo de log de serviço de Importação/Exportação do Azure
 Quando o serviço de importação/exportação do Microsoft Azure executa uma ação em uma unidade como parte de um trabalho de importação ou exportação, os logs são gravados para bloquear blobs na conta de armazenamento associado ao trabalho.  
@@ -101,7 +101,7 @@ properties-status ::=
 
 A tabela a seguir descreve os elementos do arquivo de log.  
   
-|Elemento XML|Tipo|DESCRIÇÃO|  
+|Elemento XML|Type|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa um log de unidade.|  
 |`Version`|Atributo, cadeia de caracteres|A versão do formato do log.|  
@@ -110,9 +110,9 @@ A tabela a seguir descreve os elementos do arquivo de log.
 |`Blob`|Elemento XML aninhado|Representa um blob.|  
 |`Blob/BlobPath`|Cadeia de caracteres|O URI do blob.|  
 |`Blob/FilePath`|Cadeia de caracteres|Caminho relativo até o arquivo na unidade.|  
-|`Blob/Snapshot`|Datetime|A versão de instantâneo do blob, apenas para um trabalho de exportação.|  
+|`Blob/Snapshot`|DateTime|A versão de instantâneo do blob, apenas para um trabalho de exportação.|  
 |`Blob/Length`|Número inteiro|O comprimento total do blob em bytes.|  
-|`Blob/LastModified`|Datetime|A data/hora em que o blob foi modificado pela última vez, apenas para um trabalho de exportação.|  
+|`Blob/LastModified`|DateTime|A data/hora em que o blob foi modificado pela última vez, apenas para um trabalho de exportação.|  
 |`Blob/ImportDisposition`|Cadeia de caracteres|A disposição de importação do blob, para um trabalho de importação.|  
 |`Blob/ImportDisposition/@Status`|Atributo, cadeia de caracteres|O status de disposição de importação.|  
 |`PageRangeList`|Elemento XML aninhado|Representa uma lista de intervalos de página para um blobs de página.|  

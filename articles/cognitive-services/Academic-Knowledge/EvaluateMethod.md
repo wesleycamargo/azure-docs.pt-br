@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902324"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187285"
 ---
 # <a name="evaluate-method"></a>Método Avaliar
 
@@ -32,7 +32,7 @@ NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 -----------|-----------|---------|--------
 **expr**       | Cadeia de caracteres de texto | SIM | Uma expressão de consulta que especifica quais entidades devem ser retornadas.
 **modelo**      | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
-**atributos** | Cadeia de caracteres de texto | Não <br>padrão: Id | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
+**atributos** | Cadeia de caracteres de texto | Não <br>padrão: ID | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
 **count**        | Número | Não <br>Padrão: 10 | Número de resultados para retornar.
 **offset**     | Número |   Não <br>Padrão: 0    | Índice do primeiro resultado para retornar.
 **orderby** |   Cadeia de caracteres de texto | Não <br>Padrão: diminuindo prob | Nome de um atributo que é usado para classificar as entidades. Opcionalmente, pode ser especificado ascendente/descendente. O formato é: *name:asc* ou *name:desc*.

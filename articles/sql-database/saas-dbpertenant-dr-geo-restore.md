@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470580"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
-Este tutorial explora um cenário de recuperação de desastre para um aplicativo SaaS multilocatário implementado com o banco de dados por modelo de locatário. Use a [restauração geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) para recuperar bancos de dados de locatário e de catálogo de backups com redundância geográfica mantidos automaticamente em uma região de recuperação alternativa. Depois que a interrupção for resolvida, você usará a [replicação geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para repatriar bancos de dados alterados para a região original deles.
+Este tutorial explora um cenário de recuperação de desastre para um aplicativo SaaS multilocatário implementado com o banco de dados por modelo de locatário. Use a [restauração geográfica](sql-database-recovery-using-backups.md) para recuperar bancos de dados de locatário e de catálogo de backups com redundância geográfica mantidos automaticamente em uma região de recuperação alternativa. Depois que a interrupção for resolvida, você usará a [replicação geográfica](sql-database-geo-replication-overview.md) para repatriar bancos de dados alterados para a região original deles.
 
 ![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ A recuperação de desastre (DR) é uma consideração importante para muitos ap
 Este tutorial usa recursos do Banco de Dados SQL do Azure e a plataforma do Azure para endereçar estes desafios:
 
 * [Modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) para reservar toda a capacidade necessária assim que possível. Os modelos do Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores originais e pools elásticos na região de recuperação. Um servidor e um pool separados também são criados para provisionar novos locatários.
-* [EDCL](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (Biblioteca de Cliente de Banco de Dados Elástico) para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração periodicamente atualizadas do banco de dados e do pool.
-* [Recursos de recuperação de gerenciamento de fragmentos](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) da EDCL para manter as entradas de localização de banco de dados no catálogo durante a recuperação e a repatriação.  
-* A [restauração geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery) para recuperar os bancos de dados do catálogo e de locatário de backups com redundância geográfica mantidos automaticamente. 
+* [EDCL](sql-database-elastic-database-client-library.md) (Biblioteca de Cliente de Banco de Dados Elástico) para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração periodicamente atualizadas do banco de dados e do pool.
+* [Recursos de recuperação de gerenciamento de fragmentos](sql-database-elastic-database-recovery-manager.md) da EDCL para manter as entradas de localização de banco de dados no catálogo durante a recuperação e a repatriação.  
+* A [restauração geográfica](sql-database-disaster-recovery.md) para recuperar os bancos de dados do catálogo e de locatário de backups com redundância geográfica mantidos automaticamente. 
 * [Operações de restauração assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas na ordem de prioridade de locatário, enfileiradas para cada pool pelo sistema e processadas em lotes para o pool não ficar sobrecarregado. Essas operações podem ser canceladas antes ou durante a execução, se necessário.   
-* [Replicação geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para repatriar os bancos de dados para a região original após a interrupção. Não há perda de dados e há o mínimo de impacto no locatário quando você usa a replicação geográfica.
-* [Aliases DNS do servidor SQL](https://docs.microsoft.com/azure/sql-database/dns-alias-overview) para permitir que o processo de sincronização de catálogo para se conectar ao catálogo ativo, independentemente de sua localização.  
+* [Replicação geográfica](sql-database-geo-replication-overview.md) para repatriar os bancos de dados para a região original após a interrupção. Não há perda de dados e há o mínimo de impacto no locatário quando você usa a replicação geográfica.
+* [Aliases DNS do servidor SQL](dns-alias-overview.md) para permitir que o processo de sincronização de catálogo para se conectar ao catálogo ativo, independentemente de sua localização.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter os scripts de recuperação de desastre
 
@@ -378,4 +378,4 @@ Experimente a [Recuperação de desastre para um aplicativo SaaS multilocatário
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-[Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

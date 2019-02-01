@@ -1,23 +1,23 @@
 ---
-title: Como usar o Conversation Learner com outras tecnologias de criação de bots - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar o Aprendiz de Conversa com outras tecnologias de compilação de bots - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como a usar o Conversation Learner com outras tecnologias de criação de bots.
+description: Saiba como a usar o Aprendiz de Conversa com outras tecnologias de compilação de bots.
 services: cognitive-services
 author: mattm
 manager: larsliden
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0e2a9918108012e0d0ef1defbff044d7ab9bd83d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796435"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219355"
 ---
-# <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como usar o Conversation Learner com outras tecnologias de criação de bots
+# <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como usar o Aprendiz de Conversa com outras tecnologias de compilação de bots
 
 Este tutorial aborda como usar o Conversation Learner com outras tecnologias de criação de bots e como a memória (ou estado) pode ser compartilhada entre essas tecnologias. 
 
@@ -34,12 +34,12 @@ Este tutorial exige que o bot de tutorial híbrido esteja em execução:
 
 ## <a name="details"></a>Detalhes
 
-Enquanto o Conversation Learner estiver no controle, todos os estados relativos à Sessão do Conversation Learner deverão ser armazenados no gerenciador de memória do Conversation Learner. Isso é necessário, pois o aprendizado de máquina usa o estado para determinar como conduzir a conversa. O estado externo pode ser passado para o Conversation Learner no OnSessionStartCallback que é chamado quando a sessão é iniciada. O estado interno pode ser retornado pelo OnSessionEndCallback quando a sessão termina.
+Enquanto o Aprendiz de Conversa estiver no controle, todos os estados relativos à Sessão de Aprendiz de Conversa devem ser armazenados no gerenciador de memória do Aprendiz de Conversa. Isso é necessário, pois o aprendizado de máquina usa o estado para determinar como conduzir a conversa. O estado externo pode ser passado para o Aprendiz de Conversa no OnSessionStartCallback que é chamado quando a sessão é iniciada. O estado interno pode ser retornado pelo OnSessionEndCallback quando a sessão termina.
 
-É possível praticamente pensar no Conversation Learner como uma chamada de função que leva algum estado inicial e retorna valores.
+É possível praticamente pensar no Aprendiz de Conversa como uma chamada de função que leva algum estado inicial e retorna valores.
 
 Neste exemplo, você criará um bot híbrido usando dois sistemas diferentes:
-1. Um modelo do Conversation Learner <br/>
+1. Um modelo de Aprendiz de Conversa <br/>
     Use o modelo do Conversation Learner para determinar a próxima ação do bot com base na sessão atual. Essa parte do bot leva uma parte do estado inicial `isOpen` (que indica se uma loja está aberta ou fechada) e retorna uma outra parte de estado `purchaseItem` (o nome de um item que o usuário compra).
 
 2. Correspondência de texto <br />
@@ -57,7 +57,7 @@ Abra a página de entidades e observe duas entidades: `isOpen` e `purchaseItem`
 
 Para entender como essas entidades são usadas, abra o arquivo: `C:\<installedpath>\src\demos\tutorialHybrid.ts` para examinar os retornos de chamada.
 
-Observe que o código em `OnSessionStartCallback` copia o valor de `storeIsOpen` do armazenamento de conversa do BotBuilder como o valor da entidade `isOpen`, de modo que esteja disponível para o Conversation Learner. Observe o código a seguir:
+Observe que o código em `OnSessionStartCallback` copia o valor de `storeIsOpen` do armazenamento de conversa do BotBuilder como o valor da entidade `isOpen`, de modo que esteja disponível para o Aprendiz de Conversa. Observe o código a seguir:
 
 ![](../media/tutorial17_sessionstart.PNG)
 
@@ -80,13 +80,13 @@ As regras pretendidas para as ações são as seguintes:
 
 ### <a name="overall-bot-logic"></a>Lógica geral de bots
 
-Primeiro, você verá que se o sinalizador `usingConversationLearner` do estado de Bot foi definido, passaremos o controle para o Conversation Learner. Se não, passamos o controle para outra ação.  Neste exemplo, estamos mostrando uma correspondência de texto simples, mas pode ser qualquer outra tecnologia de bot, incluindo LUIS, QnA Maker e até mesmo outra instância do Conversation Learner.
+Primeiro, você verá que se o sinalizador `usingConversationLearner` do estado de Bot tiver sido definido, passamos o controle para o Aprendiz de Conversa. Se não, passamos o controle para outra ação.  Neste exemplo, estamos mostrando uma correspondência de texto simples, mas pode ser qualquer outra tecnologia de bot, incluindo LUIS, QnA Maker e até mesmo outra instância do Aprendiz de Conversa.
 
 Precisamos de uma maneira para o usuário abrir e fechar a loja, então, fazemos uma comparação com "loja aberta" e "loja fechada" e definimos o sinalizador "storeIsOpen".
 
-Em seguida, precisaremos de uma maneira de disparar o controle de distribuição para o nosso Modelo do Conversation Learner. Quando combinamos com a cadeia de caracteres "loja", fazemos o seguinte:
+Em seguida, precisamos de uma maneira de disparar o controle de entrega para o nosso Modelo de Aprendiz de Conversa. Quando combinamos com a cadeia de caracteres "loja", fazemos o seguinte:
 - Defina o sinalizador `usingConversationLearner` na memória do Bot.
-- Chame o método "StartSession" no modelo do Conversation Learner.  Isso disparará o "onSessionStartCallback", que inicializará o valor da entidade `isOpen`
+- Chame o método "StartSession" no modelo de Aprendiz de Conversa.  Isso disparará o "onSessionStartCallback", que inicializará o valor da entidade `isOpen`
 
 Veja abaixo:
 
@@ -101,7 +101,7 @@ Para este tutorial, o modelo já é pré-treinado.  Vamos testar o bot completo 
 
 ## <a name="testing-the-bot"></a>Testar o Bot
 
-Ao contrário dos bots do modelo do Conversation Learner único, não será possível testar isso na interface do Conversation Learner, já que ele só pode mostrar o que é tratado pelo Modelo do Conversation Learner.
+Ao contrário dos bots de modelo de Aprendiz de Conversa único, não será possível testar isso na interface do Aprendiz de Conversa, já que ele só pode mostrar o que é tratado pelo Modelo de Aprendiz de Conversa.
 
 ### <a name="install-the-bot-framework-emulator"></a>Instalar o emulador de estrutura do Bot
 
@@ -115,7 +115,7 @@ Ao contrário dos bots do modelo do Conversation Learner único, não será poss
 ### <a name="test"></a>Teste 
 
 #### <a name="scenario-1-store-is-closed"></a>Cenário 1: A loja está fechada
-1. Insira 'loja'. Isso é tratado pela correspondência de texto e dará controle ao modelo do Conversation Learner.
+1. Insira 'loja'. Isso é tratado pela correspondência de texto e dará controle ao modelo de Aprendiz de Conversa.
 2. Insira “olá”.  Como o valor `isOpen` não está definido, o bot dirá "Desculpe, estamos fechados" e encerrará a sessão.
 
 #### <a name="scenario-2-store-is-open"></a>Cenário 2: A loja está aberta

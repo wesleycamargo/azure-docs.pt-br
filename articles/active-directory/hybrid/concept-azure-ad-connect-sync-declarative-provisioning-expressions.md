@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0f15915d7c515387658ee132fcc1217958728c8a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460483"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166740"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
@@ -98,5 +98,5 @@ Por exemplo:
 
 **Tópicos de referência**
 
-* [Sincronização do Azure AD Connect: Referência a funções](reference-connect-sync-functions-reference.md)
+* [Sincronização do Azure AD Connect: referência de funções](reference-connect-sync-functions-reference.md)
 

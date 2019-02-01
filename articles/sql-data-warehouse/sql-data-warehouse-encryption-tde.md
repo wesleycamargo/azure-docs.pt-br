@@ -2,20 +2,20 @@
 title: Transparent Data Encryption no SQL Data Warehouse (Portal) | Microsoft Docs
 description: TDE (Transparent Data Encryption) no SQL Data Warehouse
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: e641ddb5360c18b5977fb79de41334d4216c2b90
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 6ca5ac013716db9712063e8efc0e2116570008a9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306180"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455602"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse
 > [!div class="op_single_selector"]

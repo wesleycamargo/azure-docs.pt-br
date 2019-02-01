@@ -8,18 +8,18 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: feecc0b5b8c6bd7cb39a9aa8f40e84b07b242f39
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 2063f9fcd3e001f4f8f175bd6031c9d31313f9e6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447762"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092109"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abrir um tíquete de suporte para o Azure Active Directory
 A Microsoft fornece suporte técnico global, de pré-vendas, cobrança e assinatura para o Azure AD (Azure Active Directory). O suporte está disponível online e por telefone para versões de avaliação e assinaturas pagas do Microsoft Azure. O suporte via telefone e o suporte de cobrança online estão disponíveis em outros idiomas. 

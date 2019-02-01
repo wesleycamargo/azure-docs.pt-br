@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d88d1390f590a86c83273f2170f3854a7972a24b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310694"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466213"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem T-SQL compatíveis com o SQL Data Warehouse do Azure
 Links para a documentação para elementos da linguagem T-SQL compatíveis no SQL Data Warehouse do Azure.
@@ -24,7 +24,7 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [convenções de sintaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [regras de nomenclatura do objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
-* [agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
+* [ordenações](https://msdn.microsoft.com/library/ff848763.aspx)
 * [comentários](https://msdn.microsoft.com/library/ms181627.aspx)
 * [constantes](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)

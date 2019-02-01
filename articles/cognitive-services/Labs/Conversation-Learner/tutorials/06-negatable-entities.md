@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34806803c50308a288007bf3bad129075ca8bc6d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796470"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207367"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Como usar Entidades Negáveis com um Modelo do Conversation Learner
 
@@ -35,13 +35,13 @@ A propriedade "Negável" de uma Entidade permite que você rotule as instâncias
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-model"></a>Criar o Modelo
+### <a name="create-the-model"></a>Criar o modelo
 
 1. Na interface do usuário da Web, clique em "Novo Modelo."
 2. No campo "Nome", digite "NegatableEntity" e pressione enter.
 3. Clique no botão "Criar".
 
-### <a name="entity-creation"></a>Criação de Entidade
+### <a name="entity-creation"></a>Criação da entidade
 
 1. No painel esquerdo, clique em "Entidades" e, em seguida, no botão "Nova Entidade".
 2. Selecione "Personalizado" para o "Tipo de Entidade."

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125288"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095661"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -88,7 +88,7 @@ A ação de transformação também dá suporte a mapas ou transformações com 
 
   Este exemplo mostra um mapa que faz referência a um assembly chamado "XslUtilitiesLib" e chama o `circumreference` método do assembly.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ A ação de transformação também dá suporte a mapas ou transformações com 
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>Marca de ordem de byte
 Por padrão, a resposta da transformação iniciará com marca de ordem de byte (BOM). Você pode acessar essa funcionalidade apenas enquanto estiver trabalhando no editor de exibição de código. Para desabilitar essa funcionalidade, especifique `disableByteOrderMark` para a propriedade `transformOptions`:
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,7 +129,7 @@ Por padrão, a resposta da transformação iniciará com marca de ordem de byte 
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

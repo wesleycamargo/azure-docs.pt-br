@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f5060ab054d5b55b4b31ff01b00e30a34e6ebdce
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431734"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463422"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Dezembro de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e as alterações que foram introduzidas em dezembro de 2018.

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed4bed77267790b10b44486f0e9c8242fe952cd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601960"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207404"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601960"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
 1. Acesse seu aplicativo selecionando seu nome na página **Meus aplicativos**. 
@@ -40,13 +41,8 @@ ms.locfileid: "53601960"
 
     ![O teste interativo identifica a intenção incorreta](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Limpar painel de teste
-Para limpar todas as declarações de teste inseridas e seus resultados do console de teste, selecione **Começar de novo** no canto superior esquerdo do **Painel de teste**. 
-
-## <a name="close-test-panel"></a>Fechar painel de teste
-Para fechar o painel de **Teste**, selecione o botão **Testar** novamente.
-
 ## <a name="inspect-score"></a>Inspecionar pontuação
+
 Inspecione detalhes do resultado do teste no painel **Inspecionar**. 
  
 1. Com o painel extensível **Testar** aberto, selecione **Inspecionar** para uma declaração que você deseja comparar. 
@@ -72,9 +68,11 @@ Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis
 ![Imagem do painel de Teste com análise de sentimento](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corrigir intenção do padrão correspondente
+
 Se estiver usando [Padrões](luis-concept-patterns.md) e a declaração tiver correspondido a um padrão, mas a intenção incorreta estava prevista, selecione o link **Editar** pelo padrão e selecione a intenção correta.
 
 ## <a name="compare-with-published-version"></a>Comparar com a versão publicada
+
 É possível testar a versão ativa do seu aplicativo com a versão do [ponto de extremidade](luis-glossary.md#endpoint) publicada. No painel **Inspecionar**, selecione **Comparar com publicado**. Qualquer teste com relação ao modelo publicado é deduzido do saldo da sua cota de assinatura do Azure. 
 
 ![Comparar com o publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ Se estiver usando [Padrões](luis-concept-patterns.md) e a declaração tiver co
 ## <a name="additional-settings-in-test-panel"></a>Configurações adicionais no painel de teste
 
 ### <a name="luis-endpoint"></a>Ponto de extremidade LUIS
+
 Se tiver vários pontos de extremidade LUIS, use o link **Configurações Adicionais** no painel Publicado do Teste para alterar o ponto de extremidade usado para teste. Se não tiver certeza sobre qual ponto de extremidade usar, selecione o **Starter_Key** padrão. 
 
 ![Testar painel com o link Configurações Adicionais realçado](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Exibir correções da Verificação Ortográfica do Bing no painel de teste
+
 Requisitos para exibir as correções de ortografia: 
 
 * Aplicativo publicado
@@ -124,6 +124,7 @@ Use o seguinte procedimento para incluir o serviço [Verificação Ortográfica 
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Teste de lote
 Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
 

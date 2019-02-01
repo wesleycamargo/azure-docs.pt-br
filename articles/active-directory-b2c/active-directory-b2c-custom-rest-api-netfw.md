@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 9e5f8171dde2f6da153441dafd9a87fc5c946e71
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853044"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157934"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 
@@ -215,7 +215,7 @@ Na API Web, um _controlador_ é um objeto que manipula as solicitações HTTP. O
     A janela **Criar Serviço de Aplicativo** é aberta. Nela, é possível criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
 
     > [!NOTE]
-    >Para obter mais informações sobre como publicar, consulte: [Criar um aplicativo Web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Para obter mais informações sobre como publicar, consulte: [Criar um aplicativo Web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. Na caixa **Nome do aplicativo Web**, digite um nome exclusivo para o aplicativo (os caracteres válidos são a a z, 0 a 9 e hífen [-]). A URL do aplicativo Web é http://<nome_do_aplicativo>.azurewebsites.NET, em que *nome_do_aplicativo* é o nome do seu aplicativo Web. Você pode aceitar o nome gerado automaticamente, que é exclusivo.
 

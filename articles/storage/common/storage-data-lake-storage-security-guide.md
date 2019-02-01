@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: d2182942b8d1ce78fd4a72ff387c7a6a1cfead5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976085"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473775"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guia de segurança do Azure Data Lake Storage Gen2
 
@@ -128,7 +128,7 @@ Outra vantagem de usar o Cofre de Chaves do Azure é que você também pode cont
 * [Gerenciar configurações de conta de armazenamento no portal do Azure](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API Reference (Referência à API REST do provedor de recursos de armazenamento do Azure)](https://msdn.microsoft.com/library/mt163683.aspx)
 
-## <a name="data-plane-security"></a>Segurança do Plano de Dados
+## <a name="data-plane-security"></a>Segurança do plano de dados
 Segurança do Plano de Dados refere-se aos métodos usados para proteger os objetos de dados armazenados no Armazenamento do Azure. Já vimos métodos para criptografar os dados e a segurança durante a transferência de dados. Mas e quanto a controlar o acesso aos objetos?
 
 Você tem três opções para autorizar o acesso a objetos de dados no Armazenamento do Azure, incluindo:
@@ -147,7 +147,7 @@ Por exemplo, é possível ler arquivos. Muitas dessas ações podem ser executad
 
 Conforme abordado na seção [Segurança do Plano de Gerenciamento](#management-plane-security), o acesso às chaves de armazenamento de uma conta de armazenamento usando o modelo do Azure Resource Manager pode ser controlado por meio de RBAC (Controle de Acesso Baseado em Função).
 
-### <a name="how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>Como delegar acesso a objetos em sua conta usando Assinaturas de Acesso Compartilhado e Políticas de Acesso Armazenadas
+### <a name="how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>Como delegar acesso a objetos em sua conta usando Assinaturas de Acesso Compartilhado e Políticas de Acesso Armazenado
 
 Uma Assinatura de Acesso Compartilhado é uma cadeia de caracteres que contém um token de segurança que pode ser anexado a um URI que permite delegar acesso aos objetos de armazenamento e especificar restrições, como as permissões e o intervalo de data/hora de acesso.
 
@@ -196,10 +196,10 @@ Por exemplo, se a URL acima estivesse apontando para um arquivo em vez de para u
 
 1. Você pode criar um URI sob demanda, definindo todos os parâmetros de consulta todas as vezes.
 
-   Essa abordagem é flexível, mas se você tiver um conjunto lógico de parâmetros que sempre são semelhantes, usar uma Política de Acesso Armazenada é uma opção mais adequada.
-2. É possível criar uma Política de Acesso Armazenada para um sistema de arquivos inteiro, compartilhamento de arquivos, tabela ou fila. Desse modo, você pode usar isso como a base para os URIs SAS que cria. As permissões com base em Políticas de Acesso Armazenadas podem ser facilmente revogadas. É possível ter até cinco políticas definidas em cada sistema de arquivos, fila, tabela ou compartilhamento de arquivos.
+   Essa abordagem é flexível, mas se você tiver um conjunto lógico de parâmetros que sempre são semelhantes, usar uma Política de Acesso Armazenado é uma opção mais adequada.
+2. É possível criar uma Política de Acesso Armazenada para um sistema de arquivos inteiro, compartilhamento de arquivos, tabela ou fila. Desse modo, você pode usar isso como a base para os URIs SAS que cria. As permissões com base em Políticas de Acesso Armazenado podem ser facilmente revogadas. É possível ter até cinco políticas definidas em cada sistema de arquivos, fila, tabela ou compartilhamento de arquivos.
 
-   Por exemplo, se muitas pessoas lessem os blobs em um sistema de arquivos específico, você poderia criar uma Política de Acesso Armazenada que informasse "conceder acesso de leitura" e quaisquer outras configurações que serão sempre as mesmas. Assim, você poderia criar um URI de SAS usando as configurações da Política de Acesso Armazenada e especificando a data/hora de expiração. A vantagem disso é que você não precisa especificar todos os parâmetros de consulta todas as vezes.
+   Por exemplo, se muitas pessoas lessem os blobs em um sistema de arquivos específico, você poderia criar uma Política de Acesso Armazenada que informasse "conceder acesso de leitura" e quaisquer outras configurações que serão sempre as mesmas. Assim, você poderia criar um URI de SAS usando as configurações da Política de Acesso Armazenado e especificando a data/hora de expiração. A vantagem disso é que você não precisa especificar todos os parâmetros de consulta todas as vezes.
 
 #### <a name="revocation"></a>Revogação
 
@@ -207,13 +207,13 @@ Suponha que a SAS foi comprometida ou que você queira alterá-la devido a requi
 
 Se estiver usando URIs ad hoc, você terá três opções. Você pode emitir tokens SAS com políticas de expiração curta e aguardar a SAS expirar. Você pode renomear ou excluir o recurso (supondo que o escopo do token fosse para um único objeto). Você pode alterar as chaves da conta de armazenamento. Essa última opção pode ter um impacto significativo dependendo de quantos serviços estão usando essa conta de armazenamento, o que provavelmente não é algo que você queira fazer sem planejamento.
 
-Se estiver usando uma SAS derivada de uma Política de Acesso Armazenada, você poderá remover o acesso revogando a Política de Acesso Armazenada. Basta alterá-la para que ela expire ou removê-la completamente. Isso entra em vigor imediatamente e invalida cada SAS criada usando essa Política de Acesso Armazenada. Atualizar ou remover a Política de Acesso Armazenada poderá afetar as pessoas que acessam esse sistema de arquivos, compartilhamento de arquivos, tabelas ou filas específicas via SAS, mas se os clientes estiverem gravados, solicitarão uma nova SAS quando a antiga tornar-se inválida e funcionará sem problemas.
+Se estiver usando uma SAS derivada de uma Política de Acesso Armazenado, você poderá remover o acesso revogando a Política de Acesso Armazenado. Basta alterá-la para que ela expire ou removê-la completamente. Isso entra em vigor imediatamente e invalida cada SAS criada usando essa Política de Acesso Armazenado. Atualizar ou remover a Política de Acesso Armazenada poderá afetar as pessoas que acessam esse sistema de arquivos, compartilhamento de arquivos, tabelas ou filas específicas via SAS, mas se os clientes estiverem gravados, solicitarão uma nova SAS quando a antiga tornar-se inválida e funcionará sem problemas.
 
-Como usar uma SAS derivada de uma Política de Acesso Armazenada dá a possibilidade de revogar essa SAS imediatamente, a prática recomendada é, sempre que possível, usar Políticas de Acesso Armazenadas.
+Como usar uma SAS derivada de uma Política de Acesso Armazenado dá a possibilidade de revogar essa SAS imediatamente, a prática recomendada é, sempre que possível, usar Políticas de Acesso Armazenado.
 
 #### <a name="resources"></a>Recursos
 
-Obtenha informações mais detalhadas sobre como usar as Assinatura de Acesso Compartilhado e as Políticas de Acesso Armazenadas, com exemplos, nos artigos a seguir:
+Obtenha informações mais detalhadas sobre como usar as Assinatura de Acesso Compartilhado e as Políticas de Acesso Armazenado, com exemplos, nos artigos a seguir:
 
 * Estes são os artigos de referência.
 
@@ -222,7 +222,7 @@ Obtenha informações mais detalhadas sobre como usar as Assinatura de Acesso Co
     Esse artigo fornece exemplos de como usar uma SAS de nível de serviço com blobs, mensagens da fila, intervalos de tabelas e arquivos.
   * [Constructing a service SAS (Criação de uma SAS de serviço)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Constructing an account SAS (Criação de uma SAS de conta)](https://msdn.microsoft.com/library/mt584140.aspx)
-* Estes são os tutoriais de como usar a biblioteca de cliente .NET para criar Assinatura de Acesso Compartilhado e Políticas de Acesso Armazenadas.
+* Estes são os tutoriais de como usar a biblioteca de cliente .NET para criar Assinatura de Acesso Compartilhado e Políticas de Acesso Armazenado.
 
   * [Uso de SAS (Assinaturas de Acesso Compartilhado)](../storage-dotnet-shared-access-signature-part-1.md)
   * [Assinatura de Acesso Compartilhado, Parte 2: Criar e usar uma SAS com o Serviço Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)

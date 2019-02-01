@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c6696d0f22026ac333c526b505732d15a4b01be7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 01d991cff9b7f7a66740f86e537833ffe4e862c7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796432"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226261"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como usar a propriedade "Entidade Esperada" das ações
 
@@ -76,13 +76,13 @@ Ao adicionar entidades à propriedade "Entidade Esperada" de uma ação, o siste
 3. Clique no botão "Criar".
 
 > [!NOTE]
-> A entidade "nome" foi adicionada automaticamente como "Entidades Obrigatórias" por referência na resposta.
+> Entidade "nome" foi automaticamente adicionada como "Entidades Necessárias" por referência na resposta.
 
 Agora você tem duas ações.
 
 ![](../media/tutorial4_actions.PNG)
 
-### <a name="train-the-model"></a>Treinar o modelo
+### <a name="train-the-model"></a>Treinar o Modelo
 
 1. No painel esquerdo, clique em "Caixas de Diálogo de Treinamento" e, em seguida, no botão "Nova Caixa de Diálogo de Treinamento".
 2. No painel de chat, onde está escrito "Digite sua mensagem...", digite "oi".

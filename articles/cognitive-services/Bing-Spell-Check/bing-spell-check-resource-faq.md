@@ -6,16 +6,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: e6662ffcbab9ea274a67bc4437ca1600f1625ff1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 90acc80b19058c2a7eb963f9e423883846519b2c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801498"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164921"
 ---
 # <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Perguntas frequentes sobre a API de Verificação Ortográfica do Bing
 
@@ -53,4 +53,4 @@ A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solic
 
 ## <a name="see-also"></a>Consulte também
 
- [StackOverflow: Serviços Cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [Stack Overflow: Serviços Cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

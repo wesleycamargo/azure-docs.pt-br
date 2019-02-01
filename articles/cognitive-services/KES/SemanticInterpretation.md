@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129345"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217264"
 ---
 # <a name="semantic-interpretation"></a>Interpretação de semântica
 
@@ -33,13 +33,13 @@ Uma variável é especificada usando um identificador de nome que começa com um
 
 Abaixo está uma lista de tipos de dados com suporte no momento:
 
-|Tipo|DESCRIÇÃO|Exemplos|
+|Type|DESCRIÇÃO|Exemplos|
 |----|----|----|
 |Cadeia de caracteres|Sequência de 0 ou mais caracteres|"Olá, Mundo!"<br/>""|
 |Bool|Valor booliano|verdadeiro<br/>falso|
 |Int32|Inteiro com sinal de 32 bits.  -2.1e9 para 2.1e9|123<br/>-321|
 |Int64|Inteiro com sinal de 64 bits. -9.2e18 e 9.2e18|9876543210|
-|Duplo|Ponto flutuante de precisão dupla. 1.7e+/-308 (15 dígitos)|123.456789<br/>1.23456789e2|
+|Double|Ponto flutuante de precisão dupla. 1.7e+/-308 (15 dígitos)|123.456789<br/>1.23456789e2|
 |Guid|Identificador Global Exclusivo|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Consultar|Expressão de consulta que especifica um subconjunto dos objetos de dados no índice|Todos()<br/>E(*q1*, *q2*)|
 
@@ -139,7 +139,7 @@ Variáveis de escopo de solicitação são compartilhados entre todas as interpr
 
 Variáveis de sistema são predefinidas pelo serviço e podem ser usadas para recuperar várias estatísticas sobre o estado atual do sistema.  Abaixo está o conjunto de variáveis de sistema com suporte no momento:
 
-|NOME|Tipo|DESCRIÇÃO|
+|NOME|Type|DESCRIÇÃO|
 |----|----|----|
 |IsAtEndOfQuery|Bool|True se a interpretação atual correspondeu todo o texto de consulta de entrada|
 |IsBeyondEndOfQuery|Bool|True se a interpretação atual sugeriu conclusões além de texto de consulta de entrada|

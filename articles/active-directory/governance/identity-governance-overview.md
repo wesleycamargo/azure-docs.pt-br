@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170011"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governança de identidade do Azure AD?
 
@@ -67,7 +67,7 @@ O Azure AD PIM (Privileged Identity Management) fornece controles adicionais ada
 
 Embora não haja nenhuma solução nem recomendação perfeita para todos os clientes, as configurações a seguir fornecem uma orientação quanto a quais políticas de linha de base a Microsoft recomenda para garantir uma força de trabalho mais segura e produtiva.
 
-- [Configurações de acesso ao dispositivo e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso à identidade e ao dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Protegendo o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
 
 

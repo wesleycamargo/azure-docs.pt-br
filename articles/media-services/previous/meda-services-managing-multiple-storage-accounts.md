@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620261"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886332"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento
 Começando com o Microsoft Azure Media Services 2.2, você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios:
@@ -70,7 +70,7 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 3. Criar um novo ativo na conta de armazenamento padrão
 4. Criar um ativo de saída do trabalho de codificação na conta de armazenamento especificada.
    
-```
+```cs
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -123,9 +123,9 @@ namespace MultipleStorageAccounts
             Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
 
             // Retrieve the name of a storage account that is not the default one.
-            var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
-            Console.WriteLine("Name: {0}", notDefaultStroageName.Name);
-            Console.WriteLine("IsDefault: {0}", notDefaultStroageName.IsDefault);
+            var notDefaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
+            Console.WriteLine("Name: {0}", notDefaultStorageName.Name);
+            Console.WriteLine("IsDefault: {0}", notDefaultStorageName.IsDefault);
 
             // Create the original asset in the default storage account.
             IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None,
@@ -133,7 +133,7 @@ namespace MultipleStorageAccounts
             Console.WriteLine("Created the asset in the {0} storage account", asset.StorageAccountName);
 
             // Create an output asset of the encoding job in the other storage account.
-            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStroageName.Name, _singleInputFilePath);
+            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStorageName.Name, _singleInputFilePath);
             if (outputAsset != null)
                 Console.WriteLine("Created the output asset in the {0} storage account", outputAsset.StorageAccountName);
 

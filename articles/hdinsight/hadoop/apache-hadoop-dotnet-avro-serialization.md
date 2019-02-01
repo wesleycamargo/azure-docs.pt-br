@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259980"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227940"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serializar dados no Apache Hadoop com a Biblioteca do Microsoft Avro
 
@@ -1351,7 +1351,7 @@ O sexto exemplo ilustra algumas técnicas de programação relacionadas à inter
 O exemplo a seguir realiza as seguintes tarefas:
 
 * Conecta-se a um cluster de serviço do HDInsight existente.
-* Serializa diversos arquivos CSV e carrega o resultado na Armazenamento de Blob do Azure. (Os arquivos CSV são distribuídos junto com o exemplo e representam amostras de dados históricos da Bolsa de Valores AMEX distribuídos pela [Infochimps](https://www.infochimps.com/) para o período de 1970-2010. O exemplo lê os dados dos arquivos CSV, converte os registros em instâncias da classe **Stock** (Ações) e os serializa usando reflexão. A definição do tipo de ação é criada com base no esquema JSON pelo utilitário de geração de código da Biblioteca do Microsoft Avro.
+* Serializa diversos arquivos CSV e carrega o resultado na Armazenamento de Blob do Azure. (Os arquivos CSV são distribuídos junto com o exemplo e representam amostras de dados históricos da Bolsa de Valores AMEX distribuídos pela [Infochimps](https://www.infochimps.org/) para o período de 1970-2010. O exemplo lê os dados dos arquivos CSV, converte os registros em instâncias da classe **Stock** (Ações) e os serializa usando reflexão. A definição do tipo de ação é criada com base no esquema JSON pelo utilitário de geração de código da Biblioteca do Microsoft Avro.
 * Cria uma nova tabela externa chamada **Stocks** (Ações) no Hive e a vincula aos dados carregados na etapa anterior.
 * Executa uma consulta usando o Hive na tabela **Stocks** .
 

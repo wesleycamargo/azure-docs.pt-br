@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020125"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889052"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Fontes de monitoramento no Azure Monitor
 Este artigo descreve as fontes de dados coletadas pelo Azure Monitor para monitorar a integridade e o desempenho de seus recursos e dos aplicativos executados nelas. Esses recursos podem ser no Azure, em outra nuvem ou localmente.  Veja os [Dados coletados pelo Azure Monitor](data-collection.md) para obter detalhes sobre como esses dados são armazenados e como você pode exibi-los.
@@ -61,7 +61,7 @@ A maioria dos serviços do Azure gerará [métricas de plataforma](data-collecti
 
 
 ### <a name="resource-diagnostic-logs"></a>Logs de diagnóstico de recurso
-Embora o Log de Atividades forneça informações sobre as operações executadas em recursos do Azure, [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) em nível de recurso fornecem informações sobre a operação do recurso propriamente dito.   Os requisitos de configuração e o conteúdo desses logs [variam de acordo com o tipo de recurso](../../azure-monitor/platform/tutorial-dashboards.md).
+Embora o Log de Atividades forneça informações sobre as operações executadas em recursos do Azure, [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) em nível de recurso fornecem informações sobre a operação do recurso propriamente dito.   Os requisitos de configuração e o conteúdo desses logs [variam de acordo com o tipo de recurso](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Você não pode exibir os logs de diagnóstico diretamente no portal do Azure, mas você pode [enviá-los para o Armazenamento do Azure para arquivamento](../../azure-monitor/platform/archive-diagnostic-logs.md) e exportá-los para [Hub de Eventos](../../event-hubs/event-hubs-about.md) para redirecionamento a outros serviços, ou então para o [Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) para análise. Alguns recursos podem gravar diretamente no Log Analytics, enquanto outros gravam em uma conta de armazenamento antes de serem [importados para o Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

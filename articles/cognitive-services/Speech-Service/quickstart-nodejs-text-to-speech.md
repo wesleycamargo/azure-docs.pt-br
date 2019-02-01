@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: Converter texto em fala, Node.js - Serviços de Fala'
+title: 'Início Rápido: Converter texto em fala, Node.js - Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá como converter texto em fala usando Node.js e API REST de Conversão de Texto em Fala. O texto de exemplo incluído neste guia é estruturado como Linguagem de marcação de síntese de Fala (SSML). Isso permite que você escolha a voz e o idioma da resposta de Fala.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8cc676355f432a25550b337e5de747c4956d3142
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 808466e9d2546472a4f86dd0d7eacd48e75cb94a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358874"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224472"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início Rápido: Converter texto em fala usando Node.js
 

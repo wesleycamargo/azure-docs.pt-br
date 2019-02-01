@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8b06f43522cd9c93be16de19036de65b69b07941
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9f5f7dc4752e3cb568acd3ad907d115e4d24e85
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967771"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102321"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
 
@@ -50,7 +50,7 @@ Veja os [exemplos de código para cenários de aplicativo de página única](sam
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-* Locatário Único – Se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
+* Locatário único: se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
 * Multilocatário – Se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deverá ser registrado no diretório da sua empresa, mas também deverá ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
 
 Depois de registrar o aplicativo, ele deve ser configurado para usar o protocolo OAuth 2.0 de concessão implícita. Por padrão, esse protocolo é desabilitado para aplicativos. Para habilitar o protocolo de concessão implícita OAuth2, edite o manifesto do aplicativo no portal do Azure e defina o valor de "oauth2AllowImplicitFlow" como true. Para obter mais informações, veja [Manifesto do aplicativo](reference-app-manifest.md).
@@ -66,5 +66,5 @@ Após uma autenticação bem-sucedida, o Azure AD grava um cookie no navegador d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
-* Saiba sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
+* Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
+* Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 2cec9e9b9724ca401778d4493d03def2aefc4ee9
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f3d6205635284c2ff2b0d4ab9cdab1e8a5844a94
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304475"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099791"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -525,7 +525,7 @@ Use o seguinte conteúdo para o arquivo de entrada. Você precisa adaptar o cont
 
 Atribua a função personalizada “Função do Agente de Isolamento Linux" que foi criada no último capítulo para a Entidade de Serviço. Não mais use a função de proprietário!
 
-1. Vá até https\://portal.azure.com
+1. Vá até [https://portal.azure.com](https://portal.azure.com)
 1. Abra a folha Todos os recursos
 1. Selecione a máquina virtual do primeiro nó do cluster
 1. Clique em Controle de acesso (IAM)

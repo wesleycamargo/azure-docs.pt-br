@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468690"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203803"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: Habilitar lixeira do AD
 É recomendável que você habilite o recurso Lixeira do AD para seus Active Directories locais, sincronizados com o Azure AD. 
@@ -39,9 +39,6 @@ Esse recurso ajuda a restaurar os objetos de usuário do Azure AD, fazendo o seg
 
 > [!NOTE]
 > Por padrão, o Azure AD mantém objetos de usuário excluídos do Azure AD em estado de exclusão temporária durante 30 dias antes que eles sejam excluídos permanentemente. No entanto, os administradores podem acelerar a exclusão desses objetos. Depois que os objetos forem excluídos permanentemente, eles não poderão mais ser recuperados, mesmo se o recurso Lixeira do AD local estiver habilitado.
-
->[!NOTE]
->Anteriormente, quando um usuário era removido do escopo de sincronização local e excluído na nuvem, o status DirSyncEnabled da conta era erroneamente definida como "False". Se, posteriormente, esse usuário era restaurado manualmente da Lixeira do Azure AD, ele mostrava um estado incorreto de conta "Somente Nuvem". Esse problema agora foi corrigido e o valor do status DirSyncEnabled é sempre mantido como "True" quando um usuário é removido do escopo de sincronização, excluído reversivelmente e, em seguida, restaurado manualmente da Lixeira do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**

@@ -12,32 +12,32 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653231"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452304"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início Rápido: Restaurar um banco de dados em uma Instância Gerenciada 
 
-Neste início rápido, você usará o SSMS (SQL Server Management Studio) para restaurar um banco de dados (o arquivo de backup Wide World Importers – Standard) do Armazenamento de Blobs do Azure em uma [Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) do Banco de Dados SQL do Azure. 
+Neste início rápido, você usará o SSMS (SQL Server Management Studio) para restaurar um banco de dados (o arquivo de backup Wide World Importers – Standard) do Armazenamento de Blobs do Azure em uma [Instância Gerenciada](sql-database-managed-instance.md) do Banco de Dados SQL do Azure. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> * Para obter mais informações sobre a migração usando o DMS (Serviço de Migração de Banco de Dados do Azure), confira [Migração da Instância Gerenciada usando o DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-> * Para obter mais informações sobre vários métodos de migração, confira [Migração da Instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-migrate.md).
+> - Para obter mais informações sobre a migração usando o DMS (Serviço de Migração de Banco de Dados do Azure), confira [Migração da Instância Gerenciada usando o DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
+> - Para obter mais informações sobre vários métodos de migração, confira [Migração da Instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido:
+
 - Usa os recursos do início rápido [Criar uma Instância Gerenciada](sql-database-managed-instance-get-started.md).
 - Exige que o computador tenha a última versão do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) instalada.
 - Exige o uso do SSMS para se conectar à Instância Gerenciada. Confira estes inícios rápidos sobre como se conectar:
-  * [Conectar-se a uma Instância Gerenciada do Banco de Dados SQL do Azure de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
-  * [Configurar uma conexão ponto a site com uma Instância Gerenciada do Banco de Dados SQL do Azure do local](sql-database-managed-instance-configure-p2s.md).
-
+  - [Conectar-se a uma Instância Gerenciada do Banco de Dados SQL do Azure de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
+  - [Configurar uma conexão ponto a site com uma Instância Gerenciada do Banco de Dados SQL do Azure do local](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
 > Para obter mais informações sobre como fazer backup e restaurar um banco de dados do SQL Server usando o Armazenamento de Blobs do Azure e uma [chave SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), confira [Backup do SQL Server em uma URL](sql-database-managed-instance-get-started-restore.md).
@@ -47,9 +47,7 @@ Este início rápido:
 No SSMS, siga estas etapas para restaurar o banco de dados da Wide World Importers na Instância Gerenciada. O arquivo de backup de banco de dados é armazenado em uma conta pré-configurada de Armazenamento de Blobs do Azure.
 
 1. Abra o SMSS e conecte-se à Instância Gerenciada.
-
 2. No menu à esquerda, clique com o botão direito do mouse na Instância Gerenciada e selecione **Nova Consulta** para abrir uma nova janela de consulta.
-
 3. Execute o script SQL a seguir, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) na Instância Gerenciada.
 
    ```sql
@@ -60,8 +58,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados da Wide World Importe
 
     ![criar credencial](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-  
-3. Para verificar a credencial, execute o script a seguir, que usa uma URL de [contêiner](https://azure.microsoft.com/services/container-instances/) para obter uma lista de arquivos de backup.
+4. Para verificar a credencial, execute o script a seguir, que usa uma URL de [contêiner](https://azure.microsoft.com/services/container-instances/) para obter uma lista de arquivos de backup.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -70,7 +67,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados da Wide World Importe
 
     ![file list](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Execute o script a seguir para restaurar o banco de dados da Wide World Importers.
+5. Execute o script a seguir para restaurar o banco de dados da Wide World Importers.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -79,7 +76,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados da Wide World Importe
 
     ![restaurar](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Execute o script a seguir para acompanhar o status da restauração.
+6. Execute o script a seguir para acompanhar o status da restauração.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -89,7 +86,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados da Wide World Importe
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-6. Quando a restauração for concluída, exiba-a no Pesquisador de Objetos. 
+7. Quando a restauração for concluída, exiba-a no Pesquisador de Objetos. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

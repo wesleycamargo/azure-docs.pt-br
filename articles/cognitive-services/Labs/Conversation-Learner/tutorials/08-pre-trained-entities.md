@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c198dfc19a350188f500af86c531be9a9ac424ce
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796414"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224166"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Como adicionar entidades previamente treinadas
 Este tutorial mostra como adicionar entidades previamente treinadas ao modelo de Conversation Learner.
@@ -73,7 +73,7 @@ Entidades previamente treinadas reconhecem tipos comuns de entidades, como núme
 ### <a name="train-the-model"></a>Treinar o modelo
 
 1. No painel esquerdo, clique em "Diálogos de Treinamento" e, em seguida, no botão "Novo Diálogo de Treinamento".
-2. No painel de chat, onde está escrito "Digite sua mensagem...", digite "oi".
+2. No painel de chat, onde diz "Digite sua mensagem...", digite "olá."
 3. Clique no botão "Ações de Pontuação".
 4. Selecione a resposta, "Qual é a data?"
 5. No painel de chat, onde está escrito "Digite sua mensagem...", digite "hoje"

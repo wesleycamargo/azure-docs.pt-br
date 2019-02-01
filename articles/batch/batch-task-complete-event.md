@@ -2,7 +2,7 @@
 title: Evento de conclusão de tarefa – Azure | Microsoft Docs
 description: Referência de evento de tarefa de lote concluída.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 9f25d9cbdc70282afd71b1a4b9ac72250922d163
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315296"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459227"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -52,7 +52,7 @@ ms.locfileid: "30315296"
 }
 ```
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |jobId|Cadeia de caracteres|A ID do trabalho que contém a tarefa.|
 |ID|Cadeia de caracteres|A ID da tarefa.|
@@ -65,29 +65,29 @@ ms.locfileid: "30315296"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |poolId|Cadeia de caracteres|A ID do pool em que a tarefa foi executada.|
 |nodeId|Cadeia de caracteres|A ID do nó em que a tarefa foi executada.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|O número de nós de computação que a tarefa precisa.|
 
 ###  <a name="constraints"></a> restrições
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|startTime|Datetime|A hora em que a tarefa começou a ser executada. “Em execução” corresponde ao estado de **execução**, portanto, se a tarefa especificar arquivos de recursos ou pacotes de aplicativos, a hora de início refletirá a hora na qual a tarefa começou a baixar ou implantar esses arquivos ou pacotes.  Se a tarefa foi reiniciada ou repetida, esta é a última vez em que a tarefa começou a ser executada.|
-|endTime|Datetime|A hora e conclusão da tarefa.|
+|startTime|DateTime|A hora em que a tarefa começou a ser executada. “Em execução” corresponde ao estado de **execução**, portanto, se a tarefa especificar arquivos de recursos ou pacotes de aplicativos, a hora de início refletirá a hora na qual a tarefa começou a baixar ou implantar esses arquivos ou pacotes.  Se a tarefa foi reiniciada ou repetida, esta é a última vez em que a tarefa começou a ser executada.|
+|endTime|DateTime|A hora e conclusão da tarefa.|
 |exitCode|Int32|O código de saída da tarefa.|
 |retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada.|
 |requeueCount|Int32|O número de vezes que a tarefa foi colocada em fila novamente pelo serviço em lotes, como resultado de uma solicitação de usuário.<br /><br /> Quando o usuário remove nós de um pool (redimensionando ou reduzindo o pool) ou quando o trabalho é desabilitado, o usuário pode especificar que as tarefas em execução nos nós sejam colocadas novamente na fila de execução. Essa contagem controla quantas vezes a tarefa foi colocada novamente em fila por esses motivos.|

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471813"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467434"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
@@ -108,7 +108,7 @@ Mudar o foco para as camadas padrão usadas com mais frequência, **S1-S3** são
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| tamanho da partição|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| tamanho da partição|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | limites de índice e indexador| 50 | 200 | 200 |  |  |  |  |
 
 **S1** é uma opção comum quando os recursos dedicados e várias partições se tornam uma necessidade. Com partições de 25 GB para até 12 partições, o limite por serviço em **S1** é 300 GB total que você aumenta partições sobre réplicas (consulte [Alocar partições e réplicas](search-capacity-planning.md#chart) para mais composições balanceadas)

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999978"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207285"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -234,7 +234,7 @@ Examine os [limites](luis-boundaries.md#model-boundaries) para entender a quanti
 
 Entidades compostas e hierárquicas têm relações pai-filho e se tratam de aprendizado de máquina. O aprendizado de máquina permite que o LUIS compreenda as entidades baseadas em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis, porque permitem tipos de entidade diferente como filhos. Os filhos de uma entidade hierárquica são apenas entidades simples. 
 
-|Tipo|Finalidade|Exemplo|
+|Type|Finalidade|Exemplo|
 |--|--|--|
 |Hierárquico|Pai-filho de entidades simples|Location.Origin=New York<br>Location.Destination=London|
 |Composição|Entidades pai-filho: predefinidas, lista, simples, hierárquicas| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|

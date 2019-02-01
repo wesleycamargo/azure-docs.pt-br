@@ -3,19 +3,19 @@ title: Registro convergido para o Azure AD SSPR e o MFA (pré-visualização pú
 description: Autenticação de vários fatores do Azure AD e registro de redefinição de senha de autoatendimento (pré-visualização pública)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 192b88623d2f85efd619e26d51f35b4797706761
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433740"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472670"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registro convergido para redefinição de senha de autoatendimento e autenticação multifator do Azure (visualização pública)
 
@@ -74,8 +74,6 @@ Nesta página, os usuários vêem métodos de autenticação e métodos de auten
 Registros de auditoria para essa nova experiência existem na categoria Métodos de Autenticação do log de auditoria.  
 
 ## <a name="known-issues"></a>Problemas conhecidos
-
-Nós identificamos um bug com registro convergido em que usuários convidados de B2B que estão habilitados para registro convergido não são capazes de se registrar para MFA. Quando eles são direcionados para a página de registro, a página apresenta erros. Nossos desenvolvedores estão cientes desse problema e estamos trabalhando para fornecer uma solução. Por enquanto, a recomendação é criar um grupo e excluir quaisquer usuários B2B daquele grupo.
 
 **O método MFA padrão é definido como chamada telefônica quando um usuário registra um telefone usando uma mensagem de texto**
 
