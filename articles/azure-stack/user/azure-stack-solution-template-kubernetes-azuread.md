@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c207fb866cdd17e4db1796e415c159eb887eef08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243548"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657834"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Implantar Kubernetes no Azure Stack usando o Azure Active Directory
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em visualização.
+> Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview.
 
 Você pode seguir as etapas neste artigo para implantar e configurar os recursos para o Kubernetes, ao usar o Azure Active Directory (Azure AD) como coordenadas de seu serviço de gerenciamento de identidade em uma única operação.
 

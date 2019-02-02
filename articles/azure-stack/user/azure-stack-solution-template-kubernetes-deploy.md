@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d542f7c2cdeb20806a2db98005ffc03cf72144c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238009"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658412"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em visualização.
+> Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview.
 
 Você pode seguir as etapas neste artigo para implantar e configurar os recursos do Kubernetes em uma única operação coordenada. As etapas usam um modelo de solução do Azure Resource Manager. Você precisará para coletar as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implante a sua nuvem. O modelo do Azure Stack não usa o mesmo serviço AKS gerenciado oferecido no Azure global.
 

@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247197"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656712"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparar certificados PKI de pilha do Azure para uso na implantação ou rotação
+
 Os arquivos de certificado [obtido da autoridade de certificação de escolha](azure-stack-get-pki-certs.md) devem ser importados e exportados com propriedades que correspondem a requisitos de certificado do Azure Stack.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Preparar certificados para implantação
+
 Use estas etapas para preparar e validar os certificados PKI de pilha do Azure que serão usados para implantar um novo ambiente do Azure Stack ou para a rotação dos segredos em um ambiente existente do Azure Stack: 
 
 ### <a name="import-the-certificate"></a>Importar o certificado
@@ -83,7 +84,9 @@ Abra o console do MMC do Gerenciador de certificados e conecte-se ao repositóri
     
     ![Opções do Assistente para exportação de certificados com selecionadas](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Selecione **senha** e forneça uma senha para os certificados. Guarde essa senha, pois ele é usado como um parâmetro de implantação. Selecione **Avançar**.
+1. Selecione **senha** e forneça uma senha para os certificados. Crie uma senha que atenda aos seguintes requisitos de complexidade de senha. Um comprimento mínimo de oito caracteres. A senha contém pelo menos três das seguintes opções: letras maiusculas letra, letras minúsculas, números de 0 a 9, caracteres especiais, um caractere alfabético maiusculo nem estar em minúsculas. Anote essa senha. Você o usará como um parâmetro de implantação.
+
+1. Selecione **Avançar**.
 
 1. Escolha um nome de arquivo e o local para o arquivo pfx exportar. Selecione **Avançar**.
 

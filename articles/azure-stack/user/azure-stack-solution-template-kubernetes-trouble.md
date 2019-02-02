@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237844"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663407"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solucionar problemas de sua implantação do Kubernetes para o Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em visualização.
+> Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview.
 
 O artigo a seguir examina o cluster Kubernetes de solução de problemas. Você pode revisar o alerta de implantação e revisar o status da implantação, os elementos necessários para a implantação. Talvez você precise coletar os logs de implantação do Azure Stack ou VMs do Linux que hospedam Kubernetes. Você também precisará trabalhar com o administrador do Azure Stack para recuperar os logs de um ponto de extremidade administrativo.
 

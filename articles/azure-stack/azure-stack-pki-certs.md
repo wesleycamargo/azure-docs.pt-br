@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244242"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660112"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -49,7 +49,7 @@ A lista a seguir descreve os requisitos de certificado são necessários para im
 - Os arquivos pfx de certificado devem ter os valores "Autenticação do servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação do cliente (1.3.6.1.5.5.7.3.2)" no campo "Uso avançado de chave".
 - O certificado "emitido para:" campo não deve ser o mesmo que seu "emitido por:" campo.
 - As senhas para todos os arquivos pfx de certificado devem ser o mesmo no momento da implantação
-- Senha para o pfx de certificado deve ser uma senha complexa.
+- Senha para o pfx de certificado deve ser uma senha complexa. Crie uma senha que atenda aos seguintes requisitos de complexidade de senha. Um comprimento mínimo de oito caracteres. A senha contém pelo menos três das seguintes opções: letras maiusculas letra, letras minúsculas, números de 0 a 9, caracteres especiais, um caractere alfabético maiusculo nem estar em minúsculas. Anote essa senha. Você o usará como um parâmetro de implantação.
 - Certifique-se de que os nomes de assunto e os nomes alternativos da entidade na correspondência de extensão (x509v3_config) do nome alternativo da entidade. O campo de nome alternativo da entidade permite especificar os nomes de host adicionais (sites, endereços IP, nomes comuns) a ser protegido por um único certificado SSL.
 
 > [!NOTE]  
