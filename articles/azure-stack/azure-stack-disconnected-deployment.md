@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244361"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691160"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de implantação do Azure desconectada, decisões de planejamento para o Azure Stack
 Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, você pode finalizar suas decisões de implantação do Azure Stack.
@@ -47,7 +47,7 @@ O Azure Stack foi projetado para funcionar melhor quando conectado ao Azure, por
 |Implantação da VM com a extensão do Docker para executar comandos do Docker|Usuários portadores de deficiência – Docker verificará a Internet para a versão mais recente, e essa verificação falhará.|
 |Links de documentação no Portal do Azure Stack|Não disponível-Links, como fornecer comentários, ajuda, Quickstart, etc. que usam uma URL de Internet não funcionará.|
 |Alerta correção/redução que faz referência a um guia de atualização on-line|Não disponível – qualquer correção de alertas links que usam que uma URL de Internet não funcionará.|
-|Marketplace – a capacidade de selecionar e adicionar pacotes de galeria diretamente no Azure Marketplace|Usuários portadores de deficiência – quando você implanta o Azure Stack em um modo desconectado (sem nenhuma conectividade de Internet), não é possível baixar itens do marketplace usando o portal do Azure Stack. No entanto, você pode usar o [ferramenta de distribuição de mercado](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para baixar os itens do marketplace para um computador que tenha conectividade com a internet e, em seguida, transferi-las para seu ambiente do Azure Stack.|
+|Marketplace – a capacidade de selecionar e adicionar pacotes de galeria diretamente no Azure Marketplace|Usuários portadores de deficiência – quando você implanta o Azure Stack em um modo desconectado (sem nenhuma conectividade de Internet), não é possível baixar itens do marketplace usando o portal do Azure Stack. No entanto, você pode usar o [ferramenta de distribuição de mercado](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) para baixar os itens do marketplace para um computador que tenha conectividade com a internet e, em seguida, transferi-las para seu ambiente do Azure Stack.|
 |Usando contas de Federação do Active Directory do Azure para gerenciar uma implantação do Azure Stack|Não disponível – Este recurso requer conectividade com o Azure. AD FS com uma instância local do Active Directory deve ser usado em vez disso.|
 |Serviços de Aplicativos|Usuários portadores de deficiência - aplicativos Web pode exigir acesso à Internet para conteúdo atualizado.|
 |Interface de Linha de Comando (CLI)|Usuários portadores de deficiência – CLI tem funcionalidade reduzida em termos de autenticação e provisionamento de entidades de serviço.|

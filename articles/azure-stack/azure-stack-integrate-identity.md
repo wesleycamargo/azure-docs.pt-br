@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 15beebb3ef6fda098c3f540f945fc3d6b836e517
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246240"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697942"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -306,7 +306,7 @@ Há muitos cenários que exigem o uso de um nome de entidade de serviço (SPN) p
 > [!Important]  
 > O AD FS dá suporte apenas a sessões de logon interativo. Se você precisar de um logon não interativo para um cenário de automatizado, você deve usar um SPN.
 
-Para obter mais informações sobre como criar um SPN, consulte [criar entidade de serviço do AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Para obter mais informações sobre como criar um SPN, consulte [criar entidade de serviço do AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 
 ## <a name="troubleshooting"></a>solução de problemas
