@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168629"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Como baixar e usar um script para acessar logs de credenciais
 
@@ -35,7 +35,7 @@ Você precisa de
 
 * Um locatário do Azure Active Directory com uma licença premium (P1/P2). Observe que, se você não tiver dados de atividades antes da atualização, serão necessários alguns dias para que os dados sejam exibidos nos relatórios depois que você atualizar para uma licença premium. 
 * Um usuário, que está na função de **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
-* Se você quiser executar o script baixado em seu computador com Windows 10, [configure o módulo do AzureRM e defina a política de execução](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
+* Se você quiser executar o script baixado em seu computador com Windows 10, [configure o módulo do Azure PowerShell e defina a política de execução](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Tutorial
 

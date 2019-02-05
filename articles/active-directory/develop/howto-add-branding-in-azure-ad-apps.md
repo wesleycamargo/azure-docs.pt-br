@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 37d61b89dfe6c38124894ed286b67c4724f4efcd
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47068723"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093448"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
@@ -40,7 +40,7 @@ Neste artigo, você vai:
 A Microsoft gerencia dois tipos de contas de usuário:
 
 - **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Essas contas representam a relação entre usuários *individuais* e a Microsoft e são usadas para acessar serviços e dispositivos do cliente da Microsoft. Essas contas são destinadas a uso pessoal.
-- **Contas comerciais ou de estudante.** Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
+- **Contas comerciais ou de estudante.**  Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
 
 As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem (na plataforma do Azure AD) ou sincronizadas para o Azure AD de um diretório local, como o Active Directory do Windows Server. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
 
@@ -59,9 +59,9 @@ Em uma versão anterior dessas diretrizes, recomendamos usar uma imagem de "crac
 
 Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as seções a seguir fornecem orientação visual para os dois cenários.
 
-**Se seu aplicativo suportar a inscrição do usuário final (por exemplo, avaliação gratuita ou modelo freemium)**: Você pode mostrar um botão **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou sua conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
+**Se o aplicativo der suporte à inscrição do usuário final (por exemplo, grátis para avaliação ou modelo freemium)**: Você pode mostrar um botão de **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
 
-**Se seu aplicativo exigir permissões que somente os administradores podem conferir ou se o aplicativo exigir licenciamento organizacional**: separe a aquisição do administrador de logon do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para entrar e pedir que eles concedam autorização em nome dos usuários em sua organização, o que tem o benefício adicional da supressão de solicitações de consentimento do usuário final para seu aplicativo.
+**Se o aplicativo exige permissões com as quais somente os administradores podem consentir ou se o aplicativo exige licenciamento organizacional**: Aquisição de administrador separada de entrada do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para entrar e pedir que eles concedam autorização em nome dos usuários em sua organização, o que tem o benefício adicional da supressão de solicitações de consentimento do usuário final para seu aplicativo.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Orientação visual para aquisição de aplicativo
 

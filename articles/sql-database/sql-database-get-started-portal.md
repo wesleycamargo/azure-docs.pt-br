@@ -1,6 +1,6 @@
 ---
 title: Criar um Banco de Dados SQL do Azure usando o portal | Microsoft Docs
-description: Crie um servidor lógico do Banco de Dados SQL do Azure e um banco de dados no portal do Azure e consulte-o.
+description: Crie um servidor do Banco de Dados SQL do Azure e um banco de dados no portal do Azure e consulte-o.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 1/9/2019
-ms.openlocfilehash: b11eb08a960e81ab938a9b15a1153c44706231c5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 1/25/2019
+ms.openlocfilehash: 0148ef1b54bc3f74631ad44e9b8ded96caef7bbb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198280"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452202"
 ---
 # <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados SQL do Azure no portal do Azure
 
@@ -29,59 +29,53 @@ Para todas as etapas deste início rápido, entre no [portal do Azure](https://p
 
 ## <a name="create-a-sql-database"></a>Criar um banco de dados SQL
 
-Um Banco de Dados SQL do Azure tem um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers-dtu.md). Crie o banco de dados em um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md) em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Um Banco de Dados SQL do Azure tem um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers-dtu.md). Crie o banco de dados em um [servidor do Banco de Dados SQL](sql-database-features.md) dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 Para criar um Banco de Dados SQL que contenha os dados de exemplo AdventureWorksLT:
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-   
-1. Selecione **Bancos de Dados** e, em seguida, selecione **Banco de Dados SQL**.
-   
-1. No formulário **Criar Banco de Dados SQL**, digite ou selecione os seguintes valores: 
-   
+2. Selecione **Bancos de Dados** e, em seguida, selecione **Banco de Dados SQL**.
+3. No formulário **Criar Banco de Dados SQL**, digite ou selecione os seguintes valores: 
+
    - **Nome do banco de dados**: Insira *mySampleDatabase*.
    - **Assinatura**: Selecione a lista suspensa e escolha a assinatura correta, caso ela não seja exibida.
    - **Grupo de recursos**: Selecione **Criar**, digite *myResourceGroup* e selecione **OK**. 
    - **Selecionar fonte**: Selecione a lista suspensa e escolha **Amostra (AdventureWorksLT)**.
-    
+
     >[!IMPORTANT]
     >Selecione os dados da **Amostra (AdventureWorksLT)** para acompanhar este e outros inícios rápidos do Banco de Dados SQL do Azure que usam esses dados.
   
    ![Criar um Banco de Dados SQL do Azure](./media/sql-database-get-started-portal/create-database-1.png)
-   
-1. Em **Servidor**, selecione **Criar**. 
-   
-1. No formulário **Novo servidor**, digite ou selecione os seguintes valores: 
-   
+
+4. Em **Servidor**, selecione **Criar**. 
+5. No formulário **Novo servidor**, digite ou selecione os seguintes valores: 
+
    - **Nome do servidor**: Insira *mysqlserver*.
    - **Logon de administrador do servidor**: digite *azureuser*. 
    - **Senha**: Insira *Azure1234567*. 
    - **Confirmar Senha**: Digite a senha novamente.
    - **Localização**: Selecione a lista suspensa e escolha qualquer localização válida.  
-   
+
    >[!IMPORTANT]
    >Lembre-se de registrar o logon de administrador do servidor e a senha para fazer logon no servidor e nos bancos de dados deste e de outros inícios rápidos. Caso esqueça seu logon ou a senha, obtenha o nome de logon ou redefina a senha na página **SQL Server**. Para abrir a página **SQL Server**, selecione o nome do servidor na página **Visão Geral** do banco de dados após a criação do banco de dados.
-   
+
     ![Criar servidor](./media/sql-database-get-started-portal/create-database-server.png)
 
-1. Escolha **Selecionar**.
-   
-1. No formulário **Banco de Dados SQL**, selecione **Tipo de preço**. Explore a quantidade de DTUs e de armazenamento disponível para cada camada de serviço.
-   
+6. Escolha **Selecionar**.
+7. No formulário **Banco de Dados SQL**, selecione **Tipo de preço**. Explore a quantidade de DTUs e de armazenamento disponível para cada camada de serviço.
+
    >[!NOTE]
    >Este início rápido usa o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
-   
-   >[!NOTE]
+   >[!IMPORTANT]
    >Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Norte do Reino Unido, Centro-oeste dos EUA, Sul do Reino Unido 2, Leste da China, US DoD Central, Alemanha Central, US DoD Leste, US Gov Sudoeste, US Gov Centro-Sul, Nordeste da Alemanha, Norte da China e US Gov Leste. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   
-1. Para este início rápido, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
-   
-1. Escolha **Aplicar**.  
-   
+
+8. Para este início rápido, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
+9. Escolha **Aplicar**.  
+
    ![Selecionar o preço](./media/sql-database-get-started-portal/create-database-s1.png)
-   
-1. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados. 
-   
+
+10. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados. 
+
    A implantação leva alguns minutos. Você pode selecionar **Notificações** na barra de ferramentas para monitorar o progresso da implantação.
 
    ![Notificação](./media/sql-database-get-started-portal/notification.png)
@@ -91,25 +85,24 @@ Para criar um Banco de Dados SQL que contenha os dados de exemplo AdventureWorks
 Agora que você criou um Banco de Dados SQL do Azure, use a ferramenta de consulta interna no portal do Azure para se conectar ao banco de dados e consultar os dados.
 
 1. Na página **Banco de Dados SQL** do banco de dados, selecione **Editor de consulta (versão prévia)** no menu à esquerda. 
-   
+
    ![Entrar no Editor de consultas](./media/sql-database-get-started-portal/query-editor-login.png)
-   
-1. Insira suas informações de logon e selecione **OK**.
-   
-1. Insira a consulta a seguir no painel **Editor de consultas**.
-   
+
+2. Insira suas informações de logon e selecione **OK**.
+3. Insira a consulta a seguir no painel **Editor de consultas**.
+
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
    ```
-   
-1. Selecione **Executar** e, em seguida, examine os resultados da consulta no painel **Resultados**.
+
+4. Selecione **Executar** e, em seguida, examine os resultados da consulta no painel **Resultados**.
 
    ![Resultados do Editor de consultas](./media/sql-database-get-started-portal/query-editor-results.png)
-   
-1. Feche a página **Editor de consultas** e selecione **OK** quando solicitado para descartar as edições não salvas.
+
+5. Feche a página **Editor de consultas** e selecione **OK** quando solicitado para descartar as edições não salvas.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -118,8 +111,8 @@ Mantenha esse grupo de recursos, o SQL Server e o banco de dados SQL caso deseje
 Quando terminar de usar esses recursos, você poderá excluí-los da seguinte maneira:
 
 1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e, em seguida, **myResourceGroup**.
-1. Na página do grupo de recursos, selecione **Excluir grupo de recursos**. 
-1. Insira *myResourceGroup* no campo e, em seguida, selecione **Excluir**.
+2. Na página do grupo de recursos, selecione **Excluir grupo de recursos**. 
+3. Insira *myResourceGroup* no campo e, em seguida, selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

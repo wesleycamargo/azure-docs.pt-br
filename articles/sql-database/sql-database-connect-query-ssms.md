@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461739"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Usar o SQL Server Management Studio para conectar e consultar um Banco de Dados SQL do Azure
 
@@ -30,7 +30,9 @@ Para concluir este tutorial, você precisará:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
+* Uma regra de firewall de nível de servidor configurada. Para saber mais, confira [Create server-level firewall rule](sql-database-get-started-portal-firewall.md) (Criar regra de firewall no nível do servidor).
+
+## <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 
 Antes de começar, verifique se você instalou a versão mais recente do [SSMS][ssms-install-latest-84g]. 
 
@@ -43,7 +45,7 @@ Antes de começar, verifique se você instalou a versão mais recente do [SSMS][
 No SMSS, conecte-se ao servidor do Banco de Dados SQL do Azure. 
 
 > [!IMPORTANT]
-> Um servidor lógico do Banco de Dados SQL do Azure escuta na porta 1433. Para se conectar a um servidor lógico por trás de um firewall corporativo, essa porta do firewall deverá estar aberta.
+> Um servidor do Banco de Dados SQL do Azure escuta na porta 1433. Para se conectar a um servidor do Banco de Dados SQL do Azure por trás de um firewall corporativo, essa porta do firewall deve estar aberta.
 >
 
 1. Abra o SSMS. A caixa de diálogo **Conectar-se ao Servidor** é exibida.

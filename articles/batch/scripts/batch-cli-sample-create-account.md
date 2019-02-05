@@ -3,7 +3,7 @@ title: Exemplo de Script da CLI do Azure – Criar Conta do Lote – Serviço em
 description: Exemplo de Script da CLI do Azure – Criar uma conta do Lote em modo de Serviço em lotes
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: d1c3d892e79138e75d93ae024460c3d8394029f8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: lahugh
+ms.openlocfilehash: 67504d9597eb68faceb67a3e5a1d4d7abc7079c1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980178"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476512"
 ---
-# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemplo da CLI: criar uma conta do Lote em modo de Serviço em lotes
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemplo de CLI: Criar uma conta do Lote no modo de serviço do Lote
 
 Esse script cria uma conta do Lote do Azure em modo de Serviço em lotes e mostra como consultar ou atualizar várias propriedades da conta. Quando você cria uma conta do Lote no modo de Serviço em lotes padrão, os nós de computação são atribuídos internamente pelo Serviço em lotes. Nós de computação alocados estão sujeitos a uma cota vCPU (núcleo) separada, e a conta pode ser autenticada por meio de credenciais de chave compartilhada ou de um token do Azure Active Directory.
 

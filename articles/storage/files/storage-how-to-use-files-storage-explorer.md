@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944211"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452236"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início Rápido: criar e gerenciar compartilhamentos de arquivos do Gerenciador de Armazenamento do Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos com o Gerenciador de Armazenamento do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) com o Gerenciador de Armazenamento do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
 
 O Gerenciador de Armazenamento do Azure é uma ferramenta popular de cliente disponível para Windows, macOS e Linux. Você pode usar o Gerenciador de Armazenamento para gerenciar compartilhamentos de arquivo e outros recursos de armazenamento.
@@ -33,9 +33,9 @@ Você não pode usar o Gerenciador de Armazenamento para criar novos recursos. P
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Conecte o Gerenciador de Armazenamento aos recursos do Azure
 Quando você iniciar o Gerenciador de Armazenamento pela primeira vez, a janela **Gerenciador de Armazenamento do Microsoft Azure - Conectar** será exibida. O Gerenciador de Armazenamento fornece várias maneiras de se conectar às contas de armazenamento: 
 
-- **Entre usando a sua conta do Azure**: Você pode entrar usando as credenciais do usuário para a sua organização ou a sua conta da Microsoft. 
-- **Conecte-se a uma conta de armazenamento específica usando uma cadeia de conexão ou um token SAS**: Uma cadeia de conexão é uma cadeia de caracteres especial que contém um nome de conta de armazenamento e a chave da conta de armazenamento/token SAS. Com o token, o Gerenciador de Armazenamento acessa diretamente a conta de armazenamento (ao invés de simplesmente ver todas as contas de armazenamento em uma conta do Azure). Para saber mais sobre cadeias de conexão, confira [Configurar cadeia de conexão do Armazenamento do Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Conectar-se a uma conta de armazenamento específico usando um nome de conta de armazenamento e uma chave**: use o nome e a chave da conta de armazenamento para se conectar ao armazenamento do Azure.
+- **Entre usando sua conta do Azure**: você pode entrar usando as credenciais do usuário de sua organização ou sua conta Microsoft. 
+- **Conectar-se a uma conta de armazenamento específica usando uma cadeia de conexão ou token SAS**: uma cadeia de conexão é uma cadeia de caracteres especial que contém um nome de conta de armazenamento e um token SAS/chave de conta de armazenamento. Com o token, o Gerenciador de Armazenamento acessa diretamente a conta de armazenamento (ao invés de simplesmente ver todas as contas de armazenamento em uma conta do Azure). Para saber mais sobre cadeias de conexão, confira [Configurar cadeia de conexão do Armazenamento do Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Conectar-se a uma conta de armazenamento específica usando um nome e uma chave de conta de armazenamento**: use o nome e a chave da conta de armazenamento para se conectar ao armazenamento do Azure.
 
 Para os fins deste início rápido, entre com sua conta do Azure. Selecione **Adicionar uma Conta do Azure** e, em seguida, selecione **Entrar**. Siga os prompts para entrar na sua conta do Azure.
 
@@ -54,7 +54,7 @@ Os nomes de compartilhamento podem conter somente letras em minúsculas, número
 
 Após o compartilhamento de arquivos ter sido criado, uma guia para o seu compartilhamento de arquivos é exibida no painel à direita. 
 
-## <a name="use-your-azure-file-share"></a>Use o compartilhamento de arquivos do Azure
+## <a name="use-your-azure-file-share"></a>Usar o compartilhamento de arquivos do Azure
 Agora que você criou um compartilhamento de arquivos do Azure, pode montar o compartilhamento de arquivos com SMB no [Windows](storage-how-to-use-files-windows.md), no [Linux](storage-how-to-use-files-linux.md) ou no [macOS](storage-how-to-use-files-mac.md). Como alternativa, você pode trabalhar com o compartilhamento de arquivos do Azure usando o Gerenciador de Armazenamento do Azure. A vantagem de usar o Gerenciador de Armazenamento do Azure em vez de montar o compartilhamento de arquivos usando SMB é que todas as solicitações feitas por meio do Gerenciador de Armazenamento do Azure são realizadas com o uso da API REST de arquivo. Você pode usar a API REST para criar, modificar e excluir arquivos e diretórios em clientes que não possuam acesso ao SMB.
 
 ### <a name="create-a-directory"></a>Criar um diretório

@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469841"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297099"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
@@ -44,7 +44,7 @@ Uma mensagem é composta de dados brutos produzidos por um serviço para serem c
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
-| Serviço | Finalidade | Tipo | Quando usar |
+| Serviço | Finalidade | Type | Quando usar |
 | ------- | ------- | ---- | ----------- |
 | Grade de Eventos | Programação reativa | Distribuição de eventos (discreto) | Reagir a alterações de status |
 | Hubs de Eventos | Pipeline de Big Data | Streaming de evento (série) | Telemetria e streaming de dados distribuídos |
@@ -97,9 +97,10 @@ Em outros casos, você os vincula juntos para formar um pipeline de dados e even
 ![Visão geral de dados de fluxo](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+Confira os seguintes artigos: 
 
-* Para obter mais informações sobre os serviços de mensagens do Azure, consulte a postagem de blog [Eventos, pontos de dados e mensagens – escolhendo o serviço de mensagens do Azure certo para seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-* Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).
-* Para começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md).
-* Para começar a usar o Hubs de Eventos, consulte [Criar um namespace do Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md).
-* Para começar a usar o Barramento de Serviço, consulte [Criar um namespace do Barramento de Serviço usando o Portal do Azure](../service-bus-messaging/service-bus-create-namespace-portal.md).
+- [Eventos, pontos de dados e mensagens – escolhendo o serviço de mensagens do Azure correto para seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Filas de armazenamento e filas do Barramento de Serviço — comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Para começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md).
+- Para começar a usar o Hubs de Eventos, consulte [Criar um namespace do Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md).
+- Para começar a usar o Barramento de Serviço, consulte [Criar um namespace do Barramento de Serviço usando o Portal do Azure](../service-bus-messaging/service-bus-create-namespace-portal.md).

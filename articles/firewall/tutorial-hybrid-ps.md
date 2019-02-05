@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell'
-description: Neste tutorial, você aprenderá a implantar e configurar o Firewall do Azure usando o portal do Azure.
+description: Neste tutorial, você aprenderá a implantar e configurar o Firewall do Azure usando o Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431513"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458203"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -61,6 +61,8 @@ Consulte a seção [Criar Rotas](#create-routes) deste tutorial para ver como es
 
 >[!NOTE]
 >O tráfego entre VNETs diretamente emparelhadas é roteado diretamente, mesmo se uma UDR aponta para o Firewall do Azure como o gateway padrão. Para enviar o tráfego de sub-rede para sub-rede para o firewall nesse cenário, uma UDR precisa conter o prefixo de rede da sub-rede de destino explicitamente em ambas as sub-redes.
+
+Para examinar a documentação de referência do Azure PowerShell relacionada, consulte a [Referência do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

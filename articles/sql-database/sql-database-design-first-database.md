@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Projetar seu primeiro banco de dados SQL do Azure usando o SSMS| Microsoft Docs'
+title: 'Tutorial: Projetar seu primeiro banco de dados individual no Banco de Dados SQL do Azure usando o SSMS | Microsoft Docs'
 description: Aprenda a projetar seu primeiro banco de dados SQL do Azure com o SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956050"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459529"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Projetar seu primeiro banco de dados SQL do Azure usando o SSMS
 
@@ -47,7 +47,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
 
-Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers-dtu.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de Banco de Dados SQL do Azure](sql-database-features.md).
+Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers-dtu.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor de Banco de Dados SQL do Azure](sql-database-features.md).
 
 Siga estas etapas para criar um banco de dados SQL em branco.
 
@@ -113,7 +113,7 @@ O serviço de Banco de Dados SQL cria um firewall no nível do servidor. O firew
 
    1. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-   1. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+   1. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor de Banco de Dados SQL.
 
    1. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
 
@@ -124,7 +124,7 @@ Seu endereço IP agora pode passar pelo firewall. Agora você pode se conectar a
 
 ## <a name="connect-to-the-database"></a>Conectar-se ao banco de dados
 
-Use o [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
+Use o [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma conexão com seu servidor do Banco de Dados SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 

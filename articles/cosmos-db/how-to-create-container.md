@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7434407c7d1afe197a560d9ed9c4f1e7e94b6c2b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 183f596c213f833a2ca633398d1102e86f328912
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033529"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468845"
 ---
-# <a name="create-a-container-in-azure-cosmos-db"></a>Criar um contêiner no Azure Cosmos DB
+# <a name="create-an-azure-cosmos-container"></a>Criar um contêiner do Azure Cosmos
 
 Este artigo explica as diferentes maneiras de criar um contêiner (coleção, tabela, gráfico). Um contêiner pode ser criado usando o portal do Azure, a CLI do Azure ou SDKs com suporte. Este artigo demonstra como criar um contêiner, especificar a chave de partição e a taxa de transferência de provisão.
 

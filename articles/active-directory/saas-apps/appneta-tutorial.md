@@ -1,254 +1,241 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao AppNeta Performance Monitor | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao AppNeta Performance Monitor | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AppNeta Performance Monitor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 643a45fb-d6fc-4b32-b721-68899f8c7d44
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ccedc0288e313df2639862a14078d8cad9951286
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3ec438132bc5e3dd035e199d0beca40dce9ff55f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453682"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutorial: integração do Azure Active Directory ao AppNeta Performance Monitor
+# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutorial: Integração do Azure Active Directory ao AppNeta Performance Monitor
 
 Neste tutorial, você aprenderá a integrar o AppNeta Performance Monitor ao Azure AD (Azure Active Directory).
-
 A integração do AppNeta Performance Monitor ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem terá acesso ao AppNeta Performance Monitor.
-- Você pode permitir que os usuários façam logon automaticamente no AppNeta Performance Monitor (Logon Único) com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Você pode controlar no Azure AD quem terá acesso ao AppNeta Performance Monitor.
+* Você pode permitir que os usuários façam logon automaticamente no AppNeta Performance Monitor (logon único) usando suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao AppNeta Performance Monitor, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
-- Uma assinatura de logon único do AppNeta Performance Monitor
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura do AppNeta Performance Monitor habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o AppNeta Performance Monitor a partir da galeria
-2. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+
+* O AppNeta Performance Monitor é compatível com o SSO iniciado por **SP**
+* O AppNeta Performance Monitor é compatível com o provisionamento de usuário **Just-In-Time**
 
 ## <a name="adding-appneta-performance-monitor-from-the-gallery"></a>Adicionar o AppNeta Performance Monitor a partir da galeria
+
 Para configurar a integração do AppNeta Performance Monitor ao Azure AD, você precisará adicionar o AppNeta Performance Monitor da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o AppNeta Performance Monitor da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite**AppNeta Performance Monitor**, selecione **AppNeta Performance Monitor** do painel de resultado e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![AppNeta Performance Monitor na lista de resultados](./media/appneta-tutorial/tutorial_appneta_addfromgallery.png)
+     ![AppNeta Performance Monitor na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o AppNeta Performance Monitor, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do AppNeta Performance Monitor é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do AppNeta Performance Monitor.
+Nesta seção, você configurará e testará o logon único do Azure AD com o AppNeta Performance Monitor com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do AppNeta Performance Monitor.
 
 Para configurar e testar o logon único do Azure AD com o AppNeta Performance Monitor, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do AppNeta Performance Monitor](#create-an-appneta-performance-monitor-test-user)** – para ter um equivalente de Brenda Fernandes no AppNeta Performance Monitor que está vinculado à representação de usuário do Azure AD.
+2. **[Configurar o logon único do AppNeta Performance Monitor](#configure-appneta-performance-monitor-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+5. **[Criar um usuário de teste do AppNeta Performance Monitor](#create-appneta-performance-monitor-test-user)** – para ter um equivalente de Brenda Fernandes no AppNeta Performance Monitor que está vinculado à representação do usuário no Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo portal AppNeta Performance Monitor.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do AD do Azure com o AppNeta Performance Monitor, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o AppNeta Performance Monitor, execute as seguintes etapas:
 
-1. No Portal do Azure, na página de integração de aplicativos do **portal AppNeta Performance Monitor**, clique em **Logon único**.
+1. No [Portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **AppNeta Performance Monitor**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/appneta-tutorial/tutorial_appneta_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-3. Na seção **Domínio e URLs do AppNeta Performance Monitor**, execute as seguintes etapas:
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    ![Informações de logon único em Domínio e URLs do AppNeta Performance Monitor](./media/appneta-tutorial/tutorial_appneta_url.png)
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.pm.appneta.com`
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-    b. Na caixa de texto **Identificador**, digite o valor: `PingConnect`
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    > [!NOTE] 
-    > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte do AppNeta Performance Monitor](mailto:support@appneta.com) para obter esse valor. 
+    ![Informações de logon único em Domínio e URLs do AppNeta Performance Monitor](common/sp-identifier.png)
 
-5. O aplicativo AppNeta Performance Monitor espera as declarações do SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizados de acordo com a sua configuração. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo.
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.pm.appneta.com`
 
-    ![Configurar o logon único](./media/appneta-tutorial/attribute.png)
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite o valor: `PingConnect`
 
-6. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
-           
-    | Nome do atributo | Valor do atributo |
-    | ---------------| ----------------|
+    > [!NOTE]
+    > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte do AppNeta Performance Monitor](mailto:support@appneta.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+
+5. O aplicativo AppNeta Performance Monitor espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
+
+    ![image](common/edit-attribute.png)
+
+6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
+
+    | NOME | Atributo de Origem|
+    | --------| ----------------|
     | firstName| user.givenname|
     | lastName| user.surname|
     | email| user.userprincipalname|
     | Nome| user.userprincipalname|
-    | groups   | user.assignedroles |
+    | groups  | user.assignedroles |
     | phone| user.telephonenumber |
     | título| user.jobtitle|
+    | | |
 
     > [!NOTE]
-    > “grupos” refere-se aos grupos de segurança no Appneta que são mapeados como “Função” no Azure AD. Consulte [ este documento ](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) que explica como criar funções personalizadas no Microsoft Azure AD.
-        
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+    > **grupos** se refere aos grupos de segurança no Appneta que são mapeados para uma **Função** no Azure AD. Consulte [ este documento ](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) que explica como criar funções personalizadas no Microsoft Azure AD.
 
-    ![Configurar o logon único](./media/appneta-tutorial/tutorial_attribute_04.png)
-    
-    ![Configurar o logon único](./media/appneta-tutorial/tutorial_attribute_05.png)
+     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+    c. Deixe o **Namespace** em branco.
 
-    d. Deixe o namespace em branco.
-    
-    e. Clique em **OK**.  
+    d. Escolha Origem como **Atributo**.
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    ![O link de download do Certificado](./media/appneta-tutorial/tutorial_appneta_certificate.png) 
+    f. Clique em **Ok**
 
-5. Clique no botão **Salvar** .
+    g. Clique em **Salvar**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/appneta-tutorial/tutorial_general_400.png)
+7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-6. Para configurar o logon único no lado do **AppNeta Performance Monitor**, você precisará enviar os **XML de Metadados** baixados para a equipe de suporte do [AppNeta Performance Monitor](mailto:support@appneta.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+    ![O link de download do Certificado](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+8. Na seção **Configurar o AppNeta Performance Monitor**, copie a URL apropriada, de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+    a. URL de logon
+
+    b. Identificador do Azure Ad
+
+    c. URL de logoff
+
+### <a name="configure-appneta-performance-monitor-single-sign-on"></a>Configurar o logon único do AppNeta Performance Monitor
+
+Para configurar o logon único no lado do **AppNeta Performance Monitor**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do AppNeta Performance Monitor](mailto:support@appneta.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/appneta-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/appneta-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/appneta-tutorial/create_aaduser_03.png)
-
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/appneta-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="create-an-appneta-performance-monitor-test-user"></a>Criar um usuário de teste do AppNeta Performance Monitor
-
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no AppNeta Performance Monitor. O AppNeta Performance Monitor dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o AppNeta Performance Monitor, caso ele ainda não exista.
->[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao cliente do AppNeta Performance Monitor](mailto:support@appneta.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao AppNeta Performance Monitor.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **AppNeta Performance Monitor**.
 
-**Para atribuir Brenda Fernandes ao AppNeta Performance Monitor, realize as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, selecione **o Monitor de desempenho AppNeta Performance Monitor**.
 
-    ![O link de Monitor de desempenho AppNeta Performance Monitor na lista de aplicativos](./media/appneta-tutorial/tutorial_appneta_app.png)  
+    ![O link de Monitor de desempenho AppNeta Performance Monitor na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O painel Adicionar Atribuição][203]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-appneta-performance-monitor-test-user"></a>Criar um usuário de teste do AppNeta Performance Monitor
+
+Nesta seção, um usuário chamado Brenda Fernandes será criado no AppNeta Performance Monitor. O AppNeta Performance Monitor é compatível com o provisionamento do usuário just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no AppNeta Performance Monitor, um novo usuário será criado após a autenticação.
+
+> [!Note]
+> Se você precisar criar um usuário manualmente, entre em contato com a  [equipe de suporte do AppNeta Performance Monitor](mailto:support@appneta.com).
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco AppNeta Performance Monitor no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo seu aplicativo AppNeta Performance Monitor.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Ao clicar no bloco AppNeta Performance Monitor no Painel de Acesso, você deverá ser conectado automaticamente ao AppNeta Performance Monitor, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/appneta-tutorial/tutorial_general_01.png
-[2]: ./media/appneta-tutorial/tutorial_general_02.png
-[3]: ./media/appneta-tutorial/tutorial_general_03.png
-[4]: ./media/appneta-tutorial/tutorial_general_04.png
-
-[100]: ./media/appneta-tutorial/tutorial_general_100.png
-
-[200]: ./media/appneta-tutorial/tutorial_general_200.png
-[201]: ./media/appneta-tutorial/tutorial_general_201.png
-[202]: ./media/appneta-tutorial/tutorial_general_202.png
-[203]: ./media/appneta-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

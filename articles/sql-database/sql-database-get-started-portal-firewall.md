@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721894"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462249"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Início Rápido: Criar uma regra de firewall no nível do servidor para o Banco de Dados SQL usando o portal do Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall no nível do servidor para o Banco de Dados SQL usando o portal do Azure
 
 Este início rápido mostra como criar uma regra de firewall no nível do servidor para um Banco de Dados SQL do Azure para que você possa se conectar a ele de um recurso local.
 
@@ -57,7 +57,7 @@ Execute essas etapas para criar uma regra de firewall no nível de servidor para
    > Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Selecione **DESATIVAR** nessa página para desabilitar todos os serviços do Azure.
    >
 
-5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor de Banco de Dados SQL.
 
 6. Feche a página **Configurações do Firewall**.
 
@@ -66,7 +66,6 @@ Usando o SQL Server Management Studio ou outra ferramenta de sua escolha, agora 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Salvar esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como se conectar e consultar o banco de dados usando vários métodos diferentes. No entanto, se você quer excluir os recursos criados nesse início rápido, use as etapas a seguir.
-
 
 1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e, em seguida, selecione **myResourceGroup**.
 2. Em sua página de grupo de recursos, selecione **Excluir**, digite **myResourceGroup** na caixa de texto e selecione **Excluir**.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f37873fdbc26e1c82b6c1d9e6be8132641d94773
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809165"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902458"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -77,9 +77,9 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
     O atributo de email é populado automaticamente para qualquer usuário com uma licença válida do Exchange. Se o usuário não estiver habilitado para email, esse erro será recebido, o aplicativo precisa obter esse atributo para fornecer acesso.
 
-    Você pode ir para portal.office.com com uma conta de Administrador, em seguida, clique no Centro de administração, cobrança, assinaturas, selecione sua assinatura do Office 365 e, em seguida, clique em atribuir a usuários, selecione os usuários que você deseja verificar a sua assinatura e no painel direito, clique em editar licenças.
+    Para atribuir uma licença do Exchange, acesse portal.office.com com uma conta do administrador, clique no Centro de administração, cobrança, assinaturas, selecione sua assinatura do Office 365 e, em seguida, clique em atribuir a usuários, selecione os usuários que você deseja verificar a sua assinatura e, no painel direito, clique em editar licenças.
 
-    Depois que a licença do O365 for atribuída, pode levar alguns minutos para ser aplicado. Depois disso, o atributo user.mai será preenchido automaticamente e o problema deve ser resolvido.
+    Depois que a licença do Exchange tiver sido atribuída, poderão levar alguns minutos para ela ser aplicada. Depois disso, o atributo user.mai será preenchido automaticamente e o problema deve ser resolvido.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -195,7 +195,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -247,7 +247,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

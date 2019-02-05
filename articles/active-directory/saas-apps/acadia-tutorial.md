@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813433"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integração do Azure Active Directory ao Acadia
 
@@ -71,10 +71,10 @@ Para configurar a integração do Acadia ao Azure AD, você precisará adicionar
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o [nome do aplicativo], com base em uma usuária de teste chamada **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do [nome do aplicativo].
+Nesta seção, você configurará e testará o logon único do Azure AD com o Acadia com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Acadia.
 
-Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], você precisará concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o Acadia, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Acadia](#configure-acadia-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
@@ -87,7 +87,7 @@ Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], 
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-Para configurar o logon único do AD do Azure com o [nome do aplicativo], execute as seguintes etapas:
+Para configurar o logon único do Azure AD com o Acadia, execute as seguintes etapas:
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Acadia**, selecione **Logon único**.
 
@@ -116,7 +116,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
     Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao Cliente do Acadia](https://www.systemsalliance.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Os valores das etapas 4 e 5 serão fornecidos em um arquivo de metadados pela equipe do Acadia, que pode ser importado clicando em **Carregar arquivo de metadados** na seção **Configuração Básica de SAML**. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure para confirmar se os valores dos metadados estão corretos. Entre em contato com a [equipe de suporte ao cliente do Acadia](mailto:support@systemsalliance.com) se os valores fornecidos estiverem incorretos.
 
 6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -126,7 +126,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -134,7 +134,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 ### <a name="configure-acadia-single-sign-on"></a>Configurar logon único do Acadia
 
-Para configurar o logon único no lado do **Acadia**, é necessário enviar o **XML de metadados** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Acadia](https://www.systemsalliance.com/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Acadia**, é necessário enviar o **XML de metadados** baixado, a **URL de Metadados de Federação do Aplicativo** e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Acadia](mailto:support@systemsalliance.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -152,7 +152,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

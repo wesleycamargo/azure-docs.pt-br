@@ -3,7 +3,7 @@ title: Exemplo de Script da CLI do Azure - Execute um trabalho em lotes | Micros
 description: Exemplo de Script da CLI do Azure – Executar um trabalho com o Lote
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: tysonn
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: e82c794845bb3c196c81f9d4f83392a1c86525c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: lahugh
+ms.openlocfilehash: 4ddcc2541bd31c887c17e549209270c60d735351
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947373"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472279"
 ---
-# <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemplo de CLI: executar um trabalho e tarefas com o Lote do Azure
+# <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemplo de CLI: Executar um trabalho e tarefas com o Lote do Azure
 
 Esse script cria um trabalho no Lote e adiciona uma série de tarefas ao trabalho. Ele também demonstra como monitorar um trabalho e suas tarefas. 
 

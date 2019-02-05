@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,14 +17,14 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913271"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093216"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início Rápido: registrar um aplicativo no ponto de extremidade v2.0 do Azure Active Directory
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início Rápido: Registrar um aplicativo com o ponto de extremidade v2.0 do Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -44,7 +44,7 @@ Nem todos os recursos e cenários do Azure Active Directory têm suporte no pont
 ## <a name="step-2-register-an-app"></a>Etapa 2: Registrar um aplicativo
 
 1. Selecione **Adicionar um aplicativo** e dê um nome a ele.
-    O portal atribuirá ao seu aplicativo uma ID de aplicativo globalmente exclusiva que você usará posteriormente em seu código. Caso seu aplicativo inclua um componente do servidor que precisa de tokens de acesso para chamar APIs (tais como: Office, Azure ou sua própria API Web), também convém criar um **Segredo de Aplicativo** aqui.
+    O portal atribuirá ao seu aplicativo uma ID de aplicativo globalmente exclusiva que você usará posteriormente em seu código. Se o aplicativo inclui um componente do lado do servidor que precisa de tokens de acesso para chamar as APIs (pense em: Office, Azure ou sua própria API Web), é recomendável criar um **Segredo de Aplicativo** aqui também.
 1. Em seguida, adicione as Plataformas que seu aplicativo usará.
     * Para aplicativos baseados na Web, forneça um **URI de Redirecionamento** em que é possível enviar mensagens de entrada.
     * Para aplicativos móveis, copie o URI de redirecionamento criado automaticamente para você.

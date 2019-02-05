@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: Este tutorial mostra como usar o serviço Azure Machine Learning para treinar um modelo de classificação de imagem com scikit-learn em um Jupyter Notebook Python. Este tutorial é parte de uma série de duas partes.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6811888b5113a2cf5a06811f0e1b1bcee57d864b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828240"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298051"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning
 
-Neste tutorial, você treina um modelo de aprendizado de máquina localmente e em recursos de computador remotos. Você usará o fluxo de trabalho de treinamento e implantação para o Serviço do Azure Machine Learning em um Jupyter Notebook do Python. Você pode usar o notebook como um modelo para treinar seu próprio modelo de aprendizado de máquina com seus próprios dados. Este tutorial é **parte uma de uma série de tutoriais de duas partes**.  
+Neste tutorial, você treina um modelo de machine learning em recursos remotos de computação. Você usará o fluxo de trabalho de treinamento e implantação do serviço Azure Machine Learning (versão prévia) em um Jupyter Notebook Python.  Você pode usar o notebook como um modelo para treinar seu próprio modelo de aprendizado de máquina com seus próprios dados. Este tutorial é **parte uma de uma série de tutoriais de duas partes**.  
 
 Este tutorial treina uma regressão logística simples, usando o conjunto de dados do [MNIST](http://yann.lecun.com/exdb/mnist/) e o [scikit-learn](https://scikit-learn.org) com o Serviço do Azure Machine Learning. MNIST é um conjunto de dados popular que consiste em 70.000 imagens em escala de cinza. Cada imagem é um dígito manuscrito de 28 x 28 pixels, representando um número de zero a nove. A meta é criar um classificador de várias classes para identificar o dígito que uma determinada imagem representa. 
 
@@ -38,16 +38,40 @@ Você aprenderá como selecionar um modelo e implantá-lo na [parte dois deste t
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
-> O código deste artigo foi testado com a versão 1.0.2 do SDK do Azure Machine Learning.
+> O código deste artigo foi testado com a versão 1.0.8 do SDK do Azure Machine Learning.
 
-## <a name="get-the-notebook"></a>Obter o bloco de anotações
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Execute o notebook `tutorials/img-classification-part1-training.ipynb` em [Azure Notebooks](https://notebooks.azure.com/) ou em seu próprio servidor do Jupyter Notebook.
+Vá para [Configurar seu ambiente de desenvolvimento](#start) para ler as etapas do notebook ou use as instruções abaixo para obter o notebook e executá-lo em Azure Notebooks ou seu próprio servidor de notebook.  Para executar o notebook, você precisará de:
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Um servidor de notebook do Python 3.6 com o seguinte instalado:
+    * O SDK do Azure Machine Learning para Python
+    * `matplotlib` e `scikit-learn`
+* O notebook do tutorial e o arquivo utils.py
+* Um workspace do machine learning 
+* O arquivo de configuração para o workspace no mesmo diretório que o notebook 
+
+Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
+ 
+* Usar o [Azure Notebooks](#azure) 
+* Usar [seu próprio servidor de notebook](#server)
+
+### <a name="azure"></a>Usar o Azure Notebooks: notebooks gratuitos do Jupyter na nuvem
+
+É fácil começar a usar o Azure Notebooks! O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
+
+Depois de concluir as etapas a seguir, execute o notebook **tutorials/img-classification-part1-training.ipynb** no seu projeto de **Introdução**.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Configurar seu ambiente de desenvolvimento
+### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
+
+Use estas etapas para criar um servidor de notebook local do Jupyter no seu computador.  Depois de concluir as etapas, execute o notebook **tutorials/img-classification-part1-training.ipynb**.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>Configurar seu ambiente de desenvolvimento
 
 Toda a configuração para o seu trabalho de desenvolvimento pode ser realizada em um bloco de anotações do Python. A configuração inclui as seguintes ações:
 
@@ -63,11 +87,10 @@ Importe pacotes Python que você precisa nesta sessão. Além disso, exiba a ver
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -94,11 +117,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-amlcompute"></a>Criar ou anexar um existente AMlCompute
+### <a name="create-or-attach-an-existing-compute-resource"></a>Criar ou anexar a um recurso de computação existente
 
-Usando a Computação do Azure Machine Learning (AmlCompute), um serviço gerenciado, os cientistas de dados podem treinar modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure. Exemplos incluem máquinas virtuais com suporte a GPU. Neste tutorial, você cria um AmlCompute como seu ambiente de treinamento. Esse código criará clusters de computação para você se eles ainda não existirem em seu workspace.
+Usando a Computação do Azure Machine Learning, um serviço gerenciado, os cientistas de dados podem treinar modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure. Exemplos incluem máquinas virtuais com suporte a GPU. Neste tutorial, você cria a Computação do Azure Machine Learning como seu ambiente de treinamento. O código abaixo criará clusters de computação para você se eles ainda não existirem em seu workspace.
 
- **A criação do cluster de computação leva cerca de cinco minutos.** Se o cluster de computação já estiver no workspace, este código o utilizará e ignorará o processo de criação:
+ **A criação do cluster de computação leva cerca de cinco minutos.** Se o cluster de computação já estiver no workspace, o código o usará e ignorará o processo de criação.
 
 
 ```python
@@ -132,8 +155,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 Agora você tem os pacotes necessários e recursos de computação para treinar um modelo na nuvem. 
@@ -155,13 +178,15 @@ Baixe o conjunto de dados MNIST e salvar os arquivos em um `data` directory loca
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+Você verá uma saída semelhante a esta: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>Exibir algumas imagens de exemplo
 
@@ -210,60 +235,32 @@ Os arquivos do MNIST são carregados em um diretório chamado `mnist` na raiz do
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 Agora você tem tudo de que precisa para começar a treinar um modelo. 
 
-## <a name="train-a-local-model"></a>Treinar um modelo local
-
-Treine um modelo de regressão de logística simples usando scikit-learn localmente.
-
-**O treinamento local pode levar um ou dois minutos**, dependendo da configuração do seu computador:
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-Em seguida, faça previsões usando o conjunto de testes e calcule a precisão: 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-A precisão do modelo local é exibida:
-
-`0.9202`
-
-Com apenas algumas linhas de código, você tem 92% de precisão.
 
 ## <a name="train-on-a-remote-cluster"></a>Treinar em um cluster remoto
 
-Agora você pode expandir esse modelo simples construindo um modelo com uma taxa de regularização diferente. Desta vez, você treinará o modelo em um recurso remoto.  
-
-Para esta tarefa, envie o trabalho para o cluster de treinamento remoto que você configurou anteriormente. Para enviar um trabalho, você realiza as seguintes etapas:
-* Criar um diretório.
-* Crie um script de treinamento.
-* Criar um objeto estimador.
-* Enviar o trabalho.
+Para esta tarefa, envie o trabalho para o cluster de treinamento remoto que você configurou anteriormente.  Para enviar um trabalho é:
+* Criar um diretório
+* Criar um script de treinamento
+* Criar um objeto avaliador
+* Enviar o trabalho 
 
 ### <a name="create-a-directory"></a>Criar um diretório
 
-Crie um diretório para entregar o código necessário do seu computador para o recurso remoto:
+Crie um diretório para entregar o código necessário do seu computador para o recurso remoto.
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### <a name="create-a-training-script"></a>Criar um script de treinamento
 
-Para enviar o trabalho para o cluster, primeiro crie um script de treinamento. Execute o seguinte código para criar o script de treinamento chamado `train.py` no diretório que você criou. Esse treinamento adiciona uma taxa de regularização para o algoritmo de treinamento. Assim, ele produz um modelo ligeiramente diferente do que a versão local:
+Para enviar o trabalho para o cluster, primeiro crie um script de treinamento. Execute o seguinte código para criar o script de treinamento chamado `train.py` no diretório que você acabou de criar.
 
 ```python
 %%writefile $script_folder/train.py
@@ -406,6 +403,8 @@ Aqui está um instantâneo do widget mostrado no final do treinamento:
 
 ![Widget de notebook](./media/tutorial-train-models-with-aml/widget.png)
 
+Se você precisar cancelar uma execução, poderá seguir [estas instruções](https://aka.ms/aml-docs-cancel-run).
+
 ### <a name="get-log-results-upon-completion"></a>Obter resultados de log após a conclusão
 
 O treinamento e monitoramento do modelo acontecem em segundo plano. Aguarde até que o modelo tenha concluído o treinamento antes de você executar mais código. Use `wait_for_completion` para mostrar quando o treinamento do modelo estiver concluído: 
@@ -422,7 +421,7 @@ Agora você tem um modelo treinado em um cluster remoto. Recupere a precisão do
 ```python
 print(run.get_metrics())
 ```
-A saída mostra que o modelo remoto tem uma precisão ligeiramente superior ao modelo local, devido à adição da taxa de regularização durante o treinamento:  
+A saída mostra que o modelo remoto tem precisão de 0,9204:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -465,8 +464,7 @@ Neste tutorial do Serviço do Azure Machine Learning, você usou o Python para a
 > [!div class="checklist"]
 > * Configurar seu ambiente de desenvolvimento.
 > * Acessar e examinar os dados.
-> * Treinar uma regressão logística simples localmente usando a popular biblioteca de aprendizado de máquina scikit-learn.
-> * Treinar vários modelos em um cluster remoto.
+> * Treinar vários modelos em um cluster remoto usando a popular biblioteca de aprendizado de máquina scikit-learn
 > * Analise os detalhes do treinamento e registre o melhor modelo.
 
 Você está pronto para implantar este modelo registrado usando as instruções na próxima parte da série de tutoriais:

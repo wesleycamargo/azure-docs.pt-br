@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025038"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095950"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -281,7 +281,7 @@ Você pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Nã
 
 1. Selecione **Sim** para se conectar à VM.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>Habilite o ICPM por meio do Firewall do Windows
+### <a name="enable-icmp-through-the-windows-firewall"></a>Habilite o ICMP usando o firewall do Windows
 
 Em uma etapa posterior, você usará a ferramenta de rastreamento de rota para testar o roteamento. A rota de rastreamento usa o protocolo ICMP, que o Firewall do Windows nega por padrão. Habilite o ICMP por meio do Firewall do Windows.
 

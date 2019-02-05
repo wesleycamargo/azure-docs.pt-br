@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477313"
 ---
-# <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Provisionar taxa de transferência de um contêiner do Azure Cosmos DB
+# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionar a taxa de transferência em um contêiner do Azure Cosmos
 
 Este artigo explica como provisionar a taxa de transferência de um contêiner (coleção, gráfico, tabela) no Azure Cosmos DB. Você pode provisionar a taxa de transferência para um único contêiner ou [provisionar para um banco de dados](how-to-provision-database-throughput.md) e compartilhá-la entre os contêineres no banco de dados. Você pode provisionar a taxa de transferência para um contêiner usando o portal do Azure, a CLI do Azure ou SDKs do Cosmos DB.
 

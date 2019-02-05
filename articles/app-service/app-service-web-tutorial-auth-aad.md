@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716405"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297082"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
@@ -293,7 +293,7 @@ Salve suas configurações clicando em **PUT**.
 
 Os aplicativos estão configurados. O front-end está pronto para acessar o back-end com um token de acesso apropriado.
 
-Para saber mais sobre como configurar isso para outros provedores, confira [Atualizar tokens de acesso](app-service-authentication-how-to.md#refresh-access-tokens).
+Para saber mais sobre como configurar isso para outros provedores, confira [Atualizar tokens do provedor de identidade](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Chamada API com segurança do código do servidor
 
@@ -417,7 +417,7 @@ Parabéns! O código do cliente agora está acessando os dados de back-end em no
 
 ## <a name="when-access-tokens-expire"></a>Quando os tokens de acesso expiram
 
-O token de acesso expira após algum tempo. Para obter informações sobre como atualizar seus tokens de acesso sem exigir que os usuários autentiquem novamente no aplicativo, consulte [Atualizar tokens de acesso](app-service-authentication-how-to.md#refresh-access-tokens).
+O token de acesso expira após algum tempo. Para obter informações sobre como atualizar seus tokens de acesso sem exigir que os usuários autentiquem novamente no aplicativo, confira [Atualizar tokens do provedor de identidade](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

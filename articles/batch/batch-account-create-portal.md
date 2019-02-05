@@ -3,7 +3,7 @@ title: Criar uma conta do Lote no portal do Azure | Microsoft Docs
 description: Aprenda a criar uma conta do Lote do Azure no portal do Azure para executar cargas de trabalho paralelas em larga escala na nuvem.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/18/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724087"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460515"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -42,19 +42,19 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 
     ![Criar uma conta do Batch][account_portal]
 
-     a. **Nome da conta**: o nome que você escolher deve ser exclusivo dentro da região do Azure onde a conta é criada (confira **Local** abaixo). O nome da conta pode conter apenas minúsculas ou números e deve ter 3 a 24 caracteres de comprimento.
+     a. **Nome da conta**: o nome que você escolher deve ser exclusivo dentro da região do Azure na qual a conta é criada (confira **Local** abaixo). O nome da conta pode conter apenas minúsculas ou números e deve ter 3 a 24 caracteres de comprimento.
 
     b. **Assinatura**: a assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
 
-    c. **Grupo de recursos**: selecione um grupo de recursos para sua nova conta do Lote ou, opcionalmente, crie um novo.
+    c. **Grupo de recursos**: selecione um grupo de recursos existente para sua nova conta do Lote ou, opcionalmente, crie um novo.
 
-    d. **Local**: a região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos são exibidas como opções.
+    d. **Localização**: a região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos são exibidas como opções.
 
     e. **Conta de armazenamento** (opcional): uma conta de Armazenamento do Azure que você associa à sua conta do Lote. Isso é recomendado para a maioria das contas do Lote. Para opções de conta de armazenamento em Lote, confira a [Visão geral do recurso de Lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou, opcionalmente, crie uma nova.
 
       ![Criar uma conta de armazenamento][storage_account]
 
-    f. **Modo de alocação de pool**: para a maioria dos cenários, aceite o **Serviço de Lote** padrão.
+    f. **Modo de alocação de pools**: para a maioria dos cenários, aceite o **Serviço de Lote** padrão.
 
 1. Selecione **Criar** para criar a conta.
 
@@ -65,7 +65,7 @@ Após a criação da conta, selecione a conta para acessar suas configurações 
 
 ![Página Conta do Lote no portal do Azure][account_blade]
 
-* **Nome, URL e chaves da conta do Lote**: ao desenvolver um aplicativo com as [APIs do Lote](batch-apis-tools.md#azure-accounts-for-batch-development), você precisa de uma URL de conta para acessar os recursos do Lote. (O Lote também dá suporte à autenticação do Azure Active Directory.)
+* **Nome da conta, URL e chaves do Lote**: ao desenvolver um aplicativo com as [APIs do Lote](batch-apis-tools.md#azure-accounts-for-batch-development), você precisa de uma URL da conta para acessar os recursos do Lote. (O Lote também dá suporte à autenticação do Azure Active Directory.)
 
     Para exibir as informações de acesso da conta do Lote, selecione **Chaves**.
 

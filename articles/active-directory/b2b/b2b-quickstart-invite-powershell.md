@@ -3,20 +3,20 @@ title: Início rápido para adicionar um usuário convidado com a colaboração 
 description: Este início rápido ensinará a usar o PowerShell para enviar um convite para um usuário de colaboração do Azure AD B2B.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986555"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094794"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: adicionar um usuário convidado com o PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: Adicionar um usuário convidado com o PowerShell
 
 Existem várias maneiras de convidar parceiros externos para aplicativos e serviços com a colaboração B2B do Azure Active Directory. No início rápido anterior, você aprendeu como adicionar usuários convidados diretamente no portal de administração do Azure Active Directory. Também é possível usar o PowerShell para adicionar usuários convidados, um de cada vez ou em massa. Neste início rápido, você usará o comando New-AzureADMSInvitation para adicionar um usuário convidado ao seu locatário do Azure.
 
@@ -29,29 +29,29 @@ Instale a versão mais recente do módulo do Azure AD PowerShell para Graph (Azu
 
 Primeiro, verifique quais módulos estão instalados. Abra o Windows PowerShell como usuário com privilégios elevados (Executar como administrador) e execute o seguinte comando:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Se o módulo AzureADPreview for exibido sem uma mensagem que indica uma versão posterior, você estará pronto. Caso contrário, com base na saída, realize um destes procedimentos:
 
 - Se nenhum resultado for retornado, execute o seguinte comando para instalar o módulo AzureADPreview:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Se apenas o módulo AzureAD for exibido nos resultados, execute os comandos a seguir para instalar o módulo AzureADPreview: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Se somente o módulo AzureADPreview for exibido nos resultados, mas você receber uma mensagem que indica uma versão posterior, execute os comandos a seguir para atualizar o módulo: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Talvez você receba um aviso de que está instalando o módulo de um repositório não confiável. Isso ocorrerá se você não tiver definido o repositório PSGallery como confiável anteriormente. Pressione **Y** para instalar o módulo.
 
@@ -106,4 +106,4 @@ Por exemplo: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmi
 Neste início rápido, você convidou e adicionou um único usuário convidado ao seu diretório usando o PowerShell. Em seguida, saiba como convidar usuários em massa usando o PowerShell.
 
 > [!div class="nextstepaction"]
-> [Tutorial: convidar usuários de colaboração do Azure AD B2B em massa](tutorial-bulk-invite.md)
+> [Tutorial: Convidar usuários de colaboração B2B do Azure AD em massa](tutorial-bulk-invite.md)

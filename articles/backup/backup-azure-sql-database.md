@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790142"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224234"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -129,7 +129,7 @@ As compensações entre as opções são capacidade de gerenciamento, controle g
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definir permissões para VMs do SQL que não são do Marketplace
 
-Para fazer backup de uma máquina virtual, o Backup do Azure exibe que a extensão **AzureBackupWindowsWorkload** esteja instalada. Se você usar máquinas virtuais do Azure Marketplace, prossiga para [Descobrir bancos de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que hospeda os bancos de dados SQL não tiver sido criada no Azure Marketplace, conclua o procedimento a seguir para instalar a extensão e definir as permissões apropriadas. Além da extensão **AzureBackupWindowsWorkload**, o Backup do Azure requer privilégios de sysadmin do SQL para proteger bancos de dados SQL. Para descobrir bancos de dados na máquina virtual, o Backup do Azure cria uma conta **NT Service\AzureWLBackupPluginSvc**. Essa conta é usada para backup e restauração e precisa ter permissão de sysadmin do SQL. Além disso, o Backup do Azure aproveitará **NT AUTHORITY\SYSTEM** de conta para descoberta/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL.
+Para fazer backup de uma máquina virtual, o Backup do Azure exibe que a extensão **AzureBackupWindowsWorkload** esteja instalada. Se você usar máquinas virtuais do Azure Marketplace, prossiga para [Descobrir bancos de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que hospeda os bancos de dados SQL não tiver sido criada no Azure Marketplace, conclua o procedimento a seguir para instalar a extensão e definir as permissões apropriadas. Além da extensão **AzureBackupWindowsWorkload**, o Backup do Azure requer privilégios de sysadmin do SQL para proteger bancos de dados SQL. Para descobrir bancos de dados na máquina virtual, o Backup do Azure cria uma conta **NT SERVICE\AzureWLBackupPluginSvc**. Essa conta é usada para backup e restauração e precisa ter permissão de sysadmin do SQL. Além disso, o Backup do Azure aproveitará **NT AUTHORITY\SYSTEM** de conta para descoberta/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL.
 
 Para configurar permissões:
 
@@ -483,7 +483,14 @@ Esse procedimento o conduz pela restauração dos dados para um local alternativ
 > Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure. O servidor de destino precisa ser registrado no cofre dos Serviços de Recuperação.
 >
 
-No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** mostra somente as instâncias do SQL Server registradas com o cofre dos Serviços de Recuperação. Se o servidor que você quiser não estiver na lista, veja [Descobrir bancos de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de descoberta, novos servidores são registrados no cofre dos Serviços de Recuperação.
+No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** mostra somente as instâncias do SQL Server registradas com o cofre dos Serviços de Recuperação. Se o servidor que você quiser não estiver na lista, veja [Descobrir bancos de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de descoberta, novos servidores são registrados no cofre dos Serviços de Recuperação.<br>
+Para restaurar um banco de dados SQL, você precisa das seguintes permissões:
+
+* Permissões de **Operador de Backup** no **Cofre** dos Serviços de Recuperação no qual você está fazendo a restauração.
+* Acesso de **Colaborador (gravação)** à **VM do SQL de Origem** (a VM da qual é feito o backup e da qual você está tentando restaurar).
+* Acesso de **Colaborador (gravação)** à VM SQL de destino (a VM para a qual você está restaurando; será ser a mesma VM que a VM de origem no caso de OLR (Recuperação de Localização Original)).
+
+Para restaurar para uma localização alternativa:
 
 1. No menu **Configuração de Restauração**:
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: d3ee6db382f848a029f3e0355abdfe5eecc80656
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1486ab3240036abedea2cbb3cbe93e5c061691d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035824"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467400"
 ---
-# <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gerenciar contas de banco de dados no Azure Cosmos DB
+# <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
 Este artigo descreve como gerenciar contas do banco de dados do Azure Cosmo DB. Para saber como instalar uma hospedagem múltipla, adicionar ou remover uma região, configurar várias regiões de gravação e definir prioridades de failover. 
 

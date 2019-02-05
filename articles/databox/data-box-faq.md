@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449564"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077447"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -58,6 +58,9 @@ a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental,
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>P. Quem deverei contatar se eu tiver problemas com o Data Box?
 a. Caso tenha problemas com o Data Box, [contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>P. Perdi meu Data Box. Há um encargo de dispositivo perdido?
+a. Sim. Há um encargo de dispositivo perdido ou danificado. Essa cobrança é abordada na [Página de Preço](https://azure.microsoft.com/pricing/details/storage/databox/), bem como nos [Termos de Serviço do Produto](https://www.microsoft.com/licensing/product-licensing/products).
+
 
 ## <a name="order-device"></a>Solicitar dispositivo
 
@@ -72,16 +75,16 @@ Verifique sua assinatura. O Data Box só está disponível para as ofertas EA (C
 Se você tiver um tipo de oferta compatível com a assinatura, verifique o nível de acesso da assinatura. Você precisa ser um colaborador ou proprietário em sua assinatura para criar um pedido.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>P. Solicitei alguns dispositivos Data Box. Não consigo criar nenhum outro pedido. Por que isso ocorre?
-a. Permitimos um máximo de 5 pedidos ativos por assinatura e limite de comércio (combinação de país e a região selecionada). Caso precise solicitar um dispositivo adicional, contate o Suporte da Microsoft para aumentar o limite de sua assinatura.
+a. Permitimos um máximo de cinco pedidos ativos por assinatura e limite de comércio (combinação de país e a região selecionada). Caso precise solicitar um dispositivo adicional, contate o Suporte da Microsoft para aumentar o limite de sua assinatura.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>P. Quando tento criar um pedido, recebo uma notificação de que o serviço Data Box não está disponível. O que isso significa?
 a. Isso significa que o serviço Data Box não está disponível para a combinação de país e região selecionada. A alteração dessa combinação provavelmente permitirá que você utilize o serviço Data Box. Para obter uma lista das regiões nas quais o serviço está disponível, acesse [Disponibilidade de regiões para o Data Box](data-box-overview.md#region-availability).
 
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>P. Fiz meu pedido do Data Box há alguns dias. Quando receberei meu Data Box?
-a. Quando você faz um pedido, verificamos se um dispositivo está disponível para seu pedido. Se um dispositivo estiver disponível, nós o enviaremos em 10 dias. É concebível que há períodos de alta demanda. Nessa situação, seu pedido será colocado na fila e você poderá acompanhar a alteração de status no portal do Azure. Caso seu pedido não seja atendido em 90 dias, ele será cancelado automaticamente. 
+a. Quando você faz um pedido, verificamos se um dispositivo está disponível para seu pedido. Se um dispositivo estiver disponível, nós o enviaremos em 10 dias. É concebível que há períodos de alta demanda. Nessa situação, seu pedido será colocado na fila e você poderá acompanhar a alteração de status no portal do Azure. Caso seu pedido não seja atendido em 90 dias, ele será cancelado automaticamente.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>P. Preenchi meu Data Box com os Dados e preciso solicitar outro. Há uma maneira de fazer o pedido rapidamente?
-a. Você pode clonar o pedido anterior. A clonagem cria o mesmo pedido de antes e permite que você edite somente os detalhes do pedido, sem a necessidade de digitar detalhes de endereço, contato e notificação. 
+a. Você pode clonar o pedido anterior. A clonagem cria o mesmo pedido de antes e permite que você edite somente os detalhes do pedido, sem a necessidade de digitar detalhes de endereço, contato e notificação.
 
 ## <a name="configure-and-connect"></a>Configuração e conexão
 
@@ -96,6 +99,9 @@ a.  Você pode cancelar o pedido somente depois que o Data Box é solicitado e a
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>P. Posso conectar um Data Box ao mesmo tempo a vários computadores de host para transferir dados?
 a. Sim. Vários computadores host podem se conectar ao Data Box para transferir dados e vários trabalhos de cópia podem ser executados em paralelo. Para obter mais informações, acesse [Tutorial: Copiar dados para o Azure Data Box](data-box-deploy-copy-data.md).
+
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>P. Posso me conectar a ambas as interfaces de 10 GbE no Data Box para transferir dados?
+a. Sim. Ambas as interfaces de 10 GbE podem ser conectadas no Data Box para copiar dados ao mesmo tempo. Para obter mais informações sobre como copiar dados, vá para [Tutorial: Copiar dados para o Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -202,19 +208,19 @@ a. Se seu dispositivo não estiver inicializando, acesse seu pedido no portal do
 a.  Depois que o status do pedido de **Cópia de Dados** for exibido como **Concluído**, você deverá conseguir acessar os dados imediatamente.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Onde meus dados estão localizados no Azure após o carregamento?
-a.  Quando você copia os dados para o Data Box, independentemente se os dados são um blob de blocos, um blob de páginas ou arquivos do Azure, eles são carregados em um dos caminhos a seguir em sua conta do Armazenamento do Azure.
+a.  Quando você copia os dados para o Data Box, independentemente se os dados são um blob de blocos, um blob de páginas ou arquivos do Azure, eles são carregados em um dos caminhos a seguir em sua conta de Armazenamento do Azure.
  - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  Como alternativa, você pode acessar sua conta de Armazenamento do Azure no portal do Azure e navegar de lá.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P. Acabei de ver que não segui os requisitos de nomenclatura do Azure para meus contêineres. Meus dados serão carregados no Azure?
-a.  Se os nomes de contêiner têm uma letra maiúscula, elas serão automaticamente convertidas em minúsculas. Se os nomes não estiverem em conformidade com outros requisitos (caracteres especiais, outros idiomas e assim por diante), o upload falhará. Para obter mais informações sobre as melhores práticas para nomear compartilhamentos, contêineres e arquivos, acesse: 
+a.  Se os nomes de contêiner tiverem uma letra maiúscula, esses nomes serão automaticamente convertidos em minúsculas. Se os nomes não estiverem em conformidade com outros requisitos (caracteres especiais, outros idiomas e assim por diante), o upload falhará. Para obter mais informações sobre as melhores práticas para nomear compartilhamentos, contêineres e arquivos, acesse:
 - [Nomenclatura e referência de compartilhamentos](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Convenções de blobs de blocos e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>P. Como fazer para verificar os dados que eu copiei para o Data Box?
-a.  Depois que a cópia de dados for concluída, quando você executar **Preparação para o envio**, seus dados serão validados. O Data Box gera uma lista de arquivos e somas de verificação para os dados durante o processo de validação. Baixe a lista de arquivos e verifique nela os arquivos nos dados de origem. Para obter mais informações, acesse [Preparar para o envio](data-box-deploy-copy-data.md#prepare-to-ship).
+a.  Depois que a cópia de dados for concluída, quando você executar **Preparação para o envio**, seus dados serão validados. O Data Box gera uma lista de arquivos e somas de verificação para os dados durante o processo de validação. Você pode baixar a lista de arquivos e verificá-la com relação aos arquivos nos dados de origem. Para obter mais informações, acesse [Preparar para o envio](data-box-deploy-picked-up.md#prepare-to-ship).
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>P. O que acontecerá com meus dados depois que eu devolver o Data Box?
 a.  Depois que a cópia de dados para o Azure for concluída, os dados do Data Box serão apagados com segurança, de acordo com as diretrizes NIST SP 800-88 Revisão 1. Para obter mais informações, acesse [Apagamento de dados do Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).

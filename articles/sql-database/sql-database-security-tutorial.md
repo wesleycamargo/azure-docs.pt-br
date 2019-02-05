@@ -1,6 +1,6 @@
 ---
-title: Proteger um banco de dados individual no Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre técnicas e recursos para proteger um banco de dados individual no Banco de Dados SQL do Azure.
+title: Proteger um banco de dados independente ou em pool no Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre técnicas e recursos para proteger um banco de dados independente ou em pool no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: e0311174303fc91767d3f99e6db05927b25aea05
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051655"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461195"
 ---
-# <a name="tutorial-secure-a-single-database"></a>Tutorial: Proteger um banco de dados individual
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Proteger um banco de dados independente ou em pool
 
-O Banco de Dados SQL do Azure protege os dados em um banco de dados SQL individual, permitindo que você:
+O Banco de Dados SQL do Azure protege os dados em um banco de dados independente ou em pool, permitindo que você:
 
 - Limite o acesso usando regras de firewall
 - Use mecanismos de autenticação que exigem a identidade
@@ -35,7 +35,7 @@ Melhore a segurança de seu banco de dados com apenas algumas etapas simples. Ne
 > - Criar regras de firewall no nível do servidor e do banco de dados
 > - Configurar um administrador do Azure AD (Active Directory)
 > - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
-> - Habilitar recursos de segurança, como proteção contra ameaças, auditoria, máscara de dados e criptografia
+> - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
 
 Para obter mais informações, confira os artigos [Visão geral](/azure/sql-database/sql-database-security-index) e [Recursos de segurança do Banco de Dados SQL do Azure](sql-database-security-overview.md).
 
@@ -45,7 +45,7 @@ Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um servidor e um banco de dados SQL do Azure
-    - Crie-os com o [portal do Azure](sql-database-get-started-portal.md), a [CLI](sql-database-cli-samples.md) ou o [PowerShell](sql-database-powershell-samples.md)
+  - Crie-os com o [portal do Azure](sql-database-get-started-portal.md), a [CLI](sql-database-cli-samples.md) ou o [PowerShell](sql-database-powershell-samples.md)
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -62,9 +62,9 @@ Defina **Permitir acesso aos serviços do Azure** como **DESATIVADO** para a con
 > [!NOTE]
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isso acontecer, você não poderá se conectar ao servidor do Banco de Dados SQL do Azure, a menos que o administrador abra a porta 1433.
 
-### <a name="set-up-server-level-firewall-rules"></a>Configurar regras de firewall no nível do servidor
+### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar regras de firewall do servidor de Banco de Dados SQL
 
-As regras de firewall no nível do servidor se aplicam a todos os bancos de dados do mesmo servidor lógico.
+As regras de firewall no nível do servidor se aplicam a todos os bancos de dados dentro do mesmo servidor do Banco de Dados SQL.
 
 Para configurar uma regra de firewall no nível do servidor:
 
@@ -88,7 +88,7 @@ Agora você pode se conectar a qualquer banco de dados do servidor com o endere�
 > [!IMPORTANT]
 > Por padrão, o acesso por meio do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure, na opção **Permitir o acesso aos serviços do Azure**. Escolha **DESATIVADO** para desabilitar o acesso para todos os serviços do Azure.
 
-### <a name="setup-database-level-firewall-rules"></a>Configurar regras de firewall no nível do banco de dados
+### <a name="setup-database-firewall-rules"></a>Configurar regras de firewall do banco de dados
 
 As regras de firewall no nível do banco de dados se aplicam somente a bancos de dados individuais. Essas regras são portáteis e seguirão o banco de dados durante um failover de servidor. As regras de firewall no nível do banco de dados só poderão ser configuradas usando instruções T-SQL (Transact-SQL) e somente depois que você configurar uma regra de firewall no nível do servidor.
 
@@ -231,30 +231,30 @@ Para copiar uma cadeia de conexão segura:
 
 ## <a name="enable-security-features"></a>Habilitar recursos de segurança
 
-O Banco de Dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis para o banco de dados e o servidor, exceto a máscara de dados, que só está disponível no banco de dados. Para saber mais, confira [Detecção avançada de ameaças](sql-advanced-threat-protection.md), [Auditoria](sql-database-auditing.md), [Máscara de Dados Dinâmicos](sql-database-dynamic-data-masking-get-started.md) e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
+O Banco de Dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis para o banco de dados e o servidor, exceto a máscara de dados, que só está disponível no banco de dados. Para saber mais, consulte [Segurança de dados avançada](sql-advanced-threat-protection.md), [Auditoria](sql-database-auditing.md), [Máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md) e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-threat-protection"></a>Proteção avançada contra ameaças
+### <a name="advanced-data-security"></a>Segurança de dados avançada
 
-O recurso de proteção avançada contra ameaças detecta ameaças potenciais conforme elas ocorrem e fornece alertas de segurança sobre atividades anormais. Os usuários podem explorar esses eventos suspeitos usando o recurso de auditoria e determinar se o evento tinha o objetivo de acessar, violar ou explorar os dados no banco de dados. Os usuários também obtêm uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
+O recurso de segurança de dados avançada detecta ameaças potenciais conforme elas ocorrem e fornece alertas de segurança sobre atividades anormais. Os usuários podem explorar esses eventos suspeitos usando o recurso de auditoria e determinar se o evento tinha o objetivo de acessar, violar ou explorar os dados no banco de dados. Os usuários também obtêm uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
 
 > [!NOTE]
 > Uma ameaça de exemplo é a injeção de SQL, um processo em que os invasores injetam um SQL mal-intencionado em entradas de aplicativo. Em seguida, um aplicativo poderá inadvertidamente executar o SQL mal-intencionado e permitir que os invasores obtenham acesso para violar ou modificar dados no banco de dados.
 
-Para habilitar a proteção contra ameaças:
+Para habilitar a segurança de dados avançada:
 
 1. No portal do Azure, selecione **Bancos de dados SQL** no menu à esquerda e selecione seu banco de dados na página **Bancos de dados SQL**.
 
 1. Na página **Visão geral**, selecione o link **Nome do servidor**. A página do servidor de banco de dados será aberta.
 
-1. Na página **SQL Server**, encontre a seção **Segurança** e selecione **Proteção Avançada contra Ameaças**.
+1. Na página **SQL Server**, encontre a seção **Segurança** e selecione **Segurança de Dados Avançada**.
 
-    1. Selecione **ATIVADO** em **Proteção Avançada contra Ameaças** para habilitar o recurso. Em seguida, selecione **Salvar**.
+    1. Selecione **ATIVADO** em **Segurança de Dados Avançada** para habilitar o recurso. Escolha uma conta de armazenamento para salvar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Salvar**.
 
     ![Painel de navegação](./media/sql-database-security-tutorial/threat-settings.png)
 
     Configure também emails para receber alertas de segurança, detalhes de armazenamento e tipos de detecção de ameaças.
 
-1. Retorne à página **Bancos de dados SQL** do banco de dados e selecione **Proteção Avançada contra Ameaças** na seção **Segurança**. Aqui você encontrará vários indicadores de segurança disponíveis para o banco de dados.
+1. Retorne à página **Bancos de dados SQL** de seu banco de dados e selecione **Segurança de Dados Avançada** na seção **Segurança**. Aqui você encontrará vários indicadores de segurança disponíveis para o banco de dados.
 
     ![Status da ameaça](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ Neste tutorial, você aprendeu a aprimorar a segurança de seu banco de dados co
 > - Criar regras de firewall no nível do servidor e do banco de dados
 > - Configurar um administrador do Azure AD (Active Directory)
 > - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
-> - Habilitar recursos de segurança, como proteção contra ameaças, auditoria, máscara de dados e criptografia
+> - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
 
 Avance para o próximo tutorial para saber como implementar a distribuição geográfica.
 

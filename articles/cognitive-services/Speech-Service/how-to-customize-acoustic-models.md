@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215235"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217621"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -46,7 +46,7 @@ Por exemplo:
 * Se você quiser reconhecer melhor a fala em um ambiente de fábrica com ruídos, os arquivos de áudio deverão conter pessoas que falem em uma fábrica com ruídos.
 * Se você estiver interessado em otimizar o desempenho de um único palestrante&mdash;por exemplo, você quer transcrever todos os chats fireside do FDR&mdash;os arquivos de áudio deverão consistir em muitos exemplos apenas dessa pessoa.
 
-Um conjunto de dados acústico para personalizar o modelo acústico consiste em duas partes: (1) um conjunto de arquivos de áudio que contém dados de fala e (2) um arquivo que contém as transcrições de todos os arquivos de áudio.
+Um conjunto de dados acústicos para personalizar o modelo acústico é composto por duas partes: (1) um conjunto de arquivos de áudio que contém os dados de fala e (2) um arquivo que contém as transcrições de todos os arquivos de áudio.
 
 ### <a name="audio-data-recommendations"></a>Recomendações para os dados de áudio
 
@@ -112,7 +112,7 @@ Nas caixas **Nome** e **Descrição**, insira as informações apropriadas. Desc
 
 Nas caixas **Arquivo de transcrições (.txt)** e **Arquivos de áudio (.zip)**, selecione **Procurar** e, em seguida, selecione seu arquivo de transcrição de texto sem formatação e os arquivo zip dos arquivos WAV. Quando a preparação for concluída, selecione **Importar** para fazer upload dos seus dados. Seus dados serão carregados. Para conjuntos grandes de dados, o processo de importação poderá levar vários minutos.
 
-Quando o upload for concluído, retorne para a tabela **Conjuntos de Dados Acústicos**. Uma entrada que corresponde ao seu conjunto de dados acústico é exibida. Observe que um GUID (ID exclusivo) foi atribuído. Os dados exibem seu status atual: *NotStarted* enquanto ele está sendo enfileirado para processamento, *Em execução* enquanto ele está em validação e *Concluído* quando os dados estão pronto para uso.
+Quando o upload for concluído, retorne para a tabela **Conjuntos de Dados Acústicos**. Uma entrada que corresponde ao seu conjunto de dados acústico é exibida. Observe que um GUID (ID exclusivo) foi atribuído. Os dados exibem seu status atual: *NotStarted* enquanto estão sendo enfileirados para processamento, *Em execução* enquanto estão em validação e *Concluído* quando estão prontos para uso.
 
 A validação de dados inclui uma série de verificações nos arquivos de áudio para confirmar o formato do arquivo, o comprimento e a taxa de amostragem e, na transcrição arquivos, para confirmar o formato do arquivo e executar normalização do texto.
 

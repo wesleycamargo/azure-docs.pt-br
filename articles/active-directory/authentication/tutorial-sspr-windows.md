@@ -3,19 +3,19 @@ title: SSPR do Azure AD na tela de logon do Windows 10
 description: Neste tutorial, você habilitará a redefinição de senha na tela de logon do Windows 10 para reduzir as chamadas de assistência técnica.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430663"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474863"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -28,11 +28,11 @@ Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Atualização de 10 de abril de 2018 do Windows, ou o cliente mais recente é:
-   * [Computador ingressado no Azure AD](../device-management-azure-portal.md) ou
-   * [Computador ingressado no Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md) com conectividade de rede para um controlador de domínio.
-* A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
-* Se os seus computadores com Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` deverá ter permissão.
+* Você precisa executar pelo menos o Windows 10, versão de abril do 2018 Update, e os dispositivos precisam ser:
+   * [Ingressados no Azure AD](../device-management-azure-portal.md) ou
+   * [Ingressados no Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
+* É necessário habilitar a redefinição de senha self-service do Azure AD.
+* Se seus dispositivos Windows 10 estiverem atrás de um firewall ou de um servidor proxy, você deverá adicionar as URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidas para tráfego HTTPS (porta 443).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
 

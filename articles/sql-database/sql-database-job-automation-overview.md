@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453269"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457200"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
@@ -26,6 +26,7 @@ O Banco de Dados SQL do Azure permite que você crie e agende trabalhos que pode
 Um trabalho lida com a tarefa de fazer logon no banco de dados de destino. Você também define, atualiza e mantém os scripts T-SQL a serem executados em um grupo de bancos de dados SQL do Azure.
 
 Há vários cenários, quando você pode usar a automação de trabalhos:
+
 - Automatizar tarefas de gerenciamento e, em seguida, agendá-las para serem executadas a todo dia da semana, após horas etc.
   - Implantar alterações de esquema, gerenciamento de credenciais, coleta de dados de desempenho ou coleta de telemetria do locatário (cliente).
   - Atualizar dados de referência (informações comuns a todos os bancos de dados), carregar dados do armazenamento de blobs do Azure.
@@ -39,14 +40,15 @@ Há vários cenários, quando você pode usar a automação de trabalhos:
  - Crie trabalhos que carregam dados de ou para seus bancos de dados usando o SSIS (SQL Server Integration Services).
 
 As tecnologias de agendamento de trabalhos a seguir estão disponíveis no Banco de Dados SQL do Azure:
-- Os **Trabalhos do SQL Agent** são um componente de agendamento de trabalho do SQL Server clássico e eficaz disponível na Instância Gerenciada. Os Trabalhos do SQL Agent não estão disponíveis em bancos de dados Singleton.
+
+- Os **Trabalhos do SQL Agent** são um componente de agendamento de trabalho do SQL Server clássico e eficaz disponível na Instância Gerenciada. Os Trabalhos do SQL Agent não estão disponíveis em bancos de dados individuais.
 - Os **Trabalhos de banco de dados elástico** são o serviço de agendamento de trabalhos que executa trabalhos personalizados em um ou vários Bancos de Dados SQL do Azure.
 
-Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmente e como parte da Instância Gerenciada do Banco de Dados SQL) e o agente Trabalho do Banco de Dados Elástico (disponível para o Banco de Dados SQL Singleton e para o SQL Data Warehouse).
+Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmente e como parte da Instância Gerenciada do Banco de Dados SQL) e o agente Trabalho Elástico do Banco de Dados (disponível para bancos de dados individuais no Banco de Dados SQL do Azure e para bancos de dados no SQL Data Warehouse).
 
 |  |Trabalhos elásticos  |SQL Agent |
 |---------|---------|---------|
-|Escopo     |  Qualquer número de bancos de dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores lógicos, assinaturas e/ou regiões. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no tempo de execução do trabalho). | Qualquer banco de dados único na mesma instância do SQL Server que o SQL Agent. |
+|Escopo     |  Qualquer número de bancos de dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores, assinaturas e/ou regiões do Banco de Dados SQL. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no tempo de execução do trabalho). | Qualquer banco de dados individual na mesma instância do SQL Server que o SQL Agent. |
 |Ferramentas e APIs com suporte     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SSMS (SQL Server Management Studio)     |
 
 ## <a name="sql-agent-jobs"></a>Trabalhos do SQL Agent
@@ -54,6 +56,7 @@ Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmen
 Os trabalhos do SQL Agent são séries especificadas de scripts T-SQL com relação ao seu banco de dados. Use trabalhos para definir uma tarefa administrativa que pode ser executada uma ou mais vezes e monitorada quanto a êxito ou falha.
 Um trabalho pode ser executado em um servidor local ou em vários servidores remotos. O Trabalho do SQL Agent é um componente interno do Mecanismo de Banco de Dados executado dentro do serviço de Instância Gerenciada.
 Há vários conceitos importantes em Trabalhos do SQL Agent:
+
 - **Etapas de trabalho** conjunto de uma ou mais etapas que devem ser executadas dentro do trabalho. Para cada etapa de trabalho, é possível definir a estratégia de repetição e a ação que deverá acontecer se a etapa de trabalho tiver êxito ou falhar.
 - **Agendas** definem quando o trabalho deve ser executado.
 - **Notificações** permitem que você defina regras que serão usadas para notificar operadores por meio de emails após a conclusão do trabalho.
@@ -64,11 +67,13 @@ As etapas do Trabalho do SQL Agent são sequências de ações que o SQL Agent d
 O SQL Agent permite que você crie diferentes tipos das etapas de trabalho, como a etapa de trabalho Transact-SQL que executa um único lote do Transact-SQL com relação ao banco de dados ou as etapas comando/PowerShell do sistema operacional que podem executar um script personalizado do sistema operacional; as etapas de trabalho do SSIS permitem que você carregue dados usando o tempo de execução do SSIS ou as etapas de [replicação](sql-database-managed-instance-transactional-replication.md) que podem publicar alterações do seu banco de dados em outros.
 
 [Replicação transacional](sql-database-managed-instance-transactional-replication.md) é um recurso do Mecanismo de Banco de Dados que permite que você publique as alterações feitas em uma ou várias tabelas em um banco de dados e publique/distribua-as a um conjunto de bancos de dados do assinante. A publicação das alterações é implementada usando os seguintes tipos de etapa de trabalho do SQL Agent:
+
 - Leitor do log de transações.
 - Instantâneo.
 - Distribuidor.
 
 Outros tipos de etapas de trabalho não têm suporte no momento, incluindo:
+
 - Não há suporte para a etapa de trabalho de replicação de mesclagem.
 - Não há suporte para leitor de fila.
 - O Analysis Services não é suportado
@@ -77,6 +82,7 @@ Outros tipos de etapas de trabalho não têm suporte no momento, incluindo:
 
 Uma agenda especifica quando um trabalho é executado. Mais de um trabalho pode ser executado na mesma agenda e mais de uma agenda pode ser aplicada ao mesmo trabalho.
 Uma agenda pode definir as condições a seguir para a hora em que um trabalho é executado:
+
 - Sempre que uma instância é reiniciada (ou quando o SQL Server Agent é iniciado). O trabalho é ativado após cada failover.
 - Uma vez, em uma data e hora específicas, que é útil para a execução atrasada de algum trabalho.
 - Em uma agenda recorrente.
@@ -215,7 +221,7 @@ Durante a criação do agente de trabalho, um esquema, tabelas e uma função ch
 
 Um *grupo de destino* define o conjunto de bancos de dados em que uma etapa de trabalho será executada. Um grupo de destino pode conter qualquer quantidade ou combinação dos seguintes itens:
 
-- **Servidor SQL do Azure**: se um servidor for especificado, todos os bancos de dados existentes no servidor no momento da execução do trabalho farão parte do grupo. A credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução do trabalho.
+- **Servidor do Banco de Dados SQL**: se um servidor for especificado, todos os bancos de dados existentes no servidor no momento da execução do trabalho farão parte do grupo. A credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução do trabalho.
 - **Pool elástico**: se um pool elástico for especificado, todos os bancos de dados presentes no pool elástico no momento da execução do trabalho farão parte do grupo. Assim como ocorre para servidores, a credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser atualizado antes da execução do trabalho.
 - **Banco de dados único**: especifica um ou mais bancos de dados individuais como parte do grupo.
 - **Mapa de fragmentos**: bancos de dados de um mapa de fragmentos.
@@ -258,6 +264,7 @@ O resultado das etapas de um trabalho em cada banco de dados de destino é regis
 #### <a name="job-history"></a>Histórico de trabalho
 
 O histórico de execução do trabalho é armazenado no *Banco de dados de trabalhos*. Um trabalho de limpeza do sistema limpa o histórico de execuções com mais de 45 dias. Para remover o histórico de menos de 45 dias, chame o procedimento armazenado **sp_purge_history** no *Banco de dados de trabalhos*.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>Desempenho, capacidade e limitações do agente
 
 Os Trabalhos Elásticos usam o mínimo de recursos de computação enquanto aguardam a conclusão dos trabalhos de longa execução.
