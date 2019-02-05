@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: c4dcf34ff113c4f1a6d7dcacbe598c453dbd63c3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658225"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694373"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -135,7 +135,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Instale o Hotfix mais recente de pilha do Azure para 1808 antes de aplicar 1809. Para obter mais informações, consulte [4481066 KB – o Azure Stack Hotfix do Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). Embora a Microsoft recomenda o disponível mais recente de Hotfix, a versão mínimas necessária para instalar 1809 é 1.1808.5.110.
+- Instale o Hotfix mais recente de pilha do Azure para 1808 antes de aplicar 1809. Para obter mais informações, consulte [4481066 KB – o Azure Stack Hotfix do Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). Embora a Microsoft recomenda o Hotfix mais recente disponível, a versão mínima necessária para instalar 1809 é 1.1808.5.110.
 
   > [!TIP]  
   > Inscrever-se ao seguinte *RRS* ou *Atom* feeds manter-se atualizado com Hotfixes de pilha do Azure:
