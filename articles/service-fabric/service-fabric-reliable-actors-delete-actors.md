@@ -1,6 +1,6 @@
 ---
-title: Excluir os atores do Microsoft Azure Service Fabric | Microsoft Docs
-description: Saiba como excluir manualmente os Reliable Actors do Service Fabric e o respectivo estado.
+title: Excluir atores do Microsoft Azure Service Fabric | Microsoft Docs
+description: Saiba como excluir manualmente o Reliable Actors do Service Fabric e o respectivo estado.
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: fa4fe018a9e6b32158f5bbd13c44ff57069cb1cf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d6ac5ea79ed1eb47bc71a520761050889fe6edd8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208328"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178164"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Excluir Reliable Actors e o respectivo estado
 A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas não remove os dados que são armazenados no Gerenciador de Estado de um ator. Quando um ator é reativado, seus dados são novamente disponibilizados a ele através do Gerenciador de Estado. Nos casos em que atores armazenam dados no Gerenciador de Estado e são desativados, mas nunca reativados, pode ser necessário eliminar seus dados.

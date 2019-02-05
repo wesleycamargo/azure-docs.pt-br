@@ -14,27 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207903"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097866"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicativo do Service Fabric
-Uma arquitetura de microsserviços pode trazer [muitos benefícios](service-fabric-overview-microservices.md). Gerenciar a segurança de microsserviços, no entanto, é um desafio e diferente de gerenciar a segurança de aplicativos monolítica tradicional. 
+Uma arquitetura de microsserviços pode trazer [muitos benefícios](service-fabric-overview-microservices.md). Porém, o gerenciamento da segurança de microsserviços é um desafio que difere do gerenciamento da segurança de aplicativos monolítica tradicional. 
 
 Com um monolito, o aplicativo normalmente é executado em um ou mais servidores em uma rede e é mais fácil identificar as portas expostas e as APIs e o endereço IP. Geralmente há um perímetro ou limite e um banco de dados para proteger. Se o sistema estiver comprometido devido a uma violação de segurança ou ataque, é provável que todos os itens dentro do sistema estarão disponíveis para o invasor. Com os microsserviços, o sistema é mais complexo.  Os serviços são descentralizados e distribuídos em vários hosts e migram de um host para outro.  Com a segurança adequada, limite os privilégios que um invasor pode ter e a quantidade de dados disponíveis em um único ataque se houver invasão de um serviço.  A comunicação não é interna, mas ocorre em uma rede e há muitas portas expostas e interações entre serviços. Saber quais são essas interações de serviço e quando elas ocorrem é crucial para a segurança de seu aplicativo.
 
 Este artigo não é um guia de segurança de microsserviços, há muitos recursos disponíveis online, mas descreve como os diferentes aspectos de segurança podem ser realizados no Service Fabric.
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
-Geralmente é necessário para os recursos e as APIs expostas por um serviço serem limitados para determinados usuários ou clientes confiáveis. A autenticação é o processo de atestar de maneira confiável a identidade de um usuário.  A autorização é o processo que disponibiliza APIs ou serviços para alguns usuários autenticados, mas não para outros.
+É geralmente necessário limitar os recursos e as APIs expostos por um serviço a determinados usuários ou clientes confiáveis. A autenticação é o processo de atestar de maneira confiável a identidade de um usuário.  A autorização é o processo que disponibiliza APIs ou serviços para alguns usuários autenticados, mas não para outros.
 
 ### <a name="authentication"></a>Autenticação
-A primeira etapa para tomar decisões de confiança de nível de API é a autenticação. A autenticação é o processo de atestar de maneira confiável a identidade de um usuário.  Em cenários de microsserviço, a autenticação é normalmente manipulada centralmente. Se você estiver usando um Gateway de API, poderá [descarregar a autenticação](/azure/architecture/patterns/gateway-offloading) para o gateway. Se você usar essa abordagem, verifique se os serviços individuais não podem ser acessados diretamente (sem o Gateway da API), a menos que a segurança adicional esteja em vigor para autenticar mensagens se elas forem obtidas do gateway ou não.
+A primeira etapa para tomar decisões de confiança de nível de API é a autenticação. A autenticação é o processo de atestar de maneira confiável a identidade de um usuário.  Em cenários de microsserviço, a autenticação é normalmente feita de forma centralizada. Se você estiver usando um Gateway de API, poderá [descarregar a autenticação](/azure/architecture/patterns/gateway-offloading) para o gateway. Se você usar essa abordagem, certifique-se de que os serviços individuais não possam ser acessados diretamente (sem o Gateway da API), a menos que uma segurança extra seja adicionada para autenticar mensagens, independentemente de serem ou não provenientes do gateway.
 
-Se os serviços podem ser acessados diretamente, um serviço de autenticação como o Azure Active Directory ou um microsserviço de autenticação dedicado atuando como um serviço de token de segurança (STS) pode ser usado para autenticar os usuários. As decisões de confiança são compartilhadas entre os serviços com tokens de segurança ou cookies. 
+Se os serviços puderem ser acessados diretamente, um serviço de autenticação, como o Azure Active Directory ou um microsserviço de autenticação dedicado atuando como um serviço de token de segurança (STS), poderá ser usado para autenticar os usuários. As decisões de confiança são compartilhadas entre os serviços com tokens de segurança ou cookies. 
 
 Para o ASP.NET Core, o mecanismo principal para [autenticar usuários](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) é o sistema de associação da Identidade do ASP.NET Core. A Identidade do ASP.NET Core armazena informações de usuário (incluindo informações de logon, funções e declarações) em um repositório de dados configurado pelo desenvolvedor. A Identidade do ASP.NET Core dá suporte à autenticação de dois fatores.  Os provedores de autenticação externa também têm suporte, para que os usuários possam fazer logon usando os processos de autenticação existentes de fornecedores como Microsoft, Google, Facebook ou Twitter. 
 
@@ -46,7 +46,7 @@ A [autorização do ASP.NET Core](/dotnet/standard/microservices-architecture/se
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restringir e proteger o acesso usando um gateway de API
 Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. Um [gateway de API](/azure/architecture/microservices/gateway) fica entre clientes e serviços e é o ponto de entrada para todos os serviços que o seu aplicativo fornece. Ele atua como um proxy reverso, encaminhando as solicitações de clientes para serviços. Ele também pode executar várias tarefas detalhadas, como autenticação e autorização, terminação de SSL e a limitação de taxa. Se você não implantar um gateway, os clientes deverão enviar solicitações diretamente aos serviços front-end.
 
-No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) ou outro serviço projetado para entrada de tráfego, como [Træfik](https://docs.traefik.io/), [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management).
+No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [Traefik](https://docs.traefik.io/), [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management).
 
 O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric .  Você pode proteger o acesso a serviços de back-end, evitar ataques de DOS usando limitação ou verificar chaves de API, tokens de JWT, certificados e outras credenciais. Para saber mais, leia [Service Fabric com visão geral de Gerenciamento de API do Azure](service-fabric-api-management-overview.md).
 
@@ -95,7 +95,7 @@ Você pode estabelecer uma conexão segura entre o proxy reverso e serviços, pe
 
 A estrutura de aplicativo dos Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para aprimorar a segurança. Aprenda a melhorar a segurança quando você estiver usando a comunicação remota do serviço (em [C#](service-fabric-reliable-services-secure-communication.md) ou [Java](service-fabric-reliable-services-secure-communication-java.md)) ou usando [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
-## <a name="encrypt-application-data-at-rest"></a>Criptografar dados em repouso de aplicativo
+## <a name="encrypt-application-data-at-rest"></a>Criptografar dados de aplicativos em repouso
 Cada [tipo de nó](service-fabric-cluster-nodetypes.md) em um cluster do [Service Fabric](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) sendo executado no Azure é respaldado por um conjunto de dimensionamento de máquinas virtuais. Usando um modelo do Azure Resource Manager, é possível anexar discos de dados para os conjuntos de dimensionamento que compõem o cluster do Service Fabric.  Se os seus serviços salvarem dados em um disco de dados anexado, você poderá [criptografar esses discos de dados](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger os dados do aplicativo.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?

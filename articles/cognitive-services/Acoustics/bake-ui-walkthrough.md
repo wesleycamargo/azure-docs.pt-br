@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902239"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169749"
 ---
 # <a name="bake-acoustics"></a>Inserir acústica
 
@@ -255,10 +255,10 @@ Instalar e configurar o Docker no PC que processará a simulação -
 
 Existem quatro arquivos de dados criados por este plugin em vários pontos. Apenas um deles é necessário em tempo de execução, portanto os outros três estão dentro de pastas com o nome "Editor" para que não sejam compilados em seu projeto.
 
-* **Assets/Editor / [SceneName]\_AcousticsParameters.asset**: esse arquivo armazena os dados inseridos nos campos na interface do usuário acústica. O local e o nome deste arquivo não podem ser alterados. Existem outros valores armazenados nesse arquivo que afetam o bake, mas são para usuários avançados e não devem ser alterados.
-* **Assets / AcousticsData / Acoustics\_ [SceneName] .ace.bytes**: Este arquivo é o que é criado durante a simulação de cozimento e contém os dados de pesquisa usados pelo tempo de execução para renderizar a acústica de sua cena. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia.
-* **Assets / AcousticsData / Editor / Acoustics_ [SceneName] .vox**: Este arquivo armazena a geometria acústica voxelizada e as propriedades do material. Calculado usando o botão **Calcular...** na guia Probes. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia.
-* **Ativos / AcústicaData / Editor / Acústica\_ [Nome da Cena] \_config.xml**: Este arquivo armazena os parâmetros calculados usando o botão **Calcular...** nas **Sondas** Tab. A localização e o nome desse arquivo podem ser alterados usando os campos da guia **Sondas**.
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: Esse arquivo armazena os dados inseridos nos campos da interface do usuário do Acoustics. O local e o nome deste arquivo não podem ser alterados. Existem outros valores armazenados nesse arquivo que afetam o bake, mas são para usuários avançados e não devem ser alterados.
+* **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**: Esse arquivo é criado durante a simulação de bake e contém os dados de pesquisa usados pelo tempo de execução para renderizar a acústica da cena. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Esse arquivo armazena a geometria acústica voxelizada e as propriedades do material. Calculado usando o botão **Calcular...** na guia Probes. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia.
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: Esse arquivo armazena os parâmetros calculados usando o botão **Calcular...** na Guia **Investigações**. A localização e o nome desse arquivo podem ser alterados usando os campos da guia **Sondas**.
 
 Tome cuidado para não excluir o arquivo * .ace.bytes baixado do forno. Este arquivo não é recuperável, exceto por re-gravar a cena.
 

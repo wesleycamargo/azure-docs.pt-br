@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469723"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912775"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -119,9 +119,9 @@ Para ultrapassar esses limites no processamento normal ou executar um teste de c
 
 | NOME | Limite | Observações |
 |------|-------|-------|
-| FTP | 50 MB | Para exceder esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
-| SFTP | 50 MB | Para exceder esse limite, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Tratar mensagens grandes com agrupamento). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
-| SFTP-SSH | 1 GB | Esse conector manipula até 1 GB, mas transfere os dados em partes de 50 MB e não em partes de 1 GB. | 
+| FTP | 50 MB | Para exceder esse limite somente para ações, consulte [Manipular mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). <p>**Observação**: O agrupamento não é aplicável para gatilhos. Além disso, alguns conectores e APIs podem não dar suporte para agrupamento ou mesmo limite padrão. | 
+| SFTP | 50 MB | Para exceder esse limite somente para ações, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [Manipular mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). <p>**Observação**: O agrupamento não é aplicável para gatilhos. Além disso, alguns conectores e APIs podem não dar suporte para agrupamento ou mesmo limite padrão. | 
+| SFTP-SSH | 1 GB | Esse conector manipula até 1 GB, mas transfere os dados em partes de 50 MB e não em partes de 1 GB. Para exceder esse limite somente para ações, consulte [Manipular mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). <p>**Observação**: O agrupamento não é aplicável para gatilhos. | 
 |||| 
 
 <a name="request-limits"></a>

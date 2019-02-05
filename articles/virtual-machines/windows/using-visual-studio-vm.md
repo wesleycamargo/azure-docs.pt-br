@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437564"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911904"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Usar o Visual Studio executando em uma máquina virtual (VM) do Azure pré-configurada é a maneira mais fácil e rápida de partir do nada para um ambiente de desenvolvimento atualizado. As imagens do sistema com diferentes configurações do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -34,7 +34,7 @@ Imagens para as principais versões mais recentes, Visual Studio 2017 e Visual S
 
 | Versão de lançamento                                              | Edições                     |     Versão do produto      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Versão prévia (Versão prévia 1)                   |           Enterprise         | Versão 16.0.0 - Versão prévia 1 |
+|    Visual Studio 2019: Versão prévia (Versão prévia 2)                   |           Enterprise         | Versão 16.0.0 Versão prévia 2 |
 | Visual Studio 2017: Mais recente (versão 15.9)                    |    Enterprise, Community     |      Versão 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versão 15.0.20     |
 |   Visual Studio 2015: Mais recente (atualização 3)                      |    Enterprise, Community     |  Versão 14.0.25431.01   |

@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4e6912d13b4192b1f938acf5a9808221f5aa42f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452506"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077651"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no acesso condicional do Azure Active Directory?
 
@@ -71,13 +71,19 @@ Usar a autenticação multifator ajuda a proteger recursos para impedir que seja
 
 ### <a name="compliant-device"></a>Dispositivo em conformidade
 
-Você pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso aos recursos configurados somente de [dispositivos gerenciados](require-managed-devices.md). Exigir um dispositivo compatível é uma opção para a qual você precisa definir, o que é um dispositivo gerenciado. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que estão [registrados](../devices/overview.md) no Azure Active Directory e são marcados como compatíveis por Intune (para qualquer dispositivo OS) ou pelo seu sistema de terceiros MDM para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de dispositivo OS, exceto Windows 10, não são suportados.
+Você pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso apenas aos aplicativos de nuvem selecionados dos [dispositivos gerenciados](require-managed-devices.md). Exigir que um dispositivo seja marcado como compatível é uma opção que você tem para limitar o acesso aos dispositivos gerenciados. Um dispositivo pode ser marcado como compatível pelo Intune (para qualquer SO do dispositivo) ou pelo sistema de MDM de terceiros para dispositivos com Windows 10. Sistemas MDM de terceiros para tipos de dispositivo OS, exceto Windows 10, não são suportados. 
 
-Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
+É necessário registrar o dispositivo no Azure AD, antes de poder marcá-lo como compatível. Para registrar um dispositivo, há três opções: 
 
-### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo adicionado ao Azure AD híbrido
+- [Dispositivos registrados no Azure AD](../devices/overview.md#azure-ad-registered-devices)
+- [Dispositivos ingressados no Azure AD](../devices/overview.md#azure-ad-joined-devices)  
+- [Dispositivos ingressados no Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
-Exigir um dispositivo adicionado no Azure AD híbrido é outra opção para a qual você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a desktops, laptops e tablets corporativos com Windows que ingressaram em um Active Directory local. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram no seu Active Directory local e no Azure Active Directory.  
+Para obter mais informações, consulte [como exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](require-managed-devices.md).
+
+### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo ingressado no Azure AD híbrido
+
+Exigir um dispositivo ingressado no Azure AD híbrido é outra opção para a qual você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a desktops, laptops e tablets corporativos com Windows que ingressaram em um Active Directory local. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram no seu Active Directory local e no Azure Active Directory.  
 
 Para saber mais, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638847"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084793"
 ---
 | Recurso | Destino | Limite rígido |
 |----------|--------------|------------|
-| Serviços de sincronização de armazenamento por assinatura | 15 serviços de sincronização de armazenamento por região | Não  |
+| Serviços de Sincronização de Armazenamento por região | 15 Serviços de Sincronização de Armazenamento | SIM |
 | Grupos de sincronização por Serviço de Sincronização de Armazenamento | 100 grupos de sincronização | SIM |
 | Servidores registrados por Serviço de Sincronização de Armazenamento | 99 servidores | SIM |
 | Pontos de extremidade de nuvem por grupo de sincronização | 1 ponto de extremidade de nuvem | SIM |

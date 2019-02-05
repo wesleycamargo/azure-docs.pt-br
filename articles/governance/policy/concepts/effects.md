@@ -4,17 +4,17 @@ description: A definição do Azure Policy tem vários efeitos que determinam co
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310837"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912502"
 ---
 # <a name="understand-policy-effects"></a>Compreender os efeitos da Política
 
@@ -257,6 +257,11 @@ A propriedade **detalhes** dos efeitos DeployIfNotExists tem todas as subproprie
   - Por exemplo, pode ser usado para validar que o recurso pai (na condição **se**) está no mesmo local que recursos como o recurso relacionado correspondente.
 - **roleDefinitionIds** [obrigatório]
   - Essa propriedade deve incluir uma matriz de cadeias de caracteres que correspondem à ID de controle de acesso baseado em função que pode ser acessada pela assinatura. Para obter mais informações, confira [correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (opcional)
+  - Os valores permitidos são _Assinatura_ e _ResourceGroup_.
+  - Define o tipo de implantação que deve ser executada. _Assinatura_ indica uma [implantação no nível de assinatura](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica uma implantação em um grupo de recursos.
+  - Uma propriedade _localização_ deverá ser especificada na _Implantação_ quando usar implantações no nível de assinatura.
+  - O padrão é _ResourceGroup_.
 - **Implantação** [obrigatória]
   - Essa propriedade deve incluir a implantação de modelo completo que seria passada para o API PUT de `Microsoft.Resources/deployments`. Para obter mais informações, consulte a [API REST de implantações](/rest/api/resources/deployments).
 

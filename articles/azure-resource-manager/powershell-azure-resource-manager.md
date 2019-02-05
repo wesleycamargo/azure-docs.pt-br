@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 933c7e5b73abf533250072680160d5a5caab6523
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 05dd112c3e2ac2ffde56dd7e355e1fe695968ed0
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435425"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078161"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerenciar recursos com o Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "54435425"
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="understand-scope"></a>Compreender o escopo
 
@@ -38,8 +38,8 @@ Neste artigo, você aplica todas as configurações de gerenciamento a um grupo 
 Vamos criar o grupo de recursos.
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription <subscription-name>
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+Set-AzContext -Subscription <subscription-name>
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 Atualmente, o grupo de recursos está vazio.
@@ -65,7 +65,7 @@ $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
   -SecurityEnabled $true
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+New-AzRoleAssignment -ObjectId $adgroup.ObjectId `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
@@ -77,7 +77,7 @@ Normalmente, você repete o processo para **Colaborador de Rede** e **Colaborado
 O [Azure Policy](../azure-policy/azure-policy-introduction.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de políticas disponíveis, use:
 
 ```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+(Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
 Você vê as definições de políticas existentes. O tipo de política é **BuiltIn** ou **Personalizada**. Procure as definições para aqueles que descrevem uma condição que você quer atribuir. Neste artigo, você atribui políticas que:
@@ -90,21 +90,21 @@ Você vê as definições de políticas existentes. O tipo de política é **Bui
 $locations ="eastus", "eastus2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+$rg = Get-AzResourceGroup -Name myResourceGroup
 
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+$locationDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+New-AzPolicyAssignment -Name "Set permitted locations" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $locationDefinition `
   -listOfAllowedLocations $locations
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+New-AzPolicyAssignment -Name "Set permitted VM SKUs" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $skuDefinition `
   -listOfAllowedSKUs $skus
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+New-AzPolicyAssignment -Name "Audit unmanaged disks" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $auditDefinition
 ```
@@ -114,7 +114,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 Você atribuiu funções e políticas, entãoestá pronto para implantar a solução. O tamanho padrão é Standard_DS1_v2, que é uma das suas SKUs permitidas. Ao executar esta etapa, credenciais serão solicitadas de você. Os valores que você insere são configurados como o nome de usuário e senha para a máquina virtual.
 
 ```azurepowershell-interactive
-New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+New-AzVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
      -VirtualNetworkName "myVnet" `
@@ -135,12 +135,12 @@ Após a conclusão da implantação, será necessário aplicar mais configuraç�
 Para bloquear a máquina virtual e o grupo de segurança de rede, use:
 
 ```azurepowershell-interactive
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
@@ -160,10 +160,10 @@ A máquina virtual somente poderá ser excluída, se você remover especificamen
 Para aplicar marcas a uma máquina virtual, use:
 
 ```azurepowershell-interactive
-$r = Get-AzureRmResource -ResourceName myVM `
+$r = Get-AzResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por marca
@@ -171,13 +171,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 Para localizar recursos com um nome e valor da marca, use:
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Find-AzResource -TagName Environment -TagValue Test).Name
 ```
 
 É possível utilizar os valores retornados para tarefas de gerenciamento, como parar todas as máquinas virtuais com um valor de marca.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Find-AzResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>Exibir custos por valores de marca
@@ -199,20 +199,20 @@ Também é possível usar as [APIs de Cobrança do Azure](../billing/billing-usa
 O grupo de segurança de rede bloqueado não poderá ser excluído até que o bloqueio seja removido. Para remover o bloqueio, use:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceLock -LockName LockVM `
+Remove-AzResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-Remove-AzureRmResourceLock -LockName LockNSG `
+Remove-AzResourceLock -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
-Quando não for mais necessário, você pode usar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

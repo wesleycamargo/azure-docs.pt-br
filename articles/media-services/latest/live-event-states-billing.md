@@ -1,6 +1,6 @@
 ---
-title: Estados do LiveEvent e faturamento no Azure Media Services|Microsoft Docs
-description: Este tópico fornece uma visão geral dos estados e faturamento do LiveEvent dos Serviços de Mídia do Azure.
+title: Estados e cobrança do LiveEvent nos Serviços de Mídia do Azure | Microsoft Docs
+description: Este tópico fornece uma visão geral dos estados e cobrança do LiveEvent dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719414"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158002"
 ---
-# <a name="liveevent-states-and-billing"></a>Estados de LiveEvent e cobrança
+# <a name="live-event-states-and-billing"></a>Estados e cobrança de Evento ao Vivo
 
-Nos Serviços de Mídia do Azure, um LiveEvent começa o faturamento assim que seu estado faz a transição para **Running**. Para interromper o evento ao vivo do faturamento, você precisa interromper o evento ao vivo.
+Nos Serviços de Mídia do Azure, um Evento ao Vivo iniciará a cobrança assim que o estado transitar para estado de **Execução**. Para interromper o Evento ao Vivo da cobrança é necessário parar o Evento ao Vivo.
 
-Quando **LiveEventEncodingType** no [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) estiver definido como Standard, o Serviços de Mídia do Azure desligará automaticamente qualquer LiveEvent que ainda esteja no estado **Em Execução** 12 horas após a entrada o feed é perdido e não há **LiveOutput** em execução. No entanto, você ainda será cobrado pela LiveEvent estava em vez do estado **executando**.
+Quando o **LiveEventEncodingType** no [Evento ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) estiver definido como Padrão, os Serviços de Mídia desligarão automaticamente todos os Eventos ao Vivo que ainda estejam no estado de **Execução** 12 horas após a perda do feed de entrada e não houver **Saídas Dinâmicas** em execução. No entanto, você ainda será cobrado pelo tempo que o Evento ao Vivo estava no estado de **Execução**.
 
 ## <a name="states"></a>Estados
 
-O LiveEvent pode estar em um dos seguintes estados.
+O Evento ao Vivo pode estar em um dos seguintes estados.
 
 |Estado|DESCRIÇÃO|
 |---|---|
-|**Interrompido**| Este é o estado inicial do LiveEvent após a criação (a menos que a autoinicialização tenha sido definida como true.) Não há cobrança nesse estado. Nesse estado, as propriedades do LiveEvent podem ser atualizadas, mas streaming não é permitido.|
-|**Iniciando**| O LiveEvent está sendo iniciado e os recursos estão sendo alocados. Não há cobrança nesse estado. Atualizações ou streaming não são permitidos durante esse estado. Se ocorrer um erro, o LiveEvent retornará para o estado Parado.|
-|**Executando**| Os recursos do LiveEvent foram alocados, as URLs de entrada e visualização foram geradas e é capaz de receber transmissões ao vivo. Neste ponto, o faturamento está ativo. Você deve chamar explicitamente Parar no recurso LiveEvent para interromper o faturamento adicional.|
-|**Parando**| O LiveEvent está sendo interrompido e os recursos estão sendo desprovisionados. Não haverá cobrança nesse estado transitório. Atualizações ou streaming não são permitidos durante esse estado.|
-|**Excluindo**| O LiveEvent está sendo excluído. Não haverá cobrança nesse estado transitório. Atualizações ou streaming não são permitidos durante esse estado.|
+|**Parado**| Esse é o estado inicial do Evento ao Vivo após a criação (exceto se a inicialização automática estiver definida como verdadeira.) Não há cobrança nesse estado. Nesse estado, as propriedades do Evento ao Vivo poderão ser atualizadas, mas streaming não será permitido.|
+|**Iniciando**| O Evento ao Vivo está sendo iniciado e os recursos estão sendo alocados. Não há cobrança nesse estado. Atualizações ou streaming não são permitidos durante esse estado. Se ocorrer um erro, o Evento ao Vivo retornará ao estado Parado.|
+|**Executando**| Os recursos do Evento ao Vivo foram alocados, as URLs de visualização e ingestão foram geradas e está compatível para receber transmissões por streaming. Neste ponto, a cobrança está ativa. É necessário chamar explicitamente o recurso Parar no Evento ao Vivo para parar a cobrança adicional.|
+|**Parando**| O Evento ao Vivo está sendo interrompido e os recursos estão sendo desprovisionados. Não haverá cobrança nesse estado transitório. Atualizações ou streaming não são permitidos durante esse estado.|
+|**Excluindo**| O Evento ao Vivo está sendo excluído. Não haverá cobrança nesse estado transitório. Atualizações ou streaming não são permitidos durante esse estado.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

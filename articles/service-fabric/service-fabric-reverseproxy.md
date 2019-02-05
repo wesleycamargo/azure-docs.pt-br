@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711456"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097735"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -44,8 +44,8 @@ Proxy reverso expõe um ou mais pontos de extremidade no nó local para serviço
 > **Plataformas com suporte**
 >
 > Proxy reverso no Service Fabric atualmente dá suporte às seguintes plataformas
-> * *Cluster do Windows*: Windows 8 e posteriores ou Windows Server 2012 e posteriores
-> * *Cluster do Linux*: proxy reverso não está disponível no momento para clusters do Linux
+> * *Cluster Windows*: Windows 8 e posterior ou Windows Server 2012 e posterior
+> * *Cluster Linux*: Atualmente, o Proxy Reverso não está disponível para clusters Linux
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Alcançar microsserviços de fora do cluster
@@ -57,11 +57,11 @@ Em vez de configurar a porta de um serviço individual no Load Balancer, você p
 ![Comunicação externa][0]
 
 > [!WARNING]
-> Quando você configura a porta do proxy reverso no Load Balancer, todos os microsserviços no cluster que expõem um ponto de extremidade HTTP se tornam endereçáveis da parte externa do cluster. Isso significa que os microsserviços destinados a serem internos pode ser descobertos por um determinado usuário mal-intencionado. Isso potencialmente apresenta vulnerabilidades graves que podem ser exploradas, por exemplo:
+> Quando você configura a porta do proxy reverso no Load Balancer, todos os microsserviços no cluster que expõem um ponto de extremidade HTTP se tornam endereçáveis da parte externa do cluster. Isso significa que os microsserviços destinados a serem internos pode ser descobertos por um determinado usuário mal-intencionado. Isso potencialmente apresenta vulnerabilidades sérias que podem ser exploradas, por exemplo:
 >
 > * Um usuário mal-intencionado pode lançar um ataque de negação de serviço chamando repetidamente o serviço interno que não tem uma superfície de ataque protegida.
 > * Um usuário mal-intencionado poderá entregar pacotes mal formados a um serviço interno resultando em comportamento não intencionado.
-> * Um serviço destinado a ser interno pode devolver informações particulares ou sensíveis não destinadas a serem expostas a serivoços fora do cluster, assim expondo essas informações sensíveis a um usuário mal-intencionado. 
+> * Um serviço destinado a ser interno pode retornar informações particulares ou confidenciais não destinadas a serem expostas a serviços fora do cluster e, desse modo, expondo essas informações confidenciais a um usuário mal-intencionado. 
 >
 > Certifique-se de entender totalmente e reduza as implicações de segurança potenciais para o cluster e os aplicativos em execução, antes de tornar pública a porta do proxy reverso. 
 >
@@ -74,20 +74,20 @@ O proxy reverso usa um formato de URI (Uniform Resource Identifier) específico 
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para o encaminhamento HTTPS, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md) após a configuração do proxy reverso para escutar o HTTPS.
-* **FQDN (nome de domínio totalmente qualificado) do cluster | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster, por exemplo, mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy reverso é executado em todos os nós. Para o tráfego interno, o proxy reverso pode ser alcançado no localhost ou em qualquer IP de nó interno (por exemplo, 10.0.0.1).
-* **Porta:** essa é a porta, como 19081, que foi especificada para o proxy reverso.
-* **ServiceInstanceName:** esse é o nome totalmente qualificado da instância de serviço implantado que você está tentando alcançar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você usaria *myapp/myservice*.
+* **http(s):** O proxy reverso pode ser configurado para aceitar tráfego HTTP ou HTTPS. Para o encaminhamento HTTPS, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md) após a configuração do proxy reverso para escutar o HTTPS.
+* **FQDN (nome de domínio totalmente qualificado) do cluster | IP interno:** Para clientes externos, é possível configurar o proxy reverso para que seja acessível através do domínio do cluster como, por exemplo, mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy reverso é executado em todos os nós. Para o tráfego interno, o proxy reverso pode ser alcançado no localhost ou em qualquer IP de nó interno (por exemplo, 10.0.0.1).
+* **Porta:** Essa é a porta, como 19081, que foi especificada para o proxy reverso.
+* **ServiceInstanceName:** Esse é o nome totalmente qualificado da instância de serviço implantada que você está tentando acessar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você usaria *myapp/myservice*.
 
     O nome da instância de serviço diferencia maiúsculas de minúsculas. O uso de maiúsculas e minúsculas diferentes no nome da instância de serviço da URL causa uma falha das solicitações com 404 (Não Encontrado).
-* **Caminho de sufixo:** esse é o caminho de URL real, por exemplo, *myapi/values/add/3*, para o serviço ao qual você deseja se conectar.
-* **PartitionKey:** para um serviço particionado, esta é a chave de partição computada da partição que você deseja alcançar. Observe que isso *não* é o GUID da ID da partição. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
-* **PartitionKind:** o esquema de partição de serviço. Isso pode ser 'Int64Range' ou 'Named'. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
+* **Sufixo do caminho:** Esse é o caminho real da URL, como *myapi/values/add/3*, para o serviço que você quer conectar.
+* **PartitionKey:** Para um serviço particionado, essa é a chave de partição computada da partição que você quer alcançar. Observe que isso *não* é o GUID da ID da partição. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
+* **PartitionKind:** Esse é o esquema de partição de serviço. Isso pode ser 'Int64Range' ou 'Named'. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
 * **ListenerName** Os pontos de extremidade do serviço estão no formato {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. Quando o serviço expõe vários pontos de extremidade, isso identifica o ponto de extremidade ao qual solicitação do cliente deve ser encaminhada. Isso poderá ser omitido se o serviço tiver somente um ouvinte.
 * **TargetReplicaSelector** Especifica como a réplica de destino ou a instância deve ser selecionada.
-  * Quando o serviço de destino tem monitoração de estado, TargetReplicaSelector pode ser um dos seguintes: 'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Quando esse parâmetro não é especificado, o padrão é 'PrimaryReplica'.
+  * Quando o serviço de destino for com estado, o TargetReplicaSelector poderá ser um dos seguintes:  'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Quando esse parâmetro não é especificado, o padrão é 'PrimaryReplica'.
   * Quando o serviço de destino não tem monitoração de estado, o proxy reverso escolhe uma instância aleatória da partição de serviço para encaminhar a solicitação a ela.
-* **Tempo limite:** especifica o tempo limite da solicitação HTTP criada pelo proxy inverso para o serviço em nome da solicitação do cliente. O valor padrão é de 60 segundos. Este é um parâmetro opcional.
+* **Time limite:**  Isso especifica o tempo limite da solicitação HTTP criada pelo proxy reverso para o serviço em nome da solicitação do cliente. O valor padrão é de 60 segundos. Este é um parâmetro opcional.
 
 ### <a name="example-usage"></a>Exemplo de uso
 Por exemplo, vamos pegar o serviço *fabric:/MyApp/MyService* que abre um ouvinte HTTP na URL a seguir:
@@ -111,7 +111,7 @@ Se o serviço usar o esquema de particionamento Int64 Uniforme, os parâmetros d
 * Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 * Internamente: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
-Para acessar os recursos expostos pelo serviço, basta coloca o caminho do recurso após o nome do serviço na URL:
+Para acessar os recursos que o serviço expõe, basta colocar o caminho do recurso após o nome do serviço na URL:
 
 * Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
 * Internamente: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
@@ -132,8 +132,8 @@ No entanto, réplicas ou instâncias de serviço podem compartilhar um processo 
 
 Nessa situação, é provável que o servidor Web esteja disponível no processo de host e respondendo às solicitações, mas a instância de serviço resolvido ou a réplica não está mais disponível no host. Nesse caso, o gateway receberá uma resposta HTTP 404 do servidor Web. Como resultado, uma resposta de HTTP 404 pode ter dois significados distintos:
 
-- Caso n. 1: o endereço do serviço está correto, mas o recurso solicitado pelo usuário não existe.
-- Caso n. 2: o endereço do serviço está incorreto e o recurso solicitado pelo usuário talvez exista em um nó diferente.
+- Caso Nº 1: O endereço do serviço está correto, mas o recurso que o usuário solicitou não existe.
+- Caso Nº 2: O endereço do serviço está incorreto e o recurso que o usuário solicitou pode existir em um nó diferente.
 
 No primeiro caso, ele é um HTTP 404 normal, que é considerado um erro de usuário. No entanto, no segundo caso, o usuário solicitou um recurso que existe. O proxy reverso não pôde localizá-lo porque o serviço em si foi movido. O proxy reverso precisa resolver o endereço novamente e repetir a solicitação.
 

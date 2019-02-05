@@ -12,49 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 3bfb674fa66f0701a099d237f4e760453c7b6a6e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff0a70d8b370655df1eef55dac68804a1db406b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232120"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082139"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM declarável a um laboratório no Azure DevTest Labs
 1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
-1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM de declaração.  
-1. No painel **Visão geral** do laboratório, selecione **+ Adicionar**.  
+1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** na seção **DEVOPS**. Se você selecionar * (estrela) próximo a **DevTest Labs** na seção **DEVOPS**. Essa ação adicionará **DevTest Labs** ao menu de navegação esquerdo para que você possa acessá-lo facilmente na próxima vez. Em seguida, será possível selecionar **DevTest Labs** no menu de navegação esquerdo.
+
+    ![Todos os serviços - selecionar DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM.  
+2. Na página de **Visão Geral** do laboratório, selecione **+ Adicionar**.  
 
     ![Botão Adicionar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
+1. Na página **Escolher uma base**, selecione uma imagem do Marketplace para a VM.
+1. Na guia **Configurações Básicas** da **Máquina Virtual**, execute as seguintes ações: 
+    1. Insira um nome para a VM na caixa de texto **nome da Máquina Virtual**. A caixa de texto é previamente preenchida para você, com um nome exclusivo gerado automaticamente. O nome corresponde ao nome de usuário no seu endereço de email, seguido por um número exclusivo de três dígitos. Esse recurso poupa o tempo de pensar em um nome de computador e digitá-lo sempre que você criar um computador. Se desejar, você poderá substituir esse campo preenchido automaticamente por um nome de sua escolha. Para substituir o nome preenchido automaticamente para a VM, insira um nome na caixa de texto **Nome da máquina virtual**.
+    2. Insira um **Nome de Usuário** que receberá privilégios de administrador na máquina virtual. O **nome de usuário** para o computador é previamente preenchido com um nome exclusivo gerado automaticamente. O nome corresponde ao nome de usuário no seu endereço de email. Esse recurso poupa o tempo de escolher um nome de usuário sempre que você cria um novo computador. Mais uma vez, se quiser, você poderá substituir esse campo preenchido automaticamente por um nome de sua escolha. Para substituir o valor preenchido automaticamente para um nome de usuário, insira um valor na caixa de texto **Nome de Usuário**. Esse usuário recebe privilégios de **administrador** na máquina virtual.
+    3. Se você estiver criando a primeira VM no laboratório, insira uma **senha** para o usuário. Para salvar essa senha como uma senha padrão no Azure Key Vault associado ao laboratório, selecione **Salvar como senha padrão**. A senha padrão é salva no cofre de chaves com o nome: **VmPassword**. Quando você tenta criar VMs subsequentes no laboratório, **VmPassword** é selecionada automaticamente para a **senha**. Para substituir o valor, desmarque a caixa de seleção **Usar um segredo salvo** e digite uma senha. 
 
-1. Na área **Escolher uma base**, selecione uma base para a VM.
-1. No painel **Máquina virtual**, insira um nome para a nova máquina virtual na caixa de texto **Nome da máquina virtual**.
+        Você também pode salvar segredos no cofre de chaves primeiro e, em seguida, usá-lo ao criar uma VM no laboratório. Para obter mais informações, veja [Armazenar segredos em um cofre de chaves](devtest-lab-store-secrets-in-key-vault.md). Para usar uma senha armazenada em um cofre de chaves, selecione **Usar um segredo salvo** e especifique um valor de chave que corresponda ao seu segredo (senha).
+    4. Na seção **Mais opções**, selecione **Alterar tamanho**. Selecione um dos itens predefinidos que especificam os núcleos do processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
+    5. Selecione **Adicionar ou Remover Artefatos**. Selecione e configure os artefatos que você quer adicionar à imagem base.
+    **Observação:** Se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
+2. Alterne para a guia **Configurações Avançadas** na parte superior e execute as seguintes ações:
+    1. Para alterar a rede virtual na qual está a VM, selecione **Alterar VNet**. 
+    2. Para alterar a sub-rede, selecione **Alterar sub-rede**. 
+    3. Especifique se o endereço IP da VM é **público, privado ou compartilhado**. 
+    4. Para excluir automaticamente a VM, especifique a **data e hora de validade**. 
+    5. Para tornar a VM requisitável por um usuário do laboratório, selecione **Sim** para a opção **Tornar esta máquina requisitável**. 
+    6. Especifique o número de **instâncias da VM** que você quer disponibilizar aos usuários do laboratório. 
+3. Selecione **Criar** para adicionar a VM especificada ao laboratório.
 
-    ![Painel da VM do laboratório](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
-
-1. Insira um **Nome de Usuário** que receberá privilégios de administrador na máquina virtual.  
-1. Se você quiser usar uma senha armazenada em seu [repositório secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecione **Usar um segredo salvo** e especifique um valor de chave que corresponda ao seu segredo (senha). Caso contrário, digite uma senha no campo de texto rotulado **Digite um valor**.
-1. O **tipo de disco de máquina virtual** determina que tipo de disco de armazenamento é permitido para as máquinas virtuais no laboratório.
-1. Selecione **Tamanho da máquina virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
-1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base. Se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
-1. Selecione **Configurações avançadas** para configurar as opções de expiração e as opções de rede da VM. Em **Opções de declaração**, escolha **Sim** para tornar a máquina declarável.
-
-  ![Opte por tornar a VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
-
-1. Se quiser exibir ou copiar o modelo do Azure Resource Manager, veja a seção [Salvar modelo do Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) e retorne para cá quando terminar.
-1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
-
-   O status da criação da VM é exibido, primeiro como **Criando**, depois como **Executando** depois de a VM ter sido iniciada.
+   A página do laboratório exibirá o status da criação da VM - primeiro como **Criando** e, em seguida, como **Em execução**, depois que a VM for iniciada.
 
 > [!NOTE]
 > Se você implantar VMs de laboratório por meio dos  [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), poderá criar VMs exigíveis definindo a propriedade **allowClaim** como true na seção de propriedades.
->
->
+
 
 ## <a name="using-a-claimable-vm"></a>Usando uma VM declarável
 

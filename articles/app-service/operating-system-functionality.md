@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653502"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901778"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
@@ -128,6 +128,10 @@ As áreas de registro em log de diagnóstico e rastreamento que não estão disp
 Os aplicativos têm acesso somente leitura a grande parte do Registro (mas não em sua totalidade) da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do Registro que permitem acesso somente leitura ao grupo Usuários local são acessíveis por aplicativos. Uma área do Registro que atualmente não é compatível com acesso de leitura ou gravação é o hive HKEY\_CURRENT\_USER.
 
 O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave do Registro por usuário. Do ponto de vista do aplicativo, o acesso de gravação ao Registro nunca deve ser usado no ambiente do Azure porque os aplicativos podem (e vão) ser migrados entre máquinas virtuais diferentes. O único armazenamento gravável persistente que pode ser usado por um aplicativo é a estrutura do diretório de conteúdo por aplicativo armazenada nos compartilhamentos UNC do Serviço de Aplicativo. 
+
+## <a name="remote-desktop-access"></a>Acesso remoto à área de trabalho
+
+O Serviço de Aplicativo não fornece acesso à área de trabalho remota às instâncias da VM.
 
 ## <a name="more-information"></a>Mais informações
 

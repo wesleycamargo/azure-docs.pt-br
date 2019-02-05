@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425336"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097037"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário
 
 Se você oferecer um aplicativo de Software como Serviço (SaaS) para muitas organizações, poderá configurar seu aplicativo para aceitar logins de qualquer locatário do Azure AD (Azure Active Directory). Essa configuração é chamada de *, tornando seu aplicativo multilocatário*. Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo. 
 
@@ -59,7 +59,7 @@ Em um aplicativo de locatário único, as solicitações de conexão são enviad
 
 Com um aplicativo multilocatário, o aplicativo não sabe com antecedência de qual locatário o usuário é, portanto, você não pode enviar solicitações para o ponto de extremidade de um locatário. Em vez disso, as solicitações são enviadas para um ponto de extremidade que multiplexa entre todos os locatários do Azure AD: `https://login.microsoftonline.com/common`
 
-Quando o Azure AD recebe uma solicitação no ponto de extremidade /common, ele realiza a entrada do usuário e, como consequência, descobre de qual locatário o usuário é. O ponto de extremidade /common funciona com todos os protocolos de autenticação com suporte pelo Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
+Quando o Azure AD recebe uma solicitação no ponto de extremidade /common, ele realiza a entrada do usuário e, como consequência, descobre de qual locatário o usuário é. O ponto de extremidade /common funciona com todos os protocolos de autenticação com suporte pelo Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
 
 Em seguida, a resposta de conexão para o aplicativo conterá um token que representa o usuário. O valor do emissor no token diz a um aplicativo de qual locatário o usuário é. Quando uma resposta retorna do ponto de extremidade /common, o valor do emissor no token corresponde ao locatário do usuário. 
 

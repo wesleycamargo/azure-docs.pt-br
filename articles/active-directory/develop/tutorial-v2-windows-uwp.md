@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986535"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097054"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
 
@@ -359,7 +359,7 @@ Também serão exibidas informações básicas sobre o token adquirido por meio 
 |---------|---------|---------|
 |**Nome** |Nome completo do usuário|O nome e sobrenome do usuário.|
 |**Nome de Usuário** |<span>user@domain.com</span> |É o nome de usuário que identifica o usuário.|
-|**O Token Expira** |Datetime |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
+|**O Token Expira** |DateTime |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
 |**Token de acesso** |Cadeia de caracteres |A cadeia de caracteres do token enviada para solicitações HTTP que requerem um *Cabeçalho de Autorização*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Ver o que há no token de acesso (opcional)
@@ -382,15 +382,15 @@ Você recebe uma das seguintes mensagens de erro ao entrar em seu aplicativo em 
  - Nenhum certificado válido encontrado no repositório de certificados do usuário.
  - Tente novamente escolhendo um método de autenticação diferente.
 
-**Causa:** recursos corporativos e de certificado não estão habilitados.
+**Causa:** Os recursos corporativos e de certificado não estão habilitados.
 
-**Solução:** siga as etapas em [autenticação integrada em domínios federados](#enable-integrated-authentication-on-federated-domains-optional).
+**Solução:** Siga as etapas da [autenticação integrada em domínios federados](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problema 2
 Você habilitar a [autenticação integrada em domínios federados](#enable-integrated-authentication-on-federated-domains-optional) e tentar usar o Windows Hello em um computador com Windows 10 para entrar em um ambiente com autenticação multifator configurada. A lista de certificados é apresentada. No entanto, se você optar por usar seu PIN, a janela PIN nunca é apresentada.
 
-**Causa:** esse problema é uma limitação conhecida do agente de autenticação da Web em aplicativos da UWP executados na área de trabalho do Windows 10. Ele funciona corretamente no Windows 10 Mobile.
+**Causa:** Esse problema é uma limitação conhecida do agente de autenticação da Web em aplicativos UWP executando na área de trabalho do Windows 10. Ele funciona corretamente no Windows 10 Mobile.
 
-**Solução alternativa:** selecione **Entrar com outras opções**. Depois selecione **Entrar com nome de usuário e senha**. Selecione **Forneça sua senha**. Depois passe pelo processo de autenticação de telefone.
+**Solução alternativa:** Selecione **Entrar com outras opções**. Depois selecione **Entrar com nome de usuário e senha**. Selecione **Forneça sua senha**. Depois passe pelo processo de autenticação de telefone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539782"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103387"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Otimizar o vácuo automático no Banco de Dados do Azure para PostgreSQL 
 Este artigo descreve como você pode otimizar o vácuo automático de modo eficaz no Banco de Dados do Azure para PostgreSQL.
@@ -63,7 +63,7 @@ O vácuo automático é disparado quando o número de tuplas inativas excede aut
 
 A limpeza do vácuo automático precisa acompanhar a carga do banco de dados, caso contrário, você pode ficar sem armazenamento e enfrentar uma lentidão de caráter geral nas consultas. Amortizada ao longo do tempo, a taxa na qual o vácuo limpa tuplas inativas deve ser igual à taxa segundo a qual as tuplas inativas são criadas.
 
-Bancos de dados com muitas atualizações/exclusões têm mais tuplas inativas e requerem mais espaço. Geralmente, os bancos de dados com várias atualizações/exclusões se beneficiam de valores baixos de autovacuum_vacuum_scale_factor e valores baixos de autovacuum_vacuum_threshold para impedir o acúmulo prolongado de tuplas inativas. Você pode usar valores mais altos para ambos os parâmetros com bancos de dados menores, porque a necessidade de vácuo é menos urgente. Lembrando que a execução frequente de vácuo ocorre às custas de computação e de memória.
+Bancos de dados com muitas atualizações/exclusões têm mais tuplas inativas e requerem mais espaço. Geralmente, os bancos de dados com várias atualizações/exclusões se beneficiam de valores baixos de autovacuum_vacuum_scale_factor e valores baixos de autovacuum_vacuum_threshold para impedir o acúmulo prolongado de tuplas inativas. Você pode usar valores mais altos para ambos os parâmetros com bancos de dados menores, porque a necessidade de vácuo é menos urgente. Lembrando que a execução frequente de vácuo ocorre ao custo de computação e de memória.
 
 O fator de escala padrão de 20% funciona bem em tabelas com um percentual baixo de tuplas inativas, mas não em tabelas com um percentual alto de tuplas inativas. Por exemplo, em uma tabela de 20 GB, isso se traduz em 4 GB de tuplas inativas, enquanto em uma tabela de 1 TB, significa 200 GB de tuplas inativas.
 
@@ -97,6 +97,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 O vácuo automático é um processo síncrono e por tabela. Quanto maior o percentual de tuplas inativas de uma tabela, maior o "custo" para vácuo automático.  Dividir tabelas que tenham uma alta taxa de atualizações/exclusões em várias tabelas ajudará a paralelizar o vácuo automático e reduzirá o "custo" para concluir o vácuo automático em uma tabela. Você também pode aumentar o número de trabalhos de vácuo automático paralelos para garantir que os trabalhos sejam agendados livremente.
 
 ## <a name="next-steps"></a>Próximas etapas
-Examine a seguinte documentação do PostgreSQL para obter mais informações sobre como usar e ajustar o vácuo automático:
+Revise a documentação do PostgreSQL a seguir para saber mais sobre como usar e ajustar o vácuo automático:
  - Documentação do PostgreSQL – [Capítulo 18, Configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - Documentação do PostgreSQL – [Capítulo 24, Tarefas rotineiras de manutenção de banco de dados](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

@@ -1,6 +1,6 @@
 ---
 title: Atualizar um cluster do Azure Service Fabric | Microsoft Docs
-description: Saiba mais sobre como atualizar a versão ou configuração de um cluster do Azure Service Fabric.  Este artigo descreve a configuração do modo de atualização do cluster, atualizando certificados, adicionado portas do aplicativo, fazendo patches do SO e o que você puder esperar quando as atualizações forem realizadas
+description: Saiba como atualizar a versão ou a configuração de um cluster do Azure Service Fabric.  Este artigo descreve a configuração do modo de atualização do cluster, atualizando certificados, adicionado portas do aplicativo, fazendo patches do SO e o que você puder esperar quando as atualizações forem realizadas
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853278"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102389"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 
 Para qualquer sistema moderno, oferecer a possibilidade de atualização é fundamental para o sucesso duradouro de seu produto. Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. Este artigo descreve o que é gerenciado automaticamente e o que você pode configurar por conta própria.
 
-## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão do Fabric em execução no Cluster
+## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de malha que é executada em seu cluster
 
 Certifique-se de manter o cluster sempre executando uma versão do Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar seu tempo de vida após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas no blog da equipe do Service Fabric. Então, a nova versão está disponível para escolha.
 
@@ -36,7 +36,7 @@ Você pode definir o cluster para receber atualizações automáticas do Fabric,
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Comportamento de atualização do Fabric durante as atualizações automáticas
 A Microsoft mantém o código de fábrica e a configuração executada em um cluster do Azure. Executamos atualizações automáticas monitoradas no software de acordo com a necessidade. Essas atualizações podem ser feitas no código, na configuração ou em ambos. Para garantir que seu aplicativo sofra o mínimo ou nenhum impacto por conta dessas atualizações, nos ás executamos nas fases indicadas a seguir:
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: uma atualização é executada usando todas as políticas de integridade do cluster
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: Uma atualização é executada usando todas as políticas de integridade do cluster
 Durante esta fase, as atualizações realizam um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
 Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Em seguida, um email é enviado ao proprietário da assinatura. O email contém as seguintes informações:
@@ -49,7 +49,7 @@ Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualiza
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso serve para evitar o envio de muitos emails. O recebimento de um email deve ser visto como uma exceção. Esperamos que a maioria das atualizações do cluster tenha êxito sem afetar a disponibilidade de seu aplicativo.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: uma atualização é executada usando apenas as políticas de integridade padrão
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: Uma atualização é executada usando somente políticas de integridade padrão
 As políticas de integridade desta fase são definidas de forma que o número de aplicativos íntegros no início da atualização permaneça o mesmo durante o processo de atualização. Assim como na Fase 1, na Fase 2 as atualizações ocorrem em um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
 Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Em seguida, um email é enviado ao proprietário da assinatura. O email contém as seguintes informações:
@@ -62,7 +62,7 @@ Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualiza
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: uma atualização é executada usando políticas de integridade agressivas
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: Uma atualização é executada usando políticas de integridade agressivas
 Essas políticas de integridade desta fase são destinadas à conclusão da atualização, em vez da integridade dos aplicativos. Pouquíssimas atualizações de cluster chegam a esta fase. Caso seu cluster chegue a esta fase, há uma boa chance de seu aplicativo deixar de ser íntegro e/ou de perder a disponibilidade.
 
 Assim como nas duas outras fases, as atualizações da Fase 3 realizam um domínio de atualização por vez.
@@ -80,9 +80,9 @@ O Service Fabric usa [certificados de servidor X.509](service-fabric-cluster-sec
 Você pode alterar as portas do aplicativo alterando as propriedades do recurso de Balanceador de carga associadas ao tipo de nó. Você pode utilizar o portal do Azure ou pode usar o PowerShell/CLI do Azure. Para obter mais informações, leia [Abrir portas do aplicativo para um cluster](create-load-balancer-rule.md).
 
 ## <a name="define-node-properties"></a>Definir propriedades de nó
-Às vezes, convém assegurar que determinadas cargas de trabalho sejam executadas apenas em alguns tipos de nós no cluster. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, enquanto outras, não. Para cada um dos tipos de nó em um cluster, você pode adicionar propriedades personalizadas de nó para nós de cluster. As restrições de posicionamento são as instruções anexadas a serviços individuais que selecionam uma ou mais propriedades de nó. Restrições de posicionamento definem onde os serviços devem ser executados.
+Às vezes, você pode querer garantir que determinadas cargas de trabalho sejam executadas apenas em determinados tipos de nós no cluster. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, enquanto outras, não. Para cada um dos tipos de nós em um cluster, você pode adicionar propriedades de nós customizados aos nós do cluster. As restrições de posicionamento são as instruções anexadas a serviços individuais que selecionam uma ou mais propriedades do nó. Restrições de posicionamento definem onde os serviços devem ser executados.
 
-Para obter detalhes sobre o uso de restrições de posicionamento, propriedades de nó e como defini-las, leia [restrições de posicionamento e propriedades de nó](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
+Para obter detalhes sobre o uso de restrições de posicionamento, propriedades do nó e como defini-las, leia [propriedades do nó e restrições de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
 ## <a name="add-capacity-metrics"></a>Adicionar métricas de capacidade
 Para cada um dos tipos de nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar carga, confira os documentos do Gerenciador de Recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [Métricas e carga](service-fabric-cluster-resource-manager-metrics.md).

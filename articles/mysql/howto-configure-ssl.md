@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 075f20027153eb9adf5c0daedea7cf5c0b515ee4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: d938b4485dccc3b5be3d1af612b407a67e04f397
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537028"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902203"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL
 O Banco de Dados do Azure para MySQL dá suporte à conexão de seu servidor de Banco de Dados do Azure para MySQL para aplicativos cliente usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -26,10 +26,14 @@ Configurar o MySQL Workbench para se conectar com segurança por SSL. Na caixa d
 ![salvar bloco personalizado](./media/howto-configure-ssl/mysql-workbench-ssl.png) Para as conexões existentes, você pode associar o SSL clicando com o botão direito do mouse no ícone de conexão e escolhendo Editar. Em seguida, navegue até a guia **SSL** e associe o arquivo de certificado.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Conectar-se ao servidor usando a CLI do MySQL sobre SSL
-Outra maneira de associar o certificado SSL é usar a interface de linha de comando do MySQL, executando o seguinte comando:
-```dos
-mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+Outra maneira de associar o certificado SSL, é usar a interface de linha de comando do MySQL executando os seguintes comandos. 
+
+```bash
+mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
+
+> [!NOTE]
+> Ao usar a interface de linha de comando do MySQL no Windows, você poderá receber um erro `SSL connection error: Certificate signature check failed`. Se isso ocorrer, substitua os parâmetros `--ssl-mode=REQUIRED --ssl-ca={filepath}` por `--ssl`.
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Etapa 3:  Impor conexões SSL no Azure 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure

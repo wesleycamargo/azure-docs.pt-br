@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728033"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912026"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 
@@ -124,8 +124,8 @@ Use essa propriedade com **filtros de ativo**. Não é recomendável definir a p
 |---|---|
 |**endTimestamp**|O limite de tempo final absoluto. Aplica-se ao Video on Demand (VoD). Para a apresentação Live, ela é silenciosamente ignorada e aplicada quando a apresentação termina e o fluxo se torna VoD.<br/><br/>O valor representa um ponto final absoluto do fluxo. Ele é arredondado para o próximo início do GOP.<br/><br/>Use StartTimestamp e EndTimestamp para aparar a lista de reprodução (manifesto). Por exemplo, StartTimestamp = 40000000 e EndTimestamp = 100000000 gerará uma lista de reprodução que contém mídia entre StartTimestamp e EndTimestamp. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.<br/><br/>Além disso, consulte a definição **forceEndTimestamp** a seguir.|
 |**forceEndTimestamp**|Se aplica aos filtros em tempo real.<br/><br/>**forceEndTimestamp** é um valor booliano que indica se ou não **endTimestamp** foi definido como um valor válido. <br/><br/>Se o valor for **verdadeiro**, o valor **endTimestamp** deverá ser especificado. Se não for especificado, uma solicitação incorreta será retornada.<br/><br/>Se, por exemplo, você quiser definir um filtro que comece com 5 minutos no vídeo de entrada e dure até o final do fluxo, defina **forceEndTimestamp** como false e omita a configuração  **endTimestamp**.|
-|**liveBackoffDuration**|Aplica-se útil apenas. A propriedade é usada para definir a posição de reprodução ao vivo. Usando essa regra, você pode atrasar a posição de reprodução ao vivo e criar um buffer do lado do servidor para os jogadores. LiveBackoffDuration é relativo à posição ao vivo. A duração máxima de backoff ao vivo é de 60 segundos.|
-|**presentationWindowDuration**|Aplica-se útil. Use **presentationWindowDuration** para aplicar uma janela deslizante à lista de reprodução. Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Mídia dentro de 2 minutos da borda ao vivo será incluída na lista de reprodução. Se um fragmento ultrapassar o limite, todo o fragmento será incluído na lista de reprodução. A duração mínima da janela de apresentação é de 120 segundos.|
+|**liveBackoffDuration**|Aplica-se útil apenas. A propriedade é usada para definir a posição de reprodução ao vivo. Usando essa regra, você pode atrasar a posição de reprodução ao vivo e criar um buffer do lado do servidor para os jogadores. LiveBackoffDuration é relativo à posição ao vivo. A duração máxima de retirada ao vivo é de 300 segundos.|
+|**presentationWindowDuration**|Aplica-se útil. Use **presentationWindowDuration** para aplicar uma janela deslizante à lista de reprodução. Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Mídia dentro de 2 minutos da borda ao vivo será incluída na lista de reprodução. Se um fragmento ultrapassar o limite, todo o fragmento será incluído na lista de reprodução. A duração mínima da janela de apresentação é de 60 segundos.|
 |**startTimestamp**|Aplica-se a fluxos de VoD ou ao vivo. O valor representa um ponto inicial absoluto do fluxo. O valor é arredondado para o próximo início de GOP mais próximo.<br/><br/>Use **startTimestamp** e **endTimestamp** para aparar a lista de reprodução (manifesto). Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 gerarão uma lista de reprodução que contém mídia entre StartTimestamp e EndTimestamp. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
 |**Escala de tempo**|Aplica-se a fluxos de VoD ou ao vivo. A escala de tempo usada pelos timestamps e durações especificadas acima. A escala de tempo padrão é 10000000. Uma escala de tempo alternativa pode ser usada. O padrão é 10000000 HNS (cem nanossegundos).|
 

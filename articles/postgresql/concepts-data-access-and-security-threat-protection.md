@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 68027526fb98db4cb5b7eaf75f117692222c6039
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549013"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910705"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Proteção Avançada contra Ameaças do Banco de Dados do Azure para PostgreSQL
 
@@ -22,6 +22,9 @@ A Proteção contra Ameaças faz parte da oferta de ATP (Proteção Avançada co
 > [!NOTE]
 > O recurso de Proteção Avançada contra Ameaças **não** está disponível nas seguintes regiões de nuvem soberana e do Azure Governamental: US Gov - Texas, US Gov - Arizona, US Gov Iowa, EUA, US Gov - Virgínia, US DoD Leste, US DoD Central, Alemanha Central, Norte da Alemanha, Leste da China, Leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para ver a disponibilidade geral do produto.
 >
+
+> [!NOTE]
+> Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para PostgreSQL é implantado para servidores de Uso Geral e Otimizado para Memória.
 
 ## <a name="what-is-advanced-threat-protection"></a>O que é a Proteção Avançada contra Ameaças?
 

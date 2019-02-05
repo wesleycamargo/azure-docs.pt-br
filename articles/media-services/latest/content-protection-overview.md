@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828241"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911941"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo
 
@@ -60,7 +60,9 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
 
     Para testar conteúdo criptografado AES ou CENC (Widevine e/ou PlayReady), é possível usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de clicar em "Opções avançadas" e verifique as opções de criptografia.
 
-    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](https://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. Você precisa escolher o navegador correto para testar DRMs diferentes: Chrome/Opera/Firefox para Widevine, Microsoft Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
+    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](https://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. 
+    
+    Você precisa escolher o navegador correto para testar DRMs diferentes: Chrome/Opera/Firefox para Widevine, Microsoft Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
 
 3. O Secure Token Service (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos de back-end. Você pode usar os serviços de entrega de licença do AMS como o recurso de back-end. Um STS deve definir o seguinte:
 
@@ -69,7 +71,7 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
   * Verificação simétrica ou assimétrica para verificação de assinatura
   * Suporte de substituição de chave (se necessário)
 
-    Você pode usar [esta ferramenta STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para testar o STS, que suporta todos os 3 tipos de chave de verificação: simétrica, assimétrica ou AAD com substituição de chave. 
+    É possível usar [esta ferramenta de STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para testar o STS, que dá suporte a todos os 3 tipos de chave de verificação: simétrica, assimétrica ou Azure AD com substituição de chave. 
 
 > [!NOTE]
 > É altamente recomendável focar e testar completamente cada parte (descrita acima) antes de passar para a próxima peça. Para testar seu sistema de "proteção de conteúdo", use as ferramentas especificadas na lista acima.  

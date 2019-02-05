@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723574"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096816"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
 
@@ -41,8 +41,8 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 | Campo            | DESCRIÇÃO                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | NOME             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
-| Tipo de aplicativo | **Aplicativo Web/API Web**: um aplicativo que representa um aplicativo Web, uma API Web ou ambos 
-| |**Nativo**: um aplicativo que pode ser instalado no dispositivo ou no computador de um usuário           |
+| Tipo de aplicativo | **Aplicativo Web/API Web**: Um aplicativo que representa um aplicativo Web, uma API Web, ou ambos 
+| |**Nativo**: Um aplicativo que pode ser instalado no dispositivo ou no computador de um usuário           |
 | URL de logon      | A URL em que os usuários podem entrar para usar o aplicativo                                  |
 
 Após você preencher os campos acima, o aplicativo é registrado no portal do Azure e você é redirecionado para a página do aplicativo. O botão **Configurações** no painel do aplicativo abre a página Configurações, que tem mais campos para você personalizar seu aplicativo. A tabela a seguir descreve todos os campos na página Configurações. Observe que você verá apenas um subconjunto desses campos, dependendo tipo de aplicativo que você criou, um aplicativo Web ou um aplicativo nativo.

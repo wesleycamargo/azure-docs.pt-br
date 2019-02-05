@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ace5901012c5bc66a560dafd3a403183d6ce8c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422823"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912843"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - Azure PowerShell
 
@@ -127,7 +127,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Como você pode ver na saída anterior, a rota com o **AaddressPrefix** de **0.0.0.0/0** roteia todo o tráfego não destinado a endereços nos prefixos de endereço da outra rota com o próximo salto de **Internet**. Como você também pode ver na saída, embora haja uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **nextHopType** é **Nenhum**. O Azure cria uma rota padrão para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo. Se, por exemplo, você adicionou o intervalo de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure alterará o **nextHopType** para **Rede virtual** da rota. Em seguida, uma verificação mostra a **Rede virtual** como o **nextHopType**.
+Como é possível ver na saída anterior, a rota com **AddressPrefix** de **0.0.0.0/0** roteia todo o tráfego não destinado a endereços dentro dos prefixos de endereço de outras rotas com um próximo salto de **Internet**. Como você também pode ver na saída, embora haja uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **nextHopType** é **Nenhum**. O Azure cria uma rota padrão para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo. Se, por exemplo, você adicionou o intervalo de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure alterará o **nextHopType** para **Rede virtual** da rota. Em seguida, uma verificação mostra a **Rede virtual** como o **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

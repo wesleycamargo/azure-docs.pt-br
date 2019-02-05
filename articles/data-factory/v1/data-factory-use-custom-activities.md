@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4ed919b76ddebde8337337c18c04093bc6072e82
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121253"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077481"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -168,7 +168,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     /// Execute method is the only method of IDotNetActivity interface you must implement.
     /// In this sample, the method invokes the Calculate method to perform the core logic.
     /// </summary>
-    
+
     public IDictionary<string, string> Execute(
         IEnumerable<LinkedService> linkedServices,
         IEnumerable<Dataset> datasets,
@@ -201,7 +201,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
 
         // get type properties from the dataset object
         inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-    
+
         // log linked services passed in linkedServices parameter
         // you will see two linked services of type: AzureStorage
         // one for input dataset and the other for output dataset
@@ -239,7 +239,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
                                      continuationToken,
                                      null,
                                      null);
-    
+
             // Calculate method returns the number of occurrences of
             // the search term (“Microsoft”) in each blob associated
             // with the data slice. definition of the method is shown in the next step.
@@ -257,7 +257,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path
         logger.Write("Writing blob to the folder: {0}", folderPath);
 
         // create a storage object for the output blob.
@@ -293,7 +293,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -307,30 +307,30 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     /// <summary>
     /// Gets the fileName value from the input/output dataset.
     /// </summary>
-    
+
     private static string GetFileName(Dataset dataArtifact)
     {
         if (dataArtifact == null || dataArtifact.Properties == null)
         {
             return null;
         }
-    
+
         // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
-    
+
         // return the blob/file name in the type properties
         return blobDataset.FileName;
     }
-    
+
     /// <summary>
     /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
     /// and prepares the output text that is written to the output blob.
     /// </summary>
-    
+
     public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
     {
         string output = string.Empty;
@@ -379,7 +379,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
 
     ![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
-14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir. 
+14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir.
 15. Carregue MyDotNetActivity.zip como um blob para customactivitycontainer em um armazenamento de Blobs do Azure de **uso geral** (e não um armazenamento de Blobs de dinâmico/estático) que seja referenciado por AzureStorageLinkedService.
 
 > [!IMPORTANT]
@@ -420,7 +420,7 @@ Aqui estão as etapas que você executa nesta seção:
    1. Clique em **Criar um recurso** no menu à esquerda.
    2. Clique em **Dados + Análise** na folha **Novo**.
    3. Clique em **Data Factory** na folha **Análise de dados**.
-   
+
     ![Novo menu do Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. Na folha **Novo data factory**, insira **CustomActivityFactory** para o Nome. O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome de data factory "CustomActivityFactory" não está disponível**, altere o nome do data factory (por exemplo, **yournameCustomActivityFactory**) e tente criá-lo novamente.
 
@@ -430,7 +430,7 @@ Aqui estão as etapas que você executa nesta seção:
 5. Clique em **Criar** na folha **Novo data factory**.
 6. Você vê o data factory sendo criado no **Painel** do portal do Azure.
 7. Após a data factory ter sido criado com êxito, você vê a folha Data Factory, com a exibição do conteúdo.
-    
+
     ![Folha Data Factory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Etapa 2: Criar serviços vinculados
@@ -439,7 +439,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 #### <a name="create-azure-storage-linked-service"></a>Criar o serviço vinculado do armazenamento do Azure
 1. Clique no bloco **Criar e implantar** na folha **DATA FACTORY** para **CustomActivityFactory**. Você vê o Data Factory Editor.
 2. Clique em **Novo armazenamento de dados** na barra de comandos e escolha **Armazenamento do Azure**. Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor.
-    
+
     ![Novo armazenamento de dados – Armazenamento do Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Substitua o `<accountname>` pelo nome de sua conta de armazenamento do Azure e `<accountkey>` pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
@@ -1025,7 +1025,7 @@ O exemplo do [Azure Data Factory – ambiente local](https://github.com/gbrueckl
 | Amostra | Qual atividade personalizada realiza |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory. |
-| [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo ML do Azure e faz análise de opinião, contagem de pontos, previsão, etc. |
+| [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo do Azure Machine Learning Studio e faz análise de sentimento, pontuação, previsão, etc. |
 | [Executar Script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. |
 | [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Usa versões de assembly diferente daquelas usadas pelo iniciador do Data Factory |
 | [Reprocessar um modelo no Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocessar um modelo no Azure Analysis Services. |

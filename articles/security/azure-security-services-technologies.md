@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384880"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097650"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
@@ -84,7 +84,11 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Grupos de &nbsp;Segurança de &nbsp;Rede](../virtual-network/virtual-networks-nsg.md)| Um recurso de controle de acesso baseado em rede usando 5 tuplas para fazer permitir ou negar as decisões.  |
 | [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Um dispositivo de rede usado como um ponto de extremidade VPN para permitir acesso entre locais às redes virtuais do Azure.  |
 | [Application Gateway do Azure](../application-gateway/application-gateway-introduction.md)|Um balanceador de carga de aplicativo web avançado que pode rotear com base na URL e executar o descarregamento de SSL. |
+|[WAF](../application-gateway/waf-overview.md) (Firewall do aplicativo Web)|Um recurso do Gateway de Aplicativo que fornece proteção centralizada dos aplicativos Web contra explorações e vulnerabilidades comuns|
 | [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md)|Um balanceador de carga de rede do aplicativo TCP/UDP. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| Uma conexão WAN dedicada entre redes locais e Redes Virtuais do Azure. |
 | [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)| Um balanceador de carga do DNS global.|
 | [Proxy de aplicativo do Azure](../active-directory/active-directory-application-proxy-get-started.md)| Um front-end de autenticação usado para proteger o acesso remoto para aplicativos da web hospedados no local. |
+|[Firewall do Azure](../firewall/overview.md)|Um serviço de segurança de rede gerenciado baseado em nuvem que protege os recursos da Rede Virtual do Azure.|
+|[Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicativo, fornece defesa contra ataques DDoS.|
+|[Pontos de extremidade do serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado de rede virtual e a identidade da VNet aos serviços do Azure através de uma conexão direta.|

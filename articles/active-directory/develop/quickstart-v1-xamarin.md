@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967516"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097921"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início Rápido: Criar um aplicativo Xamarin que integre a entrada com a conta da Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início Rápido: Criar um aplicativo Xamarin que integra a entrada com a conta da Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -187,7 +187,7 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 Agora você tem um aplicativo Xamarin em funcionamento que pode autenticar usuários e chamar as APIs de Web com segurança usando OAuth 2.0 em cinco plataformas diferentes.
 
-## <a name="step-5-populate-your-tenant"></a>Etapa 5: Preencher seu locatário 
+## <a name="step-5-populate-your-tenant"></a>Etapa 5: Preencher o locatário 
 
 Se você ainda não fez isso, agora é o momento de popular seu locatário com alguns usuários.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o BlueJeans para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar BlueJeans para provisionamento automático do usuário com Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no BlueJeans.
 services: active-directory
 documentationcenter: ''
@@ -8,21 +8,21 @@ writer: zhchia
 manager: beatrizd-msft
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: ce27a6f78dfdeb00e1e7b2c82c928d28f1504a1d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 91271888adf8e467e807c409f445fe85e9c3aa22
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347506"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169885"
 ---
-# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar o BlueJeans para o provisionamento automático de usuário
+# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar BlueJeans para provisionamento automático do usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no BlueJeans e no Azure AD (Azure Active Directory) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no BlueJeans.
 

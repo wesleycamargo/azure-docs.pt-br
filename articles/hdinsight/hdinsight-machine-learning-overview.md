@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742993"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077719"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
 
@@ -42,13 +42,13 @@ O Microsoft Azure Machine Learning fornece ferramentas para modelar análises pr
 
 ![Criar análises avançadas acessíveis ao Hadoop com Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Criar recursos para dados em um cluster do HDInsight Hadoop usando [consultas do Hive](../machine-learning/team-data-science-process/create-features-hive.md). *A engenharia de recursos* tenta aumentar o poder preditivo dos algoritmos de aprendizado, criando recursos a partir de dados brutos que facilitam o processo de aprendizado. É possível executar consultas HiveQL do Azure ML e acessar os dados processados no Hive e armazenados no Armazenamento de Blobs, usando o [Módulo para Importação de Dados](../machine-learning/studio/import-data.md).
+Criar recursos para dados em um cluster do HDInsight Hadoop usando [consultas do Hive](../machine-learning/team-data-science-process/create-features-hive.md). *A engenharia de recursos* tenta aumentar o poder preditivo dos algoritmos de aprendizado, criando recursos a partir de dados brutos que facilitam o processo de aprendizado. É possível executar consultas do HiveQL no Azure Machine Learning Studio e acessar dados processados no Hive e armazenados no armazenamento de blobs, usando o [módulo Importação de Dados](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Kit de Ferramentas Cognitivas da Microsoft
 
 [Aprendizado profundo](https://www.microsoft.com/en-us/research/group/dltc/) é um branch de aprendizado de máquina que usa redes neurais, inspirado nos processos biológicos do cérebro humano. Muitos pesquisadores veem o aprendizado profundo como uma abordagem promissora para aprimorar a inteligência artificial. Exemplos de aprendizado profundo são os tradutores de idiomas falados, sistemas de reconhecimento de imagens e raciocínio de máquina.
 
-Para ajudar a avançar seu próprio trabalho no aprendizado profundo, a Microsoft desenvolveu o [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Este kit de ferramentas está sendo usado por uma grande variedade de produtos da Microsoft, por empresas em todo o mundo com a necessidade de implantar aprendizado profundo em escala e por estudantes interessados nos algoritmos e técnicas mais recentes. 
+Para ajudar a avançar seu próprio trabalho no aprendizado profundo, a Microsoft desenvolveu o [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Este kit de ferramentas está sendo usado por uma grande variedade de produtos da Microsoft, por empresas em todo o mundo com a necessidade de implantar aprendizado profundo em escala e por estudantes interessados nos algoritmos e técnicas mais recentes.
 
 ## <a name="see-also"></a>Consulte também
 

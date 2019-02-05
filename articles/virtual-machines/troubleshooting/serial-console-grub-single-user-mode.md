@@ -14,29 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580137"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103302"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o Console Serial para acessar GRUB e Modo de Usuário Único
-O GRUB é o GRand Unified Bootloader. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
+GRUB é o GRand Unified Bootloader, que provavelmente será a primeira informação que você verá ao inicializar uma VM. Como é exibido antes do sistema operacional ser iniciado, ele não é acessível via SSH. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
 
 O modo de usuário único é um ambiente mínimo com o mínimo de funcionalidade. Ele pode ser útil para investigar problemas de inicialização, do sistema de arquivos ou de rede. Menos serviços podem ser executados em segundo plano e, dependendo do nível de execução, um sistema de arquivos talvez nem possa ser montado automaticamente.
 
-O modo de usuário único também é útil em situações nas quais a VM só pode ser configurada para aceitar chaves SSH para o logon. Nesse caso, você poderá usar o modo de usuário único para criar uma conta com a autenticação de senha.
+O modo de usuário único também é útil em situações nas quais a VM só pode ser configurada para aceitar chaves SSH para o logon. Nesse caso, você poderá usar o modo de usuário único para criar uma conta com a autenticação de senha. Observe que o serviço de console serial permitirá que apenas usuários com acesso de nível Colaborador ou superior acessem o console serial de uma VM.
 
-Para entrar no modo de usuário único, você precisará inserir o GRUB quando a VM estiver sendo inicializada e modificar a configuração de inicialização no GRUB. Isso pode ser feito com o console serial da VM.
+Para entrar no modo de usuário único, você precisará inserir o GRUB quando a VM estiver sendo inicializada e modificar a configuração de inicialização no GRUB. Instruções detalhadas para inserir o GRUB são apresentadas a seguir. Em geral, é possível usar o botão Reiniciar no console serial da VM para reiniciar a VM e mostrar o GRUB, se a VM tiver sido configurada para mostrar o GRUB.
+
+![Botão Reiniciar do Console Serial do Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
 ## <a name="general-grub-access"></a>Acesso geral ao GRUB
 Para acessar o GRUB, você precisará reiniciar a VM mantendo aberta a folha do console serial. Algumas distribuições exigirão a entrada do teclado para mostrar o GRUB, enquanto outras mostrarão o GRUB automaticamente por alguns segundos e permitirão que a entrada de teclado do usuário cancele o tempo limite.
 
 Você desejará garantir que o GRUB esteja habilitado na sua VM para que seja possível acessar o modo de usuário único. Dependendo da sua distribuição, pode haver algum trabalho de configuração para garantir que o GRUB esteja habilitado. Informações específicas de distribuição estão disponíveis abaixo e [neste link](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
-### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Reiniciar a VM para acessar o GRUB no console serial
-A reinicialização da VM com a folha do console serial aberta poderá ser feita com um comando SysRq `'b'` se [SysRq](./serial-console-nmi-sysrq.md) estiver habilitado ou clicando no botão Reiniciar na folha Visão geral (abra a VM em uma nova guia do navegador para reinicializar sem fechar a folha do console serial). Siga as instruções específicas da distribuição abaixo para saber o que esperar do GRUB ao reinicializar.
+### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Reiniciar a VM para acessar o GRUB no Console Serial
+É possível reiniciar a VM dentro do console serial, navegando até o botão liga/desliga e clicando em "Reiniciar VM". Isso iniciará uma reinicialização da VM e você verá uma notificação no portal do Azure sobre a reinicialização.
+Reiniciar a VM também pode ser feito com um comando SysRq `'b'`, se [SysRq](./serial-console-nmi-sysrq.md) estiver habilitado. Siga as instruções específicas da distribuição abaixo para saber o que esperar do GRUB ao reinicializar.
+
+![Reiniciar Console Serial do Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Acesso geral ao modo de usuário único
 O acesso manual ao modo de usuário único poderá ser necessário quando você não configurar uma conta com autenticação de senha. Você precisará modificar a configuração do GRUB para inserir manualmente o modo de usuário único. Depois que fizer isso, confira [Usar o modo de usuário único para redefinir ou adicionar uma senha](#-Use-Single-User-Mode-to-reset-or-add-a-password) para obter mais instruções.

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: e4ed0db3a08937c3c8b51e2c8af5e566b59df4c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970950"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097292"
 ---
 # <a name="web-api"></a>API Web
 
 Os Aplicativos de API Web são aplicativos Web que precisam obter recursos de uma API Web. Nesse cenário, há dois tipos de identidade que o aplicativo Web pode usar para autenticar e chamar a API Web:
 
 - **Identidade de aplicativo**: esse cenário usa a concessão de credenciais do cliente OAuth 2.0 para se autenticar como o aplicativo e acessar a API Web. Ao usar uma identidade de aplicativo, a API da Web só pode detectar que o aplicativo Web a está chamando, uma vez que a API Web não recebe nenhuma informação sobre o usuário. Se o aplicativo receber informações sobre o usuário, ele será enviado por meio do protocolo do aplicativo e ele não será assinado pelo Azure AD. A API da Web confia que o aplicativo Web autenticou o usuário. Por esse motivo, esse padrão é chamado de subsistema confiável.
-- **Identidade de usuário delegado**: o cenário pode ser realizado de duas maneiras, OpenID Connect e concessão de código de autorização OAuth 2.0 com um cliente confidencial. O aplicativo Web obtém um token de acesso para o usuário, o que prova para a API da Web que o usuário foi autenticado com êxito para o aplicativo Web e que o aplicativo Web foi capaz de obter uma identidade de usuário delegado para chamar a API da Web. Esse token de acesso é enviado na solicitação para a API da Web, que autoriza o usuário e retorna o recurso desejado.
+- **Identidade do usuário delegado** - Esse cenário pode ser realizado de duas maneiras: Concessão do código de autorização do OAuth 2.0 e OpenID Connect com um cliente confidencial. O aplicativo Web obtém um token de acesso para o usuário, o que prova para a API da Web que o usuário foi autenticado com êxito para o aplicativo Web e que o aplicativo Web foi capaz de obter uma identidade de usuário delegado para chamar a API da Web. Esse token de acesso é enviado na solicitação para a API da Web, que autoriza o usuário e retorna o recurso desejado.
 
 A identidade do aplicativo e os tipos de identidade do usuário delegado são discutidos no fluxo abaixo. A principal diferença entre eles é que a identidade de usuário delegado deve primeiramente adquirir um código de autorização antes que o usuário possa fazer logon e acessar a API da Web.
 

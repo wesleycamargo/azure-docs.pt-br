@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069498"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912707"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
@@ -85,8 +85,6 @@ Uma política de tempo de vida do token é um tipo de objeto de política que co
 | Idade Máxima de Token de Sessão Multifator |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e não persistentes) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para esses atributos.
-* <sup>2</sup>Se **MaxAgeSessionSingleFactor** não for definido, esse valor usará o valor de **MaxAgeSingleFactor**. Se nenhum parâmetro for definido, a propriedade usará o valor padrão (until-revoked).
-* <sup>3</sup>Se **MaxAgeSessionMultiFactor**, não for definido, esse valor usará o valor de **MaxAgeMultiFactor**. Se nenhum parâmetro for definido, a propriedade usará o valor padrão (until-revoked).
 
 ### <a name="exceptions"></a>Exceções
 | Propriedade | Afeta | Padrão |
@@ -114,7 +112,7 @@ Todos os períodos de tempo usados aqui são formatados de acordo com o objeto C
 > [!NOTE]
 > Veja um exemplo de cenários.
 >
-> Um usuário deseja acessar dois aplicativos Web: Aplicativo Web A e Aplicativo Web B.
+> Um usuário quer acessar dois aplicativos Web: Aplicativo Web A e Aplicativo Web B.
 > 
 > Fatores:
 > * Os dois aplicativos Web estão na mesma organização pai.
@@ -136,16 +134,16 @@ Todos os períodos de tempo usados aqui são formatados de acordo com o objeto C
 ### <a name="access-token-lifetime"></a>Tempo de Vida do Token de Acesso
 **Cadeia de caracteres:** AccessTokenLifetime
 
-**Afeta:** tokens de acesso, tokens de ID
+**Afeta:** Tokens de acesso, tokens de ID
 
-**Resumo:** essa política controla por quanto tempo tokens de acesso e ID para esse recurso são considerados válidos. A redução da propriedade de Tempo de vida útil do token acesso minimiza o risco de uso de um token de acesso ou de ID por um ator mal-intencionado durante um longo período. (Esses tokens não podem ser revogados.) A desvantagem é que o desempenho é afetado negativamente, pois os tokens precisam ser substituído com mais frequência.
+**Resumo:** Essa política controla por quanto tempo o acesso e os tokens de ID desse recurso serão considerados válidos. A redução da propriedade de Tempo de vida útil do token acesso minimiza o risco de uso de um token de acesso ou de ID por um ator mal-intencionado durante um longo período. (Esses tokens não podem ser revogados.) A desvantagem é que o desempenho é afetado negativamente, pois os tokens precisam ser substituído com mais frequência.
 
 ### <a name="refresh-token-max-inactive-time"></a>Tempo Máximo Inativo de Token de Atualização
 **Cadeia de caracteres:** MaxInactiveTime
 
-**Afeta:** tokens de atualização
+**Afeta:** Tokens de atualização
 
-**Resumo:** essa política controla a idade que um token de atualização pode ter antes que um cliente não possa mais usá-lo para recuperar um novo par de tokens de atualização/acesso ao tentar acessar esse recurso. Como um novo token de atualização normalmente retorna quando um token de atualização é usado, essa política impede o acesso se o cliente tentar acessar qualquer recurso usando o token de atualização atual durante o período especificado de tempo.
+**Resumo:** Esta política controla quanto tempo um token de atualização poderá ter, antes que um cliente não possa mais utilizá-lo para recuperar um novo par de tokens de acesso/atualização ao tentar acessar esse recurso. Como um novo token de atualização normalmente retorna quando um token de atualização é usado, essa política impede o acesso se o cliente tentar acessar qualquer recurso usando o token de atualização atual durante o período especificado de tempo.
 
 Essa política força os usuários que não estão ativos no cliente a se autenticarem novamente para recuperar um novo token de atualização.
 
@@ -154,36 +152,36 @@ A propriedade Tempo Máximo Inativo do Token de Atualização deve ser definida 
 ### <a name="single-factor-refresh-token-max-age"></a>Idade Máxima de Token de Atualização de Fator Único
 **Cadeia de caracteres:** MaxAgeSingleFactor
 
-**Afeta:** tokens de atualização
+**Afeta:** Tokens de atualização
 
-**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de atualização para obter um novo par de tokens de acesso/atualização após a última autenticação bem-sucedida usando apenas um único fator. Depois que um usuário autenticar e receber um novo token de atualização, ele poderá usar o fluxo do token de atualização para o período especificado. (Isso será verdadeiro desde que o token de atualização atual não seja revogado, e não fique sem uso por mais tempo do que o tempo de inatividade.) Nesse ponto, o usuário é forçado a se autenticar novamente para receber um novo token de atualização.
+**Resumo:** Essa política controla por quanto tempo um usuário poderá usar um token de atualização para obter um novo par de tokens de acesso/atualização, após a última autenticação com êxito usando apenas um único fator. Depois que um usuário autenticar e receber um novo token de atualização, ele poderá usar o fluxo do token de atualização para o período especificado. (Isso será verdadeiro desde que o token de atualização atual não seja revogado, e não fique sem uso por mais tempo do que o tempo de inatividade.) Nesse ponto, o usuário é forçado a se autenticar novamente para receber um novo token de atualização.
 
 Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou menor do que a propriedade Idade Máxima de Token de Atualização Multifator.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Idade Máxima de Token de Atualização Multifator
 **Cadeia de caracteres:** MaxAgeMultiFactor
 
-**Afeta:** tokens de atualização
+**Afeta:** Tokens de atualização
 
-**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de atualização para obter um novo par de tokens de acesso/atualização após a última autenticação bem-sucedida múltiplos fatores. Depois que um usuário autenticar e receber um novo token de atualização, ele poderá usar o fluxo do token de atualização para o período especificado. (Isso será verdadeiro desde que o token de atualização atual não seja revogado, e não fique sem uso por mais tempo do que o tempo de inatividade.) Nesse ponto, os usuários são forçados a autenticar novamente para receber um novo token de atualização.
+**Resumo:** Essa política controla por quanto tempo um usuário poderá usar um token de atualização para obter um novo par de tokens de acesso/atualização, após a última autenticação com êxito usando múltiplos fatores. Depois que um usuário autenticar e receber um novo token de atualização, ele poderá usar o fluxo do token de atualização para o período especificado. (Isso será verdadeiro desde que o token de atualização atual não seja revogado, e não fique sem uso por mais tempo do que o tempo de inatividade.) Nesse ponto, os usuários são forçados a autenticar novamente para receber um novo token de atualização.
 
 Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou maior do que a propriedade Idade Máxima de Token de Atualização de Fator Único.
 
 ### <a name="single-factor-session-token-max-age"></a>Idade Máxima de Token de Sessão de Fator Único
 **Cadeia de caracteres:** MaxAgeSessionSingleFactor
 
-**Afeta:** tokens de sessão (persistentes e não persistentes)
+**Afeta:** Tokens de sessão (persistentes e não persistentes)
 
-**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de sessão para obter uma nova ID e token de sessão após a última autenticação bem-sucedida usando apenas um único fator. Depois que um usuário autenticar e receber um novo token de sessão o, ele poderá usar o fluxo do token de sessão para o período especificado. (Isso será verdadeiro desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período especificado, o usuário será forçado a autenticar novamente para receber um novo token de sessão.
+**Resumo:** Essa política controla por quanto tempo um usuário poderá usar um token de sessão para obter uma nova ID e token de sessão, após a última autenticação com êxito usando apenas um único fator. Depois que um usuário autenticar e receber um novo token de sessão o, ele poderá usar o fluxo do token de sessão para o período especificado. (Isso será verdadeiro desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período especificado, o usuário será forçado a autenticar novamente para receber um novo token de sessão.
 
 Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou menor do que a propriedade Idade Máxima de Token de Sessão Multifator.
 
 ### <a name="multi-factor-session-token-max-age"></a>Idade Máxima de Token de Sessão Multifator
 **Cadeia de caracteres:** MaxAgeSessionMultiFactor
 
-**Afeta:** tokens de sessão (persistentes e não persistentes)
+**Afeta:** Tokens de sessão (persistentes e não persistentes)
 
-**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de sessão para obter uma nova ID e token de sessão após a última autenticação bem-sucedida usando apenas múltiplos fatores. Depois que um usuário autenticar e receber um novo token de sessão o, ele poderá usar o fluxo do token de sessão para o período especificado. (Isso será verdadeiro desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período especificado, o usuário será forçado a autenticar novamente para receber um novo token de sessão.
+**Resumo:** Essa política controla por quanto tempo um usuário poderá usar um token de sessão para obter uma nova ID e um token de sessão, após a última vez em que foi autenticado com êxito usando múltiplos fatores. Depois que um usuário autenticar e receber um novo token de sessão o, ele poderá usar o fluxo do token de sessão para o período especificado. (Isso será verdadeiro desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período especificado, o usuário será forçado a autenticar novamente para receber um novo token de sessão.
 
 Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou maior do que a propriedade Idade Máxima de Token de Sessão de Fator Único.
 
@@ -220,7 +218,7 @@ Para começar, execute uma destas etapas:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Exemplo: Gerenciar a política padrão de uma organização
-Neste exemplo, crie uma política que permita aos usuários fazerem logon com menos frequência em toda sua organização. Para fazer isso, crie uma política de tempo de vida de token para Tokens de Atualização de Fator Único que é aplicada em toda sua organização. Essa política será aplicada a todos os aplicativos no a organização e a cada entidade de serviço que ainda não tenha uma política definida para ela.
+Neste exemplo, crie uma política que permita aos usuários fazerem logon com menos frequência em toda sua organização. Para fazer isso, crie uma política de tempo de vida de token para Tokens de Atualização de Fator Único que é aplicada em toda sua organização. A política será aplicada a todos os aplicativos da organização e a cada entidade de serviço que ainda não possuir um conjunto de políticas.
 
 1. Crie uma política de tempo de vida de token.
 
