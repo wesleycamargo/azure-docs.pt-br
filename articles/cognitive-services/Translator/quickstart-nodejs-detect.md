@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Detectar o idioma de texto, Node.js – API de Tradução de Texto'
+title: 'Início rápido: Detectar o idioma do texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a identificar o idioma do texto fornecido usando o Node.js e a API REST de Tradução de Texto.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: d70a420f01c7bf3486093951e89c9f48db148d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ecf762d47a5e8aa9762b67d5b6419bede91c142c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248746"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222041"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com Node.js
 
@@ -105,7 +105,7 @@ request(options, function(err, res, body){
 ```
 
 >[!NOTE]
-> Neste exemplo, estamos definindo a solicitação HTTP no objeto `options`. No entanto, o módulo de solicitação também dá suporte a métodos de conveniência, como `.post` e `.get`. Para saber mais, veja [métodos de conveniência](https://github.com/request/request#convenience-methods).
+> Neste exemplo, estamos definindo a solicitação HTTP no objeto `options`. No entanto, o módulo de solicitação também dá suporte a métodos de conveniência, como `.post` e `.get`. Para obter mais informações, confira [Métodos de conveniência](https://github.com/request/request#convenience-methods).
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 

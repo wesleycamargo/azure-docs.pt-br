@@ -1,24 +1,24 @@
 ---
-title: 'Exemplo: chamar a API de Detecção de Emoções para Vídeo'
+title: 'Exemplo: Chamar a API de Detecção de Emoções para Vídeo'
 titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API de Detecção de Emoções para Vídeo em Serviços Cognitivos.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211161"
 ---
-# <a name="example-call-emotion-api-for-video"></a>Exemplo: chamar a API de Detecção de Emoções para Vídeo
+# <a name="example-call-emotion-api-for-video"></a>Exemplo: Chamar API de Detecção de Emoções para Vídeo
 
 > [!IMPORTANT]
 > A API de Detecção de Emoções será preterida em 15 de fevereiro de 2019. A funcionalidade de Detecção de Emoções agora está disponível como parte da [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -28,7 +28,7 @@ Este guia demonstra como chamar a API de Detecção de Emoções para Vídeo. Os
 ### <a name="Prep">Preparação</a>
 Para usar a API de Detecção de Emoções para Vídeo, será necessário um vídeo que inclua pessoas, preferencialmente vídeos em que as pessoas estejam voltadas para a câmera.
 
-### <a name="Step1">Etapa 1: autorizar a chamada à API</a>
+### <a name="Step1">Etapa 1: Autorizar a chamada à API</a>
 Todas as chamadas para a API de Detecção de Emoções para Vídeo exigem uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação. Para passar a chave de assinatura por meio de uma cadeia de caracteres de consulta, consulte a URL de solicitação abaixo para a API de Detecção de Emoções para Vídeo como um exemplo:
 
 ```
@@ -48,7 +48,7 @@ var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
 Para obter uma chave de assinatura, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">Etapa 2: faça upload de um vídeo para o serviço e verifique o status</a>
+### <a name="Step2">Etapa 2: Carregar um vídeo para o serviço e verifique o status</a>
 A maneira mais básica de executar qualquer uma das APIs de Detecção de Emoções para Vídeo é carregar um vídeo diretamente. Isso é feito, enviando uma solicitação "POST" com o tipo de conteúdo application/octet-stream junto com os dados lidos de um arquivo de vídeo. O tamanho máximo do vídeo é de 100 MB.
 
 Usando a biblioteca de clientes, a estabilização por meio do upload é feita passando em um objeto de fluxo. Veja o exemplo abaixo:
@@ -107,7 +107,7 @@ Quando o status de VideoOperationResult é mostrado como "Com êxito", o resulta
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">Etapa 3: recuperar e entender o reconhecimento de emoções e acompanhar a saída JSON</a>
+### <a name="Step3">Etapa 3: Recuperar e entender o reconhecimento de emoções e acompanhar a saída JSON</a>
 
 O resultado da saída contém os metadados das faces dentro do arquivo fornecido no formato JSON.
 

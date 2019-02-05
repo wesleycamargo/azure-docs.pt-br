@@ -5,18 +5,18 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1bb2c4b73b29d832a289c7a5c1c86b958302086a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813950"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153446"
 ---
-# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Início Rápido: fazer sua primeira solicitação de Pesquisa de Entidade do Bing
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Início Rápido: Fazer sua primeira solicitação de Pesquisa de Entidade do Bing
 
 A API de Pesquisa de Entidade do Bing envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais. Os resultados de local incluem restaurantes, hotel ou outras empresas locais. Para locais, a consulta pode especificar o nome da empresa local ou ela pode solicitar uma lista (por exemplo, restaurantes próximos a mim). Os resultados de entidade incluem pessoas, lugares ou coisas. Local neste contexto é atrações turísticas, estados, países, etc. 
 

@@ -6,20 +6,20 @@ services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 463ad901edeec3790586f9494a7411b678c4ecf8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831170"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183604"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Início rápido para API de Sugestão Automática do Bing com Ruby 
 
-Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com Ruby. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial inserida pelo usuário na caixa de pesquisa. Normalmente, você chama essa API sempre que o usuário digita um novo caractere na caixa de pesquisa e, em seguida, exibe as sugestões na lista suspensa da caixa de pesquisa. Este artigo mostra como enviar uma solicitação que retorna as cadeias de consulta sugeridas para *navegar*.
+Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com o Ruby. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial inserida pelo usuário na caixa de pesquisa. Normalmente, você chama essa API sempre que o usuário digita um novo caractere na caixa de pesquisa e, em seguida, exibe as sugestões na lista suspensa da caixa de pesquisa. Este artigo mostra como enviar uma solicitação que retorna as cadeias de consulta sugeridas para *navegar*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632856"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212487"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: como detectar sentimento com a Análise de Texto
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: Como detectar o idioma em Análise de Texto
 
 A [API de análise de sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e retorna uma pontuação de sensibilidade para cada documento, variando de 0 (negativo) a 1 (positivo).
 
@@ -88,14 +88,14 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 > [!Tip]
 > Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) para estruturar uma solicitação e POSTAR no serviço.
 
-## <a name="step-2-post-the-request"></a>Etapa 2: postar a solicitação
+## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
 A análise é executada após o recebimento da solicitação. O serviço aceita até 100 solicitações por minuto. Cada solicitação pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
 
-## <a name="step-3-view-results"></a>Etapa 3: exibir resultados
+## <a name="step-3-view-results"></a>Etapa 3: Exibir resultados
 
 O analisador de sentimento classifica texto como predominantemente positivo ou negativo, atribuindo uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre 0,5 exatamente. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
 

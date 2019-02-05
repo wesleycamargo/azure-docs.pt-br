@@ -1,23 +1,23 @@
 ---
-title: 'Exemplo: detectar faces em imagens – API de Detecção Facial'
+title: 'Exemplo: Detectar faces em imagens – API de Detecção Facial'
 titleSuffix: Azure Cognitive Services
 description: Use a API de Detecção Facial para detectar faces em imagens.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124041"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214204"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>Exemplo: como detectar faces em imagens
+# <a name="example-how-to-detect-faces-in-image"></a>Exemplo: Como detectar faces em Imagem
 
 Este guia demonstrará como detectar faces de uma imagem, com atributos faciais como sexo, idade ou pose extraídos. As amostras são gravadas em C# usando a biblioteca de clientes da API de Detecção Facial. 
 
@@ -40,16 +40,16 @@ Neste exemplo, demonstraremos os recursos a seguir:
 
 Para executar esses recursos, será necessário preparar uma imagem com pelo menos uma face limpa. 
 
-## <a name="step-1-authorize-the-api-call"></a>Etapa 1: autorizar a chamada à API
+## <a name="step-1-authorize-the-api-call"></a>Etapa 1: Autorizar a chamada à API
 
-Cada chamada à API de Detecção Facial exige uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação. Para passar a chave de assinatura através da cadeia de caracteres de consulta, consulte a URL de solicitação para a [Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como um exemplo:
+Cada chamada à API de Detecção Facial exige uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação. Para passar a chave de assinatura por meio da cadeia de caracteres de consulta, veja a URL de solicitação para [Face – Detecção](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como um exemplo:
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription Key>
 ```
 
-Como alternativa, a chave de assinatura também pode ser especificada no cabeçalho da solicitação HTTP: **ocp-apim-subscription-key: &lt;Chave de Assinatura&gt;** Ao usar uma biblioteca de clientes, a chave de assinatura é passada por meio do construtor da classe FaceServiceClient. Por exemplo: 
+Como alternativa, a chave de assinatura também pode ser especificada no cabeçalho da solicitação HTTP: **ocp-apim-subscription-key: &lt;Chave de Assinatura&gt;** Ao usar uma biblioteca de clientes, a chave de assinatura é passada através do construtor da classe FaceServiceClient. Por exemplo: 
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
@@ -90,7 +90,7 @@ foreach (var face in faces)
 
 A propriedade FaceRectangle que é retornada com faces detectadas é essencialmente locais na face em pixels. Normalmente, esse retângulo contém os olhos, as sobrancelhas, o nariz e a boca – a parte superior da cabeça, as orelhas e o queixo não estão incluídos. Se você recortar um retrato completo da cabeça ou plano intermediário (uma imagem tipo foto de ID), poderá expandir a área do enquadramento de face retangular, pois a área da face pode ser muito pequena para alguns aplicativos. Localizar uma face com mais precisão, usando pontos de referência facial (localizar recursos faciais ou mecanismos de direção facial) descrito na próxima seção, será útil.
 
-## <a name="step-3-understanding-and-using-face-landmarks"></a>Etapa 3: Compreender e usar pontos de referência facial
+## <a name="step-3-understanding-and-using-face-landmarks"></a>Etapa 3: Compreender e usar pontos de referência de detecção facial
 
 Pontos de referência facial são uma série de pontos detalhados em uma face, normalmente pontos de componentes faciais como as pupilas, canto do olho ou nariz. Os pontos de referência facial são atributos opcionais que podem ser analisados durante a detecção facial. É possível passar 'true' como um valor booliano para o parâmetro de consulta returnFaceLandmarks, ao chamar a [Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), ou usar o parâmetro opcional returnFaceLandmarks para o método DetectAsync, da classe FaceServiceClient, para incluir os pontos de referência facial nos resultados da detecção.
 

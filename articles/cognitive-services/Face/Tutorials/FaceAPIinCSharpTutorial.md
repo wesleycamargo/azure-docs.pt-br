@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Detectar e exibir dados faciais em uma imagem usando o SDK do .NET'
+title: 'Tutorial: Detectar e exibir dados de rosto em uma imagem usando o SDK do .NET'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo Windows que usa a API de Detecção Facial para detectar e enquadrar rostos em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852666"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221174"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo do WPF para exibir dados faciais em uma imagem
+# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo do WPF para exibir dados de rosto em uma imagem
 
 Neste tutorial, você aprenderá a usar a API de Detecção Facial do Azure, por meio do cliente SDK do .NET, para detectar rostos em uma imagem e apresentar os dados na interface do usuário. Você criará um aplicativo simples do WPF (Windows Presentation Framework) que detecta rostos, desenha um quadro em torno de cada um deles e exibe uma descrição do rosto na barra de status. 
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123072"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222891"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Exemplo: como usar o recurso em larga escala
+# <a name="example-how-to-use-the-large-scale-feature"></a>Exemplo: Como usar o recurso de larga escala
 
 Este guia é um artigo avançado sobre a migração do código de ampliação PersonGroup e FaceList existente para LargePersonGroup e LargeFaceList respectivamente.
 Este guia demonstra o processo de migração com a suposição de saber o uso básico de PersonGroup e FaceList.
@@ -39,13 +39,13 @@ No entanto, a desvantagem é que as novas pessoas/faces adicionadas não aparece
 
 Se você não estiver familiarizado com os seguintes conceitos apresentados neste guia, consulte as definições no [glossário](../Glossary.md):
 
-- LargePersonGroup: Uma coleção de pessoas com capacidade de até 1.000.000.
-- LargeFaceList: Uma coleção de Faces com capacidade de até 1.000.000.
-- Treino: Um processo antes para garantir o desempenho de identificação/FindSimilar.
-- Identificação: identificar uma ou mais faces de um LargePersonGroup/PersonGroup.
+- LargePersonGroup: uma coleção de Pessoas com capacidade de até 1.000.000.
+- LargeFaceList: uma coleção de Rostos com capacidade de até 1.000.000.
+- Treinar: um processo antes para garantir o desempenho de identificação/FindSimilar.
+- Identification: identificar uma ou mais faces de um LargePersonGroup/PersonGroup.
 - FindSimilar: pesquisar faces semelhantes de um FaceList ou LargeFaceList.
 
-## <a name="step-1-authorize-the-api-call"></a>Etapa 1: autorizar a chamada à API
+## <a name="step-1-authorize-the-api-call"></a>Etapa 1: Autorizar a chamada à API
 
 Ao usar uma biblioteca de clientes da API de Detecção Facial, a chave de assinatura e o ponto de extremidade de assinatura são passados para o construtor da classe FaceServiceClient. Por exemplo: 
 

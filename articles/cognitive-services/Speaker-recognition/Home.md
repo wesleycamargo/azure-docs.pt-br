@@ -6,16 +6,16 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016849"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216754"
 ---
 # <a name="speaker-recognition-api"></a>API de Reconhecimento do Locutor
 
@@ -38,7 +38,7 @@ No registro, a voz do locutor é registrada com uma frase específica e, em segu
 
 Na verificação, uma voz e frase de entrada são comparadas com a assinatura de voz e a frase do registro, a fim de verificar se elas são da mesma pessoa e se estão falando a frase correta.
 
-Para obter mais detalhes sobre a verificação do locutor, consulte a API [Locutor - verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Para obter mais detalhes sobre a verificação do locutor, veja a API [Locutor – verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identificação do locutor
 
@@ -56,4 +56,4 @@ O registro de identificação do locutor não depende do texto, o que significa 
 
 O áudio de orador desconhecido, junto com o grupo potencial de locutores, é fornecido durante o reconhecimento. A voz de entrada é comparada com todos os locutores para determinar o autor dessa voz e, se for encontrada uma correspondência, a identidade do orador será retornada.
 
-Para obter mais detalhes sobre a verificação do locutor, consulte a API [Locutor - Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Para obter mais detalhes sobre a identificação do locutor, veja a API [Locutor – Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

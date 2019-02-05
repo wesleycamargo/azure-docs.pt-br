@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Visualização de URL do Projeto, Node.js'
+title: 'Início rápido: Visualização de URL do Projeto, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Comece a usar a Visualização de URL dos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 3367b39333c9d7334bc56b3acdf00453cc9705c0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 33bc6cd74dc0dd61f727a7ebcbbfc1d0bb85506f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465042"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209070"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>Início Rápido: Visualização de URL com Node.js 
 
@@ -37,7 +37,7 @@ Ele é implementado nas etapas a seguir:
 
 O código completo para esta demonstração é:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -83,7 +83,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Exemplo de código em C#](csharp.md)

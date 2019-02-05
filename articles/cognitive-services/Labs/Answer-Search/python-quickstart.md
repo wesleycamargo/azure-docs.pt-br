@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Pesquisa de Resposta de Projeto, Python'
+title: 'Início Rápido: Pesquisa de Resposta do Projeto, Python'
 titlesuffix: Azure Cognitive Services
 description: Exemplo de Python, introdução ao uso da Pesquisa de Resposta de Projeto.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465501"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218285"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Início Rápido: Pesquisa de Resposta de Projeto com Python
 
@@ -41,7 +41,7 @@ Ele é implementado nas etapas a seguir:
 
 O código completo para esta demonstração é:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,7 +65,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 ## <a name="next-steps"></a>Próximas etapas
 - [Início Rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)

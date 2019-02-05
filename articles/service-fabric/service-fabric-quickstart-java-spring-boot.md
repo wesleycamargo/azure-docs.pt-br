@@ -12,17 +12,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/23/2017
+ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97dcde4cd3597262b49000f2330e487e4fa48188
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4fde75aeaf86219518daf92b67434fe9fd63f86
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241881"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297388"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início Rápido: implantar um aplicativo Spring Boot em Java no Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início Rápido: Implantar um aplicativo Java Spring Boot no Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços.
 
@@ -34,7 +34,6 @@ Neste guia de início rápido, você aprende a:
 
 * Implantar um aplicativo Spring Boot no Service Fabric
 * Implantar o aplicativo no cluster local
-* Implantar o aplicativo em um cluster no Azure
 * Expandir o aplicativo para vários nós
 * Executar failover de seu serviço sem nenhuma ocorrência de disponibilidade
 
@@ -168,68 +167,6 @@ Neste estágio, você criou um aplicativo Service Fabric para o Guia de Introdu�
 
 Agora é possível acessar o aplicativo Spring Boot que foi implantado em um cluster do Service Fabric.
 
-## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
-
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurar o cluster do Azure Service Fabric
-
-Para implantar o aplicativo em um cluster no Azure, crie seu próprio cluster.
-
-Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure e executados pela equipe do Service Fabric. Você pode usar party clusters para implantar aplicativos e saber mais sobre a plataforma. O cluster usa um certificado único e autoassinado para segurança entre nós e entre cliente e nó.
-
-Entre e ingresse em um [cluster do Linux](https://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Leiame** para localizar a senha do certificado e as instruções sobre como configurar vários ambientes para usar o certificado. Mantenha ambas as páginas **Bem-vindo** e **Leiame** abertas. Você usará algumas das instruções nas etapas a seguir.
-
-> [!Note]
-> Há um número limitado de party clusters disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de entidade, poderá aguardar um período e tentar novamente, ou pode seguir estas etapas em [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) para criar um cluster em sua assinatura.
->
-> O serviço Spring Boot está configurado para escutar o tráfego de entrada na porta 8080. Verifique se a porta está aberta no cluster. Se você estiver usando o Cluster de Entidade, essa porta estará aberta.
->
-
-O Service Fabric fornece várias ferramentas que você pode usar para gerenciar um cluster e seus aplicativos:
-
-* Service Fabric Explorer, uma ferramenta baseada no navegador.
-* CLI (Interface de Linha de Comando) do Service Fabric, que é executada sobre a CLI do Azure.
-* Comandos do PowerShell.
-
-Neste início rápido você usa a CLI do Service Fabric e o Service Fabric Explorer.
-
-Para usar a CLI, você precisa criar um arquivo PEM com base no arquivo PFX que você baixou. Para converter o arquivo, use o comando a seguir. (Para clusters de entidade, você pode copiar um comando específico para o arquivo PFX a partir das instruções na página **Leiame**.)
-
-```bash
-openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-``` 
-
-Para usar o Service Fabric Explorer, você precisa importar o arquivo PFX do certificado que você baixou do site do Cluster de Entidade para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Você precisa da senha de chave privada do PFX, que pode ser obtida na página **Leiame**.
-
-Use qualquer método com o qual você está mais familiarizado para importar o certificado em seu sistema. Por exemplo: 
-
-* No Windows: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu armazenamento pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell nas instruções **Leiame**.
-* No Mac: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado no conjunto de chaves.
-* No Ubuntu: o Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
-
-   ![Instalar certificado no Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
-
-### <a name="deploy-the-application-using-cli"></a>Implantar o aplicativo usando a CLI
-
-Agora que o aplicativo e o cluster estão prontos, é possível implantá-los no cluster diretamente da linha de comando.
-
-1. Navegue até a pasta `gs-spring-boot/SpringServiceFabric`.
-1. Execute o seguinte comando para se conectar ao cluster do Azure.
-
-    ```bash
-    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
-    ```
-1. Execute o script `install.sh`.
-
-    ```bash
-    ./install.sh
-    ```
-
-1. Abra seu navegador da Web e acesse o aplicativo em: **http://\<ConnectionIPOrUrl>:8080**.
-
-    ![Front-end do aplicativo local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
-
-Agora é possível acessar o aplicativo Spring Boot em execução em um cluster do Service Fabric no Azure.
-
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
 
 Os serviços do Service Fabric podem ser colocados em escala em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Existem várias maneiras de colocar seus serviços em escala, por exemplo, usando scripts ou comandos da CLI do Service Fabric (sfctl). As etapas a seguir usam o Service Fabric Explorer.
@@ -283,7 +220,6 @@ Neste guia de início rápido, você aprendeu a:
 
 * Implantar um aplicativo Spring Boot no Service Fabric
 * Implantar o aplicativo no cluster local
-* Implantar o aplicativo em um cluster no Azure
 * Expandir o aplicativo para vários nós
 * Executar failover de seu serviço sem nenhuma ocorrência de disponibilidade
 

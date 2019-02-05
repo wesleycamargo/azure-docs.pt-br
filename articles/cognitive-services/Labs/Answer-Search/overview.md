@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465884"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220188"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Resposta de Projeto?
 A API de Pesquisa de Resposta de Projeto usa o ponto de extremidade do Bing v7 para obter respostas para consultas interrogativas. A pergunta como "Qual é a circunferência da Terra?" retorna uma resposta com informações reais.  Uma consulta sobre uma pessoa, lugar ou coisa retorna informações sobre a entidade identificada pela consulta. Esses cenários podem ser úteis em aplicativos como bots de conversa, aplicativos de mensagens, leitores, etc.  
@@ -25,13 +25,13 @@ As consultas retornam respostas que dependem do cenário da consulta: as página
 ## <a name="endpoint"></a>Ponto de extremidade
 Para obter respostas para uma pergunta ou informações sobre uma pessoa, local ou coisa, envie uma solicitação ao ponto de extremidade da API de Pesquisa de Respostas. Use os cabeçalhos e parâmetros de URL para várias especificações.  Inclua o cabeçalho *Ocp-Apim-Subscription-Key* com um token válido.  O parâmetro market é obrigatório. Somente o market `en-us` é atualmente suportado.
 
-A consulta a seguir obtém respostas para a pergunta: "Qual é a circunferência da Terra?"
+A consulta a seguir obtém respostas à pergunta: "Qual é a circunferência da Terra?"
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 O parâmetro de URL `q=` é necessário para especificar o objeto da pesquisa.
 
@@ -39,7 +39,7 @@ O parâmetro de URL `q=` é necessário para especificar o objeto da pesquisa.
 
 A resposta inclui os cabeçalhos HTTP, páginas da Web, fatos e/ou entidades.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>Termos de uso
 A Pesquisa de Respostas de Projeto e as Tendências de Vídeo de Projeto estão sujeitas a [Requisitos de exibição e uso da Pesquisa do Bing](use-display-requirements.md).

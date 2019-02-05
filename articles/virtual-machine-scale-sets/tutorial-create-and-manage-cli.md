@@ -3,7 +3,7 @@ title: Tutorial – Criar um conjunto de dimensionamento de máquinas virtuais d
 description: Aprenda a usar a CLI do Azure para criar um conjunto de dimensionamento de máquina virtual, juntamente com algumas tarefas comuns de gerenciamento, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466130"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179473"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: criar e gerenciar uma escala de máquina virtual definida com a CLI do Azure
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais definido com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -51,7 +51,7 @@ O nome do grupo de recursos é especificado quando você cria ou modifica um con
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
-Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo a seguir criará um conjunto de dimensionamento chamado *myScaleSet* e gerará chaves SSH se elas não existirem:
+Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss). O exemplo a seguir criará um conjunto de dimensionamento chamado *myScaleSet* e gerará chaves SSH se elas não existirem:
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>Listar informações de conexão
 Um endereço IP público é atribuído ao balanceador de carga que direciona o tráfego para as instâncias de VM individuais. Por padrão, as regras de Conversão de endereços de rede (NAT) são adicionadas ao balanceador de carga do Azure, que encaminha o tráfego de conexão remota para cada VM em determinada porta. Para conectar as instâncias de VM em um conjunto de dimensionamento, crie uma conexão remota para um endereço IP público e número de porta atribuídos.
 
-Para listar os endereços e as portas para se conectar a instâncias de VM em um conjunto de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Para listar os endereços e as portas para se conectar a instâncias de VM em um conjunto de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -192,7 +192,7 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela a seguir categoriza tamanhos de VMs comuns para determinados casos de uso.
 
-| Tipo                     | Tamanhos comuns           |    DESCRIÇÃO       |
+| Type                     | Tamanhos comuns           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Propósito geral](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
 | [Computação otimizada](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -202,7 +202,7 @@ A tabela a seguir categoriza tamanhos de VMs comuns para determinados casos de u
 | [Alto desempenho](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Localizar tamanhos de instância de VM disponíveis
-Para ver uma lista de tamanhos de instância de VM disponíveis em uma região específica, use o comando [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes).
+Para ver uma lista de tamanhos de instância de VM disponíveis em uma região específica, use o comando [az vm list-sizes](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ O resultado é semelhante ao exemplo condensado abaixo, que mostra os recursos a
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>Criar um conjunto de dimensionamento com um tamanho de instância de VM específico
-Quando você criou um conjunto de dimensionamento no início do tutorial, um SKU de VM padrão *Standard_D1_v2* foi fornecido para as instâncias de VM. Você pode especificar um tamanho de instância de VM diferente com base na saída de [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `--vm-sku` para especificar um tamanho de instância de VM *Standard_F1*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
+Quando você criou um conjunto de dimensionamento no início do tutorial, um SKU de VM padrão *Standard_D1_v2* foi fornecido para as instâncias de VM. Você pode especificar um tamanho de instância de VM diferente com base na saída de [az vm list-sizes](/cli/azure/vm). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `--vm-sku` para especificar um tamanho de instância de VM *Standard_F1*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
-Quando você criou um conjunto de dimensionamento definido no início do tutorial, duas instâncias de VM foram implantadas por padrão. Você pode especificar o parâmetro `--instance-count` com [az vmss create](/cli/azure/vmss#az_vmss_create) para alterar o número de instâncias criadas com um conjunto de dimensionamento. Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento existente, você pode alterar a capacidade manualmente. O conjunto de dimensionamento cria ou remove o número necessário de instâncias de VM e configura o balanceador de carga para distribuir o tráfego.
+Quando você criou um conjunto de dimensionamento definido no início do tutorial, duas instâncias de VM foram implantadas por padrão. Você pode especificar o parâmetro `--instance-count` com [az vmss create](/cli/azure/vmss) para alterar o número de instâncias criadas com um conjunto de dimensionamento. Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento existente, você pode alterar a capacidade manualmente. O conjunto de dimensionamento cria ou remove o número necessário de instâncias de VM e configura o balanceador de carga para distribuir o tráfego.
 
 Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento manualmente, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). O seguinte exemplo aumenta o número de instâncias de VM no conjunto de dimensionamento para *3*:
 

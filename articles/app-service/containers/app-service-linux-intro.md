@@ -16,18 +16,18 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 898d663f3ef9a71944d96b0978947d10a3e26b06
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232780"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903716"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
-O [Aplicativo Web](../overview.md) é uma plataforma de computação totalmente gerenciada que foi otimizada para hospedar sites e aplicativos Web. Os clientes podem usar o Serviço de Aplicativo no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. As seções a seguir listam as pilhas de aplicativos que atualmente são suportadas.
+[Serviço de Aplicativo do Azure](../overview.md) é uma plataforma de computação totalmente gerenciada otimizada para hospedagem de sites e aplicativos Web. Os clientes podem usar o Serviço de Aplicativo no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. A seção [Idiomas](#languages) lista as pilhas de aplicativos que têm suporte no momento.
 
-## <a name="languages"></a>Linguagens
+## <a name="languages"></a>Languages
 
 O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim de aumentar a conectividade do desenvolvedor. Se não houver suporte para o tempo de execução que seu aplicativo requer nas imagens internas, haverá instruções sobre como [criar sua própria imagem do Docker](tutorial-custom-docker-image.md) a ser implantada no Aplicativo Web para Contêineres.
 
@@ -39,8 +39,6 @@ O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim
 | Python (versão prévia) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-
-Consulte [Criar um aplicativo Web Java no Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) para obter mais detalhes.
 
 ## <a name="deployments"></a>Implantações
 
@@ -75,7 +73,9 @@ O portal do Azure mostra somente os recursos que funcionam atualmente para o Apl
 
 Alguns recursos, como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Quando esses recursos estiverem disponíveis, atualizaremos nossa documentação e nosso blog sobre as alterações.
 
-O Serviço de Aplicativo no Linux só tem suporte com os planos de serviço de aplicativo [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Gratuita nem Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux. Também há uma limitação atual no que diz respeito à não misturar aplicativos Windows e Linux no mesmo grupo de recursos.
+O Serviço de Aplicativo no Linux só tem suporte com os planos de serviço de aplicativo [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Gratuita nem Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux. 
+
+Além disso, com base em uma limitação atual, não misture aplicativos do Windows e do Linux no mesmo grupo de recursos.
 
 ## <a name="troubleshooting"></a>solução de problemas
 
@@ -84,9 +84,11 @@ Para registrar `stdout` e `stderr` por meio do contêiner, você precisa habilit
 
 ![Habilitando o log][2]
 
-![Como usar o Kudu para exibir os logs do Docker][1]
+A configuração entra em vigor imediatamente. O Serviço de Aplicativo detecta a alteração das configurações e reinicia o contêiner para você automaticamente.
 
 Acesse o site SCM nas **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
+
+![Como usar o Kudu para exibir os logs do Docker][1]
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -101,7 +103,7 @@ Os artigos a seguir oferecem a você uma introdução ao Serviço de Aplicativo 
 * [Go](quickstart-docker-go.md)
 * [Aplicativos com vários contêineres](quickstart-multi-container.md)
 
-Veja também os seguintes artigos para obter mais detalhes sobre o Serviço de Aplicativo no Linux:
+Para obter mais informações sobre o Serviço de Aplicativo no Linux, confira:
 
 * [Perguntas Frequentes do Serviço de Aplicativo para Linux](app-service-linux-faq.md)
 * [Suporte de SSH para o Serviço de Aplicativo no Linux](app-service-linux-ssh-support.md)

@@ -3,20 +3,20 @@ title: Tutorial para convidar usuários de colaboração B2B em massa – Azure 
 description: Neste tutorial, você aprenderá a usar o PowerShell e um arquivo CSV para enviar convites em massa para usuários externos de colaboração do Azure AD B2B.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: c24a82d5765fef01eab9ae24f637c215c62e822d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: e40eb5c1727317b375d45da83cd712cf0b7f963c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987065"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097768"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: convidar usuários de colaboração do Azure AD B2B em massa
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Convidar usuários de colaboração B2B do Azure AD em massa
 
 Se você usar a colaboração B2B do Azure AD (Azure Active Directory) para trabalhar com parceiros externos, poderá convidar vários usuários convidados para a sua organização ao mesmo tempo. Neste tutorial, você aprenderá a usar o PowerShell para enviar convites em massa para usuários externos. Especificamente, faça o seguinte:
 
@@ -34,29 +34,29 @@ Instale a versão mais recente do módulo do Azure AD PowerShell para Graph (Azu
 
 Primeiro, verifique quais módulos estão instalados. Abra o Windows PowerShell como usuário com privilégios elevados (Executar como administrador) e execute o seguinte comando:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Com base na saída, realize um destes procedimentos:
 
 - Se nenhum resultado for retornado, execute o seguinte comando para instalar o módulo AzureADPreview:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Se apenas o módulo AzureAD for exibido nos resultados, execute os comandos a seguir para instalar o módulo AzureADPreview: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Se somente o módulo AzureADPreview for exibido nos resultados, mas você receber uma mensagem que indica uma versão posterior, execute os comandos a seguir para atualizar o módulo: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Talvez você receba um aviso de que está instalando o módulo de um repositório não confiável. Isso ocorrerá se você não tiver definido o repositório PSGallery como confiável anteriormente. Pressione **Y** para instalar o módulo.
 

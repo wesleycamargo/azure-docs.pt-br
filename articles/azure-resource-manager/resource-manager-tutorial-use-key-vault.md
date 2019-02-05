@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b8e7f429cbe9ff8e71432ac8038c8ad15114711
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093192"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080899"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implantação de modelo do Resource Manager
 
-Saiba como recuperar valores do segredo do Azure Key Vault e passar os valores secretos como parâmetros durante a implantação do Resource Manager. O valor nunca é exposto porque você apenas fazer referência à sua ID do Key Vault. Para obter mais informações, veja [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./resource-manager-keyvault-parameter.md)
+Saiba como recuperar segredos do Azure Key Vault e passar os segredos como parâmetros durante a implantação do Resource Manager. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. Para obter mais informações, veja [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./resource-manager-keyvault-parameter.md)
 
-No tutorial [Definir ordem de implantação dos recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, você deve personalizar o modelo para recuperar a senha de administrador da máquina virtual do Azure Key Vault.
+No tutorial [Definir ordem de implantação dos recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, você deve personalizar o modelo para recuperar a senha de administrador da máquina virtual de um cofre de chaves.
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Preparar o Key Vault
+> * Preparar um cofre de chaves
 > * Abrir um modelo de Início Rápido
 > * Edite o arquivo de parâmetros
 > * Implantar o modelo
@@ -49,18 +49,18 @@ Para concluir este artigo, você precisa do seguinte:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    Verifique se a senha gerada atende aos requisitos de senha de máquina virtual. Cada serviço do Azure tem requisitos de senha específicos. Para os requisitos de senha da VM, veja [Quais são os requisitos de senha ao criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-## <a name="prepare-the-key-vault"></a>Preparar o Key Vault
+## <a name="prepare-a-key-vault"></a>Preparar um cofre de chaves
 
-Nesta seção, você pode usar um modelo do Resource Manager para criar um Key Vault e um segredo. Esse modelo executa estas ações:
+Nesta seção, você pode usar um modelo do Resource Manager para criar um cofre de chaves e um segredo. Esse modelo executa estas ações:
 
-* Crie um cofre de chaves com a propriedade `enabledForTemplateDeployment`. Essa propriedade deve ser true antes que o processo de implantação de modelo possa acessar os segredos definidos neste Key Vault.
-* Adicionar um segredo ao Key Vault.  O segredo armazena a senha de administrador da máquina virtual.
+* Crie um cofre de chaves com a propriedade `enabledForTemplateDeployment` habilitada. Essa propriedade deve ser true antes que o processo de implantação de modelo possa acessar os segredos definidos neste cofre de chaves.
+* Adicionar um segredo ao cofre de chaves.  O segredo armazena a senha de administrador da máquina virtual.
 
-Se você (como o usuário a implantar o modelo de máquina virtual) não for o proprietário ou o colaborador do Key Vault, o proprietário ou o colaborador do Key Vault deverá conceder o acesso à permissão Microsoft.KeyVault/vaults/deploy/action para o Key Vault. Para obter mais informações, veja [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./resource-manager-keyvault-parameter.md)
+Se você (como o usuário a implantar o modelo de máquina virtual) não for o proprietário ou o colaborador do cofre de chaves, o proprietário ou o colaborador do cofre de chaves deverá conceder o acesso à permissão Microsoft.KeyVault/vaults/deploy/action para o cofre de chaves. Para obter mais informações, veja [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./resource-manager-keyvault-parameter.md)
 
-Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar permissões. O procedimento a seguir obtém a ID do objeto (GUID) e também gera a senha de administrador. Para impedir ataque de spray de senha, é recomendável usar as senhas geradas.
+Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar permissões. O procedimento a seguir obtém a ID do objeto (GUID).
 
 1. Execute o seguinte comando do Azure PowerShell ou da CLI do Azure.  
 
@@ -68,19 +68,16 @@ Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    openssl rand -base64 32
     ```
     ```azurepowershell-interactive
     $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
-    (Get-AzureADUser -ObjectId $upn).ObjectId
-    openssl rand -base64 32
+    (Get-AzADUser -UserPrincipalName $upn).Id
     ```
-2. Anote a ID de objeto e a senha gerada. Você precisará dessa informação mais tarde.
-3. Verifique se a senha gerada atende aos requisitos de senha de máquina virtual. Cada serviço do Azure tem requisitos de senha específicos. Para os requisitos de senha da VM, veja [Quais são os requisitos de senha ao criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+2. Anote a ID do objeto. Você precisará dela posteriormente neste tutorial.
 
-Para criar um Key Vault:
+Para criar um cofre de chaves:
 
-1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria um Key Vault e um segredo do Key Vault.
+1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria um cofre de chaves e um segredo.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
@@ -89,7 +86,7 @@ Para criar um Key Vault:
     ![Portal de implantação da integração do Key Vault do modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
 
     * **Assinatura**: selecione uma assinatura do Azure.
-    * **Grupo de recursos**: atribua um nome exclusivo. Anote esse nome, você usará o mesmo grupo de recursos para implantar a máquina virtual na próxima sessão. Colocar o Key Vault e a máquina virtual no mesmo grupo de recursos torna mais fácil limpar o recurso no final do tutorial.
+    * **Grupo de recursos**: atribua um nome exclusivo. Anote esse nome, você usará o mesmo grupo de recursos para implantar a máquina virtual na próxima sessão. Colocar o cofre de chaves e a máquina virtual no mesmo grupo de recursos torna mais fácil limpar o recurso no final do tutorial.
     * **Local**: selecione um local.  O local padrão é **EUA Central**.
     * **Nome do Key Vault**: atribua um nome exclusivo. 
     * **Id do locatário**: a função de modelo recupera automaticamente sua ID de locatário.  Não altere o valor padrão
@@ -98,25 +95,26 @@ Para criar um Key Vault:
     * **Valor do Segredo**: Insira seu segredo.  O segredo é a senha usada para entrar na máquina virtual. É recomendável usar a senha gerada que você criou no último procedimento.
     * **Concordo com os termos e condições declarados acima**: selecione.
 3. Selecione **Editar parâmetros** na parte superior para dar uma olhada do modelo.
-4. Navegue até a linha 28 do arquivo JSON do modelo. Essa é a definição de recurso Key Vault.
+4. Navegue até a linha 28 do arquivo JSON do modelo. Esta é a definição do recurso de cofre de chaves.
 5. Navegue até a linha 35:
 
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` é uma propriedade de Key Vault. Essa propriedade deve ser verdadeira antes que você possa recuperar os segredos do Key Vault durante a implantação.
+    `enabledForTemplateDeployment` é uma propriedade de Key Vault. Essa propriedade deve ser verdadeira antes que você possa recuperar os segredos do cofre de chaves durante a implantação.
 6. Navegue até a linha 89. Essa é a definição de segredo do Key Vault.
 7. Selecione **Descartar** na parte inferior da página. Você não fez nenhuma alteração.
 8. Verifique se você forneceu todos os valores conforme mostrado na captura de tela anterior e, em seguida, clique em **Comprar** na parte inferior da página.
 9. Selecione o ícone de sino (notificação) na parte superior da página para abrir o painel **Notificações**. Aguarde até o recurso ser implantado com êxito.
 10. Selecione **Ir para o grupo de recursos** no painel **Notificação**. 
-11. Selecione o nome do Key Vault para abri-lo.
-12. Selecione **Políticas de acesso** no painel esquerdo. Seu nome (Active Directory) deverá estar listado, caso contrário, você não terá permissão para acessar o Key Vault.
-13. Selecione **Clique para exibir as políticas de acesso avançado**. Observe que **Habilitar acesso ao Azure Resource Manager para implantação de modelo** está selecionado. Essa é outra condição para fazer a integração do Key Vault funcionar.
+11. Selecione o nome do cofre de chaves para abri-lo.
+12. Selecione **Segredos** no painel esquerdo. **vmAdminPassword** deverá estar listado lá.
+13. Selecione **Políticas de acesso** no painel esquerdo. Seu nome (Active Directory) deverá estar listado, caso contrário, você não terá permissão para acessar o Key Vault.
+14. Selecione **Clique para exibir as políticas de acesso avançado**. Observe que **Habilitar acesso ao Azure Resource Manager para implantação de modelo** está selecionado. Essa configuração é outra condição para fazer a integração do Key Vault funcionar.
 
     ![Políticas de acesso integração do Key Vault do modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-14. Selecione **Propriedades** no painel esquerdo.
-15. Faça uma cópia da **ID do Recurso**. Quando você implantar a máquina virtual, precisará dessa ID.  O formato da ID do Recurso é:
+15. Selecione **Propriedades** no painel esquerdo.
+16. Faça uma cópia da **ID do Recurso**. Quando você implantar a máquina virtual, precisará dessa ID.  O formato da ID do Recurso é:
 
     ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -166,7 +164,7 @@ Você não precisa fazer nenhuma alteração ao arquivo de modelo.
         }
     },
     ```
-    Substitua **id** pela ID do recurso do seu Key Vault criado no último procedimento.  
+    Substitua **id** pela ID do recurso do seu cofre de chaves criado no último procedimento.  
 
     ![integrar o cofre de chaves e o arquivo de parâmetros de implantação de máquina virtual do modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. Atribua valores a:
@@ -180,22 +178,27 @@ Você não precisa fazer nenhuma alteração ao arquivo de modelo.
 Siga as instruções em [Implantar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para implantar o modelo. Você precisa fazer upload de **azuredeploy. JSON** e de **azuredeploy.parameters.json** para o Cloud Shell e, em seguida, usar o seguinte script do PowerShell para implantar o modelo:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault"
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile azuredeploy.json `
+    -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Quando você implantar o modelo, use o mesmo grupo de recursos que o Key Vault. Torna mais fácil quando você limpa os recursos. Você só precisa excluir um grupo de recursos, em vez de dois.
+Quando você implantar o modelo, use o mesmo grupo de recursos que o cofre de chaves. Torna mais fácil quando você limpa os recursos. Você só precisa excluir um grupo de recursos, em vez de dois.
 
 ## <a name="valid-the-deployment"></a>Validar a implantação
 
-Depois de ter implantado com êxito a máquina virtual, teste o logon usando a senha armazenada no Key Vault.
+Depois de ter implantado com êxito a máquina virtual, teste o logon usando a senha armazenada no cofre de chaves.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Grupos de Recursos**/**YourResourceGroupName>**/**simpleWinVM**
 3. Selecione **Conectar** da parte superior.
-4. Selecione **Baixar arquivo RDP** e, em seguida, siga as instruções para entrar na máquina virtual usando a senha armazenada no Key Vault.
+4. Selecione **Baixar arquivo RDP** e, em seguida, siga as instruções para entrar na máquina virtual usando a senha armazenada no cofre de chaves.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

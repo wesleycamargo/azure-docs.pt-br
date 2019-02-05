@@ -6,25 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1cd88e24b945bc6ce627b25b0645bf961039037b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cec96871d379f9484bf8e08a9d511146a80d45c6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359809"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095592"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio do NFS 
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio do NFS
 
-Este tutorial descreve como conectar-se e copiar dados do computador host usando a interface do usuário da web local e, em seguida, preparar para enviar a caixa de dados.
+Este tutorial descreve como conectar-se e copiar dados do computador host usando a IU da Web local.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
-> * Prepare-se para enviar a caixa de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,17 +72,17 @@ Se você estiver usando um computador host Linux, execute as seguintes etapas pa
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-    **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *$root* na conta de armazenamento.
+    **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para caixa de dados
 
 Quando você estiver conectado aos compartilhamentos de caixa de dados, a próxima etapa é copiar dados. Antes de começar a cópia de dados, examine as considerações a seguir:
 
-- Assegure-se de copiar os dados para compartilhamentos que correspondam ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados para o Azure falhará.
+- Assegure-se de copiar os dados para compartilhamentos que correspondam ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Copie VHDs para blobs de páginas. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados para o Azure falhará.
 -  Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [armazenamento do Azure e nos limites da Caixa de Dados](data-box-limits.md). 
 - Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
 - Recomendamos que você não use o SMB e o NFS simultaneamente ou copie os mesmos dados para o mesmo destino final no Azure. Em tais casos, o resultado final não pode ser determinado.
-- **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *$root* na conta de armazenamento.
+- **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
 
 Se você estiver usando um computador host Linux, use um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -126,18 +126,16 @@ Se usar a opção de rsync para obter uma cópia com multithread, siga estas dir
     
    ![Verificar o espaço livre e usado no painel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-## <a name="prepare-to-ship"></a>Preparar para o envio
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
-> * Preparar para o envio de dados de caixa
+
 
 Avance para o próximo tutorial para saber como enviar o Data Box novamente à Microsoft.
 

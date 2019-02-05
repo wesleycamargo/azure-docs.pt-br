@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911857"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098520"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Início Rápido: registrar um aplicativo no ponto de extremidade v1.0 do Azure Active Directory
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Início Rápido: Registrar um aplicativo com o ponto de extremidade v1.0 do Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -55,8 +55,8 @@ Para começar, tenha um locatário do Azure AD que você pode usar para registra
     - **Tipo de Aplicativo:**
       - Selecione **Nativo** para [aplicativos cliente](developer-glossary.md#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](developer-glossary.md#native-client) públicos OAuth.
       - Selecione **aplicativo Web/API** para [aplicativos cliente](developer-glossary.md#client-application) e [aplicativos de API/recursos](developer-glossary.md#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](developer-glossary.md#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](developer-glossary.md#user-agent-based-client) públicos. O mesmo aplicativo também pode expor um cliente e o recurso/API.
-    - **URL de logon:** para aplicativos do tipo "Aplicativo Web/API", informe a URL base do seu aplicativo. Por exemplo, `http://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web. 
-    - **URI de redirecionamento:** para aplicativos “Nativos”, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo, `http://MyFirstAADApp`
+    - **URL de Logon**: para aplicativos "API/aplicativo Web", informe a URL base do aplicativo. Por exemplo, `http://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web. 
+    - **URI de redirecionamento:** para aplicativos "Nativos", informe o URI usado pelo Microsoft Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo, `http://MyFirstAADApp`
 
       ![Registrar um novo aplicativo – criar](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

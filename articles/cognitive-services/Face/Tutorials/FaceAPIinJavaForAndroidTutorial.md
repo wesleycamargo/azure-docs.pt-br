@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: detectar e enquadrar faces em uma imagem com o SDK do Android'
+title: 'Tutorial: Detectar e enquadrar rostos em uma imagem com o SDK do Android'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo simples para Android que usa a API de Detecção Facial para detectar e enquadrar faces em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c28aa58e64253d5a25dbdfc8f1473e0e462af57
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220001"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos em uma imagem
 

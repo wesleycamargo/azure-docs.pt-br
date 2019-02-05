@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364189"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221344"
 ---
 # <a name="what-is-custom-decision-service"></a>O que é o Serviço de Decisão Personalizada?
 
@@ -44,7 +44,7 @@ O Serviço de Decisão Personalizada pode ser aplicado a páginas da Web e a apl
 
 Vários termos frequentemente ocorrem nesta documentação:
 
-* **Definir ação**: o conjunto de itens de conteúdo para o Serviço de Decisão Personalizada a ser classificado. Esse conjunto pode ser especificado como um ponto de extremidade *Atom* ou *RSS*.
+* **Conjunto de ações**: o conjunto de itens de conteúdo para o Serviço de Decisão Personalizada a ser classificado. Esse conjunto pode ser especificado como um ponto de extremidade *Atom* ou *RSS*.
 * **Classificação**: cada solicitação ao Serviço de Decisão Personalizada especifica um ou mais conjuntos de ações. O sistema responde separando todas as opções de conteúdo desses conjuntos e retornando na ordem de classificação.
 * **Função de retorno de chamada**: essa função, que você especifica, renderiza o conteúdo na interface do usuário. O conteúdo é ordenado pela ordem de classificação retornada pelo Serviço de Decisão Personalizada.
 * **Recompensa**: uma medida de como o usuário respondeu ao conteúdo renderizado. O Serviço de Decisão Personalizada mede a resposta do usuário usando cliques. Os cliques são relatados ao sistema usando o código personalizado inserido no aplicativo.

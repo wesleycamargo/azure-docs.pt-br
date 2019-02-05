@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632383"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216737"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: como extrair frases-chave na Análise de Texto
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: Como extrair frases-chave em Análise de Texto
 
 A [API de Extração de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave. 
 
@@ -71,7 +71,7 @@ O tamanho do documento deve ter menos de 5.000 caracteres por documento e você 
 
 Detalhes sobre a definição de solicitação podem ser encontrados em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
 
-+ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Frases-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + Defina o ponto de extremidade HTTP para extração de frases-chave, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
@@ -82,13 +82,13 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 > [!Tip]
 > Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) para estruturar uma solicitação e POSTAR no serviço.
 
-## <a name="step-2-post-the-request"></a>Etapa 2: postar a solicitação
+## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
 A análise é executada após o recebimento da solicitação. O serviço aceita até 100 solicitações por minuto. Cada solicitação pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Etapa 3: exibir resultados
+## <a name="step-3-view-results"></a>Etapa 3: Exibir resultados
 
 Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades detectadas.
 

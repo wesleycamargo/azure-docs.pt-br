@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391153"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902152"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cabear e conectar-se ao Azure Data Box
 
@@ -50,7 +50,7 @@ Execute as etapas a seguir para cabear seu dispositivo.
 
 1. Inspecione o dispositivo em busca de alguma evidência de adulteração ou qualquer outro dano visível. Se o dispositivo estiver adulterado ou gravemente danificado, não continue. Entre em contato imediatamente com o Suporte da Microsoft para obter ajuda e avaliar se o dispositivo está em boas condições de funcionamento e se é necessário enviar um substituto.
 2. Transporte o dispositivo para o local onde você deseja ligá-lo. Coloque o dispositivo em uma superfície plana. O dispositivo também pode ser colocado em uma prateleira de rack padrão.
-3. Conecte os cabos de alimentação e de rede. O backplane de um dispositivo conectado para uma configuração comum é mostrado abaixo. 
+3. Conecte os cabos de alimentação e de rede. O backplane de um dispositivo conectado para uma configuração comum é mostrado abaixo. Dependendo do seu ambiente, é possível escolher entre outras [opções de cabeamento](data-box-cable-options.md).
     
     ![Backplane do dispositivo Data Box cabeado](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

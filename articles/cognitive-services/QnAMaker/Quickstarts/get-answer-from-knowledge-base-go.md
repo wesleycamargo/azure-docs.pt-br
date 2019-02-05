@@ -6,27 +6,27 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 54c2133e35de09cae411f3bcec9f4421e4586f18
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a9c3a689aed2a94d51d590bbf7b396b8a1095e99
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977747"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209869"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Obter respostas a uma pergunta de uma base de dados de conhecimento com Go
 
-Este início rápido fornece orientação para obtenção de forma programática de uma resposta de uma base de dados de conhecimento publicada do QnA Maker. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../Concepts/data-sources-supported.md). A pergunta, no formato JSON, é enviada no corpo da solicitação de API. 
+Este início rápido o orienta a obter programaticamente uma resposta de uma base de dados de conhecimento publicada do QnA Maker. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../Concepts/data-sources-supported.md). A pergunta, no formato JSON, é enviada no corpo da solicitação de API. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Go 1.10.1](https://golang.org/dl/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar sua chave, selecione **Chaves** em **Gerenciamento de Recursos** no painel do Azure para seu recurso do QnA Maker. 
-* Configurações da página **Publicar**. Caso não tenha uma base de dados de conhecimento publicada, crie uma vazia, importe-a na página **Configurações** e depois publique-a. Você pode baixar e usar [esta base de dados de conhecimento básica](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv). 
+* Configurações da página **Publicar**. Caso não tenha uma base de dados de conhecimento publicada, crie uma base de dados de conhecimento vazia, importe-a na página **Configurações** e depois publique-a. Você pode baixar e usar [essa base de dados de conhecimento básico](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv). 
 
     As configurações da página de publicação incluem o valor da rota, o valor do Host e o valor do EndpointKey. 
 

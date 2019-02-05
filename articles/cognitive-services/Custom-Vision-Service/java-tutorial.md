@@ -1,25 +1,25 @@
 ---
-title: 'Início Rápido: Criar um projeto de classificação de imagem com o SDK de Visão Personalizada para Java'
+title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK de Visão Personalizada para Java'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o SDK do Java.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: ad56a6fa4027115bd4f4679fa50330edad1b919f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6a05620d35ddf1a382260fd730251f1cdcedb910
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283522"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213507"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: Criar um projeto de classificação de imagem com o SDK de Visão Personalizada para Java
 
-Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK do Java da Visão Personalizada para criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo Java. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, consulte as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
+Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK do Java da Visão Personalizada para criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criar seu próprio aplicativo Java. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Um Java IDE de sua preferência
@@ -27,20 +27,20 @@ Este artigo fornece informações e código de exemplo para ajudar você a come�
 - Maven instalado
 
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK da Visão Personalizada e um código de exemplo
-Para escrever um aplicativo Java que usa a Visão Personalizada, você precisará dos pacotes Maven da Visão Personalizada. Eles estão incluídos no projeto de exemplo que você vai baixar, mas é possível acessá-los individualmente aqui.
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e um exemplo de código
+Para escrever um aplicativo Java que usa a Visão Personalizada, você precisará dos pacotes de maven da Visão Personalizada. Eles estão incluídos no projeto de exemplo que você vai baixar, mas é possível acessá-los individualmente aqui.
 
 Você pode instalar o SDK de Visão Personalizada do repositório central do Maven:
 * [SDK de treinamento](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [SDK de previsão](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-Clone ou baixe o projeto [Exemplos de SDK do Java dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Navegue até a pasta **Vision/CustomVision/**.
+Clone ou baixe o projeto [Exemplos de SDK de Java dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Navegue até a pasta **Vision/CustomVision/**.
 
 Esse projeto Java cria um novo projeto de classificação de imagem da Visão Personalizada denominado __Sample Java Project__, que pode ser acessado no [site da Visão Personalizada](https://customvision.ai/). Ele então carrega as imagens para treinar e testar um classificador. Neste projeto, o classificador serve para determinar se uma árvore é uma __Cicuta__ ou uma __Cerejeira__.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-O programa está configurado para armazenar seus dados de chave como variáveis de ambiente. Defina essas variáveis navegando até a pasta **Vision/CustomVision** no PowerShell. Em seguida, digite os comandos:
+O programa está configurado para armazenar seus dados de chave como variáveis de ambiente. Defina essas variáveis navegando até a pasta **Vision/CustomVision** no PowerShell. Em seguida, insira os comandos:
 
 ```PowerShell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
@@ -49,7 +49,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-Carregue o projeto `Vision/CustomVision` no seu Java IDE e abra o arquivo _CustomVisionSamples.java_. Localize o método **runSample** e comente a chamada de método **ObjectDetection_Sample**&mdash;isso executará o cenário de detecção de objeto, que não é abordado neste guia. O método **ImageClassification_Sample** implementa a funcionalidade principal desse exemplo; navegue até sua definição e inspecione o código. 
+Carregue o projeto `Vision/CustomVision` em seu Java IDE e abra o arquivo _CustomVisionSamples.java_. Localize o método **runSample** e comente a chamada de método **ObjectDetection_Sample**&mdash;isso executará o cenário de detecção de objeto, que não é abordado neste guia. O método **ImageClassification_Sample** implementa a funcionalidade principal desse exemplo; navegue até sua definição e inspecione o código. 
 
 ### <a name="create-a-custom-vision-service-project"></a>Criar um projeto de Serviço de Visão Personalizada
 
@@ -67,7 +67,7 @@ As imagens de exemplo estão incluídas na pasta **src/main/resources** do proje
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=76-87)]
 
-O trecho de código anterior faz uso de duas funções auxiliares que recuperam as imagens como fluxos de recurso e as carrega para o serviço.
+O trecho de código anterior faz uso de duas funções auxiliares que recuperam as imagens como fluxos de recurso e as carrega no serviço.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
@@ -79,13 +79,13 @@ Esse código cria a primeira iteração no projeto e a marca como a iteração p
 
 ### <a name="use-the-prediction-endpoint"></a>Usar o ponto de extremidade de previsão
 
-O ponto de extremidade de previsão, aqui representado pelo objeto `predictor`, é a referência que você usa para enviar uma imagem para o modelo atual e obter uma previsão de classificação. Neste exemplo, `predictor` é definido em outro lugar usando a variável de ambiente de chave de previsão.
+O ponto de extremidade de previsão, representado aqui pelo objeto `predictor`, é a referência que você usa para enviar uma imagem para o modelo atual e obter uma previsão de classificação. Neste exemplo, `predictor` é definido em outro lugar usando a variável de ambiente de chave de previsão.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=108-120)]
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Para compilar e executar a solução usando o Maven, execute o seguinte comando no diretório do projeto no PowerShell:
+Para compilar e executar a solução usando o maven, execute o seguinte comando no diretório do projeto no PowerShell:
 
 ```PowerShell
 mvn compile exec:java

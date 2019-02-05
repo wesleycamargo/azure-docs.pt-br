@@ -1,24 +1,24 @@
 ---
-title: 'Início Rápido: reconhecer emoções em rostos em uma imagem – API de Detecção de Emoções, cURL'
+title: 'Início Rápido: Reconhecer emoções em rostos em uma imagem – API de Detecção de Emoções, cURL'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de códigos para ajudar você a começar a usar a API de Detecção de Emoções com cURL.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2cd139fc47177d429bada454a5e720b7eb4f192b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237068"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220545"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: criar um aplicativo para reconhecer emoções em rostos em uma imagem.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar um aplicativo para reconhecer emoções em rostos em uma imagem.
 
 > [!IMPORTANT]
 > A API de Detecção de Emoções será preterida em 15 de fevereiro de 2019. A funcionalidade de Detecção de Emoções agora está disponível como parte da [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/).

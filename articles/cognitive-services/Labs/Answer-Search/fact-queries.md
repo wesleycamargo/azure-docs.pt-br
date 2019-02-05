@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: consulta de fatos de Pesquisa de Resposta de Projeto'
+title: 'Início rápido: Consulta de fato de Pesquisa de Resposta do Projeto'
 titlesuffix: Azure Cognitive Services
 description: Consulta fatos usando a Pesquisa de Resposta de Projeto
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210940"
 ---
-# <a name="quickstart-query-for-facts"></a>Início Rápido: consultar fatos
+# <a name="quickstart-query-for-facts"></a>Início rápido: Consulta fatos
 
 Se a consulta for para um fato como uma data ou informações identificáveis, a resposta poderá conter respostas `facts`. Respostas de fatos contêm resultados relevantes extraídos de parágrafos em documentos da Web.  Essas consultas sempre retornam páginas da Web, e [fatos](fact-queries.md) e/ou [entidades](entity-queries.md) dependem da consulta.
 
@@ -26,14 +26,14 @@ Consultas como diadosnamorados+2016, data+do+ramadan são consideradas consultas
 O exemplo a seguir é uma resposta `facts` relacionada à data. 
 
 **Consulta:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
 **Resposta:** O campo `subjectName` contém uma versão de exibição de consulta do usuário que você pode usar como um rótulo ao exibir o fato. Se a cadeia de caracteres de consulta for diadosnamorados+2016, o Bing pode alterar para Dia dos Namorados 2016. O campo de descrição contém o fato.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 A consulta “Por que o céu é azul?” retorna um exemplo de uma resposta relacionada a informações.
 
 **Consulta:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
-**Resposta:** O campo `value/description` contém as informações solicitadas pela consulta.
+**Resposta:** O campo `value/description` contém o conhecimento ou as informações solicitadas pela consulta.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Dados tabulares
 Em alguns casos, os fatos podem ser retornados como `_type: StructuredValue/TabularData`. A consulta a seguir obtém dados tabulares com informações contrastantes sobre café e chá.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 Os resultados `facts` incluem as seguintes linhas e células:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ Os resultados `facts` incluem as seguintes linhas e células:
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Início Rápido do C#](c-sharp-quickstart.md)

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811631"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883510"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -101,10 +101,10 @@ Nesta seção, enviamos solicitações relevantes para codificar e criar URLs pa
 
 1. Obter token do Microsoft Azure AD para autenticação de entidade de serviço
 2. Criar um ativo de saída
-3. Criar uma transformação
-4. Criar um trabalho 
-5. Criar um localizador de streaming
-6. Listar caminhos do localizador de streaming
+3. Criar uma **Transformação**
+4. Criar um **Trabalho**
+5. Criar um **Localizador de Streaming**
+6. Listar caminhos do **Localizador de Streaming**
 
 > [!Note]
 >  Este tutorial pressupõe que você está criando todos os recursos com nomes exclusivos.  
@@ -232,16 +232,16 @@ O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Enfile
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de streaming
 
-Após a conclusão da tarefa de codificação, a próxima etapa é disponibilizar o vídeo no Ativo de saída aos clientes para reprodução. Você pode fazer isso em duas etapas: primeiro, crie um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)e em seguida, crie as URLs de streaming que os clientes podem usar. 
+Após a conclusão da tarefa de codificação, a próxima etapa é disponibilizar o vídeo no **Ativo** de saída aos clientes para reprodução. Você pode fazer isso em duas etapas: primeiro, crie um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, crie as URLs de streaming que os clientes podem usar. 
 
-O processo de criação de um **StreamingLocator** é chamado de publicação. Por padrão, o **StreamingLocator** é válido imediatamente após você fazer as chamadas de API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
+O processo de criação de um **Localizador de Streaming** é chamado de publicação. Por padrão, o **Localizador de Streaming** é válido imediatamente após você fazer as chamadas à API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
 
-Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar os detalhes desejados **StreamingPolicyName**. Neste exemplo, você transmitirá conteúdo em criptografado (ou não criptografado), portanto, a política de streaming predefinida clara **PredefinedStreamingPolicy.ClearStreamingOnly** é utilizada.
+Ao criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar os detalhes desejados **StreamingPolicyName**. Neste exemplo, você transmitirá conteúdo em criptografado (ou não criptografado), portanto, a política de streaming predefinida clara **PredefinedStreamingPolicy.ClearStreamingOnly** é utilizada.
 
 > [!IMPORTANT]
 > Ao usar a [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, você deve criar um conjunto limitado de tais políticas para sua conta de serviço de mídia e reutilizá-los para o seu StreamingLocators, sempre que a mesmo opção de criptografia e protocolos sejam necessários. 
 
-Sua conta de Serviço de Mídia tem uma cota para o número de entradas de StreamingPolicy. Você não deve criar um novo StreamingPolicy para cada StreamingLocator.
+A conta de Serviço de Mídia tem uma cota para o número de entradas de **Política de Streaming**. Você não deve criar uma nova **Política de Streaming** para cada **Localizador de Streaming**.
 
 1. Na janela esquerda do Postman, selecione "Políticas de Streaming".
 2. Em seguida, selecione "Criar um Localizador de Streaming".
@@ -267,7 +267,7 @@ Sua conta de Serviço de Mídia tem uma cota para o número de entradas de Strea
 
 #### <a name="list-paths"></a>Listar caminhos
 
-Agora que o [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, é possível obter as URLs de streaming
+Agora que o [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, é possível obter as URLs de streaming
 
 1. Na janela esquerda do Postman, selecione "Políticas de Streaming".
 2. Em seguida, selecione "Listar Caminhos".
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Verifique se o ponto de extremidade de streaming do qual você deseja transmitir está em execução.
+> Verifique se o **Ponto de Extremidade de Streaming** do qual você deseja transmitir está em execução.
 
 Para testar o streaming, este artigo usa o Player de Mídia do Azure. 
 
@@ -350,7 +350,7 @@ O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado 
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos em sua conta de Serviços de Mídia
 
-Em geral, você deve limpar tudo, exceto os objetos que planeja reutilizar (normalmente, você reutilizará transformações e persistirá StreamingLocators, etc.). Se desejar para sua conta para ser limpa depois de testar, você deve excluir os recursos que não planeja reutilizar.  
+Em geral, você deve limpar tudo, exceto os objetos que planeja reutilizar (normalmente, você reutilizará **Transformações** e persistirá **StreamingLocators** etc.). Se desejar para sua conta para ser limpa depois de testar, você deve excluir os recursos que não planeja reutilizar.  
 
 Para excluir um recurso, selecione a operação "Excluir ..." em qualquer recurso que você queira excluir.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 90f9ffeba2871aaa96a4da4cdbdf949a8e7db1bf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436426"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888763"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um Azure data factory usando um modelo do Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -285,7 +285,7 @@ Crie um arquivo JSON chamado **ADFTutorialARM-Parameters.json** que contenha os 
       "value": "East US"
     },
     "storageAccountName": {
-      "value": "<yourstroageaccountname>"
+      "value": "<yourstorageaccountname>"
     },
     "storageAccountKey": {
       "value": "<yourstorageaccountkey>"
@@ -492,7 +492,7 @@ O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data 
 }
 ```
 
-A connectionString usa os parâmetros storageAccountName e storageAccountKey. Os valores para esses parâmetros são passados pelo uso de um arquivo de configuração. A definição também usa variáveis: azureStroageLinkedService e dataFactoryName definidos no modelo.
+A connectionString usa os parâmetros storageAccountName e storageAccountKey. Os valores para esses parâmetros são passados pelo uso de um arquivo de configuração. A definição também usa variáveis: azureStorageLinkedService e dataFactoryName definidos no modelo.
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de dados de entrada de Blob do Azure
 O serviço vinculado do Armazenamento do Azure especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar à sua conta do Armazenamento do Azure. Na definição de conjunto de dados do blob do Azure, especifique os nomes do contêiner de blob, da pasta e do arquivo que contém os dados de entrada. Confira [Propriedades de conjunto de dados de Blob do Azure](connector-azure-blob-storage.md#dataset-properties) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados de Blob do Azure.

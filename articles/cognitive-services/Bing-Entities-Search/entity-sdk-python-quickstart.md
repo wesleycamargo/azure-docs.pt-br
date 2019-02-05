@@ -1,30 +1,30 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Entidade do Bing, Python'
+title: 'Início Rápido: SDK da Pesquisa de Entidade do Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Configuração para aplicativo de console do SDK da Pesquisa de Entidade do Bing.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4e79fdbf465c04075320b71b5471b196e603d046
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d26a61a35525cc399b2ca5d6c8d19816018d5ebb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315997"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189707"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Início Rápido: SDK de Pesquisa de Entidade do Bing com Python
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Início Rápido: SDK da Pesquisa de Entidade do Bing com Python
 
 O SDK de Pesquisa de Entidade contém a funcionalidade da API REST para consultas na Web e resultados da análise.
 
 O [código-fonte para exemplos de SDK da Pesquisa de Entidade do Bing em Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) está disponível no GitHub.
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Se o Python ainda não estiver instalado, instale-o. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 

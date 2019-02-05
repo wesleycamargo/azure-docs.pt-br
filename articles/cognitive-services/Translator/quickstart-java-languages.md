@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Obter lista de idiomas compatíveis, Java - API de Tradução de Texto'
+title: 'Início Rápido: Obter lista de idiomas compatíveis, Java – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obtém uma lista dos idiomas com suporte para tradução, transliteração e pesquisa em dicionário usando a API de Tradução de Texto.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888997"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226956"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas compatíveis usando Java
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Início rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte usando Java
 
 Neste início rápido, você obtém uma lista dos idiomas com suporte para tradução, transliteração e pesquisa em dicionário usando a API de Tradução de Texto.
 
@@ -29,16 +29,16 @@ Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https:
 * [Gradle](https://gradle.org/install/)
 * Uma chave de assinatura do Azure para a Tradução de Texto
 
-## <a name="initialize-a-project-with-gradle"></a>Inicializar um projeto com o Gradle
+## <a name="initialize-a-project-with-gradle"></a>Inicializar um projeto com Gradle
 
-Vamos começar criando um diretório de trabalho para esse projeto. Na linha de comando (ou terminal), execute este comando:
+Vamos começar criando um diretório de trabalho para esse projeto. Na linha de comando (ou terminal), execute esse comando:
 
 ```console
 mkdir get-languages-sample
 cd get-languages-sample
 ```
 
-Em seguida, você vai para inicializar um projeto do Gradle. Esse comando criará arquivos de compilação essenciais para o Gradle, principalmente o `build.gradle.kts`, que é usado para criar e configurar seu aplicativo no tempo de execução. Execute este comando no diretório de trabalho:
+Em seguida, você vai inicializar um projeto do Gradle. Esse comando criará arquivos de compilação essenciais para o Gradle, principalmente o `build.gradle.kts`, que é usado para criar e configurar seu aplicativo no tempo de execução. Execute este comando no diretório de trabalho:
 
 ```console
 gradle init --type basic
@@ -46,9 +46,9 @@ gradle init --type basic
 
 Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
 
-## <a name="configure-the-build-file"></a>Configurar o arquivo de compilação
+## <a name="configure-the-build-file"></a>Configure o arquivo de compilação
 
-Localize `build.gradle.kts` e abra-o com seu editor de texto ou IDE favorito. Depois, copie nessa configuração de compilação:
+Localize `build.gradle.kts` e abra-o com seu editor de texto ou IDE favorito. Depois copie nessa configuração de build:
 
 ```
 plugins {
@@ -67,7 +67,7 @@ dependencies {
 }
 ```
 
-Observe que esse exemplo tem dependências de OkHttp para solicitações HTTP e de Gson para manipular e analisar o JSON. Para saber mais sobre as configurações de compilação, confira [Criar Novas Compilações do Gradle](https://guides.gradle.org/creating-new-gradle-builds/).
+Observe que esse exemplo tem dependências de OkHttp para solicitações HTTP e de Gson para manipular e analisar o JSON. Para saber mais sobre as configurações de compilação, confira [Criar novas builds de Gradle](https://guides.gradle.org/creating-new-gradle-builds/).
 
 ## <a name="create-a-java-file"></a>Criar um arquivo Java
 
@@ -79,9 +79,9 @@ mkdir -p src/main/java
 
 Em seguida, nessa pasta, crie um arquivo chamado `GetLanguages.java`.
 
-## <a name="import-required-libraries"></a>Importar bibliotecas necessárias
+## <a name="import-required-libraries"></a>Importe as bibliotecas necessárias
 
-Abra `GetLanguages.java` e adicione estas instruções de importação:
+Abra `GetLanguages.java` e adicione essas instruções de importação:
 
 ```java
 import java.io.*;
@@ -93,7 +93,7 @@ import com.squareup.okhttp.*;
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Primeiro, você precisará criar uma classe pública para seu projeto:
+Primeiro, você precisa criar uma classe pública para seu projeto:
 
 ```java
 public class GetLanguages {
@@ -108,7 +108,7 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
-## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e compilar uma solicitação
+## <a name="create-a-client-and-build-a-request"></a>Crie um cliente e compile uma solicitação
 
 Adicione esta linha à classe `GetLanguages` para instanciar o `OkHttpClient`:
 
@@ -147,7 +147,7 @@ public static String prettify(String json_text) {
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-A última etapa é fazer uma solicitação e obter uma resposta. Adicione essas linhas ao projeto:
+A última etapa é fazer uma solicitação e receber uma resposta. Adicione essas linhas ao projeto:
 
 ```java
 public static void main(String[] args) {

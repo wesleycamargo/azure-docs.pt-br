@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Pesquisa de Resposta de Projeto, Java'
+title: 'Início Rápido: Pesquisa de Resposta do Projeto, Java'
 titlesuffix: Azure Cognitive Services
 description: Comece a usar a Pesquisa de Resposta de Projeto em Java.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0353736b3b66c58288dbd3d351b3b3dd53f467d6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226869"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>Início Rápido: consulta de Pesquisa de Resposta de Projeto em Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Início rápido: Consulta de Pesquisa de Resposta de Projeto em Java
 Este artigo utiliza Java para demonstrar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. A API é um serviço Web REST compatível com qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON.
  
 O exemplo de código usa Java com dependências externas mínimas.  Você também pode executá-lo no Linux ou Mac OS X usando Mono.
@@ -30,7 +30,7 @@ Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Se
 
 O código a seguir cria um `WebRequest`, define o cabeçalho de chave de acesso e adiciona uma cadeia de caracteres de consulta para “Gibraltar”.  Em seguida, ele envia a solicitação e atribui a resposta a uma cadeia de caracteres para conter o texto JSON.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ O código a seguir cria um `WebRequest`, define o cabeçalho de chave de acesso 
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Código completo
 
@@ -57,7 +57,7 @@ A API de Pesquisa de Resposta do Bing retorna os resultados do mecanismo de pesq
 4. Substitua o valor de subscriptionKey por uma chave de acesso válida para a assinatura.
 5. Execute o programa.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,7 +148,7 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Início Rápido do C#](c-sharp-quickstart.md)

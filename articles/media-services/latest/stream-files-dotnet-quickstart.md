@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612213"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162711"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmissão de arquivos de vídeo - .NET
+# <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmitir arquivos de vídeo – .NET
 
 Este início rápido mostra como é fácil codificar e iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure. Um conteúdo de entrada pode ser especificado usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure.
 O exemplo neste tópico codifica o conteúdo disponibilizado por meio de uma URL HTTPS. Observe que, no momento, o AMS v3 não dá suporte à codificação de transferência em partes sobre URLs HTTPS.
@@ -34,13 +34,10 @@ Ao final do início rápido, você poderá transmitir um vídeo por streaming.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se o Visual Studio não estiver instalado, você poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
+- Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 
-    Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
-
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
-
-## <a name="download-the-sample"></a>Baixar o exemplo
+## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo
 
 Clone um repositório do GitHub que contém o exemplo de streaming de .NET em sua máquina usando o comando a seguir:  
 
@@ -50,19 +47,19 @@ Clone um repositório do GitHub que contém o exemplo de streaming de .NET em su
 
 O exemplo está localizado na pasta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
+Abra [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) no projeto que você baixou. Substitua os valores pelas credenciais que você obteve de [acesso às APIs](access-api-cli-how-to.md).
+
 O exemplo executa as ações a seguir:
 
-1. Cria uma transformação (primeiro, verifica se a transformação especificada existe). 
-2. Cria um ativo de saída que é usado como a saída do trabalho de codificação.
-3. Cria a entrada do trabalho com base em uma URL HTTPS.
-4. Envia o trabalho de codificação usando a entrada e a saída criadas anteriormente.
+1. Cria uma **Transformação** (primeiro, verifica se a transformação especificada existe). 
+2. Cria um **Ativo** de saída que é usado como a saída do **Trabalho** de codificação.
+3. Cria a entrada do **Trabalho** com base em uma URL HTTPS.
+4. Envia o **Trabalho** de codificação usando a entrada e a saída criadas anteriormente.
 5. Verifica o status do trabalho.
-6. Cria um StreamingLocator.
+6. Cria um **Localizador de Streaming**.
 7. Compila as URLs de streaming.
 
 Para obter explicações sobre cada função no exemplo, examine o código e os comentários neste [arquivo de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 

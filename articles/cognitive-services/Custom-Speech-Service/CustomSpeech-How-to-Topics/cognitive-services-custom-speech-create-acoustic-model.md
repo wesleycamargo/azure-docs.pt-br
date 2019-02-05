@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344567"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216414"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -48,7 +48,7 @@ Por exemplo:
 <a name="Preparing data to customize the acoustic model"></a>
 *   Se você estiver interessado em otimizar o desempenho de um único palestrante, por exemplo, será melhor transcrever os discursos de um palestrante e os arquivos de áudio devem consistir em muitos exemplos apenas dessa pessoa.
 
-Um conjunto de dados acústico para personalizar o modelo acústico consiste em duas partes: (1) um conjunto de arquivos de áudio que contém dados de fala e (2) um arquivo que contém as transcrições de todos os arquivos de áudio.
+Um conjunto de dados acústicos para personalizar seu modelo acústico consiste em duas partes: (1) um conjunto de arquivos de áudio que contém os dados de fala e (2) um arquivo que contém as transcrições de todos os arquivos de áudio.
 
 ### <a name="audio-data-recommendations"></a>Recomendações para os dados de áudio
 

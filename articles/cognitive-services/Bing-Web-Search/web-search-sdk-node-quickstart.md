@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: usar o SDK de Pesquisa na Web do Bing para Node.js'
+title: 'Início rápido: Usar o SDK de Pesquisa na Web do Bing para Node.js'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Node.js. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 435f7840e2d3d7d8a4d1d53a0a3e8b4e85fe4dce
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 172fe7bd8c5b6bc5e881eb7fec7c9891a79900cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312639"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177127"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Início Rápido: usar o SDK de Pesquisa na Web do Bing para Node.js
+# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Node.js
 
 O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Node.js. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 
@@ -25,7 +25,7 @@ Deseja ver o código agora mesmo? Os [exemplos de SDK de Pesquisa na Web do Bing
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:

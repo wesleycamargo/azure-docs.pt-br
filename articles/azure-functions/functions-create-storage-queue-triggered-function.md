@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995593"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902679"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
@@ -113,8 +113,9 @@ Agora que você tem uma fila de armazenamento, você pode testar a função adic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você criou uma função que é executada quando uma mensagem é adicionada a uma fila de armazenamento.
+Você criou uma função que é executada quando uma mensagem é adicionada a uma fila de armazenamento. Para obter mais informações sobre gatilhos de Armazenamento de Filas, consulte [Associações de fila do Armazenamento do Azure Functions](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Agora que você criou sua primeira função, vamos adicionar uma associação de saída à função que grava uma mensagem de volta em outra fila.
 
-Para obter mais informações sobre gatilhos de Armazenamento de Filas, consulte [Associações de fila do Armazenamento do Azure Functions](functions-bindings-storage-queue.md).
+> [!div class="nextstepaction"]
+> [Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions](functions-integrate-storage-queue-output-binding.md)

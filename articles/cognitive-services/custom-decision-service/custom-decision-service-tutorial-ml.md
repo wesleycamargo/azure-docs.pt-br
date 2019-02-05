@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial: personalização e especificação de recurso – Serviço de Decisão Personalizada'
+title: 'Tutorial: Personalização e especificação de recurso – Serviço de Decisão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Um tutorial para personalização de aprendizado de máquina e especificação de recurso no Serviço de Decisão Personalizada.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869577"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226053"
 ---
-# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: personalização e especificação de recurso
+# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: Personalização e especificação de recurso
 
 Este tutorial aborda a funcionalidade avançada de aprendizado de máquina no Serviço de Decisão Personalizada. O tutorial consiste em duas partes: [personalização](#featurization-concepts-and-implementation) e [especificação de recurso](#feature-specification-format-and-apis). Personalização refere-se à representação dos dados como "recursos" para o aprendizado de máquina. A especificação de recurso abrange o formato JSON e as APIs auxiliares para especificar os recursos.
 
-Por padrão, o aprendizado de máquina no Serviço de Decisão Personalizada é transparente para o cliente. Os recursos são extraídos automaticamente do conteúdo, e um algoritmo de aprendizado de reforço padrão é usado. A extração de recurso aproveita vários outros Serviços Cognitivos do Azure: [Vinculação de Entidade](../entitylinking/home.md), [Análise de Texto](../text-analytics/overview.md), [Detecção de Emoções](../emotion/home.md) e [Pesquisa Visual Computacional](../computer-vision/home.md). Este tutorial pode ser ignorado apenas se a funcionalidade padrão é usada.
+Por padrão, o aprendizado de máquina no Serviço de Decisão Personalizada é transparente para o cliente. Os recursos são extraídos automaticamente do conteúdo, e um algoritmo de aprendizado de reforço padrão é usado. A extração de recursos aproveita vários outros Serviços Cognitivos do Azure: [Vinculação de Entidade](../entitylinking/home.md), [Análise de Texto](../text-analytics/overview.md), [API de Detecção de Emoções](../emotion/home.md) e [Pesquisa Visual Computacional](../computer-vision/home.md). Este tutorial pode ser ignorado apenas se a funcionalidade padrão é usada.
 
 ## <a name="featurization-concepts-and-implementation"></a>Personalização: conceitos e implementação
 

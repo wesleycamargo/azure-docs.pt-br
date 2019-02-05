@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189347"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911246"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início Rápido: Implantar seu primeiro módulo IoT Edge do portal do Azure para um dispositivo Windows – versão prévia
 
@@ -104,7 +104,7 @@ Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentement
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie a cadeia de conexão da saída JSON e salve-a. Você usará esse valor para configurar o tempo de execução de IoT Edge na próxima seção.
+3. Copie o valor da chave `cs` da saída JSON e salve-o. Esse valor é a cadeia de conexão do dispositivo. Você usará essa cadeia de conexão para configurar o tempo de execução do IoT Edge na próxima seção.
 
    ![Recuperar a cadeia de conexão da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
@@ -170,6 +170,8 @@ Verifique se o tempo de execução foi instalado e configurado com êxito.
    ```
 
    ![Exibir um módulo no dispositivo](./media/quickstart/iotedge-list-1.png)
+
+Poderá demorar alguns minutos para a instalação ser concluída e o módulo de agente do IoT Edge iniciar, especialmente se você estiver usando um dispositivo com capacidade ou acesso à Internet limitado. 
 
 Seu dispositivo IoT Edge agora está configurado. Ele está pronto para executar os módulos implantados na nuvem.
 

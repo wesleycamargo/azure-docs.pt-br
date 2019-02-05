@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: f1c2cd037539b3cf33f6c58c4ac8a3a1e8c304ce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830520"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886264"
 ---
-# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Início rápido: SSH/RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy C (versão prévia)
+# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Início Rápido: SSH/RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy C (versão prévia)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -95,7 +95,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -104,10 +104,10 @@ No Windows, execute os comandos a seguir no Prompt de Comando do Desenvolvedor p
 ```
     # In Windows
     # For VS2015
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    $ cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    $ cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -179,7 +179,6 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     $ ./iothub_client_c2d_streaming_proxy_sample
 
-
     # In Windows
     # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
@@ -194,14 +193,14 @@ Conforme discutido [acima](#how-it-works), o estabelecimento de um fluxo de pont
 
 Supondo que os proxies no local do dispositivo e do serviço estão em execução, utilize o programa de cliente SSH e se conecte ao proxy no local de serviço na porta 2222 (em vez do daemon SSH diretamente). 
 
-```azurecli-interactive
+```
 ssh <username>@localhost -p 2222
 ```
 
 Neste ponto, você verá o prompt de logon do SSH para inserir suas credenciais.
 
 
-Saída do console no proxy no local do dispositivo que se conecta ao daemon SSH em <code>IP_address:22</code>: ![Texto Alt](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Saída de proxy no local do dispositivo")
+Saída do console no proxy no local do dispositivo que se conecta ao daemon SSH em `IP_address:22`: ![Texto Alt](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Saída de proxy no local do dispositivo")
 
 Saída do console do programa do cliente SSH (o cliente SSH se comunica com o daemon SSH conectando-se à porta 22 na qual o proxy do local de serviço está escutando): ![Texto Alt](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Saída do cliente SSH")
 

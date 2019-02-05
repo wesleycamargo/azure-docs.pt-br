@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980569"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095967"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início Rápido: conecte usuários e chame a API do Microsoft Graph de um aplicativo iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -51,7 +51,7 @@ Para começar, conclua estes pré-requisitos:
 > [!TIP]
 > Experimente o [portal do desenvolvedor](https://identity.microsoft.com/Docs/iOS), que ajudará você a executar o Azure AD em apenas alguns minutos. O portal do desenvolvedor orienta você pelo processo de registro de um aplicativo e integração do Azure AD em seu código. Quando terminar, você terá um aplicativo simples que pode autenticar os usuários em seu locatário e um back-end que pode aceitar tokens e executar a validação.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Etapa 1: determine qual é seu URI de redirecionamento para iOS
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Etapa 1: Determine qual é seu URI de redirecionamento para iOS
 
 Para iniciar com segurança os aplicativos em determinados cenários SSO, você deve criar um *URI de redirecionamento* em um formato específico. Um URI de redirecionamento é usado para garantir que os tokens retornem para o aplicativo correto que os solicitam.
 
@@ -68,7 +68,7 @@ Um exemplo de código de início rápido:
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="step-2-register-the-directorysearcher-application"></a>Etapa 2: registre o aplicativo DirectorySearcher
+## <a name="step-2-register-the-directorysearcher-application"></a>Etapa 2: Registrar o aplicativo DirectorySearcher
 
 Para configurar o aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do Azure AD e conceder permissão para acessar a API do Graph do Azure AD.
 
@@ -240,7 +240,7 @@ O princípio básico da ADAL é que sempre que seu aplicativo precisar de um tok
 > [!NOTE]
 > O objeto `AuthenticationResult` contém um objeto `tokenCacheStoreItem` que pode ser usado para coletar as informações de que seu aplicativo pode precisar. No Guia de Início Rápido, `tokenCacheStoreItem` é usado para determinar se a autenticação já ocorreu.
 
-## <a name="step-5-build-and-run-the-application"></a>Etapa 5: Criar e executar o aplicativo
+## <a name="step-5-build-and-run-the-application"></a>Etapa 5: Compile e execute o aplicativo
 
 Parabéns! Agora você tem um aplicativo iOS que tem a capacidade de autenticar usuários, chamar APIs Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.
 

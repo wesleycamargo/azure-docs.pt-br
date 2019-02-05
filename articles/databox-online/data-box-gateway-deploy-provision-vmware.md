@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167147"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099151"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware (Versão prévia)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware (Versão Prévia)
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial descreve como provisionar um Data Box Gateway em um sistema de host que executa o VMware ESXi 6.0 ou 6.5. 
+Este tutorial descreve como provisionar um Data Box Gateway em um sistema de host que executa o VMware ESXi 6.0, 6.5 ou 6.7. 
 
 Você precisa de privilégios de administrador para provisionar e conectar-se a um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os pré-requisitos para provisionar um dispositivo virtual em um sistema de host que executa o VMware ESXi 6.0 ou 6.5 são os seguintes.
+Os pré-requisitos para provisionar um dispositivo virtual em um sistema de host que executa o VMware ESXi 6.0, 6.5 ou 6.7 são os seguintes.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Para o recurso de Data Box Gateway
 
@@ -53,7 +53,7 @@ Antes de começar, verifique se:
 
 Antes de implantar um dispositivo virtual, verifique se:
 
-* Você tem acesso a um sistema de host que executa o VMware (ESXi 6.0 ou 6.5) que pode ser usado para provisionar um dispositivo.
+* Você tem acesso a um sistema de host que executa o VMware (ESXi 6.0, 6.5 ou 6.7) que pode ser usado para provisionar um dispositivo.
 * O sistema de host é capaz de dedicar os recursos a seguir para provisionar seu dispositivo virtual:
 
   * Um mínimo de quatro núcleos.
@@ -73,7 +73,7 @@ Antes de começar:
 
 Para criar um dispositivo virtual, você precisa de:
 
-* Acesso a um sistema host com VMware ESXi 6.0 ou 6.5. O sistema host é capaz de dedicar os recursos a seguir para o seu dispositivo virtual:
+* Acesso a um sistema host com VMware ESXi 6.0, 6.5 ou 6.7. O sistema host é capaz de dedicar os recursos a seguir para o seu dispositivo virtual:
  
   * Um mínimo de quatro núcleos.
   * Pelo menos 8 GB de RAM. 
@@ -89,7 +89,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 1. Copie a imagem do dispositivo virtual no seu sistema. Você fez o download dessa imagem virtual (dois arquivos) por meio do portal do Azure. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
 
-2. Faça logon no servidor ESXi usando o cliente Web vSphere. Você precisa ter privilégios de administrador para criar uma máquina virtual.
+2. Entre no servidor ESXi usando o cliente Web vSphere. Você precisa ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -192,7 +192,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. As etapas 5 a 7 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas e vá para a etapa 8. Caso você tenha inicializado seu dispositivo em um ambiente não DHCP, verá uma mensagem: **Usar o cmdlet Set-HcsIPAddress para configurar a rede**. 
+6. As etapas 5 a 7 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas e vá para a etapa 8. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você uma mensagem sobre isso: **Use o cmdlet Set-HcsIPAddress para configurar a rede**. 
    
 7. Para configurar a rede, no prompt de comando, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
 
@@ -222,5 +222,5 @@ Neste tutorial, você aprendeu sobre os tópicos do Data Box Gateway, como:
 
 Vá para o próximo tutorial para aprender a conectar, configurar e ativar suas redes virtuais.
 
-* [Configurar e conectar-se a compartilhamentos em seu Gateway do Data Box](data-box-gateway-deploy-connect-setup-activate.md)
+* [Configurar e conectar-se a compartilhamentos em seu Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)
 

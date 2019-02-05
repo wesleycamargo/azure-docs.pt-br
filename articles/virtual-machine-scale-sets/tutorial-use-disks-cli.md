@@ -3,7 +3,7 @@ title: Tutorial - Criar e usar discos para conjuntos de dimensionamento com o CL
 description: Aprenda a usar a CLI do Azure para criar e usar Discos gerenciados com o conjunto de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469377"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163051"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: crie e use discos com escala de máquina virtual definida com a CLI do Azure
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e usar discos com conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -48,7 +48,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 **Disco temporário** – discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a instância da VM. Tratam-se de discos de alto desempenho que podem ser usados para operações como o processamento de dados temporário. No entanto, se a instância de VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da instância de VM. Os discos temporários são rotulados */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
-| Tipo | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
+| Type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
 | [Propósito geral](../virtual-machines/linux/sizes-general.md) | Série A, B e D | 1600 |
 | [Computação otimizada](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
@@ -62,7 +62,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 Outros discos de dados podem ser adicionados caso você precise instalar aplicativos e armazenar dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU da VM, podem ser anexados dois discos de dados.
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
-| Tipo | Tamanhos comuns | Máximo de discos de dados por VM |
+| Type | Tamanhos comuns | Máximo de discos de dados por VM |
 |----|----|----|
 | [Propósito geral](../virtual-machines/linux/sizes-general.md) | Série A, B e D | 64 |
 | [Computação otimizada](../virtual-machines/linux/sizes-compute.md) | Série F | 64 |
@@ -132,7 +132,7 @@ Os discos que são criados e anexados às suas instâncias de VM do conjunto de 
 
 Para automatizar o processo em várias instâncias de VM em um conjunto de dimensionamento, você pode usar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
 
-O exemplo a seguir executa um script de um repositório GitHub de exemplo em cada instância de VM com [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set), que prepara todos os discos de dados brutos anexados:
+O exemplo a seguir executa um script de um repositório GitHub de exemplo em cada instância de VM com [az vmss extension set](/cli/azure/vmss/extension), que prepara todos os discos de dados brutos anexados:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ São exibidas informações sobre o tamanho do disco, a camada de armazenamento 
 
 
 ## <a name="detach-a-disk"></a>Desanexar um disco
-Quando não precisar mais de determinado disco, você poderá desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) e especifique o LUN do disco. Os LUNs são mostrados na saída de [az vmss show](/cli/azure/vmss#az_vmss_show) na seção anterior. O exemplo a seguir desanexa o LUN *2* do conjunto de dimensionamento:
+Quando não precisar mais de determinado disco, você poderá desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, use [az vmss disk detach](/cli/azure/vmss/disk) e especifique o LUN do disco. Os LUNs são mostrados na saída de [az vmss show](/cli/azure/vmss#az_vmss_show) na seção anterior. O exemplo a seguir desanexa o LUN *2* do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az vmss disk detach \

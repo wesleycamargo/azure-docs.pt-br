@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Transliterar texto, Node.js - API de Tradução de Texto'
+title: 'Início Rápido: Transliterar texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a transcrever texto (converter) de um script para outro usando Node.js e a API REST de Tradução de Texto. Neste exemplo, o japonês é transliterado para usar o alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035808"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207914"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para transliterar texto com Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Início rápido: Usar a API de Tradução de Texto para transliterar texto com Node.js
 
 Neste início rápido, você aprenderá a transcrever texto (converter) de um script para outro usando Node.js e a API REST de Tradução de Texto. No exemplo fornecido, o japonês é transliterado para usar o alfabeto latino.
 

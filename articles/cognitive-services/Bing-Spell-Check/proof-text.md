@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345701"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149764"
 ---
 # <a name="what-is-bing-spell-check-api"></a>O que é a API de Verificação Ortográfica do Bing?
 
@@ -39,7 +39,7 @@ Esse verificador ortográfico pode lidar com qualquer cenário de processamento 
 A API dá suporte a dois modos de revisão de texto, `Proof` e `Spell`.  Experimente exemplos [aqui](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Proof: para documentos
 O modo padrão é `Proof`. O modo de verificação ortográfica `Proof` faz as verificações mais abrangentes, adicionando capitalização, pontuação básica e outros recursos para auxiliar na criação de documentos. mas está disponível somente nos mercados en-US (Inglês (Estados Unidos)), es-ES (Espanhol), pt-BR (Português (Brasil)) (Observação: somente na versão beta para espanhol e português). Em todos os outros mercados, defina o parâmetro de consulta de modo como Spell. 
-<br /><br/>**Observação:** se o comprimento do texto de consulta exceder 4096, ele será truncado para 4096 caracteres, em seguida, será processada. 
+<br /><br/>**OBSERVAÇÃO:**   se o comprimento do texto de consulta exceder 4096, ele será truncado para 4096 caracteres e, em seguida, será processado. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell: para consultas de pesquisa/Web
 `Spell` é mais agressiva para retornar melhores resultados de pesquisa. O modo `Spell` localiza a maioria dos erros de ortografia, mas não encontra alguns erros gramaticais que `Proof` encontra, por exemplo, uso de maiúsculas e palavras repetidas.
 

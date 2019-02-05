@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901151"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174254"
 ---
 # <a name="unity-sample-walkthrough"></a>Exemplo passo a passo do Unity
 Este é um passo a passo da amostra Project Acoustics. Para mais informações sobre o que é o Project Acoustics, confira o [Introdução à Acústica do Projeto](what-is-acoustics.md). Para obter ajuda sobre como adicionar o pacote Project Acoustics a um projeto Unity preexistente, use o [Guia de primeiros passos](getting-started.md).

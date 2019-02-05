@@ -1,29 +1,29 @@
 ---
-title: 'Exemplo: adicionar faces – API de Detecção Facial'
+title: 'Exemplo: Adicionar rostos – API de Detecção Facial'
 titleSuffix: Azure Cognitive Services
 description: Use a API de Detecção Facial para adicionar faces a imagens.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222807"
 ---
-# <a name="example-how-to-add-faces"></a>Exemplo: como adicionar faces
+# <a name="example-how-to-add-faces"></a>Exemplo: Como adicionar faces
 
 Este guia demonstra a prática recomendada para adicionar um grande número de pessoas e faces para um PersonGroup.
 A mesma estratégia também se aplica a FaceList e LargePersonGroup.
 As amostras são gravadas em C# usando a biblioteca de clientes da API de Detecção Facial.
 
-## <a name="step-1-initialization"></a>Etapa 1: inicialização
+## <a name="step-1-initialization"></a>Etapa 1: Inicialização
 
 Diversas variáveis são declaradas e uma função auxiliar é implementada para agendar as solicitações.
 
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>Etapa 2: autorizar a chamada à API
+## <a name="step-2-authorize-the-api-call"></a>Etapa 2: Autorizar a chamada à API
 
 Ao usar uma biblioteca de clientes, a chave de assinatura é passada através do construtor da classe FaceServiceClient. Por exemplo: 
 
@@ -70,7 +70,7 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>"
 
 A chave de assinatura pode ser obtida da página Marketplace do seu portal do Azure. Consulte [Assinaturas](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
-## <a name="step-3-create-the-persongroup"></a>Etapa 3: criar o PersonGroup
+## <a name="step-3-create-the-persongroup"></a>Etapa 3: Criar o PersonGroup
 
 Um PersonGroup denominado "MyPersonGroup" é criado para salvar as pessoas.
 O tempo da solicitação é enfileirado a `_timeStampQueue` para garantir a validação geral.
@@ -82,7 +82,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-to-the-persongroup"></a>Etapa 4: criar as pessoas para o PersonGroup
+## <a name="step-4-create-the-persons-to-the-persongroup"></a>Etapa 4: Criar as pessoas para o PersonGroup
 
 As pessoas são criadas simultaneamente e `await WaitCallLimitPerSecondAsync()` também é aplicado para evitar exceder o limite de chamada.
 
@@ -97,7 +97,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="step-5-add-faces-to-the-persons"></a>Etapa 5: adicionar faces às pessoas
+## <a name="step-5-add-faces-to-the-persons"></a>Etapa 5: Adicionar faces às pessoas
 
 Adicionar as faces de pessoas diferentes são processadas simultaneamente, enquanto para uma pessoa específica é sequencial.
 Novamente, `await WaitCallLimitPerSecondAsync()` é invocado para garantir que a frequência de solicitação está dentro do escopo de limitação.

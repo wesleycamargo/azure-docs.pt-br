@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Entidade do Bing, Java'
+title: 'Início rápido: SDK da Pesquisa de Entidade do Bing, Java'
 titlesuffix: Azure Cognitive Services
 description: Configure o aplicativo de console do SDK de Pesquisa de Entidade do Bing.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: 291a307d4fd7c0fa723b8b17c13b3ef13cdeb8de
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: caa525df5091788ab8a5807272f895f46da9673a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316813"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149265"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Entidade do Bing com Java
 
@@ -24,7 +24,7 @@ O SDK de Pesquisa de Entidade do Bing fornece a funcionalidade da API REST para 
 O [código-fonte para amostras do SDK de Pesquisa de Entidade do Bing em Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) está disponível no GitHub. 
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Instale as dependências do SDK de Pesquisa de Entidade do Bing usando Maven, Gradle ou outro sistema de gerenciamento de dependência. O arquivo POM Maven requer a declaração:
 ```

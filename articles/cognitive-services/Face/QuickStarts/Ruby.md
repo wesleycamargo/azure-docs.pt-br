@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Detectar faces em uma imagem usando a API REST e o Ruby'
+title: 'Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces em uma imagem usando a API de Detecção Facial com Ruby.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 8b47c845e8523e1c35dee8a5732cb15fed09e030
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6320e05172673abf809ac7fdbfea544ed74b0019
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955401"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221072"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início Rápido: Detectar faces em uma imagem usando a API REST e o Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby
 
 Neste início rápido, você detecta rostos humanos em uma imagem usando a API de Detecção Facial.
 
@@ -30,7 +30,7 @@ Você precisa de uma chave de assinatura para executar o exemplo. É possível o
 Use o método [Face – Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar faces em uma imagem e retornar atributos de detecção facial, incluindo:
 
 * ID de Detecção Facial: ID exclusiva usada em vários cenários de API de Detecção Facial.
-* Retângulo de Detecção Facial: o lado esquerdo, a parte superior, a largura e a altura que indicam o local do rosto na imagem.
+* Retângulo de Detecção Facial: o lado esquerdo, a parte superior, a largura e a altura que indicam a localização do rosto na imagem.
 * Pontos de Referência: uma matriz de 27 pontos de referência de detecção facial que aponta para as posições importantes dos componentes de detecção facial.
 * Atributos faciais, incluindo idade, gênero, intensidade do sorriso, pose da cabeça e pelos faciais.
 

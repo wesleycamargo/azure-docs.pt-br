@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 01/25/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: df955a23393c82565e8f31e59e148798a0f89bbf
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ec36193e341cac899e696c642a1d600f3f80a5f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236473"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224857"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como analisar vídeos em tempo real
 
@@ -74,13 +74,13 @@ Em nosso sistema final "produtor-consumidor", temos um thread produtor que se as
 ```CSharp
 // Queue that will contain the API call tasks.
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread.
 while (true)
 {
     // Grab a frame.
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame.
     if (ShouldAnalyze(f))
     {
@@ -112,10 +112,10 @@ while (true)
 {
     // Get the oldest task.
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed.
     var output = await analysisTask;
-     
+     
     // Consume the exception or result.
     if (output.Exception != null)
     {
@@ -140,7 +140,7 @@ using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
-     
+     
 namespace VideoFrameConsoleApplication
 {
     class Program
@@ -195,7 +195,7 @@ Para começar a usar esse exemplo, siga estas etapas:
 2. Clone o repositório GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Abra o exemplo no Visual Studio 2015, compile e execute os aplicativos de exemplo:
-    - Para BasicConsoleSample, a chave da API de Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para BasicConsoleSample, a chave da API de Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, as chaves devem ser inseridas no painel Configurações do aplicativo. Elas serão persistentes entre as sessões como dados de usuário.
 
 
@@ -213,4 +213,4 @@ As funcionalidades de reconhecimento de imagem, voz, vídeo ou texto do VideoFra
 ## <a name="summary"></a>Resumo
 Neste guia, você aprendeu a executar análises quase em tempo real em fluxos de vídeo ao vivo usando as APIs de Detecção Facial, de Pesquisa Visual Computacional e de Detecção de Emoções, e como é possível usar nosso código de exemplo para começar.  Comece compilando o aplicativo com as chaves de API gratuitas na [página de entrada dos Serviços Cognitivos do Azure](https://azure.microsoft.com/try/cognitive-services/).
 
-Fique à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou comentários mais abrangentes sobre a API em nosso [site UserVoice](https://cognitive.uservoice.com/).
+Fique à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou comentários mais abrangentes sobre a API em nosso [site UserVoice](https://cognitive.uservoice.com/).

@@ -6,18 +6,18 @@ services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6527e053f685fd7947e123d15c0d33399d07e61f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227243"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: conectar o Serviço Cognitivo da Análise de Texto usando os Serviços Conectados no Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: Conectar o Serviço Cognitivo da Análise de Texto usando os Serviços Conectados no Visual Studio
 
 Usando o Serviço de Análise de Texto, é possível extrair informações avançadas para categorizar e processar dados visuais e executar moderação assistida por computador de imagens para ajudar a coletar os serviços.
 

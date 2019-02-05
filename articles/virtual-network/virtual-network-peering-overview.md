@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1085be57583762e8f1d419e2aacc699032340d90
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054547"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169307"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -72,6 +72,8 @@ Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRo
 Para confirmar um emparelhamento de rede virtual, você pode [verificar rotas efetivas](diagnose-network-routing-problem.md) para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada.
 
 Você também pode solucionar os problemas de conectividade com uma máquina virtual em uma rede virtual emparelhada usando a [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede. A verificação de conectividade permite que você veja como o tráfego é roteado da interface de rede de uma máquina virtual de origem até a interface de rede de uma máquina virtual de destino.
+
+Você também pode experimentar a [Solução de problemas para problemas de emparelhamento de rede virtual](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
 
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 

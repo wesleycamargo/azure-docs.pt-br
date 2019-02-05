@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: criar um aplicativo Web de página única – API de Pesquisa na Web do Bing'
+title: 'Tutorial: Criar um aplicativo Web de página única – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
 description: Este aplicativo de página única demonstra como a API de Pesquisa na Web do Bing pode ser usada para recuperar, analisar e exibir resultados da pesquisa relevantes em um aplicativo de página única.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: aahi
-ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 13040cf7f75b8bf2c0bf898dc4f3b16c99a80560
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161915"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172469"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
 
 Este aplicativo de página única demonstra como recuperar, analisar e exibir os resultados da pesquisa com base na API de Pesquisa na Web do Bing. O tutorial usa o HTML e CSS clichês e concentra-se no código JavaScript. Arquivos HTML, CSS e JS estão disponíveis no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) com instruções de início rápido.
 

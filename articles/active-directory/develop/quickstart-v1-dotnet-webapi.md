@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 239c0d0adbe89dd3d1d7bc7244a52ab079a36ad4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f44955e13cb5774119dc083f4a3220b432d9cd9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952538"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098057"
 ---
-# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Início Rápido: Criar um .NET Web API que se integre ao Azure AD para autenticação e autorização
+# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Início Rápido: Criar uma API Web do .NET que se integre ao Azure AD para autenticação e autorização
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -48,7 +48,7 @@ Para começar, conclua estes pré-requisitos:
 * [Baixe o esqueleto do aplicativo](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) ou [baixe a amostra completa](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Cada um é uma solução do Visual Studio 2013.
 * Tenha um locatário do Azure AD no qual registrar seu aplicativo. Se você ainda não tiver um locatário, [saiba como obter um](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>Etapa 1: registrar um aplicativo com o Azure AD
+## <a name="step-1-register-an-application-with-azure-ad"></a>Etapa 1: Registrar um aplicativo com o Active Directory do Azure
 
 Para proteger seu aplicativo, você primeiro precisará criar um aplicativo em seu locatário e fornecer algumas informações cruciais ao Azure AD.
 
@@ -65,7 +65,7 @@ Para proteger seu aplicativo, você primeiro precisará criar um aplicativo em s
 6. Na página **Configurações > Propriedades** do aplicativo, atualize o URI da ID do aplicativo. Insira um identificador específico ao locatário. Por exemplo, insira: `https://contoso.onmicrosoft.com/TodoListService`.
 7. Salve a configuração. Deixe o portal aberto, pois você também precisará registrar seu aplicativo cliente em breve.
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Etapa 2: configurar o aplicativo para usar o pipeline de autenticação OWIN
+## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Etapa 2: Configurar o aplicativo para usar o pipeline de autenticação OWIN
 
 Para validar tokens e solicitações de entrada, você precisa configurar seu aplicativo para se comunicar com o Azure AD.
 

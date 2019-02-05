@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Detectar faces em uma imagem com a API REST do Azure e C#'
+title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e C#'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com C# para detectar faces em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 24b506b0dd22b388a57f88f1105742660b02269c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6dce69b06d00ef41f4ffee46f644fb0dc3560ecc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853998"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220596"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Início Rápido: Detectar faces em uma imagem usando a API REST de Detecção Facial e o C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e C#
 
 Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com C# para detectar faces em uma imagem.
 

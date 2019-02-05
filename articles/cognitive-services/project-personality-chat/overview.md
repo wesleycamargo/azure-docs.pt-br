@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 865815862be4a2250347f782985e0bce87780197
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 053d43d0f17df2008106bda38318615e60778935
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220527"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207506"
 ---
 # <a name="what-is-project-personality-chat"></a>O que é o Chat de Personalidade do Projeto?
 
@@ -28,7 +28,7 @@ Um conjunto editorial personalizável para consultas comuns de conversas está d
 
 Você pode visitar a página de laboratórios do Project Personality Chat e conversar com a demonstração disponível, além de solicitar acesso antecipado quando o serviço for disponibilizado.
 Hoje, também pode integrar a biblioteca somente editorial personalizável nos seus bots por meio do SDK do Microsoft Bot Framework. <br>
-[Amostras: Integrar o Personality Chat em um bot](https://github.com/Microsoft/BotBuilder-PersonalityChat/) <br>
+[Exemplos: Integrar o Personality Chat em um bot](https://github.com/Microsoft/BotBuilder-PersonalityChat/) <br>
 [Experimente a biblioteca do Personality Chat](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp)
 
 ## <a name="generating-responses-using-neural-networks"></a>Geração de respostas usando redes neurais

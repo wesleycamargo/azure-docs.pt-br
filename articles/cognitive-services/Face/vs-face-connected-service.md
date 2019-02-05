@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: API de Detecção Facial com C#'
+title: 'Tutorial: API de Detecção Facial C#'
 titleSuffix: Azure Cognitive Services
 description: Crie um aplicativo do Windows simples que use a API de Detecção Facial dos Serviços Cognitivos para detectar recursos de faces em uma imagem.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129515"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209427"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conectar a API de Detecção Facial dos Serviços Cognitivos usando Serviços Conectados no Visual Studio
 

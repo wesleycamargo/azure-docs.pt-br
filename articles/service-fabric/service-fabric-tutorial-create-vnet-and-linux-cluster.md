@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831476"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101798"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -89,13 +89,13 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Linux é implanta
 
 * um tipo de nó único
 * cinco nós no tipo de nó principal (configurável nos parâmetros de modelo)
-* Sistema operacional: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
+* sistema operacional: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
 * certificado protegidos (configurável nos parâmetros de modelo)
 * [Serviço DNS](service-fabric-dnsservice.md) está habilitado
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo)
 * [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo)
-* ponto de extremidade de conexão de cliente: 19000 (configurável nos parâmetros de modelo)
-* ponto de extremidade de conexão de cliente: 19080 (configurável nos parâmetros de modelo)
+* ponto de extremidade de conexão do cliente: 19000 (configurável nos parâmetros de modelo)
+* ponto de extremidade de gateway HTTP: 19080 (configurável nos parâmetros de modelo)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 

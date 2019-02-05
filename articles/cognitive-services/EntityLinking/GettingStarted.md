@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: criar um aplicativo de vinculação de entidade – C#'
+title: 'Tutorial: Criar um aplicativo de vinculação de entidade – C#'
 titlesuffix: Azure Cognitive Services
 description: Analise texto e vincule entidades nomeadas a entradas relevantes em uma base de dados de conhecimento usando a API de Vinculação de Entidade.
 services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216805"
 ---
-# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: criar um aplicativo de vinculação de entidade com C#
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: Criar um aplicativo de vinculação de entidade com C#
 
 A Vinculação de Entidade da Microsoft é uma ferramenta de processamento de linguagem natural para analisar o texto e vincular entidades denominadas de entradas relevantes em uma base de conhecimento. 
 
@@ -32,10 +32,10 @@ Este tutorial explora a vinculação de entidade usando a biblioteca de cliente 
 
 Você pode baixar a biblioteca de cliente da API de Serviço de Inteligência de Vinculação de Entidade por meio de [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). O arquivo zip baixado precisa ser extraído para uma pasta de sua escolha. Muitos usuários escolhem a pasta do Visual Studio 2015.
 
-### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Etapa 1: Inscrever-se no Serviço de Inteligência de Vinculação de Entidade e obter sua chave</a>
+### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Etapa 1: Assinar o Serviço de Inteligência de Vinculação de Entidade e obter sua chave</a>
 Antes de usar o Serviço de Inteligência de Vinculação de Entidade, você deve se inscrever para uma chave de API. Consulte [Assinaturas](https://www.microsoft.com/cognitive-services/en-us/sign-up). Tanto a chave primária quanto a secundária podem ser usadas neste tutorial.
 
-### <a name="step-2-create-a-new-project-in-visual-studio">Etapa 2: Criar um novo projeto no Visual Studio</a>
+### <a name="step-2-create-a-new-project-in-visual-studio"> Etapa 2: Criar um novo projeto no Visual Studio</a>
 
 Vamos começar criando um novo projeto no Visual Studio. Primeiro, inicie o Visual Studio 2015 no Menu Iniciar. Em seguida, crie um novo projeto selecionando **Instalado → Modelos → Visual C# → Windows Universal → Aplicativo em branco** para o modelo de projeto:
 

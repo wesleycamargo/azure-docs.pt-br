@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Converter script de texto, Java - API de Tradução de Texto'
+title: 'Início rápido: Converter script de texto, Java – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a transliterar texto (converter) de um script para outro usando Java e a API REST de Tradução de Texto. Neste exemplo, o japonês é transliterado para usar o alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 1679445f73cd6b90423e05f985b83b818e32997e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e42aa7ec796b3be912614ced5f3a4db47f67c124
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888861"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210033"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Início Rápido: Usar a API de Tradução de Texto para transliterar texto usando Java
 
@@ -44,7 +44,7 @@ Em seguida, você vai inicializar um projeto do Gradle. Esse comando criará arq
 gradle init --type basic
 ```
 
-Quando solicitado a escolher uma **DSL**, selecione **Kotlin**.
+Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
 
 ## <a name="configure-the-build-file"></a>Configure o arquivo de compilação
 

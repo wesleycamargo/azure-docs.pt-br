@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452761"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299819"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é gerenciamento de dispositivos no Azure Active Directory?
 
@@ -45,7 +45,7 @@ Para colocar um dispositivo sob controle do Azure AD, você tem duas opções:
 
 O **registro** de um dispositivo no Azure AD permite que você gerencie a identidade do dispositivo. Quando um dispositivo é registrado, o registro de dispositivo do Azure AD fornece ao dispositivo uma identidade, que é usada para autenticar o dispositivo quando o usuário entra no Azure AD. Você pode usar a identidade para habilitar ou desabilitar um dispositivo.
 
-Quando combinada com uma solução MDM (gerenciamento de dispositivo móvel), como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o dispositivo. Isso permite que você crie regras de acesso condicional que imponham que o acesso dos dispositivos atendam aos padrões de segurança e conformidade. Para saber mais sobre o registro de dispositivos no Microsoft Intune, confira [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms).
+Quando combinada com uma solução MDM (gerenciamento de dispositivo móvel), como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o dispositivo. Isso permite que você crie regras de acesso condicional que imponham que o acesso dos dispositivos atendam aos padrões de segurança e conformidade. Para obter mais informações sobre o registro de dispositivos no Microsoft Intune, confira [O que é registro de dispositivo?](https://docs.microsoft.com/intune/device-enrollment)
 
 A **adição** de um dispositivo é uma extensão do registro de um dispositivo. Isto é, além de todos os benefícios recebidos ao registrar um dispositivo, o estado local de um dispositivo é alterado. A alteração do estado local permite que os usuários entrem em um dispositivo usando uma conta organizacional corporativa ou de estudante em vez de uma conta pessoal.
 

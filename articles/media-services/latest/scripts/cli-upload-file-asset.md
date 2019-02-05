@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5120d938d137efef77eeb0b69a5bf571bd4c509b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9acb2d7db1d8cb30fb853b79e9627a1b50da2aaa
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614490"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092181"
 ---
 # <a name="cli-example-upload-a-local-file-to-a-container"></a>Exemplo de CLI: Carregar um arquivo local para um contêiner 
 
@@ -27,11 +27,9 @@ O script de CLI do Azure neste artigo mostra como carregar um arquivo local para
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+[Crie uma conta de Serviços de Mídia](../create-account-cli-how-to.md).
 
-    Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
-
-- [Crie uma conta de Serviços de Mídia](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 

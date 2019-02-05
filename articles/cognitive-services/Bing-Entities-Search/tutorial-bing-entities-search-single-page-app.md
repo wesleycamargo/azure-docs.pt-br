@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: aplicativo Web de página única da Pesquisa de Entidade do Bing'
+title: 'Tutorial: Aplicativo Web de página única da Pesquisa de Entidade do Bing'
 titlesuffix: Azure Cognitive Services
 description: Mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: aahi
-ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f8aa6733748bbdf9ffff069126f6481c8b6788c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197425"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: aplicativo Web de página única
+# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
 A API de Pesquisa de Entidade do Bing permite pesquisar na Web informações sobre *entidades* e *locais.* É possível solicitar qualquer tipo de resultado, ou ambos, em uma determinada consulta. As definições de entidades e locais são fornecidas abaixo.
 

@@ -9,17 +9,17 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711475"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245364"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início Rápido: carregar, listar e excluir blobs usando JavaScript/HTML no navegador
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início Rápido: Carregar, listar e excluir blobs usando JavaScript/HTML no navegador
 
 Este guia de início rápido demonstra como gerenciar blobs a partir do código executado totalmente no navegador. A abordagem usada aqui mostra como usar medidas de segurança necessárias para garantir o acesso protegido à sua conta de Armazenamento de blob. Para concluir este início rápido, você precisa de uma [assinatura do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -80,7 +80,7 @@ A série de valores depois de cada parâmetro pode parecer um pouco confusa. Ess
 
 | Parâmetro        | Valor   | DESCRIÇÃO  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | Essa SAS permite *ler*, *acrescentar*, *criar*, *gravar*, *excluir* e *listar* recursos. |
+| *permissões*    | racwdl  | Essa SAS permite *ler*, *acrescentar*, *criar*, *gravar*, *excluir* e *listar* recursos. |
 | *resource-types* | sco     | Os recursos afetados pela SAS são *serviço*, *contêiner* e *objeto*. |
 | *services*       | b       | O serviço afetado pela SAS é o serviço *Blob*. |
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Para que esse exemplo de código funcione, forneça um valor de cadeia de caracteres para *blobName*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para limpar os recursos criados durante este início rápido, volte para o [portal do Azure](https://portal.azure.com) e selecione sua conta de armazenamento. Depois de selecionada, você poderá excluir a conta de armazenamento acessando: **Visão Geral > Excluir conta de armazenamento**.
+Para limpar os recursos criados durante este início rápido, volte para o [portal do Azure](https://portal.azure.com) e selecione sua conta de armazenamento. Depois de selecionada, você pode excluir a conta de armazenamento acessando: **Visão geral > Excluir conta de armazenamento**.
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore os exemplos para saber como baixar blobs e relatar o andamento durante as transferências de arquivos.

@@ -1,5 +1,5 @@
 ---
-title: Transmitir ao vivo com Serviços de Mídia do Azure v3 | Microsoft Docs
+title: Transmitir ao vivo com Serviços de Mídia do Microsoft Azure v3 usando .NET | Microsoft Docs
 description: Este tutorial orienta-o pelas etapas de transmissão ao vivo com o Serviços de Mídia v3 usando o .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811206"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170514"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Transmitir ao vivo com Serviços de Mídia v3 usando APIs
+# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Transmitir ao vivo com Serviços de Mídia v3 usando .NET
 
-Nos Serviços de Mídia do Azure, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um LiveEvent fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico. O LiveEvent recebe fluxos de entrada ao vivo do codificador dinâmico e o disponibiliza para streaming por meio de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto de extremidade de versão prévia (URL de versão prévia) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. Este tutorial mostra como usar o .NET Core para criar um tipo de **passagem** de um evento ao vivo. 
+Nos Serviços de Mídia do Azure, [Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um Evento ao Vivo fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico. O Evento ao Vivo recebe fluxos de entrada ao vivo do codificador dinâmico e o disponibiliza para streaming por meio de um ou mais [Pontos de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos ao Vivo também fornecem um ponto de extremidade de visualização (URL de visualização) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. Este tutorial mostra como usar o .NET Core para criar um tipo de **passagem** de um evento ao vivo. 
 
 > [!NOTE]
 > Certifique-se de revisar [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md) antes de continuar. 
@@ -31,8 +31,7 @@ Nos Serviços de Mídia do Azure, [LiveEvents](https://docs.microsoft.com/rest/a
 Este tutorial mostra como:    
 
 > [!div class="checklist"]
-> * Instalar a API de Serviços de Mídia
-> * Configurar o aplicativo de exemplo
+> * Baixe o aplicativo de exemplo descrito no tópico
 > * Examinar o código que executa a transmissão ao vivo
 > * Assista ao evento com o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) em http://ampdemo.azureedge.net
 > * Limpar recursos
@@ -44,18 +43,12 @@ Este tutorial mostra como:
 Os itens a seguir são necessários para concluir o tutorial.
 
 - Instale o Visual Studio Code ou o Visual Studio.
-- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-
-    Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
-
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
-
-    Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia
-
+- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
+- Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 - Uma câmera ou um dispositivo (como laptop) usado para transmitir um evento.
 - Um codificador ao vivo local que converte sinais da câmera em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. O fluxo deve estar no formato **RTMP** ou **Smooth Streaming**.
 
-## <a name="download-the-sample"></a>Baixar o exemplo
+## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo
 
 Clone um repositório do GitHub que contém o exemplo de streaming de .NET em sua máquina usando o comando a seguir:  
 
@@ -65,11 +58,10 @@ Clone um repositório do GitHub que contém o exemplo de streaming de .NET em su
 
 A amostra de transmissão ao vivo está localizada na pasta [Dinâmica](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp).
 
-> [!IMPORTANT]
-> Esta amostra usa o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, finalizará vários LiveEvents em sua conta. <br/>
-> Certifique-se de parar os LiveEvents em execução. Caso contrário, você será **cobrado**!
+Abra [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) no projeto que você baixou. Substitua os valores pelas credenciais que você obteve de [acesso às APIs](access-api-cli-how-to.md).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+> [!IMPORTANT]
+> Esta amostra usa o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, finalizará vários Eventos ao Vivo em sua conta. <br/>Interrompa a execução de Eventos ao Vivo. Caso contrário, você será **cobrado**!
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Examinar o código que executa a transmissão ao vivo
 
@@ -78,8 +70,8 @@ Esta seção examina as funções definidas no arquivo [Program.cs](https://gith
 A amostra cria um sufixo exclusivo para cada recurso, de modo que não ocorra conflitos de nome se executar a amostra várias vezes sem limpeza.
 
 > [!IMPORTANT]
-> Esta amostra usa o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, finalizará vários LiveEvents em sua conta. <br/>
-> Certifique-se de parar os LiveEvents em execução. Caso contrário, você será **cobrado**!
+> Esta amostra usa o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, finalizará vários Eventos ao Vivo em sua conta. <br/>
+> Interrompa a execução de Eventos ao Vivo. Caso contrário, você será **cobrado**!
  
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a usar as APIs de Serviços de Mídia com a SDK .NET
 
@@ -89,29 +81,20 @@ Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é neces
 
 ### <a name="create-a-live-event"></a>Criar um evento ao vivo
 
-Esta seção mostra como criar um tipo de **passagem** do LiveEvent (LiveEventEncodingType definido como Nenhum). Se você quer criar um LiveEvent habilitado para codificação ativa, defina LiveEventEncodingType como **Standard**. 
+Esta seção mostra como criar um tipo de **passagem** do Evento ao Vivo (LiveEventEncodingType definido como Nenhum). Se você quiser criar um Evento ao Vivo habilitado para codificação ativa, defina LiveEventEncodingType como **Standard**. 
 
 Outras opções que talvez você queira especificar ao criar o evento ao vivo são:
 
 * Local dos Serviços de Mídia 
-* O protocolo de streaming para o Evento ao Vivo (atualmente, os protocolos RTMP e Smooth Streaming t~em suporte)
-       
-    Não é possível alterar a opção de protocolo enquanto o LiveEvent ou os LiveOutputs associados estiverem em execução. Se você precisar de protocolos diferentes, crie um LiveEvent separado para cada protocolo de streaming.  
-* Restrições de IP sobre a ingestão e versão prévia. É possível definir os endereços IP que tenham permissão para ingerir um vídeo neste LiveEvent. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo, '10.0.0.1'), um intervalo IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22) ou um intervalo IP usando um endereço IP e uma máscara de sub-rede com notação decimal com ponto (por exemplo, '10.0.0.1(255.255.252.0)').
-    
-    Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
-    
-    Os endereços IP devem estar em um dos formatos a seguir: endereço IPv4 com 4 números e intervalo de endereços CIDR.
-
-* Ao criar o evento, é possível especificar para iniciá-lo automaticamente. 
-
-    Quando a inicialização automática é definida como verdadeira, o evento em tempo real será iniciado após a criação. Isso significa que a cobrança começa assim que o evento em tempo real está em execução. Você deve chamar explicitamente Parar no recurso LiveEvent para interromper o faturamento adicional. Para obter mais informações, consulte [Estados do LiveEvent e cobrança](live-event-states-billing.md).
+* O protocolo de streaming para Evento ao Vivo (atualmente, há suporte para os protocolos RTMP e Smooth Streaming).<br/>Não é possível alterar a opção de protocolo enquanto o Evento ao Vivo ou suas Saídas ao Vivo associadas estiverem em execução. Se você precisar de protocolos diferentes, crie um Evento ao Vivo separado para cada protocolo de streaming.  
+* Restrições de IP sobre a ingestão e versão prévia. É possível definir os endereços IP que tenham permissão para ingerir um vídeo neste Evento ao Vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo, '10.0.0.1'), um intervalo IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22) ou um intervalo IP usando um endereço IP e uma máscara de sub-rede com notação decimal com ponto (por exemplo, '10.0.0.1(255.255.252.0)').<br/>Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos formatos a seguir: endereço IPv4 com 4 números e intervalo de endereços CIDR.
+* Ao criar o evento, é possível especificar para iniciá-lo automaticamente. <br/>Quando a inicialização automática é definida como verdadeira, o evento em tempo real será iniciado após a criação. Isso significa que a cobrança é iniciada assim que o Evento ao Vivo começa a ser executado. É necessário chamar explicitamente Parar no recurso Evento ao Vivo para interromper a cobrança adicional. Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>Obter URLs de ingestão
 
-Depois que o LiveEvent é criado, você pode obter URLs de ingestão que você fornecerá ao codificador dinâmico. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
+Depois que o Evento ao Vivo é criado, você pode obter URLs de ingestão que você fornecerá ao codificador dinâmico. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
@@ -124,24 +107,28 @@ Use o previewEndpoint para visualizar e verificar se a entrada do codificador es
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
-### <a name="create-and-manage-liveevents-and-liveoutputs"></a>Criar e gerenciar LiveEvents e LiveOutputs
+### <a name="create-and-manage-live-events-and-live-outputs"></a>Criar e gerenciar Eventos ao Vivo e Saídas ao Vivo
 
-Uma vez que o fluxo está fluindo para o LiveEvent, será possível iniciar o evento de streaming criando um Asset, LiveOutput e StreamingLocator. Isso arquivará o fluxo e o disponibilizará aos espectadores por meio do StreamingEndpoint. 
+Uma vez que o fluxo está fluindo para o Evento ao Vivo, é possível começar o evento de transmissão criando um Ativo, uma Saída ao Vivo e um Localizador de Streaming. Isso vai arquivar o fluxo e torná-lo disponível para usuários por meio do ponto de extremidade de Streaming. 
 
 #### <a name="create-an-asset"></a>Criar um ativo
 
+Criar um Ativo para a Saída ao Vivo usar.
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
 
-Criar um Ativo para o LiveOutput usar.
+#### <a name="create-a-live-output"></a>Criar uma Saída ao Vivo
 
-#### <a name="create-a-liveoutput"></a>Criar um LiveOutput
+As Saídas ao Vivo iniciam na criação e terminam quando são excluídas. Quando você exclui a Saída ao Vivo, não está excluindo o Ativo subjacente e o conteúdo no ativo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
-#### <a name="create-a-streaminglocator"></a>Criar um StreamingLocator
+#### <a name="create-a-streaming-locator"></a>Criar um Localizador de Streaming
 
 > [!NOTE]
 > Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+
+Quando você publica o ativo de Saída ao Vivo usando um Localizador de Streaming, o Evento ao Vivo (até a duração da janela DVR) continuará visível até a expiração ou a exclusão do Localizador de Streaming, o que ocorrer primeiro.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateStreamingLocator)]
 
@@ -166,20 +153,22 @@ foreach (StreamingPath path in paths.StreamingPaths)
 Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisionados anteriormente, siga o procedimento a seguir.
 
 * Pare de enviar o fluxo por push por meio do codificador.
-* Pare o LiveEvent. Depois que o LiveEvent estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
-* É possível parar o StreamingEndpoint, a menos que você queira continuar fornecendo o arquivo morto do evento ao vivo como um fluxo sob demanda. Se o LiveEvent estiver no estado parado, ele não incorrerá em nenhum encargo.
+* Interrompa o Evento ao Vivo. Depois que o Evento ao Vivo estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
+* Você pode parar seu ponto de extremidade de Streaming, a menos que você deseje continuar a fornecer o arquivo morto do evento ao vivo como um fluxo sob demanda. Se o Evento ao Vivo estiver no estado interrompido, ele não incorrerá em nenhum encargo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
+O código a seguir mostra como limpar sua conta de todos os Eventos ao Vivo:
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## <a name="watch-the-event"></a>Assistir ao evento
 
-Para assistir ao evento, copie a URL de streaming que você obteve quando executou o código descrito em [Criar um StreamingLocator](#create-a-streaminglocator) e use um player de sua escolha. É possível usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar o stream em http://ampdemo.azureedge.net. 
+Para assistir ao evento, copie a URL de streaming que você obteve quando executou o código descrito em [Criar um Localizador de Streaming](#create-a-streaminglocator) e use um player de sua escolha. É possível usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar o stream em http://ampdemo.azureedge.net. 
 
-O evento ativo é convertido automaticamente em conteúdo sob demanda quando é interrompido. Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro. 
+O Evento ao Vivo é convertido automaticamente em conteúdo sob demanda quando é interrompido. Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -192,9 +181,9 @@ az group delete --name amsResourceGroup
 ```
 
 > [!IMPORTANT]
-> Deixar o LiveEvent executando incorre em custos de cobrança. Esteja ciente de que, se o projeto/programa falhar ou for fechado por qualquer motivo, isso poderá deixar o LiveEvent executando em um estado de cobrança.
+> Deixar o Evento ao Vivo em execução gera custos de cobrança. Esteja ciente de que, se o projeto/programa falhar ou for fechado por qualquer motivo, isso poderá deixar o Evento ao Vivo em execução em um estado de cobrança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Transmissão de arquivos](stream-files-tutorial-with-api.md)
-
+ 

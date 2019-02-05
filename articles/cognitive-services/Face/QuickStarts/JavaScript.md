@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Detectar faces em uma imagem usando a API REST e JavaScript'
+title: 'Início Rápido: Detectar rostos em uma imagem usando a API REST e JavaScript'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces de uma imagem usando a API de Detecção Facial com JavaScript nos Serviços Cognitivos.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 02066ac7425b5b4843ae8a74c37a928242f2a092
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225441"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início Rápido: Detectar faces em uma imagem usando a API REST e JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: Detectar rostos em uma imagem usando a API REST e JavaScript
 
 Neste início rápido, você detectará faces humanas em uma imagem usando a API de Detecção Facial.
 
@@ -30,7 +30,7 @@ Você precisa de uma chave de assinatura para executar o exemplo. É possível o
 Use o método [Face – Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar faces em uma imagem e retornar atributos de detecção facial, incluindo:
 
 * ID de Detecção Facial: ID exclusiva usada em vários cenários de API de Detecção Facial.
-* Retângulo de Detecção Facial: o lado esquerdo, a parte superior, a largura e a altura que indicam o local do rosto na imagem.
+* Retângulo de Detecção Facial: o lado esquerdo, a parte superior, a largura e a altura que indicam a localização do rosto na imagem.
 * Pontos de Referência: uma matriz de 27 pontos de referência de detecção facial que aponta para as posições importantes dos componentes de detecção facial.
 * Atributos faciais, incluindo idade, gênero, intensidade do sorriso, pose da cabeça e pelos faciais.
 

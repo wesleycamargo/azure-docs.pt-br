@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/11/2019
+ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: baf78fc0bc0941c9466f77a77ef922f3fe3d62b3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823010"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutorial: Integração do Azure Active Directory ao iDiD Manager
 
@@ -70,10 +70,10 @@ Para configurar a integração do iDiD Manager ao Azure AD, você precisará adi
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o [nome do aplicativo], com base em uma usuária de teste chamada **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do [nome do aplicativo].
+Nesta seção, você configura e testa o logon único do Azure AD com o iDiD Manager com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do iDiD Manager.
 
-Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], você precisará concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o iDiD Manager, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do iDiD Manager](#configure-idid-manager-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
@@ -86,7 +86,7 @@ Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], 
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-Para configurar o logon único do AD do Azure com o [nome do aplicativo], execute as seguintes etapas:
+Para configurar o logon único do Azure AD com o iDiD Manager, execute as seguintes etapas:
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **iDiD Manager**, selecione **Logon único**.
 
@@ -100,18 +100,20 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **SP**:
+4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
-    ![Informações de logon único em domínio e URLs do iDiD Manager](common/both-preintegrated-signon.png)
+    ![Informações de logon único em domínio e URLs do iDiD Manager](common/preintegrated.png)
 
-     a. Clique em **Definir URLs adicionais**.
+5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    b. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://idid2.fi/saml/login/<domain>`
+    ![Informações de logon único em domínio e URLs do iDiD Manager](common/metadata-upload-additional-signon.png)
+
+    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao Cliente do iDiD Manager](mailto:support@idid.fi) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -135,7 +137,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -187,3 +189,4 @@ Ao clicar no bloco iDiD Manager no Painel de Acesso, você deverá ser conectado
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

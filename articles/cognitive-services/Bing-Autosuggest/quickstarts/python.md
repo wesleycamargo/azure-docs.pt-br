@@ -1,25 +1,25 @@
 ---
-title: 'Início Rápido: API de Sugestão Automática do Bing, Python'
+title: 'Início rápido: API de Sugestão Automática do Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 60585b2d5884962d0f988597ef1e50107e548122
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1b3bb50ac45c748ba54fa4cab21836fd8e7a299b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830610"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156779"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Início Rápido da API de Sugestão Automática do Bing com o Python
 
-Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com o Python. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de caracteres de consulta parcial inserida pelo usuário na caixa de pesquisa. Normalmente, você chama essa API sempre que o usuário digita um novo caractere na caixa de pesquisa e, em seguida, exibe as sugestões na lista suspensa da caixa de pesquisa. Este artigo mostra como enviar uma solicitação que retorna as cadeias de consulta sugeridas para *navegar*.
+Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com o Python. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial inserida pelo usuário na caixa de pesquisa. Normalmente, você chama essa API sempre que o usuário digita um novo caractere na caixa de pesquisa e, em seguida, exibe as sugestões na lista suspensa da caixa de pesquisa. Este artigo mostra como enviar uma solicitação que retorna as cadeias de consulta sugeridas para *navegar*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

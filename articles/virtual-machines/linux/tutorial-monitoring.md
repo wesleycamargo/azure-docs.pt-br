@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868541"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092735"
 ---
-# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Linux no Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: monitorar e atualizar uma máquina virtual do Linux no Azure
 
 Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executadas corretamente, examine o diagnóstico de inicialização e as métricas de desempenho e gerencie as atualizações de pacote. Neste tutorial, você aprenderá como:
 
@@ -153,7 +153,7 @@ O exemplo a seguir cria um alerta para uso médio da CPU.
 5. Opcionalmente, marque a caixa de *Proprietários, colaboradores e leitores de email* para enviar uma notificação por email. A ação padrão é apresentar uma notificação no portal.
 6. Selecione o botão **OK**.
 
-## <a name="manage-package-updates"></a>Gerenciar atualizações de pacote
+## <a name="manage-software-updates"></a>Gerenciar atualizações de software
 
 O Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs Linux do Azure.
 Diretamente de sua VM, você pode rapidamente avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito na VM.
@@ -175,15 +175,14 @@ Um workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md) �
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
 Para executar ações adicionais em máquinas virtuais que requerem atualizações, a Automação do Azure permite que você execute runbooks em VMs, como download e aplicação de atualizações.
 
-O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação.
-Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização.
+O processo de validação também verifica se a VM é provisionada com o agente do Log Analytics e o Hybrid Runbook Worker de Automação. Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização.
 
 Escolha o workspace do Log Analytics e a conta de automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
 * Workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automação](../../automation/automation-offering-get-started.md)
+* [Conta de automação](../../automation/automation-offering-get-started.md)
 * Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
 
 A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
@@ -291,22 +290,9 @@ O gráfico mostra as alterações que ocorreram ao longo do tempo. Depois de adi
 
 ## <a name="advanced-monitoring"></a>Monitoramento avançado
 
-Você pode fazer monitoramento mais avançado da sua VM usando soluções como o Gerenciamento de Atualizações e Alterações e Inventário fornecidos pela [Automação do Azure](../../automation/automation-intro.md).
+Você pode realizar monitoramento mais avançado da sua VM usando uma solução como o [Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md), que monitora suas VMs (máquinas virtuais) do Azure em escala analisando o desempenho e a integridade das VMs do Windows e do Linux, incluindo seus diferentes processos e dependências interconectados a outros recursos e processos externos. O gerenciamento de configuração de suas VMs do Azure é fornecido com a solução de Inventário e Controle de Alterações da [Automação do Azure](../../automation/automation-intro.md) para identificar facilmente as alterações em seu ambiente. O gerenciamento da conformidade de atualizações é fornecido com a solução de Gerenciamento de Atualizações de Automação do Azure.   
 
-Quando você tem acesso ao workspace do Log Analytics, você pode encontrar a chave do workspace e o identificador de workspace selecionando **Configurações avançadas** em **CONFIGURAÇÕES**. Substitua \<workspace-key\> e \<workspace-id\> pelos valores de seu espaço de trabalho do Log Analytics e use **az vm extension set** para adicionar a extensão à VM:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Depois de alguns minutos, você deverá ver a nova VM no workspace do Log Analytics.
+No workspace do Log Analytics ao qual a VM está conectada, você também pode recuperar, consolidar e analisar os dados coletados com a [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

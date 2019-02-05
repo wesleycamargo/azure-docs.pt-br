@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212209"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226852"
 ---
 # <a name="what-is-qna-maker"></a>O que é QnA Maker?
 
@@ -33,7 +33,7 @@ O QnA Maker fornece dois serviços essenciais para seus dados:
 
 * **Extração**: os dados estruturados de perguntas e respostas são extraídos de [fontes de dados](../Concepts/data-sources-supported.md) estruturadas e semiestruturadas, como perguntas frequentes e manuais de produtos. Essa extração pode ser feita como parte da [criação](https://aka.ms/qnamaker-docs-createkb) da base de dados de conhecimento ou mais tarde, como parte do processo de edição.
 
-* **Correspondência**: Depois de sua base de dados de conhecimento ter sido [treinada e testada](https://aka.ms/qnamaker-docs-trainkb), você a [publica](https://aka.ms/qnamaker-docs-publishkb). Isso habilita um ponto de extremidade para sua base de dados de conhecimento do QnA Maker, que você pode usar em seu aplicativo cliente ou bot. Esse ponto de extremidade aceita uma pergunta do usuário e fornece com a melhor resposta na base de dados de conhecimento, em conjunto com uma pontuação de confiança para a correspondência.
+* **Correspondente**: depois de sua base de dados de conhecimento ter sido [treinada e testada](https://aka.ms/qnamaker-docs-trainkb), você a [publica](https://aka.ms/qnamaker-docs-publishkb). Isso habilita um ponto de extremidade para sua base de dados de conhecimento do QnA Maker, que você pode usar em seu aplicativo cliente ou bot. Esse ponto de extremidade aceita uma pergunta do usuário e fornece com a melhor resposta na base de dados de conhecimento, em conjunto com uma pontuação de confiança para a correspondência.
 
 ```JSON
 {
@@ -59,7 +59,7 @@ A arquitetura do QnA Maker consiste nos dois componentes a seguir:
 
 1. **Serviços de gerenciamento do QnA Maker**: a experiência de gerenciamento para uma base de dados de conhecimento do QnA Maker, que inclui a criação inicial, a atualização, o treinamento e a publicação. Essas atividades podem ser feitas por meio do [portal](https://qnamaker.ai) ou das [APIs de gerenciamento](https://aka.ms/qnamaker-v4-apis). 
 
-2. **Dados e tempo de execução do QnA Maker**: é implantado em sua assinatura do Azure em sua região especificada. O conteúdo da sua base de dados de conhecimento do cliente é armazenado no [Azure Search](https://azure.microsoft.com/services/search/) e o ponto de extremidade é implantado como um [Serviço de aplicativo](https://azure.microsoft.com/services/app-service/). Você também pode optar por implantar um recurso do [Application Insights](https://azure.microsoft.com/services/application-insights/) para análise.
+2. **Tempo de execução e dados do QnA Maker**: isso é implantado em sua assinatura do Azure em sua região especificada. O conteúdo da sua base de dados de conhecimento do cliente é armazenado no [Azure Search](https://azure.microsoft.com/services/search/) e o ponto de extremidade é implantado como um [Serviço de aplicativo](https://azure.microsoft.com/services/app-service/). Você também pode optar por implantar um recurso do [Application Insights](https://azure.microsoft.com/services/application-insights/) para análise.
 
 ![Arquitetura](../media/qnamaker-overview-learnabout/architecture.png)
 

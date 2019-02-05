@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246357"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158835"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -109,7 +109,7 @@ Quando o registro é criado, você verá uma saída semelhante à seguinte:
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Enviar as imagens por push ao Registro de Contêiner do Azure
 
-Este tutorial usa o aplicativo de exemplo de lista de tarefas como um exemplo.  As imagens de contêiner para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontradas no Hub do Docker. Consulte [Compilar um aplicativo web da Malha do Serviço Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como compilar o aplicativo no Visual Studio. A Malha do Service Fabric pode executar contêineres do Docker no Windows ou Linux.  Se você estiver trabalhando com contêineres do Linux, selecione **Alternar para contêineres do Linux** no Docker.  Se você estiver trabalhando com contêineres do Windows, selecione **Alternar para contêineres do Windows** no Docker.
+Este tutorial usa o aplicativo de exemplo de lista de tarefas como um exemplo.  As imagens de contêiner para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontradas no Hub do Docker. Veja [Compilar um aplicativo Web da Malha do Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como compilar o aplicativo no Visual Studio. A Malha do Service Fabric pode executar contêineres do Docker no Windows ou Linux.  Se você estiver trabalhando com contêineres do Linux, selecione **Alternar para contêineres do Linux** no Docker.  Se você estiver trabalhando com contêineres do Windows, selecione **Alternar para contêineres do Windows** no Docker.
 
 Para enviar por push uma imagem para uma instância do ACR, primeiro você deve ter uma imagem de contêiner. Se você ainda não tiver as imagens de contêiner local, use o comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para efetuar pull das imagens [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) do Hub do Docker.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce44d4c066183ff796c8efa1dceb20dff73868ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397764"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192377"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
 
@@ -30,7 +30,7 @@ O [Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-stora
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial você deve ter concluído o Tutorial de armazenamento anterior: [Automate resizing uploaded images using Event Grid][previous-tutorial] (Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos). 
+Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos][previous-tutorial]. 
 
 ## <a name="set-container-public-access"></a>Configurar o acesso público ao contêiner
 
@@ -50,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Na parte um dessa série de tutoriais, o aplicativo Web estava mostrando imagens de um contêiner público. Nessa parte da série, você usa tokens de [SAS (Assinatura de Acesso Compartilhado)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) para recuperar as imagens em miniatura. Os tokens SAS permitem que você forneça acesso restrito a um contêiner ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos.
 
-Neste exemplo, o repositório de código-fonte usa o branch `sasTokens`, que tem um exemplo de código atualizado. Exclua a implantação existente do GitHub com o [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configure a implantação do GitHub para o aplicativo Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config).  
+Neste exemplo, o repositório de código-fonte usa o branch `sasTokens`, que tem um exemplo de código atualizado. Exclua a implantação existente do GitHub com o [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configure a implantação do GitHub para o aplicativo Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
 No comando a seguir, `<web-app>` é o nome do seu aplicativo Web.  
 

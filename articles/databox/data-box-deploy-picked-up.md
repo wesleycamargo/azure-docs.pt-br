@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358551"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900503"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verificar o upload de dados para o Azure
 
@@ -22,18 +22,27 @@ Este tutorial descreve como devolver o Azure Data Box e verificar os dados carre
 Neste tutorial, você aprenderá sobre tópicos como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
+> * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificá-los](data-box-deploy-copy-data.md).
+Antes de começar, verifique se:
+
+- Você concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificá-los](data-box-deploy-copy-data.md). 
+- Trabalhos de cópia estão concluídos. A Preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento.
+
+## <a name="prepare-to-ship"></a>Preparar para o envio
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>Devolver o Data Box
 
 1. Certifique-se de que o dispositivo esteja desligado e os cabos removidos. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte posterior do dispositivo.
-2. Se o envio do dispositivo estiver ocorrendo nos EUA, verifique se a etiqueta de remessa está aparecendo no papel eletrônico e agende uma retirada com a operadora. Se a etiqueta estiver danificada, perdida ou não estiver aparecendo no papel eletrônico, faça o download de uma nova etiqueta de remessa no portal do Azure e cole-a no dispositivo. Vá para **Visão geral > Baixar etiqueta de remessa**. 
+2. Se o envio do dispositivo estiver ocorrendo nos EUA, verifique se a etiqueta de remessa está aparecendo no papel eletrônico e agende uma retirada com a operadora. Se o rótulo estiver danificado ou perdido ou não for exibido na tela E-ink, acesse **Visão geral > Baixar etiqueta de remessa** no portal do Azure. Baixe a etiqueta de remessa e afixe-a ao dispositivo.
 
     Se o envio do dispositivo está ocorrendo na Europa, a tela de papel eletrônico não mostra a etiqueta de remessa. Em vez disso, a etiqueta de remessa de devolução está incluído na bolsa transparente sob a etiqueta de remessa de encaminhamento. Remova a etiqueta de remessa antiga e verifique se a etiqueta de remessa está claramente visível.
     
@@ -43,7 +52,7 @@ Antes de começar, verifique se você concluiu o [Tutorial: Copiar dados para o 
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
 
-Quando a Microsoft receber e verificar o dispositivo, o status do pedido será atualizado para **Recebido**. Em seguida, o dispositivo passa por uma verificação física de danos ou sinais de violação. 
+Quando a Microsoft receber e verificar o dispositivo, o status do pedido será atualizado para **Recebido**. Em seguida, o dispositivo passa por uma verificação física de danos ou sinais de violação.
 
 Após a conclusão da verificação, o Data Box será conectado à rede no datacenter do Azure. A cópia de dados começa automaticamente. Dependendo do tamanho dos dados, a operação de cópia poderá demorar de algumas horas a dias para ser concluída. Você pode monitorar o andamento do trabalho de cópia no portal.
 
@@ -65,6 +74,8 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
+> * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box

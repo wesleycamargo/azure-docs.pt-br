@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Verificar as imagens em relação a listas personalizadas em C# - Content Moderator'
+title: 'Início Rápido: Verificar as imagens em relação a listas personalizadas em C# – Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Como moderar imagens com as listas de imagens personalizadas do SDK do Content Moderator para C#.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7165bdc4aebec886a57990281bc35c83b1d7bf04
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228178"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Início Rápido: Moderar com listas de imagens personalizadas no C#
+# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Início Rápido: Moderar com as listas de imagem personalizada no C#
 
 Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 - Criar uma lista de imagem personalizada

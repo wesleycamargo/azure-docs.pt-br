@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: a0082be25ec4ad326e4473cbe69f9ff029898f5b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2f0d97d6b7040f874fc03ffe19f247cdc742c77
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988645"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103642"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Início Rápido: Configurar um aplicativo cliente para acessar APIs Web (versão prévia)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Início rápido: Configurar um aplicativo cliente para acessar APIs Web (Versão Prévia)
 
 Para que um aplicativo cliente Web/confidencial possa participar de um fluxo de concessão de autorização que requer autenticação (e obter um token de acesso), ele deverá estabelecer credenciais seguras. O método de autenticação padrão com suporte no portal do Azure é a ID do Cliente + chave secreta.
 

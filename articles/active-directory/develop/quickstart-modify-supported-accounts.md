@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 71c8b9cc05d15a4c4eadb6321de580ed9768a438
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2d10dcde0a0e35a3e717cde34048437b6119fbf6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988640"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101219"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Início Rápido: Modificar as contas que têm suporte por um aplicativo (versão prévia)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Início rápido: Modificar as contas que têm suporte por um aplicativo (Versão Prévia)
 
 Ao registrar um aplicativo na Microsoft Identity Platform, talvez você queira que ele seja acessado apenas por usuários da sua organização. Como alternativa, você talvez queira também que ele possa ser acessado por usuários em organizações externas, ou por estes e também por usuários que não fazem necessariamente parte de uma organização (contas pessoais).
 

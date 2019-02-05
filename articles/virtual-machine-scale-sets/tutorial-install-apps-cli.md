@@ -3,7 +3,7 @@ title: Tutorial – Instalar aplicativos em um conjunto de dimensionamento com a
 description: Saiba como usar a CLI do Azure para instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242051"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157254"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Para executar aplicativos em instâncias de VM (máquina virtual) em um conjunto de dimensionamento, primeiro é necessário instalar os componentes de aplicativo e os arquivos necessários. Em um tutorial anterior, você aprendeu a criar e usar uma imagem de VM personalizada para implantar suas instâncias de VM. Essa imagem personalizada incluía instalações manuais de aplicativos e configurações. Você também pode automatizar a instalação de aplicativos para um conjunto de dimensionamento após a implantação de cada instância de VM ou atualizar um aplicativo que já é executado em um conjunto de dimensionamento. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -60,13 +60,13 @@ No shell atual, crie um arquivo chamado *customConfig.json* e cole a configuraç
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
-Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo a seguir criará um conjunto de dimensionamento chamado *myScaleSet* e gerará chaves SSH se elas não existirem:
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo a seguir criará um conjunto de dimensionamento chamado *myScaleSet* e gerará chaves SSH se elas não existirem:
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ Cada instância de VM no conjunto de dimensionamento baixa e executa o script do
 
 
 ## <a name="test-your-scale-set"></a>Testar seu conjunto de dimensionamento
-Para permitir o tráfego acessar o servidor Web, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#create). O exemplo a seguir cria uma regra chamada *myLoadBalancerRuleWeb*:
+Para permitir o tráfego acessar o servidor Web, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo a seguir cria uma regra chamada *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \

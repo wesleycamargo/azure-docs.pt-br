@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565727"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240073"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 
@@ -35,7 +35,7 @@ A [partição de nomenclatura](../common/storage-performance-checklist.md?toc=%2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve concluir o tutorial anterior de Armazenamento: [Criar uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
+Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Entre em modo remoto na sua máquina virtual
 

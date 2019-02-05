@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452965"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091539"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway (versão prévia)
 
@@ -42,7 +42,7 @@ Consulte os tutoriais a seguir na sequência prescrita para implantar o Data Box
 | **#** | **Nesta etapa** | **Use estes documentos** |
 | --- | --- | --- | 
 | 1. |**[Preparar o portal do Azure para o Data Box Gateway](data-box-gateway-deploy-prep.md)** |Crie e configure o recurso de Gateway da caixa de dados antes do provisionamento de um dispositivo virtual do Data Box Gateway. |
-| 2. |**[Provisione o Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provisione o Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md)**|Para o Hyper-V, forneça e conecte-se a um dispositivo virtual do Data Box Gateway em um sistema host que execute o Hyper-V no Windows Server 2016 ou no Windows Server 2012 R2. <br><br><br> Para o VMware, provisione e conecte-se a um dispositivo virtual de Data Box Gateway em um sistema de host executando o VMware ESXi 6.0 ou 6.5.<br></br> |
+| 2. |**[Provisione o Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provisione o Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md)**|Para o Hyper-V, forneça e conecte-se a um dispositivo virtual do Data Box Gateway em um sistema host que execute o Hyper-V no Windows Server 2016 ou no Windows Server 2012 R2. <br><br><br> Para o VMware, provisione e conecte-se a um dispositivo virtual de Data Box Gateway em um sistema de host executando o VMware ESXi 6.0, 6.5 ou 6.7.<br></br> |
 | 3. |**[Conectar-se, configurar, ativar o Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Conectar-se a interface do usuário da Web local, conclua a configuração do dispositivo e ativar o dispositivo. Em seguida, é possível provisionar compartilhamentos SMB.  |
 | 4. |**[Transferir dados com o Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Adicionar compartilhamentos, conecte-se aos compartilhamentos via SMB ou NFS. |
 
@@ -63,7 +63,7 @@ Antes de começar, verifique se:
 
 Antes de implantar um dispositivo virtual, verifique se:
 
-* Você tem acesso a um sistema host que executa o Hyper-V no Windows Server 2012 R2 ou posterior ou o VMware (ESXi 6.0 ou 6.5) que pode ser usado para provisionar um dispositivo.
+* Você tem acesso a um sistema host que executa o Hyper-V no Windows Server 2012 R2 ou posterior ou o VMware (ESXi 6.0, 6.5 ou 6.7) que pode ser usado para provisionar um dispositivo.
 * O sistema host é capaz de dedicar os seguintes recursos para provisionar seu dispositivo virtual Data Box:
   
   * Um mínimo de quatro núcleos.
@@ -126,7 +126,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 4. No início rápido no painel direito, clique no link correspondente à imagem que você deseja baixar. Os arquivos de imagem têm aproximadamente 4,8 GB.
    
    * [VHDX para Hyper-V no Windows Server 2012 R2 e posterior](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK para VMWare ESXi 6.0 ou 6.5](https://aka.ms/dbe-vmdk).
+   * [VMDK para VMWare ESXi 6.0, 6.5 ou 6.7](https://aka.ms/dbe-vmdk).
 
 5. Baixe e descompacte o arquivo em uma unidade local, observando onde o arquivo descompactado está localizado.
 
