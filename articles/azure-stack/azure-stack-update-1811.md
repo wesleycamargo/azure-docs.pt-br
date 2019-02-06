@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246527"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746703"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização da pilha 1811 do Azure
 
@@ -153,6 +153,9 @@ Esta atualização inclui os seguintes novos recursos e melhorias para o Azure S
 
 <!-- 3190553 - IS ASDK -->
 - Corrigido um problema que geraram alertas barulhentas que indica que uma instância de função de infraestrutura não estava disponível ou nó de unidade de escala estava offline.
+
+<!-- 2724961 - IS ASDK -->
+- Fixo um problema em que a página de visão geral VM não é possível mostrar corretamente o gráfico de métricas VM. 
 
 ## <a name="changes"></a>Alterações
 
@@ -297,11 +300,6 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
 <!-- 1662991 IS ASDK --> 
 - Não há suporte para o diagnóstico de VM do Linux no Azure Stack. Quando você implanta uma VM do Linux com o diagnóstico VM habilitado, a implantação falhará. A implantação também falhará se você habilitar as métricas básicas da VM do Linux por meio das configurações de diagnóstico.  
-
-<!-- 2724961- IS ASDK --> 
-- Quando você registra o **Microsoft.Insight** provedor de recursos nas configurações de assinatura e criar uma VM do Windows com o sistema operacional convidado diagnóstico habilitado, o gráfico de percentual de CPU na página de visão geral da VM faz não mostrar dados de métricas.
-
-   Para localizar dados de métricas, como o gráfico de percentual de CPU para a VM, vá para o **métricas** métricas de convidado de janela e mostrar toda a VM Windows com suporte.
 
 <!-- 3507629 - IS, ASDK --> 
 - Discos gerenciados cria dois novos [tipos de cota de computação](azure-stack-quota-types.md#compute-quota-types) para limitar a capacidade máxima de discos gerenciados podem ser provisionados. Por padrão, 2048 GiB é alocado para cada tipo de cota de discos gerenciados. No entanto, você pode encontrar os seguintes problemas:

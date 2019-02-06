@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663407"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752289"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solucionar problemas de sua implantação do Kubernetes para o Azure Stack
 
@@ -53,7 +53,7 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
 
 2. Criar a implantação de VM e a extensão de script personalizado.
     -  Criar a implantação de VM do Linux usando a imagem do marketplace Linux **Ubuntu Server 16.04-LTS**.
-    -  Baixar e executar a extensão de script de cliente do marketplace. O script está **Script personalizado para Linux 2.0**.
+    -  Baixe e execute a extensão de script personalizado do marketplace. O script está **Script personalizado para Linux 2.0**.
     -  Execute o script personalizado do DVM. O script faz as seguintes tarefas:
         1. Obtém o ponto de extremidade da Galeria do ponto de extremidade de metadados do Azure Resource Manager.
         2. Obtém a ID de recurso do Active Directory do ponto de extremidade de metadados do Azure Resource Manager.
@@ -61,7 +61,7 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
         4. Implanta o mecanismo do ACS para o cluster Kubernetes e salva o perfil de nuvem do Azure Stack para `/etc/kubernetes/azurestackcloud.json`.
 3. Crie as VMs mestres.
 
-4. Baixar e executar extensões de script de cliente.
+4. Baixar e executar extensões de script personalizado.
 
 5. Execute o script mestre.
 
@@ -75,7 +75,7 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
         3. Inicia o serviço de Agendador.
 6. Crie VMs de agente.
 
-7. Baixar e executar a extensão de script de cliente.
+7. Baixe e execute a extensão de script personalizado.
 
 7. Execute o script de agente. O script personalizado do agente faz as seguintes tarefas:
     - Instala etcd
