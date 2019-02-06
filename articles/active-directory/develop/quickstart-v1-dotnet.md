@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987434"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101118"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph em um aplicativo da área de trabalho .NET (WPF)
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo da área de trabalho .NET (WPF)
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -64,7 +64,7 @@ Para permitir que seu aplicativo obtenha tokens, registre-o no locatário do Azu
 6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única. Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
 7. Na página **Configurações**, escolha **Permissões necessárias** e, em seguida, **Adicionar**. Escolha o **Microsoft Graph** como a API e adicione a permissão **Ler Dados do Diretório** em **Permissões Delegadas**. A definição dessa permissão permite que seu aplicativo consulte usuários na API do Graph.
 
-## <a name="step-2-install-and-configure-adal"></a>Etapa 2: instalar e configurar a ADAL
+## <a name="step-2-install-and-configure-adal"></a>Etapa 2: Instalar e configurar a ADAL
 
 Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
 
@@ -80,7 +80,7 @@ Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e e
   * O `ida:ClientId` é a ID do cliente do aplicativo que você copiou do portal.
   * O `ida:RedirectUri` é a URL de redirecionamento que você registrou no portal.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Etapa 3: usar a ADAL para obter tokens do Azure AD
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Etapa 3: Usar a ADAL para obter tokens do Azure AD
 
 O princípio básico da ADAL é que sempre que o aplicativo precisa de um token de acesso, ele simplesmente chama `authContext.AcquireTokenAsync(...)`, e a ADAL cuida do resto.
 

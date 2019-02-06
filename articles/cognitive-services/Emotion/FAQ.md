@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c1c4b8e5c2701f3c419a58bc3fdc33f7e629bbd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ded91c6de498b130cc26109a70e89955dd70d862
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238499"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208977"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Perguntas frequentes da API de Detecção de Emoções
 
@@ -27,15 +27,15 @@ ms.locfileid: "48238499"
 
 -----
 
-**Pergunta**: *quais tipos de imagens de obtêm os melhores resultados da API de Detecção de Emoções?*
+**Pergunta**: *Quais tipos de imagens têm os melhores resultados da API de Detecção de Emoções?*
 
-**Resposta**: use imagens de faciais frontais desobstruídas, completas para obter melhores resultados. A confiabilidade diminui com faces frontais parciais, e a API de Detecção de Emoções pode não reconhecer emoções nas imagens em que a face for girada em mais 45 graus.
+**Resposta**: Use imagens faciais frontais desobstruídas e completas para obter melhores resultados. A confiabilidade diminui com faces frontais parciais, e a API de Detecção de Emoções pode não reconhecer emoções nas imagens em que a face for girada em mais 45 graus.
 
 -----
 
-**Pergunta**: *quantos emoções a API de Detecção de Emoções pode identificar?*
+**Pergunta**: *Quantas emoções a API de Detecção de Emoções pode identificar?*
 
-**Resposta**: a API de Detecção de Emoções reconhece oito emoções diferentes universalmente aceitas:
+**Resposta**: A API de Detecção de Emoções reconhece oito emoções diferentes universalmente aceitas:
 * Alegria
 * Tristeza
 * Surpresa
@@ -47,15 +47,15 @@ ms.locfileid: "48238499"
 
 -----
 
-**Pergunta**: *existe alguma maneira para passar um fluxo de vídeo ao vivo para a API e obter o resultado simultaneamente?*
+**Pergunta**: *Existe alguma maneira de passar um fluxo de vídeo ao vivo para a API e obter o resultado simultaneamente?*
 
-**Resposta**: use a API de Detecção de Emoções baseada em imagem e chame-a em cada quadro ou ignore os quadros para desempenho.  Estão disponíveis exemplos de análise de vídeo quadro-a-quadro.
+**Resposta**: Use a API de Detecção de Emoções baseada em imagem e chame-a em cada quadro ou ignore os quadros para desempenho.  Estão disponíveis exemplos de análise de vídeo quadro-a-quadro.
 
 -----
 
-**Pergunta**: *estou passando os dados de imagem binária, mas é exibido o seguinte: "imagem facial inválida".**
+**Pergunta**: *Estou passando os dados de imagem binária, mas recebo: "imagem de face inválida.**
 
-**Resposta**: essa mensagem implica que o algoritmo teve um problema ao analisar a imagem.  
+**Resposta**: Essa mensagem implica que o algoritmo teve um problema ao analisar a imagem.  
 * Os formatos de imagem de entrada com suporte incluem JPEG, PNG, GIF (o primeiro quadro), BMP
 * O tamanho do arquivo de imagem não deve ser maior do que 4 MB
 * O intervalo de tamanhos de face detectáveis é de 36 x 36 a 4096 x 4096 pixels. As faces fora desse intervalo não serão detectadas

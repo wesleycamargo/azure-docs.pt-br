@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343020"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215853"
 ---
 # <a name="bing-text-to-speech-api"></a>API de conversão de texto em fala do Bing
 
@@ -179,7 +179,7 @@ A API de conversão de texto em fala da Microsoft oferece suporte para SSML 1.0 
   ```
 
 > [!NOTE]
-> Observe que os dados de áudio precisam ser arquivos de 8 k ou 16 k wav nos seguintes formatos: **código CRC** (CRC-32): 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Sinalizador do formato de áudio**: 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Contagem de amostra**: 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamanho do corpo binário**: 4 bytes (DWORD) com intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Corpo binário**: n bytes.
+> Observe que os dados de áudio devem ser WAV de 8 K ou 16 K arquivados no seguinte formato: **Código CRC** (CRC-32): 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Sinalizador de formato de áudio**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Contagem de exemplo**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamanho do corpo binário**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Corpo binário**: n bytes.
 
 ## <a name="SampleApp"></a>Aplicativo de exemplo
 
@@ -214,9 +214,9 @@ en-IE | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Sp
 en-IN | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, Heera, Apollo)”
 en-IN | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, PriyaRUS)”
 en-IN | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, Ravi, Apollo)”
-pt-BR | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, ZiraRUS)”
-pt-BR | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, JessaRUS)”
-pt-BR | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, BenjaminRUS)”
+en-US | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, ZiraRUS)”
+en-US | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, JessaRUS)”
+en-US | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, BenjaminRUS)”
 es-ES | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (es-ES, Laura, Apollo)”
 es-ES | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (es-ES, HelenaRUS)”
 es-ES | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (es-ES, Pablo, Apollo)”

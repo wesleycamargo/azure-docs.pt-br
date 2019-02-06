@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.date: 01/25/2019
+ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432278"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462776"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
 Por padrão, os backups do Banco de Dados SQL são armazenados no armazenamento de blobs com replicação geográfica (RA-GRS). As opções a seguir estão disponíveis para recuperação do banco de dados usando [backups de banco de dados automatizados](sql-database-automated-backups.md):
 
-- Crie um novo banco de dados no mesmo servidor lógico recuperado para um ponto especificado no tempo dentro do período de retenção.
-- Crie um banco de dados no mesmo servidor lógico recuperado para o tempo de exclusão de um banco de dados excluído.
-- Crie um novo banco de dados em qualquer servidor lógico na mesma região recuperado até o ponto dos backups mais recentes.
-- Crie um novo banco de dados em qualquer servidor lógico em qualquer outra região recuperada até o ponto dos backups replicados mais recentes.
+- Crie um novo banco de dados no mesmo servidor do Banco de Dados SQL recuperado para um ponto especificado no tempo dentro do período de retenção.
+- Crie um banco de dados no mesmo servidor do Banco de Dados SQL recuperado para o tempo de exclusão de um banco de dados excluído.
+- Crie um novo banco de dados em qualquer servidor do Banco de Dados SQL na mesma região recuperado até o ponto dos backups mais recentes.
+- Crie um novo banco de dados em qualquer servidor do Banco de Dados SQL em qualquer outra região recuperada até o ponto dos backups replicados mais recentes.
 
-Se você configurou a [retenção de backup de longo prazo](sql-database-long-term-retention.md) também poderá criar um novo banco de dados a partir de qualquer backup de LTR em qualquer servidor lógico em qualquer região.
+Se você tiver configurado a [retenção de backup de longo prazo](sql-database-long-term-retention.md), também poderá criar um novo banco de dados com base em qualquer backup de LTR em qualquer servidor do Banco de Dados SQL em qualquer região.
 
 > [!IMPORTANT]
 > Não é possível substituir um banco de dados existente durante a restauração.
@@ -71,7 +71,7 @@ Não há nenhuma funcionalidade interna para restauração em massa. O [Banco de
 
 ## <a name="point-in-time-restore"></a>Restauração pontual
 
-Você pode restaurar um banco de dados único, em pool ou de Instância Gerenciada para um ponto anterior no tempo como um novo banco de dados no mesmo servidor usando o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). Um banco de dados pode ser restaurado para qualquer camada de serviço ou tamanho de computação. Assegure-se de ter recursos suficientes no servidor para o qual você está restaurando o banco de dados. Uma vez concluído, o banco de dados restaurado é um banco de dados online normal e totalmente acessível. O banco de dados restaurado é cobrado a taxas normais com base em seu tamanho de computação e na camada de serviço. Você não incorrerá encargos até que a restauração do banco de dados seja concluída.
+É possível restaurar um banco de dados autônomo, em pool ou de instância para um ponto anterior no tempo como um novo banco de dados no mesmo servidor usando o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). Um banco de dados pode ser restaurado para qualquer camada de serviço ou tamanho de computação. Assegure-se de ter recursos suficientes no servidor para o qual você está restaurando o banco de dados. Uma vez concluído, o banco de dados restaurado é um banco de dados online normal e totalmente acessível. O banco de dados restaurado é cobrado a taxas normais com base em seu tamanho de computação e na camada de serviço. Você não incorrerá encargos até que a restauração do banco de dados seja concluída.
 
 Um banco de dados geralmente é restaurado para um ponto anterior para fins de recuperação. Ao fazê-lo, você poderá tratar o banco de dados restaurado como um substituto do banco de dados original ou usá-lo para recuperar os dados e, em seguida, atualizar o banco de dados original.
 
@@ -83,7 +83,7 @@ Um banco de dados geralmente é restaurado para um ponto anterior para fins de r
 
   Se você planeja recuperar dados do banco de dados restaurado para recuperar-se de um erro de usuário ou aplicativo, é necessário gravar e executar os scripts de recuperação de dados necessários para extrair dados do banco de dados restaurado para o banco de dados original. Embora a operação de restauração possa demorar muito para concluir, o banco de dados em restauração é visível na lista de banco de dados por todo o processo de restauração. Se você excluir o banco de dados durante a restauração, a operação de restauração será cancelada e você não será cobrado pelo banco de dados cuja restauração não foi concluída.
 
-Para recuperar um banco de dados único, em pool ou de Instância Gerenciada até um determinado momento usando o portal do Azure, abra a página do banco de dados e clique em **Restaurar** na barra de ferramentas.
+Para recuperar um banco de dados autônomo, em pool ou de instância até um determinado momento usando o portal do Azure, abra a página do banco de dados e clique em **Restaurar** na barra de ferramentas.
 
 ![restauração pontual](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -92,7 +92,7 @@ Para recuperar um banco de dados único, em pool ou de Instância Gerenciada at�
 
 ## <a name="deleted-database-restore"></a>Restauração de banco de dados excluído
 
-Você pode restaurar um banco de dados excluído para o momento da exclusão de um banco de dados excluído no mesmo servidor lógico usando o Portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou o [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Você pode [restaurar o banco de dados excluído na Instância Gerenciada usando o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Você pode restaurar um banco de dados excluído em um ponto anterior durante a retenção usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+É possível restaurar um banco de dados excluído para o momento da exclusão de um banco de dados excluído no mesmo servidor do Banco de Dados SQL usando o Portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou o [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Você pode [restaurar o banco de dados excluído na Instância Gerenciada usando o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Você pode restaurar um banco de dados excluído em um ponto anterior durante a retenção usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Para obter um script de exemplo do PowerShell que mostra como restaurar um banco de dados excluído, consulte [Restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -139,7 +139,7 @@ Conforme discutido anteriormente, além do Portal do Azure, a recuperação de b
 
 ### <a name="powershell"></a>PowerShell
 
-- Para restaurar um banco de dados único ou em pool, consulte [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+- Para restaurar um banco de dados autônomo ou em pool, confira [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
 
   | Cmdlet | DESCRIÇÃO |
   | --- | --- |
@@ -155,7 +155,7 @@ Conforme discutido anteriormente, além do Portal do Azure, a recuperação de b
 
 ### <a name="rest-api"></a>API REST
 
-Para restaurar um banco de dados único ou em pool usando a API REST:
+Para restaurar um banco de dados autônomo ou em pool usando a API REST:
 
 | API | DESCRIÇÃO |
 | --- | --- |
@@ -164,7 +164,7 @@ Para restaurar um banco de dados único ou em pool usando a API REST:
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para restaurar um banco de dados único ou em pool usando a CLI do Azure, consulte [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+Para restaurar um banco de dados autônomo ou em pool usando a CLI do Azure, confira [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Resumo
 

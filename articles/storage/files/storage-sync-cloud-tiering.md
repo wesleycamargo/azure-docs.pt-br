@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623644"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470443"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -21,7 +21,7 @@ A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure
 Quando um usuário abre um arquivo em camadas, a Sincronização de Arquivos do Azure recupera os dados de arquivo diretamente dos Arquivos do Azure, sem que o usuário precise saber que o arquivo está realmente armazenado no Azure. 
  
  > [!Important]  
-    > Importante: a camada de nuvem não é compatível com pontos de extremidade do servidor nos volumes de sistema do Windows, e somente arquivos com tamanho maior que 64 KiB podem ser dispostos em camadas nos Arquivos do Azure.
+    > Importante: A camada de nuvem não dá suporte a pontos de extremidade do servidor nos volumes de sistema do Windows e somente arquivos com tamanho maior que 64 KiB podem ser dispostos em camadas nos Arquivos do Azure.
     
 A Sincronização de Arquivos do Azure não dá suporte à disposição em camadas para arquivos menores que 64 KiB, já que a sobrecarga de desempenho causada pela disposição em camadas e subsequente recuperação desses arquivos pequenos seria mais onerosa que a economia de espaço.
 
@@ -86,7 +86,7 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas no compa
         fsutil reparsepoint query <your-file-name>
         ```
 
-        Se o arquivo tiver um ponto de nova análise, você deverá ver um **Valor de Marca de Nova Análise: 0x8000001e**. Esse valor hexadecimal é o valor de ponto de nova análise pertencente à Sincronização de Arquivos do Azure. A saída também contém os dados da nova análise que representam o caminho para o arquivo em seu compartilhamento de arquivos do Azure.
+        Se o arquivo tiver um ponto de nova análise, você deverá ver um **Valor de tag de nova análise: 0x8000001e**. Esse valor hexadecimal é o valor de ponto de nova análise pertencente à Sincronização de Arquivos do Azure. A saída também contém os dados da nova análise que representam o caminho para o arquivo em seu compartilhamento de arquivos do Azure.
 
         > [!WARNING]  
         > O comando do utilitário `fsutil reparsepoint` também tem a capacidade de excluir um ponto de nova análise. Não execute esse comando, a menos que a equipe de engenharia de Sincronização de Arquivos do Azure lhe solicite isso. A execução desse comando pode resultar em perda de dados. 

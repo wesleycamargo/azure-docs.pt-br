@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424876"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098741"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
 
@@ -82,7 +82,7 @@ Um elemento `NameIdPolicy` se parece com o seguinte exemplo:
 Se `NameIDPolicy` for fornecido, você poderá incluir seu atributo `Format` opcional. O atributo `Format` pode ter apenas um dos valores a seguir. Qualquer outro valor resulta em um erro.
 
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: o Azure Active Directory emite a declaração NameID como um identificador de par.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: o Azure Active Directory emite a declaração NameID no formato de endereço de email.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: o Azure Active Directory emite a declaração NameID no formato de endereço de e-mail.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: esse valor permite que o Azure Active Directory selecione o formato de declaração. O Azure Active Directory emite o NameID como um identificador de par.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: o Azure Active Directory emite a declaração NameID como um valor gerado aleatoriamente que é exclusivo à operação de SSO atual. Isso significa que o valor é temporário e não pode ser usado para identificar o usuário da autenticação.
 
@@ -155,7 +155,7 @@ O elemento `Response` inclui os resultados da solicitação de autorização. O 
 * `Destination`: quando o logon for concluído com êxito, ele será definido como o `RedirectUri` do provedor de serviços (serviço de nuvem).
 * `InResponseTo`: isso é definido como o atributo `ID` do elemento `AuthnRequest` que iniciou a resposta.
 
-### <a name="issuer"></a>Issuer
+### <a name="issuer"></a>Emissor
 
 O Azure AD define o elemento `Issuer` como `https://login.microsoftonline.com/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID de locatário do locatário do Azure AD.
 

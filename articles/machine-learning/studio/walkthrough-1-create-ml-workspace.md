@@ -1,6 +1,6 @@
 ---
-Título: “Etapa 1: Criar um workspace” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 1 do passo a passo Desenvolver uma solução de previsão: saiba como configurar um novo workspace do Azure Machine Learning Studio.”
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: “Etapa 1: Criar um workspace” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 1 do passo a passo Desenvolver uma solução de previsão: saiba como configurar um novo workspace do Azure Machine Learning Studio.”
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: garyericson ms.author: garye ms.custom: seodec18 ms.date: 23/03/2017
 ---

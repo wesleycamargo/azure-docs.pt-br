@@ -1,5 +1,5 @@
 ---
-title: Usar a API do Video Indexer
+title: Usar a API do Video Indexer – Azure
 titlesuffix: Azure Media Services
 description: Este artigo mostra como começar a usar a API do Video Indexer.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: fcde97c76e11c6ecbdb22befcb1a8d1ce0437942
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291677"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299020"
 ---
-# <a name="use-the-video-indexer-api"></a>Usar a API do Video Indexer
+# <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
 > [!Note]
 > A API do Video Indexer V1 foi descontinuada em 1º de agosto de 2018. Agora, você deve usar a API do indexador de vídeo v2. <br/>Para desenvolver com as APIs do Video Indexer v2, consulte as instruções encontradas [aqui](https://api-portal.videoindexer.ai/). 
@@ -82,7 +82,7 @@ Os valores descritos na tabela a seguir se aplicam. O **valor Param** é o valor
 
 |**Nome**|**Valor do parâmetro**|**Descrição**|
 |---|---|---|
-|Avaliação|versão de avaliação|Usado para contas de avaliação.|
+|Avaliação|trilha|Usado para contas de avaliação.|
 |Oeste dos EUA|westus2|Usado para a região do Azure Oeste dos EUA 2.|
 |Norte da Europa |northeurope|Usado para a região do Azure Norte da Europa.|
 |Ásia Oriental|eastasia|Usado para a região do Azure East Asia.|

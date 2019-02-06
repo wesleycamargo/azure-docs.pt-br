@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438075"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098452"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console serial da máquina virtual para Linux
 
@@ -89,7 +89,7 @@ Regras de firewall incorretas | Acesse o console serial e corrija o iptables.
 Corrupção de sistema de arquivos/verificação | Acesse o console serial e recupere o sistema de arquivos.
 Problemas de configuração de RDP/SSH | Acesse o console serial e altere as configurações.
 Bloqueio de sistema de rede| Acesse o console serial do portal do Azure para gerenciar o sistema.
-Interagir com o carregador de inicialização | Acesse o GRUB no console serial. Para obter mais informações, consulte [Use o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).
+Interagir com o carregador de inicialização | Reinicie a VM na folha do console serial para acessar o GRUB na VM do Linux. Para obter mais informações, consulte [Use o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Desativar o console serial
 Por padrão, todas as assinaturas têm acesso de console serial habilitado para todas as VMs. É possível desabilitar o console serial no nível da assinatura ou no nível da VM.

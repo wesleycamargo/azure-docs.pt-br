@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206962"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação de preparação para produção
 
@@ -27,15 +27,15 @@ O aplicativo e o cluster estão prontos para receber tráfego de produção? Exe
 
 
 ## <a name="pre-requisites-for-production"></a>Pré-requisitos para produção
-1. As [melhores práticas do Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) são: 
+1. As [melhores práticas de segurança do Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) são: 
 * Usar certificados X.509
 * Configurar políticas de segurança
 * Configurar o SSL para o Azure Service Fabric
 * Usar segurança e isolamento de rede com o Azure Service Fabric
 * Configurar o Azure Key Vault para segurança
-* Atribuir usuários a funções
+* Microsoft.Network/loadBalancersAtribuir usuários a funções
 * Implementar a configuração de segurança dos Reliable Actors se o modelo de programação de Atores estiver sendo usado
-2. Para clusters com mais de 20 núcleos ou 10 nós, crie um tipo de nó primário dedicado para serviços do sistema. Adicione [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo de nó primário para serviços do sistema. 
+2. Para clusters com mais de 20 núcleos ou 10 nós, crie um tipo de nó primário dedicado para serviços do sistema. Adicione [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo de nó primário para serviços do sistema.
 3. Use D2v2 ou SKU superior para o tipo de nó primário. É recomendável separar uma SKU com pelo menos 50 GB de capacidade de disco rígido.
 4. Os clusters de produção devem ser [seguros](service-fabric-cluster-security.md). Para um exemplo de configuração de um cluster seguro, consulte este [modelo de cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use nomes comuns para certificados e evite usar certificados autoassinados.
 5. Adicione [restrições de recursos em contêineres e serviços](service-fabric-resource-governance.md), de modo que não consumam mais de 75% dos recursos do nó. 
@@ -61,8 +61,8 @@ Se estiver usando o modelo de programação Reliable Actors ou Reliable Services
 22. Faça upgrade dos aplicativos durante o desenvolvimento local para verificar se o código de serviço está respeitando o token de cancelamento no método `RunAsync` e fechando ouvintes de comunicação personalizados.
 23. Evite [armadilhas comuns](service-fabric-work-with-reliable-collections.md) ao usar Reliable Collections.
 24. Monitore os contadores de desempenho de memória de CLR do .NET ao executar testes de carga e verifique as altas taxas de Coleta de Lixo ou crescimento de heap sem controle.
-25. Mantenha o backup de [Reliable Services e Reliable Actors](service-fabric-reliable-services-backup-restore.md) offline e teste o processo de restauração. 
-
+25. Mantenha o backup de [Reliable Services e Reliable Actors](service-fabric-reliable-services-backup-restore.md) offline e teste o processo de restauração.
+26. Sua contagem de instâncias de máquina virtual NodeType primária deve idealmente ser igual ao mínimo para sua camada de Confiabilidade de Clusters; quando apropriado, as condições para exceder o mínimo de camada incluem: temporariamente ao escalar verticalmente seu SKU de conjunto de dimensionamento de máquinas virtuais NodeTypes.
 
 ## <a name="optional-best-practices"></a>Melhores práticas opcionais
 

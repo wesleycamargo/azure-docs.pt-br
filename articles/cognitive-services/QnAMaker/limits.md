@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 443ecdeab057c863763501e5da7d36e9fb6a4eea
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084770"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223129"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 Lista abrangente dos limites no QnA Maker.
@@ -27,7 +27,9 @@ Lista abrangente dos limites no QnA Maker.
 
 |**Camada do Azure Search** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Número máximo de bases de dados de conhecimento publicadas permitidas (Máx. de índices – 1 (reservado para teste)|2|14|49|199|199|2,999|
+|Número máximo de bases de dados de conhecimento publicadas permitidas|2|14|49|199|199|2,999|
+
+ Por exemplo, se a camada tiver 15 índices permitidos, você poderá publicar 14 bases de dados de conhecimento (1 índice por base de dados de conhecimento publicada). O décimo quinto índice, `testkb`, é usado para todas as bases de dados de conhecimento para criação e teste. 
 
 ## <a name="extraction-limits"></a>Limites de extração
 * Número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo: Consulte os [preços do QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -64,3 +66,11 @@ Eles representam os limites de cada ação de atualização; ou seja, clique em 
 * Número máximo de perguntas alternativas adicionadas ou excluídas: 100
 * Número máximo de campos de metadados adicionados ou excluídos: 10
 * Número máximo de URLs que podem ser atualizadas: 5
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba quando e como alterar as camadas de serviço:
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): quando você precisar ter mais perguntas e respostas em sua base de dados de conhecimento, além da camada atual, atualize o tipo de preço do serviço QnA Maker.
+* [Pesquisa](how-to/upgrade-qnamaker-service.md#upgrade-app-service) – quando sua base de dados de conhecimento precisar fornecer mais solicitações do aplicativo cliente, atualize o tipo de preço do serviço de aplicativo.
+* [Serviço de Aplicativo](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): quando você pretender ter muitas bases de dados de conhecimento, atualize o tipo de preço do serviço Azure Search.

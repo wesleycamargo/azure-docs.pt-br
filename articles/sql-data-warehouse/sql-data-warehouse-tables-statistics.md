@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307455"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299547"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criação e atualização de estatísticas em tabelas no SQL Data Warehouse do Azure
 Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
@@ -38,7 +38,7 @@ Se a sua data warehouse não tiver AUTO_CREATE_STATISTICS configurado, nós reco
 ALTER DATABASE <yourdatawarehousename> 
 SET AUTO_CREATE_STATISTICS ON
 ```
-As instruções seguintes irão disparar a criação automática de estatísticas: SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE, e EXPLAIN quando uma junção ou a presença de um predicado for detectada. 
+As instruções a seguir vão disparar a criação automática de estatísticas: SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE e EXPLAIN quando houver uma junção ou a presença de um predicado for detectada. 
 
 > [!NOTE]
 > Criação automática de estatísticas não é criada em tabelas temporárias ou externas.
@@ -50,7 +50,7 @@ Criação automática de estatísticas é gerada de forma síncrona portanto voc
 > A criação de estatísticas também será registrada [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) em um contexto de usuário diferente.
 > 
 
-Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017):
+Quando as estatísticas automáticas são criadas, elas terá o formato: _WA_Sys_<id da coluna de 8 dígitos em Hex>_<id da tabela de 8 dígitos em Hex>. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017):
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
@@ -67,7 +67,7 @@ O seguinte são recomendações atualizando estatísticas:
 
 |||
 |-|-|
-| **Frequência de atualizações de estatísticas**  | Conservadora: diária <br></br> Depois de carregar ou transformar os dados |
+| **Frequência de atualizações de estatísticas**  | Conservadora: Diário <br></br> Depois de carregar ou transformar os dados |
 | **Amostragem** |  Menos de 1 bilhão de linhas, usar a amostragem padrão (20%) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
@@ -125,7 +125,7 @@ Os seguintes princípios orientadores são fornecidos para atualizar suas estat�
 
 Para obter mais informações, consulte [Estimativa de cardinalidade](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## <a name="examples-create-statistics"></a>Exemplos: criar estatísticas
+## <a name="examples-create-statistics"></a>Exemplos: Criar estatísticas
 Estes exemplos mostram como usar várias opções para a criação de estatísticas. As opções usadas para cada coluna dependem das características dos dados e de como a coluna será usada em consultas.
 
 ### <a name="create-single-column-statistics-with-default-options"></a>Criar estatísticas de coluna única com opções padrão
@@ -337,7 +337,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Para criar estatísticas de amostra em todas as colunas 
 
-## <a name="examples-update-statistics"></a>Exemplos: atualizar as estatísticas
+## <a name="examples-update-statistics"></a>Exemplos: Atualizar estatísticas
 Para atualizar as estatísticas, você pode:
 
 - Atualizar um objeto de estatísticas. Especifique o nome do objeto de estatísticas que você deseja atualizar.
@@ -416,7 +416,7 @@ SELECT
         sm.[name]                           AS [schema_name]
 ,       tb.[name]                           AS [table_name]
 ,       st.[name]                           AS [stats_name]
-,       st.[filter_definition]              AS [stats_filter_defiinition]
+,       st.[filter_definition]              AS [stats_filter_definition]
 ,       st.[has_filter]                     AS [stats_is_filtered]
 ,       STATS_DATE(st.[object_id],st.[stats_id])
                                             AS [stats_last_updated_date]

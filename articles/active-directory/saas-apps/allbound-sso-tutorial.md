@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Microsoft Azure Active Directory com o Allbound SSO | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Allbound SSO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Allbound SSO.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 15011ddf-941f-4da2-b993-40ad94a08e42
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 3446ccae631efb763d9a216aac313abf9e1af72f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e0658841e121dc8ea5bd4c704d99fd6bac98a32f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166651"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171378"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: integração do Microsoft Azure Active Directory com o Allbound SSO
+# <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: Integração do Azure Active Directory ao Allbound SSO
 
 Neste tutorial, você aprenderá a integrar o Allbound SSO ao Microsoft Azure Active Directory (Azure Active Directory).
 
@@ -159,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

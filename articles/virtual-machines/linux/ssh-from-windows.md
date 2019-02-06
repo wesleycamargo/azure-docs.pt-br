@@ -3,7 +3,7 @@ title: Usar chaves SSH com Windows para VMs Linux | Microsoft Docs
 description: Saiba como gerar e usar chaves SSH em um computador Windows para se conectar a uma máquina virtual Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407409"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298646"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 
@@ -72,7 +72,7 @@ Para criar um par de chaves SSH RSA com o PuttyGen:
 
 4. Mova o mouse na área em branco para fornecer a aleatoriedade para a chave.
 
-5. Depois que a chave pública for gerada, opcionalmente, insira e confirme uma frase secreta. Será solicitado que você insira a frase secreta ao autenticar-se na VM com sua chave SSH privada. Sem uma frase secreta, se um indivíduo obtiver a chave privada, ele poderá fazer logon em qualquer VM ou serviço que use essa chave. É recomendável criar uma frase secreta. No entanto, se você esquecer a senha, não é possível recuperá-la.
+5. Depois que a chave pública for gerada, opcionalmente, insira e confirme uma frase secreta. Será solicitado que você insira a frase secreta ao autenticar-se na VM com sua chave SSH privada. Sem uma frase secreta, se um indivíduo obtiver a chave privada, ele poderá entrar em qualquer VM ou serviço que use essa chave. É recomendável criar uma frase secreta. No entanto, se você esquecer a senha, não é possível recuperá-la.
 
 6. A chave pública é exibida na parte superior da janela. É possível copiar toda esta chave pública e, em seguida, colá-la no portal do Azure ou em um modelo do Azure Resource Manager quando você cria uma VM Linux. Também é possível selecionar **Salvar chave pública** para salvar uma cópia no computador:
 
@@ -104,7 +104,9 @@ Com a chave pública implantada em sua VM do Azure e a chave privada em seu sist
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Se você configurou uma frase secreta quando criou o par de chaves, insira-a quando solicitado durante o processo de logon.
+Se você tiver configurado uma frase secreta ao criar o par de chaves, insira-a quando solicitado durante o processo de entrada.
+
+Se a VM estiver usando a política de acesso Just-In-Time, você precisará solicitar acesso antes que possa se conectar à VM. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>Conectar com o PuTTY
 

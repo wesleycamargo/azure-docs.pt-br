@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270001"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469542"
 ---
 # <a name="the-azure-sql-database-service"></a>O serviço de banco de dados SQL
 
@@ -26,8 +26,8 @@ O Banco de Dados SQL é um serviço gerenciado de banco de dados relacional de u
 
 O banco de dados SQL do Azure fornece as seguintes opções de implantação para um banco de dados SQL do Azure:
 
-- Como um banco de dados individual com seu próprio conjunto de recursos gerenciado por um servidor lógico
-- Como um banco de dados em pool em um [pool elástico](sql-database-elastic-pool.md) com um conjunto compartilhado de recursos gerenciados por meio de um servidor lógico
+- Como um banco de dados individual com seu próprio conjunto de recursos gerenciado por um servidor de Banco de Dados SQL
+- Como um banco de dados em pool em um [pool elástico](sql-database-elastic-pool.md) com um conjunto compartilhado de recursos gerenciados por meio de um servidor de Banco de Dados SQL
 - Como parte de uma coleção de bancos de dados conhecida como [instância gerenciada](sql-database-managed-instance.md) que contém os bancos de dados de usuário e sistema e compartilha um conjunto de recursos
 
 A ilustração a seguir mostra essas opções de implantação:
@@ -68,7 +68,7 @@ Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno
 > [!IMPORTANT]
 > A [camada de serviço Hyperscale](sql-database-service-tier-hyperscale.md) está atualmente em pré-visualização pública. Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados do Hyperscale ainda. Você não pode atualizar um banco de dados Hyperscale para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualize a cópia para a camada de serviço em hiperescala.
 
-A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade. O Banco de Dados SQL do Azure Individual oferece suporte à escalabilidade dinâmica manual, mas não ao dimensionamento automático. Para uma experiência mais *automática*, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados. No entanto, há scripts que podem ajudar a automatizar a escalabilidade de um Banco de Dados individual SQL do Azure. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um Banco de Dados SQL individual](scripts/sql-database-monitor-and-scale-database-powershell.md).
+A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade. Um banco de dados individual dá suporte à escalabilidade dinâmica manual, mas não ao dimensionamento automático. Para uma experiência mais *automática*, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados. No entanto, há scripts que podem ajudar a automatizar a escalabilidade de um banco de dados individual. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools elásticos para maximizar a utilização de recursos
 
@@ -148,7 +148,7 @@ O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada contra Ameaças
 
-Proteção Avançada contra Ameaças SQL é um pacote unificado para recursos de segurança avançados do SQL. Ela inclui funcionalidades para descobrir e classificar dados confidenciais, gerenciar vulnerabilidades de seu banco de dados e detectar atividades irregulares que possam indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
+A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ela inclui funcionalidades para descobrir e classificar dados confidenciais, gerenciar vulnerabilidades de seu banco de dados e detectar atividades irregulares que possam indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
 
 - [Descoberta e classificação de dados](sql-database-data-discovery-and-classification.md):
 

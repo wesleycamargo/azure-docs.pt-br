@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981003"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203582"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM em uma máquina virtual Linux do Azure  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Para criar uma máquina virtual com base na imagem do Oracle Database e configurá-la para usar o Oracle ASM, use o comando [az vm create](/cli/azure/vm#az_vm_create). 
+Para criar uma máquina virtual com base na imagem do Oracle Database e configurá-la para usar o Oracle ASM, use o comando [az vm create](/cli/azure/vm). 
 
 O exemplo a seguir cria uma VM denominada myVM que tem um tamanho Standard_DS2_v2 com quatro discos de dados anexados, cada um com 50 GB. Se ainda não existirem em um local de chave padrão, o exemplo também criará chaves SSH.  Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
 
@@ -583,8 +583,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial: configurar o Oracle DataGuard](configure-oracle-dataguard.md)
+[Tutorial: Configurar o Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Tutorial: configurar o Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Tutorial: Configurar o Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Examine [Projetar um Oracle DB](oracle-design.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Rollbar | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Rollbar | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Rollbar.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 57537e54-9388-4272-a610-805ce45a451f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: e12e3187893690b75dc69835312ec86a0e601d32
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d92be4d72936664f3839d7798e13e66d11b61b8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431898"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155622"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: integração do Azure Active Directory com o Rollbar
+# <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Azure Active Directory ao Rollbar
 
 Neste tutorial, você aprende como integrar o Rollbar ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Rollbar da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do Rollbar](./media/rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: `https://saml.rollbar.com`
+     a. Na caixa de texto **Identificador**, digite a URL: `https://saml.rollbar.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Configuração](./media/rollbar-tutorial/configure2.png)
 
-    a. Selecione **AZURE** na lista suspensa **Provedor de Identidade do SAML**.
+     a. Selecione **AZURE** na lista suspensa **Provedor de Identidade do SAML**.
 
     b. Abra seu arquivo de metadados no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Metadados do SAML**.
 
@@ -156,14 +156,14 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Configuração](./media/rollbar-tutorial/configure3.png)
     > [!NOTE] 
     > Para concluir a etapa a seguir, você deve primeiro se adicionar como um usuário ao aplicativo Rollbar no Azure.
-    a. Se deseja exigir que todos os usuários sejam autenticados por meio do Azure, clique em **Fazer logon por meio de seu provedor de identidade** para autenticar novamente por meio do Azure.  
+     a. Se deseja exigir que todos os usuários sejam autenticados por meio do Azure, clique em **Fazer logon por meio de seu provedor de identidade** para autenticar novamente por meio do Azure.  
 
     b.  Quando você retornar à tela, selecione a caixa de seleção **Exigir logon por meio do Provedor de Identidade do SAML**.
 
     b. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -258,7 +258,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Rollbar no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Rollbar.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

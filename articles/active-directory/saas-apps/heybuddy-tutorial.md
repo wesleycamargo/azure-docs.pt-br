@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com HeyBuddy | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao HeyBuddy | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o HeyBuddy.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ef345d866de16b856d3c8b56fa086b83b74ae0f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 123b74298ebb01e8ebcfd70d023b4e71a879e7f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289543"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197884"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Tutorial: Integração do Azure Active Directory com HeyBuddy
+# <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Tutorial: Integração do Azure Active Directory ao HeyBuddy
 
 Neste tutorial, você aprenderá como integrar o HeyBuddy ao Azure AD (Azure Active Directory).
 
@@ -172,7 +172,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

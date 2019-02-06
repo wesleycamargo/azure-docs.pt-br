@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096626"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171449"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de aplicativo de Reliable Services e manifesto do serviço
 A seguir estão exemplos dos manifestos de aplicativo e serviço para um aplicativo do Service Fabric com um front-end Web do ASP.NET Core e um back-end com estado. O objetivo desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviços se baseiam em manifestos [Início Rápido do Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -198,7 +198,7 @@ Veja [Elementos do manifesto de aplicativo](#application-manifest-elements), [El
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -215,7 +215,7 @@ Veja [Elementos do manifesto de aplicativo](#application-manifest-elements), [El
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -399,10 +399,12 @@ O nome do executável.  Por exemplo, "MySetup.bat" ou "MyServiceHost.exe". Para 
  Para obter mais informações, veja [Elemento Arguments](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Trabalho (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Work (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>Elemento ConsoleRedirection
-Aviso! Não use redirecionamento de console em um aplicativo de produção, use-o apenas para desenvolvimento local e depuração. Redireciona a saída do console do script de inicialização para um arquivo de saída na pasta do aplicativo chamada "log" no nó de cluster em que o aplicativo é implantado e executado. Para obter mais informações, veja [Elemento ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> Não use redirecionamento de console em um aplicativo de produção, use-o apenas para desenvolvimento local e depuração. Redireciona a saída do console do script de inicialização para um arquivo de saída na pasta do aplicativo chamada "log" no nó de cluster em que o aplicativo é implantado e executado. Para obter mais informações, veja [Elemento ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="entrypoint-element"></a>Elemento EntryPoint
 O executável especificado pelo EntryPoint normalmente é o host de serviço de longa duração. A presença de um ponto de entrada de instalação separado evita a necessidade de executar o host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo EntryPoint é executado depois que o SetupEntryPoint é encerrado com êxito. O processo resultante será monitorado e reiniciado (começando novamente com SetupEntryPoint) se ele terminar ou falhar. Para obter mais informações, confira [Elemento EntryPoint](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -447,7 +449,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
 O nome do executável.  Por exemplo, "MySetup.bat" ou "MyServiceHost.exe". Para obter mais informações, veja [elemento de programa](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Trabalho (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Work (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>Elemento ConfigPackage
 Declara uma pasta nomeada pelo atributo Name, em PackageRoot, que contém um arquivo Settings.xml. Esse arquivo contém seções de configurações de par chave-valor, definido pelo usuário, que o processo pode ler de volta no tempo de execução. Durante a atualização, se apenas a versão do ConfigPackage tiver sido alterada, o processo de execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Para obter mais informações, confira [Elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

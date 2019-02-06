@@ -11,20 +11,22 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 7bf1a3af7705858432b9ff8caf5064b0794568df
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602453"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459427"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bancos de dados na nuvem com esquemas diferentes (visualização)
+
 ![Consultar tabelas em bancos de dados diferentes][1]
 
 Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas diferentes bancos de dados. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas de inventário estão em um banco de dados, enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.
 * As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
 
@@ -40,6 +42,7 @@ Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra do escopo do banco de dados e credenciais
+
 A credencial é usada pela consulta elástica para se conectar aos bancos de dados remotos.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
@@ -52,6 +55,7 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
 >
 
 ## <a name="create-external-data-sources"></a>Criar fontes de dados externas
+
 Sintaxe:
 
     <External_Data_Source> ::=
@@ -67,6 +71,7 @@ Sintaxe:
 >
 
 ### <a name="example"></a>Exemplo
+
 O exemplo a seguir ilustra o uso da instrução CRIAR para fontes de dados externas. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
@@ -83,6 +88,7 @@ Para recuperar a lista de fontes de dados externas atuais:
     select * from sys.external_data_sources; 
 
 ### <a name="external-tables"></a>Tabelas externas
+
 Sintaxe:
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
@@ -96,6 +102,8 @@ Sintaxe:
       [ OBJECT_NAME = N'nonescaped_object_name',] 
 
 ### <a name="example"></a>Exemplo
+
+```sql
     CREATE EXTERNAL TABLE [dbo].[customer]( 
         [c_id] int NOT NULL, 
         [c_firstname] nvarchar(256) NULL, 
@@ -109,16 +117,18 @@ Sintaxe:
     ( 
            DATA_SOURCE = RemoteReferenceData 
     ); 
+```
 
 O exemplo a seguir mostra como recuperar a lista de tabelas externas do banco de dados atual: 
 
     select * from sys.external_tables; 
 
 ### <a name="remarks"></a>Comentários
+
 A consulta elástica estende a sintaxe de tabela externa existente para definir as tabelas externas que usam fontes de dados externas do tipo RDBMS. Uma definição de tabela externa para o particionamento vertical abrange os seguintes aspectos: 
 
 * **Esquema**: A DDL da tabela externa define um esquema que pode ser usado pelas consultas. O esquema fornecido na definição da tabela externa precisa corresponder ao esquema das tabelas no banco de dados remoto em que os dados reais são armazenados. 
-* **Referência de banco de dados remoto**: A DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica o nome do servidor lógico e o nome do banco de dados remoto em que os dados da tabela real estão armazenados. 
+* **Referência de banco de dados remoto**: A DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica o nome do servidor do Banco de Dados SQL e o nome do banco de dados remoto em que os dados da tabela real estão armazenados. 
 
 Com uma fonte de dados externa, como descrito na seção anterior, a sintaxe para criar tabelas externas é a seguinte: 
 
@@ -133,11 +143,14 @@ A instrução DDL a seguir remove uma definição existente da tabela externa do
 **Permissões para CREATE/DROP EXTERNAL TABLE**: As permissões ALTER ANY EXTERNAL DATA SOURCE são necessárias para a DDL da tabela externa, o que também é necessário para fazer referência à fonte de dados subjacente.  
 
 ## <a name="security-considerations"></a>Considerações de segurança
+
 Usuários com acesso à tabela externa têm acesso automaticamente a tabelas remotas subjacentes com a credencial fornecida na definição de fonte de dados externa. Você deve gerenciar cuidadosamente o acesso à tabela externa para evitar a elevação indesejada de privilégios por meio da credencial da fonte de dados externa. Permissões de SQL regulares podem ser usadas para o acesso de GRANT ou REVOKE a uma tabela externa como se ela fosse uma tabela normal.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>Exemplo: consultando bancos de dados particionados verticalmente
+
 A consulta a seguir executa uma junção de três vias entre as duas tabelas locais para pedidos e linhas da pedido e a tabela remota para clientes. Este é um exemplo do caso de uso de dados de referência para a consulta elástica: 
 
+```sql
     SELECT      
      c_id as customer,
      c_lastname as customer_name,
@@ -151,9 +164,10 @@ A consulta a seguir executa uma junção de três vias entre as duas tabelas loc
     JOIN  order_line 
     ON o_id = ol_o_id and o_c_id = ol_c_id
     WHERE c_id = 100
-
+```
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento armazenado para a execução remota de T-SQL: sp\_execute_remote
+
 A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto ao banco de dados remoto. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL no banco de dados remoto. Ele usa os seguintes parâmetros: 
 
 * Nome da fonte de dados (nvarchar): O nome da fonte de dados externa do tipo RDBMS. 
@@ -165,16 +179,18 @@ O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de 
 
 Exemplo: 
 
+```sql
     EXEC sp_execute_remote
         N'MyExtSrc',
         N'select count(w_id) as foo from warehouse' 
-
-
+```
 
 ## <a name="connectivity-for-tools"></a>Conectividade de ferramentas
+
 É possível usar cadeias de conexão regulares do SQL Server para conectar suas ferramentas de BI e de integração de dados a bancos de dados no servidor do Banco de Dados SQL que têm a consulta elástica habilitada e as tabelas externas definidas. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Em seguida, consulte o banco de dados de consulta elástica e suas tabelas externas como qualquer outro banco de dados do SQL Server ao qual você se conectaria com a sua ferramenta. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
+
 * Verifique se o banco de dados do ponto de extremidade da consulta elástica recebeu acesso ao banco de dados remoto habilitando acesso para os Serviços do Azure em sua configuração de firewall do Banco de Dados SQL. Também verifique se a credencial fornecida na definição da fonte de dados externa pode fazer logon com êxito no banco de dados remoto e se ela tem as permissões para acessar a tabela remota.  
 * A consulta elástica funciona melhor para consultas em que a maior parte da computação pode ser realizada nos bancos de dados remotos. Normalmente, você obtém o melhor desempenho de consulta com predicados de filtro seletivo que podem ser avaliados nos bancos de dados remotos ou com junções que podem ser executadas por completo no banco de dados remoto. Outros padrões de consulta podem precisar carregar grandes quantidades de dados do banco de dados remoto e podem ter um desempenho insatisfatório. 
 

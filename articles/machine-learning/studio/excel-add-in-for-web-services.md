@@ -1,6 +1,6 @@
 ---
-Título: Suplemento do Excel para serviços Web – titleSuffix: Descrição do Azure Machine Learning Studio: Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Suplemento do Excel para serviços Web – titleSuffix: Descrição do Azure Machine Learning Studio: Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 01/02/2018
 ---

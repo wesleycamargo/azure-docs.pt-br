@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834818"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179830"
 ---
 # <a name="register-in-dev-center"></a>Registrar no Centro de Desenvolvimento  
 Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima do Chrome para garantir que você não tenha se conectado em uma conta pessoal.  
@@ -68,7 +68,7 @@ Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima 
 
 9.  Na seção `Registration - Review`, revise as informações da sua conta e confirme se tudo está correto.  
 
-    Leia os termos e condições do contrato de publicador do Microsoft Azure Marketplace.  
+    Leia os termos e as condições do [contrato do editor](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) do Microsoft Azure Marketplace.  
 
     Clique na caixa de seleção para indicar que você leu e aceitou os termos.  
     

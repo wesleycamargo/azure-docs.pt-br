@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134787"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469814"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
 ## <a name="overview"></a>Visão geral
@@ -36,25 +36,25 @@ A oferta da Detecção de Anomalias vem com ferramentas úteis para você começ
 
 > [!NOTE]
 > Tente a **solução IT Anomaly Insights** fornecida por [essa API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
-> 
+>
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
---> 
+-->
 
 ## <a name="api-deployment"></a>Implantação da API
-Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dois Serviços Web do AzureML (e seus recursos relacionados) serão implantados na sua assinatura do Azure — um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do AzureML](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dois serviços Web do Azure Machine Learning Studio (e seus recursos relacionados) serão implantados na sua assinatura do Azure — um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do Azure Machine Learning Studio](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Dimensionando a API
 Por padrão, sua implantação terá um plano de cobrança de desenvolvimento/teste gratuito que inclui 1.000 transações/mês e 2 horas de computação/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/), em "Preço da API Web de produção".
 
-## <a name="managing-aml-plans"></a>Gerenciando planos do AML 
+## <a name="managing-aml-plans"></a>Gerenciando planos do AML
 Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice), na seção "Gerenciando planos de cobranças".
 
 ## <a name="api-definition"></a>Definição da API
 O serviço Web fornece uma API baseada em REST por HTTPS que pode ser consumida de várias maneiras, incluindo um aplicativo Web ou móvel, R, Python, Excel, etc.  Você envia seus dados de série temporal para esse serviço por meio de uma chamada à API REST, e será executada uma combinação dos três tipos de anomalia descritos abaixo.
 
 ## <a name="calling-the-api"></a>Chamando a API
-Para chamar a API, você precisará conhecer o local do ponto de extremidade e chave de API.  Ambos, além do código de amostra para chamar a API, estão disponíveis na página de [serviços Web do AzureML](https://services.azureml.net/webservices/).  Navegue até a API desejada e clique na guia "Consume" para encontrá-la.  Observe que é possível chamar a API como uma API Swagger (isto é, com o parâmetro de URL `format=swagger`) ou como um API não Swagger (isto é, sem o parâmetro de URL `format`).  O código de amostra usa o formato Swagger.  Veja abaixo um exemplo de solicitação e resposta em um formato não Swagger.  Esses exemplos são o ponto de extremidade de sazonalidade.  O ponto de extremidade de não sazonalidade é semelhante.
+Para chamar a API, você precisará conhecer o local do ponto de extremidade e chave de API.  Ambos, além do código de amostra para chamar a API, estão disponíveis na página de [serviços Web do Azure Machine Learning Studio](https://services.azureml.net/webservices/).  Navegue até a API desejada e clique na guia "Consume" para encontrá-la.  Observe que é possível chamar a API como uma API Swagger (isto é, com o parâmetro de URL `format=swagger`) ou como um API não Swagger (isto é, sem o parâmetro de URL `format`).  O código de amostra usa o formato Swagger.  Veja abaixo um exemplo de solicitação e resposta em um formato não Swagger.  Esses exemplos são o ponto de extremidade de sazonalidade.  O ponto de extremidade de não sazonalidade é semelhante.
 
 ### <a name="sample-request-body"></a>Exemplo de corpo da solicitação
 A solicitação contém dois objetos: `Inputs` e `GlobalParameters`.  No exemplo de solicitação abaixo, alguns parâmetros são enviados explicitamente, enquanto outros, não (role para baixo para ver uma lista completa de parâmetros para cada ponto de extremidade).  Os parâmetros que não são enviados explicitamente na solicitação usarão os valores padrão fornecidos abaixo.
@@ -100,7 +100,8 @@ Observe que, para ver o campo `ColumnNames`, é preciso incluir `details=true` c
 
 
 ## <a name="score-api"></a>API de Pontuação
-A API de Pontuação é usada para executar a detecção de anomalias nos dados de série temporal não sazonais. A API executa vários detectores de anomalias nos dados e retorna suas pontuações de anomalias. A figura abaixo mostra um exemplo de anomalias que a API de Pontuação pode detectar. A série temporal tem duas alterações distintas no nível e três picos. Os pontos vermelhos mostram a hora em que a alteração no nível é detectada, enquanto as setas pretas mostram os picos detectados.
+A API de Pontuação é usada para executar a detecção de anomalias nos dados de série temporal não sazonais. A API executa vários detectores de anomalias nos dados e retorna suas pontuações de anomalias.
+A figura abaixo mostra um exemplo de anomalias que a API de Pontuação pode detectar. A série temporal tem duas alterações distintas no nível e três picos. Os pontos vermelhos mostram a hora em que a alteração no nível é detectada, enquanto as setas pretas mostram os picos detectados.
 ![API de Pontuação][1]
 
 ### <a name="detectors"></a>Detectores
@@ -116,7 +117,7 @@ A API de detecção de anomalias suporta detectores em três categorias amplas. 
 ### <a name="parameters"></a>parâmetros
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
-| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Tipo | Intervalo Válido | Intervalo Sugerido |
+| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Type | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
 | detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
@@ -127,7 +128,7 @@ Informações mais detalhadas sobre esses parâmetros de entrada são listadas n
 | postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |N/D |
 
 ### <a name="output"></a>Saída
-A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
+A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
 | outputs | DESCRIÇÃO |
 | --- | --- |
@@ -141,7 +142,7 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 | talert |Valor 1/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
-A API ScoreWithSeasonality é usada para executar a detecção de anomalias na série temporal que têm padrões sazonais. Essa API é útil para detectar desvios nos padrões sazonais.  
+A API ScoreWithSeasonality é usada para executar a detecção de anomalias na série temporal que têm padrões sazonais. Essa API é útil para detectar desvios nos padrões sazonais.
 A figura a seguir mostra um exemplo de anomalias detectadas em uma série temporal sazonal. A série temporal tem um pico (o 1º ponto preto), duas queda (o 2º ponto preto e um no final) e uma alteração no nível (ponto vermelho). Observe que a queda no meio da série temporal e a alteração no nível só ficam visíveis depois dos componentes sazonais serem removidos da série.
 ![API de Sazonalidade][2]
 
@@ -152,7 +153,7 @@ Os detectores no ponto de extremidade de sazonalidade são semelhantes aos do po
 
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
-| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Tipo | Intervalo Válido | Intervalo Sugerido |
+| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Type | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregação em segundos para agregar a série temporal de entrada |0 (nenhuma agregação é realizada) |inteiro |0: ignorar a agregação, > 0 do contrário |5 minutos para 1 dia, dependente da série temporal |
 | preprocess.aggregationFunc |Função usada para agregar dados para o AggregationInterval especificado |média |enumeração |média, soma, comprimento |N/D |
@@ -170,7 +171,7 @@ Informações mais detalhadas sobre esses parâmetros de entrada são listadas n
 | postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |N/D |
 
 ### <a name="output"></a>Saída
-A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
+A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
 | outputs | DESCRIÇÃO |
 | --- | --- |

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 737e05f3d936481e06acfc0604ff739b9f01d5db
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191642"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476835"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreenda a integridade de suas máquinas virtuais do Azure com o Azure Monitor para VMs (versão prévia)
 O Azure inclui vários serviços que executam individualmente uma função ou tarefa específica no espaço de monitoramento, mas não oferece uma perspectiva de integridade detalhada do sistema operacional hospedado nas máquinas virtuais do Azure.  Embora você possa monitorar diferentes condições usando o Log Analytics ou o Azure Monitor, elas não foram projetadas para modelar e representar a integridade dos principais componentes ou a integridade geral da máquina virtual.  Com o recurso de integridade do Azure Monitor for VMs, ele monitora proativamente a disponibilidade e o desempenho do sistema operacional convidado Windows ou Linux com um modelo que representa os principais componentes e seus relacionamentos, critérios que determinam como avaliar a integridade desses componentes e alertam quando um condição insalubre é detectada.  
@@ -28,6 +28,23 @@ Exibir o estado geral de integridade da VM do Azure e do sistema operacional sub
 Este artigo ajudará você a entender como avaliar, investigar e resolver rapidamente os problemas de integridade detectados.
 
 Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](vminsights-onboard.md).
+
+>[!NOTE]
+>A partir de 15 de fevereiro de 2019, começaremos realizando sua migração do modelo de integridade atual no recurso de integridade do Azure Monitor para VMs, que atualmente é visível quando você está na experiência de Diagnóstico de integridade, para uma nova versão do modelo de integridade. Esta atualização melhora o desempenho de processamento de rollup de integridade e inclui um modelo de integridade refinado, apresentado na exibição de diagnóstico de integridade. 
+>
+>Com o novo modelo de integridade, o rollup dos critérios de integridade filho para os critérios de integridade no nível de entidade/pai será mais rápido e, como resultado, o estado de integridade do pai atualizará para o estado desejado ou de destino com menor latência. Você ainda pode filtrar os critérios de integridade sob as categorias **Desempenho** e **Disponibilidade** a fim de selecionar qualquer categoria na exibição, ao contrário do que ocorria com método anterior, com base em guias.
+>
+>Para obter mais detalhes sobre a nova experiência de diagnóstico de integridade, veja a [seção](#health-diagnostics) Diagnóstico de integridade neste artigo. 
+>
+>Essa atualização melhorará o seguinte: 
+>
+>- Processamento de acumulação de integridade com latência reduzida  
+>- Alertas mais rápidos sobre alterações de estado de integridade 
+>- Atualização mais rápida do estado de integridade na exibição de máquina virtual agregada para todas as VMs 
+>
+>Atualmente, não há nenhuma regressão de nenhuma funcionalidade entregue com o recurso de Integridade do Azure Monitor para VMs.
+
+>Como resultado dessa alteração, por um curto período de tempo, haverá alguma interrupção no serviço e no histórico de integridade. As duas experiências no Diagnóstico de integridade são afetadas – o histórico de alterações de estado será redefinido e alterações de estado anteriores aos critérios de integridade não estarão disponíveis para análise na coluna Alteração de Estado da página de diagnóstico de integridade. Se estiver interessado nos dados históricos de qualquer VM crítica, você poderá gerar uma captura de tela dos dados de critérios de integridade e das alterações de estado correspondentes para sua referência. 
 
 ## <a name="monitoring-configuration-details"></a>Detalhes de configuração de monitoramento
 Esta seção descreve os critérios de integridade padrão definidos para monitorar as máquinas virtuais do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para o alerta quando a condição não íntegra é atendida. 
@@ -155,35 +172,35 @@ Selecionar **Visualizar todos os critérios de integridade** abre uma página mo
 Você pode fazer uma busca para ver quais instâncias estão íntegras, clicando em um valor sob a coluna **componente não íntegro**.  Na página, uma tabela lista os componentes que estão em um estado de integridade crítico.    
 
 ## <a name="health-diagnostics"></a>Diagnóstico de integridade
-A página **Diagnóstico de integridade** permite que você visualize todos os componentes da VM, critérios de integridade associados, alterações de estado e outros problemas significativos encontrados pelo monitoramento de objetos relacionados à VM. 
+A página **Diagnóstico de integridade** permite que você visualize o modelo de integridade de uma VM, listando todos os componentes da VM em questão, os critérios de integridade associados, as alterações de estado e outros problemas significativos identificados por componentes monitorados relacionados à VM.
 
 ![Exemplo de página de diagnóstico de integridade para uma VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
-Você pode iniciar o diagnóstico de integridade das seguintes maneiras.
+Você pode inicializar o Diagnóstico de Integridade das seguintes maneiras.
 
 * Por estado de integridade cumulativo de todas as VMs da perspectiva de VM agregada no Monitor do Azure.  Na página **integridade**, clique no ícone para **estado crítico**, **Aviso**, **integridade** ou **Desconhecido** na seção **Integridade da VM Convidada** e vá até a página que lista todas as VMs que correspondem à categoria filtrada.  Clicar no valor na coluna **Estado de integridade** abrirá o Diagnóstico de integridade com escopo para essa VM específica.      
 
-* Pelo sistema operacional da agregação perspectiva VM no Azure Monitor. Em **distribuição da VM**, a seleção de qualquer um dos valores da coluna abrirá a página **Máquinas Virtuais** e retornará uma lista na tabela correspondente à categoria filtrada.  Clicar no valor da coluna **Estado de integridade** abre o Diagnóstico de integridade da VM selecionada.    
+* Pelo sistema operacional da agregação perspectiva VM no Azure Monitor. Em **distribuição da VM**, a seleção de qualquer um dos valores da coluna abrirá a página **Máquinas Virtuais** e retornará uma lista na tabela correspondente à categoria filtrada.  Clicar no valor da coluna **Estado de Integridade** abre o Diagnóstico de Integridade da VM selecionada.    
  
 * A VM no Azure Monitor para VMs convidada **integridade** guia, selecionando **exibir diagnóstico de integridade** 
 
-O diagnóstico de saúde organiza informações de saúde nas seguintes categorias: 
+O Diagnóstico de Integridade organiza informações de integridade nas seguintes categorias: 
 
 * Disponibilidade
 * Desempenho
  
-Todos os critérios de integridade definidos para um destino selecionado são exibidos na categoria apropriada. 
+Todos os critérios de integridade definidos para um componente específico, assim como o disco lógico, a CPU, etc. Além disso, a categoria do monitor pode ser vista ao lado dele na coluna **Critérios de Integridade**.  
 
-O estado de integridade para critérios de integridade é definido por um dos três estados – *Crítico*, *Aviso* e *Íntegro*. Há outro estado *Desconhecido*, que não está associado ao estado de integridade, mas representa seu status de monitoramento conhecido pelo recurso.  
+O estado de um critério de integridade é definido por um dos quatro estados – *Crítico*, *Aviso*, *Íntegro* e *Desconhecido*. Os três primeiros são configuráveis, o que significa que você pode modificar os valores de limite dos monitores usando a [API do Monitor de Carga de Trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Desconhecido* não é configurável e é reservada para cenários específicos, conforme descrito na tabela a seguir.  
 
-A tabela a seguir fornece detalhes sobre os estados de integridade representados em Diagnósticos de integridade.
+A tabela a seguir fornece detalhes sobre os estados de integridade representados em Diagnósticos de Integridade.
 
 |ícone |Estado de integridade |Significado |
 |-----|-------------|------------|
-| |Healthy |O estado de integridade é saudável se estiver dentro das condições de saúde definidas. No caso de um monitor de rollup pai, a saúde é acumulada e reflete o melhor caso ou o pior estado da criança.|
-| |Crítico |O estado de integridade é crítico se não estiver dentro da condição de saúde definida. No caso de um monitor de rollup pai, a saúde é acumulada e reflete o melhor caso ou o pior estado da criança.|
-| |Aviso |O estado de integridade está avisando se está entre dois limites para a condição de integridade definida, em que um indica um estado *Aviso* e o outro indica um estado *Crítico*. No caso de um rollup pai monitor, se um ou mais filhos estão em um estado de aviso, em seguida, pai refletirá estado *aviso*. Se houver um filho que esteja em um *Crítico* e outro filho em um estado *Aviso*, o pacote pai mostrará um estado de integridade de *Crítico*.|
-| |Desconhecido |O estado de integridade está em um estado *Desconhecido* quando o estado de integridade não pode ser calculado por vários motivos, como não conseguir coletar dados, serviço não inicializado, etc.| 
+| |Healthy |O Estado de Integridade é íntegro se ele está dentro das condições de integridade definidas, que indicam ausência de problemas detectados para a VM, de modo que ela está funcionando conforme necessário. No caso de um monitor de rollup pai, a saúde é acumulada e reflete o melhor caso ou o pior estado da criança.|
+| |Crítico |O estado de integridade é crítico se ele não está dentro da condição de integridade definida, o que indica que um ou mais problemas críticos foram detectados e precisam ser resolvidos para restaurar a funcionalidade normal. No caso de um monitor de rollup pai, a saúde é acumulada e reflete o melhor caso ou o pior estado da criança.|
+| |Aviso |O estado de integridade será de Aviso se estiver entre dois limites para a condição de integridade definida, em que um indica um estado de *Aviso* e o outro indica um estado *Crítico* (três estados controlados pelo usuário são possíveis), ou quando um problema não crítico é detectado, podendo vir a causar problemas críticos se não for resolvido. No caso de um monitor de rollup pai, se um ou mais filhos estiverem em um estado de aviso, o pai refletirá o estado *Aviso*. Se houver um filho que esteja em um *Crítico* e outro filho em um estado *Aviso*, o pacote pai mostrará um estado de integridade de *Crítico*.|
+| |Desconhecido |O estado de integridade está em um estado *Desconhecido* quando o estado de integridade não pode ser calculado por vários motivos, como não conseguir coletar dados, serviço não inicializado, etc. Esse não é um estado controlado pelo usuário.| 
 
 A página de diagnósticos de saúde tem três seções principais:
 
@@ -194,40 +211,34 @@ A página de diagnósticos de saúde tem três seções principais:
 ![Seções da página de diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### <a name="component-model"></a>Modelo de componente
-A coluna mais à esquerda em uma página de diagnósticos de integridade é o modelo de componente. Todos os componentes e suas instâncias descobertas, associados à VM, são exibidos nessa coluna. 
+A coluna mais à esquerda em uma página de Diagnósticos de Integridade é o modelo de componente. Todos os componentes associados à VM são exibidos nessa coluna, juntamente com os respectivos estados de integridade. 
 
-No exemplo a seguir, os componentes descobertos são disco, disco lógico, processador, memória e sistema operacional. Várias instâncias desses componentes são descobertas e exibidas nessa coluna, com duas instâncias do disco lógico **/**, **/ boot** e **/mnt/resource**, uma instância do adaptador de rede **eth0**, duas instâncias do disco **sda** e **sdb**, duas instâncias do processador **0 e 1** e um **Servidor Red Hat Enterprise Linux versão 7.4 (Maipo) (Sistema Operacional)**. 
+No exemplo a seguir, os componentes descobertos são disco, disco lógico, processador, memória e sistema operacional. Várias instâncias desses componentes são descobertas e exibidas nessa coluna. Por exemplo, a imagem abaixo mostra que a VM tem duas instâncias de discos lógicos, C: e D:, que estão em um estado íntegro.  
 
 ![Exemplo de modelo de componente apresentado em Diagnósticos de integridade](./media/vminsights-health/health-diagnostics-page-component.png)
 
 ### <a name="health-criteria"></a>Critérios de integridade
-A coluna central na página Diagnósticos de integridade é a coluna **Critérios de integridade**. O modelo de integridade definido para a VM é exibido em uma árvore hierárquica. O modelo de integridade de uma VM consiste em critérios de unidade, dependência e integridade agregada.  
+A coluna central na página Diagnósticos de Integridade é a coluna **Critérios de Integridade**. O modelo de integridade definido para a VM é exibido em uma árvore hierárquica. O modelo de integridade de uma VM consiste em critérios de integridade agregada e da unidade.  
 
 ![Exemplos de critérios de integridade apresentados em Diagnósticos de saúde](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
-Um critério de integridade mede a integridade da instância monitorada com alguns critérios, que podem ser um valor limite ou um estado de uma entidade, etc. Um critério de integridade tem dois ou três estados de integridade, conforme descrito na seção acima. Em qualquer ponto, o critério de integridade pode estar em apenas um dos seus estados potenciais. 
+Um critério de integridade mede a integridade da instância monitorada com alguns critérios, que podem ser um valor limite, um estado de uma entidade, etc. Um critério de integridade tem dois ou três estados de integridade configuráveis, conforme descrito anteriormente. Em qualquer ponto, o critério de integridade pode estar em apenas um dos seus estados potenciais. 
 
-A integridade geral de um alvo é determinada a partir da integridade de cada um dos critérios de integridade definidos no modelo de integridade. Esta será uma combinação de critérios de integridade direcionados diretamente para a meta, critérios de integridade direcionados a componentes que rumam para o alvo através de um critério de integridade de dependência. Essa hierarquia é ilustrada na seção **critérios de integridade** da página Diagnósticos de integridade. A política de rollup da integridade faz parte da configuração dos critérios de integridade de agregação e dependência. Você pode encontrar uma lista do conjunto padrão de critérios de integridade em execução como parte desse recurso na seção [Monitorando detalhes da configuração](#monitoring-configuration-details).  
+A integridade geral de um alvo é determinada pela integridade de cada um dos critérios de integridade definidos no modelo de integridade. Esta será uma combinação de critérios de integridade direcionados diretamente para a meta, critérios de integridade direcionados a componentes que rumam para o alvo através de um critério de integridade de agregação. Essa hierarquia é ilustrada na seção **critérios de integridade** da página Diagnósticos de integridade. A política de rollup da integridade faz parte da configuração dos critérios de integridade de agregação (o padrão é definido para *Worst-of*). Você pode encontrar uma lista do conjunto padrão de critérios de integridade em execução como parte desse recurso na seção [Monitorando detalhes da configuração](#monitoring-configuration-details).  
 
-No exemplo a seguir, o critério de integridade agregado **Principal Pacote de Serviços do Windows** para uma VM baseada em Windows avalia a integridade dos Serviços Windows mais importantes com base em critérios de integridade de serviço individuais. O status de cada serviço, como DNS, DHCP, etc., é avaliado e a integridade é acumulada no critério de integridade de rollup correspondente (conforme mostrado abaixo).  
+O tipo de critério de integridade **Unidade** pode ter sua configuração modificada clicando no link de elipse no canto direito e selecionando **Mostrar Detalhes** para abrir o painel de configuração. 
 
-![Exemplo de rollup de integridade](./media/vminsights-health/health-diagnostics-windows-svc-rollup.png)
+![Configurando um exemplo de critérios de integridade](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-A integridade do **Core Windows Services Rollup** rola para a integridade da **disponibilidade do sistema operacional**, que eventualmente é acumulada na **Disponibilidade** da VM. 
-
-Critérios de integridade **O tipo de unidade** pode ter sua configuração modificada clicando no link de elipse no canto direito e selecionando **Mostrar Detalhes** para abrir o painel de configuração. 
-
-![Configurando um exemplo de critérios de integridade](./media/vminsights-health/health-diagnostics-linuxvm-example-03.png)
-
-No painel de configuração dos critérios de integridade selecionados, neste exemplo, o  **Espaço Livre em Disco%** pode ser configurado com um valor numérico diferente para seu limite, pois é um monitor de dois estados, o que significa que ele só muda de saudável a crítica.  Outro critério de integridade pode ser três estados, em que você pode configurar um valor para o limite de estado crítico e de aviso.  
+No painel de configuração dos critérios de integridade selecionado, usando o exemplo **Média de Segundos de Disco por Gravação**, seu limite pode ser configurado com um valor numérico diferente. Ele é um monitor de dois estados, o que significa que o estado se altera somente de íntegro para aviso. Outro critério de integridade pode ser de três estados, em que você pode configurar um valor para o limite de estado de integridade crítico e o de aviso.  
 
 >[!NOTE]
->A aplicação da alteração da configuração de critérios de integridade a uma instância é aplicada a todas as instâncias monitoradas.  Por exemplo, se você selecionar **/mnt/resource** e modificar o limite **Logical Disk% Free Space**, ele não se aplicará apenas a essa instância, mas todas as outras instâncias de disco lógico descobertas e monitoradas na VM.
+>A aplicação de alterações de configuração de critérios de integridade a uma instância é aplicada a todas as instâncias monitoradas.  Por exemplo, se você selecionar **Disco Físico – 1 D:** e modificar o limite de **Média de Segundos de Disco por Gravação**, ele não se aplicará apenas a essa instância, mas a todas as outras instâncias de disco lógico descobertas e monitoradas na VM.
 >
 
-![Configurando um critério de integridade de um exemplo de monitor de unidade](./media/vminsights-health/health-diagnostics-linuxvm-example-04.png)
+![Configurando um critério de integridade de um exemplo de monitor de unidade](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
 
-Caso queira saber mais sobre o indicador de integridade, artigos de conhecimento estão inclusos, ajudando você a identificar problemas, causas e resoluções.  Clique no link **Exibir informações** na página e ela abre uma nova guia no navegador mostrando o artigo de conhecimento específico.  A qualquer momento, é possível examinar todos os artigos de conhecimento dos critérios de integridade inclusos no Azure Monitor para o recurso de integridade de VMs [aqui](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+Caso queira saber mais sobre o indicador de integridade, artigos de conhecimento estão inclusos, ajudando você a identificar problemas, causas e resoluções. Clique no link **Exibir informações** na página e ela abre uma nova guia no navegador mostrando o artigo de conhecimento específico. A qualquer momento, é possível examinar todos os artigos de conhecimento dos critérios de integridade inclusos no Azure Monitor para o recurso de integridade de VMs [aqui](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### <a name="state-changes"></a>Alterações de estado
 A coluna mais à direita na página Diagnósticos de Integridade é **Mudanças de Estado**. Ele lista todas as alterações de estado associadas aos critérios de integridade selecionados na seção **Critérios de integridade** ou a alteração de estado da VM se uma VM foi selecionada no **Modelo de Componente** ou **critérios de integridade** coluna da tabela. 
@@ -237,15 +248,15 @@ A coluna mais à direita na página Diagnósticos de Integridade é **Mudanças 
 Esta seção consiste no estado dos critérios de integridade e na hora associada classificada pelo estado mais recente na parte superior.   
 
 ### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Associação de colunas de modelo de componente, critérios de integridade e alteração de estado 
-As três colunas são interconectadas uns com os outros. Quando um usuário seleciona uma instância descoberta no Modelo de Componente, a seção **Critérios de integridade** é filtrada para essa visão de componente e, correspondentemente, a **Alteração de Estado** é atualizada com base nos critérios de integridade selecionados. 
+As três colunas são interconectadas uns com os outros. Quando você seleciona uma instância descoberta na seção **Modelo de Componente**, a seção **Critérios de Integridade** é filtrada para essa exibição de componente e, correspondentemente, a seção **Alteração de Estado** é atualizada com base nos critérios de integridade selecionados. 
 
-![Exemplo de seleção de instância monitorada e resultados](./media/vminsights-health/health-diagnostics-linuxvm-example-02.png)
+![Exemplo de seleção de instância monitorada e resultados](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-No exemplo acima, quando se seleciona **/mnt (Disco Lógico)**, a árvore de Critérios de Funcionamento é filtrada para **/mnt (Disco Lógico)**. As guias **Disponibilidade** e **Desempenho** também são filtradas de acordo. A coluna **State Change** mostra a mudança de estado com base na disponibilidade de **/mnt (Disco Lógico)**. 
+No exemplo acima, quando você seleciona **Disco Físico –1 D:**, a árvore de Critérios de Integridade é filtrada para **Disco Físico –1 D:**. A coluna **Alteração de Estado** mostra a mudança de estado com base na disponibilidade de **Disco Físico –1 D:**. 
 
-Para ver o estado de integridade atualizado, você pode atualizar a página de Diagnósticos de Integridade clicando no link **Atualizar**.  Se houver uma atualização no estado de integridade do critério de integridade com base no intervalo de pesquisa predefinido, essa tarefa permitirá que você evite esperar e reflita o estado de integridade mais recente.  O **Estado de Critérios de Integridade** é um filtro que permite que você alcance os resultados com base no estado de integridade selecionado - Saudável, Aviso, Crítico, Desconhecido e todos.  A hora **Última Atualização** no canto superior direito representa a última vez em que a página Diagnósticos de integridade foi atualizada.  
+Para ver o estado de integridade atualizado, você pode atualizar a página de Diagnósticos de Integridade clicando no link **Atualizar**.  Se houver uma atualização no estado de integridade do critério de integridade com base no intervalo de pesquisa predefinido, essa tarefa permitirá que você evite esperar e reflita o estado de integridade mais recente.  O **Estado de Critérios de Integridade** é um filtro que permite que você defina o escopo dos resultados com base no estado de integridade selecionado – *Íntegro*, *Aviso*, *Crítico*, *Desconhecido* e *Todos*.  A hora **Última Atualização** no canto superior direito representa a última vez em que a página Diagnósticos de Integridade foi atualizada.  
 
-## <a name="alerting-and-alert-management"></a>Gerenciamento de alerta e alerta 
+## <a name="alerts"></a>Alertas
 O recurso Azure Monitor for VMs Health se integra ao [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e gera um alerta quando os critérios de integridade predefinidos mudam de um estado íntegro para um estado não íntegro quando a condição é detectada. Os alertas são categorizados por gravidade - Sev 0 a 4, com Sev 0 representando o nível de severidade mais alto.  
 
 O número total de alertas de integridade da VM categorizados por gravidade está disponível no painel **Integridade** na seção **Alertas**. Quando você seleciona o número total de alertas ou o número correspondente a um nível de gravidade, a página **Alertas** é aberta e lista todos os alertas correspondentes à sua seleção.  Por exemplo, se você tiver selecionado a linha correspondente à **nível de gravidade 1**, em seguida, você vê a seguinte exibição:
@@ -273,7 +284,7 @@ Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa
 A página **Detalhes do alerta** é exibida quando você seleciona um alerta, fornecendo detalhes do alerta e permitindo que você altere seu estado. Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar alertas usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  
 
 >[!NOTE]
->No momento, não há compatibilidade com a criação de novos alertas com base em critérios de integridade ou a modificação das regras de alerta de integridade existentes no Azure Monitor no portal.  
+>No momento, a criação de novos alertas com base em critérios de integridade ou a modificação das regras de alerta de integridade existentes no Azure Monitor por meio do portal não são operações compatíveis.  
 >
 
 ![Painel de detalhes do alerta para um alerta selecionado](./media/vminsights-health/alert-details-pane-01.png)

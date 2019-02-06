@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 920f350ab5ba1e9e1703ffcc32dc8c7153624c0b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525147"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463235"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato de arquivo de manifesto do serviço de Importação/Exportação do Azure
 O arquivo de manifesto da unidade descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e os arquivos na unidade que compõem um trabalho de importação ou exportação. Para uma operação de importação, o arquivo de manifesto é criado como parte do processo de preparação da unidade e é armazenado na unidade antes de ser enviado ao datacenter do Azure. Durante uma operação de exportação, o manifesto é criado e armazenado na unidade pelo serviço de Importação/Exportação do Azure.  
@@ -37,9 +37,9 @@ Veja a seguir uma descrição do formato geral de um arquivo de manifesto da uni
         Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
   
       <!-- First Blob -->  
-      <Blob>  
-        <BlobPath>blob-path-relative-to-account</BlobPath>  
-        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
+      <Blob>  
+        <BlobPath>blob-path-relative-to-account</BlobPath>  
+        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
         [<ClientData>client-data</ClientData>]  
         [<Snapshot>snapshot</Snapshot>]  
         <Length>content-length</Length>  
@@ -47,7 +47,7 @@ Veja a seguir uma descrição do formato geral de um arquivo de manifesto da uni
         page-range-list-or-block-list          
         [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
         [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
-      </Blob>  
+      </Blob>  
   
       <!-- Second Blob -->  
       <Blob>  
@@ -72,7 +72,7 @@ page-range-list ::=
     <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        Hash="md5-hash"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        Hash="md5-hash"/>]  
     </PageRangeList>  
   
@@ -80,7 +80,7 @@ block-list ::=
     <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        Hash="md5-hash"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
 
@@ -90,7 +90,7 @@ block-list ::=
 
 Os elementos de dados e os atributos do formato XML de manifesto da unidade são especificados na tabela a seguir.  
   
-|Elemento XML|Tipo|DESCRIÇÃO|  
+|Elemento XML|Type|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Elemento raiz|O elemento raiz do arquivo de manifesto. Todos os outros elementos no arquivo estão abaixo desse elemento.|  
 |`Version`|Atributo, cadeia de caracteres|A versão do arquivo de manifesto.|  
@@ -108,9 +108,9 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`Blob/BlobPath`|Cadeia de caracteres|O URI relativo do blob, começando com o nome do contêiner. Se o blob estiver no contêiner raiz, ele deverá começar com `$root`.|  
 |`Blob/FilePath`|Cadeia de caracteres|Especifica o caminho relativo até o arquivo na unidade. Para trabalhos de exportação, o caminho do blob será usado para o caminho do arquivo, se for possível; *, por exemplo,*, `pictures/bob/wild/desert.jpg` serão exportados para `\pictures\bob\wild\desert.jpg`. No entanto, devido a limitações de nomes NTFS, um blob pode ser exportado para um arquivo com um caminho que não lembra o caminho do blob.|  
 |`Blob/ClientData`|Cadeia de caracteres|Opcional. Contém comentários do cliente. Esse valor não é interpretado pelo serviço de Importação/Exportação.|  
-|`Blob/Snapshot`|Datetime|Opcional para trabalhos de exportação. Especifica o identificador de instantâneo de um instantâneo de blob exportado.|  
+|`Blob/Snapshot`|DateTime|Opcional para trabalhos de exportação. Especifica o identificador de instantâneo de um instantâneo de blob exportado.|  
 |`Blob/Length`|Número inteiro|Especifica o comprimento total do blob em bytes. O valor pode ser de até 200 GB para um blob de blocos e de até 1 TB para um blob de páginas. Para um blob de páginas, esse valor deve ser um múltiplo de 512.|  
-|`Blob/ImportDisposition`|Cadeia de caracteres|Opcional para trabalhos de importação, omitida para trabalhos de exportação. Isso especifica como o serviço de Importação/Exportação deve tratar o caso para um trabalho de importação no qual já existe um blob com o mesmo nome. Se esse valor for omitido do manifesto de importação, o valor padrão será `rename`.<br /><br /> Os valores para esse elemento incluem:<br /><br /> -   `no-overwrite`: se já houver um blob de destino com o mesmo nome, a operação de importação ignorará a importação desse arquivo.<br />-   `overwrite`: qualquer blob de destino existente será substituído completamente pelo arquivo recém-importado.<br />-   `rename`: o novo blob será carregado com um nome modificado.<br /><br /> A regra de renomeação é a seguinte:<br /><br /> - Se o nome do blob não contiver um ponto, um novo nome será gerado anexando `(2)` ao nome original do blob; se esse novo nome também entrar em conflito com um nome de blob existente, `(3)` será anexado no lugar de `(2)`; e assim por diante.<br />- Se o nome do blob contiver um ponto, a parte após o último ponto será considerada o nome da extensão. Semelhante ao procedimento anterior, `(2)` é inserido antes do último ponto a fim de gerar um novo nome; se o novo nome ainda estiver em conflito com um nome de blob existente, o serviço tentará `(3)`, `(4)` e assim por diante, até que encontre um nome não conflitante.<br /><br /> Alguns exemplos:<br /><br /> O blob `BlobNameWithoutDot` será renomeado como:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> O blob `Seattle.jpg` será renomeado como:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`Blob/ImportDisposition`|Cadeia de caracteres|Opcional para trabalhos de importação, omitida para trabalhos de exportação. Isso especifica como o serviço de Importação/Exportação deve tratar o caso para um trabalho de importação no qual já existe um blob com o mesmo nome. Se esse valor for omitido do manifesto de importação, o valor padrão será `rename`.<br /><br /> Os valores para esse elemento incluem:<br /><br /> -   `no-overwrite`: Se já há um blob de destino com o mesmo nome, a operação de importação ignora a importação desse arquivo.<br />-   `overwrite`: Qualquer blob de destino existente será substituído completamente pelo arquivo recém-importado.<br />-   `rename`: O novo blob será carregado com um nome modificado.<br /><br /> A regra de renomeação é a seguinte:<br /><br /> - Se o nome do blob não contiver um ponto, um novo nome será gerado anexando `(2)` ao nome original do blob; se esse novo nome também entrar em conflito com um nome de blob existente, `(3)` será anexado no lugar de `(2)`; e assim por diante.<br />- Se o nome do blob contiver um ponto, a parte após o último ponto será considerada o nome da extensão. Semelhante ao procedimento anterior, `(2)` é inserido antes do último ponto a fim de gerar um novo nome; se o novo nome ainda estiver em conflito com um nome de blob existente, o serviço tentará `(3)`, `(4)` e assim por diante, até que encontre um nome não conflitante.<br /><br /> Alguns exemplos:<br /><br /> O blob `BlobNameWithoutDot` será renomeado como:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> O blob `Seattle.jpg` será renomeado como:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
 |`PageRangeList`|Elemento XML aninhado|Obrigatório para um blob de páginas.<br /><br /> Para uma operação de importação, especifica uma lista de intervalos de bytes de um arquivo a ser importado. Cada intervalo de páginas é descrito por um deslocamento e comprimento no arquivo de origem que descreve o intervalo de páginas, junto com um hash MD5 da região. O atributo `Hash` de um intervalo de páginas é obrigatório. O serviço validará se o hash dos dados no blob corresponde ao hash MD5 calculado do intervalo de páginas. É possível usar qualquer quantidade de intervalos de páginas para descrever um arquivo para uma importação, com o tamanho total podendo chegar até 1 TB. Todos os intervalos de página devem ser ordenados por deslocamento, e não há permissão para sobreposições.<br /><br /> Para uma exportação operação, especifique um conjunto de intervalos de bytes de um blob que foi exportado para a unidade.<br /><br /> Os intervalos de página juntos podem cobrir apenas subintervalos de um blob ou arquivo.  A parte restante do arquivo não coberto por qualquer intervalo de página é esperada, e seu conteúdo pode ser indefinido.|  
 |`PageRange`|Elemento XML|Representa um intervalo de páginas.|  
 |`PageRange/@Offset`|Atributo, inteiro|Especifica o deslocamento no arquivo de transferência e o blob onde o intervalo de páginas especificado começa. Esse valor deve ser um múltiplo de 512.|  

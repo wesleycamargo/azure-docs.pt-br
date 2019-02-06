@@ -5,15 +5,15 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 19b7cebd1c75e1a2bbfe34e3ab4e657051e8a6d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813569"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159501"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  referência do ADSyncConfig do PowerShell
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADSyncConfig.psm1 que é incluído com o Azure AD Connect.
@@ -1215,7 +1215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### <a name="description"></a>Descrição
 A função de conjunto ADSyncUnifiedGroupWritebackPermissions dará as permissões necessárias para a conta de sincronização do AD, incluindo o seguinte:
 1.
-Leitura/Gravação Genérica, Excluir, Excluir Árvore e Criar\Excluir Filho para todos os tipos de objeto e de subobjetos
+Leitura/Gravação Genérica, Excluir, Excluir Árvore e Criar/Excluir Filho para todos os tipos de Objeto de grupo e Subobjetos
 
 Essas permissões são aplicadas a todos os domínios na floresta.
 Opcionalmente, você pode fornecer um DistinguishedName no parâmetro ADobjectDN para definir essas permissões nesse objeto AD apenas (incluindo a herança de subobjetos).

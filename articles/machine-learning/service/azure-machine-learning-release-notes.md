@@ -4,35 +4,62 @@ titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre as atualizações mais recentes para o Serviço do Azure Machine Learning e o aprendizado de máquina e SDKs de Python de preparação de dados.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 1cf2f25ab96fde342244c99029db6a96c72a5681
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304084"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473095"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
-Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina do Azure. 
+Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina do Azure.  Para obter uma descrição completa de cada SDK, visite os documentos de referência para:
++ O [**SDK principal do Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
++ O [**SDK de Preparação de Dados do Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-01-28"></a>28/01/2019
+
+### <a name="azure-machine-learning-sdk-for-python-v1010"></a>SDK do Azure Machine Learning para Python v1.0.10
+
++ **Alterações**: 
+  + O SDK do Azure Machine Learning não tem mais pacotes azure-cli como dependência. Especificamente, as dependências azure-cli-core e azure-cli-profile foram removidas de azureml-core. Estas são alterações que afetam o usuário:
+    + Se você estiver executando "az login" e, em seguida, usando azureml-sdk, o SDK fará o logon de código do dispositivo ou navegador mais uma vez. Ele não usará nenhum estado de credencial criado por "az login".
+    + Para autenticação de CLI do Azure, assim como usando "az login", use a classe _azureml.core.authentication.AzureCliAuthentication_. Para a autenticação de CLI do Azure, execute _pip install azure-cli_ no ambiente do Python em que você instalou o azureml-sdk.
+    + Se você estiver usando "az login" e usando uma entidade de serviço para a automação, é recomendável usar a classe _azureml.core.authentication.ServicePrincipalAuthentication_, pois o azureml-sdk não usará o estado de credenciais criado pela CLI do Azure. 
+
++ **Correções de bug**: Esta versão contém principalmente correções de bugs secundários
+
+### <a name="azure-machine-learning-data-prep-sdk-v108"></a>SDK de Preparação de Dados do Azure Machine Learning v1.0.8
+
++ **Correções de bug**
+  + Melhorou significativamente o desempenho de obtenção de perfis de dados.
+  + Bugs secundários relacionados ao relatório de erros foram corrigidos.
+  
+### <a name="azure-portal-new-features"></a>Portal do Azure: novos recursos
++ Nova experiência de criação de gráficos de arrastar e soltar para relatórios. Os usuários podem arrastar uma coluna ou um atributo do poço à área do gráfico, na qual o sistema selecionará automaticamente um tipo de gráfico apropriado para o usuário com base no tipo de dados. Os usuários podem alterar o tipo de gráfico para outros tipos aplicáveis ou adicionar outros atributos.
+
+    Tipos de gráfico compatíveis:
+    - Gráfico de linhas
+    - Histograma
+    - Gráfico de barras empilhadas
+    - Gráfico de caixa
+    - Gráfico de Dispersão
+    - Gráfico de bolhas
 
 ## <a name="2019-01-14"></a>2019-01-14
 
 ### <a name="azure-machine-learning-sdk-for-python-v108"></a>SDK do Azure Machine Learning para Python v1.0.8
 
-+ **Documentos de referência do SDK**: https://aka.ms/aml-sdk
-
 + **Correções de bug**: Esta versão contém principalmente correções de bugs secundários
 
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>SDK de Preparação de Dados do Azure Machine Learning v1.0.7
-
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
 
 + **Novos recursos**
   + Aprimoramentos do repositório de dados (documentado em [Guia de instruções do repositório de dados](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
@@ -44,22 +71,15 @@ Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina d
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>SDK de Preparação de Dados do Azure Machine Learning v1.0.6
 
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
-
 + **Correções de bug**
   + Corrigido o bug com a leitura de contêineres de Blob do Azure legíveis públicos no Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>SDK do Azure Machine Learning para Python v1.0.6
-
-+ **Documentos de Referência do SDK**: https://aka.ms/aml-sdk
-
 + **Correções de bug**: Esta versão contém principalmente correções de bugs secundários
 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>SDK de preparação de dados do Azure Machine Learning v1.0.4
-
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
 
 + **Novos recursos**
   + A função `to_bool` agora permite que os valores incompatíveis sejam convertidos em valores de erro. Esse é o novo comportamento de incompatibilidade de padrão para `to_bool` e `set_column_types`, enquanto o comportamento padrão anterior era para converter valores incompatíveis como False.

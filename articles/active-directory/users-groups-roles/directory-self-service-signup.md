@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394673"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195810"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é inscrição por autoatendimento no Azure Active Directory?
 Este artigo explica a inscrição por autoatendimento e como dar suporte a ela no Azure AD (Azure Active Directory). Se você desejar assumir um nome de domínio de um locatário do Azure AD não gerenciado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Assumir um diretório não gerenciado como administrador).
@@ -31,9 +31,9 @@ Este artigo explica a inscrição por autoatendimento e como dar suporte a ela n
 * Um autoatendimento criado no diretório do Azure AD pode ser convertido em um diretório gerenciado que pode ser usado para outros serviços
 
 ## <a name="terms-and-definitions"></a>Termos e definições
-* **Inscrição por autoatendimento**: esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade criada automaticamente para ele no Azure AD, com base no seu domínio de email.
-* **Diretório do Azure AD não gerenciado**: este é o diretório em que a identidade é criada. Um diretório não gerenciado é um diretório sem nenhum administrador global.
-* **Usuário verificado por email**: Este é um tipo de conta de usuário no AD do Azure. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
+* **Inscrição de autoatendimento**: Esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade criada automaticamente para ele no Azure AD, com base em seu domínio de email.
+* **Diretório não gerenciado do Azure AD**: Esse é o diretório no qual essa identidade é criada. Um diretório não gerenciado é um diretório sem nenhum administrador global.
+* **Usuário verificado por email**: Esse é um tipo de conta de usuário do Azure AD. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Como controlar as configurações de autoatendimento?
 Os administradores têm dois controles de autoatendimento atualmente. Eles podem controlar se:
@@ -63,9 +63,9 @@ Assinaturas de avaliação do Flow e do PowerApps não são controladas pela con
 ### <a name="how-do-the-controls-work-together"></a>Como os controles funcionam juntos?
 Esses dois parâmetros podem ser usados em conjunto para definir um controle mais preciso sobre a inscrição por autoatendimento. Por exemplo, o comando a seguir permitirá que os usuários realizem a inscrição por autoatendimento, mas apenas se os usuários já tiverem uma conta no Azure AD (em outras palavras, os usuários que precisassem criar primeiro uma conta verificada por email não poderiam realizar inscrição por autoatendimento):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 O fluxograma a seguir explica as diferentes combinações desses parâmetros e as condições resultantes para o diretório e para a inscrição por autoatendimento.
 

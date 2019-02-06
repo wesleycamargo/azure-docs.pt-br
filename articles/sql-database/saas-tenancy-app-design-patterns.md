@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471191"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
@@ -33,8 +33,8 @@ Em troca de pagamento de aluguel, cada locatário recebe acesso aos componentes 
 
 O termo *modelo de locação* refere-se a como os dados armazenados dos locatários são organizados:
 
-- *Single-aluguel:* &nbsp; cada banco de dados armazena dados de apenas um locatário.
-- *Multilocação:* &nbsp; cada banco de dados armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
+- *Monolocação:*&nbsp; Cada banco de dados armazena dados de apenas um locatário.
+- *Multilocação*&nbsp;: Cada banco de dados armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
 - Modelos de aluguel híbridos também estão disponíveis.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo apropriado de aluguel
@@ -47,9 +47,9 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
     - Armazenamento em agregação.
     - Carga de trabalho.
 
-- **Isolamento de locatários:**&nbsp; Isolamento de dados e desempenho (se cargas de trabalho de um locatário afeta outras pessoas).
+- **Isolamento de locatário:**&nbsp; O isolamento de dados e desempenho (se a carga de trabalho de um locatário afeta outras pessoas).
 
-- **Custo por locatário:**&nbsp; Os custos de banco de dados.
+- **Custo por locatário:**&nbsp; Custos do banco de dados.
 
 - **Complexidade de desenvolvimento:**
     - Alterações para esquema.
@@ -61,7 +61,7 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
     - Restaurando um locatário.
     - Recuperação de desastre.
 
-- **Personalização:**&nbsp; Facilidade de suportar as personalizações de esquema que são específicas de locatário ou específicos de classe de locatário.
+- **Capacidade de personalização:**&nbsp; Facilidade de dar suporte às personalizações de esquema que são específicas a um locatário ou específicas à uma classe de locatário.
 
 A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momento a camada de *aplicativo*.  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
 
@@ -95,7 +95,7 @@ Personalizando o esquema para um ou mais locatários individuais é simples atin
 
 #### <a name="elastic-pools"></a>Pools elásticos
 
-Quando os bancos de dados são implantados no mesmo grupo de recursos, eles podem ser agrupados em pools de banco de dados Elástico.  Os grupos oferecem uma maneira econômica de compartilhamento de recursos em vários bancos de dados.  Essa opção de pool é mais barata do que a necessidade de cada banco de dados seja grande o suficiente para acomodar os picos de uso que ele passa por.  Mesmo que o pool de bancos de dados compartilham acesso aos recursos que ele ainda pode conseguir um alto grau de isolamento de desempenho.
+Quando os bancos de dados são implantados no mesmo grupo de recursos, eles podem ser agrupados em pools elásticos.  Os grupos oferecem uma maneira econômica de compartilhamento de recursos em vários bancos de dados.  Essa opção de pool é mais barata do que a necessidade de cada banco de dados seja grande o suficiente para acomodar os picos de uso que ele passa por.  Mesmo que o pool de bancos de dados compartilham acesso aos recursos que ele ainda pode conseguir um alto grau de isolamento de desempenho.
 
 ![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-db-per-tenant-pool-153p]
 
@@ -126,9 +126,9 @@ Por exemplo, você pode automatizar a recuperação de um único locatário em u
 
 #### <a name="tenant-isolation-is-sacrificed"></a>No entanto, o isolamento de locatários é limitado
 
-*Dados:* &nbsp; um banco de dados multilocatário necessariamente sacrifica isolamento de locatários.  Os dados de vários locatários são armazenados juntos em um banco de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca exponham dados de mais de um locatário.  Banco de dados SQL dá suporte a [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], que pode garantir que os dados retornados por uma consulta escopo para um único locatário.
+*Dados:*&nbsp; Um banco de dados multilocatário necessariamente sacrifica isolamento de locatários.  Os dados de vários locatários são armazenados juntos em um banco de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca exponham dados de mais de um locatário.  Banco de dados SQL dá suporte a [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], que pode garantir que os dados retornados por uma consulta escopo para um único locatário.
 
-*Processamento:* &nbsp; um banco de dados multilocatário compartilha os recursos de computação e armazenamento em todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir desempenho aceitável.  No entanto, o sistema do Azure não tem interno como monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário traz um risco maior de encontrar vizinhos ruídos, onde a carga de trabalho de um locatário overactive afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  Monitoramento adicional de nível de aplicativo pode monitorar o desempenho do nível de locatário.
+*Processamento:*&nbsp; Um banco de dados multilocatário compartilha os recursos de computação e armazenamento entre todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir desempenho aceitável.  No entanto, o sistema do Azure não tem interno como monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário traz um risco maior de encontrar vizinhos ruídos, onde a carga de trabalho de um locatário overactive afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  Monitoramento adicional de nível de aplicativo pode monitorar o desempenho do nível de locatário.
 
 #### <a name="lower-cost"></a>Menor custo
 

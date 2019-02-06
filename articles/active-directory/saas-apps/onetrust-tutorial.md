@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o software de gerenciamento de privacidade OneTrust | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao OneTrust Privacy Management Software | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o software de gerenciamento de privacidade OneTrust.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 71c2b6d0-3d28-4130-a2c8-1e72ab3d5814
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: f8e06a4578d2f11331b87fdfb493e2bba4edb8cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46480119579513839024d89e7657661e12e5509c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421683"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167284"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory com o software de gerenciamento de privacidade OneTrust
+# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory ao OneTrust Privacy Management Software
 
 Neste tutorial, você aprenderá como integrar o software de gerenciamento de privacidade OneTrust com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o software de gerenciamento de privacidade OneTrust, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do software de gerenciamento de privacidade OneTrust
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o software de gerenciamento de privacidade OneTrust por meio da Galeria
-1. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do Azure AD
 
 ## <a name="adding-onetrust-privacy-management-software-from-the-gallery"></a>Adicionando o software de gerenciamento de privacidade OneTrust por meio da Galeria
 Para configurar a integração do software de gerenciamento de privacidade OneTrust no Azure AD, você precisa adicionar o software de gerenciamento de privacidade OneTrust da galeria à lista de aplicativos SaaS gerenciados.
@@ -134,7 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para configurar o logon único no **Software de gerenciamento de privacidade OneTrust**, você precisa enviar os **XML de Metadados** baixados para a [equipe de suporte do software de gerenciamento de privacidade OneTrust](mailto:support@onetrust.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no software de gerenciamento de privacidade OneTrust. O software de gerenciamento de privacidade OneTrust é compatível com o provisionamento Just-In-Time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o software de gerenciamento de privacidade OneTrust, caso ainda não exista.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte do software de gerenciamento de privacidade OneTrust](mailto:support@onetrust.com).
+>Caso precise criar um usuário manualmente, contate a  [equipe de suporte do OneTrust Privacy Management Software](mailto:support@onetrust.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -210,7 +210,7 @@ Nesta seção, você habilitará a Brenda Fernandes para usar logon único do Az
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do software de gerenciamento de privacidade OneTrust no painel de acesso, você deverá ser conectado automaticamente ao aplicativo do software de gerenciamento de privacidade OneTrust.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

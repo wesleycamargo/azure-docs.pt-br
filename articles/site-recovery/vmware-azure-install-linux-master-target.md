@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811852"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217978"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -130,7 +130,7 @@ Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie 
 
     ![Selecionar o software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Na seleção para instalar o carregador de inicialização GRUB, selecione **Sim** e **Enter**.
+1. Na seleção para instalar o carregador de inicialização GRUB, selecione **Sim** e, em seguida, **Enter**.
      
     ![Instalador de inicialização GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 

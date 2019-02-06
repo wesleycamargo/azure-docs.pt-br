@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964009"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207387"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
@@ -84,7 +84,7 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
 
 | Requisito de servidor | DESCRIÇÃO |
 |---|---|
-|Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração do computador: 8 vCPUs, 16 GB de RAM, HDD de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>As máquinas virtuais de servidores Hyper-V a serem analisadas devem ser adicionadas à lista TrustedHosts da VM cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
+|Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração do computador: 8 vCPUs, 16 GB de RAM, HDD de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>Os servidores Hyper-V a serem analisados devem ser adicionados à lista TrustedHosts da VM cliente na qual a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de usuário | Conta de administrador para acessar o cluster do Hyper-V/host do Hyper-V durante operações de criação de perfis e de obtenção de lista de VM.<br>Todos os hosts que precisam ser analisados devem ter um domínio do administrador com as mesmas credenciais de conta ou seja, nome de usuário e senha
  |

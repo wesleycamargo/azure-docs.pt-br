@@ -5,25 +5,25 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260526"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098331"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modelo de solução de prova de trabalho Ethereum Consortium
 
 O modelo de solução de prova de trabalho Ethereum Consortium foi projetado para tornar mais fácil e rápido a implantação e configuração de uma rede Ethereum Consortium de vários membros com o mínimo de conhecimento do Azure e Ethereum.
 
-Com algumas entradas de usuário e uma implantação de clique simples por meio do portal do Azure, cada membro pode provisionar sua superfície da rede, usando os serviços de computação, rede e armazenamento do Microsoft Azure em todo o mundo. A superfície de rede de cada membro consiste em um conjunto de nós de transação com balanceamento de carga com o qual um aplicativo ou o usuário pode interagir para enviar transações, um conjunto de nós de mineração para transações de registro e um gateway de VPN. Uma etapa de conexão subsequente conecta os gateways para criar uma rede blockchain de vários membros totalmente configurada.
+Usando um modelo do Azure Resource Manager, cada membro pode provisionar seu volume de rede, usando os serviços de computação, rede e armazenamento do Microsoft Azure. O volume de rede de cada membro consiste em um conjunto de nós de transação com balanceamento de carga com o qual um aplicativo ou um usuário interage para enviar transações, um conjunto de nós de mineração para registrar as transações e um gateway de VPN. Após a implantação, você conecta os gateways para criar uma rede de blockchain de vários membros totalmente configurada.
 
-## <a name="about-blockchain"></a>Sobre blockchain
+## <a name="about-blockchain"></a>Sobre o blockchain
 
 Para aqueles que são novos na comunidade de blockchain, o lançamento dessa solução é uma grande oportunidade para saber mais sobre a tecnologia de uma maneira fácil e configurável no Azure. No entanto, para começar, é recomendável implantar a topologia de rede Ethereum autônomo mais simples com este passo a passo guiado, antes da criação de redes consortium de vários membros.
 
@@ -35,7 +35,7 @@ Um membro de consortium pode provisionar até cinco regiões que contenham um ou
 
 Todos os nós têm uma versão estável do cliente Go Ethereum (Geth) e são configurados para serem nós de mineração. Se você não forneceu um bloco gênese personalizado, todos os nós usarão o mesmo endereço Ethereum e um par de chaves que é protegido por senha de conta Ethereum. A senha Ethereum fornecida é usada para gerar a conta padrão (coinbase) para cada nó de mineração. Como nós de mineração, exploram e coletam taxas que são adicionadas a esta conta.
 
-O número de nós de mineração por membro consortium depende do tamanho geral da rede desejado e a quantidade de energia hash dedicada para cada membro. Quanto maior a rede, mais nós precisam ser comprometidos para obter uma vantagem desleal. O modelo dá suporte a até 15 nós de mineração por região provisionados usando conjuntos de dimensionamento de máquina virtual.
+O número de nós de mineração por membro do consórcio depende do tamanho geral da rede desejada e da quantidade de potência de hash dedicada a cada membro. Redes maiores exigem que mais nós sejam comprometidos para obter uma vantagem desleal. O modelo dá suporte a até 15 nós de mineração por região provisionados usando conjuntos de dimensionamento de máquina virtual.
 
 ### <a name="transaction-node-details"></a>Detalhes do nó de transação
 
@@ -45,7 +45,7 @@ Os nós de transação são com balanceamento de carga dentro de uma conjunto de
 
 ### <a name="log-analytics-details"></a>Detalhes do Log Analytics
 
-Cada implantação também cria uma nova instância do Log Analytics ou pode ingressar em uma instância existente. Isso permite o monitoramento de várias métricas de desempenho de cada máquina virtual que compõe a rede implantada.
+Cada implantação também cria uma instância do Log Analytics ou pode ingressar em uma instância existente. O Log Analytics permite o monitoramento de várias métricas de desempenho de cada máquina virtual que compõe a rede implantada.
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -88,11 +88,9 @@ Assinatura| A assinatura para a qual deseja implantar a rede consortium||ND
 Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio.||ND
 Local padrão| A região do Azure para o grupo de recursos. ||ND
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-A folha Operations Management Suite (OMS) permite que você configure um recurso do OMS para sua rede. OMS coletará e revestirá métricas úteis e logs de sua rede, fornecendo a capacidade para verificar rapidamente a integridade da rede ou depurar problemas. A oferta gratuita do OMS falhará depois que a capacidade for atingida.
+O OMS (Operations Management Suite) permite que você configure um recurso do OMS para a sua rede. OMS coletará e revestirá métricas úteis e logs de sua rede, fornecendo a capacidade para verificar rapidamente a integridade da rede ou depurar problemas. A oferta gratuita do OMS falhará depois que a capacidade for atingida.
 
 ![Criar nova OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Nome do Parâmetro |DESCRIÇÃO |Valores Permitidos|Valores padrão
 ID de ConsortiumMember|A ID associada a cada membro que está participando da rede consortium usada para configurar os espaços de endereço IP para evitar a colisão. <br /><br />A ID do membro deve ser exclusiva em diferentes organizações na mesma rede. É necessária uma ID de membro exclusiva mesmo quando a mesma organização implanta em várias regiões.<br /><br />Anote o valor desse parâmetro, pois você precisará compartilhá-lo com outros membros que ingressam.|0 - 255
 ID de rede Ethereum|A ID de rede para a rede de Ethereum consortium que está sendo implantada. Cada rede Ethereum tem sua própria ID de rede, sendo que 1 indica a ID para a rede pública. Embora o acesso à rede seja restrito para nós de mineração, ainda é recomendável usar um número grande para evitar colisões.|5 - 999.999.999| 10101010
 Bloco gênese personalizado|Opção para gerar um bloco gênese ou fornecer um personalizado automaticamente.|Sim/Não| Não 
-Senha da conta Ethereum (bloco gênese personalizado = não)|A senha de administrador usada para proteger a conta Ethereum importada para cada nó. A senha deve conter o seguinte: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.|12 ou mais caracteres|ND
-Senha da chave privada Ethereum (bloco gênese personalizado = não)|A senha usada para gerar a chave privada de ECC associada à conta de Ethereum padrão que é gerada. Uma chave privada gerada previamente não precisa ser passada explicitamente.<br /><br />Considere uma frase secreta com aleatoriedade suficiente para garantir uma chave privada forte e nenhuma sobreposição com outros membros do consortium. A senha deve conter o seguinte, no mínimo: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.<br /><br />Observe que, se dois membros usam a mesma senha as contas geradas serão as mesmas. A mesma senha será útil se uma única organização está tentando implantar em regiões e deseja compartilhar uma única conta (moeda base) em todos os nós.|12 ou mais caracteres|ND
+Senha da conta Ethereum (bloco gênese personalizado = não)|A senha de administrador usada para proteger a conta Ethereum importada para cada nó. A senha precisa conter: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.|12 ou mais caracteres|ND
+Senha da chave privada Ethereum (bloco gênese personalizado = não)|A senha usada para gerar a chave privada de ECC associada à conta de Ethereum padrão que é gerada. Uma chave privada gerada previamente não precisa ser passada explicitamente.<br /><br />Considere uma frase secreta com aleatoriedade suficiente para garantir uma chave privada forte e nenhuma sobreposição com outros membros do consortium. A frase secreta precisa conter, no mínimo: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.<br /><br />Observe que, se dois membros usam a mesma senha as contas geradas serão as mesmas. A mesma senha será útil se uma única organização está tentando implantar em regiões e deseja compartilhar uma única conta (moeda base) em todos os nós.|12 ou mais caracteres|ND
 Bloco gênese (bloco gênese personalizado = Sim)|Cadeia de caracteres JSON que representa o bloco gênese personalizado. Você pode encontrar mais detalhes sobre o formato do bloco gênese aqui, em Redes personalizadas.<br /><br />Uma conta de Ethereum ainda é criada ao fornecer um bloco gênese personalizado. Considere a especificação de uma conta de Ethereum criada previamente no bloco gênese para não aguardar a mineração.|JSON válido |ND
 Chave compartilhada para conexão|Uma Chave compartilhada para a conexão entre os gateways de VNET.| 12 ou mais caracteres|ND
 URL de dados do Consortium|A URL que indica os dados de configuração relevantes do consortium, fornecidos pela implantação de outro membro. <br /><br />Essas informações são fornecidas por um membro já conectado que tenha uma implantação. Se você implantou o restante da rede, a URL é a saída de implantação de modelo, chamada CONSORTIUM-DATA.||ND
@@ -154,7 +152,7 @@ Registrador de chave de informações de ponto a ponto|Chave primária de inform
 
 ### <a name="summary"></a>Resumo
 
-Clique na folha de resumo para revisar as entradas especificadas e executar uma validação básica antes da implantação.
+Clique no resumo para examinar as entradas especificadas e para executar uma validação básica pré-implantação.
 
 ![Resumo](./media/ethereum-deployment/summary.png)
 

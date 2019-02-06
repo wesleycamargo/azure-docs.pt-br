@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042853"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Azure Active Directory ao Compliance ELF
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Compliance ELF da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -106,22 +106,22 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Caixa de diálogo Logon único](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. Na seção **Domínio e URLs do Compliance ELF**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+3. Na seção **Domínio e URLs do Compliance ELF**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IdP**:
 
     ![Informações de logon único de URLs e Domínio do Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     Na caixa de texto **Identificador**, digite uma URL como: `https://sso.cordium.com`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+4. Marque  **Mostrar as configurações avançadas de URL ** e execute a etapa a seguir caso deseje configurar o aplicativo no modo **SP** iniciado:
 
     ![Logon único de URLs e Domínio do Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.complianceelf.com`
+    Na caixa de texto  **URL de login** , digite um URL usando o seguinte padrão: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Esse valor não é real. Atualize esses valores com a URL de Logon real. Contate a [equipe de suporte ao cliente do Compliance ELF](mailto:support@complianceelf.com) para obter esse valor.
 
-5. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+5. Na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e cole-a no Bloco de notas.
     
     ![Configurar o logon único](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
@@ -202,7 +202,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Compliance ELF no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Compliance ELF.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

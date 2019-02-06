@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852296"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298731"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-As [políticas personalizadas](active-directory-b2c-overview-custom.md) são arquivos de configuração que definem o comportamento do locatário do Azure AD (Azure Active Directory) B2C. Neste artigo, você criará uma política personalizada que dá suporte para inscrição ou entrada de conta local usando um endereço de email e uma senha. Você também preparará o ambiente para adicionar provedores de identidade, como o Facebook ou o Azure Active Directory.
+As [políticas personalizadas](active-directory-b2c-overview-custom.md) são arquivos de configuração que definem o comportamento do locatário do Azure AD (Azure Active Directory) B2C. Neste artigo, você criará uma política personalizada que dá suporte para inscrição ou entrada de conta local usando um endereço de email e uma senha. Você também pode preparar o ambiente para adicionar provedores de identidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,9 +31,6 @@ Se você ainda não tiver um, você precisará [criar um locatário do Azure AD 
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário. 
-
-    ![Alternar para seu locatário do Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Na página Visão Geral, selecione **Identity Experience Framework – VERSÃO PRÉVIA**.
 
@@ -72,7 +69,7 @@ O Azure AD B2C exige o registro de dois aplicativos que são usados para a inscr
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar o aplicativo IdentityExperienceFramework
 
-1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, pesquise e selecione **Azure Active Directory** e, em seguida, selecione **Registros de aplicativo**.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 2. Selecione **Novo registro de aplicativo**.
 3. Para **Nome**, insira `IdentityExperienceFramework`.
 4. Para **Tipo de aplicativo**, escolha **Aplicativo Web/API**.
@@ -105,8 +102,8 @@ Políticas personalizadas são um conjunto de arquivos XML que precisam ser carr
 Cada pacote de início contém:
 
 - O arquivo base. São necessárias algumas modificações na base.
-* O arquivo de extensão.  Esse arquivo é o local em que a maioria das alterações de configuração é feita.
-* Os arquivos de terceira parte confiável. Os arquivos específicos da tarefa, chamados pelo seu aplicativo.
+- O arquivo de extensão.  Esse arquivo é o local em que a maioria das alterações de configuração é feita.
+- Os arquivos de terceira parte confiável. Os arquivos específicos da tarefa, chamados pelo seu aplicativo.
 
 >[!NOTE]
 >Caso seu editor de XML dê suporte à validação, valide os arquivos em relação ao esquema XML TrustFrameworkPolicy_0.3.0.0.xsd, localizado no diretório raiz do pacote de início. A validação de esquema XML identifica erros antes do upload.
@@ -117,17 +114,14 @@ Cada pacote de início contém:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. Na pasta SocialAndLocalAccounts, edite todos os arquivos substituindo `yourtenant.onmicrosoft.com` pelo nome do locatário. Por exemplo, `contosoTenant.onmicrosoft.com`. Se você precisar de um editor de XML, [experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor de plataforma cruzada leve.
+2. Na pasta SocialAndLocalAccounts, edite todos os arquivos substituindo `yourtenant` pelo nome do locatário. Por exemplo, `contosoTenant.onmicrosoft.com`. Se você precisar de um editor de XML, [experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor de plataforma cruzada leve.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Adicionar IDs de aplicativo à política personalizada
 
 Adicione as IDs de aplicativo ao arquivo de extensões *TrustFrameworkExtensions.xml*.
 
 1. Abra o arquivo *TrustFrameworkExtensions.xml* e localize o elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Substitua ambas as instâncias de `IdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Identity Experience Framework criado anteriormente. Substitua ambas as instâncias de `ProxyIdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Estrutura de Experiência de Identidade de Proxy que você criou anteriormente. O exemplo a seguir mostra o perfil técnico **login-NonInteractive** após as alterações:
-
-    ![IDs de aplicativo](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Substitua ambas as instâncias de `IdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Identity Experience Framework criado anteriormente. Substitua ambas as instâncias de `ProxyIdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Estrutura de Experiência de Identidade de Proxy que você criou anteriormente.
 3. Salve o arquivo de extensões.
 
 ## <a name="upload-the-policies"></a>Fazer upload das políticas

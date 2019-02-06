@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Envi MMIS | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Envi MMIS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Envi MMIS.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 96168dcb8400d2580d0b64257ceb861c1da3ff65
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b85dc27f6b6a23be6dc89a0f0a7cf9f78681446d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447278"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197442"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integração do Microsoft Azure Active Directory ao Envi MMIS
+# <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Azure Active Directory ao Envi MMIS
 
 Neste tutorial, você aprenderá a integrar o Envi MMIS ao Microsoft Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Envi MMIS da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Informações de logon único de Domínio e URLs do Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
@@ -151,7 +151,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure5.png)
 
-    a. Selecione a opção **Arquivo** na lista suspensa **Carregar Formulário**.
+     a. Selecione a opção **Arquivo** na lista suspensa **Carregar Formulário**.
 
     b. Carregue o arquivo de metadados baixado do portal do Azure selecionando escolher **ícone do arquivo**.
 
@@ -214,7 +214,7 @@ No caso do Envi MMIS, o provisionamento é uma tarefa manual.
 
     ![Adicionar Funcionário](./media/envimmis-tutorial/user3.png)
 
-    a. Na caixa de texto **Nome de Usuário**, digite o nome de usuário de Brenda Fernandes como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Nome de Usuário**, digite o nome de usuário de Brenda Fernandes como **brittasimon@contoso.com**.
     
     b. Na caixa de texto **Nome**, digite o primeiro nome de Brenda Fernandes como **Britta**.
 
@@ -263,7 +263,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco eTouches no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Envi MMIS.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

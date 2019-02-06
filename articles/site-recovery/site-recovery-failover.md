@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 3d07b7156800b50daa75978add3ad3922108f142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 1/18/2019
+ms.author: mayg
+ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974005"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215831"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Fazer failover de VMs e servidores físicos 
 
@@ -27,7 +27,7 @@ Use a tabela a seguir para saber sobre as opções de failover fornecidas pelo A
 
 | Cenário | Requisito de recuperação de aplicativo | Fluxo de trabalho para Hyper-V | Fluxo de trabalho para VMware
 |---|--|--|--|
-|Failover planejado devido a um futuro tempo de inatividade do datacenter| Perda de dados zero para o aplicativo quando uma atividade planejada é executada| Para o Hyper-V, o ASR replica os dados em uma frequência de cópia especificada pelo usuário. Failover planejado é usado para substituir a frequência e replicar as alterações finais antes de um failover ser iniciado. <br/> <br/> 1.    Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações da sua empresa. <br/><br/> 2.Notifique os usuários sobre o tempo de inatividade que está por vir. <br/><br/> 3. Coloque offline o aplicativo voltado ao usuário.<br/><br/>4.Inicie o failover planejado usando o portal de ASR. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação também é fornecido em uma janela de retenção para um usuário que deseje usar um ponto de recuperação mais antigo. (retenção de 24 horas para o Hyper-V).| Para o VMware, o ASR replica dados continuamente usando CDP. O failover fornece ao usuário a opção de failover para os dados mais recentes (incluindo após o desligamento do aplicativo)<br/><br/> 1. Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações <br/><br/>2.Notifique os usuários sobre o tempo de inatividade que está por vir <br/><br/>3.    Coloque offline o aplicativo voltado ao usuário. <br/><br/>4.  Inicie um Failover Planejado, usando o portal do ASR para o último momento depois o aplicativo ficar offline. Use a opção "Failover não planejado" no portal e selecione o ponto mais recente para realizar failover. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação em uma janela de retenção é fornecido para um cliente que deseje usar um ponto de recuperação mais antigo. (72 horas de retenção para o VMware).
+|Failover planejado devido a um futuro tempo de inatividade do datacenter| Perda de dados zero para o aplicativo quando uma atividade planejada é executada| Para o Hyper-V, o ASR replica os dados em uma frequência de cópia especificada pelo usuário. Failover planejado é usado para substituir a frequência e replicar as alterações finais antes de um failover ser iniciado. <br/> <br/> 1.    Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações da sua empresa. <br/><br/> 2.Notifique os usuários sobre o tempo de inatividade que está por vir. <br/><br/> 3. Coloque offline o aplicativo voltado ao usuário.<br/><br/>4.Inicie o failover planejado usando o portal de ASR. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação também é fornecido em uma janela de retenção para um usuário que deseje usar um ponto de recuperação mais antigo. (retenção de 24 horas para o Hyper-V). Se a replicação tiver sido interrompida além do período da janela de retenção, os clientes ainda poderão conseguir fazer failover usando os últimos pontos de recuperação disponíveis. | Para o VMware, o ASR replica dados continuamente usando CDP. O failover fornece ao usuário a opção de failover para os dados mais recentes (incluindo após o desligamento do aplicativo)<br/><br/> 1. Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações <br/><br/>2.Notifique os usuários sobre o tempo de inatividade que está por vir <br/><br/>3.    Coloque offline o aplicativo voltado ao usuário. <br/><br/>4.  Inicie um Failover Planejado, usando o portal do ASR para o último momento depois o aplicativo ficar offline. Use a opção "Failover não planejado" no portal e selecione o ponto mais recente para realizar failover. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação em uma janela de retenção é fornecido para um cliente que deseje usar um ponto de recuperação mais antigo. (72 horas de retenção para o VMware). Se a replicação tiver sido interrompida além do período da janela de retenção, os clientes ainda poderão conseguir fazer failover usando os últimos pontos de recuperação disponíveis.
 |Failover devido a um tempo de inatividade não planejado do datacenter (desastre natural ou de TI) | Perda mínima de dados para o aplicativo | 1.Inicie o plano BCP da organização <br/><br/>2. Inicie o failover não planejado usando o portal do ASR para a versão mais recente ou um ponto na janela de retenção (diário).| 1. Inicie o plano BCP da organização. <br/><br/>2.  Inicie o failover não planejado usando o portal do ASR para a versão mais recente ou um ponto na janela de retenção (diário).
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321578"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181462"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protegendo suas máquinas e aplicativos na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações aplicam-se aos tipos de recursos do Azure: VMs (máquinas virtuais) e computadores, aplicativos, rede, SQL e a identidade e acesso.
@@ -196,8 +196,8 @@ Há três tipos de ícones representados nesta lista:
 |Recursos de computação (hub de eventos)|5|Ativar logs de diagnóstico no Hub de Eventos|Ativar os registros e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |Recursos de computação (aplicativos lógicos)|5|Ativar logs de diagnósticos em aplicativos lógicos|Ativar os registros e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |Recursos de computação (estrutura de serviço)|15|Defina a propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric|O Service Fabric fornece três níveis de proteção (Nenhum, Sinal e EncryptAndSign) para comunicação de nó a nó usando um certificado de cluster principal.  Defina o nível de proteção para garantir que todas as mensagens de nó a nó sejam criptografadas e assinadas digitalmente. |
-|Recursos de computação (barramento de serviço)|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey, do namespace do Service Bus |Os clientes do Service Bus não devem usar uma diretiva de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso apenas à entidade específica.|
-|Recursos de computação (hub de eventos)|1|Remova todas as regras de autorização, exceto RootManageSharedAccessKey, do namespace Hub de eventos |Os clientes do Hub de Eventos não devem usar uma política de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso apenas à entidade específica.|
+|Recursos de computação (barramento de serviço)|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey, do namespace do Service Bus |Os clientes do Service Bus não devem usar uma diretiva de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso somente à entidade específica.|
+|Recursos de computação (hub de eventos)|1|Remova todas as regras de autorização, exceto RootManageSharedAccessKey, do namespace Hub de eventos |Os clientes do Hub de Eventos não devem usar uma política de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso somente à entidade específica.|
 |Recursos de computação (hub de eventos)|5|Definir regras de autorização na entidade do Hub de Eventos|Auditar regras de autorização na entidade do Hub de Eventos para conceder acesso com privilégios mínimos.|
 |Computador|50|Instale o agente de monitoramento em suas máquinas|Instale o agente de monitoramento para ativar a coleta de dados, a varredura de atualizações, a varredura da linha de base e a proteção do ponto de extremidade em cada máquina.|
 |Computador|50|Habilitar o provisionamento automático e coleta de dados para suas assinaturas |Habilite o provisionamento automático e coleta de dados para computadores em suas assinaturas para habilitar a coleta de dados, as atualizações de varredura, linha de base e proteção de ponto de extremidade em cada computador adicionado às suas assinaturas.|
@@ -217,7 +217,7 @@ Há três tipos de ícones representados nesta lista:
 |Computador|15|Adicione um firewall do aplicativo Web| Implemente uma solução WAF (firewall de aplicativo da web) para proteger seus aplicativos da web. |
 |Computador|30|Corrigir vulnerabilidades usando uma solução de avaliação de vulnerabilidades|As máquinas virtuais para as quais uma solução de terceiros de avaliação de vulnerabilidade é implantada estão sendo continuamente avaliadas em relação às vulnerabilidades do aplicativo e do sistema operacional. Sempre que essas vulnerabilidades forem encontradas, elas estarão disponíveis para mais informações como parte da recomendação.|
 |Computador|30|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais|
-|Computador|1|Migrar máquinas virtuais para novos recursos do Azure Resource Manager|Use o Azure Resource Manager das máquinas virtuais para fornecer aprimoramentos de segurança como: maior controle de acesso (RBCA), melhor auditoria, governança e implantação com base no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves por segredos, autenticação baseada no Azure AD e suporte para marcas e grupos de recursos para facilitar o gerenciamento de segurança. |
+|Computador|1|Migrar máquinas virtuais para novos recursos do Azure Resource Manager|Use o Azure Resource Manager para suas máquinas virtuais para fornecer melhorias de segurança como: controle de acesso mais rígido (RBAC), melhor auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves para segredos, autenticação baseada no Azure AD e suporte a marcas e grupos de recursos para facilitar o gerenciamento de segurança. |
 |Computador|30|Corrigir vulnerabilidades usando uma solução de avaliação de vulnerabilidades|As máquinas virtuais para as quais uma solução de terceiros de avaliação de vulnerabilidade é implantada estão sendo continuamente avaliadas em relação às vulnerabilidades do aplicativo e do sistema operacional. Sempre que essas vulnerabilidades forem encontradas, elas estarão disponíveis para mais informações como parte da recomendação.|
 
  

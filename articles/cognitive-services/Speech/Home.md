@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340351"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217638"
 ---
 # <a name="what-is-bing-speech"></a>O que é a Fala do Bing?
 
@@ -28,10 +28,10 @@ A API de Fala do Bing da Microsoft baseada em nuvem fornece aos desenvolvedores 
 
 ## <a name="speech-to-text-speech-recognition"></a>Conversão de fala em texto (reconhecimento de fala)
 
-A API de reconhecimento de fala da Microsoft *transcreve* transmissões por streaming em texto que o seu aplicativo pode exibir para o usuário ou atuar como entrada de comando. Fornece duas formas para os desenvolvedores para adicionar a Fala para seus aplicativos: APIs REST **ou** bibliotecas de cliente do Websocket.
+A API de reconhecimento de fala da Microsoft *transcreve* transmissões por streaming em texto que o seu aplicativo pode exibir para o usuário ou atuar como entrada de comando. Ela fornece duas maneiras para os desenvolvedores adicionarem Fala aos seus aplicativos: APIs REST **ou** bibliotecas de clientes baseadas no WebSocket.
 
-- [APIs REST](GetStarted/GetStartedREST.md): os desenvolvedores podem usar chamadas HTTP de seus aplicativos para o serviço de reconhecimento de fala.
-- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): para recursos avançados, os desenvolvedores podem baixar as bibliotecas de cliente do Microsoft Speech e vincular a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando diferentes linguagens (C#, Java, JavaScript, ObjectiveC). Diferentemente das APIs REST, as bibliotecas de cliente utilizam procotolo com base em Websocket.
+- [APIs REST](GetStarted/GetStartedREST.md): Os desenvolvedores podem usar chamadas HTTP em seus aplicativos para o serviço de reconhecimento de fala.
+- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): Para recursos avançados, os desenvolvedores podem baixar as bibliotecas de clientes de Fala da Microsoft e vinculá-las a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando diferentes linguagens (C#, Java, JavaScript, ObjectiveC). Diferentemente das APIs REST, as bibliotecas de cliente utilizam procotolo com base em Websocket.
 
 | Casos de uso | [APIs REST](GetStarted/GetStartedREST.md) | [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -60,4 +60,4 @@ As APIs*Conversão de Texto em Fala* usam REST para converter texto estruturado 
 
 ### <a name="next-steps"></a>Próximas etapas
 
-- Iniciar o uso do  serviço de conversão de texto em fala da Microsoft, consulte [referência da API de Conversão de Texto em Fala](api-reference-rest/bingvoiceoutput.md). Para obter a lista completa de idiomas e vozes suportadas pela Conversão de Texto em Fala, consulte [Locais compatíveis e fonte de voz](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Introdução ao uso do serviço de Conversão de Texto em Fala da Microsoft: [Referência da API de Conversão de Texto em Fala](api-reference-rest/bingvoiceoutput.md). Para obter a lista completa de idiomas e vozes suportadas pela Conversão de Texto em Fala, consulte [Locais compatíveis e fonte de voz](api-reference-rest/bingvoiceoutput.md#SupLocales).

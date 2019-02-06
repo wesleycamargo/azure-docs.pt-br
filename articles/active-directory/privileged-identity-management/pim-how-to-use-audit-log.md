@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188172"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180204"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Exibir histórico de auditoria para funções de diretório do Azure AD no PIM
 Você pode usar o histórico de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo para todas as funções com privilégios. Se você quiser ver o histórico completo de auditoria da atividade em seu locatário, incluindo o administrador, usuário final e atividade de sincronização, use os [Relatórios de acesso e uso do Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Marque ou desmarque a caixa de seleção **Função** ao lado de cada função p
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exibir histórico de auditoria para funções de recurso do Azure no PIM](pim-resource-roles-use-the-audit-log.md)
+- [Exibir a atividade e o histórico de auditoria para funções de recurso do Azure no PIM](azure-pim-resource-rbac.md)

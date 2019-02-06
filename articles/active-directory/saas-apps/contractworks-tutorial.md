@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o ContractWorks | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao ContractWorks | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o ContractWorks.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf012f276a300cb8f70590c306020993b448cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: faa1f4887502968e4deeee47e396b25480d0cd05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427734"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182278"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Azure Active Directory com o ContractWorks
+# <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Azure Active Directory ao ContractWorks
 
 Neste tutorial, você aprende a integrar o ContractWorks ao Microsoft Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o ContractWorks da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -127,7 +127,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     | mail | user.mail |
     | displayName | user.displayname |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/contractworks-tutorial/tutorial_attribute_04.png)
 
@@ -141,7 +141,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     
     d. Clique em **Ok**
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+1. Na seção **Certificado de Autenticação SAML** , clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e cole-a no Bloco de notas.
     
     ![Configurar o logon único](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
@@ -185,7 +185,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-contractworks-test-user"></a>Criar um usuário de teste do ContractWorks
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no ContractWorks. Trabalhe com a [equipe de suporte do ContractWorks](mailto:support@contractworks.com) para adicionar os usuários na plataforma do ContractWorks. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado Brenda Fernandes no ContractWorks. Trabalhe com a [equipe de suporte do ContractWorks](mailto:support@contractworks.com) para adicionar os usuários à plataforma ContractWorks. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -222,7 +222,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco ContractWorks no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo do ContractWorks.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: solução de problemas de configuração da entidade de serviço | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solução de problemas de configuração da entidade de serviço | Microsoft Docs'
 description: Solução de problemas de configuração da entidade de serviço para o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035028"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191322"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de entidade de serviço inválida para o domínio gerenciado
 
@@ -50,7 +50,7 @@ Use as etapas a seguir para determinar quais entidades de serviço precisam ser 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Recriar uma Entidade de serviço ausente com o PowerShell
 Siga estas etapas se uma entidade de serviço com a ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` está ausente do seu diretório do Azure AD.
 
-**Resolução:** É necessário o PowerShell do Azure AD para concluir estas etapas. Para saber mais sobre como instalar o Azure AD PowerShell, veja [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Resolução:** É necessária uma conta do Azure AD PowerShell para concluir estas etapas. Para saber mais sobre como instalar o Azure AD PowerShell, veja [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Para resolver esse problema, digite os seguintes comandos em uma janela do PowerShell:
 1. Instalar o módulo do  Azure AD PowerShell e importá-lo.
@@ -78,7 +78,7 @@ Para resolver esse problema, digite os seguintes comandos em uma janela do Power
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Registrar novamente no namespace Microsoft.AAD usando o portal do Azure
 Siga estas etapas se uma entidade de serviço com a ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ou ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` está ausente do seu diretório do Microsoft Azure Active Directory.
 
-**Resolução:** Use as seguintes etapas para restaurar os Serviços de Domínio no seu diretório:
+**Resolução:** Use as etapas a seguir para restaurar os Domain Services em seu diretório:
 
 1. Navegue até a página [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 2. Escolha a assinatura da tabela que está associada ao seu domínio gerenciado
@@ -89,10 +89,10 @@ Siga estas etapas se uma entidade de serviço com a ID ```443155a6-77f3-45e3-882
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: O aplicativo de sincronização de senha está desatualizado
 
-**Mensagem de alerta:** a entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” oi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.
+**Mensagem de alerta:** A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e, em seguida, recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.
 
 
-**Resolução:** É necessário o PowerShell do Azure AD para concluir estas etapas. Para saber mais sobre como instalar o Azure AD PowerShell, veja [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Resolução:** É necessária uma conta do Azure AD PowerShell para concluir estas etapas. Para saber mais sobre como instalar o Azure AD PowerShell, veja [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Para resolver esse problema, digite os seguintes comandos em uma janela do PowerShell:
 1. Instalar o módulo do  Azure AD PowerShell e importá-lo.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao dmarcian | Microsoft Docs'
+title: 'Tutorial: Integração do Microsoft Azure Active Directory ao dmarcian | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o dmarcian.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039880"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095644"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Azure Active Directory ao dmarcian
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Microsoft Azure Active Directory ao dmarcian
 
 Neste tutorial, você aprenderá a integrar o dmarcian ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar dmarcian da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,14 +107,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do dmarcian](./media/dmarcian-tutorial/tutorial_dmarcian_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -157,15 +157,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![A de autenticação ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Na seção **Adicionar dmarcian ao seu provedor de identidade**, clique em **Copiar** para copiar a **URL de serviço do consumidor de declaração** para sua instância e colá-lo na caixa de texto **URL de Resposta** na **seção de URLs e Domínio do dmarcian** no portal do Azure.
+    * Na seção **Adicionar dmarcian ao seu Provedor de Identidade**, clique em  **COPIAR**  para copiar a **URL do Serviço do Consumidor de Declaração** para sua instância e colá-la na caixa de texto  **URL de Resposta** na  **seção de URLs e Domínio do dmarcian** no portal do Azure.
 
-    * Na seção **Adicionar dmarcian ao seu Provedor de Identidade**, clique em **COPY** para copiar a **ID da Entidade** para sua instância e colá-lo na caixa de texto **Identificador** na **seção de URLs e Domínio do dmarcian** no portal do Azure.
+    * Na seção **Adicionar dmarcian ao seu Provedor de Identidade**, clique em  **COPIAR** para copiar a **ID da Entidade** para sua instância e colá-la na caixa de texto  **Identificador** na  **seção de URLs e Domínio do dmarcian** no portal do Azure.
 
     * Na seção **Configurar Autenticação**, a caixa de texto **Metadados do Provedor de Identidade** cola a **Url de Metadados de Federação do Aplicativo**, que você copiou do portal do Azure.
 
     * Na seção **Configurar a Autenticação**, na caixa de texto **Declarações de Atributo**, cole a url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * Na seção **Configurar URL de Logon**, copie a **URL de Logon** para sua instância e cole-a na caixa de texto **URL de Logon** na **seção de URLs e Domínio do dmarcian** no portal do Azure.
+    * Na seção **Configurar URL de Logon**, copie a **URL de Logon** para sua instância e cole-a na caixa de texto  **URL de Logon** na  **seção de URLs e Domínio do dmarcian** no portal do Azure.
 
         > [!Note]
         > Você pode modificar a **URL de Logon** de acordo com a sua organização.
@@ -224,7 +224,7 @@ Para permitir que os usuários do Azure AD entrem no dmarcian, eles devem ser pr
 
     ![O novo usuário ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. Na caixa de texto **Email do Novo Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Email do Novo Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
 
     b. Se você quiser conceder direitos de administrador ao usuário, selecione **Tornar o Usuário um Administrador**.
 
@@ -265,7 +265,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar na peça do dmarcian no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo dmarcian.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

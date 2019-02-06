@@ -2,18 +2,18 @@
 title: Configurar pontos de extremidade de nó no pool do Lote do Azure | Microsoft Docs
 description: Como configurar ou desabilitar o acesso a portas SSH ou RDP em nós de computação em um pool do Lote do Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: danlep
-ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: lahugh
+ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457608"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto a nós de computação em um pool do Lote do Azure
 
@@ -31,9 +31,9 @@ Cada configuração de pool de NAT inclui uma ou mais [Regras de NSG (Grupo de S
 * Você pode configurar várias regras de NSG ao configurar um pool de NAT. As regras são verificadas na ordem de prioridade. Depois que uma regra se aplica, outras regras não são testadas quanto à correspondência.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>Exemplo: negar todo o tráfego de RDP
+## <a name="example-deny-all-rdp-traffic"></a>Exemplo: Negar todo o tráfego de RDP
 
-O seguinte trecho código de C# mostra como configurar o ponto de extremidade RDP em nós de computação em um pool do Windows para negar todo o tráfego de rede. O ponto de extremidade usa um pool do front-end de portas no intervalo *60000-60099*. 
+O seguinte snippet código de C# mostra como configurar o ponto de extremidade RDP em nós de computação em um pool do Windows para negar todo o tráfego de rede. O ponto de extremidade usa um pool do front-end de portas no intervalo *60000-60099*. 
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -48,9 +48,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exemplo: negar todo o tráfego SSH da Internet
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exemplo: Negar todo o tráfego SSH da Internet
 
-O seguinte trecho código de Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para negar todo o tráfego da Internet. O ponto de extremidade usa um pool do front-end de portas no intervalo *4000-4100*. 
+O seguinte snippet código de Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para negar todo o tráfego da Internet. O ponto de extremidade usa um pool do front-end de portas no intervalo *4000-4100*. 
 
 ```python
 pool.network_configuration=batchmodels.NetworkConfiguration(
@@ -74,9 +74,9 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exemplo: permitir o tráfego RDP de um endereço IP específico
+## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exemplo: Permitir o tráfego RDP de um endereço IP específico
 
-O seguinte trecho código de C# mostra como configurar o ponto de extremidade RDP em nós de computação em um pool do Windows para permitir acesso via RDP apenas do endereço IP *198.51.100.7*. A segunda regra de NSG nega o tráfego que não corresponde ao endereço IP.
+O seguinte snippet código de C# mostra como configurar o ponto de extremidade RDP em nós de computação em um pool do Windows para permitir acesso via RDP apenas do endereço IP *198.51.100.7*. A segunda regra de NSG nega o tráfego que não corresponde ao endereço IP.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -92,9 +92,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exemplo: permitir o tráfego SSH de uma sub-rede específica
+## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exemplo: Permitir o tráfego SSH de uma sub-rede específica
 
-O seguinte trecho de código do Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para permitir acesso somente da sub-rede *192.168.1.0/24*. A segunda regra de NSG nega o tráfego que não corresponde à sub-rede.
+O seguinte snippet de código do Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para permitir acesso somente da sub-rede *192.168.1.0/24*. A segunda regra de NSG nega o tráfego que não corresponde à sub-rede.
 
 ```python
 pool.network_configuration=batchmodels.NetworkConfiguration(

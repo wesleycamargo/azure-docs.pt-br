@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230549"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220376"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como usar o Reconhecimento de Entidade Nomeada na Análise de Texto (versão prévia)
 
@@ -41,7 +41,7 @@ O uso da vinculação de entidade em vários idiomas exige o uso de uma base de 
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos com Suporte para Reconhecimento de Entidade Nomeada
 
-| Tipo  | SubType | Exemplo |
+| Type  | SubType | Exemplo |
 |:-----------   |:------------- |:---------|
 | Pessoa        | N/D\*         | "João", "Bill Gates"     |
 | Local padrão      | N/D\*         | "Redmond, Washington", "Paris"  |
@@ -54,14 +54,14 @@ O uso da vinculação de entidade em vários idiomas exige o uso de uma base de 
 | Quantidade      | Moeda      | "US$ 10,99"     | 
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
-| Datetime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
-| Datetime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
+| DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
+| DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
 | Data/Hora     | Hora          | "8h", "8:00"  | 
-| Datetime      | DateRange     | "2 de maio a 5 de maio"    | 
-| Datetime      | TimeRange     | "18h às 19h"     | 
-| Datetime      | Duration      | "1 minuto e 45 segundos"   | 
-| Datetime      | Definir           | "toda terça-feira"     | 
-| Datetime      | timeZone      |    | 
+| DateTime      | DateRange     | "2 de maio a 5 de maio"    | 
+| DateTime      | TimeRange     | "18h às 19h"     | 
+| DateTime      | Duration      | "1 minuto e 45 segundos"   | 
+| DateTime      | Definir           | "toda terça-feira"     | 
+| DateTime      | timeZone      |    | 
 | URL           | N/D\*         | "http://www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 \* Dependendo da entrada e das entidades extraídas, determinadas entidades podem omitir o `SubType`.
@@ -104,13 +104,13 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 > [!Tip]
 > Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estruturar uma solicitação e POSTAR no serviço.
 
-## <a name="step-2-post-the-request"></a>Etapa 2: postar a solicitação
+## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
 A análise é executada após o recebimento da solicitação. O serviço aceita até 100 solicitações por minuto. Cada solicitação pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Etapa 3: exibir resultados
+## <a name="step-3-view-results"></a>Etapa 3: Exibir resultados
 
 Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades detectadas.
 

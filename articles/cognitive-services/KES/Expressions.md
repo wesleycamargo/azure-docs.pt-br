@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129158"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222687"
 ---
 # <a name="structured-query-expression"></a>Expressão de consulta estruturada
 
@@ -29,14 +29,14 @@ Expressões de consulta estruturada podem ser obtidas nas solicitações [*Inter
 
 Uma expressão de consulta de atributo identifica um conjunto de objetos com base na correspondência em relação a um atributo específico.  Operações de correspondência diferentes são suportadas dependendo do tipo de atributo e operação indexada especificada no [esquema](SchemaFormat.md):
 
-| Tipo | Operação | Exemplos |
+| Type | Operação | Exemplos |
 |------|-------------|------------|
 | Cadeia de caracteres | equals | Título='análise semântica latente' (canônico + sinônimos) |
 | Cadeia de caracteres | equals | Author.Name=='susan t dumais' (canônico apenas)|
 | Cadeia de caracteres | starts_with | Título='latente'... |
 | Int32/Int64/Double | equals | Ano=2000 |
 | Int32/Int64/Double | starts_with | Ano='20'... (qualquer valor decimal começando com "20") |
-| Int32/Int64/Double | is_between | Ano&lt;2000 <br/> Ano&lt;=2000 <br/> Ano&gt;2000 <br/> Ano&gt;=2000 <br/> Ano=[2010,2012) *(inclui somente o valor do limite esquerdo: 2010, 2011)* <br/> Ano=[2000,2012] *(inclui ambos valores de limite: 2010, 2011, 2012)* |
+| Int32/Int64/Double | is_between | Ano&lt;2000 <br/> Ano&lt;=2000 <br/> Ano&gt;2000 <br/> Ano&gt;=2000 <br/> Ano=[2010,2012) *(inclui somente o valor do limite esquerdo: 2010, 2011)* <br/> Ano=[2000,2012] *(inclui ambos os valores de limite: 2010, 2011, 2012)* |
 | Data | equals | Data de nascimento='1984-05-14' |
 | Data | is_between | Data de nascimento&lt;='2008/03/14' <br/> Data de publicação=['2000-01-01','2009-12-31'] |
 | Guid | equals | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |

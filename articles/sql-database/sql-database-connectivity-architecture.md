@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388333"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469100"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -34,7 +34,7 @@ Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azur
 >
 > Os usuários do ponto de extremidade de serviço ainda poderão ser afetados nos seguintes cenários:
 > - O aplicativo se conecta a um servidor existente com pouca frequência e, portanto, nossa telemetria não capturou as informações sobre esses aplicativos
-> - A lógica de implantação automatizada cria um servidor lógico, supondo que o comportamento padrão das conexões de ponto de extremidade de serviço seja `Proxy`
+> - A lógica de implantação automatizada cria um servidor de Banco de Dados SQL, supondo que o comportamento padrão das conexões de ponto de extremidade de serviço seja `Proxy`
 >
 > Se não foi possível estabelecer conexões do ponto de extremidade de serviço com o servidor SQL do Azure e você suspeita que foi afetado por essa alteração, verifique se o tipo de conexão está explicitamente definido como `Redirect`. Se esse for o caso, você precisará abrir as regras de firewall da VM e o NSG (Grupos de Segurança de Rede) para todos os endereços IP do Azure na região que pertencem à [marca de serviço](../virtual-network/security-overview.md#service-tags) Sql para as portas 11000-12000. Se essa não for uma opção para você, alterne o servidor explicitamente para `Proxy`.
 > [!NOTE]

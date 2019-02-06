@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278637"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170922"
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
 Selecionar, gerenciar e operar clusters do Service Fabric.
@@ -264,7 +264,7 @@ O relatório deve conter as informações sobre a origem do relatório de integr
 ## <a name="sfctl-cluster-select"></a>seleção do cluster sfctl
 Se conecta a um ponto de extremidade do cluster do Service Fabric.
 
-Se estiver se conectando ao cluster seguro, especifique um caminho absoluto para um certificado (. crt) e o arquivo de chave (chave) ou um único arquivo com ambos (. PEM). Não especifique ambos. Opcionalmente, se estiver se conectando a um cluster seguro, especifique também um caminho absoluto para um arquivo de pacote de autoridade de certificação ou o diretório de certificados de autoridade de certificação confiáveis. Ao usar um diretório de certificados de autoridade de certificação, o `c_rehash <directory>` fornecido pelo OpenSSL deve ser executado pela primeira vez para computar os hashes do certificado e criar os links simbólicos apropriados.
+Se estiver se conectando ao cluster seguro, especifique um caminho absoluto para um certificado (. crt) e o arquivo de chave (chave) ou um único arquivo com ambos (. PEM). Não especifique ambos. Opcionalmente, se estiver se conectando a um cluster seguro, especifique também um caminho absoluto para um arquivo de pacote de autoridade de certificação ou o diretório de certificados de autoridade de certificação confiáveis. Se um diretório de Certificados de Autoridade de Certificação estiver sendo usado, o `c_rehash <directory>` fornecido pelo OpenSSL precisará ser executado primeiro para computar os hashes de certificado e criar os links simbólicos apropriados.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -340,8 +340,8 @@ Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a 
 | --delta-health-evaluation | Habilita a avaliação de integridade delta em vez da avaliação de integridade absoluta após a conclusão de cada domínio de atualização. |
 | --delta-unhealthy-nodes | O percentual máximo permitido de degradação de integridade de nós permitida durante os upgrades do cluster.  Padrão\: 10. <br><br> O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação de integridade. A verificação é realizada após a conclusão de cada atualização de domínio de atualização para garantir que o estado global do cluster esteja dentro dos limites tolerados. |
 | --ação de falha | Os valores possíveis incluem\: 'Inválido', 'Reversão', 'Manual'. |
-| -força-reinicialização | Processos são reiniciados de modo forçado durante a atualização, mesmo quando a versão do código não foi alterada. <br><br> A atualização altera apenas a configuração ou os dados. |
-| --nova tentativa de verificação da integridade | O período entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro. |
+| -força-reinicialização | Os processos são reiniciados de modo forçado durante a atualização, mesmo quando a versão do código não foi alterada. <br><br> A atualização altera apenas a configuração ou os dados. |
+| --nova tentativa de verificação da integridade | O período entre as tentativas de realizar verificações de integridade, se o aplicativo ou o cluster não estiver íntegro. |
 | --estabilidade de verificação de integridade | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização passe para o próximo domínio de atualização. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | --espera de verificação de integridade | O período de espera após a conclusão de um domínio de atualização, antes de iniciar o processo de verificações de integridade. |
 | --replica-set-check-timeout | A quantidade máxima de tempo para bloqueio do processamento de um domínio de atualização e prevenção da perda de disponibilidade quando houver problemas inesperados. <br><br> Quando esse tempo limite expira, o processamento do domínio de atualização continua, independentemente de problemas de perda de disponibilidade. O tempo limite será redefinido no início de cada domínio de atualização. Os valores válidos estão entre 0 e 42949672925, inclusive. |
@@ -352,7 +352,7 @@ Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a 
 | --upgrade-domain-delta-unhealthy-nodes | O percentual máximo permitido de degradação de integridade de nós de domínio de atualização permitida durante os upgrades do cluster.  Padrão\: 15. <br><br> O delta é medido entre o estado de nós do domínio do upgrade no início do upgrade e o estado dos nós no momento da avaliação de integridade. A verificação é realizada após a conclusão de cada atualização de domínio de atualização para todos os domínios de atualização concluídos para garantir que o estado dos domínios de atualização esteja dentro dos limites tolerados. |
 | -tempo limite ao domínio de upgrade | A quantidade de tempo que cada domínio de atualização deve concluir antes de FailureAction ser executado. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | -tempo limite de upgrade | A quantidade de tempo que a atualização geral deve concluir antes de FailureAction ser executado. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
-| --aviso-como-erro | Indica se os avisos são tratados com a mesma gravidade que os erros. |
+| --aviso-como-erro | Indica se os avisos são ou não tratados com a mesma severidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -440,8 +440,8 @@ Atualize os parâmetros de upgrade de um upgrade de cluster do Service Fabric.
 | --delta-health-evaluation | Habilita a avaliação de integridade delta em vez da avaliação de integridade absoluta após a conclusão de cada domínio de atualização. |
 | --delta-unhealthy-nodes | O percentual máximo permitido de degradação de integridade de nós permitida durante os upgrades do cluster.  Padrão\: 10. <br><br> O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação de integridade. A verificação é realizada após a conclusão de cada atualização de domínio de atualização para garantir que o estado global do cluster esteja dentro dos limites tolerados. |
 | --ação de falha | Os valores possíveis incluem\: 'Inválido', 'Reversão', 'Manual'. |
-| -força-reinicialização | Processos são reiniciados de modo forçado durante a atualização, mesmo quando a versão do código não foi alterada. <br><br> A atualização altera apenas a configuração ou os dados. |
-| --nova tentativa de verificação da integridade | O período entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro. |
+| -força-reinicialização | Os processos são reiniciados de modo forçado durante a atualização, mesmo quando a versão do código não foi alterada. <br><br> A atualização altera apenas a configuração ou os dados. |
+| --nova tentativa de verificação da integridade | O período entre as tentativas de realizar verificações de integridade, se o aplicativo ou o cluster não estiver íntegro. |
 | --estabilidade de verificação de integridade | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização passe para o próximo domínio de atualização. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | --espera de verificação de integridade | O período de espera após a conclusão de um domínio de atualização, antes de iniciar o processo de verificações de integridade. |
 | --replica-set-check-timeout | A quantidade máxima de tempo para bloqueio do processamento de um domínio de atualização e prevenção da perda de disponibilidade quando houver problemas inesperados. <br><br> Quando esse tempo limite expira, o processamento do domínio de atualização continua, independentemente de problemas de perda de disponibilidade. O tempo limite será redefinido no início de cada domínio de atualização. Os valores válidos estão entre 0 e 42949672925, inclusive. |
@@ -453,7 +453,7 @@ Atualize os parâmetros de upgrade de um upgrade de cluster do Service Fabric.
 | -tempo limite ao domínio de upgrade | A quantidade de tempo que cada domínio de atualização deve concluir antes de FailureAction ser executado. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | --tipo de upgrade | Os valores possíveis incluem\: 'Inválido', 'Reverter', 'Rolling_ForceRestart'.  Padrão\: sem interrupção. |
 | -tempo limite de upgrade | A quantidade de tempo que a atualização geral deve concluir antes de FailureAction ser executado. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
-| --aviso-como-erro | Indica se os avisos são tratados com a mesma gravidade que os erros. |
+| --aviso-como-erro | Indica se os avisos são ou não tratados com a mesma severidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

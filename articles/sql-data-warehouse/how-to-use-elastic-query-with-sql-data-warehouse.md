@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718267"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466278"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Melhores práticas para usar a Consulta Elástica no Banco de Dados SQL do Microsoft Azure para o acesso a dados no SQL Data Warehouse do Azure
 Saiba mais sobre as melhores práticas para usar a Consulta Elástica para o acesso a dados no SQL Data Warehouse do Azure a partir do Banco de Dados SQL do Microsoft Azure. 
@@ -139,11 +139,11 @@ R: Os limites de DTU não são impostos de maneira diferente da consulta elásti
 
 P: Posso usar Segurança em Nível de Linha/Máscara de Dados Dinâmicos com Consulta Elástica?
 
-R: clientes de desejem usar recursos de segurança mais avançados com o Banco de Dados SQL podem fazer isso primeiro movendo e armazenando os dados no Banco de Dados SQL. No momento, não é possível aplicar a segurança em nível de linha nem DDM nos dados consultados por meio de tabelas externas. 
+R: Clientes de desejem usar recursos de segurança mais avançados com o Banco de Dados SQL podem fazer isso primeiro movendo e armazenando os dados no Banco de Dados SQL. No momento, não é possível aplicar a segurança em nível de linha nem DDM nos dados consultados por meio de tabelas externas. 
 
 P: Posso gravar da minha instância do banco de dados SQL para a instância do data warehouse?
 
-R: Não há suporte para esse recurso no momento. Visite nossa [página de Comentários][Feedback page] para criar/votar para essa funcionalidade se esse for um recurso que você gostaria de ver no futuro. 
+R: Esse recurso não é compatível no momento. Visite nossa [página de Comentários][Feedback page] para criar/votar para essa funcionalidade se esse for um recurso que você gostaria de ver no futuro. 
 
 P: Posso usar tipos espaciais como geometria/geografia?
 

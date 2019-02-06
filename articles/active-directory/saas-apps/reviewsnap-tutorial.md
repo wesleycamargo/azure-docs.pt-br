@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Reviewsnap | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Reviewsnap | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Reviewsnap.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c66985c7a1d9084ab2a264b1ba799b1fdfa3b0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 421031713a8c0677670a13d8190aec7c0113043a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195750"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integração do Azure Active Directory com o Reviewsnap
+# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integração do Azure Active Directory ao Reviewsnap
 
 Neste tutorial, você aprenderá a integrar o Reviewsnap ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Reviewsnap da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do Reviewsnap](./media/reviewsnap-tutorial/tutorial_reviewsnap_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL: `https://app.reviewsnap.com`
+     a. Na caixa de texto **Identificador**, digite uma URL: `https://app.reviewsnap.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
 `
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-reviewsnap-test-user"></a>Criar um usuário de teste do Reviewsnap
 
-Nesta seção, você criará uma usuária chamada Britta simon no Reviewsnap. Trabalhe com a [Equipe de suporte do Reviewsnap](mailto:support@reviewsnap.com) para adicionar os usuários na plataforma do Reviewsnap. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você criará uma usuária chamada Britta simon no Reviewsnap. Trabalhe com a  [equipe de suporte do Reviewsnap](mailto:support@reviewsnap.com) para adicionar os usuários à plataforma Reviewsnap. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -207,7 +207,7 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Reviewsnap no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Reviewsnap.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

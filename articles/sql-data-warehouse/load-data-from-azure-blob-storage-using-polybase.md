@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure | Microsoft Docs'
+title: 'Tutorial: Carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure | Microsoft Docs'
 description: O tutorial usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 09/12/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: b9c42f5b0fc6fb9468d8fd0a1c34270d1734391a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579899"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466517"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
 
 Este tutorial usa o PolyBase para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) para: 
 
@@ -85,7 +85,7 @@ Siga estas etapas para criar um SQL data warehouse em branco.
     ![configurar o desempenho](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Clique em **Aplicar**.
-9. Na página do SQL Data Warehouse, selecione um **agrupamento** para o banco de dados em branco. Neste tutorial, use o valor padrão. Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](/sql/t-sql/statements/collations)
+9. Na página do SQL Data Warehouse, selecione uma **ordenação** para o banco de dados em branco. Neste tutorial, use o valor padrão. Para obter mais informações sobre ordenações, confira [Ordenações](/sql/t-sql/statements/collations)
 
 11. Agora que você concluiu o formulário do Banco de Dados SQL, clique em **Criar** para provisionar o banco de dados. O provisionamento demora alguns minutos. 
 

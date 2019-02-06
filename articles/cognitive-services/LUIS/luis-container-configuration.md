@@ -7,20 +7,20 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468328"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294716"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do docker do Serviço Inteligente de Reconhecimento Vocal 
+# <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker do Serviço Inteligente de Reconhecimento Vocal 
 
-O ambiente de tempo de execução do contêiner do LUIS (Serviço Inteligente de Reconhecimento Vocal) é configurado usando argumentos de comando `docker run`. O LUIS tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as [configurações de montagem](#mount-settings) de entrada e as configurações de cobrança. 
+O ambiente de tempo de execução do contêiner do LUIS (**Serviço Inteligente de Reconhecimento Vocal**) é configurado usando argumentos de comando `docker run`. O LUIS tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as [configurações de montagem](#mount-settings) de entrada e as configurações de cobrança. 
 
 Configurações de contêiner são [hierárquicos](#hierarchical-settings) e podem ser definidos com [variáveis de ambiente](#environment-variable-settings) ou [argumentos de linha de comando](#command-line-argument-settings) do Docker.
 
@@ -194,4 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Reveja [Como instalar e executar contêineres](luis-container-howto.md)
 * Consulte [Perguntas frequentes (FAQ)](luis-resources-faq.md) para resolver problemas relacionados à funcionalidade LUIS.
-* Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)
+* Usar mais [Contêineres dos Serviços Cognitivos](../cognitive-services-container-support.md)

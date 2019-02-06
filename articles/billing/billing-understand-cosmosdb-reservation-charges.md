@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: cwatson
+ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582728"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904481"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Entenda como o desconto de reserva é aplicado ao Azure Cosmos DB
 
@@ -95,9 +95,9 @@ Por exemplo, suponha que você precise de implantações do Azure Cosmos DB nas 
 |Azure Cosmos DB – 100 RU/s/hora – Austrália Central 2  |  Austrália Central 2   |  50.000  |  50.000   |
 |Sul da França de - 100 RU/s/hora – Azure Cosmos DB  |  Sul da França   |  50.000 |  15,384  |
 
-Um uso de 50.000 unidades na região "Austrália Central 2" corresponde a 75.000 RU/s de uso faturável (ou uso normalizado). Esse valor é computado como: consumo de taxa de transferência * taxa_de_desconto_de_reserva_da_região. O cálculo é igual a 75.000 RU/s de uso faturável ou normalizado. Esse valor é computado como: 50.000 * 1,5 + 75.000 RU/s.
+Um uso de 50.000 unidades na região "Austrália Central 2" corresponde a 75.000 RU/s de uso faturável (ou uso normalizado). Esse valor é computado como: consumo de taxa de transferência * taxa_de_desconto_de_reserva_da_região. O cálculo é igual a 75.000 RU/s de uso faturável ou normalizado. Esse valor é computado como: 50.000 * 1,5 = 75.000 RU/s.
 
-A compra de reserva de 100.000 RU/s compensaria 75.000 RU/s da Austrália Central 2. Isso deixa 25.000 RU/s para a região do Sul da França. Das restantes 25.000 RU/s restantes, um desconto de reserva de 15.384 RU/s é aplicado à região do Sul da França. O valor de desconto é computado como: 25.000 / 1,625 = 15.384 RU/s. As restantes 34.616 RU/s na região "Sul da França" são cobradas às taxas normais de pagamento conforme o uso. 
+A compra de reserva de 100.000 RU/s compensaria 75.000 RU/s da Austrália Central 2. Isso deixa 25.000 RU/s para a região do Sul da França. Das restantes 25.000 RU/s restantes, um desconto de reserva de 15.384 RU/s é aplicado à região do Sul da França. O valor de desconto é computado como: 25.000/1.625 = 15.384 RU/s. As restantes 34.616 RU/s na região "Sul da França" são cobradas às taxas normais de pagamento conforme o uso. 
 
 O sistema de faturamento do Azure atribuirá o benefício de faturamento de reserva à primeira instância processada que corresponda à configuração de reserva. Por exemplo, é Austrália Central 2 neste caso.
 
@@ -111,7 +111,7 @@ Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 * [Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
 * [Gerenciar reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)  
-* [Entenda o uso de instâncias reservadas para sua assinatura de Pagamento Conforme o Uso](../billing/billing-understand-reserved-instance-usage.md)  
+* [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)  
 * [Entenda o uso de reservas para o seu registro Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 

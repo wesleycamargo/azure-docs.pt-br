@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310228"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151083"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
@@ -62,15 +62,15 @@ Uma instância de um serviço confiável é representada por sua classe de servi
 As implementações `ICommunicationListener` para Kestrel e HttpSys nos pacotes NuGet `Microsoft.ServiceFabric.AspNetCore.*` têm padrões de uso semelhantes, mas executam ações específicas ligeiramente diferentes para cada servidor Web. 
 
 Ambos os ouvintes de comunicação fornecem um construtor que usa os seguintes argumentos:
- - **`ServiceContext serviceContext`**: o objeto `ServiceContext` que contém informações sobre o serviço em execução.
- - **`string endpointName`**: o nome de uma configuração `Endpoint` em ServiceManifest.XML. Isso ocorre principalmente onde os dois ouvintes de comunicação diferem: o HttpSys **requer** uma configuração `Endpoint`, enquanto o Kestrel não a requer.
+ - **`ServiceContext serviceContext`**: O objeto `ServiceContext` que contém informações sobre o serviço em execução.
+ - **`string endpointName`**: o nome de uma configuração `Endpoint` em ServiceManifest.XML. Isso ocorre principalmente quando os dois ouvintes da comunicação são diferentes: HttpSys **exige** uma configuração `Endpoint`, ao contrário do Kestrel.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: um lambda que você implementa e no qual cria e retorna um `IWebHost`. Isso permite que você configure `IWebHost` da maneira como faria normalmente em um aplicativo do Núcleo do ASP.NET. O lambda fornece uma URL que é gerada para você, dependendo das opções de integração do Service Fabric que você usar e da configuração `Endpoint` que você fornecer. Essa URL pode então ser modificada ou usada como está para iniciar o servidor Web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integração do Service Fabric
 O pacote do NuGet `Microsoft.ServiceFabric.AspNetCore` inclui o método de extensão `UseServiceFabricIntegration` no `IWebHostBuilder` que adiciona o middleware com reconhecimento do Service Fabric. Esse middleware configura o `ICommunicationListener` do Kestrel ou HttpSys para registrar uma URL de serviço exclusivo no Serviço de Nomenclatura do Service Fabric e valida solicitações do cliente para assegurar que os clientes se conectem ao serviço certo. Isso é necessário em um ambiente de host compartilhado como o Service Fabric, em que vários aplicativos Web podem ser executados na mesma máquina física ou virtual, mas não usam nomes de host exclusivos, para impedir que os clientes se conectem ao serviço errado por engano. Esse cenário é descrito em mais detalhes na próxima seção.
 
 ### <a name="a-case-of-mistaken-identity"></a>Um caso de identidade incorreta
-Independentemente do protocolo, as réplicas de serviço escutam em uma combinação de IP:porta exclusiva. Depois que uma réplica de serviço começa a escutar em um ponto de extremidade IP:porta, ela relata esse endereço do ponto de extremidade para o Serviço de Nomenclatura do Service Fabric, onde pode ser descoberto por clientes ou por outros serviços. Se os serviços usarem portas de aplicativos atribuídas dinamicamente, uma réplica de serviço poderá usar coincidentemente o mesmo ponto de extremidade IP:porta que outro serviço que estava anteriormente na mesma máquina física ou virtual. Isso pode fazer com que um cliente se conecte incorretamente ao serviço errado. Isso poderá acontecer se a seguinte sequência de eventos ocorrer:
+Independentemente do protocolo, as réplicas de serviço escutam em uma combinação de IP:porta exclusiva. Depois que uma réplica de serviço começa a escutar em um ponto de extremidade IP:porta, ela relata esse endereço do ponto de extremidade para o Serviço de Nomenclatura do Service Fabric, onde pode ser descoberto por clientes ou por outros serviços. Se os serviços usarem portas de aplicativos atribuídas dinamicamente, uma réplica de serviço poderá usar coincidentemente o mesmo ponto de extremidade IP:porta que outro serviço que estava anteriormente na mesma máquina física ou virtual. Isso pode fazer com que um cliente se conecte por engano ao serviço incorreto. Isso poderá acontecer se a seguinte sequência de eventos ocorrer:
 
  1. O serviço A escuta em 10.0.0.1:30000 via HTTP. 
  2. O cliente resolve o serviço A e obtém o endereço 10.0.0.1:30000

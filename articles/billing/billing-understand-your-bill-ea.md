@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584461"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902688"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Entenda sua fatura para clientes do Azure com um Enterprise Agreement
 
@@ -45,7 +45,7 @@ Usuário Registrado
     - Visual Studio Enterprise (anual)
     - Visual Studio Professional (mensal)
     - Visual Studio Professional (anual)
-- **Encargos do Marketplace**: as compras do Azure Marketplace e o uso não são cobertas pelo crédito de sua organização e são cobrados separadamente. O Administrador Corporativo tem a capacidade de habilitar e desabilitar as compras do Marketplace para sua organização no Portal Empresarial. 
+- **Encargos do Marketplace**: as compras do Microsoft Azure Marketplace e o uso não são cobertos pelo crédito de sua organização e são cobrados separadamente. O Administrador Corporativo tem a capacidade de habilitar e desabilitar as compras do Marketplace para sua organização no Portal Empresarial. 
 
 Quando você tem encargos de vencimento para o excedente de serviço e encargos cobrados separadamente durante o período de cobrança, você obtém uma fatura que inclui ambos os tipos de encargos. Encargos de marketplaces sempre são faturados separadamente.
 
@@ -91,6 +91,6 @@ Compare seu total no Azure Marketplace em **Relatórios** > **Resumo de uso** no
 
      ![Captura de tela que mostra a opção de download nos encargos do Marketplace.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -1,5 +1,5 @@
 ---
-Título: Gerenciamento do ciclo de vida do aplicativo – titleSuffix: Descrição do Azure Machine Learning Studio: Aplique as melhores práticas do Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Gerenciamento do ciclo de vida do aplicativo – titleSuffix: Descrição do Azure Machine Learning Studio: Aplicar as práticas recomendadas de Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 27/10/2016
 ---

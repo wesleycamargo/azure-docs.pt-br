@@ -7,22 +7,22 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: ''
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451299"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076836"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear autenticação herdada para Azure AD com acesso condicional   
 
@@ -120,6 +120,15 @@ Pode levar até 24 horas para que a política entre em vigor.
 É possível selecionar todos os controles de concessão disponíveis para a condição de outros clientes, no entanto, a experiência do usuário final será sempre a mesma - acesso bloqueado.
 
 Você pode configurar todas as outras condições ao lado da condição de outros clientes.
+Por exemplo, se você quiser bloquear apenas a autenticação herdada para dispositivos móveis, defina a condição **plataformas de dispositivo** selecionando:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![Sem suporte para configuração de política](./media/block-legacy-authentication/06.png)
 
 
 

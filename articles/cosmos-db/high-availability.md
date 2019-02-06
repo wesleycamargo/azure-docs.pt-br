@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 6ec59108652fa928dbbc2a3cbb04c51ae0440dde
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471310"
 ---
-# <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com Azure Cosmos DB
+# <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
 
 O Azure Cosmos DB replica de forma transparente seus dados em todas as regiões do Azure associadas à sua conta do Cosmos. O Cosmos DB utiliza várias camadas de redundância para seus dados, como mostra a imagem a seguir:
 

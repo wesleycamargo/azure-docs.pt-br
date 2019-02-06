@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259957"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095463"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
@@ -36,7 +36,7 @@ Uma política de segurança define a configuração desejada de suas cargas de t
 
 Suas políticas de segurança direcionam as recomendações de segurança que você recebe na Central de Segurança do Azure. Você pode monitorar a conformidade com eles para ajudá-lo a identificar possíveis vulnerabilidades e atenuar ameaças. Para obter mais informações sobre como determinar a opção apropriada para você, consulte a lista de [políticas de segurança internas](security-center-policy-definitions.md).
 
-Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (níveis Gratuito ou Padrão). A iniciativa interna contém somente políticas de auditoria. 
+Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (camadas Gratuita ou Standard). A iniciativa interna contém somente políticas de Auditoria. 
 
 
 ### <a name="management-groups"></a>Grupos de gerenciamento
@@ -121,7 +121,7 @@ A iniciativa interna tem todas as políticas da Central de Segurança habilitada
 Nos exemplos a seguir, substitua essas variáveis:
 
 - **{scope}** insira o nome do grupo de gerenciamento ou a assinatura à qual você está aplicando a política.
-- **{poicyAssignmentName}** insira o [nome da atribuição de política relevante](#policy-names).
+- **{policyAssignmentName}** insira o [nome da atribuição de política relevante](#policy-names).
 - **{name}** insira seu nome ou o nome do administrador que aprovou a alteração da política.
 
 Este exemplo mostra como atribuir a iniciativa interna da Central de Segurança a uma assinatura ou um grupo de gerenciamento
@@ -212,7 +212,7 @@ Este exemplo mostra como remover uma atribuição:
 |Configurações de segurança |Monitorar as vulnerabilidades do SO na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
 |Proteção do ponto de extremidade |Monitorar o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
 |Criptografia do disco |Monitorar discos da VM não criptografados na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidade |Monitorar vulnerabilidades da VM na Central de Segurança do Azure |vulnerabilityAssesmentMonitoringEffect|
+|Avaliação de vulnerabilidade |monitora vulnerabilidades de máquinas virtuais na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
 |Firewall do aplicativo Web |Monitorar o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorar pontos de extremidade de rede desprotegidos na Central de Segurança do Azure| |
 

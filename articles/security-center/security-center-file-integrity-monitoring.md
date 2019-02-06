@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7e2a075df7d0d7f6bb68163414fab525aad25a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338508"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093437"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -31,7 +31,7 @@ O Monitoramento de Integridade de Arquivo da Central de Segurança valida a inte
 
 - Criação e remoção de arquivo e Registro
 - Modificações de arquivo (alterações de tamanho do arquivo, listas de controle de acesso e hash do conteúdo)
-- Modificações de Registro (alterações de tamanho, listas de controle de acesso, tipo e conteúdo)
+- Modificações de registro (alterações de tamanho, listas de controle de acesso, tipo e conteúdo)
 
 A Central de Segurança recomenda entidades para serem monitoradas, nas quais você pode facilmente habilitar o FIM. Você também pode definir suas próprias políticas de FIM ou entidades para serem monitoradas. Este passo a passo mostra como fazer isso.
 
@@ -152,7 +152,7 @@ Em **Editar para Controle de Alterações** você pode:
 - Excluir a entidade, descartar a alteração ou salvar a alteração
 
 ## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade a ser monitorada
-1. Volte para o **painel do Monitoramento de Integridade de Arquivo** e selecione **Configurações** na parte superior. **Configuração do Workspace** é aberto.
+1. Volte para o **painel do Monitoramento de integridade de arquivo** e selecione **Configurações** na parte superior. **Configuração do Workspace** é aberto.
 2. Em **Configuração do Workspace**, selecione a guia para o tipo de entidade que você deseja adicionar: Registro do Windows, Arquivos do Windows ou Arquivos do Linux. Neste exemplo, selecionamos **Arquivos do Linux**.
 
   ![Adicionar um novo item a ser monitorado][14]

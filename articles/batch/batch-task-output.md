@@ -2,7 +2,7 @@
 title: Manter resultados ou logs de trabalhos e tarefas concluídos para um armazenamento de dados – Lote do Azure | Microsoft Docs
 description: Saiba mais sobre as diferentes opções para persistir dados de saída de trabalhos e tarefas em Lote. Você pode manter dados no Armazenamento do Azure ou em outro armazenamento de dados.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705701"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474336"
 ---
 # <a name="persist-job-and-task-output"></a>Persistir saída de tarefa e de trabalho
 
@@ -77,13 +77,13 @@ Você também pode implementar sua própria solução de movimentação de arqui
 
 Ao projetar sua solução em Lote, considere os seguintes fatores relacionados às saídas de trabalho e tarefa.
 
-- **Tempo de vida de nó de computação**: os nós de computação geralmente são transitórios, especialmente em pools com dimensionamento automático habilitado. Saída de uma tarefa que é executada em um nó está disponível somente enquanto o nó existe e somente dentro do período de retenção de arquivo definido para a tarefa. Se uma tarefa produzir saída que possa ser necessária após a tarefa ter sido concluída, a tarefa deverá carregar seus arquivos de saída para um repositório durável, como o Armazenamento do Azure.
+- **Tempo de vida de nó de computação**: Os nós de computação geralmente são transitórios, especialmente em pools com dimensionamento automático habilitado. Saída de uma tarefa que é executada em um nó está disponível somente enquanto o nó existe e somente dentro do período de retenção de arquivo definido para a tarefa. Se uma tarefa produzir saída que possa ser necessária após a tarefa ter sido concluída, a tarefa deverá carregar seus arquivos de saída para um repositório durável, como o Armazenamento do Azure.
 
-- **Armazenamento de saída**: o Armazenamento do Azure é recomendado como um armazenamento de dados para a saída da tarefa, mas você pode usar qualquer armazenamento durável. A gravação da saída da tarefa no Armazenamento do Azure é integrada à API de serviço de Lote. Se você usar outra forma de armazenamento durável, precisará escrever a lógica do aplicativo para manter a saída da tarefa você mesmo.
+- **Armazenamento de saída**: O Armazenamento do Azure é recomendado como um armazenamento de dados para a saída da tarefa, mas você pode usar qualquer armazenamento durável. A gravação da saída da tarefa no Armazenamento do Azure é integrada à API de serviço de Lote. Se você usar outra forma de armazenamento durável, precisará escrever a lógica do aplicativo para manter a saída da tarefa você mesmo.
 
-- **Recuperação de saída**: você poderá recuperar a saída da tarefa diretamente dos nós de computação no seu pool ou do Armazenamento do Azure ou de outro armazenamento de dados, se tiver mantido a saída da tarefa. Para recuperar a saída da tarefa diretamente de um nó de computação, você precisa do nome do arquivo e do local de saída no nó. Se você mantiver a saída da tarefa no Armazenamento do Azure, precisará do caminho completo para o arquivo no Armazenamento do Azure para baixar os arquivos de saída com o SDK de Armazenamento do Azure.
+- **Recuperação de saída**: Você poderá recuperar a saída da tarefa diretamente dos nós de computação no seu pool ou do Armazenamento do Azure ou de outro armazenamento de dados se tiver mantido a saída da tarefa. Para recuperar a saída da tarefa diretamente de um nó de computação, você precisa do nome do arquivo e do local de saída no nó. Se você mantiver a saída da tarefa no Armazenamento do Azure, precisará do caminho completo para o arquivo no Armazenamento do Azure para baixar os arquivos de saída com o SDK de Armazenamento do Azure.
 
-- **Exibição da saída**: quando você navegar para uma tarefa do Lote no portal do Azure e selecionar **Arquivos no nó**, verá todos os arquivos associados à tarefa, não apenas os arquivos de saída em que está interessado. Novamente, os arquivos em nós de computação estão disponíveis apenas enquanto o nó existe e apenas no tempo de retenção de arquivo definido para a tarefa. Para exibir a saída da tarefa mantida no Armazenamento do Azure, você pode usar o portal do Azure ou um aplicativo de cliente de Armazenamento do Azure, como o [Gerenciador de Armazenamento do Azure][storage_explorer]. Para exibir dados de saída no armazenamento do Azure com o portal ou outra ferramenta, você deve saber o local do arquivo e navegar diretamente até ele.
+- **Exibição da saída**: Quando você navegar para uma tarefa do Lote no portal do Azure e selecionar **Arquivos no nó**, verá todos os arquivos associados à tarefa, não apenas os arquivos de saída em que está interessado. Novamente, os arquivos em nós de computação estão disponíveis apenas enquanto o nó existe e apenas no tempo de retenção de arquivo definido para a tarefa. Para exibir a saída da tarefa mantida no Armazenamento do Azure, você pode usar o portal do Azure ou um aplicativo de cliente de Armazenamento do Azure, como o [Gerenciador de Armazenamento do Azure][storage_explorer]. Para exibir dados de saída no armazenamento do Azure com o portal ou outra ferramenta, você deve saber o local do arquivo e navegar diretamente até ele.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536042"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245660"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de Conectividade de Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -68,7 +68,7 @@ Vamos nos aprofundar na arquitetura de conectividade de instâncias gerenciadas.
 
 ![cluster virtual do diagrama de arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes se conectam à Instância Gerenciada usando o nome do host que possui um formulário `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para o endereço IP privado, embora esteja registrado na zona DNS pública e seja publicamente solucionável. A `zone-id` é gerada quando o cluster é criado. Se um cluster recém-criado estiver hospedando uma instância gerenciada secundária, ele compartilha sua id de zona com o cluster primário. Para obter mais informações, confira [Grupos de failover automático](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Os clientes se conectam à Instância Gerenciada usando o nome do host que possui um formulário `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para o endereço IP privado, embora esteja registrado na zona DNS pública e seja publicamente solucionável. A `zone-id` é gerada quando o cluster é criado. Se um cluster recém-criado estiver hospedando uma instância gerenciada secundária, ele compartilhará sua ID de zona com o cluster primário. Para obter mais informações, confira [Grupos de failover automático](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
 
 Esse endereço IP privado pertence ao ILB (Managed Internal Load Balancer) da instância gerenciada que direciona o tráfego para o GW (Gateway de Instância Gerenciada). Como várias instâncias gerenciadas podem ser executadas no mesmo cluster, o GW usa o nome do host da instância gerenciada para redirecionar o tráfego para o serviço do SQL Engine correto.
 
@@ -78,7 +78,7 @@ Os serviços de gerenciamento e implantação se conectam à Instância Gerencia
 
 O cluster virtual da Instância Gerenciada do Banco de Dados SQL do Azure contém um ponto de extremidade de gerenciamento que a Microsoft usa gerenciar a Instância Gerenciada. O ponto de extremidade de gerenciamento é protegido com um firewall interno no nível de rede e a verificação de certificado mútua no nível do aplicativo. Você pode [localizar o endereço IP do ponto de extremidade de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Quando as conexões são iniciadas de dentro da instância gerenciada (backup, log de auditoria) parece que o tráfego origina-se do endereço IP público de ponto de extremidade de gerenciamento. Você pode limitar o acesso para serviços públicos da instância gerenciada, definindo regras de firewall para permitir somente o endereço IP de Instância Gerenciada. Encontre mais informações sobre o método que pode [verificar se o firewall interno da Instância Gerenciada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Quando as conexões são iniciadas de dentro da instância gerenciada (backup, log de auditoria) parece que o tráfego origina-se do endereço IP público de ponto de extremidade de gerenciamento. Você pode limitar o acesso para serviços públicos da instância gerenciada, definindo regras de firewall para permitir somente o endereço IP de Instância Gerenciada. Localize mais informações sobre o método que pode [verificar se o firewall interno da Instância Gerenciada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > Isso não se aplica à configuração de regras de firewall para os serviços do Azure que estão na mesma região que a Instância Gerenciada do que a plataforma do Azure tem uma otimização para o tráfego que passa entre os serviços que são colocados.
@@ -108,9 +108,12 @@ Para implantar uma Instância Gerenciada, em uma sub-rede dedicada (sub-rede da 
 
 | NOME       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |PERMITIR |
+|gerenciamento  |80, 443, 12000|TCP     |Qualquer              |Internet   |PERMITIR |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DA MI  |PERMITIR |
 
+  > [!Note]
+  > MI SUBNET refere-se ao intervalo de endereços IP para a sub-rede no formato 10.x.x.x/y. Essas informações podem ser encontradas no portal do Azure (por meio de propriedades de sub-rede).
+  
   > [!Note]
   > Embora as regras de segurança de entrada obrigatórias permitam o tráfego de _Qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 essas portas são protegidas por firewall interno. Este [artigo](sql-database-managed-instance-find-management-endpoint-ip-address.md) mostra como você pode descobrir o endereço IP do ponto de extremidade de gerenciamento e verificar as regras de firewall. 
   

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304271"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478416"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar a sincronização de dados SQL entre o banco de dados Azure SQL e SQL Server local
 
@@ -71,11 +71,11 @@ Na seção **Banco de Dados Hub**, insira as credenciais existentes do servidor 
 
 ### <a name="to-add-an-azure-sql-database"></a>Para adicionar um Banco de Dados SQL do Azure
 
-Na seção **Banco de Dados Membro**, opcionalmente, adicione um Banco de Dados SQL do Azure ao grupo de sincronização selecionando **Adicionar um Banco de Dados do Azure**. A página **Configurar Banco de Dados do Azure** é aberta.
+Na seção **Banco de Dados Membro**, opcionalmente, adicione um Banco de Dados SQL do Azure ao grupo de sincronização selecionando **Adicionar um Banco de Dados SQL do Azure**. A página **Configurar Banco de Dados SQL do Azure** é aberta.
 
   ![Etapa 2: Configurar banco de dados](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Na página **Configurar Banco de Dados do Azure**, altere as seguintes configurações:
+  Na página **Configurar Banco de Dados SQL do Azure**, altere as seguintes configurações:
 
   | Configuração                       | DESCRIÇÃO |
   | ----------------------------- | ------------------------------------------------- |

@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306481"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078773"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
-Nos últimos anos, a Internet das Coisas (IoT), fontes de energia alternativas e Big Data foram mesclados para criar grandes oportunidades no domínio de serviços e de energia. Ao mesmo tempo, o setor de energia e o setor de serviços têm visto a estagnação do consumo, com os clientes exigindo maneiras melhores de controlar o uso da energia. Portanto, as empresas de rede inteligente e de serviços têm grande necessidade de inovar e de renovar a si mesmos. Além disso, muitas redes de energia e de serviços estão ficando desatualizadas e muito caras de manter e de gerenciar. No ano passado, a equipe trabalhou em vários compromissos no domínio da energia. Durante esses compromissos, encontramos muitos casos em que os ISVs (fornecedores independentes de software) ou as empresas de serviços procuravam previsões sobre a futura demanda de energia. Essas previsões desempenham um papel importante nos negócios atuais e futuros e tornaram-se a base para vários casos de uso. Elas incluem, a curto e a longo prazos, a previsão, comércio, balanceamento de carga e otimização da rede da carga de energia, entre outras. Os métodos de big data e de Análise Avançada (AA), como o Machine Learning, são os principais motivadores para a produção de previsões precisas e confiáveis.  
+Nos últimos anos, a Internet das Coisas (IoT), fontes de energia alternativas e Big Data foram mesclados para criar grandes oportunidades no domínio de serviços e de energia. Ao mesmo tempo, o setor de energia e o setor de serviços têm visto a estagnação do consumo, com os clientes exigindo maneiras melhores de controlar o uso da energia. Portanto, as empresas de rede inteligente e de serviços têm grande necessidade de inovar e de renovar a si mesmos. Além disso, muitas redes de energia e de serviços estão ficando desatualizadas e muito caras de manter e de gerenciar. No ano passado, a equipe trabalhou em vários compromissos no domínio da energia. Durante esses compromissos, encontramos muitos casos em que os ISVs (fornecedores independentes de software) ou as empresas de serviços procuravam previsões sobre a futura demanda de energia. Essas previsões desempenham um papel importante nos negócios atuais e futuros e tornaram-se a base para vários casos de uso. Elas incluem, a curto e a longo prazos, a previsão, comércio, balanceamento de carga e otimização da rede da carga de energia, entre outras. Os métodos de big data e de Análise Avançada (AA), como o Machine Learning, são os principais motivadores para a produção de previsões precisas e confiáveis.
 
 Neste manual, reunimos as diretrizes de negócios e analíticas necessárias para o desenvolvimento e a implantação bem-sucedidos de uma solução de previsão de demanda de energia. Essas diretrizes propostas podem ajudar empresas de serviços, cientistas de dados e engenheiros de dados no estabelecimento de soluções totalmente operacionalizadas, baseadas em nuvem, de previsão de demanda. Para as empresas que estejam começando sua jornada de big data e de análise avançada, essa solução poderá representar a semente da estratégia de rede inteligente a longo prazo.
 
 > [!TIP]
-> Para baixar um diagrama que fornece uma visão geral da arquitetura do modelo, consulte [Arquitetura do Modelo de Solução do Cortana Intelligence para previsão de demanda de energia](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> Para baixar um diagrama que fornece uma visão geral da arquitetura do modelo, consulte [Arquitetura do Modelo de Solução do Cortana Intelligence para previsão de demanda de energia](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## <a name="overview"></a>Visão geral
-Este documento aborda os negócios, os dados e os aspectos técnicos do uso do Cortana Intelligence e, especialmente, o AML (Azure Machine Learning) para a implementação e implantação de Soluções de Previsão de Energia. O documento consiste em três partes principais:  
+Este documento aborda os negócios, os dados e os aspectos técnicos do uso do Cortana Intelligence e, especialmente, o AML (Azure Machine Learning) para a implementação e implantação de Soluções de Previsão de Energia. O documento consiste em três partes principais:
 
-1. Noções básicas sobre negócios  
-2. Noções básicas sobre dados  
+1. Noções básicas sobre negócios
+2. Noções básicas sobre dados
 3. Implementação técnica
 
 A parte **Noções Básicas sobre Negócios** descreve o aspecto comercial que você precisa compreender e considerar antes de tomar uma decisão de investimento. Ela explica como qualificar o problema comercial existente para garantir que a análise preditiva e o aprendizado de máquina sejam realmente eficazes e aplicáveis. O documento explica ainda mais as noções básicas sobre o aprendizado de máquina e como ele é usado para resolver os problemas de previsão de energia. Descreve os pré-requisitos e os critérios de qualificação de um caso de uso. Alguns casos de uso e cenários de caso de uso de exemplo também são fornecidos.
@@ -43,7 +43,7 @@ A terceira parte do documento aborda o aspecto **Implementação Técnica** de u
 
 Além disso, o documento inclui material de referência que você pode usar para obter mais conhecimentos sobre o domínio e a tecnologia.
 
-É importante observar que, neste documento, não pretendemos abordar o processo de ciência de dados mais profundo, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados na documentação do [AM do Azure](https://azure.microsoft.com/services/machine-learning/) e em [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+É importante observar que, neste documento, não pretendemos abordar o processo de ciência de dados mais profundo, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados na [Documentação de serviço do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) e em [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Público-alvo
 O público-alvo deste documento é o pessoal comercial e técnico que deseja obter conhecimento e compreensão das soluções baseadas em Machine Learning e como elas estão sendo usadas especificamente no domínio da previsão de energia.
@@ -87,7 +87,7 @@ No contexto de demanda de energia, a Previsão de Carga a Curto Prazo (STLF) é 
 * Balanceamento de carga e prevenção de sobrecarga
 * Previsão de Carga a Longo Prazo
 * Detecção de anomalias e de falhas
-* Redução/nivelamento do pico 
+* Redução/nivelamento do pico
 
 O modelo STLF baseia-se principalmente no consumo de dados no passado próximo (último dia ou semana) e na temperatura prevista de uso como um indicador importante. A obtenção da previsão de temperatura precisa para a próxima hora e para até 24 horas tem se tornado menos desafiadora nos dias de hoje. Esses modelos são menos sensíveis aos padrões sazonais ou às tendências de consumo a longo prazo.
 
@@ -189,9 +189,9 @@ O parágrafo a seguir descreve esse processo da 4 etapas:
 
 1. **Coleta de Dados** – qualquer solução baseada em análise avançada baseia-se em dados (veja **Noções básicas sobre dados**). Especificamente, quando se trata de análise preditiva e de previsão, nos baseamos em um fluxo de dados dinâmico e contínuo. No caso da previsão de demanda de energia, esses dados podem ser obtidos diretamente dos medidores inteligentes ou já podem estar agregados a um banco de dados local. Nós também utilizamos fontes de dados externas, como o clima e a temperatura. Esse fluxo contínuo de dados deve ser organizado, agendado e armazenado. [Data Factory do Azure](https://azure.microsoft.com/services/data-factory/) (ADF) é a nossa força de trabalho principal para realizar essa tarefa.
 2. **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Machine Learning (ML) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Azure ML Studio fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
-   
+
    O diagrama a seguir é uma ilustração de um fluxo de trabalho típico:
-   
+
    ![Fluxo de Trabalho de Modelagem](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Implantação** – com um modelo de trabalho em mãos, a próxima etapa será a implantação. Aqui, o modelo é convertido em um serviço Web que expõe uma API RESTful que pode ser invocada simultaneamente pela Internet de vários clientes de consumo. O Azure ML fornece uma maneira simples de implantar um modelo diretamente do Azure ML Studio com um único clique de botão. Todo o processo de implantação acontece nos bastidores. Essa solução pode ser automaticamente dimensionada para atingir o consumo necessário.
 4. **Consumo** – nesta fase, podemos realmente usar o modelo de previsão para produzir previsões. O consumo pode ser gerado por um aplicativo do usuário (*por exemplo*, um painel) ou diretamente de um sistema operacional como um sistema de equilíbrio de demanda/fornecimento ou de uma solução de otimização de rede. Vários casos de uso podem ser obtidos de um único modelo.
@@ -321,8 +321,8 @@ Nos últimos anos, algoritmos avançados foram desenvolvidos para acomodar a pre
 
 > [!NOTE]
 > Esta seção não destina-se a ser usada como uma visão geral do aprendizado de máquina e da previsão, mas como uma pesquisa rápida de técnicas de modelagem comumente usadas para a previsão da demanda. Para saber mais e para obter material educativo sobre a previsão da série temporal, é altamente recomendável ler o livro online [Forecasting: principles and practice (Previsão: princípios e prática)](https://www.otexts.org/).
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (média móvel)**
 A média de movimentação é uma das primeiras técnicas analíticas que foram usadas para a previsão da série temporal e ainda hoje é uma das técnicas mais comumente usadas. Também é a base para técnicas de previsão mais avançadas. Com a média de movimentação, estamos prevendo o próximo ponto de dados ao calcular a média nos pontos K mais recentes, onde K indica a ordem da média de movimentação.

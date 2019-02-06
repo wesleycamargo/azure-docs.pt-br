@@ -7,37 +7,38 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246323"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250700"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo
 
-Com o Serviço do Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente denominados [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-target). Um destino de computação pode ser um computador local ou um recurso de nuvem, como Computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  
+Com o Serviço do Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente denominados [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-target). Um destino de computação pode ser um computador local ou um recurso de nuvem, como Computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para a implantação de modelo conforme descrito em ["em que local e como implantar seus modelos"](how-to-deploy-and-where.md).
 
 É possível criar e gerenciar um destino de computação usando o SDK do Azure Machine Learning, o portal do Azure ou a CLI do Azure. Se você tiver destinos de computação criados por meio de outro serviço (por exemplo, um cluster HDInsight), poderá usá-los anexando-os ao workspace de serviço do Azure Machine Learning.
  
-Neste artigo, você aprende a usar vários destinos de computação.  As etapas para todos os destinos de computação seguem o mesmo fluxo de trabalho:
+Neste artigo, você aprende a usar vários destinos de computação para treinamento do modelo.  As etapas para todos os destinos de computação seguem o mesmo fluxo de trabalho:
 1. Escolha __Criar__ um destino de computação se você ainda não tiver um.
 2. Escolha __Anexar__ o destino de computação a seu workspace.
 3. Escolha __Configurar__ o destino de computação para que ele contenha as dependências de pacote e ambiente Python exigidas pelo seu script.
 
+
 >[!NOTE]
 > O código deste artigo foi testado com a versão 1.0.6 do SDK do Azure Machine Learning.
 
-## <a name="supported-compute-targets"></a>Destinos de computação com suporte
+## <a name="compute-targets-for-training"></a>Destinos de computação para treinamento
 
 O Serviço do Azure Machine Learning tem suporte variado nos diferentes destinos de computação. Um ciclo de vida de desenvolvimento de modelo típico começa com experimentação/desenvolvimento em uma pequena quantidade de dados. Nessa fase, é recomendável usar um ambiente local. Por exemplo, o computador local ou uma VM baseada em nuvem. Na medida em que você aumenta o treinamento em conjuntos de dados maiores ou faz treinamento distribuído, é recomendável usar a Computação do Azure Machine Learning para criar um cluster de vários nós, ou de nó único, que dimensionará automaticamente sempre que você enviar uma execução. Também é possível anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
 
 
-|Destino de computação| Aceleração de GPU | Automatizado<br/> gráfico de ajuste de hiperparâmetro | Automatizado</br> aprendizado de máquina | Pipeline amigável|
+|Destino de computação para treinamento| Aceleração de GPU | Automatizado<br/> gráfico de ajuste de hiperparâmetro | Automatizado</br> aprendizado de máquina | Pipeline amigável|
 |----|:----:|:----:|:----:|:----:|
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |

@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343684"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226036"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Início Rápido: Introdução ao serviço de reconhecimento de Fala do Bing em C&#35; para .NET no Windows
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Início Rápido: Usar a biblioteca de serviço de reconhecimento de Fala do Bing em C&#35; para o .NET no Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -46,17 +46,17 @@ O Speech API é parte dos Serviços Cognitivos (anteriormente Projeto Oxford). �
 >
 > * Use sua chave de assinatura. Com o aplicativo de exemplo de biblioteca de serviço C#, você precisa fornecer a chave de assinatura como um dos parâmetros de linha de comando. Para obter mais informações, consulte [Executar o aplicativo de exemplo](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Etapa 1: instalar o aplicativo de exemplo
+## <a name="step-1-install-the-sample-application"></a>Etapa 1: Instalar o aplicativo de exemplo
 
 1. Inicie o Visual Studio 2015 e selecione **Arquivo** > **Abrir** > **Projeto/Solução**.
 
 2. Clique duas vezes para abrir o arquivo de Solução (.sln) do Visual Studio 2015 nomeado SpeechClient.sln. A solução é aberta no Visual Studio.
 
-## <a name="step-2-build-the-sample-application"></a>Etapa 2: compilar o aplicativo de exemplo
+## <a name="step-2-build-the-sample-application"></a>Etapa 2: Compilar o aplicativo de exemplo
 
 Pressione Ctrl+Shift+B ou selecione **Compilar** no menu de faixa de opções. Em seguida, selecione **Compilar Solução**.
 
-## <a name="step-3-run-the-sample-application"></a>Etapa 3: executar o aplicativo de exemplo
+## <a name="step-3-run-the-sample-application"></a>Etapa 3: Executar o aplicativo de exemplo
 
 1. Após a conclusão da compilação, pressione F5 ou selecione **Iniciar** no menu de faixa de opções para executar o exemplo.
 
@@ -64,17 +64,17 @@ Pressione Ctrl+Shift+B ou selecione **Compilar** no menu de faixa de opções. E
 
 3. Execute `SpeechClientSample.exe` com os seguintes parâmetros
 
-   * Arg [0]: Especifique arquivos WAV do áudio de entrada.
-   * Arg [1]: Especifique a localidade de áudio.
-   * Arg [2]: Especifique os modos de reconhecimento: *curto* para o `ShortPhrase` modo e *longo* para o `LongDictation` modo.
-   * Arg [3]: Especifique a chave de assinatura para acessar o serviço de reconhecimento de fala.
+   * Arg[0]: Especifique um arquivo WAV de áudio de entrada.
+   * Arg[1]: Especifique a localidade do áudio.
+   * Arg[2]: Especifique os modos de reconhecimento: *Curto* para o modo `ShortPhrase` e *Longo* para o modo `LongDictation`.
+   * Arg[3]: Especifique a chave de assinatura para acessar o serviço de reconhecimento de fala.
 
 ## <a name="samples-explained"></a>Exemplos explicados
 
 ### <a name="recognition-modes"></a>Modos de reconhecimento
 
-* `ShortPhrase`modo: uma declaração de até 15 segundos de duração. Conforme os dados são enviados ao servidor, o cliente recebe vários resultados parciais e um resultado final melhor.
-* `LongDictation`modo: uma declaração de até 10 segundos de duração. Como os dados são enviados ao servidor, o cliente recebe vários resultados parciais e vários resultados finais, com base em onde o servidor indica pausas de sentença.
+* Modo `ShortPhrase`: Um enunciado de até 15 segundos. Conforme os dados são enviados ao servidor, o cliente recebe vários resultados parciais e um resultado final melhor.
+* Modo `LongDictation`: Um enunciado de até 10 minutos. Como os dados são enviados ao servidor, o cliente recebe vários resultados parciais e vários resultados finais, com base em onde o servidor indica pausas de sentença.
 
 ### <a name="supported-audio-formats"></a>Formatos com suporte de áudio
 
@@ -88,20 +88,20 @@ A API de fala suporta áudio/WAV usando os seguintes codecs:
 
 Para criar um SpeechClient, você precisa primeiro criar um objeto de Preferências. O objeto de Preferências é um conjunto de parâmetros que define o comportamento do serviço de fala. Consiste nos seguintes campos:
 
-* `SpeechLanguage`: o local do áudio enviado para o serviço de fala.
-* `ServiceUri`: o ponto de extremidade usado para chamar o serviço de fala.
-* `AuthorizationProvider`: Uma implementação de IAuthorizationProvider usada para buscar tokens para acessar o serviço de fala. Embora o exemplo forneça um provedor de autorização de serviços cognitivas, é altamente recomendável que você crie sua própria implementação para lidar com o cache de token.
+* `SpeechLanguage`: A localidade do áudio enviado para o serviço de fala.
+* `ServiceUri`: O ponto de extremidade usado para chamar o serviço de fala.
+* `AuthorizationProvider`: Uma implementação de IAuthorizationProvider usada para efetuar fetch de tokens para acessar o serviço de fala. Embora o exemplo forneça um provedor de autorização de serviços cognitivas, é altamente recomendável que você crie sua própria implementação para lidar com o cache de token.
 * `EnableAudioBuffering`: Uma opção avançada. Consulte [Gerenciamento de Conexão](#connection-management).
 
 ### <a name="speech-input"></a>Entrada de fala
 
 O objeto SpeechInput consiste em dois campos:
 
-* **Áudio**: uma implementação de fluxo de sua escolha de onde o SDK recebe áudio. Ele pode ser qualquer [fluxo](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) que oferece suporte à leitura.
+* **Áudio**: Uma implementação de fluxo de sua escolha da qual o SDK efetua pull do áudio. Ele pode ser qualquer [fluxo](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) que oferece suporte à leitura.
    > [!NOTE]
    > O SDK detecta o final do fluxo de quando o fluxo retorna **0** na leitura.
 
-* **RequestMetadata**: metadados sobre a solicitação de fala. Para obter mais informações, veja a [referência](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+* **RequestMetadata**: Metadados sobre a solicitação de fala. Para obter mais informações, veja a [referência](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
 ### <a name="speech-request"></a>Solicitação de fala
 

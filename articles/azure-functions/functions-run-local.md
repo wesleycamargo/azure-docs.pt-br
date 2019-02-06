@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103682"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094233"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -40,13 +40,13 @@ O [Ferramentas básicas do Azure Functions] é uma versão local do tempo de exe
 
 ### <a name="v2"></a>Versão 2.x
 
-A versão 2.x das ferramentas usa o tempo de execução 2.x do Azure Functions que se baseia em .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core 2.x oferece suporte, incluindo [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux).
+A versão 2.x das ferramentas usa o tempo de execução 2.x do Azure Functions que se baseia em .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core 2.x oferece suporte, incluindo [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Você deve primeiro instalar o .NET Core 2.x SDK.
 
 #### <a name="windows-npm"></a>Windows
 
 As etapas a seguir usam npm para instalar ferramentas principais no Windows. Você também pode usar [Chocolatey](https://chocolatey.org/). Para obter mais informações, confira o [arquivo Leiame das Ferramentas Principais](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Instale o [.NET Core 2.1 para Windows](https://www.microsoft.com/net/download/windows).
+1. Instalar o [.NET Core 2.x SDK para Windows](https://www.microsoft.com/net/download/windows).
 
 2. Instale o [Node.js], que inclui npm. Para a versão 2.x das ferramentas, somente Node.js 8.5 e versões posteriores têm suporte.
 
@@ -60,7 +60,7 @@ As etapas a seguir usam npm para instalar ferramentas principais no Windows. Voc
 
 As etapas a seguir usam o Homebrew para instalar as ferramentas principais em macOS.
 
-1. Instale o [.NET Core 2.1 para macOS](https://www.microsoft.com/net/download/macos).
+1. Instalar o [.NET Core 2.x SDK para macOS](https://www.microsoft.com/net/download/macos).
 
 2. Instale o [Homebrew](https://brew.sh/), se ele ainda não estiver instalado.
 
@@ -75,7 +75,7 @@ As etapas a seguir usam o Homebrew para instalar as ferramentas principais em ma
 
 As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferramentas principais em sua distribuição Ubuntu/Debian Linux. Para outras distribuições do Linux, confira o [arquivo Leiame das ferramentas principais](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Instale o [.NET Core 2.1 para Linux](https://www.microsoft.com/net/download/linux).
+1. Instalar o [.NET Core 2.x SDK para Linux](https://www.microsoft.com/net/download/linux).
 
 2. Registre a chave do produto da Microsoft como confiável:
 
@@ -371,7 +371,7 @@ Para passar dados de teste para o ponto de extremidade administrador de uma fun�
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 O valor `<trigger_input>` contém dados em um formato esperado pela função. O exemplo de cURL a seguir é um POST para uma função `QueueTriggerJS`. Nesse caso, a entrada é uma cadeia de caracteres equivalente à mensagem esperada na fila.
 

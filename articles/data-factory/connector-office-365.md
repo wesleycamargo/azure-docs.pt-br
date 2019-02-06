@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ed5f3db3f9f8f7231d8f865f69cd11c2430054b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024307"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297444"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure usando o Azure Data Factory (Versão prévia) 
 
@@ -42,9 +42,10 @@ Para copiar dados do Office 365 no Azure, você precisa concluir as seguintes et
 - O administrador do seu locatário do Office 365 deve concluir ações de integração, conforme descrito [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
 - Criar e configurar um aplicativo Web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [Criar um aplicativo do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Anote os seguintes valores, que serão usados para definir o serviço vinculado para o Office 365:
-    - ID do locatário.  Para obter instruções, consulte [Obter ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - ID do locatário. Para obter instruções, consulte [Obter ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     - ID do aplicativo e Chave do aplicativo.  Para obter instruções, confira [Obter ID do aplicativo e chave de autenticação](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-- Adicione a identidade do usuário que fará a solicitação de acesso de dados como proprietário do aplicativo Web do Azure AD (no aplicativo Web do Azure AD > Configurações > Proprietários > Adicionar proprietário).
+- Adicione a identidade do usuário que fará a solicitação de acesso de dados como proprietário do aplicativo Web do Azure AD (no aplicativo Web do Azure AD > Configurações > Proprietários > Adicionar proprietário). 
+    - A identidade do usuário deve estar na organização do Office 365 da qual você está obtendo dados e não deve ser um usuário Convidado.
 
 ## <a name="approving-new-data-access-requests"></a>Aprovação de novas solicitações de acesso a dados
 

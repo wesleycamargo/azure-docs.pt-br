@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091242"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163442"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie uma VM a partir de um VHD usando o portal do Azure
 
@@ -28,6 +28,8 @@ Existem várias maneiras de criar uma máquina virtual (VM) no Azure:
 - Se você já tiver um disco rígido virtual (VHD) para usar ou quiser copiar o VHD de uma VM existente para usar, crie uma nova VM, *anexando* o VHD à nova VM como um sistema operacional disco. 
 
 - Você pode criar uma nova VM do VHD de uma VM que foi excluído. Por exemplo, se você tiver uma VM do Azure que não está funcionando corretamente, poderá excluir a VM e usar seu VHD para criar uma nova VM. Você pode reutilizar o mesmo VHD ou criar uma cópia do VHD criando um instantâneo e, em seguida, criando um novo disco gerenciado a partir do instantâneo. Embora a criação de um instantâneo precise de mais algumas etapas, ele preserva o VHD original e fornece um retorno.
+
+- Use uma VM clássica e use o VHD para criar uma VM que usa o modelo de implantação do Resource Manager e discos gerenciados. Para obter melhores resultados, **pare** a VM clássica no portal do Azure antes de criar o instantâneo.
  
 - Você pode criar uma VM do Azure a partir de um VHD local fazendo o upload do VHD local e anexando-o a uma nova VM. Você usa o PowerShell ou outra ferramenta para carregar o VHD em uma conta de armazenamento e, em seguida, cria um disco gerenciado a partir do VHD. Para obter mais informações, consulte [carregar um VHD especializado](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 

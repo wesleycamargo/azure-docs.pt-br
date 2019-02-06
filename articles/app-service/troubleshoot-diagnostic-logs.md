@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807866"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904447"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -29,13 +29,13 @@ O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplic
 Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnóstico de servidor Web e diagnóstico de aplicativos
-O Serviço de Aplicativo fornece funcionalidade de diagnóstico para registrar informações do servidor Web e aplicativo Web. Estes estão logicamente separados em **diagnóstico de servidor Web** e **diagnóstico de aplicativos**.
+O Serviço de Aplicativo oferece funcionalidade de diagnóstico para informações de log do servidor Web e do aplicativo Web. Estes estão logicamente separados em **diagnóstico de servidor Web** e **diagnóstico de aplicativos**.
 
 ### <a name="web-server-diagnostics"></a>Diagnóstico de servidor Web
 Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
 * **Registro em Log Detalhado de Erros** - informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior). Pode conter informações que podem ajudar a determinar por que o servidor retornou o código de erro.
-* **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. É útil se você está tentando melhorar o desempenho do site ou isolar o que está causando o retorno de um erro específico de HTTP.
+* **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. Isso é útil se você quiser melhorar o desempenho do site ou isolar um erro HTTP específico.
 * **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o [formato de arquivo de log estendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil para determinar as métricas gerais do site, como o número de solicitações manipuladas e quantas solicitações existem vindas de um endereço IP específico.
 
 ### <a name="application-diagnostics"></a>Diagnóstico de aplicativo
@@ -45,7 +45,7 @@ O diagnóstico de aplicativo permite que você capture informações produzidas 
 
 Em tempo de execução, você pode recuperar esses logs para ajudar na solução de problemas. Para obter mais informações, consulte [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-O Serviço de Aplicativo também registra informações de implantação quando você publica conteúdo em um aplicativo. Acontece automaticamente e não há definições de configuração para log de implantação. O log de implantação permite que você determine por que uma implantação falhou. Por exemplo, se está usando um script de implantação personalizado, você poderá usar o log de implantação para determinar por que o script está falhando.
+O Serviço de Aplicativo também registra informações de implantação ao publicar conteúdo em um aplicativo. Acontece automaticamente e não há definições de configuração para log de implantação. O log de implantação permite que você determine por que uma implantação falhou. Por exemplo, se você usar um script de implantação personalizado, use o log de implantação para determinar por que o script está falhando.
 
 ## <a name="enablediag"></a>Como habilitar o diagnóstico
 Para habilitar o diagnóstico no [portal do Azure](https://portal.azure.com), vá até a página do aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
@@ -53,12 +53,16 @@ Para habilitar o diagnóstico no [portal do Azure](https://portal.azure.com), v�
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de logs](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível**. Essa configuração permite que você filtre as informações capturadas como **informativas**, de **aviso** ou de **erro**. Configurar para **detalhado** fará o registro de toda informação produzida pelo aplicativo.
+Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível**. A tabela a seguir mostra as categorias de logs que cada nível inclui:
 
-> [!NOTE]
-> Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
->
->
+| Nível| Categorias de log incluídas |
+|-|-|
+|**Desabilitado** | Nenhum |
+|**Erro** | Erro, Crítico |
+|**Aviso** | Aviso, Erro, Crítico|
+|**Informações** | Informações, Aviso, Erro, Crítico|
+|**Detalhado** | Rastreamento, Depuração, Informações, Aviso, Erro, Crítico (todas as categorias) |
+|-|-|
 
 Para **Log do aplicativo**, você pode ativar a opção do sistema de arquivos temporariamente para fins de depuração. Esta opção é desativada automaticamente em 12 horas. Você também pode ativar a opção de armazenamento de blob para selecionar um contêiner de blob para gravar logs.
 
@@ -89,7 +93,7 @@ Enquanto ambos os locais de armazenamento fornecem as mesmas informações bási
 > As informações armazenadas no **armazenamento de blobs** só podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar o armazenamento de blobs, e o HDInsight pode acessar os dados armazenados no armazenamento de blobs. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Como baixar logs
+## <a name="download"></a> Como: baixar logs
 Informações de diagnóstico armazenadas no sistema de arquivos do aplicativo podem ser diretamente acessadas usando FTP. Além disso, pode ser baixado como um arquivo Zip usando a CLI do Azure.
 
 A estrutura de diretórios onde os logs estão armazenados é a seguinte:
@@ -130,7 +134,7 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 
 [Saiba mais sobre desempenho de rastreamento com o Application Insights](../azure-monitor/app/azure-web-apps.md)
 
-## <a name="streamlogs"></a> Como Transmitir logs
+## <a name="streamlogs"></a> Como: Transmitir logs
 Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. É possível transmitir informações de registro para o ambiente de desenvolvimento usando a CLI do Azure.
 
 > [!NOTE]
@@ -161,7 +165,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** 
 >
 >
 
-## <a name="understandlogs"></a> Como compreender os logs de diagnóstico
+## <a name="understandlogs"></a> Como: compreender os logs de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Logs de diagnóstico de aplicativo
 O diagnóstico de aplicativo armazena informações em um formato específico para aplicativos .NET, dependendo se você armazena logs no sistema de arquivos ou no armazenamento de blobs. 
 

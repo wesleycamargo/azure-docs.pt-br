@@ -1,6 +1,6 @@
 ---
-Título: Usar os exemplos de conjuntos de dados – titleSuffix: Descrição do Azure Machine Learning Studio: Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio. É possível usar esses conjuntos de dados de exemplo para seus testes.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Usar os exemplos de conjuntos de dados – titleSuffix: Descrição do Azure Machine Learning Studio: Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio. É possível usar esses conjuntos de dados de exemplo para seus testes.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 19/01/2018
 ---

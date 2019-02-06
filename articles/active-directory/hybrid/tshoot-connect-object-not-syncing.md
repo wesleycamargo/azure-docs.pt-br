@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478647"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296589"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
@@ -28,6 +28,34 @@ Se um objeto não está sincronizando com o Azure AD como esperado, isso pode se
 
 >[!IMPORTANT]
 >Para a implantação do AAD (Azure Active Directory) Connect com a versão 1.1.749.0 ou posterior, use a [tarefa de solução de problemas](tshoot-connect-objectsync.md) no assistente para solucionar problemas de sincronização de objetos. 
+
+## <a name="synchronization-process"></a>Processo de Sincronização
+
+Antes de investigar problemas de sincronização, vamos entender o processo de Sincronização do **Azure AD Connect**:
+
+  ![Processo de Sincronização do Azure AD Connect](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**Terminologia**
+
+* **CS:** Espaço do Conector, uma tabela no banco de dados.
+* **MV:** Metaverso, uma tabela no banco de dados.
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**Etapas de Sincronização**
+O processo de sincronização envolve as seguintes etapas:
+
+1. **Importar do AD:** objetos do **Active Directory** são trazidos para o **AD CS**.
+
+2. **Importar do AAD:** objetos do **Azure Active Directory** são trazidos para o **AAD CS**.
+
+3. **Sincronização:** **Regras de Sincronização de Entrada** e **Regras de Sincronização de Saída** são executadas na ordem de número de precedência da menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
+
+4. **Exportar para o AD:** depois de executar a sincronização, os objetos são exportados do AD CS para o **Active Directory**.
+
+5. **Exportar para o AAD:** depois de executar a sincronização, os objetos são exportados do AAD CS para o **Azure Active Directory**.
+
+## <a name="troubleshooting"></a>solução de problemas
 
 Para encontrar os erros, você observará alguns lugares diferentes na seguinte ordem:
 
@@ -123,7 +151,28 @@ No **Synchronization Service Manager**, clique em **Pesquisa de Metaverso**. Cri
 
 Na janela **Resultados da Pesquisa**, clique no objeto.
 
-Se você não encontrou o objeto, isso indica que ele ainda não chegou ao metaverso. Continue pesquisando o objeto no [espaço conector](#connector-space-object-properties) do Active Directory. Pode haver um erro de sincronização que está impedindo a chegada do objeto ao metaverso ou pode haver um filtro aplicado.
+Se você não encontrou o objeto, isso indica que ele ainda não chegou ao metaverso. Continue pesquisando o objeto no **espaço conector** do [Active Directory](#connector-space-object-properties). Se você localizar o objeto no espaço do conector do **Active Directory**, poderá haver um erro de sincronização impedindo o objeto de vir para o metaverso ou pode haver um filtro de definição de escopo de regra de sincronização aplicado.
+
+### <a name="object-not-found-in-the-mv"></a>Objeto não encontrado no MV
+Se o objeto estiver no **Active Directory** CS, porém não estiver presente no MV, o filtro de escopo será aplicado. 
+
+* Para examinar o filtro de escopo vá para o menu de aplicativo da área de trabalho e clique em **Editor de Regras de Sincronização**. Filtre as regras aplicáveis ao objeto ajustando o filtro abaixo.
+
+  ![Pesquisa de Regras de Sincronização de Entrada](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* Exiba cada regra na lista acima e verifique o **Filtro de escopo**. No filtro de escopo abaixo, se o valor **isCriticalSystemObject** for nulo ou FALSE ou estiver vazio, ele estará no escopo.
+
+  ![Pesquisa de Regras de Sincronização de Entrada](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Vá para a lista de atributos [Importação do CS](#cs-import) e verifique qual filtro está impedindo o objeto de ir para o MV. Essa parte da lista de atributos do **Espaço do Conector** mostrará somente atributos não nulos e não vazios. Por exemplo, se **isCriticalSystemObject** não está aparecendo na lista, isso significa que o valor desse atributo é nulo ou vazio.
+
+### <a name="object-not-found-in-the-aad-cs"></a>Objeto não encontrado no AAD CS
+Se o objeto não está presente no **Espaço do Conector** do **Azure Active Directory**. No entanto, está presente no MV, então, examine o filtro de escopo das regras de **Saída** do **Espaço do Conector** correspondente e verifique se o objeto é filtrado porque os [Atributos do MV](#mv-attributes) não atendem aos critérios.
+
+* Para ver o filtro de escopo de saída, selecione as regras aplicáveis ao objeto ajustando o filtro abaixo. Exiba cada regra e veja o valor do [atributo do MV](#mv-attributes) correspondente.
+
+  ![Pesquisa de Regras de Sincronização de Saída](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>Atributos do MV
  Na guia Atributos, é possível ver os valores e qual Conector os forneceu.  

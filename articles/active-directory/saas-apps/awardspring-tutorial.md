@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: f75c14989b46721e7043c06086cac02222f452a5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d633a9a4d162b921c360572ea8c6a942e4788d54
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431310"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Tutorial: Integração do Azure Active Directory ao AwardSpring
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar AwardSpring da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Informações de logon único em Domínio e URLs do AwardSpring](./media/awardspring-tutorial/tutorial_awardspring_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
 
@@ -138,7 +138,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     > [!NOTE]
     > O atributo StudentID está mapeado com a ID do estudante real que precisa ser repassado em declarações. Contate a [equipe de suporte ao Cliente do AwardSpring](mailto:support@awardspring.com) para obter esse valor.
 
-    a. Remova os atributos existentes e adicione novos atributos. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Remova os atributos existentes e adicione novos atributos. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/awardspring-tutorial/tutorial_attribute_04.png)
 
@@ -199,7 +199,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no AwardSpring. O AwardSpring dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o AwardSpring, caso ele ainda não exista.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte do AwardSpring](maito:support@awardspring.com).
+>Caso precise criar um usuário manualmente, contate a  [equipe de suporte do AwardSpring](maito:support@awardspring.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -236,7 +236,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco AwardSpring no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo AwardSpring.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

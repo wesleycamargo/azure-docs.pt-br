@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: df0b031e432c91897ff61e2cd9fcadc86bb54ee2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036861"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453596"
 ---
-# <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Usar o gerenciador do Azure Cosmos DB para gerenciar os dados 
+# <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com os dados usando o Azure Cosmos Explorer 
 
 O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB. O gerenciador do Azure Cosmos DB é equivalente à guia **Data Explorer** existente disponível no portal do Azure quando você cria uma conta do Azure Cosmos DB. As principais vantagens do gerenciador do Azure Cosmos DB sobre o gerenciador de Data Explorer são:
 

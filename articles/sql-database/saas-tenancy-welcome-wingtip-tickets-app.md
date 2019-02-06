@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056311"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462130"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip Tickets SaaS
 
@@ -46,7 +46,7 @@ Confira os [tutoriais] [ docs-tutorials-for-wingtip-dpt] e o código no GitHub [
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de bancos de dados multilocatários compartilhados
 
-Bancos de dados multilocatários são eficientes para provedores de serviço que buscam um menor custo por locatário e que de acordo com o isolamento de locatários reduzido. Esse padrão permite empacotar grandes números de locatários em um único banco de dados, reduzindo o custo por locatário. A escala quase infinita é possível pela fragmentação de locatários entre diversos bancos de dados. Um banco de dados do catálogo mapeia os locatários para os bancos de dados.  
+Bancos de dados multilocatários são eficientes para provedores de serviço que buscam um menor custo por locatário e que de acordo com o isolamento de locatários reduzido. Esse padrão permite empacotar grandes números de locatários em um banco de dados individual, reduzindo o custo por locatário. A escala quase infinita é possível pela fragmentação de locatários entre diversos bancos de dados. Um banco de dados do catálogo mapeia os locatários para os bancos de dados.  
 
 Esse padrão também permite um modelo *híbrido* no qual você pode otimizar para economizar com vários locatários em um banco de dados ou otimizar para o isolamento com um único locatário em seu próprio banco de dados. A escolha pode ser feita com base em locatário por locatário, seja quando o locatário for provisionado ou mais tarde, sem nenhum impacto no aplicativo.  Esse modelo pode ser usado com eficiência quando grupos de locatários precisam ser tratados de modo diferente. Por exemplo, locatários de baixo custo podem ser atribuídos a bancos de dados compartilhados, enquanto locatários premium podem ser atribuídos a seus próprios bancos de dados. 
 

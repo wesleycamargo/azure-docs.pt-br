@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124976"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458511"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>3.0 da API de tradução de texto: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>API de Tradução de Texto 3.0: BreakSentence
 
 Identifica o posicionamento dos limites de frase em uma parte do texto.
 
@@ -94,13 +94,13 @@ As seguintes limitações se aplicam:
 
 Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `sentLen`: uma matriz de inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase. 
+  * `sentLen`: Uma matriz de inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença. 
 
   * `detectedLanguage`: um objeto que descreve o idioma detectado por meio das seguintes propriedades:
 
-     * `language`: o código do idioma detectado.
+     * `language`: O código do idioma detectado.
 
-     * `score`: um valor de float indicando a confiança no resultado. A pontuação fica entre zero e um e uma pontuação baixa indica uma baixa confiança.
+     * `score`: um valor flutuante indicando a confiança no resultado. A pontuação é entre zero e um, e uma pontuação baixa indica uma baixa confiança.
      
     Observe que a propriedade `detectedLanguage` só está presente no objeto do resultado quando é solicitada a detecção automática de idioma.
 

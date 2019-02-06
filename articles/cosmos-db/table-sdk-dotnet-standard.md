@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 7ccc9793bd1c4a345098892e66be15228efcc265
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: ce7cc489b107ce4bd95270b9a7f8cb560a2d2398
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844561"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249639"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard de Tabela do Azure Cosmos DB: download e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -33,15 +33,18 @@ ms.locfileid: "54844561"
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Adicione suporte para o token SAS, operações de TablePermissions, ServiceProperties e ServiceStats nos pontos de extremidade da tabela de Armazenamento do Azure. 
-   > [!NOTE] Ainda não há suporte para algumas funcionalidades em SDKs anteriores de tabela do Armazenamento do Azure, como a criptografia do lado do cliente.
+   > [!NOTE]
+   > Ainda não há suporte para algumas funcionalidades em SDKs anteriores de tabela do Armazenamento do Azure, como a criptografia do lado do cliente.
 
 ### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-preview
 * Adicione suporte para as principais operações CRUD, lote e consulta nos pontos de extremidade de tabela do Armazenamento do Azure. 
-   > [!NOTE] Ainda não há suporte para algumas funcionalidades em SDKs anteriores de tabela do Armazenamento do Azure, como a criptografia do lado do cliente.
+   > [!NOTE]
+   > Ainda não há suporte para algumas funcionalidades em SDKs anteriores de tabela do Armazenamento do Azure, como a criptografia do lado do cliente.
 
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-preview
 * O SDK do .NET Standard da Tabela do Azure Cosmos DB é uma biblioteca .NET de plataforma cruzada que fornece acesso eficiente ao modelo de dados Tabela no Cosmos DB. A versão inicial dá suporte ao conjunto completo de funcionalidades de CRUD de Tabela e Entidade + Consulta com APIs semelhantes aos do [SDK da Tabela do Cosmos DB para .NET Framework](table-sdk-dotnet.md). 
-   > [!NOTE] Ainda não há suporte para os pontos de extremidade da Tabela de Armazenamento do Azure na versão 0.9.1-preview.
+   > [!NOTE]
+   >  Os pontos de extremidade da Tabela de Armazenamento do Azure ainda não têm suporte na versão 0.9.1-preview.
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
 A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.

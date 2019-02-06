@@ -1,6 +1,6 @@
 ---
-Título: Criando pontos de extremidade de serviço Web – titleSuffix: Descrição do Azure Machine Learning Studio: Criando pontos de extremidade de serviço Web no Azure Machine Learning. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Criando pontos de extremidade de serviço Web – titleSuffix: Descrição do Azure Machine Learning Studio: Criando pontos de extremidade de serviço Web no Azure Machine Learning. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/10/2016
 ---

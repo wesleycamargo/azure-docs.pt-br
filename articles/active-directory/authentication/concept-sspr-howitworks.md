@@ -3,19 +3,19 @@ title: Mergulho Profundo com Senhas de Autoatendimento do Active Directory do Az
 description: Como a redefinição de senha de autoatendimento funciona
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475169"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha self-service do Azure AD
 
@@ -50,7 +50,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
        * Se os métodos de autenticação não estiverem configurados, o usuário é aconselhado a entrar em contato com o administrador para redefinir sua senha.
      * Se a política exigir dois métodos, ela garantirá que o usuário tenha os dados apropriados definidos para pelo menos dois dos métodos de autenticação habilitados pela política do administrador.
        * Se os métodos de autenticação não estiverem configurados, o usuário é aconselhado a entrar em contato com o administrador para redefinir sua senha.
-     * Se uma função de administrador do Azure for atribuída ao usuário, a diretiva de senha de duas portas será imposta. Mais informações sobre essa política podem ser encontradas na seção [Diferenças da política de redefinição do administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+     * Se uma função de administrador do Azure for atribuída ao usuário, a política de senha forte de duas portas será imposta. Mais informações sobre essa política podem ser encontradas na seção [Diferenças da política de redefinição do administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Verifica se a senha do usuário é gerenciada no local (federado, autenticação de passagem ou sincronizada com hash de senha).
      * Se o write-back estiver implantado e a senha do usuário for gerenciada localmente, o usuário poderá continuar a autenticação e a redefinição de sua senha.
      * Se o write-back não estiver implantado e a senha do usuário for gerenciada localmente, o usuário deverá contatar o administrador para redefinir sua senha.
@@ -84,7 +84,7 @@ Se um usuário não tiver os métodos mínimos necessários registrados, ele ver
 
 #### <a name="mobile-app-and-sspr-preview"></a>Aplicativo para dispositivos móveis e SSPR (visualização)
 
-Ao usar um aplicativo para dispositivos móveis, como o aplicativo Microsoft Authenticator, como um método de redefinição de senha, você deve estar ciente do seguinte:
+Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um método de redefinição de senha, você deve estar ciente das seguintes advertências:
 
 * Quando os administradores exigem que um método seja usado para redefinir uma senha, o código de verificação é a única opção disponível.
 * Quando os administradores exigem dois métodos a ser usado para redefinir uma senha, os usuários são capazes de usar **um** notificação **ou** habilitado de código de verificação além de quaisquer outros métodos.
@@ -119,7 +119,7 @@ Exemplo:
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
 
-A ativação dessa opção exige que um usuário conclua o registro de redefinição de senha se entrar em qualquer aplicativo usando o Azure AD. Isso inclui os seguintes aplicativos:
+A ativação dessa opção exige que um usuário conclua o registro de redefinição de senha se entrar em qualquer aplicativo usando o Azure AD. Esse fluxo de trabalho inclui os seguintes aplicativos:
 
 * Office 365
 * Portal do Azure
@@ -132,7 +132,7 @@ Ao exigir que o registro seja desativado, os usuários podem registrar-se manual
 > [!NOTE]
 > Os usuários podem ignorar o portal de registro de redefinição de senha selecionando **cancelar** ou fechando a janela. Mas eles são solicitados a registrar cada vez que entrar até que eles concluir seu registro.
 >
-> Isso não interromperá conexão do usuário se ele já estiver conectado.
+> Essa interrupção não rompe a conexão do usuário se ele já está conectado.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
 
@@ -169,7 +169,7 @@ Esta página fornece um status rápido do cliente de write-back no local, uma da
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Write-back de senhas para o diretório local
 
-Este controle determina se o write-back de senha está habilitado para este diretório. Se o write-back estiver ativado, ele indica o status do serviço de write-back local. Isso será útil se você desejar desabilitar o write-back de senha temporariamente sem precisar reconfigurar o Azure AD Connect.
+Este controle determina se o write-back de senha está habilitado para este diretório. Se o write-back estiver ativado, ele indica o status do serviço de write-back local. Esse controle será útil se você desejar desabilitar o write-back de senha temporariamente sem precisar reconfigurar o Azure AD Connect.
 
 * Se a opção estiver definida para **Sim**, o write-back será habilitado e os usuários federados, com autenticação de passagem ou sincronizados com hash de senha poderão redefinir suas senhas.
 * Se a opção estiver definida para **Não**, o write-back será habilitado e os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não poderão redefinir suas senhas.
@@ -180,6 +180,10 @@ Esse controle designa se os usuários que visitam o portal de redefinição de s
 
 * Se for definida para **Sim**, então, os usuários terão a opção de redefinir sua senha e desbloquear a conta, ou desbloquear sua conta sem precisar redefinir a senha.
 * Se for definida para **Não**, os usuários só poderão executar uma operação combinada de redefinição de senha e de desbloqueio de conta.
+
+### <a name="on-premises-active-directory-password-filters"></a>Filtros de senha do Active Directory local
+
+A redefinição de senha self-service do Azure AD executa o equivalente a uma redefinição de senha iniciada pelo administrador no Active Directory. Se você estiver usando um filtro de senha de terceiros para impor regras de senha personalizadas e precisar que esse filtro de senha seja verificado durante a redefinição de senha self-service do Azure AD, verifique se a solução de filtro de senha de terceiros está configurada para ser aplicada no cenário de redefinição de senha de administrador. A [proteção por senha do Azure AD para o Active Directory do Windows Server](concept-password-ban-bad-on-premises.md) é compatível por padrão.
 
 ## <a name="password-reset-for-b2b-users"></a>Redefinição de senha para usuários B2B
 

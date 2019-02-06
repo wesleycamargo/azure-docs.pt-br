@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254461"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168236"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 ====================================
@@ -106,7 +106,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
    ![Selecionar país/região](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Países para “Origem de venda”: para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda" mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
+    >Países de "origem de venda": Para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser proveniente de um dos países aprovados para "origem de venda" mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
 
 5. Selecione **Empresa** como seu "Tipo de conta" e selecione **Avançar**.
 
@@ -181,7 +181,8 @@ Para publicar ofertas comerciais para compra, será preciso adicionar informaç�
     - Selecione **Avançar**.
 4.  Insira seus detalhes fiscais e, em seguida, clique em **Próximo**.
 
->[AVISO!] Você não poderá enviar suas ofertas comerciais por push para produção sem fornecer informações fiscais e bancárias em sua conta do Centro de Desenvolvimento da Microsoft.
+>[!WARNING]
+>Você não poderá enviar suas ofertas comerciais por push para produção sem fornecer informações fiscais e de conta bancária em sua conta do Centro de Desenvolvedores da Microsoft.
 
 ### <a name="developer-center-registration-issues"></a>Problemas de registro do Centro de Desenvolvimento
 

@@ -1,5 +1,5 @@
 ---
-title: Como analisar logs de atividade do Azure Active Directory usando o Log Analytics (versão prévia) | Microsoft Docs
+title: Analisar logs de atividades do Azure Active Directory usando o Log Analytics (versão prévia) | Microsoft Docs
 description: Saiba como analisar logs de atividade do Azure Active Directory usando o Log Analytics (versão prévia)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a508c8a2bb4a28372f5dd8f833f6e55adc3c39ed
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810764"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158733"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analisar logs de atividade do Azure AD com o Log Analytics (versão prévia)
 
@@ -93,7 +93,7 @@ Você também pode configurar alertas em sua consulta. Por exemplo, para configu
 
 Você também pode baixar as exibições do Log Analytics predefinidas para logs de atividades do Azure AD. As exibições fornecem vários relatórios relacionados a cenários comuns que envolvem eventos de auditoria e entrada. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
 
-* **Eventos de provisionamento de conta do Azure AD**: essa exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização, além de número de usuários desprovisionados e falhas correspondentes.    
+* **Eventos de provisionamento de conta do Azure AD**: Essa exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização, além de número de usuários desprovisionados e falhas correspondentes.    
 * **Eventos de entradas**: essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida de acompanhamento do número de entradas ao longo do tempo.
 * **Usuários que executam o consentimento**: essa exibição mostra os relatórios relacionados ao consentimento do usuário, como o consentimento dados por usuário, entradas por usuários que recebeu consentimento, bem como entradas por aplicativo para todos os aplicativos baseados em consentimento. 
 

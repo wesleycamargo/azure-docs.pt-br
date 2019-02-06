@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651038"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463745"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC
 
@@ -47,7 +47,7 @@ Para exportar um banco de dados usando o [Portal do Azure](https://portal.azure.
 
 ![Exportação de banco de dados](./media/sql-database-export/database-export.png)
 
-Para monitorar o progresso da operação de exportação, abra a página para o servidor lógico que contém o banco de dados que está sendo exportado. Role para baixo até **Operações** e, em seguida, clique em **Importar/Exportar histórico**.
+Para monitorar o progresso da operação de exportação, abra a página para o servidor de Banco de Dados SQL que contém o banco de dados que está sendo exportado. Role para baixo até **Operações** e, em seguida, clique em **Importar/Exportar histórico**.
 
 ![exportar histórico](./media/sql-database-export/export-history.png)
 ![exportar status de histórico](./media/sql-database-export/export-history2.png)
@@ -97,7 +97,7 @@ $exportStatus
 
 - Para saber mais sobre retenção de backup de longo prazo de um backup do Banco de Dados SQL do Azure como uma alternativa para a exportação de um banco de dados para fins de arquivamento, confira [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
 - Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC).
-- Para saber mais sobre como importar um BACPAC para um Banco de Dados do SQL Server, confira [Importar um BACPAC para um banco de dados do SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
+- Para saber mais sobre como importar um BACPAC para um banco de dados do SQL Server, confira [Importar um BACPAC para um banco de dados do SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 - Para saber mais sobre como exportar um BACPAC de um banco de dados do SQL Server, veja [Exportar um aplicativo da camada de dados](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Para saber mais sobre como usar o serviço de migração de dados para migrar um banco de dados, veja [Migrar o SQL Server para o banco de dados do SQL Azure offline usando o DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 - Se você estiver exportando do SQL Server como um prelúdio para a migração para o Banco de Dados SQL do Azure, confira [Migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).

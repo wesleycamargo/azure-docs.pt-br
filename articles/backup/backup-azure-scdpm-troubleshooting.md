@@ -2,18 +2,18 @@
 title: Solucionar problemas do DPM (System Center Data Protection Manager) com Azure Backup
 description: Solucione problemas do System Center Data Protection Manager.
 services: backup
-author: adigan
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/24/2017
-ms.author: adigan
-ms.openlocfilehash: d3776df8184523999433059e95bc72e1d3abb1c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606436"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293988"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Solucionar Problemas do System Center Data Protection Manager
 
@@ -22,7 +22,7 @@ Este artigo descreve soluções para problemas que você pode encontrar ao usar 
 Para obter as notas de versão mais recentes para o System Center Data Protection Manager, veja a [documentação do System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Você pode aprender mais sobre o suporte para o Data Protection Manager [nesta matriz](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
-## <a name="error-replica-is-inconsistent"></a>Erro: a réplica é inconsistente
+## <a name="error-replica-is-inconsistent"></a>Erro: A réplica está inconsistente
 
 Uma réplica pode ser inconsistente pelos seguintes motivos:
 - O trabalho de criação da réplica falha.
@@ -42,7 +42,7 @@ Para resolver esse problema, faça o seguinte:
 - Verifique se o disco está íntegro e se há espaço suficiente para a réplica.
 - Confirme que nenhum trabalho de backup duplicado é executado simultaneamente.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Erro: falha na criação do ponto de recuperação online
+## <a name="error-online-recovery-point-creation-failed"></a>Erro: Falha na criação de ponto de recuperação online
 
 Para resolver esse problema, faça o seguinte:
 - Verifique se você está usando a versão mais recente do agente de Backup do Azure.
@@ -53,7 +53,7 @@ Para resolver esse problema, faça o seguinte:
 - Verifique se a réplica está presente e não ausente.
 - Verifique se a réplica tem espaço suficiente para criar o diário de USN (números de sequência de atualização).
 
-## <a name="error-unable-to-configure-protection"></a>Erro: não é possível configurar a proteção
+## <a name="error-unable-to-configure-protection"></a>Erro: Não é possível configurar a proteção
 
 Esse erro ocorre quando o servidor do Data Protection Manager não é capaz de contatar o servidor protegido. 
 

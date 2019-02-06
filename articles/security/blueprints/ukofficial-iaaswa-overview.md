@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413389"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239903"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Blueprint de conformidade e segurança do Azure - Aplicativo Web de IaaS de três camadas para OFICIAL DO REINO UNIDO
 
@@ -204,7 +204,7 @@ Os clientes podem optar por usar um [modelo administrativo de segurança aprimor
 
 **Separação de preocupações**: Essa arquitetura de referência separa as VNETs entre operações de gerenciamento e operações de negócios. A separação de VNets e sub-redes permitem o gerenciamento de tráfego, incluindo restrições de entrada e saída de tráfego, usando os NSGs entre segmentos de rede, seguindo as melhores práticas de [segurança de rede e serviços de nuvem da Microsoft](https://docs.microsoft.com/azure/best-practices-network-security).
 
-**Gerenciamento de Recursos**: Recursos do Azure, como VMs, VNETs e balanceadores de carga, são gerenciados juntos em [Grupos de Recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). As funções Controle de Acesso Baseado em Recursos podem ser atribuídas a cada grupo de recursos para restringir o acesso somente a usuários autorizados.
+**Gerenciamento de Recursos**: Recursos do Azure, como VMs, VNETs e balanceadores de carga, são gerenciados juntos em [Grupos de Recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). As funções Controle de Acesso Baseado em Recursos podem ser atribuídas a cada grupo de recursos para restringir o acesso somente a usuários autorizados.
 
 **Restrições de Controle de Acesso**: Use o [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (Controle de Acesso Baseado em Função) para gerenciar os recursos em seu aplicativo usando [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). O RBAC pode ser usado para restringir as operações que o DevOps pode executar em cada camada. Ao conceder permissões, use o [princípio de privilégios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre em log todas as operações administrativas e execute auditorias regulares para confirmar se todas as alterações de configuração foram planejadas.
 

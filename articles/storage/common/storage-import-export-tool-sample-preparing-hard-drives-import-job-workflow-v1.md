@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527279"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459037"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação
 Este tópico explica o processo completo de preparar unidades para um trabalho de importação.  
@@ -67,11 +67,11 @@ Neste exemplo, duas unidades de disco rígido de 3 TB devem ser suficientes. No 
   
 Além disso, você pode definir os metadados para todos os arquivos a seguir:  
   
--   **UploadMethod:** serviço de Importação/Exportação do Windows Azure  
+-   **UploadMethod:** Serviço de Importação/Exportação do Microsoft Azure  
   
 -   **DataSetName:** SampleData  
   
--   **CreationDate:** 10/1/2013  
+-   **CreationDate:** 1/10/2013  
   
 Para definir metadados para os arquivos importados, crie um arquivo de texto `c:\WAImportExport\SampleMetadata.txt`, com o seguinte conteúdo:  
   
@@ -169,4 +169,4 @@ Depois de concluir as sessões de cópia, você pode desconectar as duas unidade
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Preparação de discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Referência rápida para comandos usados frequentemente](../storage-import-export-tool-quick-reference-v1.md) 
+* [Referência rápida para comandos usados frequentemente](../storage-import-export-tool-quick-reference-v1.md) 

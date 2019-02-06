@@ -1,6 +1,6 @@
 ---
 title: Grupos de failover – Banco de Dados SQL do Azure | Microsoft Docs
-description: O grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover automático/coordenado de um grupo de bancos de dados em um servidor lógico ou todos os bancos de dados na instância gerenciada.
+description: Os grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover automático/coordenado de um grupo de bancos de dados em um servidor de Banco de Dados SQL ou todos os bancos de dados na instância gerenciada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033801"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468692"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
-O grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover de um grupo de bancos de dados em um servidor lógico ou todos os bancos de dados em uma Instância Gerenciada para outra região (atualmente em versão prévia pública para a Instância Gerenciada). Ele usa a mesma tecnologia subjacente da [replicação geográfica ativa](sql-database-active-geo-replication.md). Você pode iniciar o failover manualmente ou pode delegá-lo para o serviço de Banco de Dados SQL com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
+Os grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover de um grupo de bancos de dados em um servidor do Banco de Dados SQL ou todos os bancos de dados em uma Instância Gerenciada para outra região (atualmente em versão prévia pública para a Instância Gerenciada). Ele usa a mesma tecnologia subjacente da [replicação geográfica ativa](sql-database-active-geo-replication.md). Você pode iniciar o failover manualmente ou pode delegá-lo para o serviço de Banco de Dados SQL com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
 
 > [!NOTE]
-> Ao trabalhar com bancos de dados individuais ou em pool em um servidor lógico, se você quiser vários secundários nas mesmas regiões ou em regiões diferentes, use a [replicação geográfica ativa](sql-database-active-geo-replication.md).
+> Ao trabalhar com bancos de dados autônomos ou em pool em um servidor do Banco de Dados SQL, se você quiser vários secundários nas mesmas regiões ou em regiões diferentes, use a [replicação geográfica ativa](sql-database-active-geo-replication.md).
 
 Ao usar grupos de failover automático com uma política de failover automático, qualquer interrupção que afete um ou vários bancos de dados no grupo resultar em failover automático. Além disso, os grupos de failover automático fornecem pontos de extremidade de ouvinte de leitura/gravação e somente leitura que permanecem inalterados durante failovers. Não importa se você usa a ativação de failover manual ou automática, o failover alterna todos os bancos de dados secundários no grupo para primário. Após o failover de banco de dados ser concluído, o registro DNS é atualizado automaticamente para redirecionar os pontos de extremidade para a nova região. Para os dados específicos de RPO e RTO, confira [Visão geral da continuidade de negócios](sql-database-business-continuity.md).
 
-Ao usar grupos de failover automático com uma política de failover automático, qualquer interrupção que afete bancos de dados no servidor lógico ou na instância gerenciada resulta em um failover automático. Você pode gerenciar o grupo de failover automático usando:
+Ao usar grupos de failover automático com uma política de failover automático, qualquer interrupção que afete bancos de dados no servidor de Banco de Dados SQL ou na instância gerenciada resulta em um failover automático. Você pode gerenciar o grupo de failover automático usando:
 
 - O [Portal do Azure](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: Grupo de failover](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,11 +42,11 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 - **Grupo de failover**
 
-  Um grupo de failover é um grupo de bancos de dados gerenciados por um único servidor lógico ou dentro de uma única instância gerenciada que pode fazer failover como uma unidade para outra região caso alguns ou todos os bancos de dados primários não estejam disponíveis devido a uma interrupção na região primária.
+  Um grupo de failover é um grupo de bancos de dados gerenciados por um único servidor de Banco de Dados SQL ou dentro de uma única instância gerenciada que pode fazer failover como uma unidade para outra região caso alguns ou todos os bancos de dados primários não estejam disponíveis devido a uma interrupção na região primária.
 
-  - **Servidores lógicos**
+  - **Servidores de Banco de Dados SQL**
 
-     Com servidores lógicos, alguns ou todos os bancos de dados do usuário em um único servidor podem ser colocados em um grupo de failover. Além disso, um servidor lógico dá suporte a vários grupos de failover em um único servidor.
+     Com servidores de Banco de Dados SQL, alguns ou todos os bancos de dados do usuário em um único servidor podem ser colocados em um grupo de failover. Além disso, um servidor de Banco de Dados SQL dá suporte a vários grupos de failover em um único servidor de Banco de Dados SQL.
 
   - **Instâncias Gerenciadas**
   
@@ -54,15 +54,15 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 - **Primário**
 
-  Um servidor lógico ou Instância Gerenciada que hospeda os bancos de dados primários no grupo de failover.
+  A Instância Gerenciada ou servidor de Banco de Dados SQL que hospeda os bancos de dados primários no grupo de failover.
 
 - **Secundário**
 
-  O servidor lógico ou Instância Gerenciada que hospeda os bancos de dados secundários no grupo de failover. O secundário não pode estar na mesma região do primário.
+  A Instância Gerenciada ou servidor de Banco de Dados SQL que hospeda os bancos de dados secundários no grupo de failover. O secundário não pode estar na mesma região do primário.
 
-- **Adicionar bancos de dados ao grupo de failover em um servidor lógico**
+- **Adicionar bancos de dados ao grupo de failover em um servidor de Banco de Dados SQL**
 
-  Você pode colocar vários bancos de dados em um servidor ou em um pool elástico no mesmo servidor lógico no mesmo grupo de failover. Se você adicionar um banco de dados individual ao grupo de failover, ele criará automaticamente um banco de dados secundário usando a mesma edição e tamanho de computação. Se o banco de dados primário estiver em um pool elástico, o banco de dados secundário é criado automaticamente no pool elástico com o mesmo nome. Se você adicionar um banco de dados que já possui um banco de dados secundário no servidor secundário, essa replicação geográfica é herdada pelo grupo. Quando você adiciona um banco de dados que já tem um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo banco de dados secundário é criado no servidor secundário.
+  Você pode colocar vários bancos de dados em um servidor ou em um pool elástico no mesmo servidor de Banco de Dados SQL no mesmo grupo de failover. Se você adicionar um banco de dados individual ao grupo de failover, ele criará automaticamente um banco de dados secundário usando a mesma edição e tamanho de computação. Se o banco de dados primário estiver em um pool elástico, o banco de dados secundário é criado automaticamente no pool elástico com o mesmo nome. Se você adicionar um banco de dados que já possui um banco de dados secundário no servidor secundário, essa replicação geográfica é herdada pelo grupo. Quando você adiciona um banco de dados que já tem um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo banco de dados secundário é criado no servidor secundário.
   
 > [!IMPORTANT]
   > Em uma Instância Gerenciada, todos os bancos de dados do usuário serão replicados. Você não pode escolher um subconjunto de bancos de dados de usuário para replicação no grupo de failover.
@@ -71,9 +71,9 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   Foi formado um registro CNAME de DNS que aponta para URL da réplica primária atual. Ele permite que os aplicativos de SQL de leitura/gravação se reconectem de forma transparente ao banco de dados primário quando o banco de dados primário for alterado após o failover.
 
-  - **Servidor lógico do registro DNS CNAME para o ouvinte de leitura/gravação**
+  - **Servidor de Banco de Dados SQL do registro DNS CNAME para o ouvinte de leitura/gravação**
 
-     Em um servidor lógico, o registro CNAME de DNS para o grupo de failover que aponta para a URL do primário atual é formado como `failover-group-name.database.windows.net`.
+     Em um servidor de Banco de Dados SQL, o registro CNAME de DNS para o grupo de failover que aponta para a URL do primário atual é formado como `failover-group-name.database.windows.net`.
 
   - **Instância Gerenciada do registro DNS CNAME para o ouvinte de leitura/gravação**
 
@@ -83,9 +83,9 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   Foi formado um registro CNAME de DNS que aponta ao ouvinte somente leitura que aponta à URL do secundário. Ele permite que os aplicativos SQL de somente leitura se conectem de forma transparente ao secundário usando as regras de balanceamento de carga especificadas.
 
-  - **Servidor lógico do registro DNS CNAME para o ouvinte somente leitura**
+  - **Servidor de Banco de Dados SQL do registro DNS CNAME para o ouvinte somente leitura**
 
-     Em um servidor lógico, o registro CNAME de DNS para o leitor somente leitura que aponta para a URL do secundário é formado como `failover-group-name.secondary.database.windows.net`.
+     Em um servidor de Banco de Dados SQL, o registro CNAME de DNS para o leitor somente leitura que aponta para a URL do secundário é formado como `failover-group-name.secondary.database.windows.net`.
 
   - **Instância Gerenciada do registro DNS CNAME para o ouvinte somente leitura**
 
@@ -128,7 +128,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Práticas recomendadas de como usar grupos de failover com bancos de dados individuais e pools elásticos
 
-O grupo de failover automático precisa ser configurado no servidor lógico primário e o conectará ao servidor lógico secundário em outra região do Azure.  Os grupos podem incluir alguns ou todos os bancos de dados nesses servidores. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando vários bancos de dados e um grupo de failover automático.
+O grupo de failover automático precisa ser configurado no servidor de Banco de Dados SQL primário e o conectará ao servidor de Banco de Dados SQL secundário em outra região do Azure.  Os grupos podem incluir alguns ou todos os bancos de dados nesses servidores. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando vários bancos de dados e um grupo de failover automático.
 
 ![failover automático](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -331,7 +331,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gerenciar grupos de failover de Banco de Dados SQL com bancos de dados individuais e em pool
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>API REST: Gerenciar grupos de failover de Banco de Dados SQL com bancos de dados autônomos e em pool
 
 | API | DESCRIÇÃO |
 | --- | --- |

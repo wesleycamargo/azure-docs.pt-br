@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900386"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166553"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -41,7 +41,7 @@ Acústica leva aproximadamente 0,01% da CPU por origem por quadro. Uso de RAM de
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>Preciso simplificar a geometria do nível? Contagem do triângulo de controle? Verifique as malhas watertight?
 
-Não. O sistema ingerirá geometria de nível detalhada diretamente. Será voxelizado para processamento interno.
+ Não. O sistema ingerirá geometria de nível detalhada diretamente. Será voxelizado para processamento interno.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>O que há na tabela de consulta de tempo de execução?
 
@@ -53,7 +53,7 @@ Sim, o plugin Unity spatializer da **Microsoft Acoustics** consulta a tabela de 
  
 ## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Pode lidar com geometria dinâmica? Fechando portas? Paredes surpreso?
 
-Não. Os parâmetros acústicos são pré-computados com base no estado estático de um nível de jogo. Sugerimos deixar a geometria da porta fora da acústica e, em seguida, aplicar oclusão adicional com base no estado de objetos de jogo destrutíveis e móveis usando técnicas estabelecidas.
+ Não. Os parâmetros acústicos são pré-computados com base no estado estático de um nível de jogo. Sugerimos deixar a geometria da porta fora da acústica e, em seguida, aplicar oclusão adicional com base no estado de objetos de jogo destrutíveis e móveis usando técnicas estabelecidas.
  
 ## <a name="does-it-handle-materials"></a>Ele manipula materiais?
 
@@ -69,7 +69,7 @@ O Project Acoustics fornece parâmetros acústicos precisos e confiáveis, mesmo
 
 ## <a name="what-exactly-happens-during-baking"></a>Exatamente, o que acontece durante "trazendo"?
 
-O sistema considera locais potenciais do jogador para gerar um conjunto de posições de amostra "sonda" uniformemente espaçadas. Um forno para um nível consiste em tarefas independentes para cada sonda: O sistema considera uma "Região de Simulação" cubóide centrada na sonda e faz uma simulação de onda detalhada dentro daquela região com resolução de até 25 cm.
+O sistema considera locais potenciais do jogador para gerar um conjunto de posições de amostra "sonda" uniformemente espaçadas. Um bake para um nível consiste em tarefas independentes para cada investigação: O sistema considera uma "Região de Simulação" cuboide centralizada na investigação e faz uma simulação de onda detalhada dentro dessa região com resolução de até 25 cm.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Explore o [cena de exemplo](sample-walkthrough.md)

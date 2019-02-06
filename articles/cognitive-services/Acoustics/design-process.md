@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 46e2e276086f836ff881fde1db6462f6e7788e22
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901355"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470477"
 ---
 # <a name="design-process-overview"></a>Visão geral do processo de design
 Você pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do Project Acoustics: configuração de cena pré-bake, posicionamento da fonte de som e design pós-bake. O processo requer menos marcação associada à colocação de volumes de reverberação, ao mesmo tempo em que retém o controle do designer sobre como uma cena é reproduzida.
@@ -64,21 +64,27 @@ O DSP de áudio fornecido pelo **plug-in de spatializer da Microsoft Acoustics**
 A acústica executa o cálculo em uma caixa de “região da simulação” centralizada em torno do local do player. Se uma fonte de som estiver distante do player, localizada fora dessa região de simulação, somente a geometria dentro da caixa afetará a propagação do som (como causar oclusão), o que funciona razoavelmente bem quando os oclusores estão nas proximidades do player. No entanto, nos casos em que o player está em espaço aberto, mas os oclusores estão perto da fonte de som distante, o som pode passar por uma desoclusão irreal. A solução sugerida é garantir, em tais casos, que a atenuação do som caia para 0 a cerca de 45 m, a distância horizontal padrão do player em relação à borda da caixa.
 
 ### <a name="tuning-scene-parameters"></a>Ajustar parâmetros de cena
-Para ajustar os parâmetros de todas as fontes, clique na faixa do canal no **Audio Mixer** da Unity e ajuste os parâmetros no efeito **Acoustics Mixer**.
+Para ajustar os parâmetros de todas as fontes, clique na faixa do canal no **Mixer de Áudio** do Unity e ajuste os parâmetros no efeito **Mixer do Projeto Acústico**.
 
 ![Personalização do Mixer](media/MixerParameters.png)
+
+* **Ajuste de Umidade** – ajusta o poder de reverberação, em dB, em todas as origens na cena com base na distância entre o ouvinte e a origem. Valores positivos emita um som mais reverberant, enquanto valores negativos emita um som mais dry.
+* **Escala de RT60** – escalar multiplicativo para tempo de reverberação.
+* **Usar o Balanço** – controla se o áudio será gerado como binaural (0) ou balanço multicanal (1). Qualquer valor além de 1 indica binaural. A saída binaural é espacializada com HRTFs para uso com fones de ouvido, enquanto a saída multicanal é espacializada com VBAP para uso com sistemas de alto-falantes surround multicanais. Se estiver usando o panner multicanal, não deixe de selecionar o modo de alto-falante que corresponde às configurações do dispositivo, encontradas em **Configurações do Projeto** > **Áudio**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### <a name="tuning-source-parameters"></a>Ajustar parâmetros de origem
 Anexar o script **AcousticsAdjust** a uma fonte ativa os parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior do painel **Inspector** e navegue até **Scripts > Acoustics Adjust**. O script tem seis controles:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Ativar Acústica** - Controla se a acústica é aplicada a essa fonte. Quando desmarcada, a fonte será espacializada com HRTFs, mas sem acústica, ou seja, sem obstrução, oclusão e parâmetros de reverberação dinâmica, como nível e tempo de decaimento. A reverberação ainda é aplicada com um nível fixo e tempo de decaimento.
+* **Ativar Acústica** - Controla se a acústica é aplicada a essa fonte. Quando desmarcada, a origem será espacializada com HRTFs ou movimento panorâmico, mas não haverá nenhuma acústica. Isso significa que não haverá nenhum parâmetro de obstrução, oclusão e reverberação dinâmica, tais como nível e tempo de decaimento. A reverberação ainda é aplicada com um nível fixo e tempo de decaimento.
 * **Occlusion** – aplique um multiplicador ao nível de dB de oclusão calculado pelo sistema acústico. Se esse multiplicador for maior que 1, a oclusão será exagerada, enquanto valores menores que 1 tornam o efeito de oclusão mais sutil e um valor 0 desabilita a oclusão.
 * **Transmission (dB)** – defina a atenuação (em dB) causada pela transmissão por meio de geometria. Defina esse controle deslizante para o nível mais baixo para desabilitar a transmissão. A acústica espacializa o áudio seco inicial ao chegar em torno da geometria da cena (portaling). A transmissão fornece uma chegada seca adicional que é espacializada na direção da linha de visão. A curva de atenuação de distância da fonte também é aplicada.
-* **Wetness (dB)** – ajusta a potência de reverberação, em dB, de acordo com a distância da fonte. Valores positivos emita um som mais reverberant, enquanto valores negativos emita um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curvas. Para modificar a curva, clique com o botão esquerdo do mouse para adicionar pontos e arraste-os para formar a função desejada. O eixo x é a distância da fonte e o eixo y é o ajuste de reverberação em dB. Confira este [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html) para mais detalhes sobre como editar curvas. Para redefinir a curva ao padrão, clique com o botão direito do mouse em **Wetness** e selecione **Reset**.
+* **Wetness (dB)** – ajusta a potência de reverberação, em dB, de acordo com a distância da fonte. Valores positivos emita um som mais reverberant, enquanto valores negativos emita um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curvas. Para modificar a curva, clique com o botão esquerdo do mouse para adicionar pontos e arraste-os para formar a função desejada. O eixo x é a distância da fonte e o eixo y é o ajuste de reverberação em dB. Para obter mais informações sobre como editar curvas, confira este [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Para redefinir a curva ao padrão, clique com o botão direito do mouse em **Wetness** e selecione **Reset**.
 * **Escala de tempo de decay** -ajusta um multiplicador para a hora de declínio. Por exemplo, se o resultado do coeficiente especificar um tempo de decaimento de 750 milissegundos, mas esse valor estiver definido como 1,5, o tempo de decaimento aplicado à fonte será de 1.125 milissegundos.
-* **Outdoorness** – um ajuste complementar à estimativa do sistema acústico sobre o modo como a reverberação em uma fonte soa “ao ar livre”. Definir essa configuração para 1 fará com que uma fonte sempre soe completamente ao ar livre, enquanto a definição para -1 fará com que a fonte soe internamente.
+* **Outdoorness** – um ajuste complementar à estimativa do sistema acústico sobre o modo como a reverberação em uma fonte soa “ao ar livre”. Definir esse valor para 1 fará com que uma fonte sempre soe como ao ar livre, enquanto a definição para -1 fará com que a fonte soe como interna.
 
 Fontes diferentes podem exigir configurações diferentes para alcançar certos efeitos estéticos ou de jogabilidade. Caixa de diálogo é um exemplo possível. O ouvido humano está mais sintonizado com a reverberação na fala, enquanto o diálogo muitas vezes precisa ser inteligível para o jogo. Você pode conseguir isso sem tornar a caixa de diálogo não diegética, movendo **Wetness** para baixo, ajustando o parâmetro **Perceptual Distance Warp** descrito abaixo, adicionando **Transmission** para algum aumento de áudio seco propagado através das paredes e/ou reduzindo a **Occlusion** definida como 1 para que chegue mais som pelos portais.
 
@@ -86,5 +92,5 @@ Anexe o script **AcousticsAdjustExperimental** a uma fonte ativa parâmetros adi
 
 ![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
-* **Perceptual Distance Warp** – aplique uma distorção exponencial à distância usada para calcular a relação seco-úmido. O sistema acústico calcula os níveis de umidade em todo o espaço, que variam levemente com a distância e fornecem pistas de distância perceptiva. Valores de distorção maiores do que 1 exageram esse efeito aumentando os níveis de reverberação relacionados à distância, tornando o som “distante”, enquanto valores de distorção inferiores a 1 tornam a reverberação baseada na distância mais sutil e deixam o som mais “presente”.
+* **Perceptual Distance Warp** – aplique uma distorção exponencial à distância usada para calcular a relação seco-úmido. O sistema acústico calcula os níveis de umidade em todo o espaço, que variam levemente com a distância e fornecem pistas de distância perceptiva. Valores de distorção maiores que 1 exageram esse efeito, aumentando os níveis de reverberação relacionada à distância e tornando o som "distante". Valores de distorção inferiores a 1 tornam a alteração à reverberação com base em distância mais sutil, tornando o som mais "presente".
 

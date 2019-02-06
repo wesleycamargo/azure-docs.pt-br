@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d6cb7ab2-da1a-4015-8e6f-c0c47bb6210f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 754697682470ac3c1f982e6cb1fc5f6043f3b92c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6466e40fca954d41a32424c55b8ee465fb7ad7ec
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438123"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195691"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integração do Active Directory do Azure com o Skytap
+# <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integração do Azure Active Directory ao Skytap
 
 Neste tutorial, você aprenderá a integrar o Skytap ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Skytap da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Skytap](./media/skytap-tutorial/tutorial_skytap_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `http://pingone.com/<custom EntityID>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `http://pingone.com/<custom EntityID>`
 
     b. Na caixa de texto **URL de resposta**, insira uma URL: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
@@ -167,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-skytap-test-user"></a>Criar um usuário de teste do Skytap
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Skytap. Trabalhe com a [equipe de suporte do Skytap](mailto:support@skytap.com) para adicionar os usuários na plataforma do Skytap. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Skytap. Trabalhe com a  [equipe de suporte do Skytap](mailto:support@skytap.com) para adicionar os usuários à plataforma Skytap. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -204,7 +204,7 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Skytap no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo Skytap.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

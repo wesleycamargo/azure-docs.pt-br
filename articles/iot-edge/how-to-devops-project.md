@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823479"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881862"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Criar um pipeline de CI/CD para IoT Edge com o Azure DevOps Projects (versão prévia)
 
@@ -38,7 +38,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure DevOps. É possível criar 
 
    ![Selecione o idioma para criar um novo aplicativo](./media/how-to-devops-project/select-language.png)
 
-2. Selecione **IoT Simples (versão prévia)** como a estrutura de aplicativo e selecione **Avançar**.
+2. Selecione **IoT Simples (Versão prévia)** como a estrutura de aplicativo e selecione **Avançar**.
 
    ![Selecione a estrutura de IoT simples](media/how-to-devops-project/select-iot.png)
 

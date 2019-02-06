@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230974"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239767"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -76,12 +76,12 @@ A tabela a seguir descreve cada atributo no nome do log.
 | Atributo | DESCRIÇÃO |
 | --- | --- |
 | <service-name> |O nome do serviço de armazenamento. Por exemplo: blob, tabela ou fila. |
-| AAAA |O ano de quatro dígitos para o log. Por exemplo: 2011. |
-| MM |O mês de dois dígitos do log. Por exemplo: 07. |
-| DD |O mês de dois dígitos do log. Por exemplo: 07. |
-| hh |A hora de dois dígitos que indica a hora inicial dos logs, no formato de 24 horas UTC. Por exemplo: 18. |
+| AAAA |O ano de quatro dígitos para o log. Por exemplo:  2011. |
+| MM |O mês de dois dígitos do log. Por exemplo:  07. |
+| DD |O mês de dois dígitos do log. Por exemplo:  07. |
+| hh |A hora de dois dígitos que indica a hora inicial dos logs, no formato de 24 horas UTC. Por exemplo:  18. |
 | MM |O número de dois dígitos que indica o minuto inicial dos logs. Esse valor não tem suporte na versão atual da análise de armazenamento e seu valor será sempre 00. |
-| <counter> |Um contador baseado em zero com seis dígitos que indica o número de blobs de log gerado para o serviço de armazenamento em um período de uma hora. Esse contador começa em 000000. Por exemplo: 000001. |
+| <counter> |Um contador baseado em zero com seis dígitos que indica o número de blobs de log gerado para o serviço de armazenamento em um período de uma hora. Esse contador começa em 000000. Por exemplo:  000001. |
 
 Veja a seguir um exemplo de nome de log completo que combina os exemplos anteriores.
 
@@ -99,8 +99,8 @@ Todos os blobs de log são armazenados com metadados que podem ser usados para i
 | Atributo | DESCRIÇÃO |
 | --- | --- |
 | LogType |Descreve se o log contém informações referentes a operações de ler, gravar ou de exclusão. Esse valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas. Exemplo 1: gravar. Exemplo 2: ler, gravar. Exemplo 3: ler, gravar e excluir. |
-| StartTime |A hora mais antiga de uma entrada de log, no formato AAAA-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:21:46Z. |
-| EndTime |A hora mais recente de uma entrada de log, no formato YYYY-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:22:09Z. |
+| StartTime |A hora mais antiga de uma entrada de log, no formato AAAA-MM-DDThh:mm:ssZ. Por exemplo:  2011-07-31T18:21:46Z. |
+| EndTime |A hora mais recente de uma entrada de log, no formato YYYY-MM-DDThh:mm:ssZ. Por exemplo:  2011-07-31T18:22:09Z. |
 | LogVersion |A versão do formato do log. Atualmente, o único valor aceito é 1.0. |
 
 A lista a seguir exibe exemplos completos de metadados que usam os exemplos anteriores.
@@ -135,8 +135,8 @@ As métricas de transações são registradas para solicitações de usuários e
 
 Os dados de capacidade são gravados diariamente para o serviço Blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados de usuário e a outra fornece estatísticas sobre o contêiner de blob `$logs` usado pela análise de armazenamento. A tabela `$MetricsCapacityBlob` inclui as seguintes estatísticas:
 
-* **Capacidade**: a quantidade de armazenamento usado pelo serviço Blob da conta de armazenamento, em bytes.
-* **ContainerCount**: o número de contêineres de blob no serviço Blob da conta de armazenamento.
+* **Capacity**: a quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.
+* **ContainerCount**: O número de contêineres de blob no serviço Blob da conta de armazenamento.
 * **ObjectCount**: o número de blobs de páginas ou de blocos confirmados e não confirmados no serviço Blob da conta de armazenamento.
 
 Para saber mais sobre as métricas de capacidade, consulte [Esquema da tabela de métricas da Análise de Armazenamento](https://msdn.microsoft.com/library/hh343264.aspx).
@@ -146,7 +146,7 @@ Todos os dados de métricas para cada um dos serviços de armazenamento são arm
 
 | Nível de métricas | Nomes da tabela | Versões com suporte |
 | --- | --- | --- |
-| Métricas por hora, local principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versões anteriores a 15-08-2013 apenas. Embora esses nomes ainda tenham suporte, é recomendável que você passe a usar as tabelas listadas abaixo. |
+| Métricas por hora, local principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versões anteriores a 15-08-2013 apenas. Embora esses nomes ainda tenham suporte, é recomendável que você passe a usar as tabelas listadas abaixo. |
 | Métricas por hora, local principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. |
 | Métricas por minuto, local principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. |
 | Métricas por hora, local secundário |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Todas as versões, incluindo 15-08-2013. A replicação de redundância geográfica com acesso de leitura deve estar habilitada. |

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306991"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092096"
 ---
-# <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Atenuações 
+# <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identificar entidades sensíveis em sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
@@ -196,7 +196,7 @@ A seguir está um exemplo de configuração com a auditoria ativada
 
 ### <a name="example"></a>Exemplo
 O `<behavior/>` elemento do arquivo de configuração WCF abaixo instrui o WCF não notificar o aplicativo quando o WCF não consegue gravar um log de auditoria.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,7 +207,7 @@ O `<behavior/>` elemento do arquivo de configuração WCF abaixo instrui o WCF n
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 Configure o WCF para notificar o programa sempre que não é possível gravar em um log de auditoria. O programa deve ter um esquema de notificação alternativo em vigor para a organização que trilhas de auditoria não estão sendo mantidos de alerta. 
 
 ## <a id="logging-web-api"></a>Certifique-se de que a auditoria e registro em log é imposto no API da Web

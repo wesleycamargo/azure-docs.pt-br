@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829998"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458118"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -161,7 +161,7 @@ Se você já provisionou um novo locatário em seu próprio banco de dados, igno
 
 O script provisionará esse locatário em um banco de dados separado, registrará o banco de dados e o locatário no catálogo e abrirá a página Eventos do locatário no navegador. Atualize a página Hub de Eventos e você verá que "Salix Salsa" foi adicionado como um local.
 
-## <a name="manage-performance-of-a-single-database"></a>Gerenciar o desempenho de um banco de dados individual
+## <a name="manage-performance-of-an-individual-database"></a>Gerenciar o desempenho de um banco de dados individual
 
 Se um único locatário em um banco de dados multilocatário enfrentar uma alta carga contínua, ele poderá tender a dominar os recursos de banco de dados e afetar outros locatários no mesmo banco de dados. Se for provável que a atividade continue por algum tempo, o locatário poderá ser movido temporariamente para fora do banco de dados e para seu próprio banco de dados de locatário único. Isso permite que o locatário tenha os recursos extras necessárias e o isola completamente dos outros locatários.
 

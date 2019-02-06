@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014124"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296535"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -155,7 +155,10 @@ Clique para ver a lista das atividades no pipeline executado. Na coluna **Açõe
 
 ![Monitorar execuções de atividade](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução da atividade de cópia e as características de desempenho. Ele mostra as informações, incluindo o volume/linhas/arquivos de dados copiados da fonte para o coletor, a taxa de transferência, as etapas realizadas com a duração correspondente e as configurações usadas para o cenário da sua cópia.
+Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução da atividade de cópia e as características de desempenho. Ele mostra as informações, incluindo o volume/linhas/arquivos de dados copiados da fonte para o coletor, a taxa de transferência, as etapas realizadas com a duração correspondente e as configurações usadas para o cenário da sua cópia. 
+
+>[!TIP]
+>Para alguns cenários, você também verá "**Dicas de ajuste de desempenho**" no alto da página de monitoramento de cópia, que informa o gargalo identificado e o orienta sobre o que mudar para aumentar a taxa de transferência de cópia; confira o exemplo com detalhes [aqui](#performance-and-tuning).
 
 **Exemplo: cópia da Amazon S3 para o Azure Data Lake Store**
 ![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -232,6 +235,14 @@ Por padrão, a atividade de cópia para de copiar dados e retorna uma falha quan
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
 
 Confira o artigo [Guia de desempenho e ajuste da Atividade de Cópia](copy-activity-performance.md)que descreve os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory. Ele também lista o desempenho observado durante os testes internos e discute várias maneiras de otimizar o desempenho da Atividade de Cópia.
+
+Em alguns casos, quando você executa uma atividade de cópia no ADF, verá diretamente "**Dicas de ajuste de desempenho**" na parte superior da [página de monitoramento de atividade de cópia](#monitor-visually) conforme mostra o exemplo a seguir. Ele não apenas informa o gargalo identificado para a execução de cópia determinada, como também o orienta sobre o que mudar para impulsionar a taxa de transferência de cópia. As dicas de ajuste de desempenho atualmente dão sugestões como usar o PolyBase ao copiar dados para o SQL Data Warehouse do Azure, aumentar a RU do Azure Cosmos DB ou a DTU de BD SQL do Azure, quando o recurso no lado de armazenamento de dados é o gargalo, remover a cópia em etapas desnecessária, etc. As regras de ajuste de desempenho serão aprimoradas gradualmente também.
+
+**Exemplo: cópia para o BD SQL do Azure com dicas de ajuste de desempenho**
+
+Neste exemplo, durante a execução da cópia, o ADF nota que o coletor do BD SQL do Azure atinge alta utilização de DTU, o que diminui as operações de gravação, assim, a sugestão é aumentar a camada do BD SQL do Azure com mais de DTU. 
+
+![Monitoramento de cópia com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Cópia incremental 
 O Data Factory suporta cenários para cópia incremental de dados delta de um armazenamento de dados de origem para um armazenamento de dados de destino. Consulte [Tutorial: cópia incremental de dados](tutorial-incremental-copy-overview.md). 

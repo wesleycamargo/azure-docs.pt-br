@@ -5,16 +5,16 @@ description: Como gerenciar configurações, criar espaço de trabalho, comparti
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626644"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227073"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -85,11 +85,11 @@ No tradutor Personalizado você pode compartilhar seu espaço de trabalho com ou
 
 ## <a name="sharing-permissions"></a>Permissões de compartilhamento
 
-1.  **Leitor:** Um leitor na área de trabalho poderá visualizar todas as informações na área de trabalho. 
+1.  **Leitor:** um leitor no workspace poderá exibir todas as informações no workspace. 
 
-2.  **Editor:** Um editor na área de trabalho poderá adicionar documentos, treinar modelos e excluir documentos e projetos. Eles podem adicionar uma chave de assinatura, mas não podem modificar com quem a área de trabalho é compartilhada, excluir a área de trabalho ou alterar o nome da área de trabalho.
+2.  **Editor:** um editor no workspace poderá adicionar documentos, treinar modelos e excluir documentos e projetos. Eles podem adicionar uma chave de assinatura, mas não podem modificar com quem a área de trabalho é compartilhada, excluir a área de trabalho ou alterar o nome da área de trabalho.
 
-3.  **Proprietário:** um proprietário tem permissões totais para o espaço de trabalho.
+3.  **Proprietário:** um proprietário tem permissões totais para o workspace.
 
 ## <a name="change-sharing-permission"></a>Altere a permissão de compartilhamento
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 556ec0b55ea2e62975661eb5f668b4d3acda7c30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329678"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466346"
 documentType: LandingData
 title: Instância Gerenciada do Banco de Dados SQL do Azure
 metadata:
@@ -78,7 +78,7 @@ sections:
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configurar retenção de backup de 35 dias</a> para restauração Ponto no tempo. Observe que a retenção de longo prazo (até 10 anos) ainda não está habilitada, você pode usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backups somente cópia</a> como uma alternativa.
     - html: (versão prévia) Use <a href="https://aka.ms/managed-instance-failover-groups">Grupos de failover distribuídos geograficamente</a> para manter uma cópia da instância em outra região e assegurar que seus dados estejam disponíveis até mesmo no cenário de desastre regional.
     - html: (Versão prévia) <a href="https://aka.ms/managed-instance-tde-byok">Traga suas próprias chaves de criptografia</a> enquanto a migração de bancos de dados local que já tiver habilitado a Transparent Data Encryption (TDE).
-    - html: Instâncias gerenciadas são protegidas com <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">firewall interno</a>.
+    - html: Instâncias gerenciadas são protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
@@ -134,7 +134,7 @@ sections:
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurar</a> VNet do Azure onde a instância gerenciada será implantada.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Validar</a> que sua VNet do Azure existente pode ser usada para implantar Instâncias Gerenciadas.
     - html: Conectar-se à sua instância usando <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Máquina Virtual do Azure</a> ou <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Conexão ponto a site</a> ou <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">Aplicativos</a>.
-    - html: Verificar se seu banco de dados pode ser migrado usando o <a href="https://www.microsoft.com/download/details.aspx?id=53595">Assiste de Migração de Dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Assistente para Experimentos de Banco de Dados</a>.
+    - html: Verificar se seu banco de dados pode ser migrado usando o <a href="https://www.microsoft.com/download/details.aspx?id=53595">Assistente de Migração de Dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Assistente para Experimentos de Banco de Dados</a>.
     - html: Traga seus bancos de dados para a Instância Gerenciada usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Restauração nativa</a> ou <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Serviço de Migração de Dados</a>.
     - html: Mova seus pacotes do SSIS para o <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, modelos de tabela do SSAS para <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a> e os relatórios do SSRS para <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
     - html: Aplique <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">práticas recomendadas de desempenho de armazenamento e considerações para a camada de serviço de Uso Geral</a>.

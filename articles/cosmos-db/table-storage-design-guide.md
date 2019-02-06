@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331955"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913590"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho
 
@@ -252,7 +252,7 @@ Muitos designs devem atender aos requisitos para habilitar a pesquisa de entidad
 
 ### <a name="sorting-data-in-the-table-service"></a>Armazenando dados no serviço Tabela
 
-Resultados de consulta retornados pela API de Tabela do Azure são classificados em ordem crescente com base em **PartitionKey** e, em seguida, **RowKey**.
+Os resultados de consulta retornados pelo serviço Tabela são classificados em ordem crescente com base em **PartitionKey** e, em seguida, em **RowKey**.
 
 > [!NOTE]
 > Resultados de consulta retornados pela API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
@@ -276,7 +276,7 @@ Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-pa
 * [Padrão de exclusão de alto volume](#high-volume-delete-pattern) - Habilite a exclusão de um alto volume de entidades armazenando todas as entidades para exclusão simultânea em suas próprias tabelas separadas; exclua as entidades por meio da exclusão da tabela.  
 * [Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.  
 * [Padrão de entidades longas](#wide-entities-pattern) - Use várias entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.  
-* [Padrão de entidades grandes](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.  
+* [Padrão de grandes entidades](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.  
 
 ### <a name="ensuring-consistency-in-your-stored-entities"></a>Garantindo a consistência nas suas entidades armazenadas
 Outro fator-chave que influencia sua escolha de chaves para otimizar as modificações de dados é como garantir a consistência usando transações atômicas. Você só pode usar uma EGT para operar em entidades armazenadas na mesma partição.  
@@ -847,7 +847,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 * [Transações do Grupo de Entidades](#entity-group-transactions)
 * [Mesclar ou substituir](#merge-or-replace)
 
-### <a name="large-entities-pattern"></a>Padrão de entidades grandes
+### <a name="large-entities-pattern"></a>Padrão de grandes entidades
 Use armazenamento de blobs para armazenar grandes valores de propriedade.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
@@ -903,7 +903,7 @@ Evite o antipadrão prefixar/acrescentar quando o volume de transações tiver a
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
-* [Padrão de final do log](#log-tail-pattern)  
+* [Padrão de rastro do log](#log-tail-pattern)  
 * [Modificando entidades](#modifying-entities)  
 
 ### <a name="log-data-anti-pattern"></a>Antipadrão de dados de log

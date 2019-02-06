@@ -5,15 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 8e622a11c489618cf66e9cdddf369309e7188645
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/23/2019
+ms.openlocfilehash: c7622252cd5b375e8c580bfcf7a45806d219d828
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548010"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900554"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no Banco de Dados do Azure para MySQL usando o portal do Azure
+
+
+> [!IMPORTANT]
+> O recurso de réplica de leitura está na Visualização Pública.
 
 Neste artigo, você aprenderá como criar e gerenciar réplicas de leitura na mesma região do Azure que o mestre no serviço Banco de Dados do Azure para MySQL usando o portal do Azure. O recurso está atualmente em pré-visualização pública.
 
@@ -34,7 +38,7 @@ Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 
 3. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
 
-4. Selecione **para adicionar réplica**.
+4. Selecione **Adicionar réplica**.
 
    ![Banco de Dados do Azure para MySQL - Replicação ](./media/howto-read-replica-portal/add-replica.png)
 
@@ -68,7 +72,7 @@ Para interromper a replicação entre um servidor mestre e um servidor de répli
 
    ![Banco de Dados do Azure para MySQL - Parar replicação ](./media/howto-read-replica-portal/stop-replication.png)
 
-5. Confirme que você deseja interromper a replicação clicando em **OK**.
+5. Confirme que deseja interromper a replicação clicando em **OK**.
 
    ![Banco de Dados do Azure para MySQL - Confirme a replicação de parada ](./media/howto-read-replica-portal/stop-replication-confirm.png)
 

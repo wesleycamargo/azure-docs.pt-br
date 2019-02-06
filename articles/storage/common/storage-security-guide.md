@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243787"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454480"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
@@ -89,7 +89,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
 * [Controle de acesso baseado em função do Active Directory do Azure](../../role-based-access-control/role-assignments-portal.md)
 
   Esse artigo explica o Controle de Acesso Baseado em Função do Azure Active Directory.
-* [RBAC: funções internas](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Funções internas](../../role-based-access-control/built-in-roles.md)
 
   Esse artigo detalha todas as funções disponíveis internas no RBAC.
 * [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -240,7 +240,7 @@ Obtenha informações mais detalhadas sobre como usar as Assinatura de Acesso Co
 * Estes são os tutoriais de como usar a biblioteca de cliente .NET para criar Assinatura de Acesso Compartilhado e Políticas de Acesso Armazenado.
 
   * [Uso de SAS (Assinaturas de Acesso Compartilhado)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Assinaturas de acesso compartilhado, Parte 2: criar e usar uma SAS com o serviço Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Assinatura de Acesso Compartilhado, Parte 2: Criar e usar uma SAS com o Serviço Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Esse artigo inclui uma explicação do modelo SAS, exemplos de Assinatura de Acesso Compartilhado e recomendações para uso da prática recomendada de SAS. Também é abordada a revogação da permissão concedida.
 
@@ -307,7 +307,7 @@ O Azure Disk Encryption é um novo recurso. Esse recurso permite criptografar os
 A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados no Microsoft Azure:
 
 * Integração com o Cofre da Chave do Azure
-* VMs da camada Standard: [VMs IaaS das séries A, D, DS, G, GS e assim por diante](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* VMs da camada padrão: [VMs IaaS das séries A, D, DS, G, GS e assim por diante](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Como habilitar a criptografia em VMs IaaS Windows e Linux
 * Como desabilitar a criptografia em unidades do sistema operacional e de dados para VMs IaaS do Windows
 * Como desabilitar a criptografia em unidades de dados para VMs IaaS do Linux
@@ -479,7 +479,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN (Suporte ao CORS [Compartilhamento de Recursos entre Origens] para os Serviços de Armazenamento do Azure no MSDN)](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Esta é a documentação de referência do suporte ao CORS para os Serviços de Armazenamento do Microsoft Azure. Ela tem links para artigos que se aplicam a cada serviço de armazenamento, além de mostrar um exemplo e explicar cada elemento no arquivo CORS.
-* [Microsoft Azure Storage: Introducing CORS (Armazenamento do Microsoft Azure: introdução ao CORS)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Armazenamento do Microsoft Azure: Introdução ao CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Esse é um link para o artigo do blog inicial que anuncia o CORS e mostra como usá-lo.
 
@@ -504,6 +504,6 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 * [FIPS 140 Validation (Validação do FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
 
   Esse artigo fornece informações sobre como os produtos da Microsoft e os módulos criptográficos cumprem o padrão FIPS para o governo federal dos EUA.
-* ["Criptografia de sistema: usar algoritmos em conformidade com o FIPS para criptografia, hash e assinatura", efeitos das configurações de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
+* [“Criptografia do sistema: Usar algoritmos em conformidade com o FIPS para criptografia, hash e assinatura", efeitos das configurações de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
 
   Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306158"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885125"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados de e para um SQL Server usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,6 +36,8 @@ Especificamente, este conector do SQL Server dá suporte a:
 - Cópia de dados usando a autenticação do **SQL** ou do **Windows**.
 - Como fonte, dá suporte à recuperação de dados, usando a consulta SQL ou o procedimento armazenado.
 - Como o coletor, ao acréscimo de dados na tabela de destino ou à invocação de um procedimento armazenado com lógica personalizada durante a cópia.
+
+Não há suporte para o [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) do SQL Server neste momento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -409,7 +411,7 @@ Ao copiar dados no banco de dados SQL Server, um procedimento armazenado especif
 
 Um procedimento armazenado pode ser usado quando os mecanismos de cópia internos não têm essa finalidade. Isso normalmente é usado ao realizar um upsert (inserção + atualização) ou um processamento adicional (mesclar colunas, pesquisar valores adicionais, inserção em várias tabelas, etc.) antes da inserção final dos dados de origem na tabela de destino.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela no banco de dados do SQL Server. Considerando que os dados de entrada e cada tabela "Marketing" do coletor tenha três colunas: ProfileID, State e Category. Execute o upsert com base na coluna "ProfileID" e aplique somente a uma categoria específica.
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela no banco de dados do SQL Server. Considerando que os dados de entrada e cada tabela "Marketing" do coletor tenha três colunas: ProfileID, Estado e Categoria. Execute o upsert com base na coluna "ProfileID" e aplique somente a uma categoria específica.
 
 **Conjunto de dados de saída**
 
@@ -487,13 +489,13 @@ Ao copiar dados do/para o SQL Server, os seguintes mapeamentos são usados de ti
 | binário |Byte[] |
 | bit |BOOLEAN |
 | char |String, Char[] |
-| data |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| data |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Float |Duplo |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
@@ -503,18 +505,21 @@ Ao copiar dados do/para o SQL Server, os seguintes mapeamentos são usados de ti
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Objeto * |
+| sql_variant |Objeto |
 | text |String, Char[] |
-| tempo real |timespan |
+| tempo real |TimeSpan |
 |  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
+
+>[!NOTE]
+> Em mapas de tipos de dados para o tipo provisório Decimal, atualmente o ADF dá suporte a uma precisão de até 28. Se você tiver dados com precisão maior do que 28, considere a conversão da cadeia de caracteres em consulta SQL.
 
 ## <a name="troubleshooting-connection-issues"></a>Solucionar problemas de conexão
 

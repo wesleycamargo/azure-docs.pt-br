@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433009"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301434"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -62,7 +62,7 @@ Para iniciar o controle de alterações, é necessário habilitar a solução Co
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o Controle de Alterações e Inventário
 
-Para saber como integrar computadores para a visita de solução: [Soluções de Automação do Azure de integração](automation-onboard-solutions-from-automation-account.md). Quando você tem uma integração de máquina com a solução de Controle de Alterações e de inventário, você pode configurar os itens para rastrear. Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
+Para saber como integrar computadores para a visita de solução: [Soluções de Automação do Azure de integração](automation-onboard-solutions-from-automation-account.md). Quando você tem uma integração de computador com a solução de Controle de Alterações e de inventário, você pode configurar os itens para rastrear. Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
 
 Para rastrear alterações em arquivos no Windows e Linux, os hashes MD5 dos arquivos são usados. Esses hashes são usados para detectar se uma alteração foi feita desde o último inventário.
 
@@ -83,7 +83,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 |Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório.        |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
-|Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
+|Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** – ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
 |Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 > [!NOTE]
@@ -108,7 +108,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Configurações de caractere curinga, recursão e ambiente
 
-A recursão permite que você especifique caracteres curinga para simplificar o acompanhamento em diretórios, e variáveis para que você possa acompanhar arquivos em ambientes com vários nomes de unidade ou nomes de unidade dinâmicos. A seguir está uma lista de informações comuns que você deve saber ao configurar a recursão:
+A recursão permite que você especifique caracteres curinga para simplificar o acompanhamento em diretórios, e variáveis para que você possa acompanhar arquivos em ambientes com vários nomes de unidade ou nomes de unidade dinâmicos. A seguir está uma lista que mostra informações comuns que você deve saber ao configurar a recursão:
 
 * Caracteres curinga são necessários para acompanhar vários arquivos
 * Ao usar caracteres curinga, eles só podem ser usados no último segmento de um caminho. (por exemplo, C:\pasta\\**arquivo** ou /etc/*.conf)
@@ -154,8 +154,7 @@ Outras limitações:
 
 Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
 
-* Atualizações de hotfix não são coletadas para Atualização do Windows 10 para Criadores e computadores Windows Server 2016 Core RS3.
-* Para arquivos do Windows, o Change Tracking não detecta atualmente quando um novo arquivo foi adicionado a um caminho de pasta controlado
+* Atualizações de hotfix não são coletadas em computadores Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
 
@@ -188,7 +187,7 @@ A frequência da coleta padrão para os serviços do Windows é de 30 minutos. P
 
 ![Controle deslizante de serviços do Windows](./media/automation-change-tracking/windowservices.png)
 
-O agente controla somente as alterações e isso otimiza o desempenho do agente. Se um limite muito alto for definido, as alterações poderão ser perdidas se o serviço for revertido para o estado original. Definir a frequência para um valor menor permite capturar alterações que poderiam ser perdidas de outra forma.
+O agente controla somente as alterações e isso otimiza o desempenho do agente. Definir um limite alto poderá deixar passar alterações se o serviço for revertido ao estado original. Definir a frequência para um valor menor permite capturar alterações que poderiam ser perdidas de outra forma.
 
 > [!NOTE]
 > Embora o agente possa controlar as alterações em um intervalo de apenas 10 segundos, os dados ainda demoram alguns minutos para serem exibido no portal. As alterações durante o tempo de exibição no portal do ainda são controladas e registradas.
@@ -270,6 +269,41 @@ A tabela a seguir fornece pesquisas de logs de exemplo para os registros de alte
 |---------|---------|
 |ConfigurationData<br>&#124; onde   ConfigDataType == "WindowsServices" e SvcStartupType == "Auto"<br>&#124; onde SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) por SoftwareName, Computer         | Mostra os registros de inventário mais recentes para os Serviços do Windows que foram configurados para Automático, mas foram relatados como Parados<br>Os resultados estão limitados ao registro mais recente desse SoftwareName e Computador      |
 |ConfigurationChange<br>&#124; onde ConfigChangeType == "Software" e ChangeCategory == "Removed"<br>&#124; ordenar por TimeGenerated desc|Mostra os registros de alterações do software removido|
+
+## <a name="alert-on-changes"></a>Alertar sobre alterações
+
+Uma funcionalidade crucial de Controle de Alterações e Inventário é a habilidade de alertar sobre o estado de configuração e quaisquer alterações ao estado de configuração de seu ambiente híbrido.  
+
+No exemplo a seguir, a captura de tela mostra que o arquivo `C:\windows\system32\drivers\etc\hosts` foi modificado em um computador. Esse arquivo é importante porque o arquivo Hosts é usado pelo Windows para resolver nomes de host para endereços IP e tem precedência até mesmo sobre DNS, o que pode resultar em problemas de conectividade ou redirecionamento do tráfego para sites mal-intencionados ou de outra forma perigosos.
+
+![Um gráfico mostrando os hosts de alteração de arquivo](./media/automation-change-tracking/changes.png)
+
+Para analisar ainda mais essa alteração, vá para a Pesquisa de logs clicando em **Log Analytics**. Quando estiver na Pesquisa de logs, pesquise alterações de conteúdo ao arquivo Hosts com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura as alterações incluindo uma alteração do conteúdo de arquivos cujo caminho totalmente qualificado contém a palavra "hosts". Você também pode pedir para um arquivo específico alterando a parte do caminho para seu formulário totalmente qualificado (como `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+Depois que a consulta retornar os resultados desejados, clique no botão **Nova regra de alerta** na experiência de Pesquisa de logs para abrir a página de criação de alerta. Você também pode navegar para essa experiência por meio do **Azure Monitor** no portal do Azure. Na experiência de criação de alerta, confira nossa consulta novamente e modifique a lógica de alerta. Nesse caso, você desejará que o alerta seja disparado se for detectada até mesmo uma alteração entre todos os computadores no ambiente.
+
+![Uma imagem que mostra a consulta de alteração para o controle de alterações para o arquivo de hosts](./media/automation-change-tracking/change-query.png)
+
+Após definir a lógica da condição, atribua grupos de ação para executar ações em resposta ao alerta que está sendo disparado. Nesse caso, eu configurei emails para serem enviados e um tíquete ITSM para ser criado.  Muitas outras ações úteis também podem ser executadas, como disparar uma Função do Azure, um Runbook de automação, um Webhook ou um aplicativo lógico.
+
+![Uma imagem configurando um grupo de ações para alertar sobre a alteração](./media/automation-change-tracking/action-groups.png)
+
+Após configurar os parâmetros e a lógica, podemos aplicar o alerta ao ambiente.
+
+### <a name="alert-suggestions"></a>Sugestões de alerta
+
+Embora os alertas sobre alterações ao arquivo de Hosts sejam uma boa aplicação de alertas para Controle de Alterações ou dados de Inventário, há muitos outros cenários para alertas, incluindo casos definidos juntamente com suas consultas de exemplo na seção a seguir.
+
+|Consultar  |DESCRIÇÃO  |
+|---------|---------|
+|ConfigurationChange <br>&#124; em que ConfigChangeType == "Files" e FileSystemPath contêm " c:\\windows\\system32\\drivers\\"|Útil para controlar alterações a arquivos críticos do sistema|
+|ConfigurationChange <br>&#124; em que FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para controlar modificações a arquivos de configuração chave|
+|ConfigurationChange <br>&#124; em que ConfigChangeType == "WindowsServices" e SvcName contêm "w3svc" e SvcState == "Stopped"|Útil para controlar alterações a serviços críticos do sistema|
+|ConfigurationChange <br>&#124; em que ConfigChangeType == "Daemons" e SvcName contêm "ssh" e SvcState != "Running"|Útil para controlar alterações a serviços críticos do sistema|
+|ConfigurationChange <br>&#124; em que ConfigChangeType == "Software" e ChangeCategory == "Added"|Útil para ambientes que precisam bloquear configurações de software|
+|ConfigurationData <br>&#124; em que SoftwareName contém "Monitoring Agent" e CurrentVersion != "8.0.11081.0"|Útil para ver quais computadores têm uma versão de software desatualizada ou não em conformidade instalada. Relata o último estado de configuração relatada, não as alterações.|
+|ConfigurationChange <br>&#124; em que RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar alterações a chaves antivírus cruciais|
+|ConfigurationChange <br>&#124; em que RegistryKey contém "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Útil para controlar alterações em configurações de firewall|
 
 ## <a name="next-steps"></a>Próximas etapas
 

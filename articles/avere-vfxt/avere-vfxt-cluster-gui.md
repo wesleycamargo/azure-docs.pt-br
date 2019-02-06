@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 72d1676613de699abda2136a7743a974b2b17c01
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162850"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300465"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acessar o cluster do vFXT
 
@@ -25,7 +25,7 @@ Como o cluster do vFXT fica dentro de uma rede virtual privada, você precisa cr
 > [!NOTE] 
 > Este artigo pressupõe que você definiu um endereço IP público no controlador do cluster ou em outra VM na rede virtual de seu cluster. Este artigo descreve como usar essa VM como um host para acessar o cluster. Se você estiver usando uma VPN ou o ExpressRoute para acessar a rede virtual, vá para [Conectar-se ao painel de controle do Avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se você precisar de ajuda.  
+Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se você precisar de ajuda. (Se você tiver usado uma senha, em vez de uma chave pública, será solicitado a inseri-la ao se conectar.) 
 
 ## <a name="ssh-tunnel-with-a-linux-host"></a>Túnel Secure Shell com um host do Linux
 
@@ -41,7 +41,7 @@ Exemplo:
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
 
-A autenticação será automática se você tiver usado sua chave pública SSH para criar o cluster e a chave correspondente estiver instalada no sistema cliente.
+A autenticação será automática se você tiver usado sua chave pública SSH para criar o cluster e a chave correspondente estiver instalada no sistema cliente. Se você tiver usado uma senha, o sistema solicitará que você a insira.
 
 ## <a name="ssh-tunnel-with-a-windows-host"></a>Túnel SSH com um host do Windows
 
@@ -63,7 +63,7 @@ No painel **Configuração**:
 
 ![Captura de tela do aplicativo Putty mostrando onde clicar para adicionar um túnel](media/avere-vfxt-ptty-numbered.png)
 
-A autenticação será automática se você tiver usado sua chave pública SSH para criar o cluster e a chave correspondente estiver instalada no sistema cliente.
+A autenticação será automática se você tiver usado sua chave pública SSH para criar o cluster e a chave correspondente estiver instalada no sistema cliente. Se você tiver usado uma senha, o sistema solicitará que você a insira.
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>Conectar-se ao painel de controle do Avere em um navegador
 
@@ -77,7 +77,7 @@ Esta etapa usa um navegador da Web para se conectar ao utilitário de configura�
 
 Dependendo de seu navegador, talvez seja necessário clicar em **Avançado** e verificar se é seguro prosseguir para a página.
 
-Insira o nome de usuário `admin` e a senha fornecidos no momento da criação do cluster.
+Insira o nome de usuário `admin` e a senha administrativa fornecidos no momento da criação do cluster.
 
 ![Captura de tela da página de entrada do Avere preenchida com o nome de usuário "admin" e uma senha](media/avere-vfxt-gui-login.png)
 

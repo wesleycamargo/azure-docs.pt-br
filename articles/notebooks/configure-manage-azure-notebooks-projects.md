@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847536"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904362"
 ---
 # <a name="manage-and-configure-projects"></a>Gerenciar e configurar projetos
 
@@ -41,9 +41,9 @@ A lista suspensa **Executar** no painel do projeto é onde você pode selecionar
 
 ![Lista suspensa de camada de computação no painel do projeto](media/project-compute-tier-list.png)
 
-Você pode ignorar essas limitações usando uma máquina virtual diferente da provisionada em uma assinatura do Azure. Você também deve instalar o Jupyter nessa máquina virtual. As imagens da Máquina Virtual de Ciência de Dados são boas opções, pois elas incluem o Jupyter por padrão.
+Você pode ignorar essas limitações usando uma máquina virtual diferente da provisionada em uma assinatura do Azure. Instale e execute o JupyterHub nessa máquina virtual. As imagens da Máquina Virtual de Ciência de Dados (qualquer sistema operacional) são boas opções, pois elas incluem o JupyterHub por padrão.
 
-Você pode se conectar a qualquer máquina virtual do Azure configurada adequadamente usando a opção **Computação Direta** na lista suspensa. A escolha dessa opção exige um nome (que aparecerá na lista), o endereço IP e a porta da VM (normalmente 8000, a porta padrão que o JupyterHub escuta) e as credenciais da VM:
+Após configurar uma máquina virtual do Azure adequadamente, selecione a opção **Computação Direta** na lista suspensa, que solicita um nome (que aparecerá na lista), o endereço IP e a porta da VM (normalmente 8000, a porta padrão que o JupyterHub escuta) e as credenciais da VM:
 
 ![Prompt que coleta informações do servidor para a opção de Computação Direta](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Se as seguintes condições forem verdadeiras, a lista suspensa também mostrar�
 
 - Você está conectado ao Azure Notebooks com uma conta que usa o AAD (Azure Active Directory), por exemplo, uma conta corporativa.
 - Sua conta está conectada a uma assinatura do Azure.
-- Você tem uma ou mais máquinas virtuais na assinatura, com, no mínimo, acesso de Leitor, que usa a Máquina Virtual de Ciência de Dados para a imagem do Linux (Ubuntu).
+- Você tem uma ou mais máquinas virtuais na assinatura, com, no mínimo, acesso de Leitura, que usam a Máquina Virtual de Ciência de Dados para a imagem do Linux (Ubuntu).
 
 ![Instâncias de Máquina Virtual de Ciência de Dados na lista suspensa no painel do projeto](media/project-compute-tier-dsvm.png)
 
 Quando você seleciona uma instância de DSVM, o Azure Notebooks pode solicitar as credenciais de máquina específicas que usou quando criou a VM.
 
-Para criar uma nova instância de DSVM, siga as instruções para [Criar uma VM de Ciência de Dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você *precisa* usar a imagem da **Máquina Virtual de Ciência de Dados para Linux (Ubuntu)** porque o Azure Notebooks não exibe DSVMs que as imagens do Windows ou do CentOS.
+Para criar uma nova instância de DSVM, siga as instruções para [Criar uma VM de Ciência de Dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use a imagem da **Máquina Virtual de Ciência de Dados para Linux (Ubuntu)** se quiser que a DSVM seja exibida na lista suspensa no Azure Notebooks.  Se, por outros motivos, você tiver que usar a imagem do Windows ou CentOS, use a opção **Computação Direta** para se conectar manualmente à DSVM.
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 

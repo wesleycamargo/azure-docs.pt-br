@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/29/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 12c8b80b76c721962ca6180e531578b037997553
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854908"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294158"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerenciando nomes de domínio personalizados no Azure Active Directory
 
@@ -93,7 +93,7 @@ Um erro é retornado quando:
 **R:** Você não pode referenciar o nome de domínio personalizado que você está tentando excluir em seu nome de conta de usuário. Verifique se a conta de Administrador Global está usando o nome de domínio padrão inicial (.onmicrosoft.com), assim como admin@contoso.onmicrosoft.com. Entre com uma conta de Administrador Global diferente, tal como admin@contoso.onmicrosoft.com, ou com outro nome de domínio personalizado, tal como "fabrikam.com", em que a conta é admin@fabrikam.com.
 
 **P: Eu cliquei no botão Excluir domínio e vejo o status `In Progress` para a operação de exclusão. Quanto tempo demora? O que acontecerá se ela falhar?**<br>
-**R:** a operação de exclusão do domínio é uma tarefa assíncrona em segundo plano que renomeia todas as referências para o nome de domínio. Ela deve ser concluída dentro de um ou dois minutos. Se a exclusão do domínio falhar, verifique se você não tem:
+**R:** A operação de exclusão do domínio é uma tarefa assíncrona em segundo plano que renomeia todas as referências para o nome de domínio. Ela deve ser concluída dentro de um ou dois minutos. Se a exclusão do domínio falhar, verifique se você não tem:
 
 * Aplicativos configurados no nome de domínio com o appIdentifierURI
 * Qualquer grupo habilitado por email referenciando o nome de domínio personalizado
@@ -112,5 +112,4 @@ A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Di
 
 * [Adicionar nomes de domínio personalizados](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Remover grupos de segurança habilitados por email do Exchange no Centro de administração do Exchange em um nome de domínio personalizado no Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Atualizar a referência de aplicativos para outro domínio no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application)
 * [Aplicar ForceDelete a um nome de domínio personalizado com a API do Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)

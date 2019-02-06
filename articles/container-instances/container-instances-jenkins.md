@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354182"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478178"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 
@@ -26,24 +26,24 @@ Para obter mais informações sobre as Instâncias de Contêiner do Azure, consu
 
 2. Insira as informações a seguir no formulário **Básico**, e em seguida, selecione **OK**.
 
-   - **Nome** - insira um ome para a implantação do Jenkins.
-   - **Nome de usuário**: insira um nome para o usuário administrador da máquina virtual Jenkins.
-   - **Tipo de autenticação**: Nós recomendamos uma chave pública de SSH para autenticação. Se você selecionar essa opção, cole uma chave pública SSH a ser usada para fazer logon na máquina virtual do Jenkins.
-   - **Assinatura**: selecione uma assinatura do Azure.
-   - No **Grupo de recursos**: crie um grupo de recursos ou selecione um existente.
-   - **Local**: selecione um local para o servidor Jenkins.
+   - **Nome**: Insira um nome para a implantação do Jenkins.
+   - **Nome de usuário**: Insira um nome para o usuário administrador da máquina virtual do Jenkins.
+   - **Tipo de autenticação**: Recomendamos uma chave pública de SSH para autenticação. Se você selecionar essa opção, cole uma chave pública SSH a ser usada para fazer logon na máquina virtual do Jenkins.
+   - **Assinatura**: Selecione uma assinatura do Azure.
+   - **Grupo de recursos**: Crie um grupo de recursos ou selecione um existente.
+   - **Localização**: Selecione uma localização para o servidor Jenkins.
 
    ![Configurações básicas da implantação do Portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 3. No formulário de **Configurações Adicionis** preencha os itens a seguir:
 
-   - **Tamanho** - Selecione a opção de tamanho apropriado para sua máquina virtual de Jenkins.
-   - **Tipo de disco de VM** - Especifique **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
-   - **Rede virtual**: selecione a seta se desejar modificar as configurações padrão.
-   - **Sub-redes**: Selecione sub-redes, verifique as informações e selecione **OK**.
-   - **Endereço IP público**: selecione a seta para fornecer ao endereço IP público um nome personalizado, configure o SKU e defina o método de atribuição.
-   - **Rótulo do nome de domínio** - Especifique o valor para a URL totalmente qualificada para a máquina virtual do Jenkins.
-   - **Tipo de versão do Jenkins** - Selecione o tipo de versão desejada nas opções: **LTS**, **Construção semana**, ou **Azure Verified**.
+   - **Tamanho**: Selecione a opção de tamanho apropriada para sua máquina virtual do Jenkins.
+   - **Tipo de disco da VM**: Especifique **HD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
+   - **Rede virtual**: Selecione a seta se desejar modificar as configurações padrão.
+   - **sub-redes**: Selecione sub-redes, verifique as informações e selecione **OK**.
+   - **Endereço IP público**: Selecione a seta para fornecer ao endereço IP público um nome personalizado, configure o SKU e defina o método de atribuição.
+   - **Rótulo do nome de domínio**: Especifique o valor para a URL totalmente qualificada para a máquina virtual do Jenkins.
+   - **Tipo de versão do Jenkins**: Selecione o tipo de versão desejado entre as opções: **LTS**, **Build semanal**, ou **Verificado Pelo Azure**.
 
    ![Configurações adicionais de implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
@@ -138,4 +138,4 @@ Para saber mais sobre Jenkins no Azure, consulte, [Azure e Jenkins][jenkins-azur
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

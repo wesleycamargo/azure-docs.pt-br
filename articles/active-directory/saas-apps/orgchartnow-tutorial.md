@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o OrgChart Now | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com OrgChart Now | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o OrgChart Now.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 50a1522f-81de-4d14-9b6b-dd27bb1338a4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e23d76074f4b428b672e0cd5aeeaba99d080a4cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 65f11b5a65adf86b4115b54b49b10c57ebf21a98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435927"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154109"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Azure Active Directory ao OrgChart Now
+# <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Azure Active Directory com OrgChart Now
 
 Neste tutorial, você aprenderá a integrar o OrgChart Now ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o OrgChart Now a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -171,7 +171,7 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 1. O OrgChart Now dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Um novo usuário é criado durante uma tentativa de acessar o OrgChart Now, caso ele ainda não exista. O recurso de provisionamento de usuário JIT criará apenas um **usuário somente leitura** quando uma solicitação SSO vier de um IDP reconhecido e o email na asserção SAML não for encontrado na lista de usuários. Para esse recurso de provisionamento automático, é necessário criar um grupo de acesso chamado **Geral** no OrgChart Now. Execute as etapas abaixo para criar um grupo de acesso:
 
-    a. Vá para a opção **Gerenciar Grupos** depois de clicar na **engrenagem** no canto superior direito da interface do usuário.
+     a. Vá para a opção **Gerenciar Grupos** depois de clicar na **engrenagem** no canto superior direito da interface do usuário.
 
     ![Grupos OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
@@ -189,7 +189,7 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 1. Para criar usuários **Admin** e **usuários de leitura / gravação**, crie manualmente um usuário para obter acesso ao nível de privilégio por SSO. Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-    a. Faça logon no OrgChart Now como Administrador de Segurança.
+     a. Faça logon no OrgChart Now como Administrador de Segurança.
 
     b.  Clique em **Configurações** no canto superior direito e navegue até **Gerenciar Usuários**.
 
@@ -240,7 +240,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco OrgChart Now no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo do OrgChart Now.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

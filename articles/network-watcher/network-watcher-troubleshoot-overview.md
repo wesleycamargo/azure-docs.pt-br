@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779253"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099760"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
@@ -51,7 +51,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |sim|
+| NoFault | Quando nenhum erro é detectado |SIM|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não |
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não |
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não  |
@@ -59,26 +59,26 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlatformInActive | Há um problema com a plataforma. | Não |
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não |
 | NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não |
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| sim|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | sim |
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| SIM|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | SIM |
 
 ### <a name="connection"></a>Conexão
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |sim|
+| NoFault | Quando nenhum erro é detectado |SIM|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não |
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não |
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não  |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não  |
 | ConnectionEntityNotFound | A configuração da conexão está ausente | Não  |
 | ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não |
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | sim |
-| ConnectionMarkedStandy | O serviço subjacente está marcado como em espera.| sim|
-| Authentication | Incompatibilidade de chave pré-compartilhada | sim|
-| PeerReachability | O gateway correspondente não está acessível. | sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |sim|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | SIM |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| SIM|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | SIM|
+| PeerReachability | O gateway correspondente não está acessível. | SIM|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | SIM|
+| Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |SIM|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
@@ -107,7 +107,7 @@ Os arquivos de log para solução de problemas de recursos são armazenados em u
 > [!NOTE]
 > Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento, acesse o link: [Gerenciador de armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -151,7 +151,7 @@ Error: On-prem device sent invalid payload.
 
 O arquivo de log **Scrubbed-wfpdiag.txt** contém o log wfp. Esse log contém o registro de descarte do pacote e de falhas de IKE/AuthIP.
 
-O exemplo a seguir mostra o conteúdo de um arquivo Scrubbed-wfpdiag.txt. Neste exemplo, a chave compartilhada de uma Conexão não está correta, como pode ser visto na terceira linha da parte inferior. O exemplo a seguir é apenas um trecho do log inteiro, já que, dependendo do problema, o log pode ser demorado.
+O exemplo a seguir mostra o conteúdo de um arquivo Scrubbed-wfpdiag.txt. Neste exemplo, a chave compartilhada de uma Conexão não está correta, como pode ser visto na terceira linha da parte inferior. O exemplo a seguir é apenas um snippet do log inteiro, já que, dependendo do problema, o log pode ser demorado.
 
 ```
 ...

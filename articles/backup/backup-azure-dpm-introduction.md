@@ -2,19 +2,18 @@
 title: Preparar o servidor de DPM para fazer backup das cargas de trabalho no Azure
 description: Uma introdução ao backup de dados do DPM em um cofre dos Serviços de Recuperação do Azure.
 services: backup
-author: adigan
-manager: nkolli
-keywords: Gerenciador de proteção de dados do System Center, gerenciador de proteção de dados, backup do dpm
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024467"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301060"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -50,8 +49,8 @@ DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 
 DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2. 
 DPM em uma VM do VMware | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalados.
-Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) do que o DPM pode fazer backup.
-Tipos de arquivo com suporte | É possível fazer o backup desses tipos de arquivo com o Backup do Azure: Criptografado (somente backups completos); Compactado (backups incrementais suportados); Esparso (backups incrementais suportados); Compactado e esparso (tratado como esparso).
+Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode incluir no backup.
+Tipos de arquivo com suporte | É possível fazer backup destes tipos de arquivo com o Backup do Azure: Criptografado (apenas backups completos); Compactados (suporte para backups incrementais); Esparsos (suporte para backups incrementais); Compactados e esparsos (tratados como esparsos).
 Tipos de arquivo sem suporte | Servidores em sistemas de arquivos com diferenciação de maiúsculas e minúsculas; links rígidos (ignorados); pontos de nova análise (ignorados); criptografados e compactados (ignorados); criptografados e esparsos (ignorados); fluxo comprimido; fluxo de análise.
 Armazenamento local | Cada máquina da qual você deseja fazer backup deve ter armazenamento livre local com pelo menos 5% do tamanho dos dados que estão sendo armazenados em backup.  Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
 Armazenamento de cofre | Não há nenhum limite para a quantidade de dados de backup em um cofre de Backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, máquina virtual ou banco de dados) não deve ultrapassar 54400 GB.
@@ -101,7 +100,7 @@ Para obter as credenciais, você faz o download do arquivo da credencial do cofr
 - É sua responsabilidade garantir que o arquivo de credenciais do cofre esteja seguro e não seja comprometido.
     -  Se o controle das credenciais for perdido, as credenciais do cofre poderão ser usadas para registrar outros computadores no cofre.
     - No entanto, os dados de backup são criptografados usando uma frase secreta que pertence ao cliente, por isso os dados de backup existentes não poderão ser comprometidos.
-- Certifique-se de que o arquivo seja salvo em um local que possa ser acessado no servidor DPM. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
+- Salve o arquivo em um local que possa ser acessado no servidor DPM. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 - As credenciais do cofre expiram após 48 horas. Você pode fazer o download das novas credenciais do cofre tantas vezes quantas forem necessárias. No entanto, apenas o último arquivo de credencial de cofre pode ser usado durante o fluxo de trabalho de registro.
 - O serviço de Backup do Azure não tem ciência da chave privada do certificado e a chave privada não está disponível no portal ou no serviço. 
 

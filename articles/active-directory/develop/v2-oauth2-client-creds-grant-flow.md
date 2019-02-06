@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 090f9771bf8d1010e4249d97d5768891f02c54b3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423551"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096595"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Fluxo de credenciais do Azure Active Directory v2.0 e de cliente OAuth 2.0
 
@@ -80,7 +80,7 @@ Para usar permissões de aplicativo no seu aplicativo, siga as etapas discutidas
 2. Localize a seção **Permissões do Microsoft Graph** e adicione as **permissões do aplicativo** exigidas pelo seu aplicativo.
 3. **Salve** o registro do aplicativo.
 
-#### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendado: conectar o usuário ao aplicativo
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendável: conectar o usuário ao aplicativo
 
 Normalmente, quando você cria um aplicativo que usa as permissões de aplicativo, o aplicativo exige uma página ou exibição na qual o administrador aprova as permissões do aplicativo. Esta página pode ser parte do fluxo de entrada do aplicativo, parte das configurações do aplicativo ou pode ser um fluxo dedicado de "conexão". Em muitos casos, faz sentido que o aplicativo somente mostre o modo de exibição "conectar" depois que o usuário entra com uma conta corporativa ou de estudante da Microsoft.
 
@@ -149,7 +149,7 @@ Depois de receber uma resposta bem-sucedida do ponto de extremidade de provision
 
 Após adquirir a autorização necessária para seu aplicativo, continue adquirindo os tokens de acesso para as APIs. Para obter um token usando a concessão de credenciais do cliente, envie uma solicitação POST para o ponto de extremidade v2.0 do `/token`:
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -214,7 +214,7 @@ Uma resposta bem-sucedida tem a seguinte aparência:
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | `access_token` | O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web. |
-| `token_type` | Indica o valor do tipo de token. O único tipo com suporte do Azure AD é o `bearer`. |
+| `token_type` | Indica o valor do tipo de token. O único tipo com suporte do Azure AD é `bearer`. |
 | `expires_in` | A quantidade de tempo que um token de acesso é válido (em segundos). |
 
 ### <a name="error-response"></a>Resposta de erro

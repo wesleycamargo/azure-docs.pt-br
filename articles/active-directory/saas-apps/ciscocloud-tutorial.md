@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Cisco Cloud | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Cisco Cloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Cloud.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: db1cea1d-ff0a-4f0d-b5fd-50ca32702d56
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: e5d7e195a3f61d32387d1101fbb24bfa1ac8bccb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c5809426da95e2295c5bf318b6f17345002f536d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197935"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: integração do Azure Active Directory com o Cisco Cloud
+# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Azure Active Directory ao Cisco Cloud
 
 Neste tutorial, você aprenderá como integrar o Cisco Cloud ao Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Cisco Cloud da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Cisco Cloud](./media/ciscocloud-tutorial/tutorial_ciscocloud_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<subdomain>.cisco.com`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<subdomain>.cisco.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.cisco.com/sp/ACS.saml2`
 
@@ -133,7 +133,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     | country      |user.country |
     | company      |user.companyname |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
 
@@ -147,7 +147,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     e. Clique em **OK**.
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+1. Na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
     ![O link de download do Certificado](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-cisco-cloud-test-user"></a>Criar um usuário de teste do Cisco Cloud
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Cloud. Trabalhe com [equipe de suporte do Cisco Cloud](mailto:cpr-ops@cisco.com) para adicionar os usuários na plataforma Cisco Cloud. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Cloud. Trabalhe com a  [equipe de suporte do Cisco Cloud](mailto:cpr-ops@cisco.com) para adicionar os usuários à plataforma Cisco Cloud. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -228,7 +228,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Cisco Cloud no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Cisco Cloud.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

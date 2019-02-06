@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755080"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079861"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usar o esquema CloudEvents com a Grade de Eventos
 
@@ -21,7 +21,7 @@ Além do seu [esquema de evento padrão](event-schema.md), a Grade de Eventos do
 
 O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum do evento para publicar e consumir eventos com base em nuvem. Esse esquema permite ferramentas uniforme, formas padrão de roteamento e manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente mais trabalho entre plataformas.
 
-O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Compute Foundation](https://www.cncf.io/). Ele está disponível como versão 0.1.
+O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Ele está disponível como versão 0.1.
 
 Este artigo descreve como usar o esquema de CloudEvents com a Grade de Eventos.
 
@@ -60,7 +60,7 @@ Aqui está um exemplo de um evento de Armazenamento de Blob do Azure no formato 
 
 CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
-| CloudEvents        | Tipo     | Valor JSON de exemplo             | DESCRIÇÃO                                                        | Mapeamento de Grade de Eventos
+| CloudEvents        | Type     | Valor JSON de exemplo             | DESCRIÇÃO                                                        | Mapeamento de Grade de Eventos
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | Cadeia de caracteres   | "com.example.someevent"          | Tipo de ocorrência que ocorreram                                   | eventType
 | eventTypeVersion   | Cadeia de caracteres   | "1.0"                            | A versão do eventType (Opcional)                            | dataVersion

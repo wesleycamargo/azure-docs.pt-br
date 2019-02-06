@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o OpsGenie | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao OpsGenie | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o OpsGenie.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444344"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192376"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com o OpsGenie
+# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Azure Active Directory ao OpsGenie
 
 Neste tutorial, você aprenderá a integrar o OpsGenie ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do OpsGenie da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -144,7 +144,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
    
     ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Na caixa de texto **do Ponto de Extremidade SML 2.0**, cole o valor**a URL do Serviço de Logon único**que você copiou do portal do Azure.
+     a. Na caixa de texto **do Ponto de Extremidade SML 2.0**, cole o valor**a URL do Serviço de Logon único**que você copiou do portal do Azure.
     
     b. Na caixa de texto **URL de Metadados:**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure.
     
@@ -197,7 +197,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no OpsGen
    
    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-   a. Na caixa de texto **Email**, digite o endereço de email de Brenda Fernandes endereçado no Azure Active Directory.
+    a. Na caixa de texto **Email**, digite o endereço de email de Brenda Fernandes endereçado no Azure Active Directory.
    
    b. Na caixa de texto **Nome Completo**, digite **Brenda Fernandes**.
    

@@ -1,6 +1,6 @@
 ---
 title: Conectar uma VM do Windows Server | Microsoft Docs
-description: Saiba como se conectar e fazer logon em uma VM do Windows usando o portal do Azure e o modelo de implantação do Gerenciador de Recursos.
+description: Saiba como se conectar e entrar em uma VM do Windows usando o portal do Azure e o modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867062"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296878"
 ---
-# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows
-Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual, em seguida, faça logon.
+# <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e entrar em uma máquina virtual do Azure executando o Windows
+Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual então faça logon.
 
 Para conectar-se a uma VM do Windows por meio de um Mac, será necessário instalar um cliente do RDP para Mac, como a [Área de Trabalho Remota da Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
@@ -32,9 +32,9 @@ Para conectar-se a uma VM do Windows por meio de um Mac, será necessário insta
 2. No menu à esquerda, selecione **Máquinas Virtuais**.
 3. Selecione a máquina virtual na lista.
 4. Na parte superior da página da máquina virtual, selecione **Conectar**.
-2. Na página **Conectar à máquina virtual**, selecione as opções apropriadas e selecione **Baixar arquivo RDP**.
+2. Na página **Conectar-se à máquina virtual**, selecione o endereço IP e a porta apropriados. Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **Baixar arquivo RDP**Baixar arquivo RDP**. Se a VM tiver uma política Just-In-Time definida, você primeiro precisará selecionar o botão **Solicitar acesso** para solicitar acesso antes de baixar o arquivo RDP. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
 2. Abra o arquivo RDP baixado e selecione **Conectar** quando solicitado. 
-2. Você receberá um aviso de que o arquivo .rdp é proveniente de um editor desconhecido. Isso é esperado. Na janela **Conexão de Área de Trabalho Remota**, selecione **Conectar** para continuar.
+2. Você receberá um aviso de que o arquivo `.rdp` é proveniente de um editor desconhecido. Isso é esperado. Na janela **Conexão de Área de Trabalho Remota**, selecione **Conectar** para continuar.
    
     ![Captura de tela de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)
 3. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite as credenciais de uma conta na máquina virtual e selecione **OK**.

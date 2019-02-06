@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463024"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251972"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -57,6 +57,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
+* Banco de Dados do Azure para MariaDB
 * Banco de Dados do Azure para MySQL
 * Banco de Dados do Azure para PostgreSQL
 * Azure DevOps – as organizações do Azure DevOps com compras de extensão que não são da Microsoft precisam [cancelar suas compras](https://go.microsoft.com/fwlink/?linkid=871160) para que possam mover a conta entre assinaturas.
@@ -99,7 +100,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Painéis do portal do Azure
 * Power BI - tanto o Power BI inserido Embedded como a coleção de workspaces do BI
 * IP público - SKU básica pode ser movido. O IP Público SKU padrão não pode ser movido.
-* Cofre dos Serviços de Recuperação – registre sua assinatura para [versão prévia pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Cofre dos Serviços de Recuperação – registrar em uma [versão prévia privada](#recovery-services-limitations).
 * Cache do Azure para Redis – se o Cache do Azure para instância do Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Confira [Limitações de redes virtuais](#virtual-networks-limitations).
 * Agendador
 * Pesquisa - não é possível mover vários recursos de Pesquisa em regiões diferentes em uma operação. Em vez disso, mova-os em operações separadas.
@@ -176,7 +177,7 @@ Para mover máquinas virtuais configuradas com o Backup do Azure, use a seguinte
 * Localize o local de sua máquina virtual.
 * Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
 * Se estiver no portal do Azure, marque "Mostrar tipos ocultos"
-* Se estiver no PowerShell, use o cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+* Se estiver no PowerShell, use o cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
 * Se estiver na CLI, use o `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
@@ -307,7 +308,7 @@ A operação pode executar por vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações dos Serviços de Recuperação
 
- Para mover um cofre dos Serviços de Recuperação, registre sua assinatura para a [versão prévia pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Para mover um cofre dos Serviços de Recuperação, inscreva-se em uma versão prévia privada. Para testar, gravar em AskAzureBackupTeam@microsoft.com.
 
 No momento, você pode mover um cofre dos Serviços de Recuperação por região por vez. Não é possível mover cofres que fazem backup de Azure Files, Sincronização de Arquivos do Azure ou SQL em máquinas virtuais IaaS.
 
@@ -336,13 +337,15 @@ Ao mover um cluster HDInsight para uma nova assinatura, mova primeiro os outros 
 
 Há algumas etapas importantes a serem executadas antes de mover um recurso. Ao verificar essas condições, é possível evitar erros.
 
+1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que tenha sido desabilitada [crie uma solicitação de Suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **Subscription Management** para o tipo de problema.
+
 1. As assinaturas de origem e de destino devem existir no mesmo [locatário do Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Para verificar se as duas assinaturas têm a mesma ID de locatário, use o Azure PowerShell ou a CLI do Azure.
 
   Para o Azure PowerShell, use:
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Para a CLI do Azure, use:
@@ -362,14 +365,14 @@ Há algumas etapas importantes a serem executadas antes de mover um recurso. Ao 
   Para o PowerShell, use os seguintes comandos para obter o status do registro:
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Para registrar um provedor de recursos, use:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   Para a CLI do Azure, use os seguintes comandos para obter o status do registro:
@@ -473,12 +476,12 @@ Quando for concluída, você será notificado sobre o resultado.
 
 ### <a name="by-using-azure-powershell"></a>Usando o Azure PowerShell
 
-Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . O exemplo a seguir mostra como mover diversos recursos para um novo grupo de recursos.
+Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando [Move-AzResource](/powershell/module/az.resources/move-azresource). O exemplo a seguir mostra como mover diversos recursos para um novo grupo de recursos.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Para mover para uma nova assinatura, inclua um valor para o parâmetro `DestinationSubscriptionId`.

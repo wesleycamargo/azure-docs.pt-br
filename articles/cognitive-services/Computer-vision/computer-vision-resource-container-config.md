@@ -6,171 +6,142 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f29bb4ec8154c1d17eef18310037c42426d1522f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477627"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458645"
 ---
-# <a name="configure-recognize-text-containers"></a>Configure os contêineres de Reconhecimento de Texto
+# <a name="configure-recognize-text-docker-containers"></a>Configurar os contêineres do Docker de Reconhecimento de Texto
 
-O API da Pesquisa Visual Computacional fornece o contêiner Recognize Text com uma estrutura de configuração comum, para que você possa configurar e gerenciar facilmente as configurações de armazenamento, registro e telemetria e segurança de seus contêineres.
+O ambiente de tempo de execução do contêiner do **Reconhecimento de Texto** é configurado usando argumentos de comando `docker run`. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+
+Configurações de contêiner são [hierárquicos](#hierarchical-settings) e podem ser definidos com [variáveis de ambiente](#environment-variable-settings) ou [argumentos de linha de comando](#command-line-argument-settings) do Docker.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
-As definições de configuração nos contêineres do API da Pesquisa Visual Computacional são hierárquicas e todos os contêineres usam uma hierarquia compartilhada, com base na seguinte estrutura de nível superior:
+[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
-* [ApiKey](#apikey-configuration-setting)
-* [ApplicationInsights](#applicationinsights-configuration-settings)
-* [Autenticação](#authentication-configuration-settings)
-* [Cobrança](#billing-configuration-setting)
-* [Eula](#eula-configuration-setting)
-* [Fluentd](#fluentd-configuration-settings)
-* [Configurações de credencial de proxy HTTP](#http-proxy-credentials-settings)
-* [Registro em log](#logging-configuration-settings)
-* [Mounts](#mounts-configuration-settings)
-
-É possível usar [variáveis de ambiente](#configuration-settings-as-environment-variables) ou [argumentos da linha de comandos](#configuration-settings-as-command-line-arguments) para especificar definições de configuração ao instanciar um contêiner de contêineres do API da Pesquisa Visual Computacional.
-
-Os valores de variáveis de ambiente substituem os valores do argumento da linha de comandos, os quais, por sua vez, substituem os valores padrão da imagem do contêiner. Em outras palavras, se você especificar valores diferentes em uma variável de ambiente e um argumento de linha de comando para a mesma configuração, como `Logging:Disk:LogLevel`, instanciar um contêiner, o valor na variável de ambiente será usado pelo contêiner instanciado.
-
-### <a name="configuration-settings-as-environment-variables"></a>Definições de configuração como variáveis de ambiente
-
-Você pode usar a [sintaxe da variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) para especificar as configurações.
-
-O contêiner lê variáveis de ambiente do usuário quando o contêiner é instanciado. Se existir uma variável de ambiente, o valor da variável de ambiente substituirá o valor padrão da configuração especificada. O benefício de usar variáveis de ambiente é que várias configurações podem ser definidas antes de instanciar contêineres e vários contêineres podem usar automaticamente o mesmo conjunto de configurações.
-
-Por exemplo, os comandos a seguir usam uma variável de ambiente para configurar o nível de log do console para [LogLevel.Information](https://msdn.microsoft.com) e, em seguida, instancia um contêiner da imagem do contêiner de Reconhecimento de Texto. O valor da variável de ambiente substitui a configuração padrão.
-
-  ```Docker
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789
-  ```
-
-### <a name="configuration-settings-as-command-line-arguments"></a>Definições de configuração como argumentos da linha de comandos
-
-Você pode usar a sintaxe do [argumento de linha de comando do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) para especificar as configurações.
-
-Você pode especificar definições de configuração no parâmetro `ARGS` opcional do comando de [execução do docker](https://docs.docker.com/engine/reference/commandline/run/) usado para instanciar um contêiner a partir de uma imagem de contêiner do download feito. O benefício de usar argumentos de linha de comando é que cada contêiner pode usar um conjunto diferente e personalizado de definições de configuração.
-
-Por exemplo, o comando a seguir instancia um contêiner da imagem do contêiner de reconhecimento de Texto e configura o nível de log do console como LogLevel.Information, substituindo a configuração padrão.
-
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
-  ```
+> [!IMPORTANT]
+> As configurações [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) e [`Eula`](#eula-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A `ApiKey` definição de configuração especifica a chave de configuração do recurso de pesquisa API da Pesquisa Visual Computacional no Azure usado para rastrear informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser uma chave de configuração válida para o recurso do API da Pesquisa Visual Computacional especificado para a definição de configuração [`Billing`](#billing-configuration-setting).
+A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. É necessário especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Pesquisa Visual Computacional_ especificado para a configuração [`Billing`](#billing-setting).
 
-> [!IMPORTANT]
-> As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
+Essa configuração pode ser localizada no seguinte local:
 
-## <a name="applicationinsights-configuration-settings"></a>Definições de configuração do ApplicationInsights
+* Portal do Azure: Gerenciamento de Recursos da **Pesquisa Visual Computacional**, em **Chaves**
 
-As definições de configuração na seção `ApplicationInsights` permitem que você adicione o suporte de telemetria do [Aplicativo Azure AD Insights](https://docs.microsoft.com/azure/application-insights) ao seu contêiner. O Application Insights fornece um monitoramento detalhado do seu contêiner até o nível do código. Você pode monitorar facilmente seu contêiner quanto a disponibilidade, desempenho e uso. Você também pode identificar e diagnosticar rapidamente erros em seu contêiner sem esperar que um usuário os denuncie.
+## <a name="applicationinsights-setting"></a>Configuração applicationInsights
 
-A tabela a seguir descreve as definições de configuração com suporte sob o `ApplicationInsights` seção.
-
-| NOME | Tipo de dados | DESCRIÇÃO |
-|------|-----------|-------------|
-| `InstrumentationKey` | Cadeia de caracteres | A chave de instrumentação da instância do Application Insights para o qual telemetria de dados para o contêiner são enviados. Para obter mais informações, consulte [Application Insights para ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
-
-## <a name="authentication-configuration-settings"></a>Definições de configuração de autenticação
-
-As definições de configuração `Authentication` fornecem opções de segurança do Azure para o seu contêiner. Embora as definições de configuração nesta seção estejam disponíveis, o recipiente de reconhecimento de Texto não usa esta seção.
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A definição de configuração `Billing` especifica o URI de ponto de extremidade do recurso de Pesquisa Visual Computacional no Azure usado para medir as informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de terminal válido para um recurso do API da Pesquisa Visual Computacional.
+A configuração `Billing` especifica o URI de ponto de extremidade do recurso de _Pesquisa Visual Computacional_ no Azure usado para medir as informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso da _Pesquisa Visual Computacional_ no Azure.
 
-> [!IMPORTANT]
-> As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
+Essa configuração pode ser localizada no seguinte local:
 
-## <a name="eula-configuration-setting"></a>Definição de configuração do EULA
+* Portal do Azure: Visão geral da **Pesquisa Visual Computacional**, rotulada como `Endpoint`
 
-A configuração `Eula` indica que você aceitou a licença do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser definido como `accept`.
+|Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
+|--|------|-----------|-------------|
+|SIM| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
-> [!IMPORTANT]
-> As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
+## <a name="eula-setting"></a>Configuração de EULA
 
-Os contêineres de Serviços Cognitivos estão licenciados sob [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rege o uso do Azure. Se você não tiver um contrato existente que rege o uso do Azure, você concorda que o seu contrato que rege o uso do Azure é o [Contrato de Assinatura do Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora os [Termos de Serviços Online ](https://go.microsoft.com/fwlink/?linkid=2018760). Para versões prévias, você também concorda com os [Termos de Uso Adicionais para Versões Prévias do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao usar o contêiner, você concorda com estes termos.
+[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-configuration-settings"></a>Configurações do Fluentd
+## <a name="fluentd-settings"></a>Configurações de Fluentd
 
-A seção `Fluentd` gerencia as definições de configuração do [Fluentd](https://www.fluentd.org), um coletor de dados de código aberto para o registro unificado. Os contêineres da API da Pesquisa Visual Computacional incluem um provedor de registro Fluentd que permite que seu contêiner grave dados de log e, opcionalmente, dados métricos em um servidor Fluentd.
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-A tabela a seguir descreve as definições de configuração com suporte sob o `Fluentd` seção.
-
-| NOME | Tipo de dados | DESCRIÇÃO |
-|------|-----------|-------------|
-| `Host` | Cadeia de caracteres | O endereço IP ou o nome do host DNS do servidor Fluentd. |
-| `Port` | Número inteiro | A porta do servidor Fluentd.<br/> O valor padrão é 24224. |
-| `HeartbeatMs` | Número inteiro | O intervalo de pulsação, em milissegundos. Se nenhum tráfego de evento tiver sido enviado antes que esse intervalo expire, uma pulsação será enviada ao servidor Fluentd. O valor padrão é 60.000 milissegundos (1 minuto). |
-| `SendBufferSize` | Número inteiro | O espaço de buffer de rede, em bytes, alocado para operações de envio. O valor padrão é 32768 bytes (32 kilobytes). |
-| `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo de limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10.000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor é ignorado. |
-| `UseTLS` | BOOLEAN | Indica se o contêiner deve usar SSL / TLS para se comunicar com o servidor Fluentd. O valor padrão é falso. |
-
-
-## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
+## <a name="http-proxy-credentials-settings"></a>Configurações das credenciais de proxy HTTP
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-configuration-settings"></a>Definições de configuração de registro em log
+## <a name="logging-settings"></a>Configurações de registro em log
+ 
+[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-As definições de configuração `Logging` gerenciam o suporte ao log do ASP.NET Core para o seu contêiner. Você pode usar as mesmas configurações e valores para o contêiner que puder para um aplicativo ASP.NET Core. Os seguintes provedores de registro são suportados pelos contêineres do API da Pesquisa Visual Computacional:
+## <a name="mount-settings"></a>Configurações de montagem
 
-* [Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
-  O ASP.NET Core `Console` provedor de log. Todas as definições de configuração do ASP.NET Core e os valores padrão desse provedor de log são suportados.
-* [Depurar](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
-  O ASP.NET Core `Debug` provedor de log. Todas as definições de configuração do ASP.NET Core e os valores padrão desse provedor de log são suportados.
-* Disco  
-  O provedor de log do JSON. Esse provedor de log grava dados de log na montagem de saída.  
-  O provedor de registro `Disk` suporta as seguintes configurações:  
+Use montagens de associação para ler e gravar dados do contêiner e para ele. Você pode especificar uma montagem de entrada ou saída especificando a opção `--mount` no comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-  | NOME | Tipo de dados | DESCRIÇÃO |
-  |------|-----------|-------------|
-  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Observação:** Esse valor deve ser definido como `json` para habilitar o provedor de logs. Se esse valor for especificado sem especificar também uma montagem de saída durante a instanciação de um contêiner, ocorrerá um erro. |
-  | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um arquivo de log. Quando o tamanho do arquivo de log atual atende ou excede esse valor, um novo arquivo de log é iniciado pelo provedor de log. Se -1 for especificado, o tamanho do arquivo de log será limitado apenas pelo tamanho máximo do arquivo, se houver, para a montagem de saída. O valor padrão é 1. |
+Os contêineres de Pesquisa Visual Computacional não usam montagens de entrada ou saída para armazenar dados de treinamento ou serviço. 
 
-Para obter mais informações sobre como configurar o suporte ao registro em log do ASP.NET Core, consulte [Fazendo logon no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
+A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, a localização de montagem do [computador host](computer-vision-how-to-install-containers.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões da localização de montagem do host. 
 
-## <a name="mounts-configuration-settings"></a>Monta definições de configuração
+|Opcional| NOME | Tipo de dados | DESCRIÇÃO |
+|-------|------|-----------|-------------|
+|Não permitido| `Input` | Cadeia de caracteres | Os contêineres de Pesquisa Visual Computacional não usam isso.|
+|Opcional| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-Os contêineres Docker fornecidos pela API da Pesquisa Visual Computacional são projetados para serem stateless e imutáveis. Em outras palavras, os arquivos criados dentro de um contêiner são armazenados em uma camada de contêiner gravável, que persiste apenas enquanto o contêiner está em execução e não pode ser acessado facilmente. Se esse contêiner for interrompido ou removido, os arquivos criados dentro desse contêiner serão destruídos.
+## <a name="hierarchical-settings"></a>Configurações hierárquicas
 
-No entanto, como eles são contêineres do Docker, você pode usar as opções de armazenamento do Docker, como volumes e montagens de ligação, para ler e gravar dados persistentes fora do contêiner, se o contêiner suportar. Para obter mais informações sobre como especificar e gerenciar opções de armazenamento do Docker, consulte [Gerenciar dados no Docker](https://docs.docker.com/storage/).
+[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
-> [!NOTE]
-> Você normalmente não precisará alterar os valores dessas configurações. Em vez disso, você usará os valores especificados nessas configurações como destinos ao especificar montagens de entrada e saída para seu contêiner. Para obter mais informações sobre como especificar montagens de entrada e saída, consulte [Entradas de entrada e saída](#input-and-output-mounts).
+## <a name="example-docker-run-commands"></a>Comandos docker run de exemplo 
 
-A tabela a seguir descreve as definições de configuração com suporte sob o `Mounts` seção.
+Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](computer-vision-how-to-install-containers.md#stop-the-container).
 
-| NOME | Tipo de dados | DESCRIÇÃO |
-|------|-----------|-------------|
-| `Input` | Cadeia de caracteres | O destino de montagem de entrada. O valor padrão é `/input`. |
-| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. |
+* **Caractere de continuação de linha**: Os comandos do Docker nas seções a seguir usam a barra invertida, `\`, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
+* **Ordem do argumento**: Não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
 
-### <a name="input-and-output-mounts"></a>Montagens de entrada e saídas
+Substitua {_argument_name_} pelos seus próprios valores:
 
-Por padrão, cada contêiner pode suportar uma *montagem de entrada*, a partir da qual o contêiner pode ler dados, e um *montagem de saída*, para o qual o contêiner pode gravar dados. Os contêineres não precisam suportar montagens de entrada ou saída, e cada contêiner pode usar montagens de entrada e saída para fins específicos do contêiner, além das opções de registro suportadas pelos contêineres do API da Pesquisa Visual Computacional.
+| Placeholder | Valor | Formato ou exemplo |
+|-------------|-------|---|
+|{BILLING_KEY} | A chave do ponto de extremidade do recurso de Pesquisa Visual Computacional. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade cobrança, incluindo a região.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
-O contêiner de Reconhecimento de Texto não suporta montagens de entrada e, opcionalmente, suporta montagens de saída.
+> [!IMPORTANT]
+> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
+> O valor de ApiKey é a **Chave** da página de chaves do Recurso de Pesquisa Visual Computacional do Azure. 
 
-Você pode especificar uma montagem de entrada ou montagem de saída especificando a opção `--mount` no comando de [execução do docker](https://docs.docker.com/engine/reference/commandline/run/) usado para instanciar um contêiner a partir de uma imagem de contêiner transferida para fazer o download. Por padrão, a montagem de entrada usa `/input` como seu destino e a montagem de saída usa `/output` como seu destino. Qualquer opção de armazenamento do Docker disponível para o host do contêiner Docker pode ser especificada na opção `--mount`.
+## <a name="recognize-text-container-docker-examples"></a>Exemplos do Docker do contêiner do Reconhecimento de Texto
 
-Por exemplo, o comando a seguir define uma montagem de ligação do Docker para a pasta `D:\Output` na máquina host como a montagem de saída e, em seguida, instancia um contêiner da imagem do contêiner de reconhecimento de Texto, salvando arquivos de log no formato JSON na montagem de saída.
+Os seguintes exemplos do Docker são para o contêiner de Reconhecimento de Texto. 
+
+### <a name="basic-example"></a>Exemplo básico 
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY} 
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Exemplo de registro em log com argumentos de linha de comando
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY} \
+  Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Exemplo de registro em log com variável de ambiente
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY}
   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Usar mais [Contêineres dos Serviços Cognitivos](../cognitive-services-container-support.md)
+* Reveja [Como instalar e executar contêineres](computer-vision-how-to-install-containers.md)

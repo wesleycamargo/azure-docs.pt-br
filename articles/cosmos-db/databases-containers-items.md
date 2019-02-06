@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107728"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468131"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos
+# <a name="work-with-databases-containers-and-items"></a>Como trabalhar com bancos de dados, contêineres e itens
 
 Depois de criar uma [conta do Azure Cosmos DB](account-overview.md) na sua assinatura do Azure, você pode gerenciar dados em sua conta criando bancos de dados, contêineres e itens. Este artigo descreve cada uma dessas entidades: bancos de dados, contêineres e itens. A imagem a seguir mostra a hierarquia de entidades diferentes em uma conta do Azure Cosmos:
 

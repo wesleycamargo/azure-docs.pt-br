@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 84e60fa4-36fb-49c4-a642-95538c78f926
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ca687f15187d4dd485d2c59e3c46fa3158802ff4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179995"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Ziflow
+# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Azure Active Directory ao Ziflow
 
 Neste tutorial, você aprende a integrar o Ziflow ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Ziflow da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Informações de logon único de Domínio e URLs do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:ziflow-production:<UniqueID>`
 
@@ -141,7 +141,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Logon único nas configuração do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
-    a. Selecione **Tipo** como **SAML 2.0**.
+     a. Selecione **Tipo** como **SAML 2.0**.
 
     b. Na caixa de texto **URL de entrada**, cole o valor de **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
@@ -203,7 +203,7 @@ Para provisionar uma conta de usuário, execute as seguintes etapas:
 
     ![Configuração adicionar usuários do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
-    a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
+     a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como Brenda.
 
@@ -251,7 +251,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Ziflow no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Ziflow.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

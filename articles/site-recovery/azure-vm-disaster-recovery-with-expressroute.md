@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228280"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -146,7 +146,7 @@ Após a falha das VMs do Azure na região do Azure de destino usando o Site Reco
 
 #### <a name="two-circuits-with-two-peering-locations"></a>Dois circuitos com dois locais de emparelhamento
 
-Essa configuração ajuda a proteger os circuitos da ExpressRoute contra desastres regionais. Se o loation primário do emparelhamento cair, as conexões podem continuar do outro local.
+Essa configuração ajuda a proteger os circuitos da ExpressRoute contra desastres regionais. Se a localização primária de emparelhamento ficar inativa, as conexões poderão continuar da outra localização.
 
 - O circuito conectado ao ambiente de produção é geralmente o principal. O circuito secundário geralmente tem uma largura de banda menor, que pode ser aumentada se ocorrer um desastre.
 - Após o failover, você pode estabelecer conexões do circuito ExpressRoute secundário para a vNet de destino. Como alternativa, você pode configurar e preparar as conexões em caso de desastre para reduzir o tempo de recuperação geral.

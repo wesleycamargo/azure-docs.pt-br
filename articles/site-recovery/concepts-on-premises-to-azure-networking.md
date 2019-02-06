@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836263"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211348"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar o endereçamento IP para se conectar a VMs do Azure após failover
 
@@ -73,7 +73,7 @@ Para que o Woodgrove consiga replicar suas VMs para o Azure, ao mesmo tempo que 
 #### <a name="site-to-site-connection"></a>Conexão site a site
 
 Além da conexão de VNet a VNet, após o failover, o Woodgrove pode configurar a conectividade VPN site a site:
-- Quando você configura uma conexão site a site, na rede do Azure, você só poderá rotear o tráfego para a localização local (rede local) se o intervalo de endereços IP for diferente do intervalo de endereços IP local. Isso ocorre porque o Azure não dá suporte a sub-redes ampliadas. Portanto, se você tiver uma sub-rede 192.168.1.0/24 local, não poderá adicionar uma rede local 192.168.1.0/24 à rede do Azure. Isso é esperado, porque o Azure não reconhece que não há nenhuma VM ativa na sub-rede e que a sub-rede está sendo criada apenas para fins de recuperação de desastre.
+- Quando você configura uma conexão site a site, na rede do Azure você só poderá rotear o tráfego para a localização local (rede local) se o intervalo de endereços IP for diferente do intervalo de endereços IP local. Isso ocorre porque o Azure não dá suporte a sub-redes ampliadas. Portanto, se você tiver uma sub-rede 192.168.1.0/24 local, não poderá adicionar uma rede local 192.168.1.0/24 à rede do Azure. Isso é esperado, porque o Azure não reconhece que não há nenhuma VM ativa na sub-rede e que a sub-rede está sendo criada apenas para fins de recuperação de desastre.
 - Para poder encaminhar o tráfego de rede corretamente para fora de uma rede do Azure, as sub-redes na rede e a rede local não devem entrar em conflito.
 
 

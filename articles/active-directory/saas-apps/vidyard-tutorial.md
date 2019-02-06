@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Vidyard | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Vidyard | Microsoft Docs'
 description: Aprenda como configurar logon único entre o Azure Active Directory e o Vidyard.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bed7df23-6e13-4e7c-b4cc-53ed4804664d
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 871942db15d6a3cff45584e33b2191e21d2281a0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 683cdc43c8d671c14142d0770cd2594ad862b7ac
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426448"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196227"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Azure Active Directory com Vidyard
+# <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Azure Active Directory ao Vidyard
 
 Neste tutorial, você aprenderá como integrar o Vidyard com Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Vidyard da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Voyance](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
@@ -147,7 +147,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configuração do Vidyard](./media/vidyard-tutorial/configure3.png)
 
-    a. Insira o nome do perfil geral na caixa de texto **Nome do Perfil**.
+     a. Insira o nome do perfil geral na caixa de texto **Nome do Perfil**.
 
     b. Copie o valor da **Página de Logon do Usuário de SSO** e cole-o na caixa de texto **URL de Entrada** na seção **Domínio e URLs do Voyance** no portal do Azure.
 
@@ -215,7 +215,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Vidyard. O Vidyard dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Vidyard, caso ele ainda não exista.
 >[!Note]
->Se for necessário criar um usuário manualmente, contate a [equipe de suporte do Vidyard](mailto:support@vidyard.com).
+>Caso precise criar um usuário manualmente, contate a  [equipe de suporte do Vidyard](mailto:support@vidyard.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -252,7 +252,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do Vidyard no Painel de Acesso, deverá entrar automaticamente no aplicativo do Vidyard.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

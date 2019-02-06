@@ -1,5 +1,5 @@
 ---
-title: Cenário de log de erros e tratamento de exceção – Aplicativo Lógico do Azure | Microsoft Docs
+title: Cenário de log de erros e tratamento de exceção – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Aqui está um caso de uso real sobre o log de erros e o tratamento de exceção avançados nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124028"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098656"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros para aplicativos lógicos
 
-Este cenário descreve como é possível estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso da vida real para responder à pergunta: “Os Aplicativos Lógicos do Azure dão suporte ao tratamento de erro e exceção?”
+Este cenário descreve como é possível estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso real para responder à pergunta: "Os Aplicativos Lógicos do Azure dão suporte ao tratamento de erro e exceção?"
 
 > [!NOTE]
 > O esquema atual dos Aplicativos Lógicos do Azure fornece um modelo padrão para respostas de ação. Esse modelo inclui a validação interna e as respostas de erro retornadas de um aplicativo de API.
@@ -57,7 +57,7 @@ Já que vamos registrar o registro obtido do Dynamics CRM Online, começaremos n
 
 Estamos usando um gatilho **Solicitação**, conforme mostrado no seguinte exemplo:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Estamos usando um gatilho **Solicitação**, conforme mostrado no seguinte exemp
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Etapas
@@ -402,7 +402,7 @@ Nossa solução adicionou funcionalidades ao [Azure Cosmos DB](https://azure.mic
 Para exibir os erros, crie um aplicativo Web do MVC para exibir os registros de erro do Cosmos DB. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
 
 > [!NOTE]
-> Operação de edição: o Cosmos DB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
+> Operação Editar: O Cosmos DB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
 
 Estes são exemplos de detalhes de nosso aplicativo MVC criados com a abordagem descrita anteriormente.
 

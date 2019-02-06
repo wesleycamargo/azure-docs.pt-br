@@ -4,20 +4,20 @@ description: Instalar o Visual Studio e o SSDT (Ferramentas de Desenvolvimento d
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ba84b64afb1d5ebcd5ec153787ddc7d0739bd8d8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e27a3d4f2fe4b8421b637e485d77d6376d15bf9a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307378"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461484"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalar o Visual Studio e o SSDT para o SQL Data Warehouse
 Para desenvolver aplicativos para o SQL Data Warehouse, recomendamos o uso da versão mais recente do Visual Studio com a versão mais recente do SSDT (SQL Server Data Tools).  Também há suporte para o Visual Studio 2013 Atualização 5 com SSDT a fim de permitir a compatibilidade com versões anteriores.  
@@ -29,13 +29,13 @@ Usar o Visual Studio com SSDT permite usar o Pesquisador de Objetos do SQL Serve
 > 
 > 
 
-## <a name="step-1-install-visual-studio"></a>Etapa 1: instalar o Visual Studio
+## <a name="step-1-install-visual-studio"></a>Etapa 1: Instalar Visual Studio
 Siga estes links para baixar e instalar o Visual Studio. Se você já tiver o Visual Studio 2013 ou posterior instalado, pule para a Etapa 2 e instale o SSDT.
 
 1. [Baixar o Visual Studio][].
 2. Siga o guia [Instalação do Visual Studio][Installing Visual Studio] no MSDN e escolha as configurações padrão.
 
-## <a name="step-2-install-ssdt"></a>Etapa 2: Instalar o SSDT
+## <a name="step-2-install-ssdt"></a>Etapa 2: instalar o SSDT
 Para instalar o SSDT para o Visual Studio, verifique primeiro se há atualização do SSDT a partir do Visual Studio seguindo as etapas a seguir.
 
 1. No Visual Studio, clique em **Ferramentas** / **Extensões e Atualizações…** / **Atualizações**

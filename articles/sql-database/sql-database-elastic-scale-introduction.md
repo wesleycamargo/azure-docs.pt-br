@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867079"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463014"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
 Você pode escalar horizontalmente bancos de dados SQL do Azure com facilidade usando as ferramentas do **Banco de Dados Elástico** . Essas ferramentas e recursos permitem que você use os recursos de banco de dados do **Banco de Dados SQL do Azure** para criar soluções para cargas de trabalho transacionais e, especialmente, aplicativos SaaS (software como serviço). Os recursos do Banco de Dados Elástico são compostos pelo seguinte:
@@ -67,8 +67,8 @@ A maioria dos aplicativos de banco de dados de escala de nuvem usa uma combinaç
 ## <a name="sharding"></a>Fragmentação
 *Fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dados independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais costumam ser chamados de “locatários”. Fragmentação pode ser necessária por vários motivos:  
 
-* A quantidade total de dados é muito grande para caber dentro das restrições de um único banco de dados
-* A taxa de transferência de transação da carga de trabalho geral excede as capacidades de um único banco de dados
+* A quantidade total de dados é muito grande para caber dentro das restrições de um banco de dados individual
+* A taxa de transferência de transação da carga de trabalho geral excede as capacidades de um banco de dados individual
 * Inquilinos podem exigir isolamento físico entre si, para que bancos de dados separados são necessários para cada locatário
 * Seções diferentes de um banco de dados talvez precisem residir em regiões diferentes para questões geopolíticas, de desempenho ou de conformidade.
 

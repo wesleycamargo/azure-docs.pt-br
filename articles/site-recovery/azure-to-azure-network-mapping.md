@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 6140687d583534d21ee50652811c2fd1624a5cf5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840445"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223775"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereçamento IP para VNets
 
@@ -80,7 +80,7 @@ Espaço de endereço diferente<br/><br/> O próximo endereço IP disponível na 
 **Rede de destino** | **Detalhes**
 --- | ---
 Rede de destino é a VNet de failover | - O endereço IP de destino é estático, mas não o mesmo endereço IP daquele reservado para failover.<br/><br/>  - O endereço atribuído é o próximo endereço disponível no final do intervalo de sub-rede.<br/><br/> Por exemplo:  Se o endereço IP de origem for 10.0.0.19 e a rede de failover usar o intervalo 10.0.0.0/24, o próximo endereço IP atribuído à VM de destino será 10.0.0.254.
-A rede de destino não é a VNet de failover | - O endereço IP de destino será estático com o mesmo endereço IP reservado para failover.<br/><br/>  - Se o mesmo endereço IP já estiver atribuído, o endereço IP será o próximo disponível no intervalo de sub-redes.<br/><br/> Por exemplo:  Se o endereço IP estático de origem for 10.0.0.19 e o failover estiver em uma rede que não seja a de failover, com o intervalo 10.0.0.0/24, o endereço IP estático de destino será 10.0.0.0.19 se disponível, e caso contrário, será 10.0.0.254.
+A rede de destino não é a VNet de failover | - O endereço IP de destino será estático com o mesmo endereço IP reservado para failover.<br/><br/>  - Se o mesmo endereço IP já estiver atribuído, o endereço IP será o próximo disponível em cada um dos intervalos de sub-redes.<br/><br/> Por exemplo:  Se o endereço IP estático de origem for 10.0.0.19 e o failover estiver em uma rede que não seja a de failover, com o intervalo 10.0.0.0/24, o endereço IP estático de destino será 10.0.0.0.19 se disponível, e caso contrário, será 10.0.0.254.
 
 - A rede virtual de failover é a rede de destino selecionada quando você configura a recuperação de desastre.
 - É recomendável sempre usar uma rede de não produção para failover de teste.

@@ -1,6 +1,6 @@
 ---
 title: Visão geral da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: Este tópico descreve uma Instância Gerenciada do Banco de Dados SQL do Azure e explica como funciona e se difere de um banco de dados individual no Banco de Dados SQL do Azure.
+description: Este tópico descreve uma Instância Gerenciada do Banco de Dados SQL do Azure e explica como funciona e se difere de um banco de dados individual ou em pool no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465700"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Use a Instância Gerenciada do Banco de Dados SQL com redes virtuais e quase 100% de compatibilidade
 
@@ -34,7 +34,7 @@ A Instância Gerenciada do Banco de Dados SQL do Azure foi desenvolvida para cli
 
 Por Disponibilidade Geral, a Instância Gerenciada visa entregar aproximadamente 100% de compatibilidade de área de superfície com a última versão do SQL Server local por meio de um plano de lançamento em etapas.
 
-Para decidir entre o Banco de Dados Individual do Banco de Dados SQL do Azure, a Instância Gerenciada do Banco de Dados SQL do Azure e o IaaS do SQL Server hospedado em Máquina Virtual, consulte [como escolher a versão correta do SQL Server na nuvem do Azure](sql-database-paas-vs-sql-server-iaas.md).
+Para decidir entre o banco de dados individual, o banco de dados em pool e instância gerenciada do Banco de Dados SQL do Azure e o SQL Server hospedado em Máquina Virtual, confira [como escolher a versão correta do SQL Server na nuvem do Azure](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Principais recursos e capacidades
 
@@ -185,7 +185,7 @@ A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Os b
 - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Backups de uma Instância Gerenciada só podem ser restaurados para outra Instância Gerenciada. Eles não podem ser restaurados para um SQL Server local ou para um servidor lógico do Banco de Dados SQL do Azure único ou em banco de dados em pool.
+> Backups de uma Instância Gerenciada só podem ser restaurados para outra Instância Gerenciada. Eles não podem ser restaurados para um SQL Server local ou para um pool elástico/banco de dados individual.
 
 ### <a name="data-migration-service"></a>Serviço de Migração de Dados
 
@@ -210,7 +210,7 @@ A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que 
 - A Instância Gerenciada não permite especificar caminhos físicos completos, de modo que todos os cenários correspondentes precisam ter suporte de forma diferente: RESTORE DB não dá suporte a WITH MOVE, CREATE DB não permite caminhos físicos, BULK INSERT funciona somente com Blobs do Azure etc.
 - A Instância Gerenciada dá suporte para [Autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de nuvem para autenticação do Windows.
 - A Instância Gerenciada gerencia automaticamente o grupo de arquivos XTP e os arquivos para bancos de dados que contêm objetos OLTP na memória
-- Instância gerenciada suporta SSIS (SQL Server Integration Services) e pode hospedar SSIS catalog (SSISDB) que armazena pacotes SSIS, mas eles são executados em um Azure-ISR (Azure-SSIS Integration Runtime) no Azure Data Factory (ADF), consulte [ Crie o IR do Azure-SSIS no ADF ](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS no Banco de Dados SQL e na Instância Gerenciada, confira [Comparar o servidor lógico do Banco de Dados SQL e a Instância Gerenciada](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Instância gerenciada suporta SSIS (SQL Server Integration Services) e pode hospedar SSIS catalog (SSISDB) que armazena pacotes SSIS, mas eles são executados em um Azure-ISR (Azure-SSIS Integration Runtime) no Azure Data Factory (ADF), consulte [ Crie o IR do Azure-SSIS no ADF ](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS na Instância Gerenciada e Banco de Dados SQL, confira [Comparar os pools elásticos/bancos de dados individuais do Banco de Dados SQL do Azure e a Instância Gerenciada](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Recursos de administração de Instância Gerenciada do Banco de Dados SQL do Azure
 

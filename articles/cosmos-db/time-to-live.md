@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbbaefc62adedc2374c47fd0736368d3dec3e6a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043423"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461161"
 ---
-# <a name="time-to-live-for-azure-cosmos-db-data"></a>Vida Útil dos dados do Azure Cosmos DB
+# <a name="time-to-live-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB 
 
 Com a "Vida útil" ou TTL, o Azure Cosmos DB fornece a capacidade de excluir itens automaticamente de um contêiner após um determinado período de tempo. Por padrão, é possível definir a Vida Útil no nível do contêiner e substituir o valor em uma base por item. Após definir a Vida Útil em um nível de item ou contêiner, o Azure Cosmos DB removerá automaticamente esses itens após o período de tempo, desde a hora em que foram modificados pela última vez. O valor de Vida Útil é configurado em segundos. Ao configurar a Vida Útil, o sistema excluirá automaticamente os itens expirados com base no valor de TTL, diferentemente de uma operação de exclusão explicitamente emitida pelo aplicativo cliente.
 

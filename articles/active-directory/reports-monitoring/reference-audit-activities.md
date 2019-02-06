@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
+ms.subservice: report-monitor
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818176"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186528"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
@@ -43,34 +43,36 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de diretórios|Adicionar unidade administrativa|
-|Gerenciamento de diretórios|Adicionar membro à unidade administrativa|
-|Gerenciamento de diretórios|Excluir unidade administrativa|
-|Gerenciamento de diretórios|Remover membro de unidade administrativa|
-|Gerenciamento de diretórios|Atualizar unidade administrativa|
-|Gerenciamento de diretórios|Administração|
-|Gerenciamento de Usuários|Operação do diretório|
-|Gerenciamento de Usuários|Exportação|
-|Gerenciamento de Usuários|Importar|
-|Gerenciamento de Usuários|Outros|
-|Gerenciamento de Usuários|Caução de processo|
-|Gerenciamento de Usuários|Ação de regra de sincronização|
-|Gerenciamento de Usuários|Adicionar aplicativo|
-|Gerenciamento de Usuários|Excluir aplicativo|
-|Gerenciamento de Usuários|Atualizar aplicativo|
-|Gerenciamento de Usuários|Atualizar Modo de Logon Único do aplicativo|
-|Gerenciamento de Usuários|Substituição de senha automática|
-|Gerenciamento de Usuários|Adicionar permissões da aplicativo V2|
-|Gerenciamento de Usuários|Criar aplicativo V1|
-|Gerenciamento de Usuários|Criar aplicativo V2|
-|Gerenciamento de Usuários|Excluir aplicativo V1|
-|Gerenciamento de Usuários|Excluir aplicativo V2|
-|Gerenciamento de Usuários|Excluir concessão de permissão de aplicativo V2|
-|Gerenciamento de Usuários|Obter aplicativos V1 e V2|
-|Gerenciamento de Usuários|Obter aplicativo V1|
-|Gerenciamento de Usuários|Obter aplicativos V1|
-|Gerenciamento de Usuários|Obter aplicativo V2|
-|Gerenciamento de Usuários|Obter aplicativos V2|
+|Revisões de acesso|Revisão de acesso encerrada|
+|Revisões de acesso|Adicionar aprovador para a aprovação de solicitação|
+|Revisões de acesso|Adicionar revisor para a revisão de acesso|
+|Revisões de acesso|Aplicar revisão de acesso|
+|Revisões de acesso|Criar a revisão de acesso|
+|Revisões de acesso|Criar programa|
+|Revisões de acesso|Criar solicitação de aprovação|
+|Revisões de acesso|Excluir revisão de acesso|
+|Revisões de acesso|Excluir programa|
+|Revisões de acesso|Vincular controle do programa|
+|Revisões de acesso|Integrar com as Revisões de Acesso do Azure AD|
+|Revisões de acesso|Remover revisor da revisão de acesso|
+|Revisões de acesso|Solicitar interrupção da análise|
+|Revisões de acesso|Solicitar aplicação dos resultados da análise|
+|Revisões de acesso|Examinar associação de função RBAC|
+|Revisões de acesso|Revisar atribuição do aplicativo|
+|Revisões de acesso|Revisar associação ao grupo|
+|Revisões de acesso|Revisar solicitação de aprovação de solicitação|
+|Revisões de acesso|Desvincular controle do programa|
+|Revisões de acesso|Atualizar revisão de acesso|
+|Revisões de acesso|Atualizar o status de Integração das Revisões de Acesso do Azure AD|
+|Revisões de acesso|Atualizar configurações de notificação de email da revisão de acesso|
+|Revisões de acesso|Atualizar configuração da contagem de recorrência da revisão de acesso|
+|Revisões de acesso|Atualizar configuração da duração de recorrência da revisão de acesso em dias|
+|Revisões de acesso|Atualizar configuração de tipo e recorrência da revisão de acesso|
+|Revisões de acesso|Atualizar configuração de tipo de recorrência da revisão de acesso|
+|Revisões de acesso|Atualizar configurações de lembrete de revisão de acesso|
+|Revisões de acesso|Atualizar programa|
+|Revisões de acesso|Atualizar aprovação de solicitação|
+|Revisões de acesso|Usuário desabilitado|
 
 ## <a name="account-provisioning"></a>Provisionamento de conta
 
@@ -526,23 +528,27 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de funções|Atualizar configurações de lembrete de revisão de acesso|
-|Gerenciamento de funções|Atualizar aprovação de solicitação|
-|Gerenciamento de funções|Adicionar concessão de atribuição de função de aplicativo ao usuário|
-|Gerenciamento de funções|Adicionar usuário|
-|Gerenciamento de funções|Adicionar detalhes de aplicativo de telefone de autenticação forte do usuário|
-|Gerenciamento de funções|Alterar licença de usuário|
-|Gerenciamento de funções|Alterar senha de usuário|
-|Gerenciamento de funções|Converter usuário federado em gerenciado|
-|Gerenciamento de funções|Criar senha de aplicativo para o usuário|
-|Gerenciamento de funções|Excluir senha de aplicativo do usuário|
-|Gerenciamento de funções|Excluir usuário|
-|Gerenciamento de funções|Desabilitar conta|
-|Gerenciamento de funções|Habilitar autenticação forte|
-|Gerenciamento de funções|Excluir usuário irreversivelmente|
-|Gerenciamento de funções|Remover atribuição de função de aplicativo do usuário|
-|Gerenciamento de funções|Remover detalhes de aplicativo de telefone de autenticação forte do usuário|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Added|
+|PIM|AddedOutsidePIM|
+|PIM|Assign|
+|PIM|DismissAlert|
+|PIM|Elevate|
+|PIM|ReactivateAlert|
+|PIM|Removed|
+|PIM|RemovedOutsidePIM|
+|PIM|Solicitar interrupção da análise|
+|PIM|Alterações na configuração de função|
+|PIM|ScanAlertsNow|
+|PIM|Inscrever-se|
+|PIM|Unassign|
+|PIM|Unelevate|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Gerenciamento de grupo de autoatendimento
@@ -580,17 +586,20 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de política|Alterar senha (autoatendimento)|
-|Gerenciamento de política|Redefinir senha (pelo administrador)|
-|Gerenciamento de política|Redefinir senha (autoatendimento)|
-|Gerenciamento de política|Progresso da atividade de fluxo de redefinição de senha de autoatendimento|
-|Gerenciamento de política|Progresso da atividade de fluxo de redefinição de senha de autoatendimento|
-|Gerenciamento de política|Desbloquear conta de usuário (autoatendimento)|
-|Gerenciamento de política|Usuário registrado para redefinição de senha de autoatendimento|
+|Termos de Uso|Aceitar os Termos de Uso|
+|Termos de Uso|Criar Termos de Uso|
+|Termos de Uso|Recusar Termos de Uso|
+|Termos de Uso|Excluir Consentimento|
+|Termos de Uso|Excluir Termos de Uso|
+|Termos de Uso|Editar Termos de Uso|
+|Termos de Uso|Expirar Termos de Uso|
+|Termos de Uso|Exclusão irreversível dos Termos de Uso|
+|Termos de Uso|Publicar Termos de Uso|
+|Termos de Uso|Cancelar a publicação dos Termos de Uso|
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral dos relatórios do Azure AD](overview-reports.md).
 - [Relatório de logs de auditoria](concept-audit-logs.md). 
-- [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)
+- [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)

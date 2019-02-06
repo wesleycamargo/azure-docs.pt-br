@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713962"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297575"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA entre regiões do Azure
 
@@ -39,7 +39,7 @@ A Rede Virtual do Azure usa um intervalo de endereço IP diferente. Os endereço
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Disponibilidade simples entre duas regiões do Azure
 
-Você pode optar por não implementar nenhuma configuração de disponibilidade dentro de uma única região, mas ainda ter a demanda para que a carga de trabalho seja atendida se ocorrer um desastre. Casos típicos para sistemas como esse são sistemas que não são de produção. Embora seja sustentável ter o sistema inoperante por meio dia ou mesmo por um dia, não é possível permitir que o sistema fique indisponível por 48 horas ou mais. Para tornar a instalação mais barata, execute outro sistema que seja ainda menos importante na VM. O outro sistema funciona como destino. Você pode dimensionar a VM na região secundária para que seja menor e optar por não pré-carregar os dados. Como o failover é manual e implica muitas outras etapas para failover na pilha de aplicativo completa, o tempo adicional para encerrar a VM, redimensioná-la e então iniciá-la novamente, é aceitável.
+Você pode optar por não implementar nenhuma configuração de disponibilidade dentro de uma única região, mas ainda ter a demanda para que a carga de trabalho seja atendida se ocorrer um desastre. Casos típicos para esses cenários são sistemas não de produção. Embora seja sustentável ter o sistema inoperante por meio dia ou mesmo por um dia, não é possível permitir que o sistema fique indisponível por 48 horas ou mais. Para tornar a instalação mais barata, execute outro sistema que seja ainda menos importante na VM. O outro sistema funciona como destino. Você pode dimensionar a VM na região secundária para que seja menor e optar por não pré-carregar os dados. Como o failover é manual e implica muitas outras etapas para failover na pilha de aplicativo completa, o tempo adicional para encerrar a VM, redimensioná-la e então iniciá-la novamente, é aceitável.
 
 Se você estiver usando o cenário de compartilhamento de destino de recuperação de desastres com um sistema de controle de qualidade em uma máquina virtual, você precisa levar em conta essas considerações:
 
@@ -67,6 +67,16 @@ Uma combinação de disponibilidade dentro e entre regiões pode ser conduzida p
 Nesses casos, você pode configurar para que o SAP chame uma [Configuração de replicação de sistema multicamadas do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) usando a replicação do sistema do HANA. A arquitetura seria semelhante a:
 
 ![Diagrama de três VMs em duas regiões](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+A SAP lançou a [replicação de sistema de vários destinos](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) com o SPS3 do HANA 2.0. A replicação do sistema de vários destinos traz algumas vantagens em cenários de atualização. Por exemplo, o site de recuperação de desastres (Região 2) não é afetado quando o site secundário de HA está inoperante para manutenção ou atualizações. Você pode encontrar mais informações sobre a replicação de vários destinos de sistema do HANA [aqui](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+Uma possível arquitetura com a replicação de vários destinos se pareceria com:
+
+![Diagrama de três VMs em duas regiões multidestino](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Se a organização tiver requisitos de prontidão para alta disponibilidade na segunda região do Azure (recuperação de desastre), a arquitetura se parecerá com:
+
+![Diagrama de três VMs em duas regiões multidestino](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 Usar logreplay como modo de operação, essa configuração fornece um RPO = 0, com baixo RTO, dentro da região primária. A configuração também fornece o RPO razoável se uma mudança para a segunda região estiver envolvida. Os tempos do RTO na segunda região dependem de se os dados são ou não pré-carregados. Muitos clientes usam a VM na região secundária para executar um sistema de teste. Nesse caso de uso, os dados não podem ser pré-carregados.
 

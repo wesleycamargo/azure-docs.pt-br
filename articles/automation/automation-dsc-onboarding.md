@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436380"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096697"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure
 
@@ -168,7 +168,7 @@ Os computadores com Linux locais, computadores com Linux no Azure e os computado
 1. Certifique-se de que a versão mais recente da [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) está instalada nos computadores que você deseja integrar à Configuração do Estado de Automação do Azure.
 1. Se o [padrões do Gerenciador de Configurações Local do DSC do PowerShell](/powershell/dsc/metaconfig4) corresponde a seu caso de uso e você deseja integrar computadores de modo que como que eles **ambos** efetuem pull e gerem relatório para a Configuração do Estado de Automação do Azure:
 
-   - Em cada computador Linux para carregar a Configuração do Estado de Automação do Azure, use Register.py para `Register.py` carregar usando os padrões do Sytem Center Configuration ManagerLocal da DSC do PowerShell:
+   - Em cada computador Linux em que será carregada a Configuração de Estado de Automação do Azure, use `Register.py` para carregar usando os padrões do Gerenciador de Configurações Local do DSC do PowerShell:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

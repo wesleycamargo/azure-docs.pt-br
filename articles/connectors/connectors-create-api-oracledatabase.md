@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230226"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295349"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -95,15 +95,15 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 ## <a name="common-errors"></a>Erros comuns
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: não é possível acessar o Gateway
+#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: Não é possível acessar o Gateway
 
 **Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
 
-**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
+**Atenuação**: verifique se o gateway está em execução no computador local em que ele foi instalado e se ele pode se conectar à Internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'System.Data.OracleClient exige software cliente Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
-**Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
+**Causa**: o SDK do cliente da Oracle não está instalado no computador em que o gateway de dados local está em execução.  
 
 **Resolução**: baixe e instale o SDK do cliente da Oracle no mesmo computador que o gateway de dados local.
 
@@ -111,11 +111,11 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 **Causa**: a tabela não tem uma chave primária.  
 
-**Resolução**: o conector do Banco de Dados Oracle exige o uso de uma tabela com uma coluna de chave primária.
+**Resolução**: o conector do Oracle Database exige o uso de uma tabela com uma coluna de chave primária.
 
 #### <a name="currently-not-supported"></a>Não há suporte no momento
 
-* Exibições e procedimentos armazenados 
+* Modos de exibição 
 * Qualquer tabela com chaves compostas
 * Tipos de objeto aninhados em tabelas
  

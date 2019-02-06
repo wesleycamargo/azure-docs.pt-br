@@ -1,5 +1,5 @@
 ---
-title: Como integrar logs do Azure Active Directory ao Log Analytics usando o Azure Monitor (versão prévia) | Microsoft Docs
+title: Transmitir logs do Azure Active Directory ao Log Analytics usando o Azure Monitor (versão prévia) | Microsoft Docs
 description: Aprenda a integrar os logs do Azure Active Directory ao Log Analytics usando o Azure Monitor (visualização)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9189ef3fff75023316d5272bd93c136106cf94
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ad01784f3a808be4a27c97934b7ce4e83de8cdc2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824670"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168474"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integrar logs do Azure Active Directory ao Log Analytics usando o Azure Monitor (visualização)
 

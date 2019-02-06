@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339511"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296114"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solucionar problemas de backup do SQL Server no Azure
 
@@ -37,6 +37,15 @@ Para configurar a proteção de um banco de dados do SQL Server em uma máquina 
 ## <a name="troubleshooting-errors"></a>Solucionar erros
 
 Use as informações nas tabelas a seguir para solucionar problemas e erros encontrados durante a proteção do SQL Server para Azure.
+
+## <a name="alerts"></a>Alertas
+
+### <a name="backup-type-unsupported"></a>Tipo de Backup Sem Suporte
+
+| Severity | DESCRIÇÃO | Possíveis causas | Ação recomendada |
+|---|---|---|---|
+| Aviso | As configurações atuais para este banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>**BD mestre**: Apenas uma operação de backup de banco de dados completo pode ser executada no banco de dados mestre; nem backup **diferencial** nem backup de **logs** de transação são possíveis. </li> <li>Nenhum banco de dados no **modelo de recuperação simples** permite que backups de **logs** de transação sejam executados.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Como alternativa, altere a política atual para incluir somente os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para backup ad-hoc.
+
 
 ## <a name="backup-failures"></a>Falhas de backup
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816748"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104228"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -59,7 +59,7 @@ Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repi
 **Etapa 1: [Remover bloqueio do grupo de recursos do ponto de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Etapa 2: [ Limpar a coleção do ponto de restauração](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - O backup não tem permissões suficientes do cofre de chaves para fazer backup de VMs criptografadas.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured – o backup não tem permissões suficientes no cofre de chaves para o backup de VMs criptografadas
 
 **Erro de código**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: O backup não tem permissões suficientes para o cofre de chaves para fazer backup de VMs criptografadas. <br>
@@ -105,7 +105,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Erro de código**: UserErrorUnsupportedDiskSize <br>
 **Mensagem de erro**: Atualmente, o Backup do Azure não dá suporte a tamanhos de disco maiores que 1.023 GB <br>
 
-Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disco maior que 1.023 GB, pois o seu cofre não é atualizado para Restauração Instantânea. A atualização para Restauração Instantânea dará suporte a até 4 TB, confira este [artigo](backup-instant-restore-capability.md).  
+Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disco maior que 1.023 GB, pois o seu cofre não é atualizado para Restauração Instantânea. A atualização para Restauração Instantânea dará suporte a até 4 TB, confira este [artigo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Depois que você fizer a atualização, serão necessárias até duas horas para a assinatura fornecer essa funcionalidade. Forneça buffer suficiente antes de repetir a operação.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Atualmente, o Backup do Azure não suporta discos SSD padrão
 
@@ -114,7 +114,7 @@ Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disc
 
 Atualmente, o Backup do Azure dá suporte a discos SSD Standard apenas para os cofres atualizados para a [Restauração Instantânea](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: não é possível iniciar o backup porque outra operação de backup já está em andamento.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – não é possível iniciar o backup porque outra operação de backup já está em andamento
 
 **Erro de código**: UserErrorBackupOperationInProgress <br>
 **Mensagem de erro**: Não é possível iniciar o backup porque outra operação de backup já está em andamento<br>
@@ -132,7 +132,6 @@ O seu trabalho de backup recente falhou porque há um trabalho de backup existen
 4. Tente novamente a operação de backup.
 
 Se a operação de backup agendada estiver demorando muito tempo, entrando em conflito com a próxima configuração de backup, reveja as [Práticas recomendadas](backup-azure-vms-introduction.md#best-practices), o [Desempenho de Backup](backup-azure-vms-introduction.md#backup-performance) e a [Consideração sobre restauração](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções

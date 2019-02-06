@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528549"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453375"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -27,18 +27,18 @@ Se você quiser transferir dados usando unidades de disco fornecidas pela Micros
 
 Considere o uso do serviço de Importação/Exportação do Azure quando o upload ou download dos dados pela rede estiver muito lento, ou quando a largura de banda de rede adicional for dispendiosa. Use esse serviço nos cenários a seguir:
 
-* **Migração de dados para a nuvem**: mover grandes quantidades de dados para o Microsoft Azure de forma rápida e econômica.
-* **Distribuição de conteúdo**: enviar rapidamente dados para seus sites de clientes.
-* **Backup**: faça backups dos seus dados locais para armazenar no Armazenamento do Microsoft Azure.
-* **Recuperação de dados**: recuperar uma grande quantidade de dados guardados no armazenamento e enviá-los para seu local.
+* **Migração de dados para a nuvem**: Mova grandes quantidades de dados para o Microsoft Azure de forma rápida e econômica.
+* **Distribuição de conteúdo**: Envie rapidamente dados para seus sites de clientes.
+* **Backup**: Faça backups dos seus dados locais para armazenar no Armazenamento do Microsoft Azure.
+* **Recuperação de dados**: Recupere uma grande quantidade de dados guardados no armazenamento e enviá-los para seu local.
 
 ## <a name="importexport-components"></a>Componentes de importação/exportação
 
 O serviço de importação/exportação usa os seguintes componentes:
 
-- **Serviço de Importação/Exportação**: esse serviço disponível no portal do Azure ajuda o usuário a criar e acompanhar trabalhos de importação (upload) e exportação (download) de dados.  
+- **Serviço de importação/exportação**: Esse serviço disponível no portal do Azure ajuda o usuário a criar e acompanhar trabalhos de importação (upload) e exportação (download) de dados.  
 
-- **Ferramenta WAImportExport**: esta é uma ferramenta de linha de comando que faz o seguinte: 
+- **Ferramenta WAImportExport**: Esta é uma ferramenta de linha de comando que faz o seguinte: 
     - Prepara as unidades de disco que são enviadas para importação.
     - Facilita a cópia de seus dados para a unidade.
     - Criptografa os dados na unidade com BitLocker.
@@ -52,7 +52,7 @@ O serviço de importação/exportação usa os seguintes componentes:
 >
 > A ferramenta WAImportExport só é compatível com o sistema de operacional do Windows de 64 bits. Para versões específicas do sistema operacional com suporte, vá para [requisitos de importação/exportação do Microsoft Azure](storage-import-export-requirements.md#supported-operating-systems).
 
-- **Unidades de disco**: é possível pode enviar SSDs (unidades de estado sólido) ou HDDs (unidades de disco rígido) para o datacenter do Azure. Ao criar um trabalho de importação, você pode enviar as unidades de disco que contém seus dados. Ao criar um trabalho de exportação, você pode enviar unidades vazias para o datacenter do Microsoft Azure. Para tipos de disco específico, vá para [Tipos de disco compatíveis](storage-import-export-requirements.md#supported-hardware).
+- **Unidades de disco**: Você pode enviar SSDs (unidades de estado sólido) ou HDDs (unidades de disco rígido) para o datacenter do Azure. Ao criar um trabalho de importação, você pode enviar as unidades de disco que contém seus dados. Ao criar um trabalho de exportação, você pode enviar unidades vazias para o datacenter do Microsoft Azure. Para tipos de disco específico, vá para [Tipos de disco compatíveis](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Como funciona a importação/exportação?
 
@@ -119,7 +119,7 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 ### <a name="supported-shipping-locations"></a>Locais de envio com suporte
 
 
-|País  |País  |País  |País  |
+|País/Região  |País/Região  |País/Região  |País/Região  |
 |---------|---------|---------|---------|
 |Leste dos EUA    | Norte da Europa        | Índia Central        |US Gov Iowa         |
 |Oeste dos EUA     |Europa Ocidental         | Sul da Índia        | DoD do Leste dos EUA        |

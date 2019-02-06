@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452132"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302097"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -53,6 +53,8 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 - Proteção de Informações do Azure - [Saiba mais](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - RemoteApp do Azure
+
+- Banco de Dados SQL do Azure – [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 
 - Microsoft Dynamics 365
 
@@ -149,7 +151,7 @@ Para implantar automaticamente essa extensão para os navegadores Chrome, crie a
 |--- | ---|
 |Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |NOME | 1 |
-|Tipo | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
@@ -158,7 +160,7 @@ Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do re
 |--- | ---|
 |Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |NOME | 1 |
-|Tipo | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado. 
@@ -242,7 +244,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 - O requisito **Exigir o aplicativo do cliente aprovado**:
 
-    - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platforms-condition).
+    - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Próximas etapas

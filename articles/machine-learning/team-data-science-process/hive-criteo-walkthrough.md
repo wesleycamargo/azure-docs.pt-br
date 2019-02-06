@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135807"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477209"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
@@ -33,14 +33,14 @@ Cada registro deste conjunto de dados contém 40 colunas:
 * as 13 colunas seguintes são numéricas e
 * as últimas 26 colunas são colunas categóricas
 
-As colunas são anônimas e usam uma série de nomes enumerados: "Col1" (para a coluna de rótulo) a "Col40" (para a última coluna categórica).            
+As colunas são anônimas e usam uma série de nomes enumerados: "Col1" (para a coluna de rótulo) a "Col40" (para a última coluna categórica).
 
 Este é um trecho das 20 primeiras colunas de duas observações (linhas) desse conjunto de dados:
 
     Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
 
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
+    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
 
 Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados. É descrito um método simples para lidar com os valores ausentes. Detalhes adicionais dos dados são explorados aos armazená-los em tabelas do Hive.
 
@@ -50,7 +50,7 @@ Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados.
 Dois exemplos de problemas de previsão são abordados neste passo a passo:
 
 1. **Classificação binária**: prevê se um usuário clicou em um anúncio:
-   
+
    * Classe 0: Nenhum clique
    * Classe 1: Clique em 
 2. **Regressão**: prevê a probabilidade de um clique no anúncio por meio de características do usuário.
@@ -62,10 +62,10 @@ Configure seu ambiente de Ciência de dados do Azure para a criação de soluç�
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): essa conta de armazenamento é usada para armazenar dados no Armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
 2. [Personalizar os Clusters do Azure HDInsight Hadoop para Ciência de Dados](customize-hadoop-cluster.md): Esta etapa cria um cluster do Hadoop do Azure HDInsight com Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes (descritas neste tópico) a serem executadas para personalizar o cluster do HDInsight.
-   
+
    * Você deve vincular a conta de armazenamento criada na etapa 1 ao cluster do HDInsight quando ele é criado. Essa conta de armazenamento é usada para acessar dados que podem ser processados dentro do cluster.
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Lembre das credenciais de acesso remoto que você especificar aqui (diferentes daqueles especificadas para o cluster durante sua criação): você precisa delas para concluir os procedimentos a seguir.
-3. [Criar um workspace do Azure ML](../studio/create-workspace.md): este workspace do Azure Machine Learning é usado para criar modelos de machine learning após uma exploração de dados inicial e para reduzir a amostragem no cluster do HDInsight.
+3. [Criar um workspace do Azure Machine Learning Studio](../studio/create-workspace.md): este workspace do Azure Machine Learning é usado para criar modelos de machine learning após uma exploração de dados inicial e para reduzir a amostragem no cluster do HDInsight.
 
 ## <a name="getdata"></a>Obter e consumir dados de uma fonte de pública
 O conjunto de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) pode ser acessado clicando no link, aceitando os termos de uso e fornecendo um nome. Um instantâneo desse processo é mostrado aqui:
@@ -74,10 +74,10 @@ O conjunto de dados da [Criteo](http://labs.criteo.com/downloads/download-teraby
 
 Clique em **Continuar a Baixar** para saber mais sobre o conjunto de dados e sua disponibilidade.
 
-Os dados residem em um local público do [Armazenamento de blobs do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. O "wasb" refere-se ao local do Armazenamento de Blob do Azure. 
+Os dados residem em um local público do [Armazenamento de blobs do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. O "wasb" refere-se ao local do Armazenamento de Blob do Azure.
 
 1. Os dados desse armazenamento de blobs público consistem de três subpastas de dados descompactados.
-   
+
    1. A subpasta *raw/count/* contém os primeiros 21 dias de dados, de dia\_00 a dia\_20
    2. A subpasta *raw/train/* consiste de um dia de dados, dia\_21
    3. A subpasta *raw/test/* consiste de dois dias de dados, dia\_22 e dia\_23
@@ -103,11 +103,11 @@ Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Lin
 
 > [!NOTE]
 > Execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/do Hive. Isso soluciona automaticamente possíveis problemas de caminho. Os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" são intercambiáveis.
-> 
+>
 > [!NOTE]
 > Para executar qualquer consulta de Hive, é sempre possível usar os seguintes comandos:
-> 
-> 
+>
+>
 
         cd %hive_home%\bin
         hive
@@ -158,13 +158,13 @@ Todas essas tabelas são externas, portanto, você pode simplesmente apontar par
 **Há duas maneiras de executar a consulta ANY do Hive:**
 
 1. **Usando a linha de comando REPL do Hive**: a primeira maneira é emitir um comando "hive" e copiar e colar uma consulta na linha de comando REPL do Hive. Para fazer isto:
-   
+
         cd %hive_home%\bin
         hive
-   
+
      Agora na linha de comando REPL, recortar e colar a consulta a executa.
 2. **Salvando consultas em um arquivo e executando o comando**: a segunda maneira é salvar as consultas em um arquivo .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) e emitir o seguinte comando para executar a consulta:
-   
+
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>Confirme a criação do banco de dados e da tabela
@@ -294,7 +294,7 @@ Isso resulta em:
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-A distribuição de percentis está fortemente relacionada à distribuição de histograma de qualquer variável numérica.         
+A distribuição de percentis está fortemente relacionada à distribuição de histograma de qualquer variável numérica.
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Encontre o número de valores exclusivos para algumas colunas categóricas no conjunto de dados de treinamento
 Continuando a exploração de dados, encontre, para algumas colunas categóricas, o número de valores exclusivos que elas levam. Para fazer isso, mostre o conteúdo de [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
@@ -455,11 +455,11 @@ Para selecionar o conjunto de dados salvo para uso em um teste de aprendizado de
 
 > [!NOTE]
 > Faça isso para os conjuntos de dados de treinamento e de teste. Além disso, lembre-se de usar o nome do banco de dados e das tabelas que você atribuiu para essa finalidade. Os valores usados na figura são somente para fins de ilustração.\*\*
-> 
-> 
+>
+>
 
 ### <a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Azure Machine Learning para predizer cliques/nenhum clique
-Nosso experimento do AM do Azure tem esta aparência:
+Nosso experimento do Azure Machine Learning Studio fica com esta aparência:
 
 ![Teste do Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -481,9 +481,9 @@ Para criar recursos de contagem, use o módulo **Criar transformação de contag
 ![Propriedades do módulo Criar Transformação de Contagem](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Módulo Criar Transformação de Contagem](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Na caixa **Contar colunas**, insira as colunas em que você deseja realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. Lembre-se de que o conjunto de dados Criteo tem 26 colunas categóricas: da Col15 até a Col40. Aqui, contamos todas elas e apresentamos seus índices (de 15 a 40, separados por vírgulas, como mostrado).
-> 
+>
 
 Para usar o módulo no modo MapReduce (apropriado para grandes conjuntos de dados), precisamos de acesso a um cluster HDInsight Hadoop (aquele usado para a exploração de recurso também pode ser reutilizado para essa finalidade) e suas credenciais. Os valores anteriores ilustram a aparência dos valores preenchidos (substitua os valores fornecidos como ilustração por aqueles relevantes para seu próprio caso de uso).
 
@@ -588,8 +588,8 @@ Como etapa inicial, considerando que a tabela de contagem é grande, pegue algum
 
 > [!NOTE]
 > Para o formato de dados de entrada, usamos a SAÍDA do módulo **Recursos de Contagem**. Após o fim da execução do experimento, nós salvamos a saída do módulo **Recursos de contagem** como um conjunto de dados. Esse conjunto de dados é usado para os dados de entrada no serviço Web.
-> 
-> 
+>
+>
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Experimento de pontuação publicação do serviço Web
 Primeiro, é mostrada a aparência. A estrutura essencial é um módulo **Modelo de Pontuação** que aceita o objeto de modelo treinado e algumas linhas de dados de entrada geradas nas etapas anteriores usando o módulo **Recursos de Contagem**. Use "Selecionar Colunas do Conjunto de Dados" para projetar os Rótulos pontuados e as Probabilidades de pontuação.

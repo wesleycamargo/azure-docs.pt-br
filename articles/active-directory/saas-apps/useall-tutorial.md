@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Useall | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Useall | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Useall.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8dd9e452-a5b6-4a16-a97c-b60211ea6b95
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 8deacddc9dcc7571ea725143fa9a9c002c1602b1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 393494410b14bd54f1878cc372e76ad8a7ee3c7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743011"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164751"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-useall"></a>Tutorial: Integração do Active Directory do Azure com o Useall
+# <a name="tutorial-azure-active-directory-integration-with-useall"></a>Tutorial: Integração do Azure Active Directory ao Useall
 
 Neste tutorial, você aprenderá como integrar o Useall ao Azure AD (Azure Active Directory).
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Useall da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -114,7 +114,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Domínio Useall e informações de logon único de URLs](./media/useall-tutorial/tutorial_useall_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
 
@@ -185,7 +185,7 @@ Nesta seção, você permite que o Britta Simon use o logon único do Azure, con
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Useall no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Useall.
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

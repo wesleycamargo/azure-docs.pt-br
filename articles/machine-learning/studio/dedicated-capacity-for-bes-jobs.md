@@ -1,6 +1,6 @@
 ---
-Título: Serviço de Lote do Azure para trabalhos do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Serviço de Lote do Azure para trabalhos do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
+serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Capacidade dedicada para trabalhos de serviço de execução em lote – Azure Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
 ---

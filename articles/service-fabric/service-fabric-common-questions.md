@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320592"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104075"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -73,7 +73,7 @@ Exigimos um cluster de produção para ter pelo menos cinco nós devido aos trê
 
 Queremos que o cluster esteja disponíveis se houver falha simultânea de dois nós. Para que um cluster do Service Fabric esteja disponível, os serviços do sistema deverão estar disponíveis. Serviços de sistema com estado como serviço de nomenclatura e serviço de gerenciamento de failover, que controlam quais serviços foram implantados no cluster e onde eles estão hospedados atualmente, dependem de uma consistência forte. Essa consistência forte, por sua vez, depende da capacidade de adquirir um *quorum* para qualquer atualização para o estado desses serviços, onde um quorum representa a maioria estrita das réplicas (N/2 + 1) para um determinado serviço. Portanto, se quisermos ser resilientes em relação à perda simultânea de dois nós (portanto, perda simultânea de duas réplicas de um serviço de sistema), precisamos ter ClusterSize - QuorumSize > = 2, que força o tamanho mínimo para ser cinco. Para ver isso, considere que o cluster tem N nós e há N réplicas de um serviço de sistema, uma em cada nó. O tamanho do quorum para um serviço do sistema é (N/2 + 1). O operador de desigualdade acima se parece com N - (N/2 + 1) > = 2. Há dois casos a serem considerados: quando N for par e quando N for ímpar. Se N for par, digamos, N = 2\*m onde m >= 1, a desigualdade parece 2\*m - (2\*m/2 + 1) >= 2 ou m >= 3. O requisito mínimo para N é 6 e isso é obtido quando m = 3. Por outro lado, se N for ímpar, digamos, N = 2\*m + 1, onde m > = 1, a desigualdade parece 2\*m + 1 - ((2\*m + 1) / 2 + 1) > = 2 ou 2\*m + 1 - (m + 1) > = 2 ou m > = 2. O requisito mínimo para N é 5 e isso é obtido quando m = 2. Portanto, entre todos os valores de N que satisfazem a desigualdade ClusterSize - QuorumSize > = 2, o mínimo é 5.
 
-No argumento acima, pressupomos que cada nó tenha uma réplica de um serviço de sistema, portanto, o tamanho do quorum é calculado com base no número de nós no cluster. No entanto, se alterássemos *TargetReplicaSetSize*, poderíamos deixar o tamanho do quorum menor que (N/2+1) que pode dar a impressão de que poderíamos ter um cluster menor do que 5 nós e ainda ter 2 nós extras acima do tamanho do quorum. Por exemplo, em um cluster de 4 nós, se nós definirmos o TargetReplicaSetSize como 3, o tamanho do quorum com base em TargetReplicaSetSize será (3/2 + 1) ou 2, portanto, temos ClusterSize - QuorumSize = 4-2 > = 2. No entanto, não podemos garantir que o serviço de sistema será exatamente o valor ou acima do quorum se perdermos qualquer par de nós simultaneamente. Os dois nós perdidos poderiam estar hospedando duas réplicas, portanto, o serviço do sistema entraria em perda de quorum (tendo apenas uma única réplica sobrando) e ficaria indisponível.
+No argumento acima, pressupomos que cada nó tenha uma réplica de um serviço de sistema, portanto, o tamanho do quorum é calculado com base no número de nós no cluster. No entanto, se alterássemos *TargetReplicaSetSize*, poderíamos deixar o tamanho do quorum menor que (N/2+1) que pode dar a impressão de que poderíamos ter um cluster menor do que 5 nós e ainda ter 2 nós extras acima do tamanho do quorum. Por exemplo, em um cluster de 4 nós, se definirmos o TargetReplicaSetSize como 3, o tamanho do quorum baseado em TargetReplicaSetSize será (3/2 + 1) ou 2 e, portanto, teremos ClusterSize - QuorumSize = 4-2 >= 2. No entanto, não podemos garantir que o serviço de sistema será exatamente o valor ou acima do quorum se perdermos qualquer par de nós simultaneamente. Os dois nós perdidos poderiam estar hospedando duas réplicas, portanto, o serviço do sistema entraria em perda de quorum (tendo apenas uma única réplica sobrando) e ficaria indisponível.
 
 Com esse plano de fundo, vamos examinar algumas configurações de cluster possíveis:
 

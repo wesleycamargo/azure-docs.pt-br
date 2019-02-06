@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242018"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467366"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com o AzCopy no Linux
 
@@ -92,7 +92,7 @@ azcopy --source <source> --destination <destination> [Options]
 
 Os exemplos a seguir demonstram vários cenários para cópia de dados entre os Blobs e os Arquivos do Microsoft Azure. Consulte o menu `azcopy --help` para obter uma explicação detalhada dos parâmetros usados em cada amostra.
 
-## <a name="blob-download"></a>Blob: baixar
+## <a name="blob-download"></a>Blob: Baixar
 ### <a name="download-single-blob"></a>Baixar um único blob
 
 ```azcopy
@@ -211,7 +211,7 @@ azcopy \
     --exclude-older
 ```
 
-## <a name="blob-upload"></a>Blob: carregar
+## <a name="blob-upload"></a>Blob: Carregar
 ### <a name="upload-single-file"></a>Carregar um único arquivo
 
 ```azcopy
@@ -346,7 +346,7 @@ azcopy \
 ### <a name="customizing-the-mime-content-type-mapping"></a>Personalizar o mapeamento de tipo de conteúdo MIME
 O AzCopy usa um arquivo de configuração que contém um mapeamento de extensão de arquivo para o tipo de conteúdo. É possível personalizar esse mapeamento e adicionar novos pares conforme necessário. O mapeamento está localizado em ```/usr/lib/azcopy/AzCopyConfig.json```
 
-## <a name="blob-copy"></a>Blob: copiar
+## <a name="blob-copy"></a>Blob: Copiar
 ### <a name="copy-single-blob-within-storage-account"></a>Copiar um único blob dentro da conta de armazenamento
 
 ```azcopy
@@ -420,7 +420,7 @@ azcopy \
 
 `--sync-copy` poderá gerar custos de saída adicionais, comparado à cópia assíncrona. A abordagem recomendada é usar essa opção em uma VM do Azure que está na mesma região de sua conta de armazenamento de origem, para evitar o custo de saída.
 
-## <a name="file-download"></a>Arquivo: baixar
+## <a name="file-download"></a>Arquivo: Baixar
 ### <a name="download-single-file"></a>Baixar um único arquivo
 
 ```azcopy
@@ -444,7 +444,7 @@ azcopy \
 
 Observe que as pastas vazias não são baixadas.
 
-## <a name="file-upload"></a>Arquivo: carregar
+## <a name="file-upload"></a>Arquivo: Carregar
 ### <a name="upload-single-file"></a>Carregar um único arquivo
 
 ```azcopy
@@ -477,7 +477,7 @@ azcopy \
     --recursive
 ```
 
-## <a name="file-copy"></a>Arquivo: copiar
+## <a name="file-copy"></a>Arquivo: Copiar
 ### <a name="copy-across-file-shares"></a>Copiar entre compartilhamentos de arquivos
 
 ```azcopy
@@ -719,6 +719,6 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 * [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support (AzCopy: anúncio de disponibilidade geral do AzCopy 3.0 mais versão de teste do AzCopy 4.0 com suporte para Tabela e Arquivo)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Optimized for Large-Scale Copy Scenarios (AzCopy: otimizado para cenários de cópia em larga escala)](https://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Support for read-access geo-redundant storage (AzCopy: suporte para o armazenamento com redundância geográfica com acesso de leitura)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transferir dados com o modo reiniciável e um token SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Transfer data with re-startable mode and SAS token (AzCopy: transferir dados com o modo reiniciável e token de SAS)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

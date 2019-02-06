@@ -1,6 +1,6 @@
 ---
-Título: Criar vários modelos de um experimento do Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Use o PowerShell para criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com o mesmo algoritmo, mas com conjuntos de dados de treinamento diferentes.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Criar vários modelos de um experimento do Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Use o PowerShell para criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com o mesmo algoritmo, mas com conjuntos de dados de treinamento diferentes.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/04/2017
 ---

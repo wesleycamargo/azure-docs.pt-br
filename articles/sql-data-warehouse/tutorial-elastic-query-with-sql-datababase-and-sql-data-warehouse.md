@@ -6,18 +6,18 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307085"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238324"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutorial: Usar a Consulta elástica para acessar dados no SQL Data Warehouse do Azure a partir do Banco de Dados SQL do Microsoft Azure
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutorial: Usar a Consulta elástica para acessar dados no SQL Data Warehouse do Azure do Banco de Dados SQL do Azure
 
 Este tutorial usa o recurso de Consulta Elástica para consulta SQL Data Warehouse do Azure a partir do Banco de Dados SQL do Azure. 
 

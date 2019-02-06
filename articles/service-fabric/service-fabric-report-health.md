@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 775c9b155f080c8996a7680514cb2fb004a4e3fb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212520"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152239"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) desenvolvido para sinalizar condições de cluster e aplicativo não íntegras em entidades específicas. O modelo de integridade usa **relatores de integridade** (componentes do sistema e watchdogs). O objetivo é facilitar e agilizar o diagnóstico e o reparo. Os criadores de serviço precisam pensar à frente sobre a integridade. Qualquer condição que possa afetar a integridade deve ser apontada, especialmente se ela puder ajudar a sinalizar problemas próximos da raiz. As informações de integridade podem economizar tempo e esforço na investigação e depuração. A utilidade é especialmente clara quando o serviço está em funcionamento em grande escala na nuvem (Azure ou privada).
@@ -57,9 +57,9 @@ Uma vez o design de relatório de integridade estiver claro, os relatórios de i
 ## <a name="health-client"></a>Cliente de integridade
 Os relatórios de integridade são enviados ao repositório de integridade usando um cliente de integridade, que reside dentro do cliente de malha. O cliente de integridade pode ser configurado da seguinte maneira:
 
-* **HealthReportSendInterval**: o atraso entre a hora em que o relatório é adicionado ao cliente e a hora em que ele é enviado ao repositório de integridade. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
+* **HealthReportSendInterval**: o atraso entre o momento em que o relatório é adicionado ao cliente e o momento em que ele é enviado ao repositório de integridade. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
 * **HealthReportRetrySendInterval**: o intervalo no qual o cliente de integridade reenvia os relatórios de integridade acumulados ao repositório de integridade. Padrão: 30 segundos.
-* **HealthOperationTimeout**: o período de tempo limite para uma mensagem de relatório enviada ao repositório de integridade. Se a mensagem atingir o tempo limite, o cliente de integridade fará uma nova tentativa até que o repositório de integridade confirme que o relatório foi processado. Padrão: dois minutos.
+* **HealthOperationTimeout**: o período de tempo limite de uma mensagem de relatório enviada ao repositório de integridade. Se a mensagem atingir o tempo limite, o cliente de integridade fará uma nova tentativa até que o repositório de integridade confirme que o relatório foi processado. Padrão: dois minutos.
 
 > [!NOTE]
 > Quando os relatórios são agrupados em lotes, o cliente de malha deve ser mantido em atividade até que, pelo menos, HealthReportSendInterval garanta que eles sejam enviados. Se a mensagem for perdida ou o repositório de integridade não puder aplicá-la devido a erros transitórios, o cliente da malha deverá ser mantido em atividade por mais tempo para que tenha a chance de tentar novamente.
@@ -155,7 +155,7 @@ Depois que os detalhes do watchdog tiverem sido finalizados, escolha uma ID de o
 > 
 > 
 
-O próximo ponto de decisão é qual entidade relatar. A condição identifica a entidade na maioria das vezes. Você deve escolher a entidade com a melhor granularidade possível. Se uma condição afeta todas as réplicas em uma partição, reporte a partição, não o serviço. Porém, há situações extremas em que é preciso ter mais cuidado. Se a condição afetar uma entidade, como uma réplica, mas o que se quer é sinalizar a condição por mais tempo do que a duração da vida útil da réplica, ela deverá ser relatada na partição. Caso contrário, quando a réplica for excluída, o repositório de integridade apagará todos os seus relatórios. Os gravadores de watchdog devem pensar sobre o tempo de vida da entidade e do relatório. Deve ficar claro quando um relatório deverá ser eliminado de um repositório (por exemplo, quando um erro relatado em uma entidade não for mais aplicável).
+O próximo ponto de decisão é qual entidade relatar. Na maioria das vezes, a condição identifica claramente a entidade. Você deve escolher a entidade com a melhor granularidade possível. Se uma condição afeta todas as réplicas em uma partição, reporte a partição, não o serviço. Porém, há situações extremas em que é preciso ter mais cuidado. Se a condição afetar uma entidade, como uma réplica, mas o que se quer é sinalizar a condição por mais tempo do que a duração da vida útil da réplica, ela deverá ser relatada na partição. Caso contrário, quando a réplica for excluída, o repositório de integridade apagará todos os seus relatórios. Os gravadores de watchdog devem pensar sobre o tempo de vida da entidade e do relatório. Deve ficar claro quando um relatório deverá ser eliminado de um repositório (por exemplo, quando um erro relatado em uma entidade não for mais aplicável).
 
 Vamos analisar um exemplo que reúne os pontos que descrevi. Considere um aplicativo do Service Fabric composto por um serviço persistente com estado mestre e serviços sem estado secundários implantados em todos os nós (um tipo de serviço secundário para cada tipo de tarefa). O mestre tem uma fila de processamento que contém os comandos a serem executados pelos secundários. Os secundários executam as solicitações de entrada e enviam de volta sinais de confirmação. Uma condição que pode ser monitorada é o comprimento da fila de processamento mestre. Se o comprimento da fila mestre atingir um limite, um aviso é relatado. O aviso indica que os secundários não conseguem processar a carga. Se a fila atinge o tamanho máximo e comandos são descartados, um erro será relatado, uma vez que não será possível recuperar o serviço. Os relatórios podem estar na propriedade **QueueStatus**. O watchdog reside no serviço e é enviado periodicamente na réplica primária mestre. A vida útil é de dois minutos e é enviada periodicamente a cada 30 segundos. Se a primária falhar, o relatório será automaticamente removido do repositório. Se a réplica de serviço estiver ativa, mas apresentar deadlock ou outros problemas, o relatório expirará no Repositório de Integridade. Neste caso, a entidade é avaliada no erro.
 

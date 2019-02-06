@@ -3,7 +3,7 @@ title: Converter o armazenamento de Managed Disks do Azure de padrão em premium
 description: Como converter os Managed Disks do Azure de padrão em premium, e vice-versa, usando o Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4c13708ad785a2291da3db61d739f604a2c3bb88
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478511"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475883"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerenciado
 
@@ -83,7 +83,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Converter um disco gerenciado de padrão em premium
 
-Para sua carga de trabalho de desenvolvimento/teste, você poderá ter uma combinação de discos standard e premium para reduzir os custos. Tarefas pendentes de atualização para o armazenamento premium, portanto, somente a discos que requerem melhor desempenho. O exemplo a seguir mostra como alternar um único disco de uma VM de armazenamento padrão para premium e vice-versa. Para usar discos gerenciados por premium, sua VM deve usar um [tamanho de VM](sizes.md) que suporte o armazenamento premium. Este exemplo também mostra como alternar para um tamanho que dá suporte a armazenamento premium:
+Para sua carga de trabalho de desenvolvimento/teste, você poderá ter uma combinação de discos standard e premium para reduzir os custos. Para fazer isso, atualize somente os discos que requerem melhor desempenho para o armazenamento Premium. O exemplo a seguir mostra como alternar um único disco de uma VM de armazenamento padrão para premium e vice-versa. Para usar discos gerenciados por premium, sua VM deve usar um [tamanho de VM](sizes.md) que suporte o armazenamento premium. Este exemplo também mostra como alternar para um tamanho que dá suporte a armazenamento premium:
 
 ```azurepowershell-interactive
 

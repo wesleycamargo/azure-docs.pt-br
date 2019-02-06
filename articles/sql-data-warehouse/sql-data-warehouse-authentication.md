@@ -2,20 +2,20 @@
 title: Autenticar no SQL Data Warehouse do Microsoft Azure | Microsoft Docs
 description: Saiba como autenticar no SQL Data Warehouse do Azure usando a autenticação do Microsoft Azure Active Directory ou do Microsoft SQL Server.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f26ded5fae1bde5b2e6485ae2a2f99eebb17563
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310582"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463320"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticar no SQL Data Warehouse do Azure
 Saiba como autenticar no SQL Data Warehouse do Azure usando a autenticação do Microsoft Azure Active Directory ou do Microsoft SQL Server.
@@ -67,7 +67,7 @@ Os benefícios do Azure Active Directory incluem:
 Siga estas etapas para configurar a autenticação do Azure Active Directory.
 
 1. Criar e popular um Azure Active Directory
-2. Opcional: associar ou alterar o Active Directory que está associado atualmente à sua Assinatura do Azure
+2. Opcional: Associar ou alterar o Active Directory que está associado atualmente à sua Assinatura do Azure
 3. Criar um administrador do Azure Active Directory para o SQL Data Warehouse do Azure
 4. Configurar os computadores cliente
 5. Criar usuários de banco de dados independente em seu banco de dados, mapeados para identidades do AD do Azure

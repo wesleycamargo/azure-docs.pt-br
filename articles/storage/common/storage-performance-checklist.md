@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231781"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460821"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -147,7 +147,7 @@ Normalmente, o navegador não permite o uso de JavaScript em páginas hospedadas
 As duas tecnologias podem ajudar você a evitar cargas e gargalos desnecessários no seu aplicativo Web.  
 
 #### <a name="useful-resources"></a>Recursos úteis
-Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](../storage-dotnet-shared-access-signature-part-1.md).  
+Para saber mais sobre SAS, confira [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1.md) (Assinaturas de Acesso Compartilhado, Parte 1: noções básicas sobre o modelo de SAS)  
 
 Para saber mais sobre o CORS, consulte [Suporte a CORS (Compartilhamento de Recursos entre Origens) para os serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -178,7 +178,7 @@ Você deve definir o limite da conexão antes de abrir as conexões.
 
 No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.  
 
-Para saber mais, consulte a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Aumentar o mínimo dos Threads de ThreadPool, caso esteja usando código síncrono com tarefas assíncronas
 Este código aumenta o mínimo de threads do pool de threads:  
@@ -286,7 +286,7 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 #### <a name="subheading25"></a>Usar JSON
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML, para transferir dados de tabela. Isso pode reduzir o tamanho da carga em até 75% e pode melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para saber mais, confira a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de conteúdo para operações de serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Desativação do Nagle
 O algoritmo de Nagle é implementado largamente em redes TCP/IP como meio de melhorar o desempenho das redes. No entanto, ele não é ideal em todas as circunstâncias (como em ambientes altamente interativos). No caso do armazenamento do Azure, o algoritmo do Nagle tem um impacto negativo sobre o desempenho das solicitações para a tabela e os serviços de fila. Por isso, desabilite-o se possível.  
@@ -303,7 +303,7 @@ Como você representa e consulta os seus dados é o maior fator único que afeta
 #### <a name="subheading27"></a>Tabelas e partições
 As tabelas são divididas em partições. Cada entidade armazenada em uma partição compartilha a mesma chave de partição e tem uma chave de linha exclusiva que a identifica dentro da partição em questão. As partições trazem benefícios, mas também criam limites de escalabilidade.  
 
-* Benefícios: você pode atualizar as entidades em uma única transação atômica e em lote que contenha até 100 operações de armazenamento independentes (limite total de 4 MB). Partindo do pressuposto de que a mesma quantidade de entidades pode ser recuperada, você também pode consultar dados em uma única partição com mais eficiência do que a consulta a dados presentes em diversas partições (consulte as demais recomendações sobre consulta aos dados das tabelas).
+* Benefícios: é possível atualizar as entidades na mesma partição em uma única transação atômica e em lote que contenha até 100 operações de armazenamento independentes (limite total de 4 MB). Partindo do pressuposto de que a mesma quantidade de entidades pode ser recuperada, você também pode consultar dados em uma única partição com mais eficiência do que a consulta a dados presentes em diversas partições (consulte as demais recomendações sobre consulta aos dados das tabelas).
 * Limite de escalabilidade: o acesso às entidades armazenadas em uma única partição não pode passar por balanceamento de carga porque as partições dão suporte a transações atômicas em lote. Por esse motivo, a meta de escalabilidade de cada partição da tabela é menor do que a meta do serviço Tabela como um todo.  
 
 Devido a essas características, você deve adotar estes princípios de design:  
@@ -359,8 +359,8 @@ As transações em lote são conhecidas como ETG (transações do grupo de entid
 ##### <a name="subheading36"></a>Upsert
 Use as operações de tabela **Upsert** sempre que possível. Há dois tipos de **Upsert** e os dois podem ser mais eficientes do que as operações tradicionais **Insert** e **Update**:  
 
-* **InsertOrMerge**: use essa operação quando quiser carregar um subconjunto de propriedades da entidade, mas não souber se a entidade já existe. Se a entidade existir, essa chamada atualiza as propriedades incluídas na operação **Upsert** e deixa todas as propriedades existente como elas se encontram. Se a entidade não existir, a operação insere a nova entidade. Isso se parece com o uso de projeção em uma consulta, pois você só precisa carregar as propriedades que estão mudando.
-* **InsertOrReplace**: use essa operação quando quiser carregar uma entidade completamente nova, mas não souber se a entidade já existe. Você só deve usar essa opção quando souber que a entidade carregada está perfeita, pois ela substitui completamente a entidade anterior. Por exemplo, você quer atualizar a entidade que armazena um local atual do usuário independente de o aplicativo já ter armazenado ou não os dados de local do usuário; a nova entidade de localização está completa e você não precisa de informações de nenhuma entidade anterior.
+* **InsertOrMerge**: use essa operação quando desejar carregar um subconjunto de propriedades da entidade, mas não souber se a entidade já existe. Se a entidade existir, essa chamada atualiza as propriedades incluídas na operação **Upsert** e deixa todas as propriedades existente como elas se encontram. Se a entidade não existir, a operação insere a nova entidade. Isso se parece com o uso de projeção em uma consulta, pois você só precisa carregar as propriedades que estão mudando.
+* **InsertOrReplace**: use essa operação quando desejar carregar uma entidade completamente nova, mas não souber se a entidade já existe. Você só deve usar essa opção quando souber que a entidade carregada está perfeita, pois ela substitui completamente a entidade anterior. Por exemplo, você quer atualizar a entidade que armazena um local atual do usuário independente de o aplicativo já ter armazenado ou não os dados de local do usuário; a nova entidade de localização está completa e você não precisa de informações de nenhuma entidade anterior.
 
 ##### <a name="subheading37"></a>Armazenamento de séries de dados em uma única entidade
 Às vezes, um aplicativo armazena uma série de dados que ele precisa recuperar uma só vez com frequência: por exemplo, um aplicativo pode controlar o uso da CPU ao longo do tempo para plotar um gráfico sem interrupção dos dados das últimas 24 horas. Uma abordagem é ter uma entidade de tabela por hora, com cada uma delas representando uma hora específica e armazenando o uso da CPU para a hora em questão. Para obter esses dados, o aplicativo precisa recuperar as entidades que contêm os dados das últimas 24 horas.  
@@ -395,7 +395,7 @@ Para obter informações atualizadas sobre custos, confira [Preços do Armazenam
 ### <a name="subheading44"></a>UpdateMessage
 Você pode usar **UpdateMessage** para aumentar o tempo limite da invisibilidade ou atualizar as informações de estado de uma mensagem. Embora isso seja útil, lembre-se de que a operação **UpdateMessage** é computada na meta de escalabilidade. No entanto, essa abordagem pode ser muito mais eficiente do que ter um fluxo de trabalho que transmite uma tarefa de uma fila para a outra, pois cada etapa da tarefa é concluída. O uso da operação **UpdateMessage** permite que o aplicativo salve o estado da tarefa na mensagem e continue trabalhando, em vez de colocar a mensagem na fila novamente para a próxima etapa a cada etapa concluída.  
 
-Para obter mais informações, consulte o artigo [Como alterar o conteúdo de uma mensagem em fila](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Para saber mais, confira o artigo [Como alterar o conteúdo de uma mensagem na fila](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Arquitetura do aplicativo
 Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A seguir temos algumas maneiras de usar filas para que seu aplicativo seja mais escalonável:  

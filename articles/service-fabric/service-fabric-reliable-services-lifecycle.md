@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044570"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164547"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Da mesma forma que os serviços sem monitoração de estado, os eventos de ciclo
 3. Depois que `StatefulServiceBase.OnCloseAsync()` for concluído, o objeto de serviço será destruído.
 
 ## <a name="stateful-service-primary-swaps"></a>Trocas Primárias de serviço com estado
-Enquanto um serviço com estado está em execução, somente as réplicas Primárias dos serviços com estado terão seus ouvintes de comunicação abertos e seu método **RunAsync** chamado. Réplicas secundárias são construídas, mas não veem mais chamadas. Durante a execução de um serviço com estado, a réplica atualmente primária pode alterar. O que isso significa em termos dos eventos do ciclo de vida que uma réplica pode ver? O comportamento que uma réplica com estado vê depende se ela é a réplica que está sendo rebaixada ou promovida durante a troca.
+Enquanto um serviço com estado está em execução, somente as réplicas Primárias dos serviços com estado terão seus ouvintes de comunicação abertos e seu método **RunAsync** chamado. Réplicas secundárias são construídas, mas não veem mais chamadas. Durante a execução de um serviço com estado, a réplica que atualmente é a Primária poderá ser alterada como resultado de uma falha ou da otimização do balanceamento do cluster. O que isso significa em termos dos eventos do ciclo de vida que uma réplica pode ver? O comportamento que uma réplica com estado vê depende se ela é a réplica que está sendo rebaixada ou promovida durante a troca.
 
 ### <a name="for-the-primary-thats-demoted"></a>Para a primária que é rebaixada
 Para a réplica primária é rebaixada, o Service Fabric precisa que essa réplica interrompa o processamento de mensagens e feche qualquer trabalho em segundo plano que esteja executando. Como resultado, esta etapa tem uma aparência igual à de quando o serviço está desligado. Uma diferença é que o Serviço não é destruído nem fechado, pois ele permanece como Secundário. As seguintes APIs são chamadas:

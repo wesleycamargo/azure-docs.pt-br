@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462334"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 Aprenda a fazer backup e restauração do banco de dados no SQL Data Warehouse do Azure. Utilize instantâneos de data warehouse para recuperação ou copie seu data warehouse para um ponto de restauração anterior na região primária. Use backups de data warehouse com redundância geográfica para restaurar para uma região geográfica diferente. 
@@ -73,7 +73,7 @@ Os backups geográficos são ativados por padrão. Se o data warehouse for Gen1,
 
 
 ## <a name="backup-and-restore-costs"></a>Custos de backup e restauração
-Você observará que a fatura do Azure tem um item de linha para Armazenamento e um item de linha para Armazenamento para Recuperação de Desastre. A taxa de Armazenamento é o custo total para armazenar seus dados na região primária, juntamente com as alterações incrementais capturadas por instantâneos. Para obter uma explicação mais detalhada sobre como os instantâneos são tirados atualmente, consulte esta [documentação](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). O encargo com redundância geográfica abrange o custo para armazenar os backups geográficos.  
+Você observará que a fatura do Azure tem um item de linha para Armazenamento e um item de linha para Armazenamento para Recuperação de Desastre. A taxa de Armazenamento é o custo total para armazenar seus dados na região primária, juntamente com as alterações incrementais capturadas por instantâneos. Para obter uma explicação mais detalhada de como os instantâneos são cobrados, veja [Understanding how Snapshots Accrue Charges](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios) (Noções básicas sobre como os instantâneos acumulam cobranças). O encargo com redundância geográfica abrange o custo para armazenar os backups geográficos.  
 
 O custo total para o data warehouse primário e de sete dias de alterações de instantâneos é arredondado para o TB mais próximo. Por exemplo, se seu data warehouse é de 1,5 TB e os instantâneos capturam 100 GB, você será cobrado pelo equivalente a 2 TB de dados segundo as taxas do Armazenamento Premium do Azure. 
 

@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214997"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155061"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças a usuários por meio da associação a grupos no Azure Active Directory
 
@@ -59,7 +59,7 @@ Neste exemplo, o locatário contém um grupo de segurança chamado **Departament
 Agora podemos ter especificado um modelo de licença no grupo de departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros existentes do grupo. Essa operação inicial pode levar algum tempo, dependendo do tamanho atual do grupo. A próxima etapa descreve como verificar se o processo foi concluído e como determinar se atenção adicional é necessária para resolver problemas.
 
 > [!NOTE]
-> A mesma atribuição pode ser iniciada a partir de um local alternativo: **Usuários e grupos** no Azure AD. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo, selecione-o e acesse a guia **Licenças**. No botão **Atribuir** na parte superior do painel abre o painel de atribuição da licença.
+> Inicie a mesma atribuição de uma localização alternativa: **Usuários e grupos** no Azure AD. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo, selecione-o e acesse a guia **Licenças**. No botão **Atribuir** na parte superior do painel abre o painel de atribuição da licença.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Etapa 2: Verificar se a atribuição inicial foi concluída
 
@@ -77,13 +77,13 @@ Agora podemos ter especificado um modelo de licença no grupo de departamento de
 
 3. Confira informações mais detalhadas sobre a licença de processamento em **Azure Active Directory** > **Usuários e grupos** > *Nome do grupo* > **Logs de auditoria**. Observe as seguintes atividades:
 
-   - Atividade: **começar a aplicar a licença de grupo com base para usuários**. Isso é registrado quando o sistema identifica a alteração de atribuição de licença no grupo e começa a aplicá-la a todos os membros de usuário. Ele contém informações sobre a alteração foi feita.
+   - Atividade: **Iniciar a aplicação da licença baseada em grupo aos usuários**. Isso é registrado quando o sistema identifica a alteração de atribuição de licença no grupo e começa a aplicá-la a todos os membros de usuário. Ele contém informações sobre a alteração foi feita.
 
-   - Atividade: **terminar de aplicar a licença de grupo com base para usuários**. Isso é registrado quando o sistema conclui o processamento de todos os usuários no grupo. Ele contém um resumo de quantos usuários foram processados com êxito e quantos usuários não puderam ter licenças de grupo atribuídas.
+   - Atividade: **Concluir a aplicação da licença baseada em grupo aos usuários**. Isso é registrado quando o sistema conclui o processamento de todos os usuários no grupo. Ele contém um resumo de quantos usuários foram processados com êxito e quantos usuários não puderam ter licenças de grupo atribuídas.
 
    [Leia esta seção](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) para saber mais sobre como logs de auditoria podem ser usados para analisar alterações feitas pelo licenciamento baseado em grupo.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Etapa 3: verificar problemas de licença e resolvê-los
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Etapa 3: Verificar problemas de licença e resolvê-los
 
 1. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos** e localize o grupo do **Departamento de RH** ao qual as licenças foram atribuídas.
 2. No painel de grupo **Departamento de RH**, selecione **Licenças**. A notificação na parte superior do painel mostra que há 10 usuários cujas licenças não podem ser atribuídas. Clicar nela abre uma lista de todos os usuários com um estado de erro para esse grupo.

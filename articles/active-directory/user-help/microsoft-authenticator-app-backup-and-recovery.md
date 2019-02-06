@@ -4,19 +4,19 @@ description: Saiba como fazer backup e recuperar as credenciais da sua conta usa
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.component: user-help
+ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 56ea48accea135f79e4c8984238002f2eec5167b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821695"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167403"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Fazer backup e recuperar credenciais de conta com o aplicativo Microsoft Authenticator
 
@@ -39,11 +39,11 @@ Antes de fazer backup das credenciais, será necessário ter as duas contas a se
 A exigência de entrar em ambas as contas conjuntamente proporciona segurança mais forte para as informações de backup.
 
 **Para ativar o Backup na nuvem**
--   No seu dispositivo iOS, selecione **Configurações**, selecione **Backup** e, em seguida, ative **Backup automático**.
+-   Em seu dispositivo iOS, selecione **Configurações**, **Backup** e, em seguida, ative **Backup do iCloud**.
 
     O backup das credenciais da sua conta é feito para a conta do iCloud.
 
-    ![Tela de configurações do iOS, mostrando o local das configurações de backup automático](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![Tela de configurações do iOS mostrando a localização das configurações de backup do iCloud](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Recupere as credenciais da sua conta no seu novo dispositivo
 É possível recuperar as credenciais da conta do iCloud, usando a mesma conta de recuperação da Microsoft que você configurou ao fazer o backup das informações.
@@ -101,7 +101,6 @@ Agora que você fez backup e recuperou as credenciais da conta para o novo dispo
 
 ## <a name="related-topics"></a>Tópicos relacionados
 - [Introdução ao aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md)  
-
 - [Perguntas frequentes sobre o aplicativo Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
 - [Autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/)

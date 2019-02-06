@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582031"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904294"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Entenda o uso de reserva do Azure para sua inscrição na empresa
 
@@ -76,7 +76,7 @@ Filtre em **Informações Adicionais**, digite a **ID de Reserva** e escolha a *
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>Página de resumo de uso no portal da empresa
 
-Seu uso de reserva do Azure também é exibido na seção de resumo de uso do portal da empresa: ![Resumo de uso do Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+Seu uso de reserva do Azure também é exibido na seção de resumo de uso no Portal Empresarial: ![Resumo de uso do Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. Você não é cobrado o componente de hardware da VM pois ele é coberto pela reserva. Para uma reserva de banco de dados SQL, você ver uma linha com **nome do serviço** banco de dados SQL reservadas a utilização da capacidade.
 2. Neste exemplo, você não tem o benefício híbrido do Azure para que você será cobrado para o software do Windows usado com a VM.
@@ -93,7 +93,7 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver mais dúvidas ou precisar de ajuda, a [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

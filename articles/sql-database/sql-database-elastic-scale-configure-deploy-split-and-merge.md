@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969576"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458050"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
 
@@ -204,7 +204,7 @@ Os arquivos de script incluídos são:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Usar o PowerShell para verificar sua implantação
 1. Abra uma nova janela do PowerShell, navegue até o diretório onde baixou o pacote de Divisão-Mesclagem e, em seguida, navegue para o diretório do “powershell”.
-2. Crie um servidor de banco de dados SQL do Azure (ou escolha um servidor existente) onde o gerenciador do mapa do fragmento e os fragmentos serão criados.
+2. Crie um servidor de Banco de Dados SQL do Azure (ou escolha um servidor existente) em que o gerenciador do mapa do fragmento e os fragmentos serão criados.
    
    > [!NOTE]
    > O script SetupSampleSplitMergeEnvironment.ps1 cria todos esses bancos de dados no mesmo servidor por padrão para manter o script simples. Isso não é uma restrição do Serviço de Divisão-Mesclagem em si.

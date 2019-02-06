@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478579"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888151"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações por push com Hubs de Notificação do Azure: Perguntas frequentes
 
@@ -194,7 +194,7 @@ Haverá um período de tempo quando os dispositivos com aplicativos não abertos
 
 ### <a name="is-there-audit-log-capability"></a>Há recursos de log de auditoria?
 
-Todas as operações de Gerenciamento de Hubs de Notificação vão para Logs de Operação expostos no [portal do Azure].
+Sim. Todas as operações de Gerenciamento de Hubs de Notificação atualizam o Log de Atividades do Azure para o qual está exposto no [portal do Azure]. O Log de Atividades do Azure fornece análises das operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar o quê, quem e quando de qualquer operação de gravação (PUT, POST, DELETE) feita para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. No entanto, o Log de Atividades não inclui as operações de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoramento e solução de problemas
 

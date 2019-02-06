@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: daf75987a49d2ce90a436fdfcff1a85d2fc0ca21
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853809"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300397"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração para Contoso: avalie as cargas de trabalho locais para migração para o Azure
 
@@ -121,7 +121,7 @@ A Contoso e outros usuários devem atender aos seguintes pré-requisitos para a 
 - Uma instância do vCenter Server local executando a versão 6.5, 6.0 ou 5.5.
 - Uma conta somente leitura no vCenter Server ou permissões para criar uma.
 - Permissões para criar uma VM na instância do vCenter Server usando um modelo .ova.
-- Pelo menos um host ESXi executando a versão 5.0 ou posterior.
+- Pelo menos um host ESXi executando a versão 5.5 ou posterior.
 - Pelo menos duas VMs VMware locais, uma delas executando um banco de dados do SQL Server.
 - Permissões para instalar agentes de migrar do Azure em cada VM.
 - As VMs devem ter conectividade direta com a Internet.  
@@ -137,7 +137,7 @@ Veja como a Contoso realiza a avaliação:
 > [!div class="checklist"]
 > * **Etapa 1: Baixar e instalar o Assistente de Migração de Dados**: a Contoso prepara o Assistente de Migração de Dados para avaliação do banco de dados do SQL Server local.
 > * **Etapa 2: Avaliar o banco de dados usando o Assistente de Migração de Dados**: a Contoso executa e analisa a avaliação do banco de dados.
-> *  **Etapa 3: Preparar para avaliação de VM usando as Migrações para Azure**: a Contoso configura contas locais e ajusta as configurações do VMware.
+> * **Etapa 3: Preparar para avaliação de VM usando as Migrações para Azure**: a Contoso configura contas locais e ajusta as configurações do VMware.
 > * **Etapa 4: Descobrir VMs locais usando as Migrações para Azure**: a Contoso cria uma VM coletora das Migrações para Azure. Em seguida, a Contoso executa o coletor para descobrir VMs para avaliação.
 > * **Etapa 5: Preparar-se para análise de dependência usando as Migrações para Azure**: a Contoso instala agentes de Migrações para Azure nas VMs, de modo que a empresa possa ver o mapeamento de dependência entre as VMs.
 > * **Etapa 6: Avaliar as VMs usando as Migrações para Azure**: a Contoso verifica as dependências, agrupa as VMs e executa a avaliação. Quando a avaliação estiver pronta, a Contoso analisará a avaliação em preparação para migração.
@@ -287,13 +287,7 @@ Antes de implantar a VM, a Contoso verifica se o arquivo OVA é seguro:
     **Exemplo**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. O hash gerado deve corresponder a essas configurações (versão 1.0.9.15):
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+3. O hash gerado deve corresponder os valores de hash listados [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
 
 ### <a name="create-the-collector-appliance"></a>Criar o dispositivo coletor
 

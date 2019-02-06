@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447207"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095712"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -350,11 +350,12 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="ValidateJWT"></a> Validar JWT  
- A política `validate-jwt` impõe a existência e a validade de um JWT extraído de um Cabeçalho HTTP ou um parâmetro de consulta especificado.  
+ A política `validate-jwt` impõe a existência e a validade de um JWT extraído de um Cabeçalho HTTP ou um parâmetro de consulta especificado.
   
 > [!IMPORTANT]
 >  A política `validate-jwt` requer que a declaração registrada `exp` seja incluída no token JWT, a menos que o atributo `require-expiration-time` seja especificado e definido como `false`.  
-> A política `validate-jwt` dá suporte aos algoritmos de assinatura HS256 e RS256. Para HS256, a chave deve ser fornecida embutida na política no formato codificado em base64. Para RS256, a chave deve ser fornecida por meio de um ponto de extremidade de configuração de Open ID.  
+> A política `validate-jwt` dá suporte aos algoritmos de assinatura HS256 e RS256. Para HS256, a chave deve ser fornecida embutida na política no formato codificado em base64. Para RS256, a chave deve ser fornecida por meio de um ponto de extremidade de configuração de Open ID.
+> A política `validate-jwt` dá suporte a tokens criptografados com chaves simétricas usando os seguintes algoritmos de criptografia: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -370,7 +371,11 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -444,7 +449,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autorizar o acesso para operações baseadas em declarações de token  
- Este exemplo mostra como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token. Para ver uma demonstração da configuração e do uso dessa política, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky) e avance para 13:50. Avance para 15:00 para ver as diretivas configuradas no editor de diretiva e, em seguida, 18:50 para uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.  
+ Este exemplo mostra como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token. Para obter uma demonstração de como configurar e usar essa política, assista ao vídeo [Cloud Cover Episode 177: Mais recursos de Gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para 13:50. Avance para 15:00 para ver as diretivas configuradas no editor de diretiva e, em seguida, 18:50 para uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.  
   
 ```xml  
 <!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
@@ -491,6 +496,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |validate-jwt|Elemento raiz.|SIM|  
 |públicos-alvo|Contém uma lista de declarações de público-alvo aceitáveis que podem estar presentes no token. Se vários valores de público-alvo estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito. Pelo menos um público-alvo deve ser especificado.|Não |  
 |issuer-signing-keys|Uma lista de chaves de segurança codificadas em Base64 usadas para validar tokens assinados. Se várias chaves de segurança estiverem presentes, cada chave será tentada até que todas sejam esgotadas (nesse caso, a validação falhará) ou até obter êxito (útil para substituição de token). Elementos-chave têm um atributo `id` opcional usado para correspondência com a declaração `kid`.|Não |  
+|decryption-keys|Uma lista de chaves codificadas em Base64 para descriptografar os tokens. Se várias chaves de segurança estiverem presentes, cada chave será tentada até que todas elas sejam esgotadas (nesse caso, a validação falhará) ou até uma chave obter êxito. Elementos-chave têm um atributo `id` opcional usado para correspondência com a declaração `kid`.|Não |  
 |emissores|Uma lista de entidades aceitáveis que emitiram o token. Se vários valores de emissor estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito.|Não |  
 |openid-config|O elemento usado para especificar um ponto de extremidade de configuração de Open ID em conformidade do qual chaves de assinatura e emissor podem ser obtidos.|Não |  
 |required-claims|Contém uma lista de declarações cuja presença é esperada no token para que ele possa ser considerado válido. Quando o atributo `match` é definido como `all`, cada valor de declaração na política deve estar presente no token para que a validação seja bem-sucedida. Quando o atributo `match` é definido como `any`, pelo menos uma declaração deve estar presente no token para que a validação seja bem-sucedida.|Não |  

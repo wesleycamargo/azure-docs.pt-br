@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Dome9 Arc | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Dome9 Arc | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Dome9 Arc.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387847"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191390"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: integração do Azure Active Directory com o Dome9 Arc
+# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integração do Azure Active Directory ao Dome9 Arc
 
 Neste tutorial, você aprenderá a integrar o Dome9 Arc ao Azure AD (Azure Active Directory).
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. adicionar o Dome9 Arc da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -111,7 +111,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Informações de logon único de Domínio e URLs do Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: `https://secure.dome9.com/`
+     a. Na caixa de texto **Identificador**, digite a URL: `https://secure.dome9.com/`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
@@ -137,7 +137,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     | --------------- | --------------- | 
     | memberof | user.assignedroles |
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar logon único add attb](./media/dome9arc-tutorial/tutorial_dome9_04.png)
 
@@ -178,7 +178,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Configuração do Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
 
-    a. Digite o nome da empresa na caixa de texto **ID da Conta**. Esse valor deve ser usado na URL de resposta mencionada na seção URL do Portal do Azure.
+     a. Digite o nome da empresa na caixa de texto **ID da Conta**. Esse valor deve ser usado na URL de resposta mencionada na seção URL do Portal do Azure.
 
     b. Na caixa de texto **Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure.
 
@@ -243,7 +243,7 @@ Para habilitar que os usuários do Azure Active Directory façam logon no Dome9 
 
     ![Adicionar Funcionário](./media/dome9arc-tutorial/user3.png)
 
-    a. Na caixa de texto **Email**, digite o email do usuário como Brittasimon@contoso.com.
+     a. Na caixa de texto **Email**, digite o email do usuário como Brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
 
@@ -288,7 +288,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Dome9 Arc no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Dome9 Arc.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

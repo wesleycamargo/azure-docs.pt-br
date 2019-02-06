@@ -1,6 +1,6 @@
 ---
-Título: Treinar novamente um novo serviço Web do Machine Learning Studio com o PowerShell – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Machine Learning do Azure usando os cmdlets do PowerShell de Gerenciamento do Machine Learning.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Treinar novamente um novo serviço Web do Machine Learning Studio com o PowerShell – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Machine Learning do Azure usando os cmdlets do PowerShell de Gerenciamento do Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 28/03/2017
 ---

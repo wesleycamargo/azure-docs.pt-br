@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242952"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456044"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções para migrar dados do StorSimple séries 5000-7000 
 
@@ -45,6 +45,8 @@ Os clientes que usam StorSimple séries 5000-7000 têm as opções a seguir:
 
     - **Migrar para o NAS do Panzura Freedom** – clientes do StorSimple 5000-7000 podem optar por migrar para o Panzura Freedom para manter os dados no Azure. A solução Panzura Freedom fornece uma solução NAS que abrange datacenters, escritórios e nuvens públicas e privadas. A solução habilita fluxos de trabalho de dados na nuvem, híbridos e locais para clientes móveis, SMB e NFS. Há suporte para essa migração no Panzura e os clientes podem começar solicitando o suporte à migração do [site do Panzura](https://panzura.com/storsimple-migration/).
 
+    - **Migrar para o Cohesity** – o Cohesity permite que você migre dados do seu StorSimple 5000–7000 atual para a Plataforma de Dados do Cohesity no Azure. A Plataforma de Dados do Cohesity é uma solução de escala da Web definida pelo software que consolida arquivos, backups, objetos e VMs em uma única solução nativa da nuvem. Após a migração para a Plataforma de Dados, você pode gerenciar, proteger e provisionar dados e aplicativos da nuvem para o núcleo por meio de um único painel. Com o Cohesity, inicie com um mínimo de três nós. Saiba mais sobre a [migração para o Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
 ## <a name="migration---frequently-asked-questions"></a>Migração - Perguntas frequentes
 
 ### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>P. Quando os dispositivos do StorSimple séries 5000 e 7000 alcançarão o fim do serviço? 
@@ -68,8 +70,8 @@ a. Embora os serviços poderão continuar funcionando, a Microsoft não poderá 
 
 a. Dependendo do cenário, os usuários do StorSimple séries 5000-7000 terão as seguintes opções de migração. 
 
- - **Atualizar para a série 8000**: use essa opção quando quiser continuar na plataforma do StorSimple. 
- - **Migrar para Sincronização de Arquivos do Azure**: use essa opção quando quiser alternar para o formato nativo do Azure. É possível usar a Sincronização de Arquivos do Azure para gerenciamento centralizado de compartilhamentos de arquivos. 
+ - **Atualizar para a série 8000**: Use essa opção quando quiser continuar na plataforma do StorSimple. 
+ - **Migrar para a Sincronização de Arquivos do Azure**: Use essa opção quando quiser alternar para o formato nativo do Azure. É possível usar a Sincronização de Arquivos do Azure para gerenciamento centralizado de compartilhamentos de arquivos. 
 
 Contate o Suporte da Microsoft para discutir sobre as opções de migração não listadas aqui.
 

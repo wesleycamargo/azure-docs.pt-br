@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600855"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455058"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
@@ -34,8 +34,8 @@ O Intelligent Insights detecta automaticamente os problemas de desempenho do Ban
 | Padrões de desempenho detectáveis | Descrição do Banco de Dados SQL do Azure e dos pools elásticos | Descrição dos bancos de dados na Instância Gerenciada |
 | :------------------- | ------------------- | ------------------- |
 | [Atingindo os limites do recurso](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), threads de trabalho do banco de dados ou sessões de logon de banco de dados disponíveis na assinatura monitorada atingiram os limites. Isso está afetando o desempenho do Banco de Dados SQL. | O consumo de recursos de CPU está atingindo os limites da Instância Gerenciada. Isso está afetando o desempenho do banco de dados. |
-| [Aumento da Carga de Trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detectado aumento da carga de trabalho ou acumulação contínua de carga de trabalho no banco de dados. Isso está afetando o desempenho do Banco de Dados SQL. | Foi detectado um aumento da carga de trabalho. Isso está afetando o desempenho do banco de dados. |
-| [Pressão de Memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os operadores que solicitaram concessões de memória precisam esperar alocações de memória para quantidades de tempo estatisticamente significativas. Ou existe um acúmulo maior de trabalhadores que solicitaram concessões de memória. Isso está afetando o desempenho do Banco de Dados SQL. | Os operadores que solicitaram concessões de memória estão esperando alocações de memória para quantidades de tempo estatisticamente significativas. Isso está afetando o desempenho do banco de dados. |
+| [Aumento da carga de trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detectado aumento da carga de trabalho ou acumulação contínua de carga de trabalho no banco de dados. Isso está afetando o desempenho do Banco de Dados SQL. | Foi detectado um aumento da carga de trabalho. Isso está afetando o desempenho do banco de dados. |
+| [Demanda de memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os operadores que solicitaram concessões de memória precisam esperar alocações de memória para quantidades de tempo estatisticamente significativas. Ou existe um acúmulo maior de trabalhadores que solicitaram concessões de memória. Isso está afetando o desempenho do Banco de Dados SQL. | Os operadores que solicitaram concessões de memória estão esperando alocações de memória para quantidades de tempo estatisticamente significativas. Isso está afetando o desempenho do banco de dados. |
 | [Bloqueio](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Bloqueio de banco de dados excessivo foi detectado, afetando o desempenho do Banco de Dados SQL. | Bloqueio de banco de dados excessivo foi detectado, afetando o desempenho do banco de dados. |
 | [Aumento de MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho do Banco de Dados SQL. | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho do banco de dados. |
 | [Contenção de pagelatch](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do Banco de Dados SQL. | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do banco de dados. |
@@ -43,14 +43,14 @@ O Intelligent Insights detecta automaticamente os problemas de desempenho do Ban
 | [Nova Consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada nova consulta que afeta o desempenho geral do Banco de Dados SQL. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
 | [Aumento da Estatística de Espera](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Foi detectado um aumento dos tempos de espera, afetando o desempenho do Banco de Dados SQL. | Foi detectado um aumento dos tempos de espera, afetando o desempenho do banco de dados. |
 | [Contenção de TempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do Banco de Dados SQL. | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do banco de dados. |
-| [Insuficiência de DTU no Pool Elástico](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A insuficiência de eDTUs no pool elástico está afetando o desempenho do Banco de Dados SQL. | Não disponível para a Instância Gerenciada, pois usa o modelo de vCore. |
+| [Insuficiência de DTU no pool elástico](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A insuficiência de eDTUs no pool elástico está afetando o desempenho do Banco de Dados SQL. | Não disponível para a Instância Gerenciada, pois usa o modelo de vCore. |
 | [Regressão de Plano](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Foi detectado um novo plano ou uma alteração na carga de trabalho de um plano existente. Isso está afetando o desempenho do Banco de Dados SQL. | Foi detectado um novo plano ou uma alteração na carga de trabalho de um plano existente. Isso está afetando o desempenho do banco de dados. |
-| [Alteração do Valor de Configuração no Escopo do Banco de Dados](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Foi detectada uma alteração de configuração no Banco de Dados SQL que está afetando o desempenho do banco de dados. | Foi detectada uma alteração de configuração no banco de dados que está afetando seu desempenho. |
-| [Cliente Lento](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | O cliente de aplicativo lento não pode consumir a saída do banco de dados rápido o suficiente. Isso está afetando o desempenho do Banco de Dados SQL. | O cliente de aplicativo lento não pode consumir a saída do banco de dados rápido o suficiente. Isso está afetando o desempenho do banco de dados. |
-| [Downgrade do Tipo de Preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do Banco de Dados SQL. | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do banco de dados. |
+| [Alteração do valor de configuração no escopo do banco de dados](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Foi detectada uma alteração de configuração no Banco de Dados SQL que está afetando o desempenho do banco de dados. | Foi detectada uma alteração de configuração no banco de dados que está afetando seu desempenho. |
+| [Cliente lento](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | O cliente de aplicativo lento não pode consumir a saída do banco de dados rápido o suficiente. Isso está afetando o desempenho do Banco de Dados SQL. | O cliente de aplicativo lento não pode consumir a saída do banco de dados rápido o suficiente. Isso está afetando o desempenho do banco de dados. |
+| [Downgrade de tipo de preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do Banco de Dados SQL. | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do banco de dados. |
 
 > [!TIP]
-> Para otimização contínua do desempenho do Banco de Dados SQL, habilite [Ajuste automático do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esse recurso exclusivo de inteligência interna do Banco de Dados SQL monitora continuamente seu banco de dados SQL, ajusta de modo automático os índices e aplica correções de plano de execução de consulta.
+> Para otimização contínua do desempenho do Banco de Dados SQL, habilite [Ajuste automático do Banco de Dados SQL do Azure](sql-database-automatic-tuning.md). Esse recurso exclusivo de inteligência interna do Banco de Dados SQL monitora continuamente seu banco de dados SQL, ajusta de modo automático os índices e aplica correções de plano de execução de consulta.
 >
 
 A seção a seguir descreve os padrões de desempenho detectáveis com mais detalhes.
@@ -61,7 +61,7 @@ A seção a seguir descreve os padrões de desempenho detectáveis com mais deta
 
 Esse padrão de desempenho detectável combina problemas de desempenho relacionados a alcançar os limites de recurso, limites de trabalho e limites de sessão disponíveis. Depois que esse problema de desempenho é detectado, um campo de descrição do log de diagnóstico indica se o problema de desempenho está relacionado a limites de recurso, trabalho ou sessão.
 
-Recursos no Banco de Dados SQL normalmente são chamados de recursos de [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) e [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). O padrão de alcance dos de limites do recurso é reconhecido quando uma degradação de desempenho de consulta detectada é causada por qualquer um dos limites de recurso medidos.
+Recursos no Banco de Dados SQL normalmente são chamados de recursos de [DTU](sql-database-what-is-a-dtu.md) e [vCore](sql-database-service-tiers-vcore.md). O padrão de alcance dos de limites do recurso é reconhecido quando uma degradação de desempenho de consulta detectada é causada por qualquer um dos limites de recurso medidos.
 
 O recurso de limites de sessão denota o número de logons simultâneos disponíveis para o Banco de Dados SQL. Esse padrão de desempenho é reconhecido quando aplicativos que estão se conectando aos Bancos de Dados SQL atingem o número de logons simultâneos disponíveis para o banco de dados. Se aplicativos tentarem usar mais sessões do que as disponíveis em um banco de dados, o desempenho da consulta será afetado.
 
@@ -73,7 +73,7 @@ O log de diagnóstico gera hashes de consulta das consultas que afetaram o desem
 
 Se você tiver atingido os limites de sessão disponíveis, poderá otimizar seus aplicativos reduzindo o número de logons feitos no banco de dados. Se não for possível reduzir o número de logons de seus aplicativos para o banco de dados, considere aumentar o tipo de preço do banco de dados. Ou você pode dividir e mover o banco de dados em vários bancos de dados para uma distribuição mais balanceada de carga de trabalho.
 
-Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Consulte [Visão geral dos limites de recursos em um servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e assinatura.
+Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Confira [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Visão geral dos limites de recursos em um servidor do Banco de Dados SQL) para obter informações sobre limites nos níveis de servidor e assinatura.
 
 ## <a name="workload-increase"></a>Aumento da Carga de Trabalho
 

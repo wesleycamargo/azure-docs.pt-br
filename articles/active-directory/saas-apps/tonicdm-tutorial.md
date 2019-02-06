@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 19ea9a07-9ecf-43dc-91ba-593ce3c00b01
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b582af22707b7bff187ed93fb48ba96d15634ab3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8e92e97a27f36d37d30335b6eb8492f41ede7510
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433317"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190421"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutorial: Integração do Azure Active Directory ao TonicDM
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o TonicDM da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do TonicDM](./media/tonicdm-tutorial/tutorial_tonicdm_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL: `https://tonicdm.com/`
+     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://tonicdm.com/`
 
     b. Na caixa de texto **Identificador**, digite uma URL: `https://tonicdm.com/saml/metadata`
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-tonicdm-test-user"></a>Criar um usuário de teste do TonicDM
 
-Nesta seção, você criará uma usuária chamada Britta Simon no TonicDM. Trabalhe com a [equipe de suporte do TonicDM](mailto:support@tonicdm.com) para adicionar os usuários na plataforma do TonicDM. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você criará uma usuária chamada Britta Simon no TonicDM. Trabalhe com a  [equipe de suporte do TonicDM](mailto:support@tonicdm.com) para adicionar os usuários à plataforma TonicDM. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -197,7 +197,7 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco TonicDM no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo TonicDM.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

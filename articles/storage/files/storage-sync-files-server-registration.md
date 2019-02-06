@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.subservice: files
+ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478059"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerenciar servidores registrados com a Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -191,5 +191,6 @@ Quando a Sincronização de arquivos do Azure estiver hospedada em uma máquina 
 
 ## <a name="see-also"></a>Consulte também
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
-- [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) 
+- [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
+- [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)
 - [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

@@ -3,7 +3,7 @@ title: Instalar pacotes de aplicativos em nós de computação - Azure Batch | M
 description: Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094128"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454599"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -113,9 +113,9 @@ Selecionar essa opção de menu abre a janela **Aplicativos**:
 
 Essa janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
-* **Pacotes**: o número de versões associadas a este aplicativo.
-* **Versão padrão**: a versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
-* **Permitir atualizações**: o valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
+* **Pacotes**: O número de versões associadas a este aplicativo.
+* **Versão padrão**: A versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
+* **Permitir atualizações**: O valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
 
 ### <a name="view-application-details"></a>Exibir detalhes do aplicativo
 Para ver os detalhes de um aplicativo, selecione o aplicativo na janela **Aplicativos**.
@@ -124,9 +124,9 @@ Para ver os detalhes de um aplicativo, selecione o aplicativo na janela **Aplica
 
 Nos detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
 
-* **Permitir atualizações**: especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
-* **Versão padrão**: especifique um pacote de aplicativos padrão para implantar nos nós de computação.
-* **Nome de exibição**: especifique um nome amigável que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na interface do usuário de um serviço que você fornece aos clientes por meio do Lote.
+* **Permitir atualizações**: Especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
+* **Versão padrão**: Especifique um pacote de aplicativos padrão para implantar nos nós de computação.
+* **Nome de exibição**: Especifique um nome amigável que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na interface do usuário de um serviço que você fornece aos clientes por meio do Lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID de aplicativo também cria o novo aplicativo.

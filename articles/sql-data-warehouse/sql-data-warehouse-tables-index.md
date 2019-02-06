@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307721"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244684"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.
@@ -204,7 +204,7 @@ Outra coisa a considerar é o impacto de particionamento de suas tabelas columns
 Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaixo para identificar e recriar tabelas com índices columnstore clusterizados abaixo do ideal.
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Recriando índices para melhorar a qualidade de segmento
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: identificar ou criar o usuário que usa a classe de recurso correta
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: Identificar ou criar o usuário que usa a classe de recurso correta
 Uma maneira rápida de melhorar a qualidade do segmento imediatamente é recriar o índice.  O SQL retornado pela exibição acima retorna uma instrução ALTER INDEX REBUILD, que pode ser usada para recriar os índices. Ao recriar os índices, não deixe de alocar memória suficiente para a sessão que recria o índice.  Para fazer isso, aumente a classe de recurso de um usuário que tem permissões para recriar o índice nessa tabela para o mínimo recomendado. A classe de recurso de usuário do proprietário do banco de dados não pode ser alterada. Se você não tiver criado um usuário no sistema, precisa fazer isso primeiro. A classe de recurso mínima recomendada é xlargerc se você estiver usando DW300 ou menos, largerc se estiver usando DW400 DW600 e mediumrc se estiver usando DW1000 ou mais.
 
 Abaixo está um exemplo de como alocar mais memória para um usuário aumentando sua classe de recurso. Para trabalhar com classes de recurso, consulte [Classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).
@@ -213,7 +213,7 @@ Abaixo está um exemplo de como alocar mais memória para um usuário aumentando
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: recriar índices columnstore clusterizados com usuário de classe de recurso superior
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: Recompilar índices columnstore clusterizados com usuário de classe de recurso superior
 Faça logon como o usuário da etapa 1 (por exemplo, LoadUser), que agora está usando uma classe de recurso maior, e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
 Como alternativa, em vez de recriar o índice, é possível copiar a tabela para uma nova tabela [usando CTAS](sql-data-warehouse-develop-ctas.md). Qual é a melhor opção? Para grandes volumes de dados, CTAS é geralmente mais rápido do que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Para volumes menores de dados, ALTER INDEX é mais fácil de usar e não exige a troca da tabela. Confira **Recriando índices com CTAS e alternância de partição** abaixo para obter mais detalhes sobre como recompilar índices com CTAS.
@@ -240,7 +240,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: Verificar se melhorou a qualidade do segmento columnstore clusterizado
 Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou.  Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas.  Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Recriando índices com CTAS e alternância de partição

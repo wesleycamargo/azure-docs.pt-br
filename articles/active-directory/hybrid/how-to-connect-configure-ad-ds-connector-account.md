@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463381"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191645"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
@@ -129,7 +129,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Esse cmdlet definirá as seguintes permissões: 
  
 
-|Tipo |NOME |Access |Aplica-se A| 
+|Type |NOME |Access |Aplica-se A| 
 |-----|-----|-----|-----|
 |PERMITIR |Conta do AD DS conector |Leia todas as propriedades |Objetos de dispositivo descendente| 
 |PERMITIR |Conta do AD DS conector|Leia todas as propriedades |Objetos descendentes de InetOrgPerson| 
@@ -155,7 +155,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |PERMITIR|Conta do AD DS conector|Propriedade de leitura/gravação|MS-DS-Consistency-Guid|Objetos de usuário descendentes|
 
@@ -175,7 +175,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |PERMITIR |Conta do AD DS conector |Replicar alterações de diretório |Apenas este objeto (raiz de domínio)| 
 |PERMITIR |Conta do AD DS conector |Replicar todas as alterações de diretório |Apenas este objeto (raiz de domínio)| 
@@ -195,7 +195,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |PERMITIR |Conta do AD DS conector |Redefinir senha |Objetos de usuário descendentes| 
 |PERMITIR |Conta do AD DS conector |Gravar lockoutTime de propriedade |Objetos de usuário descendentes| 
@@ -205,21 +205,21 @@ Esse cmdlet definirá as seguintes permissões:
 Para definir permissões para a conta do conector do AD DS ao usar a executar Grupo Writeback: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 ou; 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
-|PERMITIR |Conta do AD DS conector |Leitura/gravação genérica |Objetos de grupo descendentes| 
-|PERMITIR |Conta do AD DS conector |Excluir também objetos filho |Este objeto e todos os objetos descendentes| 
-|PERMITIR |Conta do AD DS conector |Delete/exclua um objeto e todos os seus filhos |Este objeto e todos os objetos descendentes|
+|PERMITIR |Conta do AD DS conector |Leitura/gravação genérica |Todos os atributos do grupo do tipo de objeto e subobjetos| 
+|PERMITIR |Conta do AD DS conector |Excluir também objetos filho |Todos os atributos do grupo do tipo de objeto e subobjetos| 
+|PERMITIR |Conta do AD DS conector |Excluir/Excluir objetos da árvore|Todos os atributos do grupo do tipo de objeto e subobjetos|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Permissões para Exchange híbrido 
 Para definir permissões para a conta do conector do AD DS ao usar a implantação híbrida do Exchange, execute: 
@@ -238,7 +238,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Esse cmdlet definirá as seguintes permissões:  
  
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |PERMITIR |Conta do AD DS conector |Leitura/gravação de todas as propriedades |Objetos de usuário descendentes| 
 |PERMITIR |Conta do AD DS conector |Leitura/gravação de todas as propriedades |Objetos descendentes de InetOrgPerson| 
@@ -260,7 +260,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |PERMITIR |Conta do AD DS conector |Leia todas as propriedades |Objetos PublicFolder descendentes| 
 
@@ -285,7 +285,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |NOME |Access |Aplica-se A|
+|Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |PERMITIR |SYSTEM |Controle Total |Este objeto 
 |PERMITIR |Administradores Corporativos |Controle Total |Este objeto 

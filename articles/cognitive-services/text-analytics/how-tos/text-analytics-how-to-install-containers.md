@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969362"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294821"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
@@ -40,12 +40,7 @@ Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de
 
 ### <a name="the-host-computer"></a>O computador host
 
-O **host** é o computador que executa o contêiner do Docker. Ele pode ser um computador local ou um serviço de hospedagem do Docker no Azure, incluindo:
-
-* [Serviço de Kubernetes do Azure](../../../aks/index.yml)
-* [Instâncias de Contêiner do Azure](../../../container-instances/index.yml)
-* Cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](../../../azure-stack/index.yml). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
-
+[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendações e requisitos do contêiner
 
@@ -77,6 +72,8 @@ Para obter uma descrição completa de marcas disponíveis para os contêineres 
 * [Detecção de Idioma](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [Análise de Sentimento](https://go.microsoft.com/fwlink/?linkid=2018654)
 
+Use o comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner.
+
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull para o contêiner de extração de frases-chave
 
@@ -96,13 +93,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
-### <a name="listing-the-containers"></a>Listar os contêineres
-
-Você pode usar o comando [imagens do estivador](https://docs.docker.com/engine/reference/commandline/images/) para listar as imagens do contêiner transferidas por download. Por exemplo, o comando a seguir lista o ID, o repositório e a tag de cada imagem do contêiner transferida por download, formatada como uma tabela:
-
-```Docker
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
 ## <a name="how-to-use-the-container"></a>Como usar o contêiner
@@ -159,14 +150,7 @@ Se você executar o contêiner com uma [montagem](../text-analytics-resource-con
 
 ## <a name="containers-api-documentation"></a>Documentação da API do contêiner
 
-O contêiner fornece um conjunto completo de documentação para os pontos de extremidade, bem como um recurso `Try it now`. Esse recurso permite que você insira suas configurações em um formulário HTML baseado na Web e faça a consulta sem precisar escrever nenhum código. Depois que a consulta é retornada, um exemplo de comando CURL é fornecido para demonstrar o formato do corpo e dos cabeçalhos HTTP exigidos. 
-
-> [!TIP]
-> Leia a [Especificação de OpenAPI](https://swagger.io/docs/specification/about/), que descreve as operações de API com suporte pelo contêiner, no URI relativo do `/swagger`. Por exemplo: 
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Cobrança
 

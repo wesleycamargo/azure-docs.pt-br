@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056328"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471140"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
 
-Neste tutorial, você pode explorar um cenário de recuperação de desastre completo para um aplicativo SaaS multilocatário implementado usando o modelo de banco de dados por locatário. Para proteger o aplicativo contra uma interrupção, você deve usar [_replicação geográfica_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para criar réplicas para bancos de dados de catálogos e locatários em uma região de recuperação alternativa. Se ocorrer uma interrupção, você rapidamente faz failover para essas réplicas para retomar as operações normais de negócios. Durante um failover, os bancos de dados na região original se tornam as réplicas secundárias dos bancos de dados na região de recuperação. Quando essas réplicas voltam a ficar online, elas automaticamente atualizam o estado dos bancos de dados na região de recuperação. Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região de produção original.
+Neste tutorial, você pode explorar um cenário de recuperação de desastre completo para um aplicativo SaaS multilocatário implementado usando o modelo de banco de dados por locatário. Para proteger o aplicativo contra uma interrupção, você deve usar [_replicação geográfica_](sql-database-geo-replication-overview.md) para criar réplicas para bancos de dados de catálogos e locatários em uma região de recuperação alternativa. Se ocorrer uma interrupção, você rapidamente faz failover para essas réplicas para retomar as operações normais de negócios. Durante um failover, os bancos de dados na região original se tornam as réplicas secundárias dos bancos de dados na região de recuperação. Quando essas réplicas voltam a ficar online, elas automaticamente atualizam o estado dos bancos de dados na região de recuperação. Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região de produção original.
 
 Este tutorial explora fluxos de trabalho de failover e failback. Você aprenderá a:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário
 >* Configurar um ambiente de recuperação em uma região alternativa, que inclui aplicativos, servidores e pools
@@ -53,9 +53,9 @@ Um plano de recuperação de desastre com base em replicação geográfica inclu
 Todas as partes precisam ser consideradas com cuidado, especialmente se estiverem operando em escala. Em geral, o plano deve atingir várias metas:
 
 * Configuração
-    * Estabelecer e manter um ambiente de imagem espelho da região de recuperação. Criar pools elásticos e replicar qualquer banco de dados individual nesse ambiente de recuperação reserva capacidade na região de recuperação. Manter esse ambiente inclui a replicação de novos bancos de dados de locatário conforme eles são provisionados.  
+    * Estabelecer e manter um ambiente de imagem espelho da região de recuperação. Criar pools elásticos e replicar quaisquer bancos de dados nesse ambiente de recuperação reserva capacidade na região de recuperação. Manter esse ambiente inclui a replicação de novos bancos de dados de locatário conforme eles são provisionados.  
 * Recuperação
-    * Onde um ambiente de recuperação reduzido é usado para minimizar os custos diários, pools e bancos de dados individuais precisam ser expandidos para adquirir capacidade completamente operacional na região de recuperação
+    * Em que um ambiente de recuperação reduzido é usado para minimizar os custos diários, pools e bancos de dados precisam ser expandidos para adquirir capacidade completamente operacional na região de recuperação
     * Habilitar novo provisionamento de locatário na região de recuperação assim que possível  
     * Ser otimizado para restauração de locatários em ordem de prioridade
     * Ser otimizado para colocar os locatários online o mais rápido possível ao seguir as etapas em paralelo quando for prático
@@ -67,10 +67,10 @@ Todas as partes precisam ser consideradas com cuidado, especialmente se estivere
 Neste tutorial, esses desafios são resolvidos usando os recursos do Banco de Dados SQL do Azure e a plataforma Azure:
 
 * [Modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) para reservar toda a capacidade necessária assim que possível. Os modelos do Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores de produção e pools elásticos na região de recuperação.
-* [Replicação geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para criar secundários replicados de forma assíncrona e somente leitura para todos os bancos de dados. Durante uma interrupção, você faz failover para as réplicas na região de recuperação.  Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região original sem perda de dados.
+* [Replicação geográfica](sql-database-geo-replication-overview.md) para criar secundários replicados de forma assíncrona e somente leitura para todos os bancos de dados. Durante uma interrupção, você faz failover para as réplicas na região de recuperação.  Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região original sem perda de dados.
 * Operações de failover [assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas na ordem de prioridade de locatários, para minimizar o tempo de failover para um grande número de bancos de dados.
-* [Recursos de recuperação de gerenciamento de fragmentos](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) para alterar as entradas de banco de dados no catálogo durante a recuperação e a repatriação. Esses recursos permitem que o aplicativo se conecte aos bancos de dados de locatário, independente do local sem precisar reconfigurar o aplicativo.
-* [Aliases DNS do SQL Server](https://docs.microsoft.com/azure/sql-database/dns-alias-overview) para habilitar o provisionamento contínuo de novos locatários, independente da região em que o aplicativo está operando. Aliases DNS também são usados para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independente de sua localização.
+* [Recursos de recuperação de gerenciamento de fragmentos](sql-database-elastic-database-recovery-manager.md) para alterar as entradas de banco de dados no catálogo durante a recuperação e a repatriação. Esses recursos permitem que o aplicativo se conecte aos bancos de dados de locatário, independente do local sem precisar reconfigurar o aplicativo.
+* [Aliases DNS do SQL Server](dns-alias-overview.md) para habilitar o provisionamento contínuo de novos locatários, independente da região em que o aplicativo está operando. Aliases DNS também são usados para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independente de sua localização.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter os scripts de recuperação de desastre 
 
@@ -92,7 +92,7 @@ Mais tarde, em uma etapa de repatriação separada, você faz failover dos banco
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 1. No navegador da Web, abra o Hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net – substitua &lt;user&gt; com o valor de usuário da implantação).
     * Role até a parte inferior da página e observe o nome do servidor de catálogo e a localização no rodapé. A localização é a região em que você implantou o aplicativo.
-    *DICA: passe o mouse sobre o local para ampliar a exibição.*
+    *DICA: Passe o mouse sobre a localização para ampliar a exibição.*
     ![Estado íntegro do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no locatário Contoso Concert Hall e abra sua página de eventos.
@@ -126,7 +126,7 @@ Deixe a janela do PowerShell em execução em segundo plano e prossiga com o res
 Nesta tarefa, você inicia um processo que implanta uma instância de aplicativo duplicado e replica o catálogo e todos os bancos de dados de locatário para uma região de recuperação.
 
 > [!Note]
-> Este tutorial adiciona proteção de replicação geográfica ao aplicativo de exemplo Wingtip Tickets. Em um cenário de produção para um aplicativo que usa a replicação geográfica, cada locatário deve ser provisionado com um banco de dados replicado geograficamente desde o início. Consulte [Criar serviços altamente disponíveis usando o Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> Este tutorial adiciona proteção de replicação geográfica ao aplicativo de exemplo Wingtip Tickets. Em um cenário de produção para um aplicativo que usa a replicação geográfica, cada locatário deve ser provisionado com um banco de dados replicado geograficamente desde o início. Consulte [Criar serviços altamente disponíveis usando o Banco de Dados SQL do Azure](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. No *ISE do PowerShell*, abra o script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e defina os valores a seguir:
     * **$DemoScenario = 2**, crie o ambiente de recuperação de imagem espelho e replique bancos de dados de catálogo e locatário
@@ -135,12 +135,14 @@ Nesta tarefa, você inicia um processo que implanta uma instância de aplicativo
 ![Processo de sincronização](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Examine o estado de aplicativo normal
+
 Neste ponto, o aplicativo está sendo executado normalmente na região original e agora é protegido por replicação geográfica.  Réplicas secundárias somente leitura, existem na região de recuperação para todos os bancos de dados. 
+
 1. No Portal do Azure, examine seus grupos de recursos e observe que um grupo de recursos foi criado com sufixo -recovery na região de recuperação. 
 
-1. Explore os recursos no grupo de recursos de descoberta.  
+2. Explore os recursos no grupo de recursos de descoberta.  
 
-1. Clique no banco de dados do Contoso Concert Hall no servidor _tenants1-dpt-&lt;user&gt;-recovery_.  Clique na replicação geográfica no lado esquerdo. 
+3. Clique no banco de dados do Contoso Concert Hall no servidor _tenants1-dpt-&lt;user&gt;-recovery_.  Clique na replicação geográfica no lado esquerdo. 
 
     ![Link de replicação geográfica do Contoso Concert](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Agora imagine que haja uma interrupção na região em que o aplicativo é impla
 > Para explorar o código para os trabalhos de recuperação, examine os scripts do PowerShell na pasta ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs.
 
 ### <a name="review-the-application-state-during-recovery"></a>Examinar o estado do aplicativo durante a recuperação
+
 Enquanto o ponto de extremidade do aplicativo estiver desabilitado no Gerenciador de Tráfego, o aplicativo não estará disponível. Depois que é feito o failover do catálogo para a região de recuperação e todos os locatários são marcados como offline, o aplicativo é colocado online novamente. Embora o aplicativo esteja disponível, cada locatário aparece offline no hub de eventos até que seja feito o failover do seu banco de dados. É importante projetar seu aplicativo para que ele lide com bancos de dados de locatário offline.
 
 1. Assim que o banco de dados do catálogo tiver sido recuperado, atualize o Hub de Eventos da Wingtip Tickets no navegador da Web.
@@ -301,7 +304,7 @@ Os bancos de dados de locatário podem ser distribuídos por regiões originais 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário
 >* Configurar um ambiente de recuperação em uma região alternativa, que inclui aplicativos, servidores e pools
@@ -313,4 +316,4 @@ Você pode aprender mais sobre as tecnologias que o banco de dados do SQL Azure 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

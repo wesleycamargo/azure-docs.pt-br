@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340453"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214553"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migrar implantações para o novo modelo de preços
 
@@ -37,12 +37,12 @@ O mapeamento das camadas antigas para as unidades de escala é mostrado na tabel
 
 Para migrar para a nova camada, faça o seguinte:
 
-## <a name="step-1-check-your-existing-deployment"></a>Etapa 1: Verifique a implantação existente
+## <a name="step-1-check-your-existing-deployment"></a>Etapa 1: Verificar a implantação existente
 Vá para o [portal do Serviço de Fala Personalizado](http://cris.ai) e verifique as implantações existentes. Em nosso exemplo, há duas implantações. Uma implantação é executada na camada S0 e a outra é executada na camada de S1. As implantações são mostradas na coluna **Opções de Implantação** da tabela a seguir:
 
 ![Página de Implantações](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
 
-## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Etapa 2: Selecione o novo tipo de preço no portal do Azure
+## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Etapa 2: Selecionar o novo tipo de preço no portal do Azure
 1. Abra uma nova guia do navegador e entre no [portal do Azure](http://ms.portal.azure.com/). 
 
 2. No painel **Serviços Cognitivos**, na lista **Assinaturas**, selecione sua assinatura de fala personalizada. 
@@ -57,7 +57,7 @@ Vá para o [portal do Serviço de Fala Personalizado](http://cris.ai) e verifiqu
 
     ![Página "Escolher seu tipo de preço"](../../../media/cognitive-services/custom-speech-service/custom-speech-update-pricing.png)
 
-## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Etapa 3: Verifique o status de migração no portal do Serviço de Fala Personalizado
+## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Etapa 3: Verificar o status de migração no portal do Serviço de Fala Personalizado
 Volte para o portal do Serviço de Fala Personalizado e verifique suas implantações. (Se a janela do navegador já estiver aberta, atualize-a.) 
 
 O status da implantação relacionada deve ter trocado para *Processando*. Você também pode validar a migração verificando a coluna **Opções de Implantação**. Nela, você pode encontrar informações sobre as unidades de escala e o registro em log. As unidades de escala devem refletir o tipo de preço anterior. O log deve ser ativado, como mostrado na tabela:

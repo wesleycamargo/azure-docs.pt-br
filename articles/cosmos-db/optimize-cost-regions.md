@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032594"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457642"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Otimizar o custo para implantações de várias regiões no Azure Cosmos DB
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
 Você pode adicionar ou remover regiões da sua conta do Azure Cosmos a qualquer momento. A taxa de transferência que você configura para vários bancos de dados e contêineres do Azure Cosmos é reservada em cada região associada à sua conta. Se a taxa de transferência provisionada por hora, que é a soma de RU/s configuradas em todos os bancos de dados e contêineres para sua conta do Azure Cosmos for `T` e o número de regiões do Azure associadas à sua conta de banco de dados for `N`, então, o total de taxa de transferência provisionada para sua conta do Cosmos, para uma determinada hora é igual a:
 

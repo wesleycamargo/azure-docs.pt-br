@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Replicon | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Replicon | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Replicon.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 118cdf11b08b1cd964bfae7ae2b3c5600b27fb7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159037"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192138"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Active Directory do Azure com o Replicon
+# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Azure Active Directory ao Replicon
 
 Neste tutorial, você aprenderá a integrar o Replicon ao Microsoft Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Replicon a partir da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no portal 
 
     ![Informações de logon único de Domínio e URLs do Replicon](./media/replicon-tutorial/tutorial_replicon_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://global.replicon.com/<companyname>`
 
@@ -133,7 +133,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no portal 
 
     ![Habilitar autenticação de SAML](./media/replicon-tutorial/ic777805.png "Habilitar autenticação de SAML")
 
-    a. Para exibir a caixa de diálogo **EnableSAML Authentication2**, acrescente o seguinte à URL, após a chave da empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+     a. Para exibir a caixa de diálogo **EnableSAML Authentication2**, acrescente o seguinte à URL, após a chave da empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
     * A seguir, é mostrado o esquema do URL completo: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
@@ -195,7 +195,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Mixpan
 
     ![Perfil de usuário](./media/replicon-tutorial/ic777808.png "Perfil de usuário")
 
-    a. Na caixa de texto **Nome de Logon**, digite o endereço de e-mail do Microsoft Azure AD do usuário do Microsoft Azure AD que você deseja provisionar, como **BrittaSimon@contoso.com**.
+     a. Na caixa de texto **Nome de Logon**, digite o endereço de e-mail do Microsoft Azure AD do usuário do Microsoft Azure AD que você deseja provisionar, como **BrittaSimon@contoso.com**.
 
     b. Para **Tipo de Autenticação**, selecione **SSO**.
 

@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259130"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459478"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
 Neste tutorial, vários dos principais cenários de gerenciamento de desempenho usados em aplicativos SaaS são explorados. São demonstrados o uso de um gerador de carga para simular a atividade em todos os bancos de dados de locatário, os recursos internos de monitoramento e alertas do Banco de Dados SQL e os pools elásticos.
 
-O aplicativo Wingtip Tickets SaaS Banco de dados Por Locatário usa um modelo de dados de único locatário, em que cada local (locatário) tem seu próprio banco de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para tirar proveito desse padrão de uso típico do banco de dados, os bancos de dados de locatário são implantados em pools de banco de dados elástico. Os pools elásticos otimizam o custo de uma solução ao compartilhar recursos entre vários bancos de dados. Com esse tipo de padrão, é importante monitorar o uso de recursos do banco de dados e do pool para garantir que as cargas sejam razoavelmente balanceadas entre os pools. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e que os pools não atinjam seus limites de [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e pools e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
+O aplicativo Wingtip Tickets SaaS Banco de dados Por Locatário usa um modelo de dados de único locatário, em que cada local (locatário) tem seu próprio banco de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para aproveitar esse padrão de uso típico do banco de dados, os bancos de dados de locatário são implantados em pools de banco de dados elásticos. Os pools elásticos otimizam o custo de uma solução ao compartilhar recursos entre vários bancos de dados. Com esse tipo de padrão, é importante monitorar o uso de recursos do banco de dados e do pool para garantir que as cargas sejam razoavelmente balanceadas entre os pools. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e que os pools não atinjam seus limites de [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e pools e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
 
 Neste tutorial, você aprenderá a:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gerenciamento de desempenho de SaaS
 
-O gerenciamento de desempenho do banco de dados consiste na compilação e análise de dados de desempenho e, em seguida, reagir a esses dados, ajustando parâmetros para manter um tempo de resposta aceitável para o seu aplicativo. Ao hospedar vários locatários, os pools de banco de dados elástico são uma maneira econômica de fornecer e gerenciar os recursos de um grupo de bancos de dados com cargas de trabalho imprevisíveis. Com determinados padrões carga de trabalho, não mais que dois bancos de dados S3 poderiam se beneficiar sendo gerenciados em um pool.
+O gerenciamento de desempenho do banco de dados consiste na compilação e análise de dados de desempenho e, em seguida, reagir a esses dados, ajustando parâmetros para manter um tempo de resposta aceitável para o seu aplicativo. Ao hospedar vários locatários, os pools elásticos são uma maneira econômica de fornecer e gerenciar os recursos de um grupo de bancos de dados com cargas de trabalho imprevisíveis. Com determinados padrões carga de trabalho, não mais que dois bancos de dados S3 poderiam se beneficiar sendo gerenciados em um pool.
 
 ![diagrama de aplicativo](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ Como alternativa a escalar verticalmente o pool, crie um segundo pool e mova os 
 
 1. No [portal do Azure](https://portal.azure.com), abra o servidor **tenants1-dpt&lt;USER&gt;**.
 1. Clique em **+ Novo pool** para criar um pool no servidor atual.
-1. No modelo **Pool de banco de dados elástico**:
+1. No modelo **Pool elástico**:
 
     1. Defina **Nome** como *Pool2*.
     1. Deixe o tipo de preço como **Pool Standard**.
@@ -189,7 +189,7 @@ Procure **Pool2** (no servidor *tenants1-dpt-\<user\>*) para abrir o pool e moni
 
 Agora você vê que o uso de recursos do *Pool1* caiu e que o *Pool2* é carregado de maneira semelhante.
 
-## <a name="manage-performance-of-a-single-database"></a>Gerenciar o desempenho de um banco de dados individual
+## <a name="manage-performance-of-an-individual-database"></a>Gerenciar o desempenho de um banco de dados individual
 
 Se um banco de dados individual em um pool apresentar uma alta carga constante, dependendo da configuração do pool, ele poderá ter a tendência de dominar os recursos do pool e afetar outros bancos de dados. Se for provável que a atividade continuará por algum tempo, o banco de dados poderá ser movido temporariamente para fora do pool. Isso permite que o banco de dados tenha os recursos extras necessários e seja isolado dos outros bancos de dados.
 
@@ -203,7 +203,7 @@ Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta 
 
 1. No [Portal do Azure](https://portal.azure.com) navegue até a lista de bancos de dados no servidor *tenants1-dpt-\<user\>*. 
 1. Clique no banco de dados **contosoconcerthall**.
-1. Clique no pool em que **contosoconcerthall** se encontra. Encontre o pool na seção **Pool de banco de dados elástico**.
+1. Clique no pool em que **contosoconcerthall** se encontra. Encontre o pool na seção **Pool elástico**.
 
 1. Inspecione o gráfico **Monitoramento do pool elástico** e procure o aumento do uso de eDTUs do pool. Após um ou dois minutos, a carga maior deverá começar a fazer efeito e rapidamente você verá que o pool atinge 100% de utilização.
 2. Inspecione a exibição **Monitoramento do banco de dados elástico** que mostra os bancos de dados mais ativos na última hora. O banco de dados *contosoconcerthall* logo deve aparecer como um dos cinco bancos de dados mais ativos.

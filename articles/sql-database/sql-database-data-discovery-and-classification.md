@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232980"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466585"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, a
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlar o acesso e proteção da segurança de bancos de dados contendo dados altamente confidenciais.
 
-A Descoberta e Classificação de Dados faz parte da oferta [ATP](sql-advanced-threat-protection.md) (Proteção Avançada contra Ameaças) ao SQL, um pacote unificado de funcionalidades avançadas de segurança do SQL. A Descoberta e Classificação de Dados pode ser acessada e gerenciada por meio do portal central da ATP do SQL.
+A Descoberta e Classificação de Dados fazem parte da oferta [ADS](sql-advanced-threat-protection.md) (Segurança de Dados Avançada) do SQL, um pacote unificado de funcionalidades avançadas de segurança do SQL. A Descoberta e Classificação de Dados pode ser acessada e gerenciada por meio do portal central da ADS do SQL.
 
 > [!NOTE]
 > Este documento está relacionado apenas ao Banco de Dados SQL do Azure. Para o SQL Server (no local), consulte [Descoberta e Classificação de Dados SQL](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 
-2. Navegue para **Proteção Avançada contra Ameaças** no cabeçalho Segurança do painel do Banco de Dados SQL do Azure. Clique nessa opção para habilitar a Proteção Avançada contra Ameaças e, em seguida, clique no cartão **Descoberta e classificação de dados (versão prévia)**.
+2. Navegue para **Segurança de Dados Avançada** no cabeçalho de segurança do painel do Banco de Dados SQL do Azure. Clique nessa opção para habilitar a Segurança de Dados Avançada e, em seguida, clique no cartão **Descoberta e classificação de dados (versão prévia)**.
 
    ![Examinar um banco de dados](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -123,7 +123,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
 ## <a id="subheading-3"></a>Auditoria de acesso aos dados confidenciais
 
-Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) foi aprimorada para incluir um novo campo no log de auditoria chamado *data_sensitivity_information*, que registra a classificações de confidencialidade (rótulos) dos dados reais que foram retornados pela consulta.
+Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [Auditoria do Banco de Dados SQL Azure](sql-database-auditing.md) foi aprimorada para incluir um novo campo no log de auditoria chamado *data_sensitivity_information*, que registra a classificações de confidencialidade (rótulos) dos dados reais que foram retornados pela consulta.
 
 ![Log de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -134,8 +134,8 @@ Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem c
 > [!NOTE]
 > Ao usar o T-SQL para gerenciar rótulos, não há nenhuma validação de que os rótulos adicionados a uma coluna existem na política de proteção de informações organizacionais (o conjunto de rótulos exibido nas recomendações do portal). Portanto, cabe a você validar isso.
 
-- Adicione/atualize a classificação de uma ou mais colunas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Remova a classificação de uma ou mais colunas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Adicione/atualize a classificação de uma ou mais colunas: [ADICIONAR A CLASSIFICAÇÃO DE CONFIDENCIALIDADE](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Remova a classificação de uma ou mais colunas: [REMOVER A CLASSIFICAÇÃO DE CONFIDENCIALIDADE](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Exiba todas as classificações no banco de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Também é possível usar APIs REST para gerenciar programaticamente as classificações. As APIs REST publicadas dão suporte às seguintes operações:
@@ -147,8 +147,8 @@ Também é possível usar APIs REST para gerenciar programaticamente as classifi
 
 ## <a id="subheading-5"></a>Próximas etapas
 
-- Saiba mais sobre a [Proteção Avançada contra Ameaças do SQL](sql-advanced-threat-protection.md).
-- Considere configurar a [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
+- Saiba mais sobre a [Segurança de Dados Avançada do SQL](sql-advanced-threat-protection.md).
+- Considere configurar a [Auditoria do Banco de Dados SQL Azure](sql-database-auditing.md) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

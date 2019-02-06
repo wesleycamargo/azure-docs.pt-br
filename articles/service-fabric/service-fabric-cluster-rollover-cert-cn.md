@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205137"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192956"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Sobrepor manualmente um certificado de cluster do Service Fabric
-Quando um certificado de cluster do Service Fabric está perto de expirar, é preciso atualizar o certificado.  A sobreposição do certificado é simples se o cluster foi [configurado para usar certificados com base em nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificação com uma nova data de expiração.  Não há suporte para certificados autoassinados, inclusive os gerados durante a implantação de um cluster do Service Fabric no Portal do Azure.  O novo certificado deve ter o mesmo nome comum do certificado mais antigo. 
+Quando um certificado de cluster do Service Fabric está perto de expirar, é preciso atualizar o certificado.  A sobreposição do certificado é simples se o cluster foi [configurado para usar certificados com base em nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificação com uma nova data de expiração.  Não há suporte para certificados autoassinados em clusters de produção do Service Fabric, para a inclusão dos certificados gerados durante o fluxo de trabalho de criação do Cluster no portal do Azure. O novo certificado deve ter o mesmo nome comum do certificado mais antigo. 
 
-O script a seguir carrega um novo certificado para um cofre de chaves e, em seguida, o instala no conjunto de dimensionamento de máquinas virtuais.  O cluster do Service Fabric usará automaticamente o certificado com a data de validade mais recente.
+O cluster do Service Fabric usará automaticamente o certificado declarado com um adicional na data de término futura quando houver mais de um certificado válido instalado no host. Uma melhor prática é usar um modelo do Resource Manager para provisionar recursos do Azure. Para um ambiente de não produção, o seguinte script poderá ser usado para carregar um novo certificado para um cofre de chaves e, em seguida, instalar o certificado no conjunto de dimensionamento de máquinas virtuais: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -78,6 +78,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 # Update the VM scale set 
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
+
+>[!NOTE]
+> Calcula os segredos do conjunto de dimensionamento de máquinas virtuais que não dão suporte à mesma ID de recurso para dois segredos separados, pois cada segredo é um recurso exclusivo com controle de versão. 
 
 Para saber mais, leia o seguinte:
 * Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).

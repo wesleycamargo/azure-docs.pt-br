@@ -3,7 +3,7 @@ title: Dimensionar automaticamente os nós de computação em um pool de Lote do
 description: Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330607"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459835"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático para expandir nós de computação em um pool do Lote
 
@@ -160,8 +160,8 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operador* double |\*, / |timeinterval |
 | timeinterval *operador* timeinterval |+, - |timeinterval |
-| timeinterval *operador* timestamp |+ |timestamp |
-| timestamp *operador* timeinterval |+ |timestamp |
+| timeinterval *operador* timestamp |+ | timestamp |
+| timestamp *operador* timeinterval |+ | timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
 | *operador*double |-, ! |double |
 | *operador*timeinterval |- |timeinterval |
@@ -195,7 +195,7 @@ Essas **funções** predefinidas estão disponíveis para usar na definição de
 | std(doubleVecList) |double |Retorna o desvio padrão da amostra dos valores em doubleVecList. |
 | stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
 | sum(doubleVecList) |double |Retorna a soma de todos os componentes em doubleVecList. |
-| time(string dateTime="") |timestamp |Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123. |
+| time(string dateTime="") | timestamp |Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123. |
 | val(doubleVec v, double i) |double |Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela anterior podem aceitar uma lista como um argumento. A lista separada por vírgulas é qualquer combinação de *double* e *doubleVec*. Por exemplo:
@@ -362,7 +362,7 @@ Para criar um pool habilitado para dimensionamento automático em .NET, siga as 
 4. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é de 15 minutos).
 5. Confirmar o pool com [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-O trecho de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros trechos C# neste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient].
+O snippet de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros snippets C# neste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient].
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -416,7 +416,7 @@ Ao habilitar o dimensionamento automático em um pool existente, lembre-se dos s
 >
 >
 
-Este trecho de código em C# usa a biblioteca [.NET do Lote][net_api] para habilitar o dimensionamento automático em um pool existente:
+Este snippet de código em C# usa a biblioteca [.NET do Lote][net_api] para habilitar o dimensionamento automático em um pool existente:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -463,7 +463,7 @@ Para avaliar uma fórmula de autoescala será necessário, primeiro, habilitar o
 
     Nessa solicitação da API REST, especifique a ID do pool no URI e a fórmula de autoescala no elemento *autoScaleFormula* do corpo da solicitação. A resposta da operação contém quaisquer informações de erro que possam estar relacionadas à fórmula.
 
-Neste trecho de código [ .NET do Lote][net_api], avaliamos uma fórmula de autoescala. Se o pool não tiver a autoescala habilitada, poderemos habilitá-la primeiro.
+Neste snippet de código [ .NET do Lote][net_api], avaliamos uma fórmula de autoescala. Se o pool não tiver a autoescala habilitada, poderemos habilitá-la primeiro.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -529,7 +529,7 @@ if (pool.AutoScaleEnabled == true)
 }
 ```
 
-A avaliação bem-sucedida da fórmula mostrada neste trecho de código produz resultados semelhantes a:
+A avaliação bem-sucedida da fórmula mostrada neste snippet de código produz resultados semelhantes a:
 
 ```
 AutoScaleRun.Results:
@@ -553,7 +553,7 @@ No .NET do Lote, a propriedade [CloudPool.AutoScaleRun](https://docs.microsoft.c
 
 Na API REST a solicitação [Obter informações sobre um pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as últimas informações de execução de dimensionamento automático na propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun).
 
-O seguinte trecho de código C# utiliza a biblioteca .NET do Lote para imprimir informações sobre a última execução de dimensionamento automático executada no pool _myPool_:
+O seguinte snippet de código C# utiliza a biblioteca .NET do Lote para imprimir informações sobre a última execução de dimensionamento automático executada no pool _myPool_:
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -562,7 +562,7 @@ Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 
-Exemplo de saída do trecho de código anterior:
+Exemplo de saída do snippet de código anterior:
 
 ```
 Last execution: 10/14/2016 18:36:43
@@ -592,7 +592,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Exemplo 2: ajuste baseado na tarefa
+### <a name="example-2-task-based-adjustment"></a>Exemplo 2: ajuste baseado em tarefa
 Neste exemplo, o tamanho do pool é ajustado com base no número de tarefas na fila. Ambos os comentários e as quebras de linha são aceitáveis em cadeias de caracteres de fórmulas.
 
 ```csharp
@@ -611,7 +611,7 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contagem de tarefas paralelas
+### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contabilização de tarefas paralelas
 Esse exemplo ajusta o tamanho do pool baseado no número de tarefas. Essa fórmula também leva em conta o valor [MaxTasksPerComputeNode][net_maxtasks] que foi definido para o pool. Essa abordagem é útil em situações nas quais a [execução de tarefas paralelas](batch-parallel-node-tasks.md) foi habilitada em seu pool.
 
 ```csharp
@@ -633,9 +633,9 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Exemplo 4: definindo um tamanho de pool inicial
-Este exemplo mostra um trecho de código C# com uma fórmula de autoescala que define o tamanho do pool para um número especificado de nós por um período de tempo inicial. Em seguida, ele ajusta o tamanho do pool com base no número de execução e tarefas ativas depois de decorrido o período de tempo inicial.
+Este exemplo mostra um snippet de código C# com uma fórmula de autoescala que define o tamanho do pool para um número especificado de nós por um período de tempo inicial. Em seguida, ele ajusta o tamanho do pool com base no número de execução e tarefas ativas depois de decorrido o período de tempo inicial.
 
-A fórmula no seguinte trecho de código:
+A fórmula no seguinte snippet de código:
 
 * Define o tamanho do pool inicial como quatro nós
 * Não ajusta o tamanho do pool nos primeiros 10 minutos do ciclo de vida do pool

@@ -1,17 +1,17 @@
 ---
-title: Chaves de partição sintética no Azure Cosmos DB
+title: Crie uma chave de partição sintética no Azure Cosmos DB para distribuir seus dados e a carga de trabalho uniformemente.
 description: Aprenda a usar chaves de partição sintéticas nos seus contêineres de banco de dados do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: mjbrown
-ms.openlocfilehash: 37d220a13aec99de94afa3357db1462d11f8662c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 987bfe023e7355a2780af57dc5e5cac3129a5ca1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043355"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454141"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Crie uma chave de partição sintética
 

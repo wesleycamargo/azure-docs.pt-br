@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064824"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104636"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Backup de restauração no Azure Service Fabric
 
@@ -229,7 +229,7 @@ O andamento da solicitação de restauração acontece na seguinte ordem:
     ```
     
 3. **Êxito**, **Falha** ou **Tempo Limite**: um backup solicitado sob demanda pode ser concluído com qualquer um dos seguintes estados. Cada estado tem os seguintes detalhes de significância e resposta:
-    - **Êxito**: uma restauração com _Êxito_ indica um estado de partição recuperado. A partição relata os estados _RestoreEpoch_ e _RestordLSN_ em conjunto com a hora em UTC.
+    - **Êxito**: uma restauração com _Êxito_ indica um estado de partição recuperado. A partição relata os estados _RestoredEpoch_ e _RestoredLSN_ com a hora em UTC.
 
         ```
         RestoreState  : Success

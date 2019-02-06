@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Spacio | Microsoft Docs'
+title: 'Tutorial: Integração do Microsoft Azure Active Directory ao Spacio | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Spacio.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9df8d199-b955-483c-aa4e-cabad1a0b9d6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: aa5c91265a832ef8a66948086b407688fdcbbbc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 76507fab4050f3ff762713081d2e588dc04f3f1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435467"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Spacio
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Spacio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Informações de logon único em Domínio e URLs do Spacio](./media/spacio-tutorial/tutorial_spacio_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://sso.spac.io/<brokerageID>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://sso.spac.io/<brokerageID>`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://sso.spac.io/<brokerageID>`
 
@@ -159,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-spacio-test-user"></a>Criar um usuário de teste do Spacio
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Spacio. Trabalhe com a [equipe de suporte do Spacio](mailto:support@spac.io) para adicionar os usuários na plataforma do Spacio. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Spacio. Trabalhe com a  [equipe de suporte do Spacio](mailto:support@spac.io) para adicionar os usuários à plataforma do Spacio. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -196,7 +196,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Spacio no Painel de Acesso, deverá ser conectado automaticamente ao seu aplicativo Spacio.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

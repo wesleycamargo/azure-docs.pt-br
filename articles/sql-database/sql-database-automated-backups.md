@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035416"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477804"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
@@ -42,7 +42,7 @@ Use esses backups para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo são backups mantidos
 
-Cada Banco de Dados SQL do Microsoft Azure tem um período de retenção de backup padrão entre 7 e 35 dias que depende de modelo de compra e peça de serviço. Você pode atualizar o período de retenção de backup de um banco de dados no Servidor Lógico do Azure. Para obter mais informações, veja [Alterar o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period).
+Cada Banco de Dados SQL do Microsoft Azure tem um período de retenção de backup padrão entre 7 e 35 dias que depende de modelo de compra e peça de serviço. Você pode atualizar o período de retenção de backup de um banco de dados no servidor de Banco de Dados SQL. Para obter mais informações, veja [Alterar o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period).
 
 Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que em um banco de dados online. Por exemplo, se você excluir um banco de dados Básico que tenha um período de retenção de sete dias, um backup de quatro dias será salvo por mais três dias.
 
@@ -63,7 +63,7 @@ O período de retenção padrão para um banco de dados criado usando o modelo d
 
 #### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-Se estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de backup padrão será de 7 dias (para bancos de dados individuais, pools de bancos de dados e bancos de dados de Instâncias Gerenciadas). Para todos os bancos de dados SQL do Azure (individuais, pool de bancos de dados e bancos de dados de Instância Gerenciada, é possível [alterar o período de retenção de backup para até 35 dias](#how-to-change-the-pitr-backup-retention-period).
+Se você estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de backup padrão será de 7 dias (para bancos de dados individuais, em pool e em instâncias). Para todos os bancos de dados SQL do Azure (individuais, em pool e em instâncias, é possível [alterar o período de retenção de backup para até 35 dias](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Se você reduzir o período de retenção atual, todos os backups existentes mais antigos do que o novo período de retenção não estarão mais disponíveis. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
@@ -80,7 +80,7 @@ Para obter mais informações, consulte [Restauração pontual](sql-database-rec
 
 ### <a name="backups-for-long-term-retention"></a>Backups de retenção de longo prazo
 
-O Banco de Dados SQL hospedado no Servidor Lógico oferece a opção de configurar LTR (retenção de longo prazo) de backups completos por até 10 anos no Armazenamento de Blobs do Azure. Quando a política de LTR está habilitada, os backups completos semanais são copiados automaticamente para um contêiner de armazenamento de RA-GRS diferente. Para atender a diferentes requisitos de conformidade, é possível selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anuais. O consumo do armazenamento depende da frequência selecionada para os backups e dos períodos de retenção. Você pode usar a [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para estimar o custo do armazenamento de LTR.
+Bancos de dados individuais e em pool oferecem a opção de configurar LTR (retenção de longo prazo) de backups completos por até 10 anos no Armazenamento de Blobs do Azure. Quando a política de LTR está habilitada, os backups completos semanais são copiados automaticamente para um contêiner de armazenamento de RA-GRS diferente. Para atender a diferentes requisitos de conformidade, é possível selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anuais. O consumo do armazenamento depende da frequência selecionada para os backups e dos períodos de retenção. Você pode usar a [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para estimar o custo do armazenamento de LTR.
 
 Como o PITR, os backups de LTR têm redundância geográfica e são protegidos pela [Replicação inter-regional do Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -111,7 +111,7 @@ Você pode alterar o período de retenção de backup de PITR padrão usando o P
 
 Para alterar o período de retenção de backup do PITR usando o portal do Azure, navegue até o objeto de servidor cujo período de retenção você deseja alterar dentro do Portal e, em seguida, selecione a opção apropriada com base em qual objeto de servidor você está modificando.
 
-#### <a name="change-pitr-for-a-logical-server"></a>Alterar PITR para um servidor lógico
+#### <a name="change-pitr-for-a-sql-database-server"></a>Alteração de PITR para um servidor de Banco de Dados SQL
 
 ![Alterar PITR no portal do Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 

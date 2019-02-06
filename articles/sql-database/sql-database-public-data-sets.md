@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586250"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299989"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para criação de protótipos e testes
 
@@ -44,7 +44,7 @@ Procure nesta lista de conjuntos de dados públicos os dados que você pode usar
 | [Conjuntos de dados do Microsoft Research - "Ciência de Dados para Pesquisa"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Diversos conjuntos de dados que abrangem a interação homem — máquina, áudio/vídeo, mineração de dados/recuperação de informações, geoespaciais/localização, processamento de linguagem natural e visão robótica/computacional. | Os conjuntos de dados estão em vários formatos, compactados para download. |
 | [Dados públicos sobre genoma](http://www.completegenomics.com/public-data/) | "Um conjunto variado de dados de genomas humanos completos estão disponíveis gratuitamente para uso público para aprimorar qualquer estudo sobre genoma..." O provedor, Complete Genomics, é uma corporação privada com fins lucrativos. | Os conjuntos de dados, após a extração, estão no formato de texto UNIX. Também há ferramentas de análise disponíveis. |
 | [Dados da Open Science Data Cloud](https://www.opensciencedatacloud.org/) | "A Open Science Data Cloud fornece à comunidade científica recursos para armazenar, compartilhar e analisar terabytes e petabytes de conjuntos de dados científicos".| Os conjuntos de dados estão em vários formatos. |
-| [Dados sobre clima global - WorldcLIM](http://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados de clima matriciais) com uma resolução espacial de cerca de 1 km2. Esses dados podem ser usados para mapeamento e modelagem espacial". | Esses arquivos contêm dados geoespaciais. Para saber mais, veja [Formato de dados](http://worldclim.org/formats1). |
+| [Dados sobre clima global – WorldClim](http://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados de clima matriciais) com uma resolução espacial de cerca de 1 km2. Esses dados podem ser usados para mapeamento e modelagem espacial". | Esses arquivos contêm dados geoespaciais. Para saber mais, veja [Formato de dados](http://worldclim.org/formats1). |
 | [Dados sobre a sociedade humana - o projeto GDELT](http://www.gdeltproject.org/data.html) | "O projeto GDELT é o maior e mais abrangente banco de dados aberto da sociedade humana já criado, além de contar com a maior resolução". | Os arquivos de dados brutos estão no formato CSV. |
 | [Dados de previsão de cliques em publicidade para machine learning da Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "O maior conjunto de dados ML já lançado publicamente". Para saber mais, veja [Conjunto de dados de previsão de cliques de 1 TB da Criteo](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [Conjunto de dados de mineração de texto ClueWeb09 do projeto Lemur](http://www.lemurproject.org/clueweb09.php/) | "O conjunto de dados ClueWeb09 foi criado para oferecer suporte à pesquisa sobre a recuperação de informações e tecnologias relacionadas ao idioma humano. Ele consiste em um bilhão de páginas da Web em 10 idiomas coletadas entre janeiro e fevereiro de 2009". | Veja [Informações de conjunto de dados](http://www.lemurproject.org/clueweb09/datasetInformation.php).|

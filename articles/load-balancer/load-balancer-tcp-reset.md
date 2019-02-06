@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257278"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296912"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de Carga com Redefinição de TCP quando ocioso (Versão Prévia Pública)
 
-Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) para criar um aplicativo comportamento mais previsível para seus cenários com Redefinições de TCP bidirecionais (pacote TCP RST) para cada tempo limite de ociosidade configurável.  O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.
+Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários, permitindo a Redefinição de TCP no modo ocioso para uma determinada regra. O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará o Load Balancer enviar Redefinições de TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo de que a conexão atingiu o tempo limite e não é mais utilizável.  Pontos de extremidade podem estabelecer imediatamente uma nova conexão se necessário.
 
 ![Redefinição de TCP do Balanceador de Carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Usando a API versão 2018-07-01, você pode habilitar o envio de Redefinições 
 
 ## <a name="regions"></a>Disponibilidade de região
 
-Esse parâmetro está efetivo atualmente nas seguintes regiões.  Em regiões não listadas aqui, o parâmetro não tem nenhum efeito.
-
-| Região |
-|---|
-| Sudeste da Ásia |
-| Sul do Brasil |
-| Canadá Central |
-| Europa Ocidental |
-| Centro da Índia |
-| Oeste da Índia |
-| Oeste do Japão |
-| Coreia Central |
-| Sul da Coreia |
-| Norte do Reino Unido |
-| Sul do Reino Unido 2 |
-| Leste dos EUA |
-| Leste dos EUA 2 |
-| Norte do Reino Unido |
-| Oeste dos EUA |
-
-Essa tabela será atualizada conforme a versão prévia for expandida para outras regiões.  
+Disponível em todas as regiões.
 
 ## <a name="limitations"></a>Limitações
 
-- [Disponibilidade de região](#regions) limitada.
 - O portal não pode ser usado para configurar ou exibir a Redefinição de TCP.  Em vez disso, use modelos, API REST, Az CLI 2.0 ou PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas

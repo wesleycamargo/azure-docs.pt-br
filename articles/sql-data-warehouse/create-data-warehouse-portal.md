@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Criar e consultar SQL Data Warehouse do Azure - Portal do Azure | Microsoft Docs'
+title: 'Início Rápido: Criar e consultar SQL Data Warehouse do Azure – Portal do Azure | Microsoft Docs'
 description: Criar e consultar um data warehouse com SQL Data Warehouse do Azure no portal do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 004ae5c8c171f731a244e926dd51d677300630f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 317756f8684088b9df52856ce4f10c5401485e86
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248069"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461858"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure no portal do Azure
 
@@ -34,7 +34,7 @@ Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ss
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Criar um data warehouse
 
@@ -127,7 +127,7 @@ Agora é possível conectar-se ao SQL Server e a seus data warehouses usando est
 
 Obtenha o nome do servidor totalmente qualificado para seu SQL Server no Portal do Azure. Posteriormente, você usará o nome totalmente qualificado ao se conectar ao servidor.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **SQL Data Warehouse** no menu à esquerda e clique em seu banco de dados na página **SQL Data Warehouse**. 
 3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é meunovoservidor-20180430.database.windows.net. 
 

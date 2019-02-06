@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a20884dedf2d0f197cd73f0e67f412633736686
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421568"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885500"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Coletar métricas de recursos de PaaS do Azure com Log Analytics
 
@@ -67,7 +67,7 @@ Execute as etapas a seguir para fazer o download e executar o script.
 
 O script será executado em todos os recursos selecionados de critérios de correspondência e habilitada a coleta de métricas para eles. Depois que ele for concluído, você verá uma mensagem indicando que a configuração está concluída.  
 
-Logo após a conclusão, você começará a ver os dados do recurso PaaS do Azure no seu repositório de Log Analytics.  Um registro com tipo `AzureMetrics` é criado e analisando esses registros são compatíveis com o [Análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md) e soluções de gerenciamento [Análise de Aplicativos Web do Azure](../../azure-monitor/insights/azure-web-apps-analytics.md).   
+Logo após a conclusão, você começará a ver os dados do recurso PaaS do Azure no seu repositório de Log Analytics.  Um registro com tipo `AzureMetrics` é criado e analisando esses registros são compatíveis com o [Análise de SQL do Azure](../insights/azure-sql.md) e soluções de gerenciamento [Análise de Aplicativos Web do Azure](../insights/azure-web-apps-analytics.md).   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Atualizar um recurso para enviar dados para outro workspace
 Se você tiver um recurso que já está enviando dados para um workspace de Log Analytics e posteriormente decidir reconfigurá-lo para fazer referência a outro workspace, você pode executar o script com o parâmetro `-Update`.  
@@ -79,8 +79,8 @@ Você será solicitado a responder as mesmas informações de que quando você e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 
+* Saiba mais sobre [pesquisas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 
 
-* Use [Campos Personalizados](../../azure-monitor/platform/custom-fields.md) (para analisar os registros de eventos em campos individuais.
+* Use [Campos Personalizados](custom-fields.md) (para analisar os registros de eventos em campos individuais.
 
-* Revise [Criar um painel personalizado para uso de Log Analytics](../../azure-monitor/platform/dashboards.md) para entender como visualizar o log de pesquisas de maneiras significativas para a organização.
+* Examine as informações sobre como [criar e compartilhar um painel do Log Analytics](../learn/tutorial-logs-dashboards.md) para entender como visualizar as pesquisas de seu log de maneira significativa para a organização.

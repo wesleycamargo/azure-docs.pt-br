@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340283"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209377"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -41,11 +41,11 @@ Outro aspecto ser considerado é certificar-se de que os dados estão balanceado
 
 Forneça imagens representativas do que será enviado ao classificador durante o uso normal. Por exemplo, se estiver treinando um classificador “apple”, o classificador poderá não ser tão preciso se você treinar apenas fotos de maçãs em pratos, mas fazer previsões sobre fotos de maçãs em árvores. Incluir uma variedade de imagens garante que o classificador não seja tendencioso e possa generalizar. Abaixo, estão algumas maneiras de tornar o treinamento mais diversificado:
 
-__Tela de fundo:__ forneça imagens do objeto na frente de diferentes telas de fundo (ou seja, fruta no prato em comparação com fruta na sacola). Foto em contextos são melhores que fotos na frente de telas de fundo neutras, pois fornecem mais informações ao classificador.
+__Em Segundo Plano:__ forneça imagens do objeto na frente de diferentes telas de fundo (ou seja, fruta no prato em comparação com fruta na sacola). Foto em contextos são melhores que fotos na frente de telas de fundo neutras, pois fornecem mais informações ao classificador.
 
 ![Imagem de exemplos de tela de fundo](./media/getting-started-improving-your-classifier/background.png)
 
-__Iluminação:__ forneça imagens com iluminação variada (ou seja, tomadas com flash, alta exposição, etc.), especialmente se as imagens usadas para previsão tiverem iluminação diferente. Também é útil incluir imagens com saturação, matiz e brilho variados.
+__Iluminação:__ Forneça imagens com iluminação variada (ou seja, tiradas com flash, alta exposição, etc.), principalmente se as imagens usadas para previsão tiverem uma iluminação diferente. Também é útil incluir imagens com saturação, matiz e brilho variados.
 
 ![Imagem de exemplos de iluminação](./media/getting-started-improving-your-classifier/lighting.png)
 

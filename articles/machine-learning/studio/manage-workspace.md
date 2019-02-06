@@ -1,6 +1,5 @@
 ---
-Título: Gerenciar um workspace do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Gerenciar o acesso a workspaces do Azure Machine Learning e implantar e gerenciar a API de Machine Learning
-serviços Web: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Gerenciar um workspace do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Gerenciar o acesso a workspaces do Azure Machine Learning e implantar e gerenciar a API de ML serviços Web: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 27/02/2017
 ---

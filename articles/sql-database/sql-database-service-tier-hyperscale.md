@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872876"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476172"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviço em Hiperescala (versão prévia) para até 100 TB
 
 Banco de dados SQL do Azure baseia-se na arquitetura de mecanismo de banco de dados do SQL Server que é ajustada para o ambiente de nuvem para garantir a disponibilidade de 99,99%, até mesmo no caso de falhas de infraestrutura. Há três modelos de arquitetura que são usados no Banco de Dados SQL do Azure:
+
 - Uso Geral/Padrão 
 - Comercialmente Crítico/Premium
 - Hiperescala
@@ -40,7 +41,7 @@ A camada de serviço em hiperescala no banco de dados SQL é a camada de serviç
 A camada de serviço Hyperscale no Banco de Dados SQL do Azure fornece os seguintes recursos adicionais:
 
 - Suporte para até 100 TB de tamanho de banco de dados
-- Backups de banco de dados quase instantâneos (com base em instantâneos de arquivo armazenados no Armazenamento de Blobs do Azure), independentemente do tamanho sem nenhum impacto de E/S na Computação
+- Backups de banco de dados quase instantâneos (com base em instantâneos de arquivo armazenados no Armazenamento de Blobs do Azure), independentemente do tamanho sem nenhum impacto de E/S na Computação   
 - Rápidas restaurações de banco de dados (com base em instantâneos de arquivo) em minutos, em vez de horas ou dias (não um tamanho de operação de dados)
 - Maior desempenho geral devido à maior taxa de transferência de log e tempos mais rápidos de confirmação de transação, independentemente dos volumes de dados
 - Rápida expansão - você pode provisionar uma ou mais somente leitura nós para o descarregamento de sua carga de trabalho de leitura e para uso como reserva quente
@@ -133,9 +134,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [TDE (Transparent Data Encryption)](transparent-data-encryption-azure-sql.md) deve ser desativada antes de alterar um banco de dados não em Hiperescala para Hiperescala.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Conectar-se a uma réplica em escala de leitura de um banco de dados em Hiperescala
 
 Em bancos de dados em Hiperescala, o argumento `ApplicationIntent` na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica secundária somente leitura. Se o `ApplicationIntent` definido como `READONLY` e o banco de dados não tiverem uma réplica secundária, a conexão será roteada para a réplica primária e o padrão será o comportamento `ReadWrite`.
@@ -153,17 +151,18 @@ A camada de serviço em hiperescala está atualmente em versão prévia pública
 
 | Problema | DESCRIÇÃO |
 | :---- | :--------- |
-| O painel Gerenciar Backups para um servidor lógico não mostra se bancos de dados em Hiperescala serão filtrados do SQL Server ->  | Hiperescala tem um método separado para gerenciar backups e, como tal, as configurações de Retenção de backup de Ponto no Tempo e Retenção de Longo Prazo não se aplicam são invalidadas. Da mesma forma, os bancos de dados em hiperescala não aparecem no painel Gerenciar Backup. |
+| O painel Gerenciar Backups para um servidor de Banco de Dados SQL não mostra se bancos de dados de hiperescala serão filtrados do SQL Server ->  | Hiperescala tem um método separado para gerenciar backups e, como tal, as configurações de Retenção de backup de Ponto no Tempo e Retenção de Longo Prazo não se aplicam são invalidadas. Da mesma forma, os bancos de dados em hiperescala não aparecem no painel Gerenciar Backup. |
 | Restauração pontual | Depois que um banco de dados é migrado para a camada de serviço em hiperescala, não há suporte para a restauração pontual antes da migração.|
 | Se um arquivo de banco de dados aumentar durante a migração devido a uma carga de trabalho ativa e ultrapassar 1 TB por limite de arquivo, a migração falhará | Atenuações: <br> – Se possível, migre o banco de dados quando não houver nenhuma carga de trabalho de atualização em execução.<br> – Tente novamente a migração, ela terá êxito desde que o limite de 1 TB não seja ultrapassado durante a migração.|
 | No momento, não há suporte para a Instância Gerenciada | Sem suporte no momento |
 | Migração para Hiperescala é, no momento, uma operação unidirecional | Depois que um banco de dados é migrado para Hiperescala, ele não pode ser migrado diretamente para uma camada de serviço que não esteja em Hiperescala. No momento, a única maneira de migrar um banco de dados em Hiperescala para não Hiperescala é importar/exportar usando um arquivo BACPAC.|
-| No momento, não há suporte para a migração de bancos de dados com objetos na memória | Objetos na memória devem ser descartados e recriados como objetos não na memória antes da migração de um banco de dados para a camada de serviço em Hiperescala.
+| No momento, não há suporte para a migração de bancos de dados com objetos na memória | Objetos na memória devem ser descartados e recriados como objetos não na memória antes da migração de um banco de dados para a camada de serviço em Hiperescala.|
+| Atualmente, o controle de alterações de dados não é uma funcionalidade compatível. | Você não poderá usar o controle de alterações de dados com bancos de dados de hiperescala.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para perguntas frequentes sobre Hiperescala, confira [Perguntas frequentes sobre Hiperescala](sql-database-service-tier-hyperscale-faq.md).
 - Para obter informações sobre as camadas de serviço, consulte [camadas de serviço](sql-database-service-tiers.md)
-- Consulte [Visão geral dos limites de recursos em um servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e assinatura.
+- Confira [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Visão geral dos limites de recursos em um servidor do Banco de Dados SQL) para obter informações sobre limites nos níveis de servidor e assinatura.
 - Para comprar os limites de modelo para um banco de dados individual, confira [Limites de modelo de compra baseados em vCore do Banco de Dados SQL do Azure para um banco de dados individual](sql-database-vcore-resource-limits-single-databases.md).
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).

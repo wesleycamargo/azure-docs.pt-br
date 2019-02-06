@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 22a2a5d0a275b4eeb9ddea88741abdef9745a539
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166641"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455211"
 documentType: LandingData
 title: Banco de Dados SQL do Azure - Segurança Avançada
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
+  ms.date: 01/25/2019
   ms.author: jovanpop-msft
 sections:
 - items:
@@ -64,7 +64,7 @@ sections:
         src: media/index/logo_powershell.svg
       title: PowerShell
     rows:
-    - title: Configurar a detecção de ameaças no Banco de Dados Individual
+    - title: Configurar a detecção de ameaças no banco de dados individual
       values:
       - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
       - href: 
@@ -74,7 +74,7 @@ sections:
       - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
       - href: 
       - href: 
-    - title: Configurar regras de firewall no banco de dados único
+    - title: Configurar regras de firewall do servidor de banco de dados no banco de dados individual
       values:
       - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
       - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
@@ -93,7 +93,7 @@ sections:
     items:
     - html: Proteção contra ameaças em <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">Instâncias gerenciadas</a> e <a href="/azure/sql-database/sql-database-threat-detection">Bancos de dados</a> detectam atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
     - html: A auditoria de <a href="/azure/sql-database/sql-database-managed-instance-auditing">Instâncias gerenciadas</a> e <a href="/azure/sql-database/sql-database-auditing">bancos de dados</a> rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure, espaço de trabalho do OMS ou Hub de Eventos.
-    - html: <a href="/azure/sql-database/sql-database-firewall-configure"> As regras de firewall </a> em bancos de dados únicos permitem controlar quais endereços IP podem acessar seu banco de dados.
+    - html: As <a href="/azure/sql-database/sql-database-firewall-configure">regras de firewall do servidor de banco de dados</a> em bancos de dados individuais permitem controlar quais endereços IP podem acessar seu banco de dados.
     - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">Integração VNet</a> na Instância Gerenciada permite que você coloque os bancos de dados em seu próprio espaço de endereço privado.
     - html: <a href="/azure/sql-database/sql-database-always-encrypted">Sempre criptografado</a> protege os dados confidenciais em repouso no servidor, durante a movimentação entre o cliente e o servidor, enquanto os dados estão em uso, garantindo que os dados confidenciais nunca apareçam como texto simples dentro do sistema de banco de dados.
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">O mascaramento dinâmico de dados</a> ajuda a impedir o acesso não autorizado a dados confidenciais, permitindo que os clientes identifiquem a quantidade de dados confidenciais a serem revelados com impacto mínimo na camada do aplicativo.

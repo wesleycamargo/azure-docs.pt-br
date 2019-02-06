@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 27254b88c6efcedf1671e08ea02604086b3ef129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038762"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477314"
 ---
-# <a name="azure-cosmos-db-database-security"></a>Segurança de banco de dados do Azure Cosmos DB
+# <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – visão geral
 
 Este artigo aborda as melhores práticas de segurança de banco de dados e os principais recursos oferecidos pelo Azure Cosmos DB para ajudar você a prevenir, detectar e responder a violações de banco de dados.
  

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 9ad0579ff9c25753b1e4816b80948b4d8d1232f7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081516"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185797"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
@@ -40,6 +40,7 @@ O Azure Functions oferece [integração interna](https://docs.microsoft.com/azur
 | | | | 
 | **Recursos com suporte**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | SIM             | SIM               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | SIM               | 
 | &bull; Amostragem                     | SIM             | SIM               | 
 | &bull; Pulsações                   |                 | SIM               | 
 | | | | 
@@ -50,6 +51,10 @@ O Azure Functions oferece [integração interna](https://docs.microsoft.com/azur
 | **Configurável**                      |                   |                   |           
 | &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | SIM                   | 
 
+
+## <a name="live-metrics--secure-control-channel"></a>Live Metrics e canal de controle seguro
+
+Os critérios de filtro personalizados especificados são enviados para o componente de Métricas em tempo real no SDK do Application Insights. Os filtros podem conter informações confidenciais, como customerIDs. Torne o canal seguro com uma chave de API secreta. Confira [Proteger o canal de controle](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
 
 ## <a name="sampling"></a>amostragem
 

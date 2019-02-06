@@ -3,7 +3,7 @@ title: Manter saída de trabalhos e tarefas no armazenamento do Azure com a bibl
 description: Saiba como usar a biblioteca de Convenções de Arquivo em Lote do Azure para .NET para manter a saída de tarefa e trabalho em Lote no Armazenamento do Azure e exibir a saída mantida no portal do Azure.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472976"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET
 
@@ -115,7 +115,7 @@ O parâmetro `kind` do método [TaskOutputStorage](https://msdn.microsoft.com/li
 Esses tipos de saída permitem que você especifique qual tipo de saídas listar ao consultar posteriormente o Lote para obter as saídas persistentes de determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Forneça a saída de *visualização* da tarefa *109*". Mais informações sobre listagem e recuperação de saídas estão disponíveis em [Recuperar saída](#retrieve-output) , mais adiante no artigo.
 
 > [!TIP]
-> O tipo de saída também designa em que ponto no portal do Azure um arquivo específico é exibido: arquivos categorizados por *TaskOutput* aparecem em **Arquivos de saída de tarefa** e arquivos de *TaskLog* aparecem em **Logs de tarefa**.
+> O tipo de saída também determina o local no portal do Azure em que um arquivo específico é exibido: Arquivos categorizados por *TaskOutput* aparecem sob **Arquivos de saída da tarefa**, e arquivos *TaskLog* aparecem sob **Logs de tarefa**.
 
 ### <a name="store-job-outputs"></a>Armazenar saídas de trabalhos
 

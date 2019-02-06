@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Wrike|Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Wrike | Microsoft Docs'
 description: Aprenda como configurar o logon único entre o Azure Active Directory e o Wrike.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 894b7520-5136-4973-a1ba-942a9f7f0a03
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d2a8db071152e95b3c70509a1c10f7aa73f02c21
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1eba7769717f2dc92f9600b46162ec95a13bd84c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977894"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195742"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Active Directory do Azure com o Wrike
+# <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Azure Active Directory ao Wrike
 
 Neste tutorial, você aprenderá como integrar o Wrike ao Azure AD (Azure Active Directory).
 
@@ -142,7 +142,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

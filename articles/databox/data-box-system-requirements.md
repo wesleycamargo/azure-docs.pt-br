@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793998"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206740"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -48,16 +48,21 @@ Aqui está uma lista dos sistemas operacionais com suporte para a operação de 
 
 ### <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
-Aqui está uma lista dos tipos de armazenamento com suporte o dispositivo Data Box.
+A seguir, há uma lista dos tipos de armazenamento com suporte para o dispositivo Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e suas funcionalidades completas, confira [Types of storage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts) (Tipos de contas de armazenamento).
 
-| **Conta de armazenamento** | **Observações** |
-| --- | --- |
-| Clássico | Standard |
-| Propósito geral  |Standard; tanto V1 quanto V2 são compatíveis. |
-| Blob |Há suporte para a camada de acesso esporádico e a camada de armazenamento frequente. |
+| **Conta de armazenamento/Tipos de armazenamento com suporte** | **Blob de blocos** |**Blob de páginas*** |**Arquivos do Azure** |**Observações**|
+| --- | --- | -- | -- | -- |
+| Clássico Standard | S | S | S |
+| Uso geral v1 Standard  | S | S | S | Há suporte para a camada de acesso esporádico e a camada de armazenamento frequente.|
+| Uso geral v1 Premium  |  | S| | |
+| Uso geral v2 Standard  | S | S | S | Há suporte para a camada de acesso esporádico e a camada de armazenamento frequente.|
+| Uso geral v2 Premium  |  |S | | |
+| Armazenamento de blobs Standard |S | | |Há suporte para a camada de acesso esporádico e a camada de armazenamento frequente. |
+
+\* *– Os dados carregados para blobs de páginas devem ser de 512 bytes alinhados, como vhds.*
 
 >[!NOTE]
-> O Azure Data Lake Storage Gen 2 não é suportado.
+> Não há suporte para contas do Azure Data Lake Storage Gen2.
 
 
 ### <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
@@ -85,7 +90,7 @@ Aqui está uma lista de navegadores da Web com suporte para a interface do usuá
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 
-Seu datacenter deve ter uma rede de alta velocidade. É altamente recomendável que você tenha, pelo menos, uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado para copiar os dados, mas as velocidades de cópia serão afetadas.
+Seu datacenter deve ter uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado para copiar dados, mas as velocidades de cópia serão afetadas.
 
 ## <a name="next-step"></a>Próxima etapa
 

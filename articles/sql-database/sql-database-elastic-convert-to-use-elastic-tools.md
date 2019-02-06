@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251586"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455585"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Primeiro converta um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 
@@ -98,10 +98,10 @@ Para utilizar esse padrão de mapeamento, os valores de ID do locatário precisa
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Opção 3: mapeamentos de lista em um banco de dados individual
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: Mapeamentos de lista em um banco de dados individual
 A configuração desse padrão também exige a criação de um mapa de lista conforme mostrado na etapa 2, opção 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Etapa 3: preparar os fragmentos individuais
+## <a name="step-3-prepare-individual-shards"></a>Etapa 3: Preparar os fragmentos individuais
 Adicione cada fragmento (banco de dados)ao gerenciador de mapa de fragmentos. Isso prepara os bancos de dados individuais para armazenar informações de mapeamento. Execute esse método em cada fragmento.
 
     Add-Shard 
@@ -138,7 +138,7 @@ Adicione os mapeamentos de intervalo de todas as associações entre intervalo d
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Etapa 4, opção 3: mapear os dados de vários locatários em um banco de dados individual
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Etapa 4, opção 3: mapear os dados de vários locatários em um banco de dados individual
 Para cada locatário, execute o Add-ListMapping (opção 1). 
 
 ## <a name="checking-the-mappings"></a>Verificando os mapeamentos

@@ -4,26 +4,26 @@ description: Visão geral da implantação do Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: aa5737d67ea2c9cb8cc7c7098764ae67fc91137d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669813"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298527"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure - visão geral da implantação
 
 Este artigo fornece uma visão geral das etapas necessárias para ativar e executar um cluster do Avere vFXT para Azure.
 
-A primeira vez que você implanta um sistema Avere vFXT, pode perceber que envolve mais etapas do que a implantação da maioria das outras ferramentas do Azure. Ter uma noção clara do processo de início ao fim irá ajudá-lo a definir o esforço necessário. Depois que o sistema estiver em funcionamento, seu poder de agilizar as tarefas de computação baseadas na nuvem valerá a pena o esforço.
+Várias tarefas são necessárias antes e depois de criar o cluster vFXT do Azure Marketplace. Ter uma noção clara do processo de início ao fim irá ajudá-lo a definir o esforço necessário. 
 
 ## <a name="deployment-steps"></a>Etapas de implantação.
 
 Após [planejar seu sistema](avere-vfxt-deploy-plan.md), você pode começar a criar seu cluster Avere vFXT. 
 
-Comece criando uma VM do controlador de cluster, que é usada para criar o cluster vFXT.
+Um modelo do Azure Resource Manager no Azure Marketplace coleta as informações necessárias e implanta automaticamente todo o cluster. 
 
 Depois que o cluster vFXT estiver em execução, você precisará saber como conectar clientes a ele e, se necessário, como mover seus dados para o novo contêiner de armazenamento do Blob.  
 
@@ -33,25 +33,30 @@ Aqui está uma visão geral de todas as etapas.
 
    Antes de criar uma VM, você deve criar uma nova assinatura para o projeto Avere vFXT, configurar a propriedade da assinatura, verificar cotas e solicitar um aumento, se necessário, e aceitar os termos para usar o software Avere vFXT. Leia [Preparar para criar o Avere vFXT](avere-vfxt-prereqs.md) para instruções detalhadas.
 
-1. Crie o controlador de cluster
+1. Crie uma função de acesso para os nós de cluster
 
-   O *controlador de cluster* é uma VM simples que reside na mesma rede virtual que o cluster Avere vFXT. O controlador cria os nós vFXT e forma o cluster e também fornece uma interface de linha de comandos para gerenciar o cluster durante sua existência.
+   O Azure usa [controle de acesso baseado em função](../role-based-access-control/index.yml) (RBAC) para autorizar as VMs do nó do cluster a executar determinadas tarefas. Por exemplo, os nós do cluster precisam poder atribuir ou reatribuir endereços IP a outros nós do cluster. Antes de criar o cluster, você deve definir uma função que forneça as permissões adequadas.
 
-   Se você configurar seu controlador com um endereço IP público, ele também poderá servir como um host de salto para se conectar ao cluster de fora da vnet.
+   Leia [Crie a função de acesso do nó do cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) para obter instruções.
 
-   Todo o software necessário para criar o cluster vFXT e gerenciar seus nós é pré-instalado no controlador de cluster.
-
-   Leia [Crie a VM do controlador de cluster](avere-vfxt-deploy.md#create-the-cluster-controller-vm) para obter detalhes.
-
-1. Criar uma função de tempo de execução para os nós de cluster 
-
-   O Azure usa [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) para autorizar as VMs do nó do cluster a executar determinadas tarefas. Por exemplo, os nós do cluster precisam poder atribuir ou reatribuir endereços IP a outros nós do cluster. Antes de criar o cluster, você deve definir uma função que forneça as permissões adequadas.
-
-   O software pré-instalado do controlador de cluster inclui uma função de protótipo para você personalizar. Leia [Crie a função de acesso do nó do cluster](avere-vfxt-deploy.md#create-the-cluster-node-access-role) para obter instruções.
+   O controlador de cluster também usa uma função de acesso, mas você pode aceitar a função padrão, Proprietário, em vez de criar sua própria. Se você quiser criar uma função personalizada para o controlador de cluster, leia [Função de acesso de controlador personalizada](avere-vfxt-controller-role.md). 
 
 1. Crie o cluster Avere vFXT 
 
-   No controlador, edite o script de criação de cluster apropriado e execute-o para criar o cluster. [Edite o script de implantação](avere-vfxt-deploy.md#edit-the-deployment-script) com instruções detalhadas. 
+   Use o Azure Marketplace para criar o cluster Avere vFXT para Azure. Um modelo coleta as informações necessárias e executa scripts para criar o produto final.
+
+   A criação do cluster envolve estas etapas, que são todas realizadas pelo modelo do marketplace: 
+
+   * Criar nova infraestrutura de rede e grupos de recursos se necessário
+   * Criar um *controlador do cluster*  
+
+     O controlador de cluster é uma VM simples do que reside na mesma rede virtual que o cluster do Avere vFXT e tem o software personalizado necessário para criar e gerenciar o cluster. O controlador cria os nós vFXT e forma o cluster e também fornece uma interface de linha de comandos para gerenciar o cluster durante sua existência.
+
+     Se você configurar seu controlador com um endereço IP público, ele também poderá servir como um host de salto para se conectar ao cluster de fora da vnet.
+
+   * Criar as VMs do nó de cluster
+   * Configurar as VMs do nó de cluster como o cluster
+   * Opcionalmente, criar um novo contêiner de Blob e configurá-lo como um armazenamento de back-end para o cluster
 
 1. Configurar o cluster 
 

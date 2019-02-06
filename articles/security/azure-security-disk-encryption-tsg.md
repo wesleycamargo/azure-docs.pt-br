@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103158"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468386"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -33,7 +33,23 @@ Esse erro pode ocorrer quando a criptografia de disco do sistema operacional é 
 - As unidades de dados são montadas recursivamente no diretório /mnt/ ou uma na outra (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Outros [pré-requisitos](azure-security-disk-encryption-prerequisites.md) do Azure Disk Encryption para Linux não são atendidos.
 
-## <a name="unable-to-encrypt"></a>Não será possível criptografar
+## <a name="bkmk_Ubuntu14"></a> Atualizar o kernel padrão para o Ubuntu 14.04 LTS
+
+A imagem do Ubuntu 14.04 LTS é fornecida com uma versão padrão do kernel de 4.4. Esta versão do kernel tem um problema conhecido no qual o Encerrador de Memória Insuficiente encerra incorretamente o comando dd durante o processo de criptografia do sistema operacional. Esse bug foi corrigido no mais recente kernel do Linux ajustado para o Azure. Para evitar esse erro, antes de habilitar a criptografia na imagem, atualize para o [kernel ajustado para o Azure 4.15](https://packages.ubuntu.com/trusty/linux-azure) ou posterior usando os comandos a seguir:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+Depois de reiniciar a VM para o novo kernel, a nova versão do kernel pode ser confirmada usando:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Não é possível criptografar discos do Linux
 
 Em alguns casos, a criptografia de disco do Linux parece estar paralisada na "criptografia de disco do OS iniciada" e o SSH está desabilitado. O processo de criptografia pode levar entre 3 e 16 horas para ser concluído em uma imagem da galeria de estoque. Se discos de dados com diversos terabytes forem adicionados, o processo poderá levar dias.
 
@@ -71,7 +87,7 @@ Quando a conectividade estiver restrita por requisitos de proxy, firewall ou NSG
 Qualquer configuração do grupo de segurança de rede aplicada ainda deve permitir que o ponto de extremidade atenda aos [pré-requisitos](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) da configuração de rede documentada para criptografia de disco.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault por trás de um firewall
-A VM deve poder acessar um cofre de chaves. Veja as orientações sobre acesso ao cofre de chaves por trás de um firewall mantido pela equipe do [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
+Quando a criptografia é habilitada com [credenciais do Azure AD](azure-security-disk-encryption-prerequisites-aad.md), a VM de destino precisa receber acesso aos pontos de extremidade de autenticação do Azure AD, bem como aos pontos de extremidade do Key Vault.  Para obter mais informações sobre esse processo, consulte as diretrizes sobre acesso ao cofre de chaves por trás de um firewall mantido pela equipe do [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 A VM precisa conseguir acessar o ponto de extremidade do [Serviço de Metadados de Instância do Azure](../virtual-machines/windows/instance-metadata-service.md), que usa um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente na VM.

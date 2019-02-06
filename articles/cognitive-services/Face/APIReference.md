@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679725"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296963"
 ---
 # <a name="api-reference"></a>Referência de API
 
@@ -28,5 +28,6 @@ A API de Detecção Facial do Azure é uma API baseada em nuvem que fornece os a
 - [APIs de Gerenciamento de LargeFaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): usadas para gerenciar uma LargeFaceList para [Localizar Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
 - [APIs de Gerenciamento de Pessoas de PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): usadas para gerenciar Faces de Pessoa de PersonGroup para [Identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 - [APIs de Gerenciamento de PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): usadas para gerenciar conjunto de dados de PersonGroup para [Identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [APIs de Gerenciamento de Instantâneo](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): Usado para gerenciar um Instantâneo para a migração de dados entre assinaturas.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

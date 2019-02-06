@@ -4,16 +4,16 @@ description: Use algoritmos avançados no Localizador de Anomalias para ajudá-l
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: c0c15f077a0a7dd302a377aa6f82ba2f8533d862
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: ad0af6137e2a127e2f9981c2707906514bf8c591
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456245"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215190"
 ---
 # <a name="what-is-anomaly-finder"></a>O que é Localizador de Anomalias?
 
@@ -38,7 +38,7 @@ Fig. 2: Detectar alterações de padrão nas solicitações de serviço
 
 ## <a name="requirements"></a>Requisitos
 
-- Dados mínimos para entrada da série temporal: mínimo de 13 pontos de dados para a série temporal sem uma periodicidade clara, mínimo de 4 ciclos de pontos de dados para a série temporal com periodicidade conhecida. 
+- Dados mínimos para série temporal de entrada: Mínimo de 13 pontos de dados para a série temporal sem uma periodicidade clara, mínimo de 4 ciclos de pontos de dados para a série temporal com periodicidade conhecida. 
 - Integridade dos dados: os pontos de dados da série temporal são separados no mesmo intervalo e sem pontos ausentes. 
 
 ## <a name="identify-anomalies"></a>Identificar anomalias

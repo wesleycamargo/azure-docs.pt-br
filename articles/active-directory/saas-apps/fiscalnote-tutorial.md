@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o FiscalNote | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao FiscalNote | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o FiscalNote.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2dfc450fe53c543c1d5119cd9c6954aadaa3b3ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cea5c6ad57d8c391bd1d5264abbc1397fbad0f30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421416"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161998"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Tutorial: Integração do Azure Active Directory com o FiscalNote
+# <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Tutorial: Integração do Azure Active Directory ao FiscalNote
 
 Neste tutorial, você aprenderá a integrar o FiscalNote ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do FiscalNote da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de URLs e Domínio do FiscalNote](./media/fiscalnote-tutorial/tutorial_fiscalnote_url.png)
     
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
@@ -132,7 +132,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | familyName| user.surname|
     | email| user.mail|
     
-    a. Remova os atributos existentes e adicione novos atributos. Clique em **Adicionar Atributo** para abrir a caixa de diálogo **Adicionar Atributo**.
+     a. Remova os atributos existentes e adicione novos atributos. Clique em **Adicionar Atributo** para abrir a caixa de diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/fiscalnote-tutorial/tutorial_attribute_04.png)
     
@@ -192,7 +192,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no FiscalNote. O FiscalNote dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o FiscalNote, caso ele ainda não exista.
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte do FiscalNote](mailto:support@fiscalnote.com).
+>Se precisar criar um usuário manualmente, contate a  [equipe de suporte do FiscalNote](mailto:support@fiscalnote.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -229,7 +229,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco FiscalNote no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo FiscalNote.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

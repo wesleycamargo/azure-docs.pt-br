@@ -1,6 +1,6 @@
 ---
-Título: Migrar a análise do Excel para o Azure Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio 
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Migrar a análise do Excel para o Azure Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e em
+serviços do Azure Machine Learning Studio: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

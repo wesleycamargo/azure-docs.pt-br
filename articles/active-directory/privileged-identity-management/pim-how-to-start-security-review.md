@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5c7216a419ba01c1b2df744e305bf059cf68104e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cf3d29bd3d7af56f3e20c1d2344ed90095229bf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224370"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196660"
 ---
 # <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Começar uma revisão de acesso para funções de diretório do Azure AD no PIM
 As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de função obsoletas, os administradores de função com privilégios ou administradores globais devem regularmente criar revisões de acesso para pedir administradores para revisarem as funções que os usuários receberam. Este documento aborda as etapas para iniciar uma revisão de acesso no Azure AD Privileged Identity Management (PIM).
@@ -62,9 +62,9 @@ Há três opções para executar uma análise. Você pode atribuir a revisão a 
     ![Selecionar revisores – captura de tela](./media/pim-how-to-start-security-review/PIM_review_reviewers.png)
 2. Escolha uma das opções:
    
-   * **Selecionar revisor**: use essa opção quando você não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
-   * **Me (Eu)**: útil se você deseja visualizar como as análises de acesso funcionam ou se deseja realizar a análise em nome de pessoas que não podem fazê-lo.
-   * **Members review themselves (Os membros realizam a própria análise)**: use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
+   * **Selecionar revisor**: Use essa opção quando não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
+   * **Eu**: Útil se você deseja ver como as revisões de acesso funcionam ou se deseja fazer a revisão em nome de pessoas que não podem fazê-lo.
+   * **Os membros fazem a revisão de si mesmos**: Use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
 
 ### <a name="start-the-review"></a>Iniciar a análise
 Finalmente, você terá a opção de exigir que os usuários forneçam um motivo se eles aprovarem o acesso. Adicione uma descrição da análise se desejar e selecione **Iniciar**.

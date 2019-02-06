@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Riskware | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Riskware | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o Riskware.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437766"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163238"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory com Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory ao Riskware
 
 Neste tutorial, você aprenderá a integrar o Riskware com Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Riskware da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,20 +108,20 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
 
-    a. Na caixa de texto **URL de Entrada**, digite uma URL usando o padrão a seguir:
+     a. Na caixa de texto **URL de Entrada**, digite uma URL usando o padrão a seguir:
     | Ambiente| Padrão de URL|
     |--|--|
-    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL:
     | Ambiente| Padrão de URL|
     |--|--|
-    | UAT| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` |
+    | UAT| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -153,7 +153,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configuração authenconfig do Riskware](./media/riskware-tutorial/tutorial_riskware_config.png)
 
-    a. Selecione **Digite** como **SAML** para autenticação.
+     a. Selecione **Digite** como **SAML** para autenticação.
 
     b. In the **Code** textbox, type your code like AZURE_UAT.
 
@@ -167,7 +167,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     g. Na caixa de texto **Nome da Marca de Identidade XML**, digite o atributo que contém o identificador exclusivo na resposta SAML, como NameID.
 
-    h. Abra o **XML de metadados** baixado do portal do Azure no bloco de notas, copie o certificado do arquivo de metadados e cole-o na caixa de texto **Certificado**
+    h. Abra o **XML de Metadados** baixado do portal do Azure no Bloco de notas, copie o certificado do arquivo de Metadados e cole-o na caixa de texto **Certificado**
 
     i. Na caixa de texto **URL do Consumidor**, cole o valor da **URL de Resposta**, que você recebe da equipe de suporte.
 
@@ -234,7 +234,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
     ![Detalhes da configuração do Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
-    a. Selecione **Tipo de Pessoa**, como Funcionário.
+     a. Selecione **Tipo de Pessoa**, como Funcionário.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -244,7 +244,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
     ![Configuração de segurança do Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
-    a. Na seção **Autenticação**, selecione o modo **Autenticação**, que você configurou como Configuração do AZURE para SSO.
+     a. Na seção **Autenticação**, selecione o modo **Autenticação**, que você configurou como Configuração do AZURE para SSO.
 
     b. Na seção **Detalhes do Logon**, na caixa de texto **ID de Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
 
@@ -254,7 +254,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
     ![Configuração da Organização do Riskware](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Selecione a opção como organização **Level1**.
+     a. Selecione a opção como organização **Level1**.
 
     b. Na seção **Local de Trabalho Principal da Pessoa**, na caixa de texto **Local**, digite o local.
 
@@ -297,7 +297,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Riskware no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Riskware.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

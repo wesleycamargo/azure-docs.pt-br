@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e6548c2635afd8e1ac784a1930c2277548647cfd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306682"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192737"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Descobrir os recursos do Azure para gerenciar no PIM
 
@@ -28,11 +28,11 @@ Quando você configura pela primeira vez os recursos do PIM para o Azure, é nec
 
 ## <a name="discover-resources"></a>Descobrir recursos
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
-1. Clique em **recursos do Azure**.
+1. Clique em **Recursos do Azure**.
 
     Se esta for a primeira vez que você usa recursos do PIM para o Azure, você verá um painel Recursos do Discover.
 
@@ -52,12 +52,16 @@ Quando você configura pela primeira vez os recursos do PIM para o Azure, é nec
 
 1. Adicione uma marca de seleção ao lado de todos os recursos não gerenciados que você deseja gerenciar.
 
+1. Clique em **Gerenciar recurso** para começar a gerenciar os recursos selecionados.
+
     > [!NOTE]
     > Depois que um grupo de gerenciamento ou assinatura for definido como gerenciado, ele não poderá ser gerenciado. Isso impede que outro administrador de recursos remova as configurações do PIM.
 
     ![Descoberta - gerenciar recursos](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Clique em **Gerenciar recurso** para começar a gerenciar os recursos selecionados.
+1. Se você receber uma mensagem solicitando a confirmação da integração do recurso selecionado para o gerenciamento, clique em **Sim**.
+
+    ![Descoberta – mensagem Gerenciar recurso](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Supermood | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Supermood | Microsoft Docs'
 description: Aprenda como configurar o logon único entre o Active Directory do Azure e o Supermood.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: afc04efa-2eba-4e47-8ce4-b71eb293cd09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 98a39c52f206f19d3330695fd05f9a96c0bf4d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 54a1f4a8ef0ec4381374585df57dc62490337190
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443343"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173081"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integração do Active Directory do Azure com o Supermood
+# <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integração do Azure Active Directory ao Supermood
 
 Neste tutorial, você aprenderá como integrar o Supermood ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Supermood da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![URLs e supermood domínio único informações de logon](./media/supermood-tutorial/tutorial_supermood_url.png)
 
-    a. Marque **Mostrar configurações de URL avançadas**.
+     a. Marque **Mostrar configurações de URL avançadas**.
 
     b. Se você deseja configurar o aplicativo no **modo iniciado pelo IDP**, na caixa de texto **Estado do retransmissão**, digite um URL: `https://supermood.co/auth/sso/saml20`
 
@@ -125,7 +125,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | firstName | user.givenname |
     | lastName | user.surname |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/supermood-tutorial/tutorial_attribute_04.png)
 
@@ -160,7 +160,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![O certificado saml](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
-    a. Na caixa de texto **domínio de email para este provedor de identidade**, digite seu domínio.
+     a. Na caixa de texto **domínio de email para este provedor de identidade**, digite seu domínio.
 
     b. Na caixa de texto **Usar um URL de metadados**, cole o **URL de metadados da federação de aplicativos** que você copiou do portal do Azure.
 
@@ -203,7 +203,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 Nesta seção, você cria um usuário chamado Brenda Fernandes em Supermood. Supermood suporta o provisionamento just-in-time, que por padrão é habilitado para usuários cujos e-mails pertencem aos domínios que são adicionados durante a configuração no final da Supermood. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o Supermood, se ele ainda não existir.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, entre em contato com a [ equipe de suporte do Supermood ](mailto:hello@supermood.fr).
+>Caso precise criar um usuário manualmente, contate a  [equipe de suporte do Supermood](mailto:hello@supermood.fr).
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
@@ -241,7 +241,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Supermood no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Supermood.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

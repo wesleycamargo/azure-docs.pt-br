@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036181"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463303"
 ---
-# <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Use o Key Vault para armazenar e acessar chaves do Azure Cosmos DB
+# <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
 
 Ao usar o Azure Cosmos DB para seus aplicativos, você pode acessar o banco de dados, as coleções e os documentos usando o URI do ponto de extremidade e a chave dentro do arquivo de configuração do aplicativo.  No entanto, não é seguro colocar as chaves e a URL diretamente no código do aplicativo, porque eles ficam disponíveis no formato de texto não criptografado a todos os usuários. É interessante assegurar-se de que o URI e as chaves fiquem disponíveis, mas por meio de um mecanismo seguro. É aí que o Azure Key Vault pode ajudá-lo a armazenar e gerenciar os segredos do aplicativo com segurança.
 

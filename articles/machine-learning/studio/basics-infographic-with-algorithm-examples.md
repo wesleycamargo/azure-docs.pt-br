@@ -1,8 +1,21 @@
 ---
-Título: Exemplos de algoritmo – titleSuffix: Descrição do Azure Machine Learning Studio: Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. O infográfico baixável aborda a maioria das perguntas sobre o aprendizado de máquina.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
-
-autor: garyericson ms.author: garye ms.custom: seodc18 ms.date: 18/12/2017
+title: Exemplos de algoritmo
+titleSuffix: Azure Machine Learning Studio
+description: Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. O infográfico baixável aborda a maioria das perguntas sobre o aprendizado de máquina.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295569"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico para download: conceitos básicos do aprendizado de máquina com exemplos de algoritmo
 Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.

@@ -4,29 +4,23 @@ description: Como adicionar um sistema de armazenamento de back-end ao seu Avere
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190804"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299445"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
-Esta etapa configura o sistema de armazenamento de back-end para seu cluster do vFXT.
+Esta etapa configura um sistema de armazenamento de back-end para seu cluster do vFXT.
 
 > [!TIP]
-> Se você tiver usado o script de protótipo `create-cloudbacked-cluster` para criar um novo contêiner de Blob junto com o cluster do Avere vFXT, o contêiner já estará configurado para uso e você não precisará adicionar o armazenamento.
->
-> No entanto, se seu novo contêiner de blob foi criptografado com uma chave de criptografia padrão, faça o download do arquivo de recuperação de chave a partir do cluster ou substitua a chave padrão por uma nova chave antes de armazenar os dados. A chave padrão é salva apenas no cluster e não pode ser recuperada se o cluster for perdido ou ficar indisponível.
->
-> Após conectar-se ao Avere Control Panel (Painel de controle), clique na guia **Settings** (Configurações) e escolha **Core Filer (Arquivista principal)** > **Cloud Encryption Settings** (Configurações de criptografia na nuvem). Na seção **Local Key Store** (Repositório de chaves local), escolha uma destas opções: 
-> * Use o botão **Redownload Recovery File** (Baixar novamente o arquivo de recuperação) para obter o arquivo de recuperação para a chave existente. O arquivo de recuperação é criptografado com a senha administrativa do cluster. Certifique-se de salvar o arquivo em um local confiável. 
-> * Siga as instruções na seção **Generate a New Master Key** (Gerar uma nova chave mestra) da página para criar uma nova chave de criptografia. Essa opção permite que você especifique uma frase secreta exclusiva e exige que você faça o upload e um novo download do arquivo de recuperação para validar o par arquivo-frase secreta.
+> Se você tiver criado um novo contêiner de Blob do Azure junto com o cluster do Avere vFXT, esse contêiner já estará configurado para uso e você não precisará adicionar o armazenamento.
 
-Siga estas instruções se você tiver usado o script de protótipo `create-minimal-cluster` para seu cluster ou se quiser adicionar um hardware extra ou um sistema de armazenamento baseado em nuvem.
+Siga estas instruções se você não tiver criado um novo contêiner de Blob com o cluster ou se quiser adicionar um hardware extra ou um sistema de armazenamento baseado em nuvem.
 
 Há duas tarefas principais:
 
@@ -43,12 +37,11 @@ Essas etapas usam o Painel de Controle do Avere. Leia [Acessar o cluster do vFXT
 Para adicionar um arquivista central, escolha um dos dois tipos principais de arquivistas centrais:
 
   * [Arquivista central NAS](#nas-core-filer) – descreve como adicionar um arquivista central NAS 
-  * [Arquivista central de nuvem da conta de Armazenamento do Azure](#azure-storage-account-cloud-core-filer) – descreve como adicionar uma conta de Armazenamento do Azure como um arquivista central de nuvem
+  * [Arquivista central de nuvem de Armazenamento do Azure](#azure-storage-cloud-core-filer) – descreve como adicionar uma conta de Armazenamento do Azure como um arquivista central de nuvem
 
 ### <a name="nas-core-filer"></a>Arquivista central do NAS
 
-Um arquivista central NAS pode ser um Isilon ou NetApp local ou um ponto de extremidade na nuvem.  
-O sistema de armazenamento deve ter uma conexão confiável de alta velocidade com o cluster do Avere vFXT, por exemplo, conexão do ExpressRoute (não uma VPN) de 1 Gbps e deve fornecer acesso à raiz do cluster para as exportações NAS que estão sendo usadas.
+Um arquivista central NAS pode ser um Isilon ou NetApp local ou um ponto de extremidade na nuvem. O sistema de armazenamento deve ter uma conexão confiável de alta velocidade com o cluster do Avere vFXT, por exemplo, conexão do ExpressRoute (não uma VPN) de 1 Gbps e deve fornecer acesso à raiz do cluster para as exportações NAS que estão sendo usadas.
 
 As etapas a seguir adicionam um arquivista central do NAS:
 
@@ -79,7 +72,7 @@ Em seguida, vá para [Criar uma junção](#create-a-junction).
 Para usar o Armazenamento de Blobs do Azure como armazenamento de back-end do cluster do vFXT, você precisa de um contêiner vazio para ser adicionado como um arquivista central.
 
 > [!TIP] 
-> O exemplo de script ``create-cloudbacked-cluster`` cria um contêiner de armazenamento, define-o como um arquivista central e cria a junção de namespace como parte da criação do cluster do vFXT. O exemplo de script ``create-minimal-cluster`` não cria um contêiner de Armazenamento do Azure. Para evitar a necessidade de criar e configurar um arquivista central do Armazenamento do Azure após a criação do cluster, use o script ``create-cloudbacked-cluster`` para implantar o cluster vFXT.
+> Se você optar por criar um contêiner de blob ao mesmo tempo em que cria o cluster do Avere vFXT, o modelo de implantação ou o script criará um contêiner de armazenamento, o definirá como um arquivista principal e criará a junção de namespace como parte da criação do cluster vFXT. 
 
 Adicionar o Armazenamento de Blobs ao seu cluster requer estas tarefas:
 

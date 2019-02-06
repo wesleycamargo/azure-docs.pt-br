@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com EBSCO | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao EBSCO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e EBSCO.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 144f7f65-69e9-4016-a151-fe1104fd6ba8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ecb0e87d45cc01b65c91ee4c5c9d29806999269
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 984c5ceab0115d464633094d20deb35761eb80f0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431674"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178640"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Active Directory do Azure com EBSCO
+# <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Azure Active Directory ao EBSCO
 
 Neste tutorial, você aprenderá como integrar EBSCO com o Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando EBSCO da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -140,7 +140,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | Sobrenome   | user.surname |
     | Email   | user.mail |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/ebsco-tutorial/tutorial_officespace_04.png)
 
@@ -163,7 +163,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 1. Para configurar o logon único no lado do **EBSCO**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do EBSCO](mailto:sso@ebsco.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -243,7 +243,7 @@ Nesta seção, você habilitará Brenda Fernandes para usar logon único do Azur
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 1. Quando você clicar no bloco EBSCO no Painel de acesso, você deve ser conectado automaticamente ao seu aplicativo EBSCO.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 1. Depois que fizer logon no aplicativo, clique no botão **entrar** no canto superior direito.
 

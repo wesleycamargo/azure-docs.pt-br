@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193719"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -219,9 +219,9 @@ Depois que a necessidade de suspensão tiver acabado, então o backup periódico
 * Se a suspensão foi aplicada em uma _partição_, ela deve ser retomada usando a API [Retomar backup de partições](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Diferença entre Suspender e Desabilitar backups
-Desabilitar backup deve ser usado quando os backups não forem mais necessários para um aplicativo, serviço ou partição específico. É possível invocar a solicitação desabilitar backup junto com o parâmetro limpar backups como verdadeira, o que significa que todos os backups existentes também são excluídos. No entanto, a solicitação suspender deve ser usada em cenários em que pretende-se desativar os backups temporariamente, por exemplo, quando o disco local fica cheio ou o upload de backup está falhando devido a um problema de rede conhecido, etc. 
+Desabilitar backup deve ser usado quando os backups não forem mais necessários para um aplicativo, serviço ou partição específico. É possível invocar a solicitação de desabilitação de backup junto com o parâmetro de limpeza de backups como verdadeiro, o que significa que todos os backups existentes também são excluídos. No entanto, a solicitação suspender deve ser usada em cenários em que pretende-se desativar os backups temporariamente, por exemplo, quando o disco local fica cheio ou o upload de backup está falhando devido a um problema de rede conhecido, etc. 
 
-Embora a solicitação desabilitar possa ser invocada apenas em um nível no qual tenha sido anteriormente habilitada de forma explícita para backup, a suspensão poderá ser aplicada em qualquer nível no qual esteja atualmente habilitada para backup diretamente ou por meio de herança/hierarquia. Por exemplo, se o backup estiver habilitado em um nível de aplicativo, será possível invocar apenas desabilitar no nível do aplicativo, no entanto, a solicitação suspender poderá ser invocada no aplicativo em qualquer serviço ou partição sob esse aplicativo. 
+Embora a desabilitação possa ser invocada apenas em um nível no qual tenha sido anteriormente habilitada de forma explícita para backup, a suspensão poderá ser aplicada em qualquer nível no qual esteja atualmente habilitada para backup diretamente ou por meio de herança/hierarquia. Por exemplo, se o backup estiver habilitado em um nível de aplicativo, será possível invocar apenas desabilitar no nível do aplicativo, no entanto, a solicitação suspender poderá ser invocada no aplicativo em qualquer serviço ou partição sob esse aplicativo. 
 
 ## <a name="auto-restore-on-data-loss"></a>Restauração automática em perda de dados
 A partição do serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco de duas entre três réplicas de uma partição (incluindo a réplica primária) é corrompido ou apagado.

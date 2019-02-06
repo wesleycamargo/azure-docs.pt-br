@@ -1,6 +1,6 @@
 ---
 title: Mapa de alerta de segurança na Central de Segurança do Azure e de inteligência de ameaças | Microsoft Docs
-description: Saiba como usar o recurso de inteligência segurança ameaças e mapa de alerta na Central de Segurança do Azure para identificar possíveis ameaças nas VMs e computadores.
+description: Saiba como usar a funcionalidade de mapa de alerta de segurança e inteligência contra ameaças na Central de Segurança do Azure para identificar possíveis ameaças em VMs e computadores.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 85930ef8d0753c28cf4bfa2eb2eb487e419ed5f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241712"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092066"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência contra ameaças e mapa de alertas de segurança
 Este artigo ajuda você a usar o mapa de alertas da Central de Segurança do Azure e o mapa de inteligência de ameaças baseada em eventos de segurança para solucionar problemas relacionados à segurança.
@@ -70,7 +70,7 @@ Para exibir o mapa de inteligência contra ameaças com base em eventos de segur
 
 6. O painel é dividido em quatro blocos:
 
-    a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no workspace selecionado.
+     a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no workspace selecionado.
 
     b.  **País de origem**. Agrega a quantidade de tráfego de acordo com seu local de origem.
 

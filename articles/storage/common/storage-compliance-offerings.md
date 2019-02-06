@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229537"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478127"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade do Armazenamento do Azure
 
 Para ajudar as organizações a atenderem aos requisitos nacionais, regionais e específicos do setor que controlam a coleta e o uso de dados de indivíduos, o Microsoft Azure e o Armazenamento do Azure oferecem o conjunto mais abrangente de certificações e atestados que qualquer provedor de serviços de nuvem.
 
-Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garantir que seu serviço esteja regulamentado ao usar o serviço de Armazenamento do Azure. Elas são aplicáveis às seguintes ofertas do Armazenamento do Azure: blobs, arquivos, filas, tabelas, discos, armazenamento esporádico e Armazenamento Premium.
+Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garantir que seu serviço esteja regulamentado ao usar o serviço de Armazenamento do Azure. Elas são aplicáveis às ofertas do Armazenamento do Azure a seguir: Blobs, Arquivos, Filas, Tabelas, Discos, Armazenamento Esporádico e Armazenamento Premium.
 
 ## <a name="global"></a>Global
 

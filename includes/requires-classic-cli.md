@@ -7,15 +7,16 @@ manager: carmonm
 ms.date: 06/12/2018
 ms.topic: include
 ms.custom: include file
-ms.openlocfilehash: 3839ee598afd2028f5bef11ed7e59a1f330b5009
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f44bb5353a522e187adf8da0d1a573e3a4489aa
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47017558"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913692"
 ---
 > [!IMPORTANT]
-> Este artigo contém conteúdo que requer a CLI clássica do Azure. A versão atual da CLI do Azure não tem suporte para os recursos descritos neste artigo; portanto, a CLI clássica é obrigatória. 
+> Este artigo apresenta conteúdo que requer a CLI clássica do Azure. A versão atual da CLI do Azure não tem suporte para os recursos descritos neste artigo; portanto, a CLI clássica é obrigatória. 
 > 
-> A CLI clássica pode ser instalada lado a lado com a CLI moderna do Azure, mas é recomendável usar a CLI do Azure para todos os scripts e implantações novos em que o suporte aos recursos está disponível. Para instalar a CLI clássica, confira [Instalar a CLI clássica do Azure](/cli/azure/install-classic-cli) e para instalar a CLI atual, confira [Instalar CLI do Azure](/cli/azure/install-azure-cli).
+> A CLI clássica pode ser instalada lado a lado com a CLI moderna do Azure, mas é recomendável usar a CLI do Azure para todos os scripts e implantações novos em que o suporte aos recursos está disponível. Para instalar a CLI clássica, confira [Instalar a CLI clássica do Azure](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest). 
+> Para instalar a CLI atual, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 

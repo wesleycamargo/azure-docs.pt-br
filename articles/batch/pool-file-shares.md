@@ -3,7 +3,7 @@ title: Compartilhamento de arquivos do Azure para pools do Lote do Azure | Micro
 description: Como montar um compartilhamento de Arquivos do Azure de nós de computação em um pool de Linux ou Windows no Lote do Azure.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 88d7c0d033d7b517a396df27468de8be7ae20be9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811760"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469559"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do Lote
 
@@ -102,7 +102,7 @@ pool.StartTask = new StartTask
 pool.Commit();
 ```
 
-Depois de armazenar as credenciais, use as linhas de comando da tarefa para montar o compartilhamento e referenciar o compartilhamento de leitura ou operações de gravação. Como um exemplo básico, a linha de comando da tarefa no trecho a seguir usa o comando `dir` para listar os arquivos no compartilhamento de arquivos. Execute cada tarefa de trabalho usando a mesma [identidade de usuário](batch-user-accounts.md) usada para executar a tarefa inicial no pool. 
+Depois de armazenar as credenciais, use as linhas de comando da tarefa para montar o compartilhamento e referenciar o compartilhamento de leitura ou operações de gravação. Como um exemplo básico, a linha de comando da tarefa no snippet a seguir usa o comando `dir` para listar os arquivos no compartilhamento de arquivos. Execute cada tarefa de trabalho usando a mesma [identidade de usuário](batch-user-accounts.md) usada para executar a tarefa inicial no pool. 
 
 ```csharp
 ...

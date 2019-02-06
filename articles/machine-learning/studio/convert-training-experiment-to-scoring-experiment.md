@@ -1,6 +1,6 @@
 ---
-Título: Preparar o modelo para implantação – titleSuffix: Descrição do Azure Machine Learning Studio: Como preparar seu modelo treinado para implantação como um serviço Web convertendo o teste de treinamento do Machine Learning Studio para um teste preditivo.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Preparar o modelo para implantação – titleSuffix: Descrição do Azure Machine Learning Studio: Como preparar seu modelo treinado para implantação como um serviço Web convertendo o teste de treinamento do Machine Learning Studio para um teste preditivo.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.date: 28/03/2017
 ---

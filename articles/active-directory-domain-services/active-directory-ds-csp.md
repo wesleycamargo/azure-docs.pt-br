@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155211"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187089"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services para o Azure Cloud Solution Providers (CSP)
 Este artigo explica como você pode usar os Azure Active Directory Domain Services em uma assinatura do Azure CSP.
@@ -72,18 +72,18 @@ Esse modelo de implantação pode ser adequado para cenários onde um ISV (forne
 ## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>Administração dos domínios gerenciados do Azure Active Directory Domain Services em assinaturas de CSP
 As considerações importantes a seguir se aplicam ao administrar um domínio gerenciado em uma assinatura do Azure CSP:
 
-* **Agentes administradores do CSP podem provisionar um domínio gerenciado usando suas credenciais:** Azure Active Directory Domain Services oferecem suporte a assinaturas do Azure CSP. Portanto, os usuários que pertencem ao grupo de agentes administradores do parceiro CSP podem provisionar um novo domínio gerenciado de Azure Active Directory Domain Services.
+* **Os agentes administradores do CSP podem provisionar um domínio gerenciado usando suas credenciais:** O Azure AD Domain Services dá suporte a assinaturas do Azure CSP. Portanto, os usuários que pertencem ao grupo de agentes administradores do parceiro CSP podem provisionar um novo domínio gerenciado de Azure Active Directory Domain Services.
 
-* **CSPs podem gerar scripts de criação de novos domínios gerenciados para seus clientes usando o PowerShell:** consulte [Como habilitar o domínio do Azure Active Directory Domain Services usando o PowerShell](active-directory-ds-enable-using-powershell.md) para obter detalhes.
+* **Os CSPs podem gerar scripts da criação de domínios gerenciados para seus clientes usando o PowerShell:** Confira [como habilitar o Azure AD Domain Services usando o PowerShell](active-directory-ds-enable-using-powershell.md) para obter detalhes.
 
-* **Agentes administradores do CSP não podem executar tarefas de gerenciamento em andamento usando suas credenciais de domínio gerenciado:** usuários administradores do CSP não podem executar tarefas rotineiras de gerenciamento dentro do domínio gerenciado usando suas credenciais. Esses usuários são externos ao diretório do AD do Azure do cliente e suas credenciais não estão disponíveis no diretório do Microsoft Azure Active Directory do cliente. Portanto, os Azure Active Directory Domain Services não têm acesso aos hashes de senha de Kerberos e NTLM para esses usuários. Como resultado, esses usuários não podem ser autenticados em domínios gerenciados de Azure Active Directory Domain Services.
+* **Os agentes administradores do CSP não podem executar tarefas de gerenciamento contínuo no domínio gerenciado usando suas credenciais:** Os usuários administradores do CSP não podem executar tarefas de gerenciamento de rotina no domínio gerenciado usando suas credenciais. Esses usuários são externos ao diretório do AD do Azure do cliente e suas credenciais não estão disponíveis no diretório do Microsoft Azure Active Directory do cliente. Portanto, os Azure Active Directory Domain Services não têm acesso aos hashes de senha de Kerberos e NTLM para esses usuários. Como resultado, esses usuários não podem ser autenticados em domínios gerenciados de Azure Active Directory Domain Services.
 
   > [!WARNING]
   > **Você deve criar uma conta de usuário no diretório do cliente para executar tarefas de administração contínuas no domínio gerenciado.**
   > Você não pode entrar no domínio usando as credenciais de um usuário administrador do CSP. Use as credenciais de uma conta de usuário que pertencem ao diretório do Microsoft Azure Active Directory do cliente para fazer isso. Você precisará de credenciais para tarefas como adicionar máquinas virtuais ao domínio gerenciado, administrar DNS, administrar Política de Grupo etc.
   >
 
-* **A conta de usuário criada para administração contínua deve ser adicionada ao grupo “Administradores de controlador de domínio do AAD”:** o grupo “Administradores de controlador de domínio do AAD” não tem privilégios para realizar certas tarefas de administração delegadas no domínio gerenciado. Essas tarefas incluem configurar o DNS, criar unidades organizacionais, administrar a política de grupo etc. Para um parceiro CSP executar tarefas em um domínio gerenciado, uma conta de usuário precisa ser criada no diretório do Microsoft Azure Active Directory do cliente. As credenciais para esta conta devem ser compartilhadas com agentes administradores do parceiro CSP. Além disso, essa conta de usuário deve ser adicionada ao grupo “Administradores de controlador de domínio do AAD” para habilitar tarefas de configuração para o domínio a ser executado usando essa conta de usuário.
+* **A conta de usuário criada para administração contínua precisa ser adicionada ao grupo 'Administradores do AAD DC':** O grupo 'Administradores do AAD DC' tem privilégios para realizar algumas tarefas de administração delegada no domínio gerenciado. Essas tarefas incluem configurar o DNS, criar unidades organizacionais, administrar a política de grupo etc. Para um parceiro CSP executar tarefas em um domínio gerenciado, uma conta de usuário precisa ser criada no diretório do Microsoft Azure Active Directory do cliente. As credenciais para esta conta devem ser compartilhadas com agentes administradores do parceiro CSP. Além disso, essa conta de usuário deve ser adicionada ao grupo “Administradores de controlador de domínio do AAD” para habilitar tarefas de configuração para o domínio a ser executado usando essa conta de usuário.
 
 
 ## <a name="next-steps"></a>Próximas etapas

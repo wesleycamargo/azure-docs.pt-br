@@ -1,6 +1,6 @@
 ---
-Título: Treinar novamente um modelo de Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Treinar novamente um modelo de Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

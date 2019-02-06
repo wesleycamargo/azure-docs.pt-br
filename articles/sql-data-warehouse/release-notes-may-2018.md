@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: d26ae755b658ce39df04788b7edeee6da7e20a47
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288085"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463388"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Maio de 2018 
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em maio de 2018. 
@@ -26,7 +26,7 @@ O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descre
 Consulte o comunicado de blog [Acelere análise de nuvem com o SQL Data Warehouse do Azure](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Rohan Kumar, vice-presidente corporativo, Dados do Azure.
 
 ## <a name="auto-statistics"></a>Estatísticas automáticas
-As estatísticas são essenciais para otimizar a geração do plano de consulta no otimizador baseado no custo de moderl como mecanismo no SQL Data Warehouse. Quando todas as consultas são conhecidas com antecedência, determinar quais objetos de estatísticas precisam ser criados é uma tarefa viável. No entanto, quando o sistema está enfrentando consultas aleatórias e ad hoc, que é comum para as cargas de trabalho de armazenamento de dados, os administradores do sistema podem ter dificuldade para prever quais estatísticas precisam ser criadas levando a planos de execução de consulta de qualidade potencialmente inferior e aumentar os tempos de resposta das consultas. Uma forma de atenuar esse problema é criar objetos de estatísticas em todas as colunas de tabela com antecedência. No entanto, esse processo vem com uma penalidade como objetos de estatísticas que precisam ser mantidas durante o processo de carregamento da tabela, causando tempos de carregamento mais longos.
+As estatísticas são essenciais para otimizar a geração do plano de consulta em otimizadores modernos baseados em custo, tais como o mecanismo no SQL Data Warehouse. Quando todas as consultas são conhecidas com antecedência, determinar quais objetos de estatísticas precisam ser criados é uma tarefa viável. No entanto, quando o sistema está enfrentando consultas aleatórias e ad hoc, que é comum para as cargas de trabalho de armazenamento de dados, os administradores do sistema podem ter dificuldade para prever quais estatísticas precisam ser criadas levando a planos de execução de consulta de qualidade potencialmente inferior e aumentar os tempos de resposta das consultas. Uma forma de atenuar esse problema é criar objetos de estatísticas em todas as colunas de tabela com antecedência. No entanto, esse processo vem com uma penalidade como objetos de estatísticas que precisam ser mantidas durante o processo de carregamento da tabela, causando tempos de carregamento mais longos.
 
 O SQL Data Warehouse agora dá suporte a criação automática de objetos de estatísticas, fornecendo maior flexibilidade, produtividade e facilidade de uso para os administradores de sistema e desenvolvedores, garantindo que o sistema continue a oferecer planos de execução de qualidade e melhores tempos de resposta.
 

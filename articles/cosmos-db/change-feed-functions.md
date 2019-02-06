@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034039"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469474"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Como usar o feed de alterações do Azure Cosmos DB com o Azure Functions
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Disparar o Azure Functions do Azure Cosmos DB
 
 Se estiver usando o Azure Functions, a maneira mais simples de conectar o feed de alterações é adicionar um [gatilho do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) ao aplicativo do Azure Functions. Quando você cria um gatilho do Cosmos DB em um aplicativo do Azure Functions, selecione o contêiner do Cosmos para conectar-se e a função será disparada sempre que alguma alteração for feita no contêiner.
 

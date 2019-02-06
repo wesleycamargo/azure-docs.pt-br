@@ -1,6 +1,6 @@
 ---
-Título: “Etapa 2: Carregar dados em um experimento do Machine Learning Studio” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 2 do passo a passo Desenvolver uma solução de previsão: Carregar dados públicos armazenados para o Azure Machine Learning Studio.”
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: “Etapa 2: Carregar dados em um experimento do Machine Learning Studio” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 2 do passo a passo Desenvolver uma solução de previsão: Carregar dados públicos armazenados para o Azure Machine Learning Studio.”
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

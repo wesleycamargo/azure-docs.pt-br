@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432754"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104288"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console serial da máquina virtual para Windows
 
@@ -136,6 +136,13 @@ As teclas de função estão habilitadas para uso no console serial nas VMs do W
 
 ### <a name="use-wsl-in-serial-console"></a>Use o WSL no console serial
 O Subsistema Windows para Linux (WSL) foi habilitado para o Windows Server 2019 ou posterior, portanto, também é possível habilitar WSL para uso no console serial, se você estiver executando o Windows Server 2019 ou posterior. Isso pode ser benéfico para usuários que estão também familiarizados com os comandos do Linux. Para obter instruções habilitar WSL para o Windows Server, confira o [Guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>Reiniciar a VM do Windows no console serial
+Reinicie a VM no console serial navegando para o botão de energia e clicando em "Reiniciar VM". Isso iniciará uma reinicialização da VM e você verá uma notificação no portal do Azure sobre a reinicialização.
+
+Isso é útil em situações em que talvez você deseje acessar o menu de inicialização da VM sem sair da experiência do console serial.
+
+![Reinicialização do console serial do Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Desabilitar o console serial
 Por padrão, todas as assinaturas têm acesso de console serial habilitado para todas as VMs. Você pode desativar o console serial no nível da assinatura ou no nível da VM.

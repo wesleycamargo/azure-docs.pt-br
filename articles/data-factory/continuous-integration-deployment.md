@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423809"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901217"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração e entrega contínua (CI / CD) no Azure Data Factory
 
@@ -129,7 +129,7 @@ Se você tiver segredos para passar em um modelo do Azure Resource Manager, reco
 
 Há duas maneiras de lidar cos segredos:
 
-1.  Adicione os segredos ao arquivo de parâmetros. Para obter mais informações, consulte [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Adicione os segredos ao arquivo de parâmetros. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
     -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
 
@@ -853,7 +853,7 @@ Você pode definir parâmetros personalizados para o modelo do Resource Manager.
 
 Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros personalizados. Para ver exemplos dessa sintaxe, consulte a seção a seguir, [Amostra do arquivo de parâmetros customizados](#sample).
 
-1. Quando você especifica uma matriz no arquivo de definição, indica que a propriedade correspondente no modelo é uma matriz. O Data Factory percorre todos os objetos na matriz usando a definição especificada no objeto fIntegration Runtimest da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
+1. Quando você especifica uma matriz no arquivo de definição, indica que a propriedade correspondente no modelo é uma matriz. O Data Factory itera todos os objetos na matriz usando a definição especificada no objeto Integration Runtime da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
 
     ```json
     ...
@@ -983,7 +983,7 @@ Se você tiver o Git configurado, os modelos vinculados são gerados e salvos ju
 
 ![Pasta de modelos vinculados do Resource Manager](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado `ArmTemplate_master.json`, e os modelos filho são nomeados com o padrão `ArmTemplate_0.json`, `ArmTemplate_1.json` e assim por diante. Para mudar o uso do modelo completo do Resource Manager completo para o uso dos modelos vinculados, atualize sua tarefa de CI/CD para indicar `ArmTemplate_master.json` em vez de indicar `ArmTemplateForFactory.json` (ou seja, o modelo completo do Resource Manager). O Resource Manager também requer que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [Implantar Modelos ARM Vinculados com VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado `ArmTemplate_master.json`, e os modelos filho são nomeados com o padrão `ArmTemplate_0.json`, `ArmTemplate_1.json` e assim por diante. Para mudar o uso do modelo completo do Resource Manager completo para o uso dos modelos vinculados, atualize sua tarefa de CI/CD para indicar `ArmTemplate_master.json` em vez de indicar `ArmTemplateForFactory.json` (ou seja, o modelo completo do Resource Manager). O Resource Manager também requer que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para saber mais, confira [Implantar Modelos ARM Vinculados com VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e depois a tarefa de implantação.
 

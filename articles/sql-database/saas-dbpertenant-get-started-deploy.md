@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232895"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453664"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -63,13 +63,13 @@ Escolha seus nomes agora e os escreva.
     > [!IMPORTANT]
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. É recomendável que você crie um novo grupo de recursos. Não use grupos de recursos, servidores ou pools existentes. Não use esse aplicativo, scripts ou qualquer recurso implantado para produção. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
 
-    - **Grupo de recursos**: selecione **Criar novo** e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
-    - **Localização**: selecione uma localização na lista suspensa.
-    - **Usuário**: use o valor de nome de usuário que você escolheu anteriormente.
+    - **Grupo de recursos**: Selecione **Criar novo** e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
+    - **Localização**: Selecione uma localização na lista suspensa.
+    - **Usuário**: Use o valor de nome de usuário que você escolheu anteriormente.
 
 1. Implante o aplicativo.
 
-    a. Selecione para concordar com os termos e condições.
+     a. Selecione para concordar com os termos e condições.
 
     b. Selecione **Comprar**.
 
@@ -129,7 +129,7 @@ O aplicativo Wingtip usa o [*Gerenciador de Tráfego do Azure*](../traffic-mana
 
     | Parte da URL        | DESCRIÇÃO       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-dpt* distingue a implementação do *banco de dados por locatário* dos tíquetes Wingtip de outras implementações. São exemplos o aplicativo por locatário *autônomo* (*-sa*) ou as implementações do *banco de dados multilocatário* (*-mt*). |
+    | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-dpt* distingue a implementação do *banco de dados por locatário* dos tíquetes Wingtip de outras implementações. São exemplos o aplicativo por locatário *único* (*-sa*) ou as implementações do *banco de dados multilocatário* (*-mt*). |
     | .*&lt;usuário&gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gerenciador de Tráfego, URL base. |
     | fabrikamjazzclub | Identifica o locatário nomeado Fabrikam Jazz Club. |
@@ -248,7 +248,7 @@ Navegue até o servidor **tenants1-dpt-&lt;usuário&gt;** e selecione **Pool1**
 - O primeiro gráfico, rotulado **Utilização de recursos**, mostra a utilização de eDTU do pool.
 - O segundo gráfico mostra a utilização de eDTU dos cinco bancos de dados mais ativos no pool.
 
-Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS. Os gráficos mostram que quatro bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50-eDTU. O pool de 50-eDTU pode dar suporte a cargas de trabalho ainda mais pesadas. Se os bancos de dados forem provisionados como bancos de dados individuais, cada um precisará ser um S2 (50 DTU) para dar suporte às intermitências. O custo de quatro bancos de dados independentes S2 é quase três vezes o preço do pool. Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [Tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
+Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS. Os gráficos mostram que quatro bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50-eDTU. O pool de 50-eDTU pode dar suporte a cargas de trabalho ainda mais pesadas. Se os bancos de dados forem provisionados como bancos de dados individuais, cada um precisará ser um S2 (50 DTU) para dar suporte às intermitências. O custo de quatro bancos de dados S2 individuais é quase três vezes o preço do pool. Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [Tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

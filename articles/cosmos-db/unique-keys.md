@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037371"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475866"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chaves exclusivas no Azure Cosmos DB
 
 Chaves exclusivas fornecem a capacidade de adicionar uma camada de integridade de dados a um contêiner Cosmos. Você cria uma política de chave única ao criar um contêiner Cosmos. Com chaves exclusivas, você garante a exclusividade de um ou mais valores dentro de uma partição lógica (você pode garantir a exclusividade por [chave de partição](partition-data.md)). Depois de criar um contêiner com uma política de chave exclusiva, ele evita a criação de novos itens duplicados (ou atualizados) em uma partição lógica, conforme especificado pela restrição de chave exclusiva. A chave de partição combinada com a exclusividade de garantias de chave exclusiva de um item dentro do escopo do contêiner.
 

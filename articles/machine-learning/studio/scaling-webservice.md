@@ -1,6 +1,6 @@
 ---
-Título: Dimensionar um serviço Web do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como aumentar a simultaneidade de um serviço da web do Azure Machine Learning Studio adicionando pontos de extremidade adicionais.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Dimensionar um serviço Web do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como aumentar a simultaneidade de um serviço da web do Azure Machine Learning Studio adicionando pontos de extremidade adicionais.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 23/01/2017
 ---

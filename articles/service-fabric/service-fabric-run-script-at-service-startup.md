@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210487"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098605"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de inicialização do serviço como uma conta de usuário ou sistema local
-Antes de um arquivo executável do serviço do Service Fabric iniciar, pode ser necessário executar um trabalho de configuração ou instalação.  Por exemplo, configurar as variáveis de ambiente. Você pode especificar um script a ser executado antes que o executável do serviço seja iniciado no manifesto do serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço você pode alterar a conta em que o arquivo do executável funciona.  Um ponto de entrada de instalação separado permite a configuração de alta privilegiada por um curto período de tempo de execução para que o executável do host de serviço não precise ser executado com privilégios altos por longos períodos de tempo.
+Antes de um arquivo executável do serviço do Service Fabric iniciar, pode ser necessário executar um trabalho de configuração ou instalação.  Por exemplo, configurar as variáveis de ambiente. Você pode especificar um script a ser executado antes que o executável do serviço seja iniciado no manifesto do serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço você pode alterar a conta em que o arquivo do executável funciona.  Um ponto de entrada de instalação separado permite executar a configuração de privilégio elevado por um curto período, de modo que o executável do host de serviço não precise ser executado com privilégios elevados por um longo período.
 
 Conforme descrito no ponto de entrada de configuração (**SetupEntryPoint** no [manifesto do serviço](service-fabric-application-and-service-manifests.md)) é um ponto de entrada privilegiado que, por padrão, executa as mesmas credenciais do Service Fabric (normalmente a conta *NetworkService*) antes de qualquer ponto de entrada. O executável especificado pelo **EntryPoint** normalmente é o host de serviço de execução longa. O executável **EntryPoint** é executado depois que o executável **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado, começando novamente com **SetupEntryPoint**, caso ele termine ou falhe. 
 

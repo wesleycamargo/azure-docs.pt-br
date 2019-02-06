@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o FloQast | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao FloQast | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o FloQast.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 013cb57d-567c-44d0-a119-e6ba6e607153
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 212e9b8c404cda330d2415b4f3274b668df8977b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f46714d2d4860abd1857e6ae16f98848678336aa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432201"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184760"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Active Directory do Azure ao FloQast
+# <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Azure Active Directory ao FloQast
 
 Neste tutorial, você aprenderá como integrar o FloQast ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do FloQast da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | Sobrenome        | user.surname |
     | Email       | user.mail    |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar logon único Add](./media/floqast-tutorial/tutorial_attribute_04.png)
 
@@ -146,7 +146,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![O link de download do Certificado](./media/floqast-tutorial/tutorial_floqast_certificate.png)
 
-    a. Marque **Mostrar configurações avançadas de assinatura de certificado**.
+     a. Marque **Mostrar configurações avançadas de assinatura de certificado**.
 
     ![A asserção de certificado](./media/floqast-tutorial/tutorial_floqast_certificateassertion.png)
 
@@ -159,7 +159,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 1. Para configurar o logon único no lado do **FloQast**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do FloQast](mailto:support@floqast.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -195,7 +195,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-floqast-test-user"></a>Criar um usuário de teste FloQast
 
-Nesta seção, você criará uma usuária chamado Brenda Fernandes no FloQast. Trabalhe com a [equipe de suporte do FloQast](mailto:support@floqast.com) para adicionar os usuários na plataforma do FloQast. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamado Brenda Fernandes no FloQast. Trabalhe com a [equipe de suporte do FloQast](mailto:support@floqast.com) para adicionar os usuários à plataforma FloQast. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -232,7 +232,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco FloQast no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo FloQast.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

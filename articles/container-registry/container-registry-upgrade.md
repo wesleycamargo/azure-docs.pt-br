@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969100"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228348"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registro de contêiner Clássico
 
@@ -52,7 +52,7 @@ Durante o processo de conversão, todas as operações `docker push` são bloque
 
 Não exclua nem modifique o conteúdo da conta de armazenamento que dá suporte ao seu registro Clássico durante o processo de conversão. Isso pode resultar na corrupção de suas imagens de contêiner.
 
-Quando a migração é concluída, a conta de armazenamento em sua assinatura que originalmente dava suporte ao registro Clássico é mais usada pelo ACR. Depois de verificar que a migração foi bem-sucedida, considere a exclusão da conta de armazenamento para ajudar a minimizar o custo.
+Quando a migração é concluída, a conta de armazenamento em sua assinatura que originalmente dava suporte ao Registro Clássico não é mais usada pelo ACR. Depois de verificar que a migração foi bem-sucedida, considere a exclusão da conta de armazenamento para ajudar a minimizar o custo.
 
 >[!IMPORTANT]
 > A atualização do Clássico para um dos SKUs gerenciados é um **processo unidirecional**. Depois de converter um registro Clássico para Básico, Standard ou Premium, não será possível reverter para o Clássico. É possível, no entanto, mover livremente entre SKUs gerenciados com uma capacidade suficiente para o registro.

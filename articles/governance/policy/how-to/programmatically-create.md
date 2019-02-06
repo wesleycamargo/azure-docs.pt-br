@@ -4,17 +4,17 @@ description: Este artigo orienta você na criação e gerenciamento por meio de 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847043"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101780"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
@@ -201,17 +201,34 @@ Para criar uma definição de política, use o procedimento a seguir:
   }
   ```
 
+   Para obter mais informações sobre a criação de uma definição de política, consulte [Estrutura da definição do Azure Policy](../concepts/definition-structure.md).
+
 1. Execute o seguinte comando para criar uma definição de política:
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   O comando cria uma definição de política denominada _Auditar Contas de Armazenamento Abertas para Redes Públicas_.
+   Para saber mais sobre outros parâmetros que você pode usar, confira [Criar definição de política do az](/cli/azure/policy/definition#az-policy-definition-create).
+
+   Quando chamado sem parâmetros de local, `az policy definition creation` é padronizado para salvar a definição de política na assinatura selecionada do contexto de sessões. Para salvar a definição para um local diferente, use os seguintes parâmetros:
+
+   - **--subscription**: salvar em uma assinatura diferente. Requer um valor de _GUID_ para a ID da assinatura ou um valor de _cadeia de caracteres_ para o nome da assinatura.
+   - **--management-group**: salvar em um grupo de gerenciamento. Exige um valor de _cadeia de caracteres_.
+
 1. Use o comando a seguir para criar uma atribuição de política. Substitua as informações de exemplo nos símbolos &lt;&gt; pelos seus próprios valores.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   O parâmetro **--scope** no `az policy assignment create` funciona com grupo de gerenciamento, assinatura, grupo de recursos ou recurso único. O parâmetro usa um caminho de recurso completo. O padrão para **--scope** em cada contêiner é como segue. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
+
+   - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupo de recursos – `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Assinatura – `/subscriptions/{subID}`
+   - Grupo de gerenciamento – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Você pode obter a ID de definição da política usando o PowerShell com o seguinte comando:
 

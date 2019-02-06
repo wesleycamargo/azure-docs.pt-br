@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140958"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221004"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
@@ -163,7 +163,7 @@ Mostra o domínio fornece entidades relacionadas à pesquisa de filmes, músicas
 | Pessoa| O ator, diretor, produtor, músico ou artista associado a um filme, um aplicativo, jogos ou programa de TV.|Madonna<br/>Stanley Kubrick|
 | Função| Função desempenhada por uma pessoa na criação de mídia.|Faz grandes<br/>Direcionado por<br/>Por|
 | Title| O nome de um filme, um aplicativo, jogo, programa de TV ou música.|Friends<br/>Minecraft|
-| Tipo| O formato de tipo ou a mídia de um filme, um aplicativo, jogo, programa de TV ou música.|Música<br/>MovieTV <br/>programas|
+| Type| O formato de tipo ou a mídia de um filme, um aplicativo, jogo, programa de TV ou música.|Música<br/>MovieTV <br/>programas|
 | UserRating| Estrela de usuário ou de classificação de miniaturas.|5 estrelas<br/>3 estrelas<br/>4 estrelas|
 
 ## <a name="events"></a>Eventos 
@@ -182,7 +182,7 @@ O domínio de eventos fornece tentativas e entidades relacionadas ao reservar pa
 | NOME | O nome de um evento.|Shakespeare no parque|
 | Colocar nome| O nome do evento local.|Louvre<br/>Casa de ópera<br/>Broadway|
 | PlaceType | O tipo do local em que o evento será realizado.|Cafe<br/>Teatro<br/>Biblioteca|
-| Tipo | O tipo de um evento.|Concerto<br/>Jogo de esportes|
+| Type | O tipo de um evento.|Concerto<br/>Jogo de esportes|
 
 ## <a name="fitness"></a>Adequação 
 O domínio de adequação fornece entidades relacionadas ao controle de atividades de adequação e tentativas. As tentativas de incluem salvando-as, o restante do tempo ou distância ou salvar os resultados da atividade.

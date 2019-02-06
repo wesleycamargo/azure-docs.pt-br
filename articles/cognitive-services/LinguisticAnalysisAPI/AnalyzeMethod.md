@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239295"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208628"
 ---
 # <a name="analyze-method"></a>Método Analisar
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parâmetros da solicitação
 
-NOME | Tipo | Obrigatório | DESCRIÇÃO
+NOME | Type | Obrigatório | DESCRIÇÃO
 -----|-------|----------|------------
 **linguagem**    | string | SIM | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
 **analyzerIds** | lista de cadeias de caracteres | SIM | Lista de GUIDs de analisadores para aplicar. Para obter mais informações, confira a documentação do Analisadores.
@@ -50,7 +50,7 @@ Uma matriz de saídas de análise, uma para cada atributo especificado na solici
 
 Os resultados são semelhantes ao seguinte:
 
-NOME | Tipo | DESCRIÇÃO
+NOME | Type | DESCRIÇÃO
 -----|------|--------------
 analyzerId | string | GUID do analisador especificado
 result | objeto | resultado do analisador
@@ -59,7 +59,7 @@ Observe que o tipo do resultado depende do tipo de analisador de entrada.
 
 ### <a name="tokens-response-json"></a>Resposta de Tokens (JSON)
 
-NOME | Tipo | DESCRIÇÃO
+NOME | Type | DESCRIÇÃO
 -----|------|-------------
 result | lista de objetos de frase | limites de frase identificados dentro do texto |
 result[x].Offset | int | deslocamento de caractere inicial de cada frase |
@@ -147,7 +147,7 @@ As árvores de análise são representadas em um formulário entre parênteses.
 
 `POST /analyze`
 
-Corpo da Solicitação: carga JSON
+Corpo da solicitação: conteúdo JSON
 ```json
 {
   "language": "en",

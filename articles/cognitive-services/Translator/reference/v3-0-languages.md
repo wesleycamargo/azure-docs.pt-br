@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129634"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470919"
 ---
-# <a name="translator-text-api-30-languages"></a>API de Tradução de Texto 3.0: idiomas
+# <a name="translator-text-api-30-languages"></a>API de Tradução de Texto 3.0: Languages
 
 Obtém o conjunto de idiomas atualmente suportados por outras operações da API de Tradução de Texto. 
 
@@ -97,11 +97,11 @@ O valor de cada propriedade é mostrado a seguir.
 
   O valor da propriedade `translation` é um dicionário de pares (chave, valor). Cada chave é uma marcação de linguagem BCP 47. Uma chave identifica um idioma no qual o texto pode ser convertido ou traduzido. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma:
 
-  * `name`: nome de exibição do idioma na localidade solicitada por meio do cabeçalho `Accept-Language`.
+  * `name`: Nome de exibição do idioma na localidade solicitada por meio do cabeçalho `Accept-Language`.
 
-  * `nativeName`: nome de exibição do idioma na localidade nativa desse idioma.
+  * `nativeName`: Nome de exibição do idioma na localidade nativa desse idioma.
 
-  * `dir`: direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+  * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
 
   Um exemplo é:
           
@@ -123,21 +123,21 @@ O valor de cada propriedade é mostrado a seguir.
 
   O valor da propriedade `transliteration` é um dicionário de pares (chave, valor). Cada chave é uma marcação de linguagem BCP 47. Uma chave identifica um idioma no qual o texto pode ser convertido de um script para outro. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma e seus scripts compatíveis:
 
-  * `name`: nome de exibição do idioma na localidade solicitada por meio do cabeçalho `Accept-Language`.
+  * `name`: Nome de exibição do idioma na localidade solicitada por meio do cabeçalho `Accept-Language`.
 
-  * `nativeName`: nome de exibição do idioma na localidade nativa desse idioma.
+  * `nativeName`: Nome de exibição do idioma na localidade nativa desse idioma.
 
-  * `scripts`: lista de scripts dos quais converter. Cada elemento da lista `scripts` tem propriedades:
+  * `scripts`: Lista de scripts dos quais converter. Cada elemento da lista `scripts` tem propriedades:
 
-    * `code`: código que identifica o script.
+    * `code`: Código que identifica o script.
 
-    * `name`: nome de exibição do script na localidade solicitada por meio do cabeçalho `Accept-Language`.
+    * `name`: Nome de exibição do script na localidade solicitada por meio do cabeçalho `Accept-Language`.
 
-    * `nativeName`: nome de exibição do idioma na localidade nativa do idioma.
+    * `nativeName`: Nome de exibição do idioma na localidade nativa do idioma.
 
-    * `dir`: direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+    * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
 
-    * `toScripts`: lista de scripts disponíveis nos quais converter o texto. Cada elemento da lista `toScripts` tem propriedades `code`, `name`, `nativeName` e `dir`, conforme descrito anteriormente.
+    * `toScripts`: Lista de scripts disponíveis nos quais converter o texto. Cada elemento da lista `toScripts` tem propriedades `code`, `name`, `nativeName` e `dir`, conforme descrito anteriormente.
 
   Um exemplo é:
 
@@ -188,21 +188,21 @@ O valor de cada propriedade é mostrado a seguir.
 
   O valor da propriedade `dictionary` é um dicionário de pares (chave, valor). Cada chave é uma marcação de linguagem BCP 47. A chave identifica um idioma para o qual traduções alternativas e traduções reversas estão disponíveis. O valor é um objeto JSON que descreve o idioma de origem e os idiomas de destino com traduções disponíveis:
 
-  * `name`: nome de exibição do idioma de origem na localidade solicitada por meio do cabeçalho `Accept-Language`.
+  * `name`: Nome de exibição do idioma de origem na localidade solicitada por meio do cabeçalho `Accept-Language`.
 
-  * `nativeName`: nome de exibição do idioma na localidade nativa desse idioma.
+  * `nativeName`: Nome de exibição do idioma na localidade nativa desse idioma.
 
-  * `dir`: direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+  * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
 
-  * `translations`: lista de idiomas com traduções alternativas e exemplos para a consulta expressa no idioma de origem. Cada elemento da lista `translations` tem propriedades:
+  * `translations`: Lista de idiomas com traduções alternativas e exemplos para a consulta expressa no idioma de origem. Cada elemento da lista `translations` tem propriedades:
 
-    * `name`: nome de exibição do idioma de destino na localidade solicitada por meio do cabeçalho `Accept-Language`.
+    * `name`: Nome de exibição do idioma de destino na localidade solicitada por meio do cabeçalho `Accept-Language`.
 
-    * `nativeName`: nome de exibição do idioma de destino na localidade nativa do idioma de destino.
+    * `nativeName`: Nome de exibição do idioma de destino na localidade nativa do idioma de destino.
 
-    * `dir`: direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+    * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
     
-    * `code`: código de idioma que identifica o idioma de destino.
+    * `code`: Código de idioma que identifica o idioma de destino.
 
   Um exemplo é:
 

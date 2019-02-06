@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Fidelity NetBenefits | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Fidelity NetBenefits | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Fidelity NetBenefits.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: a1308035a8b758a9e2f824de3a78c03103c19931
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 00b90dae4acfae3f8250b94be1f8752aa72bcfe1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140176"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174883"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: integração do Azure Active Directory ao Fidelity NetBenefits
+# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Azure Active Directory ao Fidelity NetBenefits
 
 Neste tutorial, você aprenderá a integrar o Fidelity NetBenefits ao Azure AD (Azure Active Directory).
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Fidelity NetBenefits da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -113,7 +113,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL:
+     a. Na caixa de texto **Identificador**, digite uma URL:
 
     Para o ambiente de teste: `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 
@@ -215,7 +215,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Fidelity NetBenefits no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Fidelity NetBenefits.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

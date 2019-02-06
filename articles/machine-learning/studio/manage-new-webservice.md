@@ -1,6 +1,6 @@
 ---
-Título: Usar o portal de serviços Web do Azure Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Com o portal de Serviços Web do Microsoft Azure Machine Learning, você pode gerenciar seus serviços Web novos e clássicos de Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Usar o portal de serviços Web do Azure Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Com o portal de Serviços Web do Microsoft Azure Machine Learning, você pode gerenciar seus serviços Web novos e clássicos de Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
+serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 02/28/2017
 ---

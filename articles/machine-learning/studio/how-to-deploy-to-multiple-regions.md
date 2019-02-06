@@ -1,6 +1,6 @@
 ---
-Título: Implantar o serviço Web do Studio em várias regiões – titleSuffix: Descrição do Azure Machine Learning Studio: Etapas para implantar (copiar) um novo serviço Web para outras regiões. Implante um serviço Web com facilidade em várias regiões sem precisar de várias assinaturas ou workspaces.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Implantar o serviço Web do Studio em várias regiões – titleSuffix: Descrição do Azure Machine Learning Studio: Etapas para implantar (copiar) um novo serviço Web para outras regiões. Implante um serviço Web com facilidade em várias regiões sem precisar de várias assinaturas ou workspaces.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

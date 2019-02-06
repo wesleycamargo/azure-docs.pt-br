@@ -3,7 +3,7 @@ title: Evitar custos inesperados, gerenciar o faturamento no Azure | Microsoft D
 description: Saiba como evitar encargos inesperados em sua conta do Azure. Use recursos de gerenciamento e controle de custos para uma assinatura do Microsoft Azure.
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: cwatson
-ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: banders
+ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857005"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101644"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -75,7 +75,7 @@ Este exemplo usa o relatório **Custo real ao longo do tempo** para enviar uma n
 5. Selecione a guia **Limite** e selecione **Custo real versus Limite**. 
    1. Na caixa de limite **Alerta vermelho**, insira 10000. 
    2. Na caixa de limite **Alerta amarela**, insira 9000. 
-   3. Na caixa **Número de alertas consecutivos**, digite o número de alertas consecutivos a receber. Depois que você receber o número total de alertas especificado, não será enviado mais nenhum alerta. 
+   3. Na caixa **Número de alertas consecutivos**, digite o número de alertas consecutivos a receber. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. 
 6. Clique em **Salvar**.
 
     ![Exemplo mostrando alertas amarelos e vermelhos com base nos limites de gastos](./media/billing-getting-started/schedule-alert01.png)

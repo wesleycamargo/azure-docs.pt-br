@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437581"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462420"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
 
@@ -55,12 +55,44 @@ Para obter mais informações, consulte [Configurar os clusters do HDInsight com
 
 Se você tiver uma instância do Active Directory local ou configurações mais complexas do Active Directory para o domínio, poderá sincronizá-las com o Azure AD usando o Azure AD Connect. É possível habilitar o Azure AD DS nesse locatário do Active Directory. 
 
-Como o Kerberos depende de hashes de senha, será necessário [habilitar a sincronização de hash de senha no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se estiver usando federação com AD FS (Serviços de Federação do Active Directory), será possível configurar opcionalmente a sincronização de hash de senha como um backup, caso a infraestrutura do AD FS falhe. Para obter mais informações, consulte [Habilitar sincronização de hash de senha com a sincronização do Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Como o Kerberos depende de hashes de senha, é necessário [habilitar a sincronização de hash de senha no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Se estiver usando a federação com o Serviços de Federação do Active Directory (AD FS), será necessário habilitar a sincronização de hash de senha (uma instalação recomendada, confira [isto](https://youtu.be/qQruArbu2Ew)) que também ajuda na recuperação de desastre caso a infraestrutura do ADFS falhe e a proteção de credenciais fique vazada. Para obter mais informações, consulte [Habilitar sincronização de hash de senha com a sincronização do Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 O uso do Active Directory local ou do Active Directory somente em VMs IaaS, sem o Azure AD e o Azure AD DS, não é uma configuração com suporte para clusters HDInsight com ESP.
 
+Se a federação for usada e os hashes de senha forem sincronizados corretamente, mas você estiver recebendo falhas na autenticação, verifique se a autenticação de senha da nuvem do princípio de serviço do PowerShell está habilitada; caso contrário, será necessário definir uma [política de HRD (Descoberta de Realm inicial)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o locatário do AAD. Para verificar e definir a política de HRD:
+
+ 1. Instale o módulo do PowerShell do Azure AD
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` usando credenciais de um administrador global (administrador de locatários)
+
+ 3. Verifique se a entidade de serviço do “Microsoft Azure PowerShell” já foi criada
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. Se ela não existir (por ex., se ($powershellSPN -q $null)), então crie a entidade de serviço
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Crie e anexe a política a essa entidade de serviço: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar clusters HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
+* [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
 * [Configurar políticas do Apache Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md)
-* [Gerenciar clusters HDInsight com ESP](apache-domain-joined-manage.md) 
+* [Gerenciar clusters do HDInsight com ESP](apache-domain-joined-manage.md) 

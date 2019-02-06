@@ -1,6 +1,6 @@
 ---
-Título: Implantar um serviço Web do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como converter um experimento de treinamento em um experimento preditivo, prepará-lo para implantação e implantá-lo como um serviço da Web do Azure Machine Learning Studio.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Implantar um serviço Web do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como converter um experimento de treinamento em um experimento preditivo, prepará-lo para implantação e implantá-lo como um serviço da Web do Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 06/01/2017
 ---

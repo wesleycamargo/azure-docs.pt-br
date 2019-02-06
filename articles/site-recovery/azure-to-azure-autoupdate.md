@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957684"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210124"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do Serviço de Mobilidade no Azure para a replicação do Azure
 
@@ -25,7 +25,7 @@ O Azure Site Recovery tem um ritmo de lançamentos mensais nos quais são adicio
  
 ## <a name="how-does-automatic-update-work"></a>Como funciona o trabalho de atualização automática
 
-Quando você permite que o Site Recovery gerencie atualizações, um runbook global (que é usado pelos serviços do Azure) é implantado por meio de uma conta de automação, que é criada na mesma assinatura que o cofre. Uma conta de automação é usada para um cofre específico. O runbook verifica cada VM em um cofre para a qual são ativadas atualizações automáticas e inicia uma atualização da extensão do Serviço de Mobilidade se uma versão mais recente estiver disponível. O agendamento padrão do runbook ocorre diariamente às 12h00 de acordo com o fuso horário da localização geográfica da máquina virtual replicada. O agendamento do runbook também pode ser modificado pelo usuário por meio da conta de automação, se necessário. 
+Quando você permite que o Site Recovery gerencie atualizações, um runbook global (que é usado pelos serviços do Azure) é implantado por meio de uma conta de automação, que é criada na mesma assinatura que o cofre. Uma conta de automação é usada para um cofre específico. O runbook verifica cada VM em um cofre para a qual são ativadas atualizações automáticas e inicia uma atualização da extensão do Serviço de Mobilidade se uma versão mais recente estiver disponível. O agendamento padrão do runbook ocorre diariamente às 12h de acordo com o fuso horário da localização geográfica da máquina virtual replicada. O agendamento do runbook também pode ser modificado pelo usuário por meio da conta de automação, se necessário. 
 
 > [!NOTE]
 > A habilitação de atualizações automáticas não exige a reinicialização das VMs do Azure nem afeta a replicação em andamento.
@@ -53,7 +53,7 @@ Quando você habilita a replicação para uma máquina virtual da iniciando [no 
 1. Dentro do cofre, navegue até **Gerenciar**-> **Infraestrutura do Site Recovery**
 2. Em **Para as máquinas virtuais do Azure**-> **Configurações de atualização da extensão**, clique na alternância para escolher se deseja permitir *ASR para gerenciar atualizações* ou *gerenciar manualmente*. Clique em **Salvar**.
 
-![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > Quando você escolhe *Permitir ASR para gerenciar*, a configuração é aplicada a todas as máquinas virtuais no cofre correspondente.

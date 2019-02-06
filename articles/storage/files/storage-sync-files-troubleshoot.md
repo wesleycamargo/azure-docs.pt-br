@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157625"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471395"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -804,24 +804,19 @@ Há duas classes principais de falhas que podem ocorrer por meio de um desses ca
 As seções a seguir indicam como solucionar problemas de definição de camadas de nuvem e determinar se o problema é do armazenamento em nuvem ou do servidor.
 
 <a id="monitor-tiering-activity"></a>**Como monitorar a atividade em camadas em um servidor**  
-Para monitorar a atividade em camadas em um servidor, use as identificações de evento 9002, 9003, 9016 e 9029 no log de eventos da Telemetria (localizado em Aplicativos e Serviços\Microsoft\FileSync\Agent no Visualizador de Eventos).
-
-- A ID do evento 9002 fornece estatísticas de fantasma para um terminal do servidor. Por exemplo, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+Para monitorar a atividade em camadas em um servidor, use as identificações de evento 9003, 9016 e 9029 no log de eventos da Telemetria (localizado no Visualizador de Eventos, em Aplicativos e Serviços\Microsoft\FileSync\Agent).
 
 - A identificação de evento 9003 fornece distribuição de erro para um terminal do servidor. Por exemplo, Contagem total de erros, ErrorCode, etc. Observe que um evento é registrado por código de erro.
-
 - A identificação de evento 9016 fornece resultados de fantasma para um volume. Por exemplo, o percentual de espaço livre é, Número de arquivos fantasmados na sessão, Número de arquivos que falharam no fantasma etc.
-
-- ID do evento 9029 fornece informações de sessão de conversão em fantasma. Por exemplo, Número de arquivos tentados na sessão, Número de arquivos em camadas na sessão, Número de arquivos já em camadas, etc.
+- A ID do evento 9029 fornece informações de sessão de conversão em fantasma para um ponto de extremidade de servidor. Por exemplo, Número de arquivos tentados na sessão, Número de arquivos em camadas na sessão, Número de arquivos já em camadas, etc.
 
 <a id="monitor-recall-activity"></a>**Como monitorar a atividade de recuperação em um servidor**  
-Para monitorar a atividade de rechamada em um servidor, use as identificações de evento 9005, 9006, 9007 no log de eventos da Telemetria (localizado em Aplicativos e Serviços\Microsoft\FileSync\Agent no Visualizador de Eventos). Observe que esses eventos são registrados a cada hora.
+Para monitorar a atividade de recall em um servidor, use as IDs do evento 9005, 9006, 9009 e 9059 no log de eventos da Telemetria (localizado no Visualizador de Eventos, em Aplicativos e Serviços\Microsoft\FileSync\Agent).
 
 - A ID de evento 9005 fornece confiabilidade de recall para um ponto de extremidade do servidor. Por exemplo, Total de arquivos exclusivos acessados, Total de arquivos exclusivos com acesso com falha, etc.
-
 - ID do evento 9006 fornece Lembre-se a distribuição de erro para um ponto de extremidade do servidor. Por exemplo, Total de solicitações com falha, ErrorCode etc. Observe que um evento é registrado por código de erro.
-
-- A ID do evento 9007 fornece desempenho de recall para um ponto de extremidade do servidor. Por exemplo, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- A ID do evento 9009 fornece informações de sessão de recall para um ponto de extremidade de servidor. Por exemplo, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+- A ID do evento 9059 fornece distribuição de recall do aplicativo para um ponto de extremidade de servidor. Por exemplo, ShareId, Nome do Aplicativo e TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Como solucionar problemas de arquivos que falham ao serem dispostos em camadas**  
 Se os arquivos não camada para arquivos do Azure:
@@ -858,6 +853,9 @@ Consulte seu fornecedor de software sobre como configurar sua solução para ign
 
 Recuperações não intencionais também podem ocorrer em outros cenários, como quando você estiver pesquisando arquivos no Explorador de arquivos. Abrir uma pasta com arquivos de nuvem em camadas no Explorador de arquivos no servidor pode resultar em recuperações não intencionais. Isso é ainda mais provável se uma solução antivírus estiver habilitada no servidor.
 
+> [!NOTE]
+>Use a ID de evento 9059 no log de eventos de telemetria para determinar quais aplicativos estão causando os recalls. Este evento oferece distribuição de recall de aplicativo para um ponto de extremidade do servidor e é registrado uma vez por hora.
+
 ## <a name="general-troubleshooting"></a>Solução de problemas gerais
 Se você encontrar problemas com a Sincronização de arquivos do Azure em um servidor, comece executando o seguinte:
 1. No Visualizador de Eventos, revise os logs de eventos de telemetria, operacionais e de diagnóstico.
@@ -884,6 +882,7 @@ Se o problema não for resolvido, execute a ferramenta de AFSDiag:
 6. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou.
 
 ## <a name="see-also"></a>Consulte também
+- [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)
 - [Perguntas frequentes da Arquivos do Azure](storage-files-faq.md)
 - [Solucionar problemas de Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Solucionar problemas de Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

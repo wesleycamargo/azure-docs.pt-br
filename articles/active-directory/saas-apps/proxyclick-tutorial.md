@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c58a859-71c2-4542-ae92-e5f16a8e7f18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
-ms.openlocfilehash: d93c5486d9c23558995742fc27e1222834cf4452
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b1ef02112261c612fec3297815ab8683f3236d3f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446306"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170752"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integração do Azure Active Directory com o Proxyclick
+# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integração do Azure Active Directory ao Proxyclick
 
 Neste tutorial, você aprenderá a integrar o Proxyclick ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Proxyclick por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do Proxyclick](./media/proxyclick-tutorial/tutorial_proxyclick_url2.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://saml.proxyclick.com/init/<companyId>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://saml.proxyclick.com/init/<companyId>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://saml.proxyclick.com/consume/<companyId>`
 
@@ -147,7 +147,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração do Proxyclick](./media/proxyclick-tutorial/configure3.png)
 
-    a. Copie o valor da **URL do consumidor SAML** e cole na caixa de texto **URL de resposta** na seção **Domínio e URLs do Proxyclick** do Portal do Azure.
+     a. Copie o valor da **URL do consumidor SAML** e cole na caixa de texto **URL de resposta** na seção **Domínio e URLs do Proxyclick** do Portal do Azure.
 
     b. Copie o valor da **URL de redirecionamento SSO SAML** e cole nas caixas de texto **URL de logon** e **Identificador** na seção **Domínio e URLs do Proxyclick** do Portal do Azure.
 
@@ -213,7 +213,7 @@ Para permitir que os usuários do Azure AD façam logon no Proxyclick, eles deve
 
     ![Adicionar Funcionário](./media/proxyclick-tutorial/user3.png)
 
-    a. Na caixa de texto **Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
 
@@ -256,7 +256,7 @@ Nesta seção, você habilita Brenda Fernandes para usar o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Proxyclick no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Proxyclick.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

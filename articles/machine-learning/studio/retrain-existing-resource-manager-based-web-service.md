@@ -1,6 +1,6 @@
 ---
-Título: Treinar novamente um serviço Web de previsão existente no Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como treinar novamente um modelo e atualizar o serviço da Web para usar o modelo recém-treinado no Azure Machine Learning Studio.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Treinar novamente um serviço Web de previsão existente no Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como treinar novamente um modelo e atualizar o serviço da Web para usar o modelo recém-treinado no Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 07/11/2017
 ---

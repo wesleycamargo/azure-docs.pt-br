@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158662"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472058"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurar a Detecção de Ameaças (versão prévia) na Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -25,7 +25,7 @@ A [Detecção de Ameaças](sql-database-threat-detection-overview.md) do SQL do 
 
 Você pode receber notificações sobre as ameaças detectadas por meio de [notificações por email](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou do [Portal do Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-A [Detecção de Ameaças](sql-database-threat-detection-overview.md) faz parte da oferta [ATP](sql-advanced-threat-protection.md) (Proteção Avançada contra Ameaças) ao SQL, um pacote unificado de funcionalidades avançadas de segurança do SQL. A Detecção de Ameaças pode ser acessada e gerenciada por meio do portal central da ATP do SQL. O serviço de detecção de ameaças é cobrado US$ 15/mês por Instância Gerenciada, com os primeiros 30 dias gratuitos.
+A [Detecção de Ameaças](sql-database-threat-detection-overview.md) faz parte da oferta [ADS](sql-advanced-threat-protection.md) (Segurança de Dados Avançada do SQL), um pacote unificado de funcionalidades avançadas de segurança do SQL. A Detecção de Ameaças pode ser acessada e gerenciada por meio do portal central da ADS do SQL. O serviço de detecção de ameaças é cobrado US$ 15/mês por Instância Gerenciada, com os primeiros 30 dias gratuitos.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurar a Detecção de Ameaças para a Instância Gerenciada no Portal do Azure
 
@@ -41,7 +41,7 @@ A [Detecção de Ameaças](sql-database-threat-detection-overview.md) faz parte 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [Detecção de Ameaças](sql-database-threat-detection-overview.md).
+- Saiba mais sobre a [Detecção de ameaças](sql-database-threat-detection-overview.md).
 - Para saber mais sobre Instância Gerenciada, confira [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
 - Saiba mais sobre a [Detecção de ameaças para banco de dados individual](sql-database-threat-detection.md).
 - Saiba mais sobre a [Auditoria de Instância Gerenciada](https://go.microsoft.com/fwlink/?linkid=869430).

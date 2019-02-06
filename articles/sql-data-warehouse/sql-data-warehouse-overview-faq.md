@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306733"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462538"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Perguntas frequentes sobre o SQL Data Warehouse
 
@@ -31,7 +31,7 @@ a. Visite a página [Conformidade da Microsoft] para ver várias ofertas de conf
 
 P. Posso conectar o Power BI?
 
-a. Sim! Embora o Power BI dê suporte à consulta direta com o SQL DW, ele não se destina a um grande número de usuários nem a dados em tempo real. Para o uso em produção do Power BI, recomendamos usar o Power BI no Azure Analysis Services ou no IaaS do Analysis Service. 
+a.  Sim! Embora o Power BI dê suporte à consulta direta com o SQL DW, ele não se destina a um grande número de usuários nem a dados em tempo real. Para o uso em produção do Power BI, recomendamos usar o Power BI no Azure Analysis Services ou no IaaS do Analysis Service. 
 
 P. Quais são os limites de capacidade do SQL Data Warehouse?
 
@@ -86,7 +86,7 @@ P: Para quais formatos de arquivo há suporte no PolyBase com o SQL Data Warehou
 
 R: Orc, RC, Parquet e texto simples delimitado
 
-P: Ao que posso me conectar do SQL DW usando o PolyBase? 
+P: A que posso me conectar do SQL DW usando o PolyBase? 
 
 R: O [Repositório Azure Data Lake] e o [Blobs de armazenamento do Azure]
 

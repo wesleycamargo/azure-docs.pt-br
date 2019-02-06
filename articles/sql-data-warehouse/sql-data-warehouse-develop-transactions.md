@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 121fa87cb295799fdcd3de5e627fb894efc24c49
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f463620f43ae95535a55005ebe9732495b89dc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301258"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456656"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Usando transações no SQL Data Warehouse
 Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
@@ -107,7 +107,7 @@ SELECT @xact_state AS TransactionState;
 
 O código anterior oferece a seguinte mensagem de erro:
 
-Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada, e as alterações pendentes foram revertidas. Causa: uma transação em um estado somente de reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
+Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada, e as alterações pendentes foram revertidas. Causa: Uma transação em um estado somente de reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
 
 Você não receberá a saída das funções ERROR_*.
 
@@ -175,5 +175,5 @@ Elas são as seguintes:
 * Não há suporte para DDL, como CREATE TABLE em uma transação definida pelo usuário
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a otimização das transações, consulte [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) (Melhores práticas de transações). Para saber mais sobre outras melhores práticas do SQL Data Warehouse, consulte [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md) (Melhores práticas do SQL Data Warehouse).
+Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações](sql-data-warehouse-develop-best-practices-transactions.md). Para saber mais sobre outras melhores práticas do SQL Data Warehouse, consulte [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md) (Melhores práticas do SQL Data Warehouse).
 

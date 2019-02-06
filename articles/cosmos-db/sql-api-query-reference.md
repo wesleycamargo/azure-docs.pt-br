@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354458"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475173"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
 Azure Cosmos DB suporta documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe da linguagem de consulta SQL, compatível com as contas de API do SQL. Para obter um passo a passo de exemplos de consultas SQL, consulte [Consultas SQL no Cosmos DB](how-to-sql-query.md).  
   
@@ -2169,7 +2169,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     É qualquer expressão numérica válida.  
+     É qualquer expressão numérica válida. Se num_expr for negativo ou não finito, o resultado será indefinido.
+
+  > [!NOTE]
+  > O comprimento máximo do resultado é 10.000 caracteres, ou seja, (length(str_expr) * num_expr) <= 10,000.
   
  **Tipos de retorno**  
   

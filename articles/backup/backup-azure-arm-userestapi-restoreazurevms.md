@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: Restaurar máquinas virtuais do Azure usando a API REST'
+title: 'Serviço de Backup do Azure: Restaurar VMs do Azure usando a API REST'
 description: gerenciar operações de restauração do Backup de VM do Azure usando a API REST
 services: backup
 author: pvrk
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289493"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100178"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -37,7 +37,7 @@ O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um co
 
 ### <a name="responses"></a>Respostas
 
-|NOME  |Tipo  |DESCRIÇÃO  |
+|NOME  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -127,9 +127,9 @@ Se houver necessidade de personalizar a criação de uma VM a partir dos dados d
 
 Disparar a restauração de discos é uma *POST* solicitação. Para saber mais sobre a operação Restaurar discos, consulte a API REST ["acionador de restauração" REST](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` é "Azure" e `{recoveryPointId}` é o campo `{name}` do ponto de recuperação mencionado [ acima de ](#example-response).
 
@@ -137,7 +137,7 @@ O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|NOME  |Tipo  |DESCRIÇÃO  |
+|NOME  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |propriedades     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Para obter uma lista de definições de corpo da solicitação e outros detalhes
 
 O corpo de solicitação a seguir define as propriedades necessárias para disparar a restauração de um disco.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ O corpo de solicitação a seguir define as propriedades necessárias para dispa
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Response
 
 O disparo de um disco de restauração é um [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
-Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
+Duas respostas são retornadas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|NOME  |Tipo  |DESCRIÇÃO  |
+|NOME  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceita    |
 
@@ -243,7 +243,7 @@ Quando o trabalho de longa duração for concluído, os discos e a configuraçã
 
 O corpo da solicitação a seguir define as propriedades necessárias para acionar uma restauração da máquina virtual.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para acion
       }
     }
 }
-````
+```
 
 A resposta deve ser tratada da mesma forma como [explicado acima para restaurar discos](#response).
 

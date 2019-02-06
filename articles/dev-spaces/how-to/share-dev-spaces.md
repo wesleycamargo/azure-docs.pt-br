@@ -3,19 +3,19 @@ title: Como compartilhar Azure Dev Spaces | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 description: Desenvolvimento rápido do Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Kubernetes do Azure, contêineres
-ms.openlocfilehash: 57ca0f7b7704b179a55ac75fea99d35e1024ee8e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 86a9400aca099bb79ca95dfc1c4ac2c4c241a6b2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466414"
 ---
 # <a name="share-azure-dev-spaces"></a>Compartilhar Azure Dev Spaces
 
@@ -26,8 +26,8 @@ Com o Azure Dev Spaces, você pode compartilhar o espaço de desenvolvimento com
 1. Crie um Dev Space no Azure. Escolha [.NET Core 3 VS Code](../get-started-netcore.md), [.NET Core e Visual Studio](../get-started-netcore-visualstudio.md) ou [Node.js e VS Code](../get-started-nodejs.md). É necessário ter acesso de Colaborador ou Proprietário para a assinatura do Azure selecionada.
 1. Configure o **grupo de recursos** do Azure Dev Space para [conceder acesso de Colaborador](/azure/active-directory/role-based-access-control-configure) a cada membro da equipe. É possível verificar o grupo de recursos de um espaço de desenvolvimento executando este comando: `azds list-up`
 1. Solicite aos membros da equipe para **selecionar o espaço de desenvolvimento** para desenvolver nele.
-     * **Linha de comando ou VS Code**: para ver o Azure Dev Spaces existente ao qual você tem acesso: `azds space list`. Para selecionar um espaço de desenvolvimento: `azds space select`.
-     * **IDE do Visual Studio**: abra um projeto no Visual Studio, selecione **Azure Dev Spaces** na menu suspenso de configurações de inicialização. Na caixa de diálogo que é aberta, selecione um cluster existente.
+     * **Linha de comando ou VS Code**: Para ver o Azure Dev Spaces existente ao qual você tem acesso: `azds space list`. Para selecionar um espaço de desenvolvimento: `azds space select`.
+     * **IDE do Visual Studio**: Abra um projeto no Visual Studio, selecione **Azure Dev Spaces** no menu suspenso de configurações de inicialização. Na caixa de diálogo que é aberta, selecione um cluster existente.
 
     ![Menu suspenso de configurações de inicialização do Visual Studio](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 

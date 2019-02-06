@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450500"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081017"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: planejar a sua implantação de acesso condicional no Azure Active Directory
 
@@ -32,7 +32,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 
 Existem dois tipos de política de acesso condicional: linha de base e padrão. Uma [política de linha de base](baseline-protection.md) é uma política de acesso condicional predefinida. A meta dessas políticas é garantir que você tenha pelo menos o nível básico de segurança habilitado. Políticas de linha de base. As políticas de linha de base estão disponíveis em todas as edições do Azure Active Directory e fornecem apenas opções de personalização limitadas. Se um cenário exigir mais flexibilidade, desabilite a política de linha de base e implemente seus requisitos em uma política padrão personalizada.
 
-Em uma política de acesso condicional padrão, é possível personalizar todas as configurações a fim de ajustar a política de acordo com os seus requisitos de negócios. As políticas padrão exigem uma licença P1 do Azure AD Premium.
+Em uma política de acesso condicional padrão, é possível personalizar todas as configurações para ajustar a política de acordo com os seus requisitos de negócios. As políticas padrão exigem uma licença P1 do Azure AD Premium.
 
 
 
@@ -54,9 +54,9 @@ Use o seguinte modelo de exemplo para criar políticas de acesso condicional par
 
 |Quando *isso* ocorrer:|Faça *isso*:|
 |-|-|
-|For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem*<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, risco de credenciais)|Bloqueie o acesso ao aplicativo|
-|For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem*<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, risco de credenciais)|Conceda acesso com (E):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
-|For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem*<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, risco de credenciais)|Conceda acesso com (OU):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
+|For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem*<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Bloqueie o acesso ao aplicativo|
+|For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem*<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Conceda acesso com (E):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
+|For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem*<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Conceda acesso com (OU):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
 
 No mínimo, **quando isso ocorrer** define a entidade de segurança (**quem**) que tenta acessar um aplicativo em nuvem (**o quê**). Se necessário, você também pode incluir **como** uma tentativa de acesso é realizada. No acesso condicional, os elementos que definem quem, o quê e como são conhecidos como condições. Para saber mais, consulte [Quais são as condições no acesso condicional do Azure Active Directory?](conditions.md) 
 
@@ -70,28 +70,42 @@ A combinação de condições e seus controles de acesso representa uma polític
 
 Para saber mais, consulte [O que é necessário para que uma política funcione](best-practices.md#whats-required-to-make-a-policy-work).
 
-Agora é um bom momento para decidir sobre um padrão de nomenclatura para suas políticas. O padrão de nomenclatura ajuda você a localizar as políticas e a entender a finalidade delas sem precisar abri-las no portal de administração do Azure. Você deve nomear a política para mostrar:
+Agora é um bom momento para decidir sobre um padrão de nomenclatura para as suas políticas. O padrão de nomenclatura ajuda você a localizar as políticas e a entender a finalidade delas sem precisar abri-las no portal de administração do Azure. Você deve nomear a política para mostrar:
 
 - Um número sequencial
 - O aplicativo em nuvem ao qual ela se aplica
 - A resposta
 - A quem ela se aplica
-- Quando ela se aplica 
+- Quando ela se aplica (se aplicável)
  
 ![Padrão de nomenclatura](./media/plan-conditional-access/11.png)
 
-
+Enquanto um nome descritivo ajuda você a manter uma visão geral da sua implementação de acesso condicional, o número de sequência será útil se você precisar fazer referência a uma política em uma conversa. Por exemplo, ao falar com um colega administrador ao telefone, você pode pedir a ele que abra a política EM063 para resolver um problema.
 
 
 
 Por exemplo, o seguinte nome declara que a política exige MFA para usuários de marketing em redes externas usando o aplicativo Dynamics CRP:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-Além das suas políticas ativas, você também deve implementar políticas desabilitadas que atuem como [controles de acesso resilientes em cenários de interrupção/emergência](../authentication/concept-resilient-controls.md). O seu padrão de nomenclatura também deve incluir essa finalidade para facilitar a habilitação delas durante uma interrupção. Por exemplo: 
+Além das suas políticas ativas, também é aconselhável implementar políticas desabilitadas que atuem como [controles de acesso resilientes secundários em cenários de interrupção/emergência](../authentication/concept-resilient-controls.md). O padrão de nomenclatura para as políticas de contingência deve incluir mais alguns itens: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` no início para destacar o nome entre as outras políticas.
+
+- O nome da interrupção a qual ele deve ser aplicado.
+
+- Um número de sequência de ordenação para ajudar o administrador a saber em qual ordem as políticas devem ser habilitadas. 
+
+
+Por exemplo, o seguinte nome indica que essa política é a primeira política dentre quatro que você deve habilitar no caso de interrupção do MFA:
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>Planejar políticas
@@ -183,9 +197,9 @@ O plano de teste é importante para que se tenha uma comparação entre os resul
 |[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando está no trabalho/em um local confiável|Não é solicitado que o usuário use a MFA| |
 |[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando não está no trabalho/em um local confiável|É solicitado que o usuário use a MFA para se conectar com êxito| |
 |[Exigir MFA (para administradores)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Administrador global entra no *Aplicativo*|É solicitado que o administrador use MFA| |
-|[Credenciais arriscadas](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|O usuário entra no *Aplicativo* usando um [navegador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|É solicitado que o administrador use MFA| |
-|[Gerenciamento de Dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo autorizado|Acesso concedido| |
-|[Gerenciamento de Dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo não autorizado|Acesso bloqueado| |
+|[Entradas de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|O usuário entra no *Aplicativo* usando um [navegador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|É solicitado que o administrador use MFA| |
+|[Gerenciamento de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo autorizado|Acesso concedido| |
+|[Gerenciamento de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo não autorizado|Acesso bloqueado| |
 |[Alteração de senha para usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|O usuário autorizado tenta se conectar com credenciais comprometidas (conexão de alto risco)|O usuário é solicitado a alterar a senha ou o acesso é bloqueado com base na sua política| |
 
 
@@ -232,7 +246,7 @@ O procedimento de limpeza consiste nas seguintes etapas:
 
 ## <a name="move-to-production"></a>Mover para ambiente de produção
 
-Quando estiver pronto para implantar uma nova política no ambiente, isso deverá ser feito em fases:
+Quando novas políticas estiverem prontas para o seu ambiente, implante-as em fases:
 
 - Comunique essa mudança interna aos usuários finais.
 

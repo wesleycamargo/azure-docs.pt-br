@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f3aaf34283f4e7c81f97b8e2ec4987749f3935c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604422"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465275"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Desempenho de monitoramento do Banco de Dados SQL usando exibições de gerenciamento dinâmico
 
@@ -549,7 +549,7 @@ Outros tipos de aplicativos podem interpretar o mesmo grafo de forma diferente. 
 O Banco de Dados SQL do Azure expõe informações de recurso consumido para cada banco de dados ativo na exibição **sys.resource_stats** do banco de dados **mestre** em cada servidor. Os dados na tabela são agregados em intervalos de cinco minutos. Com as camadas de serviço Básica, Standard e Premium, os dados podem demorar mais de 5 minutos para aparecer na tabela, o que significa que esses dados são mais úteis para análise histórica do que para análise em tempo real. Consulte a exibição **sys.resource_stats** para ver o histórico recente de um banco de dados e validar se a reserva escolhida ofereceu o desempenho desejado quando necessário.
 
 > [!NOTE]
-> Você precisa estar conectado ao banco de dados **mestre** de seu servidor lógico do banco de dados SQL para consultar **sys.resource_stats** nos exemplos a seguir.
+> Você precisa estar conectado ao banco de dados **mestre** de seu servidor de Banco de Dados SQL para consultar **sys.resource_stats** nos exemplos a seguir.
 
 Este exemplo mostra como os dados nesse modo de exibição são expostos:
 

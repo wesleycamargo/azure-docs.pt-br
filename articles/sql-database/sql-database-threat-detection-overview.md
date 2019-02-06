@@ -11,24 +11,22 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037133"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451709"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL do Azure
 
 A Detecção de Ameaças do SQL do Azure para o [Banco de Dados SQL do Azure](sql-database-technical-overview.md) e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
-A Detecção de Ameaças faz parte da oferta [ATP](sql-advanced-threat-protection.md) (Proteção Avançada contra Ameaças) do SQL, um pacote unificado de funcionalidades avançadas de segurança do SQL. A Detecção de Ameaças pode ser acessada e gerenciada por meio do portal central da ATP do SQL.
+A Detecção de Ameaças faz parte da oferta [ADS](sql-advanced-threat-protection.md) (Segurança de Dados Avançada do SQL), um pacote unificado de funcionalidades avançadas de segurança do SQL. A Detecção de Ameaças pode ser acessada e gerenciada por meio do portal central da ADS do SQL.
 
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
-
-O serviço de detecção de ameaças é cobrado US$ 15/mês para todos os bancos de dados por Servidor Lógico ou Instância Gerenciada, com os primeiros 30 dias gratuitos.
 
 ## <a name="what-is-threat-detection"></a>O que é a Detecção de Ameaças
 
@@ -69,7 +67,7 @@ Você receberá uma notificação por email na detecção das atividades anormai
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explorar os alertas de detecção de ameaças para seu banco de dados no Portal do Azure
 
-A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/). Os blocos dinâmicos de detecção de ameaças SQL dentro do banco de dados e das folhas ATP de SQL no portal do Azure acompanham o status de ameaças ativas.
+A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/). Os blocos dinâmicos de detecção de ameaças SQL dentro do banco de dados e das folhas ADS de SQL no portal do Azure acompanham o status de ameaças ativas.
 
 Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas da Central de Segurança do Azure e obter uma visão geral das ameaças SQL ativas detectadas no banco de dados ou no data warehouse.
 
@@ -79,9 +77,9 @@ Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [Detecção de Ameaças em Banco de Dados Individual](sql-database-threat-detection.md).
+- Saiba mais sobre a [Detecção de Ameaças em bancos de dados individuais e em pool](sql-database-threat-detection.md).
 - Saiba mais sobre a [Detecção de Ameaças em uma Instância Gerenciada](sql-database-managed-instance-threat-detection.md).
-- Saiba mais sobre a [Proteção Avançada contra Ameaças do SQL](sql-advanced-threat-protection.md).
+- Saiba mais sobre a [Segurança de dados avançada do SQL](sql-advanced-threat-protection.md).
 - Saiba mais sobre a [Auditoria do Banco de Dados SQL do Azure](sql-database-auditing.md)
 - Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Para saber mais sobre preços, visite a [página de Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)  

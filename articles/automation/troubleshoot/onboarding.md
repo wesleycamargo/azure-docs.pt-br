@@ -4,22 +4,40 @@ description: Aprenda a solucionar erros de integração com as soluções Gerenc
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228773"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
 Você pode encontrar erros ao integrar soluções como o Gerenciamento de Atualizações ou o Rastreamento de Mudanças e o Inventário. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="general-errors"></a>Erros gerais
+
+### <a name="missing-write-permissions"></a>Cenário: A integração falhará com a mensagem – a solução não pode ser habilitada
+
+#### <a name="issue"></a>Problema
+
+Você recebe a seguinte mensagem ao tentar integrar uma máquina virtual a uma solução:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro é causado por permissões incorretas ou ausentes na máquina virtual ou para o usuário.
+
+#### <a name="resolution"></a>Resolução
+
+Verifique se que você tem as permissões corretas para integrar a máquina virtual. Examine as [permissões necessárias para integrar máquinas](../automation-role-based-access-control.md#onboarding) e tente integrar a solução novamente.
 
 ### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 

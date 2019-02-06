@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao moconavi | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com moconavi | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o moconavi.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 3467b823e6c91d34ebd48c7f8bc29558a79c59e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3009cb42ac477b18d45ab5968d6f5793ce1cd36c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165890"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Azure Active Directory ao moconavi
+# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Azure Active Directory com moconavi
 
 Neste tutorial, você aprenderá a integrar o moconavi ao Azure AD (Azure Active Directory).
 
@@ -34,7 +34,7 @@ A integração do moconavi ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o moconavi, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o moconavi da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -109,7 +109,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do moconavi](./media/moconavi-tutorial/tutorial_moconavi_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2`
 
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-moconavi-test-user"></a>Criar um usuário de teste do moconavi
 
-Nesta seção, você criará uma usuária chamada Britta Simon no moconavi. Trabalhe com a [equipe de suporte do moconavi](mailto:support@recomot.co.jp) para adicionar os usuários na plataforma do moconavi. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Britta Simon no moconavi. Trabalhe com a  [equipe de suporte do moconavi](mailto:support@recomot.co.jp)  para adicionar os usuários na plataforma do moconavi. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -212,7 +212,7 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 
     ![Teste do logon único](./media/moconavi-tutorial/testing3.png)
 
-    a. Digite **Chave de Autenticação de Entrada**:`azureAD` na caixa de texto **Chave de Autenticação de Entrada**.
+     a. Digite **Chave de Autenticação de Entrada**:`azureAD` na caixa de texto **Chave de Autenticação de Entrada**.
 
     b. Digite **ID de Usuário de Entrada**: `your ad account` na caixa de texto **ID de Usuário de Entrada**.
 

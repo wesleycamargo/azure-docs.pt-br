@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: f2a181fbae8ab1e08669021c42c5b4be08f66172
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 55564de4a3c5ff2d3ba3ddc5e68fa3d1b2d51e71
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364804"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296385"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 
@@ -33,7 +33,13 @@ Há algumas maneiras diferentes de se conectar a um cluster seguro usando a CLI 
 
 Você pode se conectar a um cluster usando o comando `sfctl cluster select`.
 
-Certificados de cliente podem ser especificados em dois modos diferentes, como um par de certificados e chaves ou como um arquivo pem individual. Para arquivos `pem` protegidos por senha, você será solicitado automaticamente para inserir a senha.
+Certificados de cliente podem ser especificados em dois modos diferentes, como um par de certificados e chaves ou como um arquivo PFX individual. Para arquivos PEM protegidos por senha, você será solicitado automaticamente a inserir a senha. Se você obtiver o certificado do cliente como um arquivo PFX, primeiro converta o arquivo PFX em PEM usando o comando a seguir. 
+
+```bash
+openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+```
+
+Se o arquivo .pfx não for protegido por senha, use -passin pass: para o último parâmetro.
 
 Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo: 
 
@@ -341,7 +347,7 @@ Para alcançar o [Service Fabric Explorer](service-fabric-visualizing-your-clust
 
 A URL completa também está disponível no painel essencial do cluster do portal do Azure.
 
-Para se conectar a um cluster seguro no Windows ou OS X usando um navegador, você pode importar o certificado do cliente e o navegador solicitará a você o certificado a ser usado para conexão com o cluster.  Em máquinas Linux, o certificado precisa ser importado usando as configurações do navegador avançadas (cada navegador tem mecanismos diferentes) e apontar para o local do certificado no disco.
+Para se conectar a um cluster seguro no Windows ou OS X usando um navegador, você pode importar o certificado do cliente e o navegador solicitará a você o certificado a ser usado para conexão com o cluster.  Em máquinas Linux, o certificado precisa ser importado usando as configurações do navegador avançadas (cada navegador tem mecanismos diferentes) e apontar para o local do certificado no disco. Leia [Configurar um certificado de cliente](#connectsecureclustersetupclientcert) para obter mais informações.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Conectar-se a um cluster seguro usando o Azure Active Directory
 
@@ -360,24 +366,28 @@ Para conectar-se a um cluster protegido com certificados, aponte seu navegador p
 Você deverá automaticamente selecionar um certificado do cliente.
 
 <a id="connectsecureclustersetupclientcert"></a>
+
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Configurar um certificado de cliente no computador remoto
+
 Pelo menos dois certificados devem ser usados para proteger o cluster, um para o cluster e certificado do servidor e outro para acesso para cliente.  É recomendável que você também use certificados secundários e certificados de acesso para cliente adicionais.  Para proteger a comunicação entre um cliente e um nó de cluster usando a segurança de certificado, você precisa primeiro obter e instalar o certificado do cliente. O certificado pode ser instalado no repositório Pessoal (Meu) do computador local ou o usuário atual.  Você também precisa da impressão digital do certificado do servidor para que o cliente possa autenticar o cluster.
 
-Execute o cmdlet do PowerShell a seguir para configurar o certificado do cliente no computador do qual você acessa o cluster.
+* No Windows: Clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu armazenamento pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell:
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-Se o certificado for autoassinado, você precisará importá-lo para o repositório de "pessoas confiáveis" do computador antes de poder usá-lo para se conectar a um cluster seguro.
+    Se o certificado for autoassinado, você precisará importá-lo para o repositório de "pessoas confiáveis" do computador antes de poder usá-lo para se conectar a um cluster seguro.
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+    -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+    -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+* No Mac: Clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado no conjunto de chaves.
 
 ## <a name="next-steps"></a>Próximas etapas
 

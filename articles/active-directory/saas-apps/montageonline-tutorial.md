@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Montage Online | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com Montage Online | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Montage Online.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e11c97ecb33c1b1a37891a521c0375b39ad8a956
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52b89fd830d18c595e29549432514fd60bbc6df9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439911"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158699"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integração do Azure Active Directory ao Montage Online
+# <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integração do Azure Active Directory com Montage Online
 
 Neste tutorial, você aprenderá a integrar o Montage Online ao Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Montage Online a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do Montage Online](./media/montageonline-tutorial/tutorial_montageonline_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
     Para o ambiente de produção: `https://<subdomain>.montageonline.co.nz/`
 
@@ -171,7 +171,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-montage-online-test-user"></a>Criar um usuário de teste do Montage Online
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Montage Online. Trabalhe com a [equipe de suporte do Monatge Online](https://www.montage.co.nz/contact-us/) para adicionar os usuários à plataforma Montage Online. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Montage Online. Trabalhe com a  [equipe de suporte do Montage Online](https://www.montage.co.nz/contact-us/) para adicionar os usuários à plataforma do Montage Online. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -193,22 +193,22 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O link “Usuários e grupos”][202]
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição][203]
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de Usuários.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Montage Online no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Montage Online.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

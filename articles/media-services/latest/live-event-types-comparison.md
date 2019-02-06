@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725925"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153956"
 ---
-# <a name="liveevent-types-comparison"></a>Comparação dos tipos de LiveEvent
+# <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
-Nos Serviços de Mídia do Azure, um [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação e passagem ao vivo. 
+Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação ativa e passagem. 
 
 ## <a name="types-comparison"></a>Comparação de tipos 
 
-A tabela a seguir compara os recursos dos dois tipos de LiveEvent.
+A tabela a seguir compara os recursos dos dois tipos de Evento ao Vivo.
 
-| Recurso | LiveEvent de passagem | LiveEvent padrão |
+| Recurso | Evento ao vivo de passagem | Evento ao vivo padrão |
 | --- | --- | --- |
 | A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |SIM |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 a 60 quadros / seg) |1080p de (1920 x 1088 em 30 quadros por segundo)|
@@ -50,10 +50,10 @@ A tabela a seguir compara os recursos dos dois tipos de LiveEvent.
 | Suporte para inserção de imagens fixas|Não |Não |
 | Suporte para sinalização de anúncios via API| Não |Não |
 | Suporte para o ad sinalização por meio de mensagens na faixa de SCTE-35|SIM|SIM|
-| Capacidade de recuperação de interrupções breves no feed de contribuição|SIM|Não (O LiveEvent começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada)|
+| Capacidade de recuperação de interrupções breves no feed de contribuição|SIM|Não (O Evento ao Vivo começará a ficar com imagem fixa após + de 6 segundos sem dados de entrada)|
 | Suporte para GOPs de entrada não uniforme|SIM|Não – entrada deve ter GOP duração fixa|
 | Suporte para entrada de taxa de quadros variável|SIM|Não – a entrada deve ser uma taxa de quadros fixa. Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. Mas o feed de contribuição não é possível descartar a taxa de quadros (por exemplo, para 15 quadros por segundo).|
-| Desligamento automático de LiveEvents quando há perda do feed de entrada|Não |Após 12 horas, se não houver nenhum LiveOutput em execução|
+| Desligamento automático do Evento ao Vivo quando há perda do feed de entrada|Não |Após 12 horas, se não houver nenhum LiveOutput em execução|
 
 ## <a name="next-steps"></a>Próximas etapas
 

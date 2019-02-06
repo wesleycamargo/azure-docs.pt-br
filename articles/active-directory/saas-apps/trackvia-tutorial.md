@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o TrackVia | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao TrackVia | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o TrackVia.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7010023-bdda-4a19-a335-19904e75b813
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: fd17282783f9701f7365a5fb1d37f4a2263134e9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1c4cc0517ad55cd3be862e974a0a707ef871d805
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422334"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integração do Azure Active Directory ao TrackVia
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do TrackVia da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -139,7 +139,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração de TrackVia](./media/trackvia-tutorial/configure1.png)
 
-    a. Na caixa de texto **ID de entidade do provedor de identidade**, cole o valor **ID da entidade SAML** que você copiou do portal do Azure.
+     a. Na caixa de texto **ID de entidade do provedor de identidade**, cole o valor **ID da entidade SAML** que você copiou do portal do Azure.
 
     b. Selecione **Escolher arquivo** para carregar o arquivo de metadados que você baixou do portal do Azure.
 

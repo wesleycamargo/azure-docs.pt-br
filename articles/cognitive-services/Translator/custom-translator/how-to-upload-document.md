@@ -5,16 +5,16 @@ description: Usando o recurso de upload de documentos, você pode carregar docum
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633241"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217213"
 ---
 # <a name="upload-a-document"></a>Upload de um documento
 
@@ -37,25 +37,25 @@ No portal [ Custom Translator ](https://portal.customtranslator.azure.ai), cliqu
 
      a.  Tipo de documento:
 
-    -  Treinamento: Estes documentos serão usados para o conjunto de treinamento.
-    -  Sintonia: Estes documentos serão usados para o ajuste do ajuste.
-    -  Teste: Estes documentos serão usados para o conjunto de testes.
-    -  Dicionário de Frases: Estes documentos serão usados para o dicionário de frases.
-    -  Dicionário de sentença: Esses documentos serão usados para o dicionário de frase
+    -  Treinamento: Esses documentos serão usados para o conjunto de treinamento.
+    -  Ajuste: Esses documentos serão usados para o conjunto de ajuste.
+    -  Teste: Esses documentos serão usados para o conjunto de teste.
+    -  Dicionário de Frases: Esses documentos serão usados para o dicionário de frases.
+    -  Dicionário de Sentenças: Esses documentos serão usados para o dicionário de sentenças
 
     b.  Par de idiomas
 
-    c.  Substituir documento, se existir: Marque essa caixa de seleção se desejar substituir documentos existentes com o mesmo nome.
+    c.  Substituir o documento se existir: Marque essa caixa de seleção se desejar substituir os documentos existentes com o mesmo nome.
 
     d.  Preencha a seção relevante para dados paralelos ou dados de combinação.
 
     -  Dados em paralelo:
-        -  Arquivo de origem: selecione o arquivo de idioma de origem em seu computador local.
-        -  Arquivo de destino: selecione o arquivo de idioma de destino do seu computador local.
-        -  Nome do documento: usado somente se você estiver carregando arquivos paralelos.
+        -  Arquivo de origem: Selecione o arquivo do idioma de origem no computador local.
+        -  Arquivo de destino: Selecione o arquivo do idioma de destino no computador local.
+        -  Nome do documento: Usado somente se você estiver carregando arquivos paralelos.
 
     - Dados de caixa de combinação:
-        -  Combo de Arquivo: Selecione o arquivo de combinação do seu computador local. Seu arquivo de combinação tem ambas as suas sentenças de origem e de destino. [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para os arquivos de caixa de combinação.
+        -  Arquivo de Combinação: Selecione o arquivo de combinação no computador local. Seu arquivo de combinação tem ambas as suas sentenças de origem e de destino. [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para os arquivos de caixa de combinação.
 
     e.  Clique em carregar
 

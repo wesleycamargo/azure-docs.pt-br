@@ -11,25 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 8d108df187e7d1fe549f284cffe3c5cbe4d56f7c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 26445017553435454e929d9852dfd9fc173c3b2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460090"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Gerenciamento da referência de API para Instâncias Gerenciadas do Banco de Dados SQL do Azure
 
 É possível criar e gerenciar Instâncias Gerenciadas do Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell, a CLI do Azure, a API REST e o Transact-SQL. Neste artigo, você encontra uma visão geral das funções e API que você pode usar para criar e configurar a instância gerenciada.
 
-## <a name="azure-portal-create-a-managed-instance"></a>Portal do Azure: Criar uma Instância Gerenciada
+## <a name="azure-portal-create-a-managed-instance"></a>Portal do Azure: Criar uma instância gerenciada
 
 Para ver um início rápido mostrando como criar uma nova Instância Gerenciada do Banco de Dados SQL do Azure, consulte [Início Rápido: Criar uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-get-started.md).
 
-## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: Criar e gerenciar uma instância gerenciada
+## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Criar e gerenciar instâncias gerenciadas
 
-Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com o Azure PowerShell, use os cmdlets do PowerShell a seguir. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+Para criar e gerenciar instâncias gerenciadas com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Para ver scripts de exemplo do PowerShell, consulte [Script de início rápido: Criar Instância Gerenciada do SQL do Azure usando a biblioteca do PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
@@ -45,9 +45,9 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 |[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Remove um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
 |[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>CLI do Azure: Gerenciar servidores lógicos e bancos de dados
+## <a name="azure-cli-create-and-manage-managed-instances"></a>CLI do Azure: Criar e gerenciar instâncias gerenciadas
 
-Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com a [CLI do Azure](/cli/azure), use os seguintes comandos da [Instância Gerenciada do SQL da CLI do Azure](/cli/azure/sql/mi). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
+Para criar e gerenciar instâncias gerenciadas com a [CLI do Azure](/cli/azure), use os seguintes comandos da [Instância Gerenciada do SQL da CLI do Azure](/cli/azure/sql/mi). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
 
 > [!TIP]
 > Para ver um início rápido da CLI do Azure, consulte [Trabalhar com a Instância Gerenciada do SQL usando a CLI do Azure](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
@@ -64,9 +64,9 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com 
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura um banco de dados gerenciado|
 |[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove um banco de dados gerenciado|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Gerenciar servidores lógicos e bancos de dados
+## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: Criar e gerenciar bancos de dados de instância
 
-Para criar e gerenciar a Instância Gerenciada do Banco de Dados SQL do Azure depois que a instância gerenciada for criada, use os seguintes comandos T-SQL. É possível emitir esses comandos usando o portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), ou qualquer outro programa que possa conectar a um servidor de Banco de Dados SQL do Azure e passar comandos Transact-SQL.
+Para criar e gerenciar o banco de dados de instância após a criação da Instância Gerenciada, use os seguintes comandos T-SQL. É possível emitir esses comandos usando o portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), ou qualquer outro programa que possa conectar a um servidor de Banco de Dados SQL do Azure e passar comandos Transact-SQL.
 
 > [!TIP]
 > Para ver inícios rápidos mostrando que você precisa configurar e conectar a uma instância gerenciada usando o SQL Server Management Studio no Microsoft Windows, consulte [Início Rápido: Configurar a VM do Azure para conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-configure-vm.md) e [Início Rápido: Configurar uma conexão ponto a site para uma Instância Gerenciada do Banco de Dados SQL do Azure do local](sql-database-managed-instance-configure-p2s.md).
@@ -78,9 +78,9 @@ Para criar e gerenciar a Instância Gerenciada do Banco de Dados SQL do Azure de
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria um novo banco de dados de instância gerenciada. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica o banco de dados de uma Instância Gerenciada do SQL do Azure.|
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>API REST: Gerenciar servidores lógicos e bancos de dados
+## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: Criar e gerenciar instâncias gerenciadas
 
-Para criar e gerenciar a Instância Gerenciada do Banco de Dados SQL do Azure, use estas solicitações de API REST.
+Para criar e gerenciar Instâncias Gerenciadas, use estas solicitações de API REST.
 
 | Comando | DESCRIÇÃO |
 | --- | --- |

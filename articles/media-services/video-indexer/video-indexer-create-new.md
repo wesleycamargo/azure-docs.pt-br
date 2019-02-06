@@ -1,5 +1,5 @@
 ---
-title: Criar informações de vídeo de vídeos existentes
+title: Criar insights de vídeo com base em vídeos existentes – Azure
 titlesuffix: Azure Media Services
 description: Este tópico mostra como criar e publicar insights de vídeo com base em arquivos de vídeo existentes.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 7ba3fab514729b7b5645254fa9d34dd42b6718d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291658"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197544"
 ---
-# <a name="tutorial-create-highlights-from-existing-videos"></a>Tutorial: Criar destaques com base em vídeos existentes
+# <a name="create-highlights-from-existing-videos"></a>Criar destaques com base em vídeos existentes
 
 Este tópico mostra como criar e publicar insights de vídeo com base em algum outro vídeo.
 

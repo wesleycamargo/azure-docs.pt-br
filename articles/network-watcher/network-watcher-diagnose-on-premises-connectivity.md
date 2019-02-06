@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26374195"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099389"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
@@ -36,7 +36,7 @@ Você deseja configurar uma conexão site a site entre a rede local e o Azure us
 1. Conexão site a site (baseada em rota) – [Conexão entre o Gateway de VPN e o roteador local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Configuração do FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Orientações passo a passo detalhadas para definir uma configuração de Site a Site podem ser encontradas ao consultar: [Criar uma VNet com uma conexão Site a Site usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+As orientações passo a passo e detalhadas para definir uma configuração site a site podem ser encontradas visitando: [Criar uma VNet com uma conexão site a site usando o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 Uma das etapas críticas da configuração é a definição dos parâmetros de comunicação do IPsec. Configurações incorretas levarão à perda da conectividade entre a rede local e o Azure. Atualmente, os Gateways de VPN do Azure são configurados para suportar os seguintes parâmetros de IPsec na Fase 1. Conforme mencionado anteriormente, observe que essas configurações não podem ser modificadas.  Como você pode ver na tabela a seguir, os algoritmos de criptografia compatíveis com o Gateway de VPN do Azure são AES128, AES256 e 3DES.
 
@@ -80,34 +80,34 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |Sim|
-| GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
-| PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
-| UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
-| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
-| PlatformInActive | Há um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
-| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Sim |
+| NoFault | Quando nenhum erro é detectado. |SIM|
+| GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não |
+| PlannedMaintenance |  A instância do gateway está em manutenção.  |Não |
+| UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não  |
+| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não  |
+| PlatformInActive | Há um problema com a plataforma. | Não |
+| ServiceNotRunning | O serviço subjacente não está em execução. | Não |
+| NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não |
+| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| SIM|
+| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | SIM |
 
 ### <a name="connection"></a>Conexão
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |Sim|
-| GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
-| PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
-| UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
-| ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não |
-| ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
-| ConnectionMarkedStandy | O serviço subjacente está marcado como em espera.| Sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
-| PeerReachability | O gateway correspondente não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
-| Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |Sim|
+| NoFault | Quando nenhum erro é detectado. |SIM|
+| GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não |
+| PlannedMaintenance | A instância do gateway está em manutenção.  |Não |
+| UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não  |
+| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não  |
+| ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não  |
+| ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não |
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | SIM |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| SIM|
+| Autenticação | Incompatibilidade de chave pré-compartilhada. | SIM|
+| PeerReachability | O gateway correspondente não está acessível. | SIM|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | SIM|
+| Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |SIM|
 
 ## <a name="next-steps"></a>Próximas etapas
 

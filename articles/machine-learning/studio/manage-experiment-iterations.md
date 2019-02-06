@@ -1,6 +1,6 @@
 ---
-Título: Gerenciar iterações de experimento no Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como gerenciar iterações de teste no Azure Machine Learning Studio. Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Gerenciar iterações de experimento no Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como gerenciar iterações de teste no Azure Machine Learning Studio. Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
 ---

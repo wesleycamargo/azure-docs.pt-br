@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344918"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219763"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -75,8 +75,8 @@ Uma vez que o serviço de fala Microsoft participa de alguns dos estados, o prot
 
 O serviço de reconhecimento de fala Microsoft fornece duas maneiras para que desenvolvedores adicionem fala para seus aplicativos.
 
-- [APIs REST](GetStarted/GetStartedREST.md): os desenvolvedores podem usar chamadas HTTP de seus aplicativos para o serviço de reconhecimento de fala.
-- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): para recursos avançados, os desenvolvedores podem baixar as bibliotecas de cliente do Microsoft Speech e vincular a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando diferentes linguagens (C#, Java, JavaScript, ObjectiveC).
+- [APIs REST](GetStarted/GetStartedREST.md): Os desenvolvedores podem usar chamadas HTTP em seus aplicativos para o serviço de reconhecimento de fala.
+- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): Para recursos avançados, os desenvolvedores podem baixar as bibliotecas de clientes de Fala da Microsoft e vinculá-las a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando diferentes linguagens (C#, Java, JavaScript, ObjectiveC).
 
 | Casos de uso | [APIs REST](GetStarted/GetStartedREST.md) | [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|

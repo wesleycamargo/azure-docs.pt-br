@@ -10,19 +10,19 @@ editor: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157166"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245826"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -180,10 +180,10 @@ Também tentaremos um modelo de floresta aleatória. As florestas aleatórias tr
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Implantar um modelo para o AzureML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um dos recursos interessantes do AzureML é sua capacidade de publicar qualquer função R como um serviço da Web. O pacote AzureML R facilita a implantação correta a partir de nossa sessão R na DSVM.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Implantar um modelo no Azure Machine Learning Studio
+O [Azure Machine Learning Studio](https://studio.azureml.net/) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um dos recursos interessantes do Azure Machine Learning Studio é sua capacidade de publicar qualquer função R como um serviço Web. O pacote do Azure Machine Learning Studio R torna fácil realizar a implantação diretamente de nossa sessão R na DSVM.
 
-Para implantar o código da árvore de decisão da seção anterior, você precisa entrar no Azure Machine Learning Studio. Você precisa de sua ID do workspace e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis do AzureML com eles:
+Para implantar o código da árvore de decisão da seção anterior, você precisa entrar no Azure Machine Learning Studio. Você precisa de sua ID do workspace e de um token de autorização para entrar. Para encontrar esses valores e inicializar as variáveis do Azure Machine Learning com eles:
 
 Selecione **Configurações** no menu à esquerda. Observe a **ID do WORKSPACE**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Para o desenvolvimento com o Python, as distribuições do Anaconda Python 2.7 e
 Iremos transmitir o conjunto de dados baseado em spam e classificar os emails com máquinas do vetor de suporte no scikit-learn:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

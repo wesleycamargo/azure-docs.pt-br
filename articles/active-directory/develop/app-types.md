@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816337"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093114"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na v1.0
 
@@ -33,11 +33,11 @@ O diagrama a seguir ilustra os cenários e os tipos de aplicativos e como os dif
 
 Estes são os cinco cenários de aplicativo principais suportados pelo Azure AD:
 
-- **[SPA (aplicativo de página única)](single-page-application.md)**: um usuário precisa entrar em um aplicativo de página única protegida pelo Azure AD.
+- **[SPA (Aplicativo de Página Única)](single-page-application.md)**: um usuário precisa entrar em um aplicativo de página única protegido pelo Azure AD.
 - **[Navegador da Web para aplicativo Web](web-app.md)**: um usuário precisa entrar em um aplicativo Web protegido pelo Azure AD.
-- **[Aplicativo nativo para API Web](native-app.md)**: um aplicativo nativo executado em um telefone, tablet ou PC precisa autenticar um usuário para obter recursos de uma API Web protegida pelo Azure AD.
+- **[Aplicativo nativo para API Web](native-app.md)**: um aplicativo nativo que é executado em um telefone, tablet ou PC precisa autenticar um usuário para obter recursos de uma API Web protegida pelo Azure AD.
 - **[Aplicativo Web para API Web](web-api.md)**: um aplicativo Web precisa obter recursos de uma API Web protegida pelo Azure AD.
-- **[Servidor ou aplicativo daemon para API Web](service-to-service.md)**: um aplicativo daemon ou um aplicativo de servidor sem interface do usuário da Web precisa obter recursos de uma API Web protegida pelo Azure AD.
+- **[Aplicativo daemon ou de servidor para API Web](service-to-service.md)**: um aplicativo daemon ou aplicativo de servidor sem interface do usuário da Web precisa obter recursos de uma API Web protegida pelo Azure AD.
 
 Siga os links para saber mais sobre cada tipo de aplicativo e compreender os cenários de alto nível antes de começar a trabalhar com o código. Você também pode aprender sobre as diferenças que precisa saber ao escrever um aplicativo específico que funciona com o ponto de extremidade v1.0 ou ponto de extremidade v2.0.
 

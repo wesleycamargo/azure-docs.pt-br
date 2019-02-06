@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52439956"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302335"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implantar o modelo do Cloud Shell
 
-Você pode usar o [Cloud Shell](../articles/cloud-shell/overview.md) para implantar o modelo. No entanto, você deve carregar o modelo primeiro para a conta de armazenamento do seu Cloud Shell. Se você ainda não usou o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para saber mais sobre como configurá-lo.
+Você pode usar o [Cloud Shell](../articles/cloud-shell/overview.md) para implantar o modelo. Para implantar um modelo externo, forneça o URI do modelo, exatamente como você faria para qualquer implantação externa. Para implantar um modelo local, você deve carregar o modelo primeiro para a conta de armazenamento do seu Cloud Shell. Esta seção descreve como carregar o modelo na sua conta do Cloud Shell e implantá-lo como um arquivo local. Caso ainda não tenha usado o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para saber mais sobre como configurá-lo.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 

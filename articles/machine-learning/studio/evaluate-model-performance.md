@@ -1,6 +1,6 @@
 ---
-Título: Avaliar desempenho do modelo – titleSuffix: Descrição do Azure Machine Learning Studio: Este tópico demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio e fornece uma breve explicação sobre as métricas disponíveis para essa tarefa.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Avaliar desempenho do modelo – titleSuffix: Descrição do Azure Machine Learning Studio: Este tópico demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio e fornece uma breve explicação sobre as métricas disponíveis para essa tarefa.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

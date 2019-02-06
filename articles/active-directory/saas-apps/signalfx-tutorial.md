@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SignalFx | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao SignalFx | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SignalFx.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437841"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197561"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory com SignalFx
+# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory ao SignalFx
 
 Neste tutorial, você aprenderá a integrar o SignalFx ao Azure Active Directory.
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar SignalFx da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Informações de logon único de Domínio e URLs do SignalFx](./media/signalfx-tutorial/tutorial_signalfx_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL: `https://api.signalfx.com/v1/saml/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL: `https://api.signalfx.com/v1/saml/metadata`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://api.signalfx.com/v1/saml/acs/<integration ID>`
 
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     | PersonImmutableID       | user.userprincipalname    |
     | User.LastName       | user.surname    |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar logon único Add](./media/signalfx-tutorial/tutorial_attribute_04.png)
 
@@ -146,7 +146,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![O link de download do Certificado](./media/signalfx-tutorial/tutorial_signalfx_certificate.png)
 
-    a. Clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+     a. Clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
     b. Clique em **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
 
@@ -172,7 +172,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
  
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
-    a. Na caixa de texto **Nome**, digite um novo nome de integração, como **OurOrgName SAML SSO**.
+     a. Na caixa de texto **Nome**, digite um novo nome de integração, como **OurOrgName SAML SSO**.
 
     b. Copie o valor da **ID da Integração** e anexe com a **URL de Resposta** como `https://api.signalfx.com/v1/saml/acs/<integration ID>` na caixa de texto **URL de Resposta** da seção **Domínio e URLs do SignalFx**  no Portal do Azure.
 
@@ -223,7 +223,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Signal
 Quando um usuário iniciar o SignalFx do SSO de SAML pela primeira vez, a [Equipe de suporte do SignalFx](mailto:kmazzola@signalfx.com) enviará um email contendo um link que o usuário deverá clicar para autenticar. Isso acontecerá somente na primeira vez que o usuário entrar. As tentativas subsequentes de logon não exigirão validação de email.
 
 >[!Note]
->Se for necessário criar um usuário manualmente, contate a [Equipe de suporte do SignalFx](mailto:kmazzola@signalfx.com)
+>Caso precise criar um usuário manualmente, contate a  [equipe de suporte do SignalFx](mailto:kmazzola@signalfx.com)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -260,7 +260,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do SignalFx no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo SignalFx.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

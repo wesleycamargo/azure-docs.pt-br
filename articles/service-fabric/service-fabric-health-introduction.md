@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215223"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194280"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -46,7 +46,7 @@ As entidades de integridade espelham as entidades do Service Fabric. (Por exempl
 As entidades de integridade e a hierarquia proporcionam relatório, depuração e monitoramento efetivos do cluster e dos aplicativos. O modelo de integridade oferece uma representação precisa e *granular* da integridade das muitas partes móveis do cluster.
 
 ![Entidades de integridade.][1]
-As entidades de integridade, organizadas em uma hierarquia com base nas relações de pai/filho.
+ As entidades de integridade, organizadas em uma hierarquia com base nas relações de pai/filho.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -68,10 +68,10 @@ A hierarquia de integridade é composta por relações de pai/filho. Um cluster 
 A hierarquia de integridade representa o estado mais recente do sistema com base em relatórios de integridade mais recentes, que é uma informação quase em tempo real.
 Os watchdogs internos e externos podem reportar as mesmas entidades com base na lógica específica do aplicativo ou nas condições monitoradas personalizadas. Os relatórios do usuário coexistem com os relatórios do sistema.
 
-Planeje para investir em como relatar e responder à integridade durante o criação de um serviço de nuvem grande. Este investimento inicial facilita a depuração, monitoramento e operação do serviço.
+Planeje para investir em como relatar e responder à integridade durante o criação de um serviço de nuvem grande. Esse investimento inicial facilita a depuração, o monitoramento e a operação do serviço.
 
 ## <a name="health-states"></a>Estados de integridade
-O Service Fabric usa três estados de integridade para descrever se uma entidade está íntegra ou não: OK, Aviso e Erro. Qualquer relatório enviado ao Repositório de Integridade deve especificar um desses estados. O resultado da avaliação de integridade é um desses estados.
+O Service Fabric usa três estados de integridade para descrever se uma entidade está íntegra ou não: OK, aviso e erro. Qualquer relatório enviado ao Repositório de Integridade deve especificar um desses estados. O resultado da avaliação de integridade é um desses estados.
 
 Os [estados de integridade](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) possíveis são:
 
@@ -233,7 +233,7 @@ Os campos de transição de estado podem ser usados para gerar alertas mais inte
 * Alertar apenas em condições que mudaram nos últimos X minutos. Se um relatório estiver em estado de erro desde antes da hora especificada, ele poderá ser ignorado pois já tinha sido sinalizado anteriormente.
 * Se uma propriedade estiver alternando entre aviso e erro, determine por quanto tempo ele esteve não íntegro (isto é, não OK). Por exemplo, um alerta se a propriedade não esteve íntegra por mais de 5 minutos pode ser traduzido em: (HealthState != Ok e Agora - LastOkTransitionTime > 5 minutos).
 
-## <a name="example-report-and-evaluate-application-health"></a>Exemplo: relatar e avaliar integridade do aplicativo
+## <a name="example-report-and-evaluate-application-health"></a>Exemplo: Relatar e avaliar a integridade do aplicativo
 O exemplo a seguir envia um relatório de integridade por meio PowerShell no aplicativo **fabric:/WordCount** da origem **MyWatchdog**. O relatório de integridade contém informações sobre a propriedade de integridade "availability" em um estado de integridade de erro, com TimeToLive infinito. Em seguida, ele consulta a integridade do aplicativo, que retornará erro do estado de integridade agregada e o evento de integridade relatado como parte da lista de eventos de integridade.
 
 ```powershell

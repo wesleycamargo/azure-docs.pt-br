@@ -7,48 +7,48 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4bd1ceb03ddce572e0571afb87ec2f0c36a49443
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 983bf77a157de539264a6437ffbebb291d310840
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181411"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Faça login usando a verificação em duas etapas ou informações de segurança
 
-Depois de configurar a verificação em duas etapas ou as informações de segurança, você poderá fazer login na sua conta do trabalho ou da escola usando o método de autenticação especificado.
+Depois de configurar a verificação em duas etapas ou as informações de segurança, você poderá entrar em sua conta usando o método de autenticação especificado.
 
 >[!Note]
 >Se você ainda estiver usando a experiência da verificação em duas etapas, precisará configurar seus métodos de autenticação seguindo as instruções no artigo [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md). Se o administrador ativou a experiência de informações de segurança, você precisará definir seus métodos de autenticação usando estes guias passo a passo:<ul><li>[Configurar informações de segurança para usar um aplicativo de autenticação](security-info-setup-auth-app.md)</li><li>[Configure informações de segurança para usar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Configure informações de segurança para usar uma chamada telefônica](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Faça login usando uma notificação de aplicativo do autenticador no seu dispositivo móvel
 
-1. Entre na sua conta de trabalho ou escola com seu nome de usuário e senha.
+1. Entre em sua conta com seu nome de usuário e a senha.
 
 2. Selecione **Aprovar** na notificação de aprovação enviada para seu dispositivo móvel.
 
 
 ## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Faça login usando um código de aplicativo do autenticador no seu dispositivo móvel
 
-1. Entre na sua conta de trabalho ou escola com seu nome de usuário e senha.
+1. Entre em sua conta com seu nome de usuário e a senha.
 
 2. Abra seu aplicativo autenticador e digite o código gerado aleatoriamente para sua conta na caixa **Inserir código**.
 
 
 ## <a name="sign-in-using-your-phone-number"></a>Conecte-se usando seu número de telefone
 
-1. Entre na sua conta de trabalho ou escola com seu nome de usuário e senha.
+1. Entre em sua conta com seu nome de usuário e a senha.
 
 2. Atenda seu telefone e siga as instruções.
 
 
 ## <a name="sign-in-using-a-text-message"></a>Entre usando uma mensagem de texto
 
-1. Entre na sua conta de trabalho ou escola com seu nome de usuário e senha.
+1. Entre em sua conta com seu nome de usuário e a senha.
 
 2. Abra a mensagem de texto e digite o código da sua mensagem de texto na caixa **Digitar código**.
 

@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599749"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468896"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
-Este artigo mostra como configurar [replicação geográfica ativa para bancos de dados individuais e em pool] em um servidor lógico(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) no Banco de Dados SQL usando o [portal do Azure](http://portal.azure.com) e iniciar o failover.
+Este artigo mostra como configurar a [replicação geográfica ativa para bancos de dados individuais e em pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) no Banco de Dados SQL do Azure usando o [portal do Azure](http://portal.azure.com) e como inicializar o failover.
 
 Para obter informações sobre grupos de failover automático com bancos de dados individuais e em pool, confira [Práticas recomendadas de como usar grupos de failover com bancos de dados individuais e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de failover automático com Instâncias Gerenciadas (versão prévia), confira [Práticas recomendadas de como usar grupos de failover com bancos de dados individuais e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -40,7 +40,7 @@ As etapas a seguir criam um novo banco de dados secundário em uma parceria de r
 
 Para adicionar um banco de dados secundário, você deve ser o proprietário ou coproprietário da assinatura.
 
-O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem a mesma camada de serviço e tamanho de computação. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em um pool elástico. Para obter mais informações, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem a mesma camada de serviço e tamanho de computação. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em pool. Para obter mais informações, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 Depois que o banco de dados secundário for criado e propagado, os dados começarão a serem replicados desde o banco de dados primário até o novo banco de dados secundário.
 
 > [!NOTE]

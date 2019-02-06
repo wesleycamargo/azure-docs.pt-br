@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Saiba como proteger um serviço Web implantado com o serviço do Azure Machine Learning. Você pode restringir o acesso a serviços Web e proteger os dados enviados pelos clientes usando SSL e autenticação baseada em chave.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101160"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248054"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Usar o SSL para proteger os serviços Web com o Serviço do Azure Machine Learning
 
@@ -37,7 +37,7 @@ Se você implantar um serviço Web habilitado com SSL ou habilitar o SSL para um
 
 4. Atualizar o DNS para apontar para o serviço Web.
 
-Há pequenas diferenças ao proteger serviços Web entre os [destinos de implantação](how-to-deploy-and-where.md). 
+Há pequenas diferenças ao proteger serviços Web entre os [destinos de implantação](how-to-deploy-and-where.md).
 
 ## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
@@ -50,7 +50,7 @@ Há muitas maneiras de obter um certificado SSL. A mais comum é comprar um de u
 * Um __certificado__. O certificado deve conter a cadeia de certificados completa e deve ser codificado em PEM.
 * Uma __chave__. A chave deve ser codificada em PEM.
 
-Ao solicitar um certificado, você precisa fornecer o FQDN (nome de domínio totalmente qualificado) do endereço que planeja usar para o serviço Web. Por exemplo, www.contoso.com. O endereço identificado no certificado e o endereço usado pelos clientes são comparados na hora de validar a identidade do serviço Web. Se os endereços não coincidem, os clientes recebem um erro. 
+Ao solicitar um certificado, você precisa fornecer o FQDN (nome de domínio totalmente qualificado) do endereço que planeja usar para o serviço Web. Por exemplo, www.contoso.com. O endereço identificado no certificado e o endereço usado pelos clientes são comparados na hora de validar a identidade do serviço Web. Se os endereços não coincidem, os clientes recebem um erro.
 
 > [!TIP]
 > Se a Autoridade de Certificação não puder fornecer o certificado e a chave como arquivos codificados em PEM, você poderá usar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.
@@ -60,67 +60,47 @@ Ao solicitar um certificado, você precisa fornecer o FQDN (nome de domínio tot
 
 ## <a name="enable-ssl-and-deploy"></a>Habilitar SSL e implantar
 
-Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro `ssl_enabled` para `True`, conforme o necessário. Defina o parâmetro `ssl_certificate` como o valor do arquivo __certificate__ e a `ssl_key` como o valor do arquivo __key__. 
+Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro `ssl_enabled` para `True`, conforme o necessário. Defina o parâmetro `ssl_certificate` como o valor do arquivo __certificate__ e a `ssl_key` como o valor do arquivo __key__.
 
 + **Implantar no AKS (Serviço de Kubernetes do Azure)**
-  
+
   Ao provisionar o cluster do AKS, forneça valores para parâmetros relacionados a SSL, conforme é mostrado no snippet de código:
 
     ```python
     from azureml.core.compute import AksCompute
-    
+
     provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
 + **Implantar nas ACI (Instâncias de Contêiner do Azure)**
- 
+
   Durante a implantação nas ACI, forneça valores para os parâmetros relacionados a SSL, conforme é mostrado no snippet de código:
 
     ```python
     from azureml.core.webservice import AciWebservice
-    
+
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
-    ```
-
-+ **Implantar em FPGAs (Matrizes de Portas Programáveis em Campo)**
-
-  A resposta da operação `create_service` contém o endereço IP do serviço. O endereço IP é usado na hora de mapear o nome DNS para o endereço IP do serviço. A resposta também contém uma __chave primária__ e uma __chave secundária__ que são usadas para consumir o serviço. Forneça valores para os parâmetros relacionados a SSL, conforme é mostrado no snippet de código
-
-    ```python
-    from amlrealtimeai import DeploymentClient
-    
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your AzureML Model Management Account Name>"
-    location = "eastus2"
-    
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-    
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-    
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
     ```
 
 ## <a name="update-your-dns"></a>Atualizar o DNS
 
 Em seguida, você precisa atualizar o DNS para apontar para o serviço Web.
 
-+ **Para ACI e FPGA**:  
++ **Para ACI**:
 
-  Use as ferramentas fornecidas pelo registrador de nome de domínio para atualizar o registro DNS do nome de domínio. O registro deve apontar para o endereço IP do serviço.  
+  Use as ferramentas fornecidas pelo registrador de nome de domínio para atualizar o registro DNS do nome de domínio. O registro deve apontar para o endereço IP do serviço.
 
   Dependendo do registrador e da TTL (vida útil) configurados para o nome de domínio, pode levar vários minutos a várias horas até que os clientes possam resolver o nome de domínio.
 
-+ **Para AKS**: 
++ **Para AKS**:
 
   Atualize o DNS na guia "Configuração" do "Endereço IP Público" do cluster do AKS, conforme é mostrado na imagem. Encontre o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
   ![Serviço do Azure Machine Learning: Proteger os serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
++ **Para FPGA**:
+
+Atualmente, não há suporte para o uso do SSL com serviços implantados em FPGA.
 
 ## <a name="next-steps"></a>Próximas etapas
 

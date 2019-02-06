@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: c4523b5028aae5de565e517fea61c62e29a4e7a3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044069"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468862"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>Escolher o nível certo de coerência para o seu aplicativo
+# <a name="choose-the-right-consistency-level"></a>Escolher nível certo de consistência 
 
 Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis pede para os desenvolvedores escolherem entre os dois modelos de extremos de coerência: coerência forte e coerência eventual. O Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: staleness forte e limitado, sessão, prefixo consistente e eventual. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [disponibilidade e compensações de desempenho](consistency-levels-tradeoffs.md) e são respaldados por SLAs abrangentes. As considerações simples a seguir lhe ajudarão a fazer a escolha certa em muitos cenários comuns.
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuição global do Azure Cosmos DB – nos bastidores
+title: Distribuição global com o Azure Cosmos DB – nos bastidores
 description: Este artigo apresenta detalhes técnicos relacionados à distribuição global do Azure Cosmos DB
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038935"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475373"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribuição global do Azure Cosmos DB – nos bastidores
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição de dados global com o Azure Cosmos DB – nos bastidores
 
 O Azure Cosmos DB é um serviço básico do Azure, de modo que é implantado em todas as regiões do Azure em todo o mundo, incluindo nuvens públicas, soberanas, DoD (Departamento de Defesa) e governamentais. Em um data center, podemos implantar o Azure Cosmos DB em grandes carimbos de computadores, cada um com armazenamento local dedicado. Em um data center, o Azure Cosmos DB é implantado em vários clusters, cada um executando potencialmente várias gerações de hardware. Computadores em um cluster normalmente são distribuídos entre 10 a 20 domínios de falha. A imagem a seguir mostra a topologia do sistema de distribuição global do Cosmos DB:
 

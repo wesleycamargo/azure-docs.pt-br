@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110664"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167998"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implantar o snap-in do MMC StorSimple Snapshot Manager
 
@@ -66,7 +66,7 @@ As etapas a seguir oferecem uma visão geral de alto nível das tarefas de confi
    * Volumes dinâmicos espelhados (RAID 1)
    * Volumes compartilhados de cluster
      
-     Para obter informações sobre como criar volumes no dispositivo StorSimple ou no dispositivo virtual StorSimple, acesse a [Etapa 6: criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+     Para obter informações sobre como criar volumes no dispositivo StorSimple ou no dispositivo virtual StorSimple, vá para a [Etapa 6: Criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>Instalar um novo StorSimple Snapshot Manager
 Antes de instalar o StorSimple Snapshot Manager, certifique-se de que os volumes criados no dispositivo StorSimple ou dispositivo virtual StorSimple estejam montados, inicializados e formatados como descrito em [Configurar pré-requisitos](#configure-prerequisites).
@@ -185,7 +185,7 @@ Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorS
 4. Reinicie o Serviço de Gerenciamento do Microsoft StorSimple: 
    
    1. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
-   2. Na página **Serviços**, selecione o **Serviço de Gerenciamento Microsoft StorSimple**.
+   2. Na página **Serviços**, selecione o **Microsoft StorSimple Management Service**.
    3. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Reiniciar o serviço**. 
 
 ### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Etapa 3: Reinstalar o StorSimple Snapshot Manager e restaurar o banco de dados

@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366778"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228110"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -23,10 +23,10 @@ Baixe arquivos de log produzidos pelo Serviço de Decisão Personalizada do Azur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Python 3: instalado e no seu caminho. É recomendável a versão de 64 bits para manipular arquivos grandes.
-- O repositório *Microsoft/mwt-ds*: [clone o repositório](https://github.com/Microsoft/mwt-ds).
-- O pacote *azure-storage-blob*: para detalhes de instalação, acesse a [Biblioteca de Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Insira a cadeia de conexão de armazenamento do Azure em *mwt-ds/DataScience/ds.config*: siga o modelo *my_app_id: my_connectionString*. É possível especificar várias `app_id`. Ao executar `LogDownloader.py`, se a entrada `app_id` não for localizada em `ds.config`, `LogDownloader.py` usará a cadeia de conexão `$Default`.
+- Python 3: Instalado e no caminho. É recomendável a versão de 64 bits para manipular arquivos grandes.
+- O repositório *Microsoft/mwt-ds*: [Clonar o repositório](https://github.com/Microsoft/mwt-ds).
+- O pacote *azure-storage-blob*: Para obter detalhes de instalação, vá para a [Biblioteca de Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Insira sua cadeia de conexão do armazenamento do Azure em *mwt-ds/DataScience/ds.config*: Siga o modelo *my_app_id: my_connectionString*. É possível especificar várias `app_id`. Ao executar `LogDownloader.py`, se a entrada `app_id` não for localizada em `ds.config`, `LogDownloader.py` usará a cadeia de conexão `$Default`.
 
 ## <a name="usage"></a>Uso
 
@@ -52,8 +52,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | | `0`: nunca substitua; pergunte ao usuário se os blobs estão atualmente em uso. | Padrão | |
 | | `1`: pergunte ao usuário como proceder quando os arquivos tiverem tamanhos diferentes ou quando os blobs estiverem sendo usados atualmente. | |
 | | `2`: sempre substitua; baixe os blobs atualmente em uso. | |
-| | `3`: nunca substitua, e acrescente se o tamanho for maior, sem perguntar; baixe os blobs atualmente em uso. | |
-| | `4`: Nunca substitua, e acrescente se o tamanho for maior, sem perguntar; ignore os blobs atualmente em uso. | |
+| | `3`: nunca substitua e acrescente se o tamanho for maior sem perguntar; baixe os blobs atualmente em uso. | |
+| | `4`: nunca substitua e acrescente se o tamanho for maior sem perguntar; ignore os blobs atualmente em uso. | |
 | `--dry_run` | Imprima quais blobs teriam sido baixados, sem baixar. | `False` |
 | `--create_gzip` | Crie um arquivo *gzip* para Vowpal Wabbit. | `False` |
 | `--delta_mod_t DELTA_MOD_T` | A janela de tempo, em segundos, para detectar se um arquivo está em uso no momento. | `3600` seg (`1` hora) |

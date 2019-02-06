@@ -1,6 +1,6 @@
 ---
-Título: Treinar novamente um serviço Web clássico – titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning.
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Treinar novamente um serviço Web clássico – titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 19/04/2017
 ---

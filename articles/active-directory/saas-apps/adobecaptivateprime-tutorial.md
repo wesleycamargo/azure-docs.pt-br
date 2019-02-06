@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com a Adobe Captivate Prime | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Adobe Captivate Prime | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e a Adobe Captivate Prime.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2f95b226-1465-47f4-b8b7-de4b0772abbc
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jeedes
-ms.openlocfilehash: bbeae2cadde3e64f17b20eafabaf5e2dbf5a5cc6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: aa20e4544fcd78330c0daa15b9aa058ba80af2d5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044060"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171942"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: integração do Azure Active Directory com a Adobe Captivate Prime
+# <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integração do Azure Active Directory ao Adobe Captivate Prime
 
 Neste tutorial, você aprenderá a integrar a Adobe Captivate Prime ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Adobe Captivate Prime da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, habilitar o logon único do Azure AD no portal do Azure e configu
 
     ![Informações de logon único da URL e domínio do Adobe Captivate Prime](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL: `https://captivateprime.adobe.com`
+     a. Na caixa de texto **Identificador**, digite uma URL: `https://captivateprime.adobe.com`
 
     b. Na caixa de texto **URL de resposta**, insira uma URL: `https://captivateprime.adobe.com/saml/SSO`
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-an-adobe-captivate-prime-test-user"></a>Criar um usuário de teste do Adobe Captivate Prime
 
-Nesta seção, você deve criar um usuário chamado Brenda Fernandes no Adobe Captivate Prime. Trabalhar com [equipe de suporte do Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) para adicionar os usuários na plataforma Adobe Captivate Prime. Os usuários devem ser criados e ativados antes de você usar o logon único
+Nesta seção, você deve criar um usuário chamado Brenda Fernandes no Adobe Captivate Prime. Trabalhe com a  [equipe de suporte do Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) para adicionar os usuários à plataforma Adobe Captivate Prime. Os usuários devem ser criados e ativados antes de você usar o logon único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -197,7 +197,7 @@ Nesta seção, você deve habilitar Brenda Fernandes para usar logon único do A
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do Adobe Captivate Prime no painel de acesso, você deve conectar-se automaticamente no seu aplicativo Adobe Captivate Prime.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

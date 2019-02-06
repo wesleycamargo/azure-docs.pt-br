@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320354"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463558"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Agosto de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidos em agosto de 2018.
@@ -32,7 +32,7 @@ Você pode analisar cada categoria para ver as recomendações para o alerta esp
 
 | Title | DESCRIÇÃO |
 |:---|:---|
-| **Possíveis falhas de consulta quando a contagem de divisão exceder o limite máximo** |Quando o limite de divisão de arquivo de limite superior de 1 milhão é excedido, uma exceção não tratada causou o despejo do SQL Engine e todas as consultas falharam. Essa correção resolve o problema manipulando a exceção corretamente e retornando um erro sem causar falhas nas consultas. |
+| **Possíveis falhas de consulta quando a contagem de divisão exceder o limite máximo** |Quando o limite de divisão de arquivo de limite superior de 1 milhão é excedido, uma exceção não tratada causou o despejo do SQL Engine e todas as consultas falharam. Essa correção resolveu o problema manipulando a exceção corretamente e retornando um erro sem causar falhas nas consultas. |
 | **Valor padrão externo de ExternalMoveReadersPerNode aumentado para melhorar o desempenho da carga** |Esse problema foi causado pela configuração da propriedade ExternalMoveReadersPerNode estar fora de sincronia com a configuração de malha de serviço. Essa regressão causou uma degradação do desempenho de carga Gen2. A correção traz o desempenho de carregamento de Gen2 volta dentro dos parâmetros de design otimizado.|
 
 

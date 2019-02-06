@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc8aec25d6493d87393a45549fb89f978c469912
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429039"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179150"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Active Directory do Azure ao Central Desktop
+# <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Azure Active Directory ao Central Desktop
 
 Neste tutorial, você aprenderá a integrar a Área de Trabalho Central ao Azure AD (Azure Active Directory).
 
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de domínio e URLs da Área de Trabalho Central](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
-    a. Na caixa **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
+     a. Na caixa **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
 
     b. Na caixa **Identificador**, digite uma URL com o seguinte padrão:
     | |
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurações de logon único](./media/central-desktop-tutorial/ic769564.png "Configurações de Logon Único")
     
-    a. Selecione **Habilitar Logon Único do SAML v2**.
+     a. Selecione **Habilitar Logon Único do SAML v2**.
     
     b. Na caixa **URL SSO**, cole o valor da **ID da Entidade SAML** que você copiou do Portal do Azure.
     
@@ -265,7 +265,7 @@ Nesta seção, você permitirá que o usuário Brenda Fernandes use o logon úni
 Nesta seção, teste a configuração de logon único do seu Azure AD usando o painel de acesso.
 
 Quando você seleciona o bloco Área de Trabalho Central no painel de acesso, você entra automaticamente em seu aplicativo da Área de Trabalho Central.
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

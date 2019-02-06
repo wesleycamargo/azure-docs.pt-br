@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o mindWireless | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com mindWireless | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o mindWireless.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd00a339-27c9-4904-b66f-a95bf597ac3c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 6c6fe0a720795c67a7062f5a5971c699472fca07
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: deb7cf8368c5830bd575c617adf857448cfe2e48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434339"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166486"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutorial: integração do Azure Active Directory com o mindWireless
+# <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutorial: Integração do Azure Active Directory com mindWireless
 
 Neste tutorial, você aprenderá a integrar o mindWireless ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o mindWireless da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Informações de logon único de Domínio e URLs do mindWireless](./media/mindwireless-tutorial/tutorial_mindwireless_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.mwsmart.com/`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.mwsmart.com/`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
 
@@ -127,7 +127,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     | -------------- | --------------- | ----------------|
     | ID do funcionário | user.employeeid | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/mindwireless-tutorial/tutorial_attribute_04.png)
 
@@ -189,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-mindwireless-test-user"></a>Criar um usuário de teste no mindWireless
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no mindWireless. Trabalhe com [equipe de suporte do mindWireless](mailto:sdulloor@mindwireless.com) para adicionar os usuários na plataforma do mindWireless. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no mindWireless. Trabalhe com  [equipe de suporte do mindWireless](mailto:sdulloor@mindwireless.com)  para adicionar os usuários na plataforma do mindWireless. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -226,7 +226,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco mindWireless no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo mindWireless.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

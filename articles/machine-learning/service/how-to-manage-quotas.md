@@ -4,25 +4,25 @@ titleSuffix: Azure Machine Learning service
 description: Este guia de instruções explica as várias cotas em recursos para o Azure Machine Learning e como exibir e solicitar mais cota.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b735df4e245d6e3ceebd847e91ed7dfdb255c267
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475060"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245983"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerenciar e solicitar cotas para recursos do Azure
 
 Como acontece com outros serviços do Azure, há limites em determinados recursos associados ao serviço do Azure Machine Learning. Esses limites variam de um limite no número de workspaces que podem ser criados a limites na computação subjacente real que é usada para treinar ou inferir seus modelos. Este artigo fornece mais detalhes sobre os limites pré-configurados em vários recursos do Azure para sua assinatura e também contém links úteis para solicitar aprimoramentos de cota para cada tipo de recurso. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure.
 
-Lembre-se dessas cotas enquanto cria e escala verticalmente seus recursos do Azure ML para cargas de trabalho de produção. Por exemplo, se o cluster não atingir o número de destino de nós especificado, você poderá ter atingido um limite de núcleos de Computação do Azure Machine Learning para sua assinatura. Se você desejar aumentar o limite ou a cota acima do limite padrão, abra uma solicitação de suporte ao cliente online sem custo. Os limites não podem ser aumentados além do valor Limite Máximo mostrado nas tabelas a seguir devido a restrições de Capacidade do Azure. Se não houver nenhuma coluna Limite Máximo, o recurso não terá limites ajustáveis. 
+Lembre-se dessas cotas enquanto cria e aumenta seus recursos do Serviço do Azure Machine Learning para cargas de trabalho de produção. Por exemplo, se o cluster não atingir o número de destino de nós especificado, você poderá ter atingido um limite de núcleos de Computação do Azure Machine Learning para sua assinatura. Se você desejar aumentar o limite ou a cota acima do limite padrão, abra uma solicitação de suporte ao cliente online sem custo. Os limites não podem ser aumentados além do valor Limite Máximo mostrado nas tabelas a seguir devido a restrições de Capacidade do Azure. Se não houver nenhuma coluna Limite Máximo, o recurso não terá limites ajustáveis.
 
 ## <a name="special-considerations"></a>Considerações especiais
 
@@ -34,12 +34,12 @@ Lembre-se dessas cotas enquanto cria e escala verticalmente seus recursos do Azu
 
 ## <a name="default-resource-quotas"></a>Cotas de recurso padrão
 
-Veja um detalhamento dos limites de cota por vários tipos de recurso dentro de sua assinatura do Azure. 
+Veja um detalhamento dos limites de cota por vários tipos de recurso dentro de sua assinatura do Azure.
 
 > [!Important]
 > Os limites estão sujeitos a alterações. A versão mais recente sempre pode ser encontrada no [documento](https://docs.microsoft.com/azure/azure-subscription-service-limits/) da cota de nível de serviço para tudo que é do Azure.
 
-### <a name="virtual-machines"></a>Máquinas virtuais 
+### <a name="virtual-machines"></a>Máquinas virtuais
 Há um limite no número de máquinas virtuais que podem ser provisionadas em uma assinatura do Azure em seus serviços ou de maneira autônoma. Esse limite está no nível da região nos núcleos totais e também é calculado por família.
 
 É importante enfatizar que os núcleos de máquina virtual têm um limite regional total, bem como um limite regional por tamanho de série (Dv2, F etc.), aplicados separadamente. Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30. Esta assinatura teria permissão para implantar 30 VMs A1, ou 30 VMs D1 ou uma combinação das duas a fim de não exceder um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
@@ -91,8 +91,8 @@ Por meio do portal do Azure, é fácil exibir sua cota para vários recursos, co
 
 1. Na lista de assinaturas, selecione a assinatura cuja cota você está procurando.
 
-   **Há uma limitação**, especificamente para exibir a cota de Computação do Azure Machine Learning. Conforme mencionado acima, essa cota é separada da cota de computação em sua assinatura. 
-   
+   **Há uma limitação**, especificamente para exibir a cota de Computação do Azure Machine Learning. Conforme mencionado acima, essa cota é separada da cota de computação em sua assinatura.
+
 1. No painel esquerdo, selecione **Serviço do Machine Learning** e, em seguida, selecione qualquer workspace na lista mostrada
 
 1. Na folha seguinte, na seção **Suporte + solução de problemas**, selecione **Uso + cotas** para exibir os limites de cota e o uso atual.

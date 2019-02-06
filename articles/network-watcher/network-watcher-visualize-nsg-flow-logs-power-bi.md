@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822867"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913287"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de logs de fluxo do grupo de segurança de rede com o Power BI
 
@@ -46,7 +46,7 @@ O modelo fornecido é editável para que possa modificá-lo e adicionar elemento
 
 ## <a name="setup"></a>Configuração
 
-Antes de começar, você deve habilitar o registro em log de fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Confira o artigo: [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo da segurança de rede.
+Antes de começar, você deve habilitar o registro em log de fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Para obter instruções sobre como habilitar os logs de fluxo de Segurança de Rede, consulte o seguinte artigo: [Introdução ao log de fluxo dos Grupos de Segurança de Rede](network-watcher-nsg-flow-logging-overview.md).
 
 Você também deve ter o cliente de desktop do Power BI instalado no seu computador e espaço livre suficiente para baixar e carregar os dados de log que existem em sua conta de armazenamento.
 

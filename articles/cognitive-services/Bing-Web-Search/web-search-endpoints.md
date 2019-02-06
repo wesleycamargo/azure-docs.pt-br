@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 794a2c77c5601b76f258b2b73f5a01f3c6b8f8c9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2f7e6cd577b1eabbaabdfe87fca8ea0f036a062d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712289"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149383"
 ---
 # <a name="web-search-endpoint"></a>Ponto de extremidade de Pesquisa na Web
 
@@ -25,13 +25,13 @@ A **API de Pesquisa na Web** retorna páginas da Web, notícias, imagens, vídeo
 
 Para obter os resultados de pesquisa na Web usando a API do Bing, envie uma solicitação `GET` para o ponto de extremidade a seguir. Os cabeçalhos e parâmetros de URL definem mais especificações.
 
-**Ponto de extremidade:** retorna resultados Web que são relevantes para a consulta de pesquisa do usuário definida pelo `?q=""`.
+**Ponto de extremidade**: retorna resultados Web que são relevantes para a consulta de pesquisa do usuário definida pelo `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Ponto de extremidade: Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, os objetos de resposta, erros e muito mais, consulte a referência [API da Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+Ponto de extremidade: Para saber mais sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros e muito mais, confira a referência da [API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
 
 ## <a name="response-json"></a>JSON de resposta
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o E Sales Manager Remix | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao E Sales Manager Remix | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o E Sales Manager Remix.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e2bc0c7e590796a533d9f593eb61e57def91fc8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187991"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -52,7 +52,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. 
 
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 * Adicionando o E Sales Manager Remix da galeria
 * configurar e testar o logon único do AD do Azure
@@ -100,7 +100,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Na caixa **URL de logon** caixa, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
+     a. Na caixa **URL de logon** caixa, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
     b. Na caixa **Identificador**, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/*.
 
@@ -153,7 +153,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![A seção "Configuração de autenticação SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-    a. Marque a caixa de seleção **Versão do PC**.
+     a. Marque a caixa de seleção **Versão do PC**.
     
     b. Na seção **item Colaboração**, na lista suspensa, selecione **email**.
 
@@ -197,7 +197,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     ![A janela de usuário](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+     a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -221,7 +221,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
     
     ![A seção “Novo registro de funcionário”](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. Na caixa **Nome do funcionário**, digite o nome do usuário (por exemplo, **Brenda**).
+     a. Na caixa **Nome do funcionário**, digite o nome do usuário (por exemplo, **Brenda**).
 
     b. Complete os campos necessários restantes.
     
@@ -267,7 +267,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao selecionar no bloco do E Sales Manager Remix no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo E Sales Manager Remix.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

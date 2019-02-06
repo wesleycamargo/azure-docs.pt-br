@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584139"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455738"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pré-pagamento para recursos de computação do Banco de Dados SQL com capacidade reservada do Banco de Dados SQL do Azure
 
@@ -34,9 +34,9 @@ Para saber detalhes sobre como clientes empresariais e clientes do método de pa
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Determinar o tamanho correto do SQL antes da compra
 
-O tamanho da reserva deve ser baseado na quantidade total de computação usada pelos bancos de dados SQL existentes ou prestes a serem implantados e/ou pools elásticos dentro de uma região específica e usando a mesma camada de desempenho e geração de hardware. 
+O tamanho da reserva deve ser baseado na quantidade total de computação usada pelos bancos de dados existentes ou prestes a serem implantados e/ou pools elásticos dentro de uma região específica e usando o mesmo nível de desempenho e geração de hardware. 
 
-Por exemplo, vamos supor que você esteja executando uma finalidade geral, o pool elástico Gen5 - 16 vCore e dois bancos de dados únicos Gen5 - 4 vCore essenciais para os negócios. Além disso, suponhamos que você planeje implantar, no próximo mês, uma finalidade geral adicional, o pool elástico Gen5 - 16 vCore e um pool elástico de v5 core Gen5 - 32 para negócios críticos. Além disso, vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Neste caso você deve comprar um 32 (2x16) vCores, 1 ano de reserva para banco de dados SQL Single / Elastic Pool General Purpose - Compute Gen5 e 40 (2x4 + 32) vCore 1 ano de reserva para SQL Database Single / Elastic Pool Business Critical - Compute Gen5.
+Por exemplo, vamos supor que você esteja executando uma finalidade geral, o pool elástico Gen5 - 16 vCore e dois bancos de dados únicos Gen5 - 4 vCore essenciais para os negócios. Além disso, suponhamos que você planeje implantar, no próximo mês, uma finalidade geral adicional, o pool elástico Gen5 - 16 vCore e um pool elástico de v5 core Gen5 - 32 para negócios críticos. Além disso, vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Neste caso você deve comprar uma reserva de 32 (2x16) vCores de 1 ano para o Banco de Dados SQL autônomo/pool elástico de Uso Geral de Computação Gen5 e uma reserva de 40 (2x4 + 32) vCores de 1 ano para o Banco de Dados SQL autônomo/pool elástico Comercialmente Crítico de Computação Gen5.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Comprar capacidade reservada do banco de dados do SQL
 
@@ -50,7 +50,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, o poo
     | Campo      | DESCRIÇÃO|
     |:------------|:--------------|
     |NOME        |O nome dessa reserva.| 
-    |Assinatura|A assinatura usada para pagar pela reserva de capacidade reservada do Banco de Dados SQL. O método de pagamento na assinatura é cobrado pelos custos iniciais da reserva de capacidade reservada do Banco de Dados SQL. O tipo de assinatura deve ser um contrato enterprise (número de oferta: MS-AZR-0017P) ou de Pagamento Conforme o Uso (número da oferta: MS-AZR-0003P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|    
+    |Assinatura|A assinatura usada para pagar pela reserva de capacidade reservada do Banco de Dados SQL. O método de pagamento na assinatura é cobrado pelos custos iniciais da reserva de capacidade reservada do Banco de Dados SQL. O tipo de assinatura deve ser um contrato empresarial (número da oferta: MS-AZR-0017P) ou Pagamento Conforme o Uso (número da oferta: MS-AZR-0003P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|    
     |Escopo       |O escopo da reserva vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>Assinatura única - O desconto de reserva vCore é aplicado às instâncias do Banco de Dados SQL nessa assinatura. </li><li>Compartilhado - o desconto de reserva de vCore é aplicado às instâncias de banco de dados SQL em execução em todas as assinaturas dentro de seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas (exceto as assinaturas de desenvolvimento/teste) no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</li></ul>|
     |Região      |A região do Azure abrangida pela reserva de capacidade reservada do Banco de Dados SQL.|    
     |Tipo de implantação|O tipo de recurso de SQL para o qual você deseja comprar a reserva.|
@@ -89,5 +89,5 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [ crie uma solicitação de suporte ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

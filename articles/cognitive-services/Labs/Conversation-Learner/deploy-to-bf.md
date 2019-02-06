@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578762"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237924"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implantar um bot Aprendiz de conversa
 
@@ -53,7 +53,7 @@ A seguir, veja como obter a ID do modelo:
 
 5. O GUID da "ID do Modelo" é exibido na parte superior da página.
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opção 1: implantando um bot Aprendiz de conversa para ser executado localmente
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opção 1: Implantar um bot Conversation Learner para ser executado localmente
 
 Isso implanta um bot em seu computador local e mostra como acessá-lo usando o emulador do Framework do bot.
 
@@ -90,7 +90,7 @@ Agora o bot está em execução localmente.  Você pode acessá-lo com o emulado
 
 2. Agora você está conversando com o bot.
 
-## <a name="option-2-deploy-to-azure"></a>Opção 2: implantar no Azure
+## <a name="option-2-deploy-to-azure"></a>Opção 2: Implantar no Azure
 
 Publica o bot do Aprendiz de conversa semelhante à forma como você publicaria qualquer outro bot. Em um nível alto, carregue seu código para um site hospedado, defina os valores de configuração apropriados e, em seguida, registre o bot com vários canais. Há instruções detalhadas neste vídeo, mostrando como publicar seu bot usando o Serviço de Bot do Azure.
 
@@ -118,6 +118,7 @@ Abaixo estão instruções passo a passo para implantar um bot de Aprendiz de co
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
         CONVERSATION_LEARNER_MODEL_ID      | GUID da ID do aplicativo, obtida da interface do usuário do Aprendiz de Conversa em “configurações” do modelo>
         LUIS_AUTHORING_KEY               | Chave de criação de LUIS para esse modelo
+        LUIS_SUBSCRIPTION_KEY            | Não é necessário, mas é recomendado, que bots publicados evitem o uso de sua cota de Criação.
     
     4. Clique em “Salvar” na parte superior da página
     5. Abra o item de navegação “Build” à esquerda

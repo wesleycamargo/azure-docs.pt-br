@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160042"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Começar uma revisão de acesso para funções de recurso do Azure no PIM
 As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de funções obsoletas, os administradores de funções privilegiadas devem revisar regularmente as funções. Este documento aborda as etapas para iniciar uma revisão de acesso no Privileged Identity Management (PIM) para recursos do Azure.
@@ -54,8 +54,8 @@ Há três opções para executar uma análise. Você pode atribuir a revisão a 
 
 1. Escolha uma das opções:
    
-   * **Usuários selecionados**: use essa opção quando você não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
-   * **Atribuído (próprio)**: use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
+   * **Usuários selecionados**: Use essa opção quando não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
+   * **Atribuído (próprio)**: Use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
    
 2. Vá para **Selecionar revisores**.
    

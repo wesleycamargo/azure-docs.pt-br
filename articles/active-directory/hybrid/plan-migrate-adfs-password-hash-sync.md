@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a24281f2b01b53ddb165d15bca4d8d43c26c5c05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463330"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159838"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de hash de senha do Azure Active Directory
 
@@ -30,7 +30,8 @@ Os seguintes pré-requisitos são necessários para migrar de usar o AD FS para 
 
 ### <a name="update-azure-ad-connect"></a>Atualizar o Azure AD Connect
 
-Para concluir com êxito as etapas necessárias para migrar para o uso da sincronização de hash de senha, você deve ter o [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure Active Directory Connect) 1.1.819.0 ou uma versão posterior. No Azure AD Connect 1.1.819.0, a maneira como a conversão de entrada é realizada muda significativamente. O tempo geral para migrar do AD FS para autenticação de nuvem nesta versão é reduzido de potencialmente horas para minutos.
+No mínimo, para executar com êxito as etapas de migração para a sincronização de hash de senha, você precisará ter o [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Esta versão contém alterações significativas na maneira como a entrada de conversão é executada, além de reduzir de potencialmente horas para minutos o tempo geral para migração da federação para a autenticação de nuvem.
+
 
 > [!IMPORTANT]
 > Você pode ler em documentação, ferramentas e blogs desatualizados que é necessária conversão do usuário ao converter domínios de identidade federada para identidade gerenciada. A *conversão de usuários* não é mais necessária. A Microsoft está trabalhando para atualizar a documentação e as ferramentas para refletir essa alteração.

@@ -1,6 +1,6 @@
 ---
-Título: “Etapa 4: Treinar modelos de análise preditiva” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 4 do passo a passo Desenvolver uma solução de previsão: Treinar, pontuar e avaliar vários modelos no Azure Machine Learning Studio.”
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: “Etapa 4: Treinar modelos de análise preditiva” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 4 do passo a passo Desenvolver uma solução de previsão: Treinar, pontuar e avaliar vários modelos no Azure Machine Learning Studio.”
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

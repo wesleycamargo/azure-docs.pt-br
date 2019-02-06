@@ -1,5 +1,5 @@
 ---
-title: Como vincular uma assinatura do Azure ao Azure Active Directory B2C | Microsoft Docs
+title: Como vincular uma assinatura do Azure – Azure Active Directory B2C | Microsoft Docs
 description: Guia passo a passo para habilitar a cobrança de locatário do Azure AD B2C em uma assinatura do Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853180"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196167"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Vinculando uma assinatura do Azure a um locatário Azure AD B2C
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vincular uma assinatura do Azure a um locatário do Azure Active Directory B2C
 
 > [!IMPORTANT]
-> Obtenha as informações mais recentes sobre o uso de cobrança e preços para o Azure AD B2C na página a seguir: [Preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Para obter as últimas informações sobre a cobrança de uso e os preços do Azure AD (Azure Active Directory) B2C, confira [Preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Os encargos de uso para o Azure AD B2C são cobrados de uma assinatura do Azure. Quando um locatário do Azure AD B2C é criado, o administrador de inquilinos precisa vincular explicitamente o locatário do Azure AD B2C a uma assinatura do Azure. Este artigo mostra como fazer isso.
 
 > [!NOTE]
 > Uma assinatura vinculada a um locatário do Azure AD B2C pode ser usada para a cobrança de uso do Azure AD B2C ou outros recursos do Azure, incluindo recursos adicionais do Azure AD B2C.  A assinatura não pode ser usada para adicionar outros serviços baseados em licença do Azure ou licenças do Office 365 no locatário do Azure AD B2C.
 
- O link de assinatura é obtido com a criação de um “recurso” do Azure AD B2C na assinatura de destino do Azure. Vários “recursos” do Azure AD B2C podem ser vinculados a uma única assinatura do Azure juntamente com outros recursos do Azure (por exemplo, VMs, armazenamento de dados, Aplicativos Lógicos). Você pode ver todos os recursos na assinatura, indo para o locatário do Azure AD ao qual a assinatura está associada.
+O link de assinatura é obtido com a criação de um “recurso” do Azure AD B2C na assinatura de destino do Azure. Vários “recursos” do Azure AD B2C podem ser vinculados a uma única assinatura do Azure juntamente com outros recursos do Azure (por exemplo, VMs, armazenamento de dados, Aplicativos Lógicos). Você pode ver todos os recursos na assinatura, indo para o locatário do Azure AD ao qual a assinatura está associada.
+
+Há suporte para as assinaturas do CSP (Provedores de Soluções de Nuvem) do Azure no Azure AD B2C. A funcionalidade está disponível por meio de APIs ou pelo portal do Azure para o Azure AD B2C e todos os recursos do Azure. Os administradores de assinaturas do CSP podem vincular, mover e excluir relações com o Azure AD B2C da mesma forma que isso é feito para todos os recursos do Azure. O gerenciamento do Azure AD B2C usando o controle de acesso baseado em função não é afetado pela associação entre o locatário do Azure AD B2C e uma assinatura do Azure CSP. O controle de acesso baseado em função é obtido usando funções baseadas em locatário, não funções baseadas em assinatura.
 
 Uma assinatura do Azure válida é necessária para continuar.
 
@@ -81,10 +83,6 @@ Você pode usar esse recurso para:
 ![Configurações de Recursos do B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
-
-### <a name="csp-subscriptions"></a>Assinaturas de CSP
-
-No momento, um locatário do Azure AD B2C **não pode** ser vinculado a assinaturas de CSP.
 
 ### <a name="self-imposed-restrictions"></a>Restrições autoimpostas
 

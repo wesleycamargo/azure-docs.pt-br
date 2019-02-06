@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528783"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476189"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Usando a API REST de Armazenamento do Azure
 
@@ -58,15 +58,15 @@ O aplicativo de exemplo lista os contêineres em uma conta de armazenamento. Dep
 
 Se você observar a [API REST do serviço Blob](/rest/api/storageservices/Blob-Service-REST-API), verá todas as operações que pode executar no armazenamento de blobs. As bibliotecas de cliente de armazenamento são wrappers em torno das APIs REST: elas facilitam o acesso ao armazenamento sem usar as APIs REST diretamente. Mas, conforme observado acima, às vezes você deseja usar a API REST em vez de uma biblioteca de cliente de armazenamento.
 
-## <a name="rest-api-reference-list-containers-api"></a>Referência da API REST: API de listagem de contêineres
+## <a name="rest-api-reference-list-containers-api"></a>Referência da API REST: API de lista de contêineres
 
 Vamos examinar a página de referência da API REST para a operação [ListContainers](/rest/api/storageservices/List-Containers2) a fim de compreender de onde alguns dos campos vêm na solicitação e na resposta na próxima seção com o código.
 
-**Método de Solicitação**: GET. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem HEAD, PUT e DELETE, dependendo da API chamada.
+**Método de solicitação**: GET. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem HEAD, PUT e DELETE, dependendo da API chamada.
 
-**URI de solicitação**: https://myaccount.blob.core.windows.net/?comp=list Isso é criado no ponto de extremidade da conta de armazenamento de blobs `http://myaccount.blob.core.windows.net` e da cadeia de caracteres do recurso `/?comp=list`.
+**URI de solicitação**: https://myaccount.blob.core.windows.net/?comp=list Isso é criado no ponto de extremidade da conta de Armazenamento de Blobs `http://myaccount.blob.core.windows.net` e da cadeia de caracteres do recurso `/?comp=list`.
 
-[Parâmetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): há parâmetros de consulta adicionais que você pode usar ao chamar ListContainers. Alguns desses parâmetros são *timeout* para a chamada (em segundos) e *prefix*, que é usado para filtragem.
+[Parâmetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): Há parâmetros de consulta adicionais que você pode usar ao chamar ListContainers. Alguns desses parâmetros são *timeout* para a chamada (em segundos) e *prefix*, que é usado para filtragem.
 
 Outro parâmetro útil é *maxresults:* se houver mais contêineres que esse valor, o corpo da resposta conterá um *NextMarker*, que indica o próximo contêiner a ser retornado na próxima solicitação. Para usar esse recurso, você deve fornecer o valor *NextMarker* como o parâmetro *marker* no URI ao fazer a próxima solicitação. Ao usar esse recurso, ele é análogo à paginação de resultados. 
 
@@ -76,15 +76,15 @@ Para usar outros parâmetros, acrescente-os à cadeia de caracteres do recurso c
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Cabeçalhos de solicitação](/rest/api/storageservices/List-Containers2#request-headers)**:** essa seção lista os cabeçalhos de solicitação obrigatórios e opcionais. Três dos cabeçalhos são obrigatórios: um cabeçalho de *Autorização*, *x-ms-date* (contém a hora de UTC para a solicitação) e *x-ms-version* (especifica a versão da API REST a ser usada). A inclusão de *x-ms-client-request-id* nos cabeçalhos é opcional; você pode definir o valor para esse campo como qualquer coisa; ele é gravado nos logs de análise de armazenamento quando o registro em log está habilitado.
+[Cabeçalhos de solicitação](/rest/api/storageservices/List-Containers2#request-headers)**:** Essa seção lista os cabeçalhos de solicitação obrigatórios e opcionais. Três dos cabeçalhos são obrigatórios: um cabeçalho de *Autorização*, *x-ms-date* (contém a hora de UTC para a solicitação) e *x-ms-version* (especifica a versão da API REST a ser usada). A inclusão de *x-ms-client-request-id* nos cabeçalhos é opcional; você pode definir o valor para esse campo como qualquer coisa; ele é gravado nos logs de análise de armazenamento quando o registro em log está habilitado.
 
-[Corpo da solicitação](/rest/api/storageservices/List-Containers2#request-body)**:** não há nenhum corpo de solicitação para ListContainers. O corpo da solicitação é usado em todas as operações PUT ao carregar blobs, bem como SetContainerAccessPolicy, que permite que você envie em uma lista XML de políticas de acesso armazenadas para aplicar. As políticas de acesso armazenadas são discutidas no artigo [Usando SAS (assinaturas de acesso compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
+[Corpo da solicitação](/rest/api/storageservices/List-Containers2#request-body)**:** Não há corpo da solicitação para ListContainers. O corpo da solicitação é usado em todas as operações PUT ao carregar blobs, bem como SetContainerAccessPolicy, que permite que você envie em uma lista XML de políticas de acesso armazenadas para aplicar. As políticas de acesso armazenadas são discutidas no artigo [Usando SAS (assinaturas de acesso compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Código de status da resposta](/rest/api/storageservices/List-Containers2#status-code)**:** indica os códigos de status que você precisa saber. Neste exemplo, um código de status HTTP 200 é OK. Para obter uma lista completa de códigos de status HTTP, confira [Definições de código de status](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Para ver os códigos de erro específicos das APIs REST do Armazenamento, confira [Códigos de erro da API REST comuns](/rest/api/storageservices/common-rest-api-error-codes)
+[Código de status de resposta](/rest/api/storageservices/List-Containers2#status-code)**:** Indica os códigos de status que você precisa saber. Neste exemplo, um código de status HTTP 200 é OK. Para obter uma lista completa de códigos de status HTTP, confira [Definições de código de status](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Para ver os códigos de erro específicos das APIs REST do Armazenamento, confira [Códigos de erro da API REST comuns](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers)**:** eles incluem *tipo de conteúdo*; *x-ms-request-id* (A ID da solicitação transmitida, se aplicável); *x-ms-version* (indica a versão do serviço Blob usado) e a *Data* (UTC, indica a hora em que a solicitação foi feita).
+[Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers)**:** Eles incluem *Tipo de Conteúdo*; *x-ms-request-id* (a ID da solicitação transmitida, se aplicável); *x-ms-version* (indica a versão do serviço Blob usado) e a *Data* (UTC, indica a hora em que a solicitação foi feita).
 
-[Corpo da resposta](/rest/api/storageservices/List-Containers2#response-body): esse campo é uma estrutura XML que fornece os dados solicitados. Neste exemplo, a resposta é uma lista de contêineres e suas propriedades.
+[Corpo da resposta](/rest/api/storageservices/List-Containers2#response-body): Esse campo é uma estrutura XML que fornece os dados solicitados. Neste exemplo, a resposta é uma lista de contêineres e suas propriedades.
 
 ## <a name="creating-the-rest-request"></a>Criando a solicitação REST
 
@@ -140,7 +140,7 @@ Adicione os cabeçalhos de solicitação para x-ms-date e x-ms-version. Esse loc
     //   the authorization header. 
 ```
 
-Chame o método que cria o cabeçalho de autorização e adicione-o aos cabeçalhos de solicitação. Você verá como criar o cabeçalho de autorização mais adiante neste artigo. O nome do método é GetAuthorizationHeader, que você pode ver neste trecho de código:
+Chame o método que cria o cabeçalho de autorização e adicione-o aos cabeçalhos de solicitação. Você verá como criar o cabeçalho de autorização mais adiante neste artigo. O nome do método é GetAuthorizationHeader, que você pode ver neste snippet de código:
 
 ```csharp
     // Get the authorization header and add it.
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Corpo da resposta (XML):** para ListContainers, mostra a lista de contêineres e suas propriedades.
+**Corpo da resposta (XML):** Para ListContainers, mostra a lista de contêineres e suas propriedades.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -279,28 +279,28 @@ Authorization="SharedKey <storage account name>:<signature>"
 
 O campo de assinatura é um HMAC (Hash-based Message Authentication Code) criado a partir da solicitação, calculado usando o algoritmo SHA256 e codificado usando a codificação de Base64. Entendeu? (Calma, você ainda nem ouviu a palavra *canonizado*.)
 
-Este trecho de código mostra o formato da cadeia de caracteres de assinatura de chave compartilhada:
+Este snippet de código mostra o formato da cadeia de caracteres de assinatura de chave compartilhada:
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 A maioria desses campos é usada raramente. Para o armazenamento de Blobs, você pode especificar VERBO, md5, tamanho do conteúdo, cabeçalhos canonizados e recurso canonizado. Você pode deixar os outros em branco (mas colocar `\n` para que ele saiba que estão em branco).
 
-O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que canonizado significa? Não é uma palavra comum nesse contexto. Aqui está o que a [Wikipédia diz (em inglês) sobre a canonização](http://en.wikipedia.org/wiki/Canonicalization):  *Na ciência da computação, a canonização (às vezes, padronização ou normalização) é um processo de conversão de dados que tem mais de uma possível representação em forma canônica, "normal" ou "padrão".* Em linguagem normal, isso significa fazer a lista de itens (como cabeçalhos no caso de cabeçalhos canonizados) e padronizá-los em um formato obrigatório. Basicamente, a Microsoft decidiu-se por um formato e você precisa corresponder a ele.
+O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que canonizado significa? Não é uma palavra comum nesse contexto. Aqui está o que a [Wikipédia diz (em inglês) sobre a canonicalização](http://en.wikipedia.org/wiki/Canonicalization): *Na ciência da computação, a canonicalização (às vezes, padronização ou normalização) é um processo de conversão de dados que tem mais de uma possível representação em forma canônica, "normal" ou "padrão".* Em linguagem normal, isso significa fazer a lista de itens (como cabeçalhos no caso de cabeçalhos canonizados) e padronizá-los em um formato obrigatório. Basicamente, a Microsoft decidiu-se por um formato e você precisa corresponder a ele.
 
 Vamos começar com esses dois campos canonizados, pois eles são necessários para criar o cabeçalho de autorização.
 
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Corpo da resposta (XML):** a resposta XML isso mostra a lista de blobs e suas propriedades. 
+**Corpo da resposta (XML):** Essa resposta XML mostra a lista de blobs e suas propriedades. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

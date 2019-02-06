@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550694"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300244"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Recursos de multimodelos do Banco de Dados SQL do Azure
 
@@ -50,7 +50,7 @@ O [Processamento de grafo](https://docs.microsoft.com/sql/relational-databases/g
 
 Não há nada que um banco de dados de grafo possa obter, que não possa ser obtido usando um banco de dados relacional. No entanto, um banco de dados de grafo pode facilitar a expressão de determinadas consultas. A decisão para a escolha de um ou de outro pode ser baseada nos seguintes fatores:
 
-- Modelo de dados hierárquicos em que um nó possa ter vários pais, desse modo, o HieararchyId não poderá ser usado
+- Dados hierárquicos do modelo em que um nó pode ter vários pais, de modo que HierarchyId não pode ser usado
 - Modelo do aplicativo tem relações muitos para muitos complexas, pois, conforme o aplicativo evolui, novas relações são adicionadas.
 - É necessário analisar as relações e os dados interconectados.
 
@@ -96,7 +96,7 @@ O [Suporte espacial](https://docs.microsoft.com/sql/relational-databases/spatial
 O SQL Server fornece uma poderosa plataforma de desenvolvimento de aplicativos avançados para gerenciamento de dados semiestruturados. O suporte para XML é integrado a todos os componentes no SQL Server e inclui o seguinte:
 
 - O tipo de dados xml. Os valores XML podem ser armazenados nativamente em uma coluna de tipo de dados xml que pode ser tipada de acordo com uma coleção de esquemas XML ou deixada sem tipo. É possível indexar a coluna XML.
-- A capacidade de especificar uma consulta XQuery em relação a dados XML armazenados em colunas e variáveis do tipo xml. As funcionalidades XQUery podem ser usadas em qualquer consulta Transact-SQL que acesse qualquer modelo de dados usado no banco de dados.
+- A capacidade de especificar uma consulta XQuery em relação a dados XML armazenados em colunas e variáveis do tipo xml. As funcionalidades XQuery podem ser usadas em qualquer consulta Transact-SQL que acesse qualquer modelo de dados usado no banco de dados.
 - Indexar automaticamente todos os elementos em documentos XML usando [índice XML primário](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) ou especificar os caminhos exatos que devem ser indexados usando [índice XML secundário](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET que permite o carregamento em massa de dados XML.
 - Transforme dados relacionais em formato XML.

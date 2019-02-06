@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844984"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228195"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -110,7 +110,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 5. Verifique se o serviço de Backup está habilitado. Verifique se está habilitado em **configurações do Hyper-V** > **Integration Services**.
 6. Verifique se não há conflitos com aplicativos de que estão criando instantâneos do VSS. Se vários aplicativos estiverem tentando criando instantâneos do VSS ao mesmo tempo, podem ocorrer conflitos. Por exemplo, se um aplicativo de Backup está criando instantâneos do VSS quando o Site Recovery está agendado pela sua política de replicação para criar um instantâneo.   
 7. Verifique se a VM está passando por uma taxa de rotatividade alta:
-    - Você pode medir a taxa diária de alteração de dados para VMs convidadas usando os contadores de desempenho no host Hyper-V. Para medir a taxa de alteração de dados, habilite o seguinte contador. Agregue um exemplo desse valor entre os discos de VM oir 5 a 15 minutos para obter a rotatividade da VM.
+    - Você pode medir a taxa diária de alteração de dados para VMs convidadas usando os contadores de desempenho no host Hyper-V. Para medir a taxa de alteração de dados, habilite o seguinte contador. Agregue um exemplo desse valor entre os discos de VM por 5 a 15 minutos para obter a rotatividade da VM.
         - Categoria: “Dispositivo de armazenamento virtual do Hyper-V”
         - Contador: “Bytes de Gravação / Seg”</br>
         - A taxa de rotatividade de dados aumentará ou permanecerá em um nível alto, dependendo de quão ocupada a VM ou seus aplicativos estiverem.

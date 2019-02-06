@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473377"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239172"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Usando chaves de assinatura com seu aplicativo LUIS
 
@@ -43,7 +43,7 @@ Essa chave deve ser usada somente para consultas de previsão de ponto de extrem
 
     ![Opção de API do Azure](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Depois de criar o recurso de Reconhecimento vocal, você pode exibir as chaves de acesso geradas em **Gerenciamento de Recursos -> Chaves**. Não use as chaves. A próxima seção mostrará como conectar esse novo recurso a um aplicativo do LUIS no portal do LUIS. Você precisa do nome do recurso do LUIS da etapa 3.
+1. Depois de criar o recurso de Reconhecimento vocal, você pode exibir as chaves de acesso geradas em **Gerenciamento de Recursos -> Chaves**. A próxima seção mostrará como conectar esse novo recurso a um aplicativo do LUIS no portal do LUIS. Você precisa do nome do recurso do LUIS da etapa 3.
 
     ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Essa chave deve ser usada somente para consultas de previsão de ponto de extrem
 
     ![Atribuir um recurso ao seu aplicativo](./media/luis-manage-keys/assign-key.png)
 
-1. Selecione um Locatário na caixa de diálogo associada ao endereço de email com o qual você fez logon no site do LUIS.  
+1. Selecione um Locatário na caixa de diálogo associada ao endereço de email usado para entrar no site do LUIS.  
 
 1. Escolha o **Nome da Assinatura** associado ao recurso do Azure que deseja adicionar.
 
@@ -122,7 +122,7 @@ As intenções e suas classificações também estão incluídas os logs de pont
 ### <a name="enable-bing-spell-checker"></a>Habilitar o verificador ortográfico do Bing 
 Nas **Configurações da URL de ponto de extremidade**, o botão de alternância **Verificador ortográfico do Bing** permite ao LUIS corrigir a ortografia de palavras antes da previsão. Crie uma **[chave de Verificação Ortográfica do Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Adicione o parâmetro de cadeia de caracteres de consulta **spellCheck=true** e **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** . Substitua o `{YOUR_BING_KEY_HERE}` pela sua chave do verificador ortográfico do Bing.
+Adicione o parâmetro de cadeia de caracteres de consulta **spellCheck=true** e **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Substitua o `{YOUR_BING_KEY_HERE}` pela sua chave do verificador ortográfico do Bing.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Saiba mais sobre [regiões](luis-reference-regions.md) de publicação, incluind
 
 ## <a name="assign-resource-without-luis-portal"></a>Atribuir recursos sem o portal do LUIS
 
-Para fins de automação, como um pipeline de CI/CD, você talvez queira automatizar a atribuição de um recurso do LUIS para um aplicativo LUIS. Para isso, é necessário executar as seguintes etapas:
+Para fins de automação, como um pipeline de CI/CD, você talvez queira automatizar a atribuição de um recurso do LUIS para um aplicativo LUIS. Para fazer isso, é necessário executar as seguintes etapas:
 
 1. Obter um token do Azure Resource Manager deste [site](https://resources.azure.com/api/token?plaintext=true). Esse token expira, então use-o imediatamente. A solicitação retorna um token do Azure Resource Manager.
 
@@ -163,7 +163,7 @@ Para fins de automação, como um pipeline de CI/CD, você talvez queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Tipo|Configuração|Valor|
+    |Type|Configuração|Valor|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua [chave de criação](luis-how-to-account-settings.md).|

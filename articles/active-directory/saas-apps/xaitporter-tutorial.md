@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao XaitPorter | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao XaitPorter | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory do Azure e o XaitPorter.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe89b64fb5f188591ce123e8ed7ed410d3c5ab48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421059"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170038"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: integração do Azure Active Directory ao XaitPorter
+# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integração do Azure Active Directory ao XaitPorter
 
 Neste tutorial, você aprenderá a integrar o XaitPorter ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando XaitPorter da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em de URLs e Domínio do XaitPorter](./media/xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com/saml/login`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com/saml/login`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com`
 
@@ -141,7 +141,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/xaitporter-tutorial/user3.png)
 
-    a. Selecione **Habilitar Autenticação de Logon Único**.
+     a. Selecione **Habilitar Autenticação de Logon Único**.
 
     b. Na caixa de texto **Configurações do Provedor de Identidade**, cole a **URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure e clique em **Buscar**.
 
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-xaitporter-test-user"></a>Criar um usuário de teste do XaitPorter
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no XaitPorter. Trabalhe com a [equipe de suporte ao cliente do XaitPorter](https://www.xait.com/support/) para adicionar usuários na plataforma do XaitPorter. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado Brenda Fernandes no XaitPorter. Trabalhe com a [equipe de suporte ao Cliente do XaitPorter](https://www.xait.com/support/) para adicionar os usuários à plataforma XaitPorter. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -220,7 +220,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do XaitPorter no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do XaitPorter.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

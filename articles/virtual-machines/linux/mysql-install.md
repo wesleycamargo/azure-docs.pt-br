@@ -3,7 +3,7 @@ title: Configurar o MySQL em uma VM do Linux no Azure | Microsoft Docs
 description: Saiba como instalar a pilha do MySQL em uma máquina virtual do Linux (sistema operacional da família Ubuntu ou Red Hat) no Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469553"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888423"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Como instalar o MySQL no Azure
 Neste artigo, você aprenderá a instalar e configurar o MySQL em uma máquina virtual do Azure que executa o Linux.
@@ -42,7 +42,7 @@ Usaremos o pacote do repositório para instalar o MySQL5.6 como um exemplo neste
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Como instalar o MySQL5.6 no Ubuntu
 Usaremos uma VM do Linux com o Ubuntu do Azure aqui.
 
-* Etapa 1: instalar MySQL Server 5.6 Alternar para o usuário `root`:
+* Etapa 1: instale MySQL Server 5.6   Alternar para o usuário `root`:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -59,13 +59,13 @@ Usaremos uma VM do Linux com o Ubuntu do Azure aqui.
 
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
-* Etapa 2: logon no MySQL Server
+* Etapa 2: faça logon no MySQL Server
   
     Quando terminar a instalação do MySQL Server, o serviço do MySQL será iniciado automaticamente. Você pode fazer o logon no MySQL Server com o usuário `root` .
     Use o comando abaixo para fazer logon e insira a senha.
   
              #[root@mysqlnode ~]# mysql -uroot -p
-* Etapa 3: gerenciar o serviço MySQL em execução
+* Etapa 3: gerencie o serviço MySQL em execução
   
     (a) Obter o status do serviço MySQL
   
@@ -86,7 +86,7 @@ Usaremos uma VM do Linux com o Ubuntu do Azure aqui.
 ### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Como instalar o MySQL na família de SO do Red Hat como CentOS e Oracle Linux
 Usaremos uma VM do Linux com CentOS ou Oracle Linux aqui.
 
-* Etapa 1: adicione o Comutador do repositório MySQL Yum para o usuário `root`:
+* Etapa 1: adicione o repositório do MySQL Yum    Alternar para usuário `root`:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -112,12 +112,12 @@ Usaremos uma VM do Linux com CentOS ou Oracle Linux aqui.
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Etapa 3: instale o MySQL por meio do repositório de MySQL Instalar MySQL:
+* Etapa 3: instale o MySQL por meio do repositório MySQL   Instalar MySQL:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   
     O pacote RPM MySQL e todos os pacotes relacionados serão instalados.
-* Etapa 4: gerenciar o serviço MySQL em execução
+* Etapa 4: gerencie o serviço MySQL em execução
   
     (a) Verifique o status do serviço do MySQL Server:
   
@@ -154,7 +154,7 @@ Usaremos a VM do Linux com OpenSUSE aqui.
            #[root@mysqlnode ~]# zypper update
   
            #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* Etapa 2: gerenciar o serviço MySQL em execução
+* Etapa 2: gerencie o serviço MySQL em execução
   
     (a) Verifique o status do MySQL Server:
   

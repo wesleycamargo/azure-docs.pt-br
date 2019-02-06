@@ -7,21 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321629"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297864"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
@@ -29,13 +27,13 @@ Ao gerenciar licenças no [portal do Azure](https://portal.azure.com/#blade/Micr
 
 - **Nome do Produto**: usado em portais de gerenciamento
 - **ID da Cadeia de Caracteres**: usada pelos cmdlets do PowerShell v1.0 ao executar operações em licenças
-- **ID de GUID**: GUID usado pelo Azure AD Graph e pelo Microsoft Graph
-- **Planos de serviço incluídos**: uma lista de planos de serviço no produto que correspondem à ID da Cadeia de Caracteres e ao GUID
+- **GUID**: GUID usado pelo Azure AD Graph e pelo Microsoft Graph
+- **Planos de serviço incluídos**: uma lista de planos de serviço no produto que correspondem à ID da cadeia de caracteres e ao GUID
 
 >[!NOTE]
 >Essas informações são precisas a partir de 17 de agosto de 2018.
 
-| Nome do Produto | ID da Cadeia de Caracteres | GUID | Planos de serviço incluídos |
+| Nome do produto | ID da Cadeia de Caracteres | GUID | Planos de serviço incluídos |
 | --- | --- | --- |--- |
 | CONFERÊNCIA DE ÁUDIO | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |

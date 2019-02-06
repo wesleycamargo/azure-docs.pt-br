@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344244"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223809"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -70,7 +70,7 @@ O modelo de linguagem é uma distribuição de probabilidade por sequências de 
 
 ### <a name="normalization"></a>Normalização
 
-Normalização (Texto): transformação do texto resultante (isto é, transcrição) em uma forma padrão, não ambígua, legível pelo sistema.
+Normalização (Texto): Transformação do texto resultante (ou seja, transcrição) em uma forma padrão e não ambígua legível pelo sistema.
 
 ## <a name="o"></a>O
 
@@ -94,7 +94,7 @@ A chave de assinatura é uma cadeia de caracteres que é necessário especificar
 
 ### <a name="transcription"></a>Transcrição
 
-Transcrição: a parte do texto que resulta do processo de uma parte do arquivo .wav de áudio
+Transcrição: A parte do texto que resulta do processo de uma parte do arquivo .wav de áudio
 
 ## <a name="u"></a>U
 

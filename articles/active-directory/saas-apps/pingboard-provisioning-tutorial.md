@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Pingboard para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Pingboard para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar contas de usuário automaticamente para o Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -8,7 +8,7 @@ writer: asmalser-msft
 manager: sakula
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4daf52318fc707de2ae365a6c12b676226ef7fcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348949"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188398"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para provisionamento automático de usuário
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar o Pingboard para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa seguir para habilitar o provisionamento automático e o desprovisionamento de contas de usuário do Azure AD (Active Directory do Azure) para o Pingboard.
 
@@ -71,7 +71,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
     
 1. Sob o **credenciais de administrador** seção, use as seguintes etapas:
 
-    a. Em **URL do Locatário**, insira `https://your_domain.pingboard.com/scim/v2` e substitua "your_domain" pelo seu domínio real.
+     a. Em **URL do Locatário**, insira `https://your_domain.pingboard.com/scim/v2` e substitua "your_domain" pelo seu domínio real.
 
     b. Entre no [Pingboard](https://pingboard.com/) usando sua conta do administrador.
 

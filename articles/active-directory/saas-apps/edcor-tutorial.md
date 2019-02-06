@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Edcor | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com Edcor | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Edcor.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5b06f2d8-9cd7-498d-bdd6-88570a0a0a15
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 5065bfafe4781e9261a69b018d1238cba2941ed7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0b3ca7a101a0c3979058b7094f8e51ed80e02649
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053115"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174509"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integração do Azure Active Directory ao Edcor
+# <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integração do Azure Active Directory com Edcor
 
 Neste tutorial, você aprende a integrar o Edcor ao Azure Active Directory.
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Edcor da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 7. Para configurar logon único no lado do **Edcor**, é necessário enviar o **XML de metadados**, a **URL de logout** e a **ID da entidade SAML** à [equipe de suporte do Edcor](http://www.edcor.com/contact-us-2/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -165,7 +165,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-an-edcor-test-user"></a>Criar um usuário de teste do Edcor
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Edcor. Trabalhe com a [equipe de suporte do Edcor](http://www.edcor.com/contact-us-2/) para adicionar os usuários na plataforma do Edcor. Os usuários devem ser criados e ativados antes de usar o logon único.  
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Edcor. Trabalhe com a  [equipe de suporte do Edcor](http://www.edcor.com/contact-us-2/)  para adicionar os usuários na plataforma do Edcor. Os usuários devem ser criados e ativados antes de usar o logon único.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -191,18 +191,18 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Clique no botão **Atribuir** na caixa de diálogo **Adicionar atribuição**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Edcor no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo de Edcor.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 57eac1dcc170e2ac7e35cab64b6980bbe053db39
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156486"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092724"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Dimensione um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais
 Este artigo descreve como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um novo conjunto de dimensionamento de máquinas virtuais a um cluster existente. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó, ou adicionar um novo conjunto de dimensionamento de máquinas virtuais para um cluster existente.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -34,7 +34,7 @@ Este artigo descreve como dimensionar um cluster do Microsoft Azure Service Fabr
 Este é o processo para atualizar o tamanho da VM e o sistema operacional das VMs do tipo de nó primário.  Após fazer upgrade, as VMs do tipo de nó primário estarão em tamanho Standard D4_V2 e em execução no Windows Server 2016 Datacenter com Contêineres.
 
 > [!WARNING]
-> Antes de tentar esse procedimento em um cluster de produção, é recomendável que você estude os modelos de exemplo e verifique o processo em um cluster de teste. O cluster também estará indisponível por um tempo. Você NÃO pode fazer alterações em vários VMSS declarados como o mesmo NodeType em paralelo; você precisará executar operações de implantação separadas para aplicar alterações a cada VMSS do NodeType individualmente.
+> Antes de tentar esse procedimento em um cluster de produção, é recomendável que você estude os modelos de exemplo e verifique o processo em um cluster de teste. O cluster também estará indisponível por um tempo. Você NÃO pode fazer alterações em vários VMSS declarados como o mesmo NodeType em paralelo; é preciso executar operações de implantação separadas para aplicar alterações a cada VMSS do NodeType individualmente.
 
 1. Implante o cluster inicial com dois tipos de nós e dois conjuntos de dimensionamento (um conjunto de dimensionamento por tipo de nó) usando esses arquivos de [modelo](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) e [parâmetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) de exemplo.  Ambos os conjuntos de dimensionamento são do tamanho Standard D2_V2 e em execução no Windows Server 2012 R2 Datacenter.  Aguarde o cluster concluir o upgrade da linha de base.   
 2. Opcional - implante um exemplo com estado no cluster.

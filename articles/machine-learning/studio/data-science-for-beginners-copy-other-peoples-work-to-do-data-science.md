@@ -1,6 +1,6 @@
 ---
-Título: Copiar exemplos de ciência de dados de outras pessoas – titleSuffix: Descrição do Azure Machine Learning Studio: “Segredo comercial da ciência de dados: Obtenha outras pessoas para fazer seu trabalho por você. Obtenha exemplos de aprendizado de máquina da Galeria de IA do Azure.”
-serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+Título: Copiar exemplos de ciência de dados de outras pessoas – titleSuffix: Descrição do Azure Machine Learning Studio: “Segredo comercial da ciência de dados: Obtenha outras pessoas para fazer seu trabalho por você. Obtenha exemplos de aprendizado de máquina da Galeria de IA do Azure.”
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
 ---

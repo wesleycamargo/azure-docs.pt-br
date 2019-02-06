@@ -4,17 +4,17 @@ description: Saiba como o Azure Policy usa a configuração do convidado para au
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856393"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295161"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -63,6 +63,16 @@ A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema
 | Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| O Ruby e o Python são instalados pela extensão de Configuração de Convidado. |
 
+### <a name="validation-frequency"></a>Frequência de validação
+
+O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos.
+Depois que uma atribuição de convidado for recebida, as configurações serão verificadas em um intervalo de 15 minutos.
+Os resultados são enviados ao provedor de recursos de configuração do convidado assim que a auditoria é concluída.
+Quando ocorre um [gatilho de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado do computador é gravado no provedor de recursos de Configuração do Convidado.
+Isso faz com que a Política do Azure avalie as propriedades do Azure Resource Manager.
+Uma avaliação de Política sob demanda recupera o valor mais recente do provedor de recursos de Configuração do Convidado.
+No entanto, ele não dispara uma nova auditoria da configuração dentro da máquina virtual.
+
 ### <a name="supported-client-types"></a>Tipos de clientes com suporte
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte em imagens do Azure:
@@ -90,7 +100,7 @@ A tabela a seguir lista os sistemas operacionais que não têm suporte:
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
-Cada auditoria executada pela Configuração de Convidado exige duas definições de política, uma **DeployIfNotExists** e uma **AuditIfNotExists**. **DeployIfNotExists** é usada para preparar a máquina virtual com o agente de Configuração de Convidado e outros componentes para dar suporte às [ferramentas de validação](#validation-tools).
+Cada auditoria executada pela Configuração de Convidado exige duas definições de política, uma **DeployIfNotExists** e uma **Audit**. **DeployIfNotExists** é usada para preparar a máquina virtual com o agente de Configuração de Convidado e outros componentes para dar suporte às [ferramentas de validação](#validation-tools).
 
 A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
 
@@ -99,14 +109,14 @@ A definição de política **DeployIfNotExists** valida e corrige os seguintes i
   - Instalando a versão mais recente da extensão **Microsoft.GuestConfiguration**
   - Instalando [ferramentas de validação](#validation-tools) e dependências se necessário
 
-Quando **DeployIfNotExists** estiver em conformidade, a definição de política **AuditIfNotExists** usará as ferramentas de validação locais para determinar se a atribuição de configuração atribuída está em conformidade ou não está. A ferramenta de validação fornece os resultados para o cliente de Configuração de Convidado. O cliente encaminha os resultados para a Extensão de Convidado, o que os disponibiliza por meio do provedor de recursos da Configuração de Convidado.
+Quando **DeployIfNotExists** estiver em conformidade, a definição de política **Audit** usará as ferramentas de validação locais para determinar se a atribuição de configuração atribuída está em conformidade ou não está. A ferramenta de validação fornece os resultados para o cliente de Configuração de Convidado. O cliente encaminha os resultados para a Extensão de Convidado, o que os disponibiliza por meio do provedor de recursos da Configuração de Convidado.
 
 O Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos da Configuração de Convidado para relatar a conformidade no nó **Conformidade**. Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Para cada definição da Configuração de Convidado, as duas definições de política, **DeployIfNotExists** e **AuditIfNotExists**, precisam existir.
+> Para cada definição da Configuração de Convidado, as duas definições de política, **DeployIfNotExists** e **Audit**, precisam existir.
 
-Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada *[Versão Prévia]: Auditar as configurações de segurança de Senha em máquinas virtuais do Linux e do Windows* contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. Em cada caso, a lógica dentro da definição valida somente se o sistema operacional de destino é avaliado com base na definição da [regra de política](definition-structure.md#policy-rule).
+Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada *[Versão Prévia]: Auditar as configurações de segurança de Senha em máquinas virtuais do Linux e do Windows* contém 18 políticas. Há seis pares de **DeployIfNotExists** e **Audit** para o Windows e três para o Linux. Em cada caso, a lógica dentro da definição valida somente se o sistema operacional de destino é avaliado com base na definição da [regra de política](definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Próximas etapas
 

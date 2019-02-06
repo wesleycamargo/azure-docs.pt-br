@@ -1,6 +1,6 @@
 ---
-title: Como configurar o Banco de Dados SQL do Azure – Singleton | Microsoft Docs
-description: Saiba como configurar e gerenciar o Banco de Dados SQL do Azure – Banco de Dados Individual.
+title: Como configurar o Banco de Dados SQL do Azure – autônomo | Microsoft Docs
+description: Saiba como configurar e gerenciar o Banco de Dados SQL do Azure – Banco de Dados Autônomo
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477787"
 ---
-# <a name="how-to-use-single-database"></a>Como usar o banco de dados individual
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no Banco de Dados SQL do Azure
 
-Nesta seção, é possível encontrar vários guias, scripts e explicações que podem ajudar você a gerenciar e configurar seu Banco de Dados SQL do Azure – Banco de Dados Individual.
+Nesta seção, é possível encontrar vários guias, scripts e explicações que podem ajudar você a gerenciar e configurar seu banco de dados individual no Banco de Dados SQL do Azure
 
 ## <a name="migrate"></a>Migrar
 
-- [Migrar para o Banco de Dados SQL](sql-database-cloud-migrate.md) – saiba mais sobre o processo de migração recomendado e ferramentas para a migração para a Instância Gerenciada.
+- [Migrar para o Banco de Dados SQL](sql-database-cloud-migrate.md) – saiba mais sobre o processo de migração recomendado e ferramentas para a migração para uma Instância Gerenciada.
 - Saiba como [gerenciar o Banco de Dados SQL após a migração](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurar recursos
@@ -74,4 +74,4 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Usar a estrutura de Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados fragmentados.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [Guias de instruções na Instância Gerenciada](sql-database-howto-managed-instance.md)
+- Saiba mais sobre [Guias de instruções para Instância Gerenciada](sql-database-howto-managed-instance.md)

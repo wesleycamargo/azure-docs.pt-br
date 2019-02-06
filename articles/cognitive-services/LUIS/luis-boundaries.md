@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820403"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219115"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para seu modelo e suas chaves do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
@@ -24,15 +24,14 @@ O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-b
 
 ## <a name="model-boundaries"></a>Limites de modelo
 
-
 |Área|Limite|
 |--|:--|--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
 | [Teste de lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
-| [Intenções][intents]|500 por aplicativo<br>O aplicativo [com base em expedição](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes|
+| [Intenções][intents]|500 por aplicativo: 499 intenções personalizadas e a intenção _Nenhuma_ obrigatória.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
 | [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20.000 itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
-| [Entidades com aprendizado de máquina](./luis-concept-entity-types.md):<br> Composição,<br>  Hierárquico<br> Simples|100 <br>A contagem total de entidades com aprendizado de máquina (entidades simples, hierárquicas e compostas) não pode ultrapassar 100. As entidades hierárquicas e compostas não podem ter mais de 10 filhos.  |
+| [Entidades com aprendizado de máquina](./luis-concept-entity-types.md):<br> Composição,<br>  Hierárquico<br> Simples|Um limite de 100 entidades pai (não incluindo filhos hierárquicos) ou 330 entidades (incluindo filhos hierárquicos), o que limitar as ocorrências de usuário primeiro.<br><br>Um exemplo de hierarquia são 30 hierarquias, cada uma com 10 filhos.  Os filhos consumirão 300 no total e os elementos da hierarquia consumirão as 30 restantes. |
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicativo, 3 entidades pattern.any por padrão |
 | [Lista de frases][phrase-list]|10 listas de frases, 5 mil itens por lista|

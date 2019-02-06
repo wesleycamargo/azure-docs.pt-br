@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao ajuste de músicas | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com Settling music | Microsoft Docs'
 description: Aprenda como configurar o logon único entre o Azure Active Directory e o estabelecimento de músicas.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6f86a8a2-4bd0-40cc-b1b4-752fce123328
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fda6ca2efb670c8087252428e417a3e0901fa748
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 900254e42410aafa0d8e58048c7d88efa94dfed5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449056"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178538"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integração do Active Directory do Azure com o ajuste de músicas
+# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integração do Azure Active Directory com Settling music
 
 Neste tutorial, você aprenderá a integrar a organização de músicas com o Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando música da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Settling music](./media/settlingmusic-tutorial/tutorial_settlingmusic_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Settling music etapa 5](./media/settlingmusic-tutorial/tutorial_settlingmusic_step4.png)
 
-    a. Clique **para habilitar**.
+     a. Clique **para habilitar**.
 
     b. Na caixa de texto **URL de Logon do provedor de ID**, cole o valor da **URL do Serviço de Logon Único SAML** copiado no Portal do Azure.
 
@@ -189,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-settling-music-test-user"></a>Criar um usuário de teste do Settling music
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Settling music. Trabalhe com a [equipe de suporte ao Cliente do Settling music](https://rakurakuseisan.jp/) para adicionar os usuários à plataforma Settling music. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Settling music. Trabalhe com a  [equipe de suporte ao Cliente do Settling music](https://rakurakuseisan.jp/) para adicionar os usuários à plataforma do Settling music. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -211,22 +211,22 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O link “Usuários e grupos”][202]
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição][203]
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de Usuários.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Settling music no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Settling music.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
