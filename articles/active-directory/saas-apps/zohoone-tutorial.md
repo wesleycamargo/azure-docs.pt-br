@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao Zoho One | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Zoho One | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zoho One.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bbc3038c-0d8b-45dd-9645-368bd3d01a0f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 22563ec52459d4cd332a6e97df95348a74c3ae16
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438266"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152341"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Active Directory do Azure ao Zoho One
+# <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Azure Active Directory ao Zoho One
 
 Neste tutorial, você aprenderá como integrar o Zoho One ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Zoho One da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Zoho One Domain e informações de logon único de URLs](./media/zohoone-tutorial/tutorial_zohoone_url.png)
 
-    a. Na caixa de texto **Identificador (ID da entidade)**, digite uma URL: `one.zoho.com`
+     a. Na caixa de texto **Identificador (ID da entidade)**, digite uma URL: `one.zoho.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Assinatura Zoho One](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
-    a. Na caixa de texto **URL de Entrada** cole o valor da **URL do Serviço de Logon Único do SAML**, copiado do portal do Azure.
+     a. Na caixa de texto **URL de Entrada** cole o valor da **URL do Serviço de Logon Único do SAML**, copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Entrada** cole o valor da **URL de Entrada**, copiado do portal do Azure.
 
@@ -165,7 +165,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Adicionar domínio do Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
-    a. Na caixa de texto **Nome de Domínio**, digite um domínio como **contoso.com**.
+     a. Na caixa de texto **Nome de Domínio**, digite um domínio como **contoso.com**.
 
     b. Clique em **Adicionar**.
 
@@ -220,7 +220,7 @@ Para permitir que os usuários do Azure AD façam logon no Zoho One, eles devem 
 
     ![Adicionar usuário do Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda Fernandes**.
     
     b. Na caixa de texto **Endereço de Email**, insira o email do usuário como **brittasimon@contoso.com**.
 
@@ -264,7 +264,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Zoho One no Painel de Acesso, deverá conectar automaticamente no seu aplicativo Zoho One.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

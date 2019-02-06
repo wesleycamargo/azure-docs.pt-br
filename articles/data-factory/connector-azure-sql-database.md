@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025684"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884224"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -35,6 +35,8 @@ Especificamente, este conector de banco de dados SQL dá suporte a estas funçõ
 - Copie os dados usando a autenticação de token do Aplicativo Azure AD (Azure Active Directory) e autenticação do SQL com uma entidade de serviço ou identidades gerenciadas para recursos do Azure.
 - Como uma fonte, recupere dados usando uma consulta SQL ou procedimento armazenado.
 - Como um coletor, anexe os dados a uma tabela de destino ou chame um procedimento armazenado com lógica personalizada durante a cópia.
+
+O [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) do Banco de Dados SQL do Azure não é aceito agora. 
 
 > [!IMPORTANT]
 > Se você copiar dados usando o Tempo de Execução de Integração do Azure Data Factory, configure um [firewall do servidor SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que os Serviços do Azure possam acessar o servidor.
@@ -580,13 +582,13 @@ Quando você copia dados de ou para o Banco de Dados SQL do Azure, os seguintes 
 | binário |Byte[] |
 | bit |BOOLEAN |
 | char |String, Char[] |
-| data |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| data |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Float |Duplo |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
@@ -596,18 +598,21 @@ Quando você copia dados de ou para o Banco de Dados SQL do Azure, os seguintes 
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Objeto * |
+| sql_variant |Objeto |
 | text |String, Char[] |
-| tempo real |timespan |
+| tempo real |TimeSpan |
 |  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
+
+>[!NOTE]
+> Em mapas de tipos de dados para o tipo provisório Decimal, atualmente o ADF dá suporte a uma precisão de até 28. Se você tiver dados com precisão maior do que 28, considere a conversão da cadeia de caracteres em consulta SQL.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de repositórios de dados com suporte como fontes e repositórios por Atividade de Cópia no Azure Data Factory, consulte [repositórios de dados e formatos compatíveis](copy-activity-overview.md##supported-data-stores-and-formats).

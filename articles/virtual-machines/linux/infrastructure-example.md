@@ -3,7 +3,7 @@ title: Passo a passo da infraestrutura do Azure de exemplo | Microsoft Docs
 description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469843"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888950"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Passo a passo de infraestrutura do Azure de exemplo para VMs Linux
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
@@ -72,8 +72,8 @@ Como a rede virtual não precisa de conectividade contínua com a rede local da 
 
 Criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
 
-* Name: AZOS-USE-VN01
-* Local: Leste dos EUA 2
+* Nome: AZOS-USE-VN01
+* Localização: Leste dos EUA 2
 * Espaço de endereço da rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
   * Nome: FrontEnd

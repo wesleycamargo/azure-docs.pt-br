@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Coupa | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Coupa | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Coupa.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4bf40f76f5a8f788305b4dc9f91523f53fb59acf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50d2e6a7ae1f34232a20e244ac65c2d3678f4f97
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448077"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153923"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: integração do Active Directory do Azure ao Coupa
+# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Azure Active Directory ao Coupa
 
 Neste tutorial, você aprende a integrar o Coupa ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Coupa a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Informações de logon único de Domínio e URLs do Coupa](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.coupahost.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Coupa](https://success.coupa.com/Support/Contact_Us?) para obter esses valores.
@@ -149,7 +149,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Metadados SP do Coupa](./media/coupa-tutorial/ic791901.png "Metadados SP do Coupa")
 
-    a. Selecione **Fazer logon usando o SAML**.
+     a. Selecione **Fazer logon usando o SAML**.
 
     b. Clique em **Procurar** para carregar os metadados baixados a partir do portal do Azure.
 
@@ -209,7 +209,7 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 
    ![Detalhes do Usuário](./media/coupa-tutorial/ic791910.png "Detalhes do Usuário")
 
-   a. Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
    b. Clique em **Criar**.
 
@@ -255,7 +255,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Coupa no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo do Coupa.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

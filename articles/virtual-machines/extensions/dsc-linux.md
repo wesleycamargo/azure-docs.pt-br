@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632850"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888984"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -54,7 +54,7 @@ A extensão de DSC Linux dá suporte a todas as [extensão de suporte para SO](h
  
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-A extensão DSCFoxLinux requer que a máquina virtual de destino esteja conectada à Internet. Por exemplo, a extensão de registro exige conectividade com o serviço de automação. Para outras ações como Pull, Pull, a instalação exige conectividade com o armazenamento do azure/github. Ele depende de configurações fornecidas pelo cliente.
+A extensão DSCFoxLinux requer que a máquina virtual de destino esteja conectada à Internet. Por exemplo, a extensão de registro exige conectividade com o serviço de automação. Para outras ações, como Efetuar Pull, Efetuar Push, Instalar, é preciso ter conectividade com o armazenamento do azure/github. Ele depende de configurações fornecidas pelo cliente.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -64,11 +64,11 @@ Aqui estão todos os parâmetros de configuração pública com suporte:
 
 * `FileUri`: (opcional, cadeia de caracteres) o uri do MOF Meta/arquivo MOF personalizado/arquivo ZIP do arquivo de recurso.
 * `ResourceName`: (opcional, cadeia de caracteres) o nome do módulo de recurso personalizado
-* `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. os valores válidos: registrar, enviar por Push, Pull, instalar, remover. Se não for especificado, ele é considerado como a ação de enviar por Push por padrão.
+* `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. Valores válidos: Registrar, Efetuar Push, Efetuar Pull, Instalar, Remover. Se não for especificado, ele é considerado como a ação de enviar por Push por padrão.
 * `NodeConfigurationName`: (opcional, cadeia de caracteres) o nome de uma configuração de nó a ser aplicada.
 * `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) que DSC tenta obter a configuração do servidor de pull. 
        Se a configuração no servidor de pull for diferente da atual no nó de destino, ela é copiada para o repositório pendente e aplicada.
-* `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como DSC deve aplicar a configuração. Os valores válido são: ApplyOnly, ApplyandMonitior e ApplyandAutoCorrect.
+* `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como DSC deve aplicar a configuração. Os valores válidos são: ApplyOnly, ApplyandMonitior e ApplyandAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) DSC garante que a configuração está no estado desejado.
 
 > [!NOTE]
@@ -425,7 +425,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 ```
 
 Código de erro: 51 representa a distribuição sem suporte ou ação de extensão sem suporte.
-Em alguns casos, o Linux DSC extensão Falha ao instalar a OMI quando uma versão superior do OMI já existe na máquina. [resposta de erro: não permitido de Downgrade (000003)]
+Em alguns casos, o Linux DSC extensão Falha ao instalar a OMI quando uma versão superior do OMI já existe na máquina. [resposta de erro: (000003)Downgrade não permitido]
 
 
 

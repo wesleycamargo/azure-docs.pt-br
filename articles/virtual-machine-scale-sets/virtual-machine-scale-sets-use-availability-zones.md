@@ -3,7 +3,7 @@ title: Criar um conjunto de dimensionamento do Azure que use Zonas de Disponibil
 description: Saiba como criar conjunto de dimensionamento de máquinas virtuais do Azure que usam Zonas de Disponibilidade para aumentar a redundância contra interrupções
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: zarhoads
-ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468867"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886230"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -215,7 +215,7 @@ Para criar um conjunto de dimensionamento com redundância de zona, especifique 
 }
 ```
 
-Se você criar um endereço IP público ou um balanceador de carga, especifique a propriedade *"sku": {"name": "Padrão"} "* para criar recursos de rede com redundância de zona. Você também precisa criar um grupo de segurança de rede e regras para permitir que qualquer tráfego. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
+Se você criar um endereço IP público ou um balanceador de carga, especifique a propriedade *"sku": { "name": "Standard" }"* para criar recursos de rede com redundância de zona. Você também precisa criar um grupo de segurança de rede e regras para permitir que qualquer tráfego. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para obter um exemplo completo de um conjunto de dimensionamento com redundância de zona e recursos de rede, consulte [este Resource Manager de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

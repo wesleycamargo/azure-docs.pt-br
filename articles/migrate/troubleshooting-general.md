@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827934"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102114"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -153,8 +153,20 @@ O Coletor de Migrações para Azure baixa o PowerCLI e o instala no dispositivo.
 Esse problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga as etapas abaixo para resolver o problema:
 
 1. Se você não estiver usando a versão mais recente do dispositivo coletor, [atualize o coletor para a versão mais recente](https://aka.ms/migrate/col/checkforupdates) e verifique se o problema for resolvido.
-2. Se você já tiver a versão mais recente do coletor, instale manualmente o [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema for resolvido.
-3. Se as opções acima não resolverem o problema, navegue até a pasta C:\Arquivos de Programas\ProfilerService e remova os arquivos VMware.dll e VimService65.dll, e, em seguida, reinicie o serviço de 'Coletor de Migrações para Azure' no Service Manager do Windows (abra 'Executar' e digite 'services.msc' para abrir o Service Manager do Windows).
+2. Se você já tiver a última versão do coletor, siga as etapas abaixo para fazer uma instalação limpa do PowerCLI:
+
+    a. Feche o navegador da Web no dispositivo.
+
+   b. Interrompa o serviço 'Coletor de Migrações para Azure' acessando o Windows Service Manager (Abra 'Executar' e digite services.msc para abrir o Windows Service Manager). Clique com o botão direito do mouse no serviço Coletor de Migrações para Azure e clique em Parar.
+
+   c. Exclua todas as pastas que começam com 'VMware' nos seguintes locais: C:\Arquivos de Programas\WindowsPowerShell\Modules  
+        C:\Arquivos de Programas (x86)\WindowsPowerShell\Modules
+
+   d. Reinicie o serviço 'Coletor de Migrações para Azure' no Windows Service Manager (Abra 'Executar' e digite services.msc para abrir o Windows Service Manager). Clique com o botão direito do mouse no serviço Coletor de Migrações para Azure e clique em Iniciar.
+   
+   e. Clique duas vezes o atalho da área de trabalho 'Executar coletor' para iniciar o aplicativo de coletor. O aplicativo coletor deve baixar e instalar automaticamente a versão necessária do PowerCLI.
+
+3. Se as etapas acima não resolverem o problema, instale o [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) manualmente e verifique se o problema foi resolvido.
 
 ### <a name="error-unabletoconnecttoserver"></a>Erro UnableToConnectToServer
 
@@ -207,10 +219,10 @@ A lista de sistemas operacionais Linux com suporte no MMA está [aqui](https://d
 ### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operacionais com suporte no Dependency Agent?
 
 A lista de sistemas de operacionais Windows com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-A lista de sistemas de operacionais Linux com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+A lista de sistemas de operacionais Linux com suporte no agente de dependência está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo visualizar as dependências nas Migrações para Azure por um período maior de uma hora?
-As Migrações para Azure permitem que você visualize as dependências por um período de até uma hora. Embora as Migrações para Azure permitam que você volte para uma data específica no histórico de até um mês atrás, a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora.
+As Migrações para Azure permitem que você visualize as dependências por um período de até uma hora. Embora as Migrações para Azure permitam que você volte para uma data específica no histórico de até um mês atrás, a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora. No entanto, você pode usar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) por um período mais longo.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo visualizar as dependências para grupos com mais de 10 VMs?
 Você pode [visualizar as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de até 10 VMs. No caso de um grupo com mais de 10 VMs, é recomendado dividir o grupo em grupos menores e visualizar as dependências.

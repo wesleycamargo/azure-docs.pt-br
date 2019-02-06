@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051868"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104687"
 ---
 # <a name="connect-to-a-data-source"></a>Conectar-se a uma fonte de dados
 
@@ -30,7 +30,7 @@ Estas são as diferenças entre o uso de **Importar** e **DirectQuery**.
 | --- | --- |
 | Tabelas, colunas, *e dados* são importados ou copiados para o conjunto de dados do relatório. Para ver as alterações ocorridas nos dados subjacentes, você deve atualizar ou importar novamente um conjunto de dados completo e atual. |Somente *tabelas e colunas* são importados ou copiados para o conjunto de dados do relatório. Você sempre pode exibir os dados mais atuais. |
 
-Com as Coleções de Workspaces do Power BI, você pode usar DirectQuery com fontes de dados de nuvem, mas não em fontes de dados locais no momento.
+Com as Coleções de Workspaces do Power BI, você pode usar o DirectQuery com fontes de dados de nuvem, mas não em fontes de dados locais no momento.
 
 > [!NOTE]
 > Não há suporte para o Gateway de Dados Local com o as Coleções de Workspaces do Power BI no momento. Isso significa que não é possível usar o DirectQuery com fontes de dados locais.
@@ -43,7 +43,7 @@ Com as Coleções de Workspaces do Power BI, você pode usar DirectQuery com fon
 
 **Importaçãoação**
 
-É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Espaços de Trabalho do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Workspaces do Power BI. Isso ocorre quando não há gateways disponíveis. 
+É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Workspaces do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Workspaces do Power BI. Isso ocorre quando não há gateways disponíveis. 
 
 ## <a name="benefits-of-using-directquery"></a>Benefícios do uso do DirectQuery
 
@@ -69,7 +69,7 @@ Para garantir que as consultas enviadas à fonte de dados subjacente tenham um d
 
 ## <a name="see-also"></a>Veja também
 
-* [Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI](get-started.md)
+* [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)

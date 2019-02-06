@@ -9,22 +9,27 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9446bbd4783aaf20f1bc9079ec43f7050274bf11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847995"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095598"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
-Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. O Barramento de Serviço do Azure dá suporte à recuperação de desastre em área geográfica e à replicação geográfica no nível do namespace. 
+Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Assim, a *recuperação de desastre geográfico* é um recurso importante para qualquer empresa. O Barramento de Serviço do Azure oferece suporte à recuperação de desastre geográfico no nível do namespace.
 
 O recurso de recuperação de desastres em área geográfica fica globalmente disponível para a SKU Premium do Barramento de Serviço. 
 
+>[!NOTE]
+> A recuperação de desastre geográfico atualmente garante apenas que os metadados (filas, tópicos, assinaturas, filtros) sejam copiados do namespace primário para o namespace secundário quando emparelhados.
+
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
-É importante observar a diferença entre "interrupção" e "desastres". Uma *interrupção* é uma indisponibilidade temporária do Barramento de Serviço do Azure e pode afetar alguns componentes do serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. No entanto, depois que o problema for corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de tal interrupção pode ser uma falha de energia no datacenter. Algumas falhas são apenas perdas de conexão curtas devido a problemas de rede ou transitórios. 
+É importante observar a diferença entre "interrupção" e "desastres". 
+
+Uma *interrupção* é uma indisponibilidade temporária do Barramento de Serviço do Azure e pode afetar alguns componentes do serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. No entanto, depois que o problema for corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de tal interrupção pode ser uma falha de energia no datacenter. Algumas falhas são apenas perdas de conexão curtas devido a problemas de rede ou transitórios. 
 
 Um *desastre* é definido como a perda permanente ou de longo prazo de um cluster do Barramento de Serviço, uma região do Azure ou um datacenter. A região ou o datacenter pode ou não ficar disponível novamente ou pode ficar inativo por horas ou dias. Outros exemplos desses desastres são incêndios, enchentes ou terremoto. Um desastre que se torne permanente pode causar a perda de algumas mensagens, alguns eventos ou outros dados. No entanto, na maioria dos casos, não deve haver perda de dados e as mensagens poderão ser recuperadas depois que do backup do data center.
 
@@ -36,33 +41,47 @@ O recurso de recuperação de desastre implementa a recuperação de desastre do
 
 Os seguintes termos são usados neste artigo:
 
--  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
+-  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. Usar um alias garante que a cadeia de caracteres de conexão fique inalterada quando o failover for disparado.
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
--  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas. 
+-  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
 
 -  *Failover*: o processo de ativação do namespace secundário.
 
-## <a name="setup-and-failover-flow"></a>Instalação e fluxo de failover
+## <a name="setup"></a>Configuração
 
-A seção a seguir é uma visão geral do processo de failover e explica como configurar o failover inicial. 
+A seção a seguir é uma visão geral da configuração do emparelhamento entre os namespaces.
 
 ![1][]
 
-### <a name="setup"></a>Configuração
+O processo de instalação é o seguinte:
 
-Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
+1. Provisione um Namespace Premium do Barramento de Serviço ***primário***.
 
-### <a name="example"></a>Exemplo
+2. Provisione um Namespace Premium do Barramento de Serviço ***secundário*** em uma região *diferente de onde o namespace primário está provisionado*. Isso ajuda a permitir o isolamento de falhas nas diferentes regiões de datacenter.
 
-Em um exemplo desse cenário, considere uma solução de ponto de venda (PDV) que emita mensagens ou eventos. O Barramento de Serviço transmite esses eventos para soluções de mapeamento ou reformatação solução, que encaminha dados mapeado para outro sistema para processamento adicional. Nesse ponto, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão sobre quando fazer o failover e em qual parte depende do fluxo de dados em sua infraestrutura. 
+3. Crie o emparelhamento entre os namespaces primário e secundário para obter o ***alias***.
 
-Você pode automatizar o failover tanto com sistemas de monitoramento ou com soluções de monitoramento personalizadas. No entanto, essa automação precisa de planejamento e trabalho adicionais, o que está fora do escopo deste artigo.
+4. Use o ***alias*** obtido na etapa 3 para conectar os aplicativos clientes ao namespace primário habilitado para recuperação de desastre geográfico. Inicialmente, o alias aponta para o namespace primário.
 
-### <a name="failover-flow"></a>Fluxo do failover
+5. [Opcional] Adicione um monitoramento para detectar se um failover é necessário.
 
-Se você iniciar o failover, as duas etapas são necessárias:
+## <a name="failover-flow"></a>Fluxo do failover
+
+Um failover é disparado manualmente pelo cliente (seja explicitamente por meio de um comando ou por meio da lógica de negócios de propriedade do cliente que aciona o comando) e nunca pelo Azure. Isso dá ao cliente visibilidade e propriedade completa para resolução de interrupção no backbone do Azure.
+
+![4][]
+
+Após o failover ser disparado:
+
+1. A cadeia de caracteres de conexão do ***alias*** é atualizada para apontar para o namespace Premium secundário.
+
+2. Os clientes (remetentes e receptores) conectam-se automaticamente no namespace secundário.
+
+3. O emparelhamento existente entre os namespaces premium primário e secundário é interrompido.
+
+Depois que o failover é iniciado:
 
 1. Caso ocorra outra interrupção, você deve ser capaz de fazer o failover novamente. Portanto, configure outro namespace passivo e atualize o emparelhamento. 
 
@@ -70,6 +89,8 @@ Se você iniciar o failover, as duas etapas são necessárias:
 
 > [!NOTE]
 > Há suporte apenas para semânticas encaminhadas com falha. Nesse cenário, você faz o failover e emparelha novamente com um novo namespace. Não há suporte para failback, em um cluster do SQL por exemplo. 
+
+Você pode automatizar o failover tanto com sistemas de monitoramento ou com soluções de monitoramento personalizadas. No entanto, essa automação precisa de planejamento e trabalho adicionais, o que está fora do escopo deste artigo.
 
 ![2][]
 
@@ -95,20 +116,20 @@ Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/s
 
 Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
-1. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover. 
- 
+1. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover.
+
 2. O fato de que nenhum dado seja replicado significa que sessões atualmente ativas não são replicadas. Além disso, a detecção duplicada e mensagens programadas podem não funcionar. Novas sessões, novas mensagens agendadas e novas duplicatas funcionarão. 
 
-3. O failover de uma infraestrutura complexa distribuída deve ser [testado](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) pelo menos uma vez. 
+3. O failover de uma infraestrutura complexa distribuída deve ser [testado](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) pelo menos uma vez.
 
-4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto. Assinaturas e regras também são contadas como entidades. 
+4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto. Assinaturas e regras também são contadas como entidades.
 
-## <a name="availability-zones-preview"></a>Zonas de Disponibilidade (versão prévia)
+## <a name="availability-zones"></a>Zonas de Disponibilidades
 
-O SKU Premium do Barramento de Serviço também oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
+O SKU Premium do Barramento de Serviço também oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure.
 
 > [!NOTE]
-> A versão prévia das Zonas de Disponibilidade tem suporte apenas nas regiões **Centro dos EUA**, **Leste dos EUA 2** e **França Central**.
+> O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) em que existem zonas de disponibilidade.
 
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 
@@ -127,6 +148,7 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os artigos
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * [API REST](/rest/api/servicebus/) 
 
-[1]: ./media/service-bus-geo-dr/geo1.png
+[1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png
 [3]: ./media/service-bus-geo-dr/az.png
+[4]: ./media/service-bus-geo-dr/geodr_failover_alias_update.png

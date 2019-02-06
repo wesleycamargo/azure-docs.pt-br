@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404670"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147974"
 ---
 Você pode tirar proveito das várias oportunidades de monitorar suas VMs coletando, exibindo e analisando o diagnóstico e os dados de log. Para fazer um simples [monitoramento](../articles/azure-monitor/overview.md) da VM, você pode usar a tela Visão geral da VM no portal do Azure. Você pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar o diagnóstico em suas VMs a fim de coletar dados de métrica adicionais. Você também pode usar opções de monitoramentos mais avançadas, como o [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e o [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -41,7 +41,7 @@ A [Integridade de Serviço do Azure](../articles/service-health/service-health-o
 
 O [Azure Resource Health](../articles/service-health/resource-health-overview.md) ajuda você a diagnosticar e a obter suporte quando um problema com o Azure afeta seus recursos. Ele informa sobre a integridade atual e anterior de seus recursos e ajuda a reduzir os problemas. O Resource Health fornece suporte técnico quando você precisa de ajuda com problemas de serviço do Azure.
 
-## <a name="logs"></a>Logs
+## <a name="azure-activity-log"></a>Log de Atividades do Azure
 
 O [Log de Atividades do Azure](../articles/azure-monitor/platform/activity-logs-overview.md) é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. O log inclui um intervalo de dados, de dados operacionais do Azure Resource Manager para atualizações em eventos de Integridade do Serviço. Você pode clicar em Log de Atividades no portal do Azure para exibir o log da sua VM.
 
@@ -64,11 +64,13 @@ Algumas coisas que você pode fazer com os logs de diagnóstico incluem:
 
 ## <a name="advanced-monitoring"></a>Monitoramento avançado
 
-- O [Log Analytics](../articles/log-analytics/log-analytics-overview.md) é um serviço que monitora os ambientes locais e de nuvem para manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. Instale uma extensão em uma [VM do Linux](../articles/virtual-machines/linux/extensions-oms.md) ou uma [VM do Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala o agente do Log Analytics e registra a VM em um workspace existente do Log Analytics.
+- O [Azure Monitor](../articles/azure-monitor/overview.md) é um serviço que monitora os ambientes locais e na nuvem para manter a disponibilidade e o desempenho deles. Ele fornece uma solução abrangente para coleta, análise e ação com base na telemetria em seus ambientes de nuvem e locais. Ele ajuda a entender o desempenho de seus aplicativos, além de identificar de maneira proativa os problemas que os estão afetando e os recursos dos quais eles dependem. Você pode instalar uma extensão em uma [VM Linux](../articles/virtual-machines/linux/extensions-oms.md) ou [VM Windows](../articles/virtual-machines/windows/extensions-oms.md) que instale o agente do Log Analytics para coletar dados de log e armazenar em um espaço de trabalho do Log Analytics.
 
-    Para VMs Windows e Linux, o método recomendado para coletar métricas e logs é instalando o agente do Log Analytics. A maneira mais fácil de instalar o agente do Log Analytics em uma VM é por meio da [Extensão de VM do Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o workspace do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
+    Para VMs Windows e Linux, o método recomendado para coletar logs é a instalação do agente do Log Analytics. A maneira mais fácil de instalar o agente do Log Analytics em uma VM é por meio da [Extensão de VM do Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o workspace do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
 
 - O [Observador de Rede](../articles/network-watcher/network-watcher-monitoring-overview.md) permite que você monitore sua VM e seus recursos associados de acordo com o relacionamento deles com a rede em que estão. Você pode instalar a extensão Agente do Observador de rede em uma [VM Linux](../articles/virtual-machines/linux/extensions-nwa.md) ou [VM Windows](../articles/virtual-machines/windows/extensions-nwa.md).
+
+- O [Azure Monitor para VMs](../articles/azure-monitor/insights/vminsights-overview.md) monitora suas VMs (máquina virtuais) do Azure em escala analisando o desempenho e a integridade das VMs Windows e Linux, incluindo seus diferentes processos e dependências interconectados a outros recursos e processos externos. 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Siga as etapas em [Monitorar uma Máquina Virtual Windows com o Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) ou [Monitorar uma Máquina Virtual Linux com a CLI do Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).

@@ -7,7 +7,7 @@ author: kkrishna
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 6321823eed00cffc6565471ec1ba3b4d846cd027
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b44aa35765cba33a85519fcd53f0df365c26be6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948699"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093403"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como adicionar funções de aplicativo em seu aplicativo e recebê-las no token
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
 O RBAC (controle de acesso baseado em função) é um mecanismo comum usado para impor a autorização em aplicativos. Usando o RBAC, o administrador concede permissões a funções, e não a usuários ou grupos individuais. O administrador pode, então, atribuir funções a diferentes usuários e grupos para controlar quem tem acesso a qual conteúdo e funcionalidade.
 
@@ -111,7 +111,7 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
 1. Na parte superior da lista **Usuários e grupos**, selecione o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
-     Uma lista de usuários e grupos de segurança será exibida, em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você selecione vários usuários e grupos de uma só vez.
+     Uma lista de usuários e grupos de segurança será exibida, em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você escolha vários usuários e grupos de uma só vez.
 
 1. Após terminar de selecionar os usuários e grupos, pressione o botão **Selecionar** na parte inferior para passar para a próxima parte.
 1. Escolha o seletor **Selecionar Função** no painel **Adicionar atribuição**. Todas as funções declaradas anteriormente no manifesto do aplicativo serão exibidas.

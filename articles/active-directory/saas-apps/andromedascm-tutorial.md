@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7a142c86-ca0c-4915-b1d8-124c08c3e3d8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 047e1ea6a474d95c57ffc2bdff5ad8a5c45e0d36
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6d280a7e0e10b00e4d8d8f631d0d5987f2fbecb4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048558"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Azure Active Directory ao Andromeda
 
@@ -34,7 +34,7 @@ A integração do Andromeda ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Andromeda, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Andromeda por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantURL>.ngcxpress.com/`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantURL>.ngcxpress.com/`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
@@ -139,7 +139,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Não há valores reais. Esses valores são somente para finalidade de demonstração; use as funções de sua organização.
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar logon único Add](./media/andromedascm-tutorial/tutorial_attribute_04.png)
 
@@ -179,7 +179,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configuração do Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Marque **Habilitar o SSO com SAML**.
+     a. Marque **Habilitar o SSO com SAML**.
 
     b. Na seção **Informações sobre o Andromeda**, copie o valor **Identidade do SP** e cole-o na caixa de texto **Identificador** da seção **Domínio e URL do Andromeda**.
 
@@ -200,7 +200,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     i. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

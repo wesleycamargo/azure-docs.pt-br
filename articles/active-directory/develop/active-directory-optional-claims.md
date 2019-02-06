@@ -7,7 +7,7 @@ services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345480"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077228"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como fornecer declarações opcionais ao aplicativo Azure AD (visualização pública)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: fornecer declarações opcionais ao aplicativo do Azure AD (Visualização pública)
 
 Esse recurso é usado por desenvolvedores de aplicativos para especificar quais declarações eles querem em tokens enviados para o aplicativo. Você pode usar declarações opcionais para:
 - Selecione declarações adicionais para incluir nos tokens para o aplicativo.
@@ -82,7 +82,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 
 Essas declarações são sempre incluídas em tokens da v1.0, mas não em tokens da v2.0, a menos que solicitado. Essas declarações só são aplicáveis a JWTs (tokens de ID e Tokens de Acesso). 
 
-**Tabela 3: Somente declarações V2.0 opcionais**
+**Tabela 3: Declarações opcionais somente V2.0**
 
 | Declaração JWT     | NOME                            | DESCRIÇÃO                                | Observações |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -168,7 +168,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| NOME        | Tipo                       | DESCRIÇÃO                                           |
+| NOME        | Type                       | DESCRIÇÃO                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT. |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -181,7 +181,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| NOME                 | Tipo                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
+| NOME                 | Type                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |

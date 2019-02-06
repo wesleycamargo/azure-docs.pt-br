@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 807a99a8cac7326648ff4aa91b9fcdeb35de196a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320779"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910176"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -27,7 +27,7 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Comparado ao [conector SFTP](../connectors/connectors-create-api-sftp.md), o conector SFTP-SSH pode ler ou gravar arquivos com até *1 GB* de tamanho. Para mais diferenças, reveja [Compare SFTP-SSH versus SFTP](#comparison) mais adiante neste artigo.
+Comparado ao [conector SFTP](../connectors/connectors-create-api-sftp.md), o conector SFTP-SSH pode ler ou gravar arquivos com até *1 GB* de tamanho, gerenciando dados em pacotes de 50 MB. Para arquivos maiores que 1 GB, as ações podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Para mais diferenças, reveja [Compare SFTP-SSH versus SFTP](#comparison) mais adiante neste artigo.
 
 Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com.
 Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
@@ -48,7 +48,7 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
   > * **Algoritmos de criptografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impressão digital**: MD5
 
-* Lê ou grava arquivos de até *1 GB* em tamanho em comparação com o conector SFTP, mas lida com os dados em porções de 50 MB, não de 1 GB.
+* Lê ou grava arquivos de até *1 GB* em tamanho em comparação com o conector SFTP, mas lida com os dados em porções de 50 MB, não de 1 GB. Para arquivos maiores que 1 GB, as ações também podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os gatilhos não são compatíveis com o agrupamento.
 
 * Fornece a ação **Criar pasta**, que cria uma pasta no caminho especificado no servidor SFTP.
 
@@ -130,12 +130,15 @@ Os gatilhos de SFTP-SSH funcionam sondando o sistema de arquivos SFTP e procuran
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está concluído e não gravado parcialmente. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo gravado parcialmente, o gatilho observa o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna o arquivo imediatamente. O gatilho retorna o arquivo apenas ao executar a sondagem do servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho. 
 
-Ao solicitar o conteúdo do arquivo, o gatilho não recupera arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão:
+Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
 
-* Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**. 
-* Siga o gatilho com uma ação que lê o arquivo completo, como **Obter conteúdo do arquivo usando caminho**.
+* Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
+
+* Siga o gatilho com uma ação que leia o arquivo completo, como **Obter conteúdo do arquivo usando caminho** e faça a ação usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="examples"></a>Exemplos
+
+<a name="file-added-modified"></a>
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Gatilho SFTP – SSH: Quando um arquivo é adicionado ou modificado
 
@@ -143,9 +146,23 @@ Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arqui
 
 **Exemplo corporativo**: você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Em seguida, você pode usar uma ação de SFTP, como **Obter conteúdo de arquivo**, para obter o conteúdo do pedido para processamento posterior e armazenar esse pedido em um banco de dados de pedidos.
 
-### <a name="sftp---ssh-action-get-content"></a>Ação SFTP – SSH: obter conteúdo
+Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+
+* Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
+
+* Siga o gatilho com uma ação que leia o arquivo completo, como **Obter conteúdo do arquivo usando caminho** e faça a ação usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp---ssh-action-get-content-using-path"></a>Ação SFTP – SSH: Obter o conteúdo usando o caminho
 
 Esta ação obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada. 
+
+Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+
+* Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
+
+* Siga o gatilho com uma ação que leia o arquivo completo, como **Obter conteúdo do arquivo usando caminho** e faça a ação usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Referência de conector
 

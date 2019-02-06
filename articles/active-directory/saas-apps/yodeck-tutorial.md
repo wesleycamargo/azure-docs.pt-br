@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b017efd2c170f543041dcb35a3a3d040389d1dac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2f767e813c2ba803cfafaaf6d9798ee2ea3f93d2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436787"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165091"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Active Directory do Azure ao Yodeck
+# <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Azure Active Directory ao Yodeck
 
 Neste tutorial, você aprenderá a integrar o Yodeck ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Yodeck da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -134,7 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração do Yodeck](./media/yodeck-tutorial/configure2.png)
 
-    a. Selecione **Importar da URL**.
+     a. Selecione **Importar da URL**.
 
     b. Na caixa de texto **URL**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure e clique em **Importar**.
     
@@ -195,7 +195,7 @@ No caso do Yodeck, o provisionamento é uma tarefa manual.
 
     ![Adicionar Funcionário](./media/yodeck-tutorial/user3.png)
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o Sobrenome do usuário, como **Fernandes**.
 
@@ -240,7 +240,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Yodeck no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Yodeck.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

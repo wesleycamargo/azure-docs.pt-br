@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 19199d25b960d768f844d725616220fb78e7d983
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425115"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094046"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicativos de web do Active Directory do Azure usando o fluxo de concessão de código do OAuth 2.0
 
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |recomendável |Um valor incluído na solicitação que também retorna na resposta do token. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 | recurso | recomendável |O URI do ID do aplicativo da API da web de destino (recurso protegido). Para localizar o URI do ID do aplicativo, no Portal do Azure, clique em **Active Directory do Azure**, clique em **Registros do aplicativo**, abra a página **Configurações** do aplicativo e clique em **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isso é necessário em um dos autorização ou solicitações de token. Para garantir a autenticação menos prompts colocá-lo na solicitação de autorização para garantir que é recebido consentimento do usuário. |
 | scope | **ignored** | Para aplicativos do Azure AD v1, escopos devem ser configurados estaticamente no Portal do Azure em aplicativos da **configurações**, **permissões necessárias**. |
-| prompt |opcional |Indique o tipo de interação do usuário necessária.<p> Os valores válidos são: <p> *logon*: o usuário deve ser solicitado a autenticar novamente. <p> *select_account*: é solicitado que o usuário selecione uma conta, interrompendo o logon único. O usuário pode selecionar uma conta existente conectada, inserir as credenciais de uma conta memorizada ou optar por usar uma conta diferente. <p> *consentimento*: consentimento do usuário foi concedido, mas precisa ser atualizado. O usuário deve ser solicitado a consentir. <p> *admin_consent*: o administrador deve ser solicitado a consentir em nome de todos os usuários em sua organização |
+| prompt |opcional |Indique o tipo de interação do usuário necessária.<p> Os valores válidos são: <p> *login*: o usuário deve ser solicitado a autenticar novamente. <p> *select_account*: é solicitado que o usuário selecione uma conta, interrompendo o logon único. O usuário pode selecionar uma conta existente conectada, inserir as credenciais de uma conta memorizada ou optar por usar uma conta diferente. <p> *consent*: o consentimento do usuário foi concedido, mas precisa ser atualizado. O usuário deve ser solicitado a consentir. <p> *admin_consent*: um administrador deve ser solicitado a consentir em nome de todos os usuários em sua organização |
 | login_hint |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência. Geralmente, os aplicativos usam esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
 | domain_hint |opcional |Fornece uma dica sobre o locatário ou domínio que o usuário deve usar para entrar. O valor de domain_hint é um domínio registrado para o locatário. Se o locatário for federado para um diretório local, o AAD redirecionará para o servidor de federação do locatário especificado. |
 | code_challenge_method | recomendável    | O método utilizado para codificar o `code_verifier` para o parâmetro `code_challenge`. Pode ser `plain` ou `S256`. Se excluído, `code_challenge` será considerado texto não criptografado se `code_challenge` estiver incluído. O Azure AAD v1.0 dá suporte para `plain` e `S256`. Para mais informações, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -175,7 +175,7 @@ Uma resposta bem-sucedida se parece com esta:
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | access_token |O [token de acesso](access-tokens.md) solicitado como um JWT (Token Web JSON) assinado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web. |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, confira [Estrutura de Autorização do OAuth2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Por quanto tempo o token de acesso é válido (em segundos). |
 | expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
 | recurso |O URI de ID do Aplicativo da API Web (recurso seguro). |

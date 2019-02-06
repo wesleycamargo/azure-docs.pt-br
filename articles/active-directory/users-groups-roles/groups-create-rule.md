@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249655"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156914"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o status
 
@@ -54,16 +54,16 @@ Veja o status do processamento de associação e a data da última atualização
 
 As seguintes mensagens de status podem ser mostradas para o status **Processamento de associação**:
 
-* **Avaliando**: a alteração do grupo foi recebida e as atualizações estão sendo avaliadas.
+* **Avaliando**:  a alteração do grupo foi recebida e as atualizações estão sendo avaliadas.
 * **Processando**: as atualizações estão sendo processadas.
 * **Atualização concluída**: o processamento foi concluído e todas as atualizações aplicáveis foram feitas.
 * **Erro de processamento**: ocorreu um erro ao avaliar a regra de associação e o processamento não pôde ser concluído.
-* **Atualização em pausa**: as atualizações da regra de associação dinâmica foram pausadas pelo administrador. MembershipRuleProcessingState é definido como "Em pausa".
+* **Atualização em pausa**: as atualizações dinâmicas da regra de associação foram pausadas pelo administrador. MembershipRuleProcessingState é definido como "Em pausa".
 
 As seguintes mensagens de status podem ser mostradas para o status da **Última atualização da associação**:
 
 * &lt;**Data e hora**&gt;: a última vez em que a associação foi atualizada.
-* **Em Andamento**: as atualizações estão em andamento no momento.
+* **Em andamento**: as atualizações estão em andamento no momento.
 * **Desconhecido**: não é possível recuperar a hora da última atualização. O motivo pode ser que o grupo foi criado recentemente.
 
 Se ocorrer um erro ao processar a regra de associação de um grupo específico, um alerta será mostrado na parte superior da **página Visão Geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada de nenhum dos grupos do locatário por mais de 24 horas, um alerta será mostrado na parte superior da **Todos os grupos**.

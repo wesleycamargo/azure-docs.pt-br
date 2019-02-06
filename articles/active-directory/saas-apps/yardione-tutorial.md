@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o YardiOne | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao YardiOne | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o YardiOne.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 508957f6-caa5-4234-a7f3-90015937e4eb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d14cca505f85bdf0d8abd32a954487639fe54631
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f326e7d1599d3c797311c85635516d591fd681a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444211"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integração do Azure Active Directory ao YardiOne
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o YardiOne da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Informações de logon único de Domínio e URLs do YardiOne](./media/yardione-tutorial/tutorial_yardione_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<y1-subdomain>.yardione.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<y1-subdomain>.yardione.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no YardiOne. O YardiOne dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o YardiOne, se ele ainda não existir.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte do YardiOne](https://clientcentral.yardi.com).
+>Se você precisar criar um usuário manualmente, contate a  [equipe de suporte do YardiOne](https://clientcentral.yardi.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -199,7 +199,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do YardiOne no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo YardiOne.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

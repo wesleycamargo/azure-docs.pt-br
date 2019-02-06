@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439061"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883765"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -45,7 +45,7 @@ O Log de Atividades contém várias categorias de dados. Para obter todos os det
 * **Dimensionamento automático** -essa categoria contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em quaisquer configurações de dimensionamento automático que você definiu na sua assinatura. Um exemplo do tipo de evento que você veria nessa categoria é "Falha na ação de escalar horizontalmente do Dimensionamento Automático". Usando o dimensionamento automático, você pode dimensionar o número de instâncias em um tipo de recurso com suporte com base na hora do dia e/ou dados de carga (métricas) usando uma configuração de dimensionamento automático. Quando as condições de redimensionamento forem atendidas, os eventos iniciados e bem-sucedidos ou com falha serão registrados nessa categoria.
 * **Recomendação** – Esta categoria contém eventos de recomendação do Assistente do Azure.
 * **Segurança** – Esta categoria contém o registro de todos os alertas gerados pela Central de Segurança do Azure. Um exemplo do tipo de evento que você veria nessa categoria é "Arquivo de extensão dupla suspeito executado".
-* **Política** – Esta categoria não contém nenhum evento; ela é reservada para uso futuro. 
+* **Política**: esta categoria contém registros de todas as operações de ação de efeito executadas pelo Azure Policy. Os exemplos dos tipos de eventos que você vê nessa categoria incluem Auditar e Negar. Cada ação tomada pelo Policy é modelada como uma operação em um recurso.
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
 [Veja este artigo para compreender o esquema de evento do Log de Atividades por categoria.](../../azure-monitor/platform/activity-log-schema.md)
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| NOME |SIM |Nome de seu perfil de log. |
+| Name |SIM |Nome de seu perfil de log. |
 | StorageAccountId |Não  |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
 | serviceBusRuleId |Não  |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Local padrão |SIM |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422738"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094369"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
 
@@ -37,7 +37,7 @@ O fluxo OBO (On-Behalf-Of) do OAuth 2.0 permite que um aplicativo que invoca um 
 
 O fluxo OBO é iniciado após o usuário ter sido autenticado em um aplicativo que usa o [fluxo de concessão de código de autorização OAuth 2.0](v1-protocols-oauth-code.md). Nesse ponto, o aplicativo envia um token de acesso (token A) para a API Web da camada intermediária (API A) que contém as declarações do usuário e o consentimento para acessar a API A. Em seguida, a API A faz uma solicitação autenticada para a API Web downstream (API B).
 
-Essas etapas compõem o fluxo On-Behalf-Of: ![Fluxo On-Behalf-Of do OAuth2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Essas etapas compõem o fluxo On-Behalf-Of: ![Fluxo On-Behalf-Of do OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. O aplicativo cliente faz uma solicitação para API A com o token A.
 1. A API A se autentica no ponto de extremidade de emissão de token do Azure AD e solicita um token para acessar a API B.
@@ -103,7 +103,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 O aplicativo cliente é protegido por um segredo compartilhado ou por um certificado.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
 
 Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
@@ -181,7 +181,7 @@ Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para saber mais sobre os tokens de portador, confira [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo do acesso concedido no token. |
 | expires_in |O período de tempo pelo qual o token de acesso é válido (em segundos). |
 | expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
@@ -263,10 +263,10 @@ Uma solicitação de serviço a serviço para obter uma declaração SAML conté
 
 A resposta contém um token SAML codificado em Base64url e UTF8.
 
-- **SubjectConfirmationData para uma declaração SAML obtida de uma chamada OBO**: se o aplicativo de destino exigir um valor de destinatário em **SubjectConfirmationData**, o valor deverá ser uma URL de Resposta sem curinga na configuração do aplicativo de recurso.
+- **SubjectConfirmationData para uma declaração SAML é originado de uma chamada OBO**: se o aplicativo de destino exigir um valor de destinatário em **SubjectConfirmationData**, o valor deverá ser uma URL de Resposta sem curinga na configuração do aplicativo de recurso.
 - **O nó SubjectConfirmationData**: o nó não pode conter um atributo **InResponseTo**, pois não faz parte de uma resposta SAML. O aplicativo que recebe o token SAML precisa ser capaz de aceitar a declaração SAML sem um atributo **InResponseTo**.
 
-- **Consentimento**: para receber um token SAML contendo dados de usuário em um fluxo OAuth, o consentimento deve ter sido concedido. Para obter informações sobre permissões e sobre como obter consentimento do administrador, confira [Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Consent**: o consentimento deve ser concedido para receber um token SAML contendo dados de usuário em um fluxo OAuth. Para obter informações sobre permissões e sobre como obter consentimento do administrador, confira [Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Resposta com declaração SAML
 
@@ -280,14 +280,14 @@ A resposta contém um token SAML codificado em Base64url e UTF8.
 | access_token |O parâmetro que retorna a declaração SAML. |
 | refresh_token |O token de atualização. O serviço de chamada poderá usar esse token para solicitar outro token de acesso depois que a declaração SAML atual expirar. |
 
-- token_type: Bearer
+- token_type: Portador
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
 - resource: `https://api.contoso.com`
 - access_token: \<Declaração SAML\>
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: \<Token de atualização\>
+- refresh_token: \<Atualizar token\>
 
 ## <a name="client-limitations"></a>Limitações do cliente
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2a51447f3d9f8e9e8bed41c47214d7784924c85a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846703"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099825"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -24,44 +24,46 @@ Uma interrupção é definida como a indisponibilidade temporária do Barramento
 
 Um desastre é definido como a perda permanente de uma unidade de escala ou de um datacenter do Barramento de Serviço. O datacenter pode ou não ficar disponível novamente. Normalmente, um desastre causa perda de algumas ou de todas as mensagens ou de outros dados. Exemplos de desastres são incêndios, enchentes ou terremoto.
 
-## <a name="current-architecture"></a>Arquitetura atual
-O Barramento de Serviço usa vários repositórios de mensagens para armazenar mensagens enviadas para filas ou tópicos. Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão.
+## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Proteção contra interrupções e desastres: Barramento de Serviço Premium
+Os conceitos de Alta disponibilidade e Recuperação de desastres são integrados diretamente à camada do Barramento de Serviço Premium do Azure, ambos na mesma região (por meio de Zonas de disponibilidade) e em diferentes regiões (via Recuperação de desastre geográfico).
 
-Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço agora dá suporte à [*Recuperação de desastre em área geográfica* e à *Replicação geográfica*](service-bus-geo-dr.md) no nível do namespace.
+### <a name="geo-disaster-recovery"></a>Recuperação de desastre geográfico
 
-## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protegendo filas e tópicos contra falhas do repositório de mensagens
-Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
+O Barramento de Serviço Premium oferece suporte à recuperação de desastre geográfico no nível do namespace. Para mais informações consulte [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md). O recurso de recuperação de desastre, disponível apenas para [SKU Premium](service-bus-premium-messaging.md), implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário.
 
-Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
+### <a name="availability-zones"></a>Zonas de Disponibilidades
 
-## <a name="protecting-against-datacenter-outages-or-disasters"></a>Proteção contra interrupções ou desastres de datacenter
-Para permitir um failover entre dois datacenters, você poderá criar um namespace de serviço do Barramento de Serviço em cada datacenter. Por exemplo, o namespace de serviço do Barramento de Serviço **contosoPrimary.servicebus.windows.net** pode estar localizado na região Norte/Central dos Estados Unidos, e **contosoSecondary.servicebus.windows.net** pode estar localizado na região Sul/Central dos EUA. Se uma entidade de mensagens do Barramento de Serviço tiver de permanecer acessível em caso de falha do datacenter, você poderá criar essa entidade em ambos os namespaces.
+O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure.
 
-Para saber mais, confira a seção "Falha do Barramento de Serviço em um datacenter do Azure" em [Padrões de mensagens assíncronas e alta disponibilidade][Asynchronous messaging patterns and high availability].
+> [!NOTE]
+> O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) em que existem zonas de disponibilidade.
 
-## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protegendo pontos de extremidade de retransmissão contra interrupções ou desastres
-A replicação geográfica de pontos de extremidade de retransmissão permite que um serviço que exponha um ponto de extremidade de retransmissão esteja acessível quando houver interrupções do Barramento de Serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto seu equivalente secundário pode ser acessado em **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 
-O serviço escuta em ambos os pontos de extremidade e um cliente pode invocar o serviço por meio de um dos pontos de extremidade. Um aplicativo cliente escolhe aleatoriamente uma das retransmissões como o ponto de extremidade primário e envia a sua solicitação ao ponto de extremidade ativo. Se a operação falhar com um código de erro, essa falha indicará que o ponto de extremidade de retransmissão não está disponível. O aplicativo abre um canal para o ponto de extremidade de backup e emite a solicitação novamente. Nesse ponto, os pontos de extremidade ativo e o de backup alternam as funções: o aplicativo cliente considera o ponto de extremidade ativo antigo como o novo ponto de extremidade de backup e o ponto de extremidade de backup antigo como o novo ponto de extremidade ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecerão inalteradas e um erro será retornado.
+![1][]
 
-## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protegendo filas e tópicos contra interrupções ou desastres do datacenter
-Para obter resiliência contra interrupções de datacenter ao usar o sistema de mensagens agenciado, o Barramento de Serviço dá suporte a duas abordagens: replicação *ativa* e *passiva*. Para cada abordagem, se um determinado tópico ou fila deve permanecer acessível em caso de falha do datacenter, você poderá criá-lo em ambos os namespaces. Ambas as entidades podem ter o mesmo nome. Por exemplo, uma fila primária pode ser acessada em **contosoPrimary.servicebus.windows.net/myQueue**, enquanto sua equivalente secundária pode ser acessada em **contosoSecondary.servicebus.windows.net/myQueue**.
+
+## <a name="protecting-against-outages-and-disasters---service-bus-standard"></a>Proteção contra interrupções e desastres: Barramento de Serviço Standard
+Para obter resiliência contra interrupções de datacenter ao usar a camada de preços do sistema de mensagens Standard, o Barramento de Serviço oferece suporte a duas abordagens: replicação *ativa* e *passiva*. Para cada abordagem, se um determinado tópico ou fila deve permanecer acessível em caso de falha do datacenter, você poderá criá-lo em ambos os namespaces. Ambas as entidades podem ter o mesmo nome. Por exemplo, uma fila primária pode ser acessada em **contosoPrimary.servicebus.windows.net/myQueue**, enquanto sua equivalente secundária pode ser acessada em **contosoSecondary.servicebus.windows.net/myQueue**.
+
+>[!NOTE]
+> As configurações da **Replicação ativa** e da **Replicação passiva** são soluções de uso geral e recursos não específicos do Barramento de Serviço. A lógica de replicação (enviando para dois namespaces diferentes) reside nos aplicativos remetentes e o receptor deve ter a lógica personalizada para detecção de duplicidades.
 
 Se o aplicativo não exigir comunicação permanente do remetente para receptor, o aplicativo poderá implementar uma fila durável do lado do cliente para evitar a perda de mensagens e proteger o remetente de erros transitórios do Barramento de Serviço.
 
-## <a name="active-replication"></a>Replicação ativa
+### <a name="active-replication"></a>Replicação ativa
 A replicação ativa usa entidades em ambos os namespaces para todas as operações. Qualquer cliente que enviar uma mensagem enviará duas cópias da mesma mensagem. A primeira cópia é enviada para a entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**) e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo, **contosoSecondary.servicebus.windows.net/sales**).
 
 Um cliente recebe mensagens de ambas as filas. O receptor processa a primeira cópia de uma mensagem e a segunda cópia é suprimida. Para suprimir mensagens duplicadas, o remetente deverá marcar cada mensagem com um identificador exclusivo. Ambas as cópias da mensagem devem ser marcadas com o mesmo identificador. Você pode usar as propriedades [BrokeredMessage.MessageId][BrokeredMessage.MessageId] ou [BrokeredMessage.Label][BrokeredMessage.Label] ou uma propriedade personalizada para marcar a mensagem. O receptor deve manter uma lista de mensagens que já recebeu.
 
-O exemplo [Replicação geográfica com mensagens agenciadas do Barramento de Serviço][Geo-replication with Service Bus Brokered Messages] demonstra a replicação ativa de entidades de mensagens.
+O exemplo [Replicação geográfica com Barramento de Serviço Standard][Geo-replication with Service Bus Standard Tier] demonstra a replicação ativa de entidades de mensagens.
 
 > [!NOTE]
 > A abordagem de replicação ativa dobra o número de operações e, portanto, essa abordagem pode gerar custos mais altos.
 > 
 > 
 
-## <a name="passive-replication"></a>Replicação passiva
+### <a name="passive-replication"></a>Replicação passiva
 No caso sem falhas, a replicação passiva usará apenas uma das duas entidades de mensagens. Um cliente envia a mensagem para a entidade ativa. Se a operação na entidade ativa falhar com um código de erro que indique que o datacenter que hospeda a entidade ativa pode estar indisponível, o cliente enviará uma cópia da mensagem para a entidade de backup. Nesse ponto, as entidades ativa e a de backup alternam as funções: o aplicativo cliente considera a entidade ativa antiga como a nova entidade de backup e entidades de backup antiga como a nova entidade ativa. Se ambas as operações de envio falharem, as funções das duas entidades permanecerão inalteradas e um erro será retornado.
 
 Um cliente recebe mensagens de ambas as filas. Como há uma chance de que o receptor receba duas cópias da mesma mensagem, o receptor deverá suprimir mensagens duplicadas. Você pode suprimir duplicatas da mesma maneira como descrito para a replicação ativa.
@@ -73,22 +75,12 @@ Quando a replicação passiva for usada, as mensagens de cenário a seguir poder
 * **Perda ou atraso de mensagens**: Suponha que o remetente tenha enviado com êxito uma mensagem m1 para a fila primária e então a fila ficou indisponível antes do destinatário receber m1. O remetente envia uma mensagem subsequente m2 para a fila secundária. Se a fila primária estiver temporariamente indisponível, o destinatário receberá m1 depois que a fila ficar disponível novamente. Em caso de desastre, talvez o receptor nunca receba m1.
 * **Recebimento duplicado**: Suponha que o remetente envie uma mensagem m para a fila primária. O Barramento de Serviço processa m com êxito, mas falha ao enviar uma resposta. Depois que a operação de envio atingir o tempo limite, o remetente enviará uma cópia idêntica de m para a fila secundária. Se o receptor for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, o receptor receberá ambas as cópias de m aproximadamente ao mesmo tempo. Se o receptor não for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, inicialmente o destinatário receberá somente a segunda cópia de m, mas depois receberá uma segunda cópia de m quando a fila primária ficar disponível.
 
-O exemplo [Replicação geográfica com mensagens agenciadas do Barramento de Serviço][Geo-replication with Service Bus Brokered Messages] demonstra a replicação passiva de entidades de mensagens.
+O exemplo [Replicação geográfica com Barramento de Serviço Standard][Geo-replication with Service Bus Standard Tier] demonstra a replicação passiva de entidades de mensagens.
 
-## <a name="geo-replication"></a>Replicação geográfica
+## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protegendo pontos de extremidade de retransmissão contra interrupções ou desastres
+A replicação geográfica de pontos de extremidade de retransmissão permite que um serviço que exponha um ponto de extremidade de retransmissão esteja acessível quando houver interrupções do Barramento de Serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto seu equivalente secundário pode ser acessado em **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
-O Barramento de Serviço dá suporte à Recuperação de desastre em área geográfica e à Replicação geográfica no nível do namespace. Para mais informações consulte [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md). O recurso de recuperação de desastre, disponível apenas para [SKU Premium](service-bus-premium-messaging.md), implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário.
-
-## <a name="availability-zones-preview"></a>Zonas de Disponibilidade (versão prévia)
-
-O SKU Premium do Barramento de Serviço oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
-
-> [!NOTE]
-> A versão prévia das Zonas de Disponibilidade tem suporte apenas nas regiões **Centro dos EUA**, **Leste dos EUA 2** e **França Central**.
-
-Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
-
-![1][]
+O serviço escuta em ambos os pontos de extremidade e um cliente pode invocar o serviço por meio de um dos pontos de extremidade. Um aplicativo cliente escolhe aleatoriamente uma das retransmissões como o ponto de extremidade primário e envia a sua solicitação ao ponto de extremidade ativo. Se a operação falhar com um código de erro, essa falha indicará que o ponto de extremidade de retransmissão não está disponível. O aplicativo abre um canal para o ponto de extremidade de backup e emite a solicitação novamente. Nesse ponto, os pontos de extremidade ativo e o de backup alternam as funções: o aplicativo cliente considera o ponto de extremidade ativo antigo como o novo ponto de extremidade de backup e o ponto de extremidade de backup antigo como o novo ponto de extremidade ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecerão inalteradas e um erro será retornado.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a recuperação de desastres, confira estes artigos:
@@ -102,7 +94,7 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
+[Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
 

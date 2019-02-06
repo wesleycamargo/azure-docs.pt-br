@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052710"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478467"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
 
@@ -83,7 +83,7 @@ Há [dois métodos de autenticação](sql-database-control-access.md#authenticat
 - [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
 - Autenticação do SQL
 
-Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD) é um serviço de gerenciamento de identidades e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. O ADD oferece suporte a [MFA (Autenticação multifator)](sql-database-ssms-mfa-authentication.md) e, com [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md), pode ser integrado ao Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece uma nome de usuário/senha e pode autenticar usuários para qualquer banco de dados em um determinado servidor lógico. Isso também permite que o Banco de Dados SQL e o SQL Data Warehouse ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
+Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD) é um serviço de gerenciamento de identidades e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. O ADD oferece suporte a [MFA (Autenticação multifator)](sql-database-ssms-mfa-authentication.md) e, com [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md), pode ser integrado ao Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece uma nome de usuário/senha e pode autenticar usuários para qualquer banco de dados em um determinado servidor de Banco de Dados SQL. Isso também permite que o Banco de Dados SQL e o SQL Data Warehouse ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
 
 |**Se você...**|**Banco de Dados SQL / SQL Data Warehouse**|
 |---|---|
@@ -106,7 +106,7 @@ Há várias técnicas à sua disposição que podem ser usadas para obter a orga
 
 #### <a name="firewall"></a>Firewall
 
-Um firewall impede o acesso ao seu servidor de uma entidade externa, permitindo somente acesso de entidades específicas a seu servidor lógico. Por padrão, todas as conexões e bancos de dados dentro do servidor lógico são rejeitadas, exceto as conexões de outros serviços do Azure. Com uma regra de firewall, você pode abrir o acesso ao seu servidor somente para entidades (por exemplo, uma máquina de desenvolvedor) que você aprovar, concedendo permissão a esse endereço IP do computador por meio do firewall. Ele também permite que você especifique um intervalo de endereços IP para os quais deseja permitir o acesso ao servidor lógico. Por exemplo, endereços IP de computador de desenvolvedor na sua organização podem ser adicionados de uma só vez especificando-se um intervalo na página de configurações Firewall.
+Um firewall impede o acesso ao seu servidor de uma entidade externa, permitindo somente acesso de entidades específicas a seu servidor de Banco de Dados SQL. Por padrão, todas as conexões e bancos de dados dentro do servidor de Banco de Dados SQL são rejeitadas, exceto as conexões de outros serviços do Azure. Com uma regra de firewall, você pode abrir o acesso ao seu servidor somente para entidades (por exemplo, uma máquina de desenvolvedor) que você aprovar, concedendo permissão a esse endereço IP do computador por meio do firewall. Ele também permite que você especifique um intervalo de endereços IP para os quais deseja permitir o acesso ao servidor de Banco de Dados SQL. Por exemplo, endereços IP de computador de desenvolvedor na sua organização podem ser adicionados de uma só vez especificando-se um intervalo na página de configurações Firewall.
 
 Você pode criar regras de firewall no nível de servidor ou no nível de banco de dados. Regras de firewall no nível do servidor podem ser criadas usando o portal do Azure ou com o SSMS. Para saber mais sobre como configurar um servidor e a regra de firewall no nível de banco de dados, consulte: [Criar regras de firewall no Banco de Dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -240,7 +240,7 @@ No Banco de Dados SQL, você pode aproveitar as informações inteligentes da pl
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-O portal do Azure exibe a utilização de um banco de dados individual, selecionando o banco de dados e clicando no gráfico no painel Visão geral. Você pode modificar o gráfico para mostrar várias métricas, incluindo a porcentagem de CPU, a porcentagem de DTU, a porcentagem de E/S de dados, a porcentagem de sessões e a porcentagem do tamanho do banco de dados.
+O portal do Azure exibe a utilização de um banco de dados, selecionando esse banco de dados e clicando no gráfico no painel Visão geral. Você pode modificar o gráfico para mostrar várias métricas, incluindo a porcentagem de CPU, a porcentagem de DTU, a porcentagem de E/S de dados, a porcentagem de sessões e a porcentagem do tamanho do banco de dados.
 
 ![Gráfico de monitoramento](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -250,7 +250,7 @@ Nesse gráfico, você também pode configurar alertas por recurso. Esses alertas
 
 #### <a name="dynamic-management-views"></a>Exibições de Gerenciamento Dinâmico
 
-É possível consultar o modo de exibição de gerenciamento dinâmico [sys.DM db_resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para retornar o histórico de estatísticas de consumo de recursos na última hora e o modo de exibição de catálogo do sistema sys.resource_stats para retornar o histórico dos últimos 14 dias.
+É possível consultar o modo de exibição de gerenciamento dinâmico [sys.DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para retornar o histórico de estatísticas de consumo de recursos na última hora e o modo de exibição de catálogo do sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para retornar o histórico dos últimos 14 dias.
 
 #### <a name="query-performance-insight"></a>Análise de Desempenho de Consultas
 
@@ -287,7 +287,7 @@ O Banco de Dados SQL oferece várias camadas de serviço: Básica, Standard e Pr
 
 Para assegurar-se de que está usando o tamanho de computação adequado, você pode monitorar o consumo de recursos de consulta e banco de dados de uma das maneiras mencionadas acima em "Como fazer para monitorar o desempenho e a utilização de recursos no Banco de Dados SQL". Se perceber que suas consultas/bancos de dados frequentemente têm escassez de CPU/memória etc., considere passar para um tamanho de computação maior. Da mesma forma, se você observar que, mesmo durante horários de pico, não parece que você está usando tanto os recursos, considere reduzir o tamanho de computação atual.
 
-Se tiver um cenário de padrão de aplicativo SaaS ou de consolidação de banco de dados, considere o uso de um Pool elástico para otimizar os custos. O pool elástico é uma ótima maneira de obter a consolidação de banco de dados e a otimização de custoa. Para ler mais sobre o gerenciamento de vários bancos de dados usando o pool elástico, consulte: [Gerenciar pools e bancos de dados](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Se tiver um cenário de padrão de aplicativo SaaS ou de consolidação de banco de dados, considere o uso de um Pool elástico para otimizar os custos. O pool elástico é uma ótima maneira de obter a consolidação de banco de dados e a otimização de custoa. Para ler mais sobre o gerenciamento de vários bancos de dados usando o pool elástico, confira: [Gerenciar pools e bancos de dados](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Com que frequência preciso executar verificações de integridade do banco de dados para o meu banco de dados?
 

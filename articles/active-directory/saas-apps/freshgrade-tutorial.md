@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao FreshGrade | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao FreshGrade | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FreshGrade.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c6439b31d2f8c95e0dc1526b92f21aee2966f12f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1861dfb23d105fa6b403095b5fc36d1f2a894fe9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436352"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152547"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Active Directory do Azure ao FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Azure Active Directory ao FreshGrade
 
 Neste tutorial, você aprenderá a integrar o FreshGrade ao Azure Active Directory (AD do Azure).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar FreshGrade da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -88,7 +88,7 @@ No FreshGrade, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do AD do Azure com o FreshGrade, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 1. **[Criando um usuário de teste do FreshGrade](#creating-a-freshgrade-test-user)** – para ter um equivalente de Brenda Fernandes no FreshGrade que esteja vinculado à representação de usuário do Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/freshgrade-tutorial/tutorial_freshgrade_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
       | |
       |--|
       | `https://<subdomain>.freshgrade.com/login` |
@@ -127,7 +127,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do FreshGrade](mailTo:support@freshgrade.com) para obter esses valores.
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+1. Na seção **Certificado de Autenticação SAML** , clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e cole-a no bloco de notas.
     
     ![Configurar o logon único](./media/freshgrade-tutorial/tutorial_metadataurl.png)
      

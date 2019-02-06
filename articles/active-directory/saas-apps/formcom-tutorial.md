@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Form.com | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Form.com | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Form.com.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: faa89ffd572733c580235b1c6dec58893de20503
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5748cad11e8e0e4bdfd1000b312ab44fc304059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449614"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161045"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory com o Form.com
+# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory ao Form.com
 
 Neste tutorial, você aprenderá a integrar o Form.com ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Form.com da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,11 +110,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do Form.com](./media/formcom-tutorial/tutorial_form.com_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.wa-form.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.wa-form.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.form.com`
 
-    c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão:
     | |
     |--|
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
@@ -123,11 +123,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Logon, a URL de Resposta e o Identificador. Contate a [equipe de suporte do Cliente do Form.com](https://form.com/about/company/contact-us/) para obter esses valores.
 
-1. Na seção **Certificado de Autenticação SAML**, execute as seguintes etapas:
+1. Na seção  **Certificado de Autenticação SAML** , execute as seguintes etapas:
     
     ![Configurar o logon único](./media/formcom-tutorial/tutorial_metadataurl.png)
 
-    a. Clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+     a. Clique no botão de cópia para copiar a  **URL de Metadados de Federação do Aplicativo** e cole-a no bloco de notas.
 
     b. Clique em **Certificado (Base64)** e salve o arquivo de certificado em seu computador.
      
@@ -212,7 +212,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Form.com no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo do Form.com.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

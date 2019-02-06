@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358578"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096663"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para o desenvolvimento de aplicativos Eclipse Java
 O Eclipse é um dos IDEs (ambientes de desenvolvimento integrado) mais amplamente usados para desenvolvedores de Java. Neste artigo, descreveremos como configurar seu ambiente de desenvolvimento do Eclipse para trabalhar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric e criar e implantar o aplicativo do Service Fabric em um cluster do Service Fabric local ou remoto no Eclipse. 
@@ -37,7 +37,7 @@ Você pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajud
 
 Instale o Eclipse Neon ou posterior do [site do Eclipse](https://www.eclipse.org).  Instale também a versão 2.2.1 ou posterior do Buildship (plug-in do Service Fabric não é compatível com versões anteriores do Buildship):
 -   Para verificar as versões dos componentes instalados, no Eclipse, acesse **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**.
--   Para atualizar o Buildship, confira [Eclipse Buildship: plug-ins do Eclipse para Gradle][buildship-update].
+-   Para atualizar o Buildship, confira [Eclipse Buildship: Plug-ins do Eclipse para o Gradle][buildship-update].
 -   Para verificar e instalar atualizações para o Eclipse, acesse **Ajuda** > **Verificar se há Atualizações**.
 
 Instale o plug-in do Service Fabric, no Eclipse, acesse **Ajuda** > **Instalar Novo Software**.
@@ -165,7 +165,7 @@ Para publicar seu aplicativo na nuvem, siga estas etapas:
 
 Em clusters seguros do Linux, se seu aplicativo contiver serviços do Reliable Services, você também precisará configurar um certificado que seus serviços possam usar para chamar APIs de tempo de execução do Service Fabric. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-Para obter uma rápida descrição de como implantar um aplicativo Reliable Services do Service Fabric escrito em Java em um cluster Linux seguro, consulte [Quckstart: Implemente um aplicativo Java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
+Para obter uma rápida explicação de como implantar um aplicativo Reliable Services do Service Fabric escrito em Java em um cluster Linux seguro, confira [Início Rápido: Implante um aplicativo Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Implantar um aplicativo do Service Fabric usando configurações de execução do Eclipse
 
@@ -211,7 +211,7 @@ Se você marcar a opção **atualizar automaticamente o aplicativo e as versões
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Atualizar seu aplicativo Java do Service Fabric
 
-Para um cenário de atualização, digamos que você tenha criado o projeto **App1** usando o plug-in do Service Fabric do Eclipse. Você o implantou usando o plug-in para criar um aplicativo chamado **fabric:/App1Application**. O tipo de aplicativo é **App1AppicationType** e a versão do aplicativo é 1.0. Agora, você deseja atualizar o aplicativo sem interromper a disponibilidade.
+Para um cenário de atualização, digamos que você tenha criado o projeto **App1** usando o plug-in do Service Fabric do Eclipse. Você o implantou usando o plug-in para criar um aplicativo chamado **fabric:/App1Application**. O tipo de aplicativo é **App1ApplicationType** e a versão do aplicativo é 1.0. Agora, você deseja atualizar o aplicativo sem interromper a disponibilidade.
 
 Primeiro, faça as alterações no aplicativo e recrie o serviço modificado. Atualize o arquivo de manifesto do serviço modificado (ServiceManifest.xml) com as versões atualizadas para o serviço (e Código, Configuração ou Dados, conforme relevante). Modifique também o manifesto do aplicativo (ApplicationManifest.xml) com o número da versão atualizada do aplicativo e o serviço modificado.  
 
@@ -230,7 +230,7 @@ Recentemente, movemos as bibliotecas Java do Service Fabric do SDK Java do Servi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter as etapas rápidas da criação do aplicativo de serviço Java Reliable e implementá-lo localmente e no Azure, consulte [Quckstart: Implante um aplicativo Java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
+- Para obter as etapas rápidas da criação do aplicativo Reliable Services Java e implantá-lo localmente e no Azure, confira [Início Rápido: Implante um aplicativo Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
 - Para saber como depurar um aplicativo Java em seu cluster local, consulte [depurar um serviço Java no Eclipse](./service-fabric-debugging-your-application-java.md).
 - Para saber como monitorar e diagnosticar aplicativos do Service Fabric, consulte [monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

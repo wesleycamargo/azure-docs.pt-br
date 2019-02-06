@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558916"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081221"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 O [controle de acesso baseado em função (RBAC)](overview.md) tem várias definições de função interna que você pode atribuir a usuários, grupos e entidades de serviço. Atribuições de função são a maneira de controlar o acesso aos recursos no Azure. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas](custom-roles.md).
@@ -37,19 +37,21 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador](#contributor) | Permite que você gerencie tudo, exceto o acesso aos recursos. |
 | [Leitor](#reader) | Permite que você veja tudo, mas não faça alterações. |
 | [AcrImageSigner](#acrimagesigner) | signatário de imagem ACR |
+| [AcrPull](#acrpull) | acr pull |
+| [AcrPush](#acrpush) | acr push |
 | [AcrQuarantineReader](#acrquarantinereader) | leitor de dados de quarentena acr |
 | [AcrQuarantineWriter](#acrquarantinewriter) | gravador de dados de quarentena acr |
 | [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) | Pode gerenciar o serviço e as APIs |
 | [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Pode gerenciar serviços, mas não as APIs |
-| [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Acesso somente leitura ao serviço e APIs |
+| [Função de leitor do Serviço de Gerenciamento de API](#api-management-service-reader-role) | Acesso somente leitura ao serviço e APIs |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights |
 | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). |
 | [Operador do Trabalho de Automação](#automation-job-operator) | Criar e gerenciar trabalhos usando runbooks de Automação. |
 | [Operador de automação](#automation-operator) | Os Operadores de Automação podem iniciar, interromper, suspender e retomar trabalhos |
-| [Operador de runbook de Automação](#automation-runbook-operator) | Ler propriedades do Runbook - para poder criar Trabalhos do runbook. |
+| [Operador de Runbook de Automação](#automation-runbook-operator) | Ler propriedades do Runbook - para poder criar Trabalhos do runbook. |
 | [Função de Administrador do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Liste a ação de credencial de administrador de cluster. |
 | [Função de Usuário do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Liste a ação de credencial de usuário de cluster. |
-| [Proprietário de registro do Microsoft Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros do Microsoft Azure Stack. |
+| [Proprietário de registro do Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros do Azure Stack. |
 | [Colaborador de Backup](#backup-contributor) | Permite que você gerencie o serviço de backup, mas não pode criar cofres e fornecer acesso a outras pessoas |
 | [Operador de Backup](#backup-operator) | Permite que você gerencie serviços de backup, exceto a remoção de backup, a criação de cofres e o fornecimento de acesso a outras pessoas |
 | [Leitor de Backup](#backup-reader) | Pode exibir serviços de backup, mas não pode fazer alterações |
@@ -66,6 +68,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador dos Serviços Cognitivos](#cognitive-services-contributor) | Permite criar, ler, atualizar, excluir e gerenciar chaves dos Serviços Cognitivos. |
 | [Usuário dos Serviços Cognitivos](#cognitive-services-user) | Permite ler e listar as chaves dos Serviços Cognitivos. |
 | [Função de leitor de conta do Cosmos DB](#cosmos-db-account-reader-role) | Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB. |
+| [CosmosBackupOperator](#cosmosbackupoperator) | Pode enviar solicitação de restauração de um banco de dados Cosmos DB ou de um contêiner em uma conta |
 | [Colaborador do Gerenciamento de Custos](#cost-management-contributor) | Pode exibir os custos e gerenciar a configuração de custo (por exemplo, orçamentos, exportações) |
 | [Leitor do Gerenciamento de Custos](#cost-management-reader) | Pode exibir dados e configuração de custos (por exemplo, orçamentos, exportações) |
 | [Colaborador do Data Box](#data-box-contributor) | Permite que você gerencie tudo sob o serviço Data Box exceto fornecer acesso a outras pessoas. |
@@ -76,8 +79,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Usuário do DevTest Labs](#devtest-labs-user) | Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. |
 | [Colaborador de Conta do DocumentDB](#documentdb-account-contributor) | Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB. |
-| [EventGrid EventSubscription Contributor (versão prévia)](#eventgrid-eventsubscription-contributor-preview) | Permite que você gerencie operações de assinatura de evento EventGrid. |
-| [EventGrid EventSubscription Reader (versão prévia)](#eventgrid-eventsubscription-reader-preview) | Permite que você gerencie operações de assinatura de evento EventGrid. |
+| [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite que você gerencie operações de assinatura de evento EventGrid. |
+| [Leitor de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite que você gerencie operações de assinatura de evento EventGrid. |
 | [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Permite gerenciar contas do Intelligent Systems, mas não acessá-las. |
 | [Colaborador do Key Vault](#key-vault-contributor) | Permite gerenciar cofres de chaves, mas não acessá-los. |
@@ -98,7 +101,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de rede](#network-contributor) | Permite gerenciar redes, mas não acessá-las. |
 | [Colaborador de Conta APM do New Relic](#new-relic-apm-account-contributor) | Permite que você gerencie contas e aplicativos do Gerenciamento de desempenho de aplicativos da New Relic, mas não tem acesso a eles. |
 | [Acesso a Dados e Leitor](#reader-and-data-access) | Permite que você exiba tudo, mas não permitirá que exclua ou crie uma conta de armazenamento ou um recurso contido. Ele também permitirá o acesso de leitura/gravação a todos os dados contidos em uma conta de armazenamento por meio de acesso às chaves de conta de armazenamento. |
-| [Cache do Azure para Colaborador do Redis](#redis-cache-contributor) | Permite gerenciar o Cache do Azure para Redis, mas não acessá-lo. |
+| [Colaborador do Cache Redis](#redis-cache-contributor) | Permite gerenciar o Cache do Azure para Redis, mas não acessá-lo. |
 | [Colaborador da Política de Recursos (Versão prévia)](#resource-policy-contributor-preview) | (Versão prévia) Os usuários com aterramento da EA, com direitos para criar/modificar a política de recursos, criam um tíquete de suporte e recursos/hierarquia de leitura. |
 | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las. |
 | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. |
@@ -114,7 +117,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador da Conta de Armazenamento](#storage-account-contributor) | Permite gerenciar contas de armazenamento, mas não acessá-las. |
 | [Função do Serviço de Operador da Chave da Conta de Armazenamento](#storage-account-key-operator-service-role) | Os operadores da Chave da Conta de Armazenamento podem listar e regenerar chaves em contas de armazenamento |
 | [Colaborador de Dados do Blob de Armazenamento (Versão prévia)](#storage-blob-data-contributor-preview) | Permite o acesso de leitura, gravação e exclusão aos dados e aos contêineres do Azure Storage Blob |
-| [Proprietário de Dados do Blob de Armazenamento (Versão Prévia)](#storage-blob-data-owner-preview) | Permite o acesso de superusuário de leitura, gravação, exclusão e POSIX aos dados e contêineres de Azure Storage Blob |
+| [Proprietário de Dados do Blob de Armazenamento (Versão Prévia)](#storage-blob-data-owner-preview) | Permite acesso completo aos dados e aos contêineres de blob do Armazenamento do Microsoft Azure, incluindo a atribuição de controle de acesso POSIX. |
 | [Leitor de Dados do Blob de Armazenamento (Versão prévia)](#storage-blob-data-reader-preview) | Permite o acesso de leitura aos dados e aos contêineres do Azure Storage Blob |
 | [Colaborador de Dados da Fila de Armazenamento (Versão prévia)](#storage-queue-data-contributor-preview) | Permite o acesso de leitura, gravação e exclusão às filas e mensagens da fila do Armazenamento do Azure |
 | [Leitor de Dados da Fila de Armazenamento (Versão prévia)](#storage-queue-data-reader-preview) | Permite o acesso de leitura às filas e mensagens da fila do Armazenamento do Azure |
@@ -169,6 +172,25 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Efetuar push/pull de metadados de conteúdo confiável para um registro de contêiner. |
+
+## <a name="acrpull"></a>AcrPull
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | acr pull |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **Ações** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Efetuar pull ou Obter imagens de um registro de contêiner. |
+
+## <a name="acrpush"></a>AcrPush
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | acr push |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **Ações** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Efetuar pull ou Obter imagens de um registro de contêiner. |
+> | Microsoft.ContainerRegistry/registries/push/write | Efetuar push ou Gravar imagens para um registro de contêiner. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -363,12 +385,12 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite que você gerencie registros do Microsoft Azure Stack. |
+> | **Descrição** | Permite que você gerencie registros do Azure Stack. |
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | **Ações** |  |
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Recupera detalhes estendidos de um produto do Marketplace do Azure Stack |
 > | Microsoft.AzureStack/registrations/products/read | Obtém as propriedades de um produto do Marketplace do Azure Stack |
-> | Microsoft.AzureStack/registrations/read | Obter as propriedades de um registro do Microsoft Azure Stack |
+> | Microsoft.AzureStack/registrations/read | Obter as propriedades de um registro do Azure Stack |
 
 ## <a name="backup-contributor"></a>Colaborador de Backup
 > [!div class="mx-tableFixed"]
@@ -385,7 +407,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retornar o resultado da operação do trabalho de exportação. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerenciar metadados relacionados ao gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
@@ -445,8 +467,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retornar o resultado da operação do trabalho de exportação. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Retornar metadados de gerenciamento de backup para o cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
@@ -506,8 +528,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Retornar o resultado da operação do trabalho. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retornar todos os objetos de trabalho |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retornar o resultado da operação do trabalho de exportação. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Retornar metadados de gerenciamento de backup para o cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
@@ -612,7 +634,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-## <a name="cdn-profile-reader"></a>Leitor de perfil de CDN
+## <a name="cdn-profile-reader"></a>Leitor de perfis de CDN
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -753,6 +775,16 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Insights/Metrics/read | Ler métrica |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
+## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode enviar solicitação de restauração de um banco de dados Cosmos DB ou de um contêiner em uma conta |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **Ações** |  |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | Envie uma solicitação para configurar o backup |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | Enviar uma solicitação de restauração |
 
 ## <a name="cost-management-contributor"></a>Colaborador do Gerenciamento de Custos
 > [!div class="mx-tableFixed"]
@@ -940,7 +972,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributor (versão prévia)
+## <a name="eventgrid-eventsubscription-contributor"></a>Colaborador de EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -957,7 +989,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (versão prévia)
+## <a name="eventgrid-eventsubscription-reader"></a>Leitor de EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1064,7 +1096,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
 
-## <a name="logic-app-contributor"></a>Colaborador de aplicativo lógico
+## <a name="logic-app-contributor"></a>Colaborador de Aplicativo Lógico
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1092,7 +1124,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
 > | Microsoft.Web/sites/functions/listSecrets/action | Listar segredos de funções de aplicativos Web. |
 
-## <a name="logic-app-operator"></a>Operador de aplicativo lógico
+## <a name="logic-app-operator"></a>Operador de Aplicativo Lógico
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1201,6 +1233,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
 > | Microsoft.Insights/AlertRules/* | Leitura/gravação/exclusão de regras de alerta. |
 > | Microsoft.Insights/components/* | Leia/grave/exclua componentes do Application Insights. |
 > | Microsoft.Insights/DiagnosticSettings/* | Leitura/gravação/exclusão de configurações de diagnóstico. |
@@ -1285,7 +1318,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 
-## <a name="azure-cache-for-redis-contributor"></a>Cache do Azure para Colaborador do Redis
+## <a name="redis-cache-contributor"></a>Colaborador do Cache Redis
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1370,6 +1403,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Security/pricings/delete | Excluir as configurações de preço para o escopo |
 > | Microsoft.Security/securityContacts/delete | Excluir o contato de segurança |
 > | Microsoft.Security/securityContacts/write | Atualizar o contato de segurança |
+> | Microsoft.Security/InformationProtectionPolicies/write | Atualiza as políticas de proteção de informações para o recurso |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ## <a name="security-manager-legacy"></a>Gerenciador de Segurança (Herdado)
@@ -1390,7 +1424,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Security/* | Criar e gerenciar políticas e componentes de segurança |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-## <a name="security-reader"></a>Leitor de segurança
+## <a name="security-reader"></a>Leitor de Segurança
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1430,7 +1464,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/* | Criar e gerenciar políticas de replicação |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Criar e gerenciar planos de recuperação |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Criar e gerenciar a configuração de armazenamento do cofre de Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Retornar a informação de token para o cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
@@ -1497,7 +1531,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Retornar a informação de token para o cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
@@ -1540,7 +1574,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Ler quaisquer políticas |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler quaisquer planos de recuperação |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Retornar a informação de token para o cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
@@ -1565,6 +1599,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Não é possível editar configurações de auditoria |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
@@ -1578,6 +1613,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="sql-security-manager"></a>Gerenciador de Segurança do SQL
 > [!div class="mx-tableFixed"]
@@ -1593,6 +1629,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerenciar políticas de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Criar e gerenciar a configuração de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/extendedAuditingSettings/read | Recuperar detalhes da política de auditoria de blob de servidor estendida configurada em um determinado servidor |
@@ -1616,6 +1653,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Sql/servers/firewallRules/* |  |
 > | Microsoft.Sql/servers/read | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança de servidor SQL |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ## <a name="sql-server-contributor"></a>Colaborador do SQL Server
@@ -1637,6 +1675,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Não é possível editar políticas de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Não é possível editar configurações de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria de banco de dados do servidor SQL |
@@ -1654,6 +1693,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Não é possível editar políticas de alerta de segurança de servidor SQL |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Colaborador da Conta de Armazenamento
 > [!div class="mx-tableFixed"]
@@ -1682,7 +1722,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Storage/storageAccounts/listkeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerar as chaves de acesso da conta de armazenamento especificada. |
 
-## <a name="storage-blob-data-contributor-preview"></a>Colaborador de dados de blob de armazenamento (pré-visualização)
+## <a name="storage-blob-data-contributor-preview"></a>Colaborador de Dados do Blob de Armazenamento (Versão prévia)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1690,8 +1730,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retornar o resultado da exclusão de um contêiner |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retornar um contêiner ou uma lista de contêineres |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retornar o resultado de um contêiner de blobs de concessão ou colocação |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retorna a lista de contêineres |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de put blob |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retorna o resultado da exclusão de um blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um blob ou uma lista de blobs |
@@ -1701,16 +1741,12 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite o acesso de superusuário de leitura, gravação, exclusão e POSIX aos dados e contêineres de Azure Storage Blob |
+> | **Descrição** | Permite acesso completo aos dados e aos contêineres de blob do Armazenamento do Microsoft Azure, incluindo a atribuição de controle de acesso POSIX. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retornar o resultado da exclusão de um contêiner |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retornar um contêiner ou uma lista de contêineres |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retornar o resultado de um contêiner de blobs de concessão ou colocação |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retorna o resultado da exclusão de um blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um blob ou uma lista de blobs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retorna o resultado da gravação de um blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Leitor de Dados do Blob de Armazenamento (Versão prévia)
 > [!div class="mx-tableFixed"]
@@ -1719,7 +1755,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Descrição** | Permite o acesso de leitura aos dados e aos contêineres do Azure Storage Blob |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retornar um contêiner ou uma lista de contêineres |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retorna a lista de contêineres |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um blob ou uma lista de blobs |
 

@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452829"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078943"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para o acesso condicional no Azure Active Directory
 
@@ -47,14 +47,32 @@ Para que a política funcione, você deve configurar:
 
 |O que           | Como                                  | Porque|
 |:--            | :--                                  | :-- |
-|**Aplicativos na nuvem** |Você precisa selecionar um ou mais aplicativos.  | A meta de uma política de acesso condicional é permitir que você controle como os usuários autorizados podem acessar aplicativos na nuvem.|
-| **Usuários e grupos** | É necessário selecionar pelo menos um usuário ou grupo autorizado para acessar os aplicativos na nuvem selecionados. | Uma política de acesso condicional que não tenha usuários e grupos atribuídos nunca será disparada. |
-| **Controles de acesso** | Você precisa selecionar pelo menos um controle de acesso. | Se as condições forem atendidas, o processador de política precisará saber o que fazer.|
+|**Aplicativos na nuvem** |Selecione um ou mais aplicativos.  | A meta de uma política de acesso condicional é permitir que você controle como os usuários autorizados podem acessar aplicativos na nuvem.|
+| **Usuários e grupos** | Selecione pelo menos um usuário ou grupo autorizado para acessar os aplicativos na nuvem selecionados. | Uma política de acesso condicional que não tenha usuários e grupos atribuídos nunca será disparada. |
+| **Controles de acesso** | Selecione pelo menos um controle de acesso. | Se as condições forem atendidas, o processador de política precisará saber o que fazer.|
 
 
 
 
 ## <a name="what-you-should-know"></a>O que você deve saber
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Como as políticas de acesso condicional são aplicadas?
+
+Mais de uma política de acesso condicional pode ser aplicada quando você acessa um aplicativo de nuvem. Nesse caso, todas as políticas que se aplicam devem ser atendidas. Por exemplo, se uma política exigir a MFA e a segunda exigir um dispositivo em conformidade, você deverá passar pela MFA e usar um dispositivo de conformidade. 
+
+Todas as políticas são impostas em duas fases:
+
+- Na **primeira** fase, todas as políticas são avaliadas e todos os controles de acesso que não forem atendidos serão coletados. 
+
+- Na **segunda** fase, você é solicitado a atender aos requisitos que não atendeu. Se uma das políticas bloquear o acesso, você será bloqueado e não será solicitado a atender aos outros controles de política. Se não houver bloqueio por nenhuma das políticas, você será solicitado a atender a outros controles de política na seguinte ordem:
+
+    ![Classificar](./media/best-practices/06.png)
+    
+    Provedores de MFA externos e Termos de Uso vêm em seguida.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Como as atribuições são avaliadas?
 
@@ -122,13 +140,13 @@ Em seu ambiente, evite as configurações a seguir:
 
 Como uma primeira etapa, é necessário avaliar a política, utilizando uma [ferramenta E-Se](what-if-tool.md).
 
-Quando estiver pronto para implantar uma nova política no ambiente, isso deverá ser feito em fases:
+Quando novas políticas estiverem prontas para o seu ambiente, implante-as em fases:
 
 1. Aplique uma política a um conjunto de usuários pequeno e verifique se o comportamento é conforme esperado. 
 
-2.  Ao expandir uma política para incluir mais usuários, continue excluindo todos os administradores da política. Isso garante que os administradores ainda terão acesso e poderão atualizar uma política, se for necessário fazer uma alteração.
+2.  Quando você expande uma política para incluir mais usuários. Continue excluindo todos os administradores da política para garantir que eles ainda tenham acesso e possam atualizar uma política se uma alteração for necessária.
 
-3. Aplique uma política a todos os usuários, somente se isso realmente for necessário. 
+3. Aplique uma política a todos os usuários somente se for necessário. 
 
 Como melhor prática, crie uma conta de usuário que seja:
 
@@ -154,4 +172,7 @@ Para obter mais informações, consulte [Migrar políticas clássicas no portal 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](app-based-mfa.md).
+Se você quiser saber:
+
+- Como configurar uma política de acesso condicional, confira [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](app-based-mfa.md).
+- Como planejar as políticas de acesso condicional, confira [Como planejar a implantação do acesso condicional no Azure Active Directory](plan-conditional-access.md).

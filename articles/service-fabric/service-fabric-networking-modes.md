@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024783"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093132"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -264,7 +264,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
    </Resources>
    ```
    
-6. Para Windows, um reinício da VM fará com que a rede aberta seja recriada. Isso é para atenuar um problema subjacente na pilha de rede. O comportamento padrão é recriar a rede. Se esse comportamento precisar ser desativado, a configuração a seguir poderá ser utilizada, seguida por uma atualização de configuração.
+6. Para Windows, um reinício da VM fará com que a rede aberta seja recriada. Isso é para atenuar um problema subjacente na pilha de rede. O comportamento padrão é recriar a rede. Se esse comportamento precisar ser desativado, a configuração a seguir poderá ser usada seguida por uma atualização de configuração.
 
 ```json
 "fabricSettings": [

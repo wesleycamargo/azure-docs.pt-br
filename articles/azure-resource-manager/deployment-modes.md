@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447931"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903886"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -24,14 +24,11 @@ Ao implantar os recursos, especifique que a implantação é uma atualização i
 
 ## <a name="incremental-and-complete-deployments"></a>Implantações incrementais e completas
 
-Ao implantar recursos:
+Para ambos os modos, o Resource Manager tenta criar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e suas configurações são as mesmas, nenhuma operação é realizada para esse recurso. Se você alterar os valores de propriedade de um recurso, o recurso será atualizado com os novos valores. Se você tentar atualizar o local ou o tipo de um recurso existente, a implantação falhará com um erro. Em vez disso, implante um novo recurso com o local ou o tipo de que você precisa.
 
-* No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Entretanto, os recursos que ainda são especificados, mas não estão sendo implantados em razão de uma condição avaliada como falsa, não são excluídos.
-* No modo incremental, o Gerenciador de recursos **deixa inalterados** recursos existentes no grupo de recursos, mas que não são especificados no modelo.
+No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Os recursos que estão especificados no modelo, mas que não foram implantados porque uma [condição](resource-manager-templates-resources.md#condition) foi avaliada como falsa, não são excluídos.
 
-Para ambos os modos, o Resource Manager tenta criar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e suas configurações são as mesmas, a operação resulta em nenhuma alteração. Se você alterar os valores de propriedade de um recurso, o recurso será atualizado com os novos valores. Se você tentar atualizar o local ou o tipo de um recurso existente, a implantação falhará com um erro. Em vez disso, implante um novo recurso com o local ou o tipo de que você precisa.
-
-Ao reimplantar um recurso no modo incremental, especifique todos os valores de propriedade para o recurso, não apenas aqueles que você está atualizando. Se você não especificar certas propriedades, o Resource Manager interpretará que a atualização está substituindo esses valores.
+No modo incremental, o Gerenciador de recursos **deixa inalterados** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Ao reimplantar um recurso no modo incremental, especifique todos os valores de propriedade para o recurso, não apenas aqueles que você está atualizando. Se você não especificar certas propriedades, o Resource Manager interpretará que a atualização está substituindo esses valores.
 
 ## <a name="example-result"></a>Resultados de exemplo
 

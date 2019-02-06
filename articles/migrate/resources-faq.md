@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812532"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079249"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -33,7 +33,7 @@ O Migrações para Azure é um serviço de avaliação que ajuda você a descobr
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>Qual é a diferença entre o uso de Migrações para Azure para avaliações e o Kit de Ferramentas Map?
 
-[As Migrações para Azure](migrate-overview.md) fornecem avaliação de migração especificamente para ajudar na preparação para migração e avaliação de cargas de trabalho locais no Azure. O [Kit de Ferramentas MAP (Microsoft Assessment and Planning)](https://www.microsoft.com/en-us/download/details.aspx?id=7826) tem outras funcionalidades. Por exemplo, planejamento de migração para versões mais recentes de sistemas operacionais Windows de cliente e servidor, controle de uso de software etc. Para esses cenários, continue a usar o Kit de ferramentas MAP.
+[As Migrações para Azure](migrate-overview.md) fornecem avaliação de migração especificamente para ajudar na preparação para migração e avaliação de cargas de trabalho locais no Azure. O [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) tem outras funcionalidades, como planejamento de migração para versões mais recentes dos sistemas operacionais de cliente e servidor Windows e rastreamento de uso de software. Para esses cenários, continue a usar o Kit de ferramentas MAP.
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Como o Migrações para Azure é diferente do Planejador de Implantações do Azure Site Recovery?
@@ -48,7 +48,7 @@ O Migrações para Azure é uma ferramenta de planejamento da migração e o Pla
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Em quais regiões geográficas do Azure há suporte das Migrações para Azure?
 
-No momento, as Migrações para Azure dão suporte a Europa, Estados Unidos e ao Azure Governamental como regiões geográficas de projeto. Embora os projetos de migração possam ser criados apenas nessas regiões geográficas, você ainda pode avaliar os computadores de [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
+No momento, as Migrações para Azure aceitam a Europa, os Estados Unidos e o Azure Governamental como regiões geográficas do projeto. Embora os projetos de migração possam ser criados apenas nessas regiões geográficas, você ainda pode avaliar os computadores de [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
@@ -198,7 +198,7 @@ Não, a visualização de dependência não pode ser exportada. No entanto, como
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Como posso automatizar a instalação do Microsoft Monitoring Agent (MMA) e do agente de dependência?
 
-[Aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) está um script que você pode usar para a instalação do agente de dependência. Para MMA, [aqui](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) está um script disponível no TechNet que você pode aproveitar.
+[Aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) está um script que você pode usar para a instalação do agente de dependência. Clique [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) para ver as instruções de como você pode instalar o MMA usando métodos automatizados ou a linha de comando. Com o MMA, você também pode aproveitar um script disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) no Technet.
 
 Além dos scripts, você também pode aproveitar as ferramentas de implantação como o System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) etc., para implantar os agentes.
 
@@ -213,10 +213,10 @@ A lista de sistemas de operacionais Windows com suporte no Dependency Agent est�
 A lista de sistemas de operacionais Linux com suporte no agente de dependência está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Posso visualizar dependências nas Migrações para Azure por um período de mais de uma hora?
-Não, as Migrações para Azure permitem que você visualize as dependências por até uma hora. As Migrações para Azure permitem que você volte para uma data específica no histórico de até um mês atrás, mas a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora.
+Não, as Migrações para Azure permitem que você visualize as dependências por até uma hora. As Migrações para Azure permitem que você volte para uma data específica no histórico de até um mês atrás, mas a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora. No entanto, você pode usar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) por um período mais longo.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>A visualização de dependência tem suporte para grupos com mais de 10 VMs?
-Você pode [visualizar as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de até 10 VMs. No caso de um grupo com mais de 10 VMs, é recomendado dividir o grupo em grupos menores e visualizar as dependências.
+Você pode [visualizar as dependências de grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMs. Caso o grupo tenha mais de 10 VMs, é recomendável dividi-lo em grupos menores e visualizar as dependências.
 
 
 ## <a name="next-steps"></a>Próximas etapas

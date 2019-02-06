@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956346"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888644"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um arquivo de zona DNS usando a CLI do Azure 
 
@@ -42,7 +42,7 @@ Antes de importar um arquivo de zona DNS para o DNS do Azure, você precisa obte
 * Se a zona DNS for hospedada usando o BIND, o local do arquivo de zona para cada zona será especificado no arquivo de configuração do BIND, **named.conf**.
 
 > [!NOTE]
-> Arquivos de zona baixados do GoDaddy têm um formato ligeiramente diferente do padrão. Você precisa corrigir o problema antes de importar esses arquivos de zona DNS do Azure.
+>  Arquivos de zona baixados do GoDaddy têm um formato ligeiramente diferente do padrão. Você precisa corrigir o problema antes de importar esses arquivos de zona DNS do Azure.
 >
 > Nomes DNS no RDATA de cada registro DNS são especificados como nomes totalmente qualificados, mas não têm uma terminação “.” Isso significa que eles são interpretados por outros sistemas DNS como nomes relativos. Você precisa editar o arquivo de zona para acrescentar o '.' de terminação aos nomes antes de importá-los para o DNS do Azure.
 >
@@ -68,7 +68,7 @@ As observações a seguir fornecem detalhes técnicos adicionais sobre o process
 * A diretiva `$TTL` é opcional e tem suporte. Quando nenhuma diretiva `$TTL` for especificada, registros sem um TTL explícito são importados definidos com um TTL padrão de 3600 segundos. Quando dois registros no mesmo conjunto de registros especificarem TTLs diferentes, o menor valor será usado.
 * A diretiva `$ORIGIN` é opcional e tem suporte. Quando nenhuma `$ORIGIN` for definida, o valor padrão usado será o nome da zona, conforme especificado na linha de comando (além do "." de terminação).
 * As diretivas `$INCLUDE` e `$GENERATE` não têm suporte.
-* Há suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
+* Estes tipos de registro são permitidos: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV e TXT.
 * O registro SOA é criado automaticamente pelo DNS do Azure quando uma zona é criada. Quando você importa um arquivo de zona, todos os parâmetros SOA são extraídos do arquivo de zona, *exceto* o parâmetro `host`. Esse parâmetro usa o valor fornecido pelo DNS do Azure. Isso ocorre porque esse parâmetro deve referir-se ao servidor de nomes primário fornecido pelo DNS do Azure.
 * O registro de nome do servidor definido no ápice da zona também é criado automaticamente pelo DNS do Azure quando a zona é criada. Apenas o TTL desse conjunto de registros é importado. Esses registros contêm os nomes de servidor de nome fornecidos pelo DNS do Azure. Os dados de registro não são substituídos pelos valores contidos no arquivo de zona importado.
 * Durante a visualização pública, o DNS do Azure suporta apenas os registros TXT de cadeia de caracteres única. Registros TXT de cadeia de caracteres múltiplas são concatenados e truncados para 255 caracteres.
