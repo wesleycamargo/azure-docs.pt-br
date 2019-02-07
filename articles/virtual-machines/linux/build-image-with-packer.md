@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413219"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730332"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Linux no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Linux e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para as distribuições e os ambientes de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -29,7 +29,7 @@ Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define 
 ## <a name="create-azure-resource-group"></a>Criar um grupo de recursos do Azure
 Durante o processo de build, o Packer cria recursos temporários do Azure conforme cria a VM de origem. Para capturar essa VM de origem para uso como uma imagem, você precisa definir um grupo de recursos. A saída do processo de build do Packer é armazenada nesse grupo de recursos.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -39,7 +39,7 @@ az group create -n myResourceGroup -l eastus
 ## <a name="create-azure-credentials"></a>Criar as credenciais do Azure
 O Packer se autentica no Azure usando uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o Packer. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure.
 
-Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e gere as credenciais necessárias para o Packer:
+Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp) e gere as credenciais necessárias para o Packer:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -55,7 +55,7 @@ Um exemplo da saída dos comandos anteriores é o seguinte:
 }
 ```
 
-Para se autenticar no Azure, você também precisa obter sua ID de assinatura do Azure com [az account show](/cli/azure/account#az_account_show):
+Para se autenticar no Azure, você também precisa obter sua ID de assinatura do Azure com [az account show](/cli/azure/account):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -216,7 +216,7 @@ Se você quiser criar VMs em um grupo de recursos diferente ou a região da imag
 
 São necessários alguns minutos para criar a VM. Depois que a VM for criada, amote o `publicIpAddress` exibido pela CLI do Azure. Esse endereço é usado para acessar o site do NGINX em um navegador da Web.
 
-Para permitir o tráfego da web para acessar sua VM, abra a porta 80 da Internet com [az vm open-port](/cli/azure/vm#open-port):
+Para permitir o tráfego da web para acessar sua VM, abra a porta 80 da Internet com [az vm open-port](/cli/azure/vm):
 
 ```azurecli
 az vm open-port \

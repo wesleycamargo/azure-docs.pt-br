@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451196"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770577"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar a política do Azure para restringir a instalação de extensões nas VMs do Linux
 
@@ -98,7 +98,7 @@ Quando terminar, aperte **Esc** e, em seguida, digite **: wq** para salvar e fec
 
 ## <a name="create-the-policy"></a>Criar a política
 
-Uma definição de política é um objeto usado para armazenar a configuração que você deseja usar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Criar a definição de política usando [criar definição de política az](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Uma definição de política é um objeto usado para armazenar a configuração que você deseja usar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Criar a definição de política usando [criar definição de política az](/cli/azure/role/assignment?view=azure-cli-latest).
 
 Neste exemplo, os parâmetros e as regras de política são os arquivos criados e armazenados como arquivos. .json na sua cloud shell.
 
@@ -115,9 +115,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos usando[criar atribuição da política az](/cli/azure/policy/assignment#az_policy_assignment_create). Qualquer VM criada no grupo de recursos **myResourceGroup** não será capaz de instalar o Acesso VM do LInux ou as extensões de Scrip personalizadas para o Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
+Este exemplo atribui a política a um grupo de recursos usando[criar atribuição da política az](/cli/azure/policy/assignment). Qualquer VM criada no grupo de recursos **myResourceGroup** não será capaz de instalar o Acesso VM do LInux ou as extensões de Scrip personalizadas para o Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
 
-Use [lista de contas az](/cli/azure/account?view=azure-cli-latest#az_account_list) para obter sua ID de assinatura para usar daquele no exemplo.
+Use [lista de contas az](/cli/azure/account?view=azure-cli-latest) para obter sua ID de assinatura para usar daquele no exemplo.
 
 
 ```azurecli-interactive

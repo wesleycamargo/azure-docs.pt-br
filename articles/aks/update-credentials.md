@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 8552a22db1518fe41be78d67f91d74f0370abd93
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479100"
+ms.locfileid: "55490066"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Atualizar ou girar as credenciais para uma entidade de serviço no AKS (Serviço de Kubernetes do Azure)
 
@@ -44,7 +44,7 @@ SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalP
 Com um conjunto de variáveis que contém a ID da entidade de serviço, redefina agora as credenciais usando [az ad sp credential reset][az-ad-sp-credential-reset]. O exemplo a seguir permite que a plataforma Azure gere um novo segredo seguro para a entidade de serviço. Esse novo segredo seguro também é armazenado como uma variável.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $AKS_SP --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
 Agora vá para [Atualizar o cluster do AKS com novas credenciais](#update-aks-cluster-with-new-credentials).

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464248"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756166"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Aprender sobre a governança de máquina virtual do Linux com a CLI do Azure
 
@@ -57,7 +57,7 @@ Para gerenciar soluções de máquinas virtuais, há três funções específica
 
 Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil usar um grupo do Azure Active Directory que tenha usuários que precisam realizar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Neste artigo, use um grupo existente para gerenciar a máquina virtual ou use o portal para [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Após criar um novo grupo ou encontrar um existente, use o comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir o novo grupo do Azure Active Directory à função de Colaborador da Máquina Virtual para o grupo de recursos.
+Após criar um novo grupo ou encontrar um existente, use o comando [az role assignment create](/cli/azure/role/assignment) para atribuir o novo grupo do Azure Active Directory à função de Colaborador da Máquina Virtual para o grupo de recursos.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -71,7 +71,7 @@ Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador d
 
 ## <a name="azure-policy"></a>Azure Policy
 
-O [Azure Policy](../../azure-policy/azure-policy-introduction.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de política disponíveis, use o comando [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list):
+O [Azure Policy](../../azure-policy/azure-policy-introduction.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de política disponíveis, use o comando [az policy definition list](/cli/azure/policy/definition):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -83,7 +83,7 @@ Você vê as definições de políticas existentes. O tipo de política é **Bui
 * Limitam as SKUs para máquinas virtuais.
 * Auditam máquinas virtuais que não utilizam discos gerenciados.
 
-No exemplo a seguir, você pode recuperar três definições de política com base no nome de exibição. Você usa o comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) para atribuir essas definições ao grupo de recursos. Para algumas políticas, você deve fornecer valores de parâmetro para especificar os valores permitidos.
+No exemplo a seguir, você pode recuperar três definições de política com base no nome de exibição. Você usa o comando [az policy assignment create](/cli/azure/policy/assignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, você deve fornecer valores de parâmetro para especificar os valores permitidos.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -145,7 +145,7 @@ Após a conclusão da implantação, será necessário aplicar mais configuraç�
 
 Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às ações `Microsoft.Authorization/locks/*`. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem essas ações.
 
-Para bloquear a máquina virtual e o grupo de segurança de rede, use o comando [az lock create](/cli/azure/lock#az_lock_create):
+Para bloquear a máquina virtual e o grupo de segurança de rede, use o comando [az lock create](/cli/azure/lock):
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-O grupo de segurança de rede bloqueado não poderá ser excluído até que o bloqueio seja removido. Para remover o bloqueio, recuperar as IDs dos bloqueios e fornecê-los para o comando [az lock delete](/cli/azure/lock#az_lock_delete):
+O grupo de segurança de rede bloqueado não poderá ser excluído até que o bloqueio seja removido. Para remover o bloqueio, recuperar as IDs dos bloqueios e fornecê-los para o comando [az lock delete](/cli/azure/lock):
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -220,7 +220,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, a VM e todos os recursos relacionados. Saia da sessão SSH para sua VM e então exclua os recursos da seguinte maneira:
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e todos os recursos relacionados. Saia da sessão SSH para sua VM e então exclua os recursos da seguinte maneira:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

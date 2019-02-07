@@ -3,7 +3,7 @@ title: Servidores de Banco de Dados SQL do Azure | Microsoft Docs
 description: Aprenda sobre o servidor de Banco de Dados SQL do Azure e seu gerenciamento.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f3378c43c225152ebdcf2e92de6d4fc65c047c31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479091"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756641"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de Banco de Dados SQL do Azure e seu gerenciamento
 
@@ -78,7 +78,7 @@ Para gerenciar um banco de dados existente, navegue até a página **bancos de d
 > [!IMPORTANT]
 > Para configurar propriedades de desempenho para um banco de dados, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Para um início rápido do Portal do Azure, consulte [Criar um Banco de Dados SQL do Azure no Portal do Azure](sql-database-get-started-portal.md).
+> Para um início rápido do Portal do Azure, consulte [Criar um Banco de Dados SQL do Azure no Portal do Azure](sql-database-single-database-get-started.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gerenciar servidores, bancos de dados e firewalls do SQL Azure usando o PowerShell do Azure
 
@@ -102,7 +102,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 | New-AzureRmSqlServerVirtualNetworkRule | Cria um [*regra de rede virtual*](sql-database-vnet-service-endpoint-rule-overview.md), com base em uma sub-rede que é um ponto de extremidade de serviço de rede virtual. |
 
 > [!TIP]
-> Para um início rápido do PowerShell, veja [Criar um Banco de Dados SQL do Azure individual usando o PowerShell](sql-database-get-started-portal.md). Para scripts de exemplo do PowerShell, confira [Usar o PowerShell para criar um Banco de Dados SQL do Azure individual e configurar uma regra de firewall de servidor de Banco de Dados SQL](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorar e escalar um Banco de Dados SQL do Azure individual usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Para um início rápido do PowerShell, veja [Criar um Banco de Dados SQL do Azure individual usando o PowerShell](sql-database-single-database-get-started.md). Para scripts de exemplo do PowerShell, confira [Usar o PowerShell para criar um Banco de Dados SQL do Azure individual e configurar uma regra de firewall de servidor de Banco de Dados SQL](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorar e escalar um Banco de Dados SQL do Azure individual usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gerenciar servidores, bancos de dados e firewalls do SQL Azure usando a CLI do Azure

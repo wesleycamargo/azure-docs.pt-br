@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823344"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694492"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração para Contoso: Hospedar novamente um aplicativo local para VMs do Azure
 
@@ -144,7 +144,7 @@ Aqui está como os administradores da Contoso executarão a migração:
 > [!div class="checklist"]
 > * **Etapa 1: Preparar o Azure para Site Recovery**: Criam uma conta de armazenamento do Azure para armazenar dados replicados e um cofre dos Serviços de Recuperação.
 > * **Etapa 2: Preparar VMware local para Site Recovery**: Preparam contas para a descoberta de VMs e a instalação de agentes e preparam para conectar VMs do Azure após failover.
-> *  **Etapa 3: Replicar VMs**: Configuram a replicação e começam a replicar as VMs para armazenamento do Azure.
+> * **Etapa 3: Replicar VMs**: Configuram a replicação e começam a replicar as VMs para armazenamento do Azure.
 > * **Etapa 4: Migrar VMs com o Site Recovery**: Executam um failover de teste para certificar-se de que tudo está funcionando e, em seguida, executam um failover completo para migrar as VMs para o Azure.
 
 
@@ -460,7 +460,7 @@ A equipe de segurança da Contoso revisa as VMs do Azure, para determinar os pro
 - Para controlar o acesso, a equipe examina os NSGs (Grupos de Segurança de Rede) das VMs. Os NSGs são usados para garantir que somente o tráfego permitido para o aplicativo pode acessá-lo.
 - A equipe também considera a possibilidade de proteger os dados no disco usando o Azure Disk Encryption e o KeyVault.
 
-[Leia mais](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sobre as práticas recomendadas de segurança para máquinas virtuais.
+[Leia mais](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) sobre as práticas recomendadas de segurança para máquinas virtuais.
 
 ## <a name="bcdr"></a>BCDR
 

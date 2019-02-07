@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: cb4d3c4d15dded3c7f90a1e3cf118ca10371dcb1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461059"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700988"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites do modelo de compra baseado em vCore para Banco de Dados SQL do Azure para pools elásticos
 
@@ -42,7 +42,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|512|756|756|1536|1536|1536|
 |Tamanho máximo de log|154|227|227|461|461|461|
@@ -68,7 +68,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1536|2.048|2.048|2.048|3584|4096|
 |Tamanho máximo de log (GB)|461|614|614|614|1075|1229|
@@ -94,7 +94,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|512|756|756|1536|1536|1536|
 |Tamanho máximo de log (GB)|154|227|227|461|461|461|461|
@@ -120,7 +120,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|2.048|2.048|3072|3072|4096|4096|4096|
 |Tamanho máximo de log (GB)|614|614|922|922|1229|1229|1229|
@@ -160,8 +160,8 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Número máximo de BDs por pool|Somente bancos de dados individuais têm suporte nesse tamanho de computação|50|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1…3|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…5|0, 0,25, 0,5, 1…6|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
-|Escala de leitura|SIM|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 \* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
@@ -186,8 +186,8 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Número máximo de BDs por pool|100|100|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…7|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…9|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…10, 16|0, 0,25, 0,5, 1…10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
-|Escala de leitura|SIM|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 \* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
@@ -198,8 +198,8 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|11|22|33|44|55|66|77|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|1. 571|3.142|4,713|6.284|8,655|11,026|13,397|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Tamanho máximo de log (GB)|307|307|307|461|461|461|461|
@@ -212,8 +212,8 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Número máximo de BDs por pool|Somente bancos de dados individuais têm suporte nesse tamanho de computação|50|100|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|N/D|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…6|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…12|0, 0,25, 0,5, 1…14|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
-|Escala de leitura|SIM|sim|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 \* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
@@ -225,7 +225,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo de log (GB)|922|922|922|1229|1229|1229|1229|
@@ -238,8 +238,8 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Número máximo de BDs por pool|100|100|100|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…16|0, 0,25, 0,5, 1…18|0, 0,25, 0,5, 1…20|0, 0,25, 0,5, 1…20, 24|0, 0,25, 0,5, 1…20, 24, 32|0, 0,25, 0,5, 1…20, 24, 32, 40|0, 0,25, 0,5, 1…20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
-|Escala de leitura|SIM|sim|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 \* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)

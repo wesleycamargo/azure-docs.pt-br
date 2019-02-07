@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0bba3c936463ad4fa8b4d06bf6f9df4f0ce6b863
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313778"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752306"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster do Service Fabric do Linux
 
@@ -190,7 +190,7 @@ Os comandos de push do Docker leva alguns minutos para ser concluído.
 
 ## <a name="list-images-in-registry"></a>Lista de imagens no registro
 
-Para retornar uma lista de imagens que foram enviadas por push ao Registro de Contêiner do Azure, use o comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Atualize o comando com o nome da instância do ACR.
+Para retornar uma lista de imagens que foram enviadas por push ao Registro de Contêiner do Azure, use o comando [az acr repository list](/cli/azure/acr/repository). Atualize o comando com o nome da instância do ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table

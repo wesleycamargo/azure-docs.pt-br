@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468114"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756114"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerenciar pools elásticos no banco de dados do Azure SQL
 
@@ -39,7 +39,7 @@ A partir deste ponto, é possível fazer qualquer combinação das alterações 
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerenciar pools elásticos e bancos de dados em pool
 
-Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados em pool com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerenciar os servidores de Banco de Dados SQL para um pool elástico, confira [Criar e gerenciar servidores de Banco de Dados SQL](sql-database-servers.md). Para criar e gerenciar regras de firewall, consulte [criar e gerenciar regras de firewall usando o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados em pool com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerenciar os servidores de Banco de Dados SQL para um pool elástico, confira [Criar e gerenciar servidores de Banco de Dados SQL](sql-database-servers.md). Para criar e gerenciar regras de firewall, consulte [criar e gerenciar regras de firewall usando o PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Para ver scripts de exemplo do PowerShell, consulte [Criar pools elásticos e mover bancos de dados entre pools e fora de um pool usando o PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [Usar o PowerShell para monitorar e dimensionar um pool elástico SQL no Banco de Dados SQL do Microsoft Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -79,7 +79,7 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azur
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Gerenciar bancos de dados em pool
 
-Para criar e mover bancos de dados dentro de pools elásticos existentes ou para retornar informações sobre um pool elástico de Banco de Dados SQL com o Transact-SQL, use os seguintes comandos do T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. Para criar e gerenciar regras de firewall usando o T-SQL, consulte [Gerenciar regras de firewall usando o Transact-SQL](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
+Para criar e mover bancos de dados dentro de pools elásticos existentes ou para retornar informações sobre um pool elástico de Banco de Dados SQL com o Transact-SQL, use os seguintes comandos do T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. Para criar e gerenciar regras de firewall usando o T-SQL, consulte [Gerenciar regras de firewall usando o Transact-SQL](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-transact-sql).
 
 > [!IMPORTANT]
 > Não é possível criar, atualizar ou excluir um pool elástico de Banco de Dados SQL do Microsoft Azure usando o Transact-SQL. Você pode adicionar ou remover bancos de dados de um pool elástico, bem como pode usar DMVs para retornar informações sobre os pools elásticos existentes.

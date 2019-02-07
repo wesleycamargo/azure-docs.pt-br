@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a8d9ea841aee21531ccb0379fbbc9b10ccf25303
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849304"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727306"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como usar tópicos e assinaturas do Barramento de Serviço com PHP
 
@@ -157,7 +157,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
-Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico. O tipo de filtro mais flexível compatível com as assinaturas é o [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para saber mais sobre SqlFilters, consulte [Propriedade SqlFilter.SqlExpression][sqlfilter].
+Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico. O tipo de filtro mais flexível compatível com as assinaturas é o [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para saber mais sobre SqlFilters, consulte [Propriedade SqlFilter.SqlExpression][sqlfilter].
 
 > [!NOTE]
 > Cada regra uma assinatura processa as mensagens de entrada independentemente, adicionando suas mensagens de resultado à assinatura. Além disso, cada nova assinatura tem um objeto **Regra** padrão com um filtro que adiciona todas as mensagens do tópico à assinatura. Para receber apenas as mensagens correspondentes ao filtro, você deve remover a regra padrão. Você pode remover a regra padrão usando o método `ServiceBusRestProxy->deleteRule`.
@@ -338,6 +338,6 @@ Para obter mais informações, confira [Filas, tópicos e assinaturas][Queues, t
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
+[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [require-once]: http://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

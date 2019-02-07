@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994157"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659602"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(PRETERIDO) Implantar um cluster Kubernetes para os contêineres do Linux
 
@@ -78,9 +78,9 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 Para gerenciar um cluster Kubernetes, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comando Kubernetes. 
 
-Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se você deseja instalá-lo localmente, pode usar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se você deseja instalá-lo localmente, pode usar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
-Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Esta etapa baixa credenciais e configura a CLI de Kubernetes para usá-las.
+Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes). Esta etapa baixa credenciais e configura a CLI de Kubernetes para usá-las.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster

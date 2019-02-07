@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887761"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749182"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensione automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -144,13 +144,13 @@ O exemplo a seguir define uma regra para reduzir horizontalmente o número de in
 ## <a name="create-an-autoscaling-scale-set"></a>Criar um conjunto de dimensionamento de dimensionamento automático
 Vamos usar um modelo de exemplo para criar um conjunto de dimensionamento e aplicar regras de dimensionamento automático. Você pode [revisar o modelo completo](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) ou [consultar a seção *Microsoft.insights/autoscalesettings* do provedor de recursos](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) do modelo.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora crie um conjunto de dimensionamento de máquinas virtuais usando [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Quando solicitado, forneça seu próprio nome de usuário e senha, como *azureuser*, que são usados como as credenciais para cada instância de VM:
+Agora crie um conjunto de dimensionamento de máquinas virtuais usando [az group deployment create](/cli/azure/group/deployment). Quando solicitado, forneça seu próprio nome de usuário e senha, como *azureuser*, que são usados como as credenciais para cada instância de VM:
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,7 +198,7 @@ Quando **stress** exibe uma saída semelhante a *stress: info: [2688] dispatchin
 
 Para confirmar que o **stress** gera carga de CPU, examine a carga do sistema ativo com o utilitário **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -264,7 +264,7 @@ Saia do *watch* usando `Ctrl-c`. O conjunto de dimensionamento continua a reduzi
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group#az_group_delete):
+Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

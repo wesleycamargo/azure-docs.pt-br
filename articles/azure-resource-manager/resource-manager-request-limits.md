@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136882"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493551"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
+
 Para cada assinatura e inquilino do Azure, o Gerenciador de Recursos permite até 12.000 solicitações de leitura por hora e 1.200 solicitações de gravação por hora. Esses limites são definidos para o ID principal que faz as solicitações e o ID da assinatura ou o ID do inquilino. Se suas solicitações vierem de mais de uma ID principal, seu limite na assinatura ou no inquilino será maior que 12.000 e 1.200 por hora.
 
 As solicitações são aplicadas à sua assinatura ou ao seu inquilino. As solicitações de assinatura envolvem a transmissão do seu ID de assinatura, como a recuperação dos grupos de recursos na sua assinatura. As solicitações de inquilino não incluem seu ID de inscrição, como a recuperação de locais válidos do Azure.
@@ -30,6 +31,8 @@ Esses limites se aplicam a cada instância do Azure Resource Manager. Há vária
 Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando você tiver atingido o limite.
 
 Quando você alcança o limite, recebe o código de status HTTP **429 Excesso de solicitações**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Solicitações restantes
 Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. Cada solicitação inclui os valores para o número de solicitações de leitura e gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
@@ -66,7 +69,7 @@ Para um exemplo completo do PowerShell, consulte [Verificar os limites do gerenc
 Se você deseja ver as solicitações restantes de depuração, forneça o parâmetro **-Debug** no cmdlet do **PowerShell**.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Que retorna muitos valores, incluindo o seguinte valor de resposta:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Para obter limites de gravação, use uma operação de gravação: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Que retorna muitos valores, incluindo os valores a seguir:

@@ -11,15 +11,15 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 08/07/2017
-ms.openlocfilehash: 02f97b318be975f4ff24b4e72276776ebc30535c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/06/2018
+ms.openlocfilehash: 14a39d283d9ec4f8d5267e6a6628609ac79879ee
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991963"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567495"
 ---
-# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Girar o protetor de TDE (Transparent Data Encryption) usando PowerShell 
+# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Girar o protetor de TDE (Transparent Data Encryption) usando PowerShell
 
 Este artigo descreve a rotação de chave para um servidor SQL do Azure usando um protetor de TDE do Azure Key Vault. Girar um protetor de TDE do servidor SQL do Azure significa alternar para uma nova chave assimétrica que protege os bancos de dados no servidor. A rotação de chave é uma operação online e deve demorar apenas alguns segundos para ser concluída, porque isso somente descriptografa e criptografa novamente a chave de criptografia de dados do banco de dados, não o banco de dados inteiro.
 

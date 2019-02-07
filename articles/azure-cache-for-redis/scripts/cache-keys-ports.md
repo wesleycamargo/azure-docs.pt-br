@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: f9a963ec81b78cfcc6ded7d8f35f4066f931e53e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fd69c3182f026996618fea5e26466e8434ea36f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847308"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754448"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtenha o nome de host, portas e chaves do Cache do Azure para Redis
 
@@ -40,7 +40,7 @@ Este script usa os seguintes comandos para recuperar o nome de host, as chaves e
 | Comando | Observações |
 |---|---|
 | [apresentação de redis az](https://docs.microsoft.com/cli/azure/redis) | Recuperar os detalhes de uma instância do Cache do Azure para Redis. |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Recuperar as chaves de acesso de uma instância do Cache do Azure para Redis. |
+| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis) | Recuperar as chaves de acesso de uma instância do Cache do Azure para Redis. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

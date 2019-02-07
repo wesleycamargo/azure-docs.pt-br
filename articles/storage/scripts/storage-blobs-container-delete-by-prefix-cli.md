@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 01187a4dbcd8333f95cf20b5956b7b81559a19a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853716"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730645"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Excluir contêineres com base no prefixo de nome de contêiner
 
@@ -49,10 +49,10 @@ Esse script usa os comandos a seguir para excluir contêineres com base no prefi
 | Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
-| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Cria um contêiner no Armazenamento de Blobs do Azure. |
+| [az storage account create](/cli/azure/storage/account) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
+| [az storage container create](/cli/azure/storage/container) | Cria um contêiner no Armazenamento de Blobs do Azure. |
 | [az storage container list](/cli/azure/storage/container) | Lista os contêineres em uma conta de Armazenamento do Azure. |
-| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Exclui os contêineres em uma conta de Armazenamento do Azure. |
+| [az storage container delete](/cli/azure/storage/container) | Exclui os contêineres em uma conta de Armazenamento do Azure. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

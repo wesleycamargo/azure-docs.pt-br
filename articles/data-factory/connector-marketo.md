@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 332687d14593024bb4354e2cd59ff0d50ae0aaef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017303"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562072"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo usando Azure Data Factory (versão prévia)
 
@@ -47,10 +47,10 @@ As propriedades a seguir são compatíveis com o serviço vinculado do Marketo:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Marketo** | SIM |
-| endpoint | O ponto de extremidade do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | SIM |
-| clientId | A ID do cliente do serviço Marketo.  | SIM |
-| clientSecret | O segredo do cliente do serviço Marketo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| Tipo | A propriedade type deve ser definida como: **Marketo** | Sim |
+| endpoint | O ponto de extremidade do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
+| clientId | A ID do cliente do serviço Marketo.  | Sim |
+| clientSecret | O segredo do cliente do serviço Marketo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -66,8 +66,8 @@ As propriedades a seguir são compatíveis com o serviço vinculado do Marketo:
             "endpoint" : "123-ABC-321.mktorest.com",
             "clientId" : "<clientId>",
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             }
         }
     }
@@ -82,7 +82,7 @@ Para copiar dados do Marketo, defina a propriedade type do conjunto de dados com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MarketoObject** | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MarketoObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -111,7 +111,7 @@ Para copiar dados do Marketo, defina o tipo de origem na atividade de cópia com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MarketoSource** | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MarketoSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

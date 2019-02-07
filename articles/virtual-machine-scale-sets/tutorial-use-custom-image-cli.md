@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193481"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755179"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
@@ -44,7 +44,7 @@ Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você 
 >[!NOTE]
 > Este tutorial analisa o processo de criação e uso de uma imagem de VM generalizada. Não há suporte para criar um conjunto de dimensionamento a partir de uma imagem de VM especializada.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create); em seguida, crie uma VM com [az vm create](/cli/azure/vm). Essa VM é usada como a origem para uma imagem de VM personalizada. O exemplo abaixo inicia uma VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group); em seguida, crie uma VM com [az vm create](/cli/azure/vm). Essa VM é usada como a origem para uma imagem de VM personalizada. O exemplo abaixo inicia uma VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Criar uma imagem de VM personalizada da VM de origem
 A VM de origem agora é personalizada com o servidor Web Nginx instalado. Vamos criar a imagem de VM personalizada para usar com um conjunto de dimensionamento.
 
-Para criar uma imagem, a VM precisará ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Depois, defina o estado da VM como generalizado usando [az vm generalize](/cli//azure/vm#az_vm_generalize) para que a plataforma do Azure saiba que a VM está pronta para usar uma imagem personalizada. Você só pode criar uma imagem por meio de uma VM generalizada:
+Para criar uma imagem, a VM precisará ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm). Depois, defina o estado da VM como generalizado usando [az vm generalize](/cli//azure/vm) para que a plataforma do Azure saiba que a VM está pronta para usar uma imagem personalizada. Você só pode criar uma imagem por meio de uma VM generalizada:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjun
 
 
 ## <a name="test-your-scale-set"></a>Testar seu conjunto de dimensionamento
-Para permitir que o tráfego alcance o conjunto de dimensionamento e verifique se o servidor Web está funcionando corretamente, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#create). O exemplo abaixo cria uma regra denominada *myLoadBalancerRuleWeb* que permite o tráfego na porta *TCP* *80*:
+Para permitir que o tráfego alcance o conjunto de dimensionamento e verifique se o servidor Web está funcionando corretamente, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo abaixo cria uma regra denominada *myLoadBalancerRuleWeb* que permite o tráfego na porta *TCP* *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Para ver seu conjunto de dimensionamento em ação, obtenha o endereço IP público de seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#show). O seguinte exemplo obtém o endereço IP de *myScaleSetLBPublicIP*, criado como parte do conjunto de dimensionamento:
+Para ver seu conjunto de dimensionamento em ação, obtenha o endereço IP público de seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O seguinte exemplo obtém o endereço IP de *myScaleSetLBPublicIP*, criado como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Digite o endereço IP público no seu navegador da Web. A página da Web padrão
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group#az_group_delete). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
+Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

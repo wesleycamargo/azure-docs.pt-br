@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214599"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658735"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma a um mapa
 
@@ -108,7 +108,7 @@ O primeiro bloco de código acima constrói um objeto Map. Você pode ver [criar
 
 Um ponto é um [recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) dos [aponte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) a classe. O segundo bloco de código inicializa o valor do raio para o elemento de controle deslizante de HTML e, em seguida, constrói e envolve um objeto de ponto em um objeto de classe [Forma](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 
-O terceiro bloco de código cria uma função que pega o valor do elemento slider do intervalo HTML e altera o valor do raio usando o método [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) da classe shape.
+O terceiro bloco de código cria uma função que pega o valor do elemento slider do intervalo HTML e altera o valor do raio usando o método [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) da classe shape.
 
 No quarto bloco de código, um objeto de fonte de dados é criado usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). O ponto é adicionado à fonte de dados.
 

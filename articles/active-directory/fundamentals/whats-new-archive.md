@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba538aed855667417e14bef12b708e80f34cd8c4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7478921d55e6851f06e3d806bf05fd51c66b9202
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243919"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664209"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar para Novidades no Active Directory do Azure
 
@@ -715,7 +715,7 @@ Para obter mais informações, consulte: [Personalizando a lista de atributos de
 É possível alterar como a associação é gerida em um grupo. Isso é útil quando você quer manter o mesmo ID e nome de grupo no sistema, então, todas as referências existentes no grupo ainda serão válidas; criar um novo grupo exigiria atualizar essas referências.
 Atualizamos o centro de administração do Azure AD para oferecer suporte a essa funcionalidade. Agora, os clientes podem converter grupos existentes de associação dinâmica para associação atribuída e vice-versa. Os cmdlets do PowerShell existentes também ainda estão disponíveis.
 
-Para saber mais, confira [Alterar a associação dinâmica para estática e vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
+Para saber mais, confira [Alterar a associação dinâmica para estática e vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)
 
 ---
 

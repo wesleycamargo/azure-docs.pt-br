@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170701"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751269"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -107,7 +107,7 @@ az monitor autoscale rule create \
 
 Para testar as regras de dimensionamento automático, gere carga da CPU nas instâncias de VM no conjunto de dimensionamento. Essa carga de CPU simulada faz com que o dimensionamento automático escale horizontalmente e aumente o número de instâncias de VM. Conforme a carga simulada de CPU vai sendo reduzida, as regras de dimensionamento automático para redução diminuem o número de instâncias de VM.
 
-Primeiro, liste os endereços e as portas para se conectar a instâncias de VM em um conjunto de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Primeiro, liste os endereços e as portas para se conectar a instâncias de VM em um conjunto de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -141,7 +141,7 @@ Quando **stress** exibe uma saída semelhante a *stress: info: [2688] dispatchin
 
 Para confirmar que o **stress** gera carga de CPU, examine a carga do sistema ativo com o utilitário **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -152,7 +152,7 @@ Ctrl-c
 exit
 ```
 
-Conecte-se à segunda instância de VM com o número da porta listado no [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) anterior:
+Conecte-se à segunda instância de VM com o número da porta listado no [az vmss list-instance-connection-info](/cli/azure/vmss) anterior:
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -208,7 +208,7 @@ Saia do *watch* usando `Ctrl-c`. O conjunto de dimensionamento continua a reduzi
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group#az_group_delete). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
+Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

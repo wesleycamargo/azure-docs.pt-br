@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260609"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731267"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início Rápido: criar uma sala de chat com o Serviço do SignalR
 
@@ -97,7 +97,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
 
     O Gerenciador de Segredos só será usado para testar o aplicativo Web enquanto ele estiver hospedado localmente. Em um tutorial posterior, você implantará o aplicativo Web de chat no Azure. Após a implantação do aplicativo Web no Azure, você usará uma configuração de aplicativo em vez de armazenar a cadeia de conexão com o Gerenciador de Segredos.
 
-    Esse segredo é acessado com a API de configuração. Os dois-pontos (:) funcionam no nome da configuração com a API de configuração em todas as plataformas com suporte; consulte [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+    Esse segredo é acessado com a API de configuração. Os dois-pontos (:) funcionam no nome da configuração com a API de configuração em todas as plataformas com suporte; consulte [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. Abra *Startup.cs* e atualize o método `ConfigureServices` para usar o Serviço Azure SignalR chamando o método `services.AddSignalR().AddAzureSignalR()`:

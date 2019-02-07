@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016641"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661234"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
@@ -28,14 +28,11 @@ No momento, todos os tipos de atividade, exceto a atividade personalizada suport
 
 Esse recurso depende da identidade de serviço da data factory. Saiba como ele funciona de [identidade de serviço de Data factory](data-factory-service-identity.md) e verifique se sua data factory tem um associado.
 
->[!TIP]
->No Azure Key Vault, quando você cria um segredo, **coloque todo o valor de uma propriedade secreta solicitada pelo serviço vinculado do ADF (por exemplo, cadeia de conexão/senha/chave da entidade de serviço/etc)**. Por exemplo, para o serviço vinculado ao Armazenamento do Azure, insira `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` como segredo AKV e a referência no campo "connectionString" do ADF; para o serviço vinculado do Dynamics, insira `myPassword` como segredo AKV e, em seguida, a referência no campo "senha" do ADF. Consulte o artigo de cada conector/computação nos detalhes de propriedades com suporte.
-
 ## <a name="steps"></a>Etapas
 
 Para referenciar uma credencial armazenada no Azure Key Vault, você precisa:
 
-1. **Recuperar a identidade do serviço de data factory** copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador. Se você usar a IU de criação do ADF, a ID de identidade de serviço será exibida na janela de criação de serviço vinculado do Azure Key Vault; você também poderá recuperá-lo no Portal do Azure, consulte [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity).
+1. **Recuperar a identidade do serviço de data factory** copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador. Se você usar a IU de criação do ADF, a ID de identidade de serviço será exibida na janela de criação de serviço vinculado do Azure Key Vault; você também poderá recuperá-lo no portal do Azure, consulte [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity).
 2. **Conceda à identidade do serviço o acesso ao seu Azure Key Vault.** No seu cofre de chaves -> Políticas de acesso -> Adicionar novo -> pesquise esta ID do aplicativo de identidade do serviço para conceder permissão **Get** na lista suspensa Permissões secretas. Isso permite que esse factory específico acesse o segredo no cofre de chaves.
 3. **Crie um serviço vinculado que aponte para seu Azure Key Vault.** Consulte [Serviço vinculado do Azure Key Vault](#azure-key-vault-linked-service).
 4. **Crie um serviço vinculado de armazenamento de dados, dentro do qual fazer referência ao segredo correspondente armazenado no cofre de chaves.** Consulte [fazer referência a segredo armazenado no cofre de chaves](#reference-secret-stored-in-key-vault).
@@ -46,8 +43,8 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | SIM |
-| baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | SIM |
+| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
+| baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | Sim |
 
 **Usando a criação da interface do usuário:**
 
@@ -79,10 +76,10 @@ As propriedades a seguir têm suporte quando você configura um campo no serviç
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade de tipo do campo deve ser definida como: **AzureKeyVaultSecret**. | SIM |
-| secretName | O nome do segredo no Azure Key Vault. | SIM |
+| Tipo | A propriedade de tipo do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
+| secretName | O nome do segredo no Azure Key Vault. | Sim |
 | secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificada, a versão mais recente do segredo será sempre usada.<br/>Se especificada, a versão especificada será sempre usada.| Não  |
-| store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | SIM |
+| store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | Sim |
 
 **Usando a criação da interface do usuário:**
 

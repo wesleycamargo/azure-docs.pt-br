@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f1aa037afd0fa1cbe37add24a354e4dc62c13b9a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 12/12/2018
+ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310123"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755145"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conectar-se ao Banco de Dados SQL usando C e C++
+
 Esta postagem é destinada a desenvolvedores de C e C++ que tentam se conectar ao Banco de Dados de SQL do Azure. Ele é dividido em seções para que você possa ir direto para aquela que melhor captura seu interesse.
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>Pré-requisitos para o tutorial do C/C++
+
 Verifique se você tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -38,7 +40,7 @@ Atualmente, o Azure tem duas opções para hospedar cargas de trabalho do SQL Se
 Conectar-se ao BD SQL do Azure não é diferente e, atualmente, há duas maneiras para se conectar aos bancos de dados: ODBC (Conectividade ao Banco de Dados Aberto) e OLE DB (Banco de Dados de Vinculação e Incorporação de Objeto). Nos últimos anos, a Microsoft tem se alinhado com o [ODBC para acesso a dados relacionais nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). O ODBC é relativamente simples e também muito mais rápido que o OLE DB. A única limitação é que o ODBC usa uma API de estilo C antiga.
 
 ## <a id="Create"></a>Etapa 1:  Criando seu Banco de Dados SQL do Azure
-Consulte a [página de introdução](sql-database-get-started-portal.md) para aprender a criar um banco de dados de exemplo.  Como alternativa, você pode seguir este [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar um Banco de Dados SQL do Azure usando o Portal do Azure.
+Consulte a [página de introdução](sql-database-single-database-get-started.md) para aprender a criar um banco de dados de exemplo.  Como alternativa, você pode seguir este [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar um Banco de Dados SQL do Azure usando o Portal do Azure.
 
 ## <a id="ConnectionString"></a>Etapa 2:  Obter a cadeia de conexão
 Depois do Banco de Dados SQL do Azure ser configurado, você precisará executar as seguintes etapas para determinar as informações de conexão e adicionar o IP do cliente para acesso ao firewall.

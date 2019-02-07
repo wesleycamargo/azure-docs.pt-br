@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 8675c5ff90f7be2dc0b3ac80eb593adb613ba860
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 76a40c7e9f32deea798441ce53be7c7ef262e2bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039751"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770662"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca do executor em massa do .NET: Fazer o download das informações 
 
@@ -31,20 +31,14 @@ ms.locfileid: "54039751"
 > * [Executor em massa - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Descrição**</td><td>A biblioteca do Executor em massa permite que os aplicativos clientes executem operações em massa nas contas do Azure Cosmos DB. Biblioteca de Executor em massa fornece namespaces BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode importar em massa documentos de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida até seu limite máximo. O módulo BulkUpdate pode atualizar em massa dados existentes nos contêineres do Azure Cosmos DB como patches. O módulo BulkDelete pode excluir documentos em massa de forma otimizada, de modo que o rendimento provisionado para uma coleção seja consumido em sua extensão máxima.</td></tr>
-
-<tr><td>**Baixe o SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
-
-<tr><td>**Biblioteca BulkExecutor no GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)</td></tr>
-
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Introdução**</td><td>[Introdução ao SDK do .NET da biblioteca do Executor em massa](bulk-executor-dot-net.md)</td></tr>
-
-<tr><td>**Framework atualmente com suporte**</td><td>Microsoft .NET Framework 4.5.2, 4.6.1 e o .NET Standard 2.0 </td></tr>
-</table></br>
+| |  |
+|---|---|
+| **Descrição**| A biblioteca do Executor em massa permite que os aplicativos clientes executem operações em massa nas contas do Azure Cosmos DB. Biblioteca de Executor em massa fornece namespaces BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode importar em massa documentos de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida até seu limite máximo. O módulo BulkUpdate pode atualizar em massa dados existentes nos contêineres do Azure Cosmos DB como patches. O módulo BulkDelete pode excluir documentos em massa de forma otimizada, de modo que o rendimento provisionado para uma coleção seja consumido em sua extensão máxima.|
+|**Baixe o SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+| **Biblioteca BulkExecutor no GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+|**Documentação da API**|[Documentação de referência de API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Introdução**|[Introdução ao SDK do .NET da biblioteca do Executor em massa](bulk-executor-dot-net.md)|
+| **Framework atualmente com suporte**| Microsoft .NET Framework 4.5.2, 4.6.1 e o .NET Standard 2.0 |
 
 ## <a name="release-notes"></a>Notas de versão
 

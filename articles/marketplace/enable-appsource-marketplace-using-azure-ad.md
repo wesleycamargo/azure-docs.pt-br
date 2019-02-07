@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351942"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732321"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilite uma listagem do AppSource e do Marketplace usando o Active Directory do Azure
 
@@ -44,7 +44,7 @@ As várias [listando opções e tipos de oferta](https://docs.microsoft.com/azur
 | Máquina Virtual | N/D | Não  | Não | Não  |
 | Aplicativos Azure (modelo de solução)  | N/D | N/D | N/D | N/D |
 | Aplicativos gerenciados  | N/D | N/D | N/D | Não  |
-| SaaS  | Não  | sim | sim | SIM |
+| SaaS  | Não  | sim | sim | Sim |
 | Contêineres  | N/D | N/D | N/D | Não  |
 | Serviços de Consultoria  | Não  | N/D | N/D | N/D |
 
@@ -59,7 +59,7 @@ Para obter mais informações sobre os requisitos técnicos de SaaS, consulte [G
 
 A configuração automatizada do cliente pode aumentar a probabilidade de conversão. Quando seu cliente seleciona sua listagem de avaliação e é redirecionado para seu ambiente de avaliação, você pode configurar o cliente diretamente, sem exigir etapas adicionais de login.
 
-Durante a autenticação, o Azure AD envia um token para seu aplicativo ou oferta. As informações do usuário fornecidas pelo token permitem a criação de uma conta de usuário no seu aplicativo ou oferta. Para obter mais informações, consulte [tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Durante a autenticação, o Azure AD envia um token para seu aplicativo ou oferta. As informações do usuário fornecidas pelo token permitem a criação de uma conta de usuário no seu aplicativo ou oferta. Para obter mais informações, consulte [tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Quando você usa o Azure AD para habilitar a autenticação de um clique no seu aplicativo ou a listagem de avaliação, você:
 

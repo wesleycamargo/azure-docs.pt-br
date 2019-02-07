@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 3e9042251a4818af88aab7dcb5bc32ea9fedb66c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 142b36e5c1f0908ccfc1bf2e475442028e02edf7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946673"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728445"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Emparelhar exemplo de script de duas redes virtuais
 
@@ -49,10 +49,10 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma sub-rede e uma rede virtual do Azure. |
-| [criar emparelhamento de VNET de rede virtual az](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) | Cria um emparelhamento entre duas redes virtuais.  |
-| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma sub-rede e uma rede virtual do Azure. |
+| [criar emparelhamento de VNET de rede virtual az](/cli/azure/network/vnet/peering) | Cria um emparelhamento entre duas redes virtuais.  |
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

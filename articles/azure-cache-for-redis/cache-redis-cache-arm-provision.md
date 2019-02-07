@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038578"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746941"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar um Cache Redis do Azure usando um modelo
 Neste tópico, você aprende a criar um modelo do Azure Resource Manager que implanta um aplicativo do Cache Redis do Azure. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
@@ -33,7 +33,7 @@ Para obter o modelo completo, consulte [Modelo do Cache Redis do Azure](https://
 > [!NOTE]
 > Os modelos do Resource Manager para a nova [camada Premium](cache-premium-tier-intro.md) estão disponíveis. 
 > 
-> * [Criar um Cache Redis do Azure Premium com clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Criar um Cache Redis do Azure Premium com clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Criar um Cache Redis do Azure Premium com persistência de dados](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Criar um Cache Redis do Azure Premium com VNet e clustering opcional](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 

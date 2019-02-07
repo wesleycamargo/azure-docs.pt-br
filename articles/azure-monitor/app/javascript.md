@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 952dd97a06718d0c29f9c6f5abc79da592e6f3ae
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117803"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661506"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 Saiba mais sobre o desempenho e o uso de sua página da Web ou aplicativo. Se adicionar o [Application Insights](../../azure-monitor/app/app-insights-overview.md) ao script de página, você obterá intervalos de carregamentos de página e chamadas AJAX, contagens e detalhes de exceções de navegador e falhas de AJAX, bem como contagens de usuários e sessões. Todos esses itens podem ser segmentados por página, sistema operacional cliente e versão do navegador, localização geográfica e outras dimensões. Você pode definir alertas para contagens de falhas ou carregamento de páginas lento. E inserindo chamadas de rastreamento em seu código JavaScript, você pode controlar como os diferentes recursos do seu aplicativo de página da Web são usados.
@@ -206,7 +206,7 @@ Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique
 > 
 > 
 
-Você também pode usar a poderosa [linguagem de consulta do Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) para pesquisar exibições de página.
+Você também pode usar a poderosa [linguagem de consulta do Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour) para pesquisar exibições de página.
 
 ### <a name="page-view-properties"></a>Propriedades de exibição de página
 * **Duração do modo de exibição de página** 

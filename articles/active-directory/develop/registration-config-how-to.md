@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: fb5449ec33467a78de0eef7a345b687901063fe1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 85f119b2a0aaa49fa02ad579a89ce2a0b6e72007
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102287"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756267"
 ---
 # <a name="how-to-configure-endpoints"></a>Como configurar pontos de extremidade
 
@@ -36,4 +36,4 @@ Você pode encontrar os pontos de extremidade de autenticação para seu aplicat
 -   Use o ponto de extremidade específico ao protocolo de autenticação que você está usando, em conjunto com a ID do aplicativo, para criar a solicitação de autenticação específica ao aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

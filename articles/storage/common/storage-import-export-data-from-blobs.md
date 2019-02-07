@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453103"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769263"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.
@@ -145,7 +145,7 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
     |**/sn:**|Obrigatório. O nome da conta de armazenamento do trabalho de exportação.|  
     |**/sk:**|Necessário somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|  
     |**/csas:**|Necessário somente se uma chave de conta de armazenamento não for especificada. A SAS do contêiner para listar os blobs a serem exportados no trabalho de exportação.|  
-    |**/ExportBlobListFile:**|Obrigatório. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) da API REST do serviço de Importação/Exportação.|  
+    |**/ExportBlobListFile:**|Obrigatório. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs) da API REST do serviço de Importação/Exportação.|  
     |**/DriveSize:**|Obrigatório. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo*, 500 GB, 1,5 TB.|  
 
     Consulte um [exemplo do comando PreviewExport](#example-of-previewexport-command).

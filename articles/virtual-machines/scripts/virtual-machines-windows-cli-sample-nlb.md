@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 7e173783b76ed53269722d363545692480c29c9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 76e7d550c53ad2e9d1c1a1bab5ea4000279fcaa4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182108"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700410"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Como balancear a carga de tráfego entre máquinas virtuais altamente disponíveis
 
@@ -48,19 +48,19 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Cria uma sub-rede e uma rede virtual do Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma sub-rede e uma rede virtual do Azure. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_create) | Cria um balanceador de carga de rede (NLB) do Azure. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az_network_lb_probe_create) | Cria uma investigação NLB. Uma investigação NLB é usada para monitorar cada VM no conjunto do NLB. Se qualquer VM ficar inacessível, o tráfego não é roteado para a máquina virtual. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Cria uma regra NLB. Neste exemplo, uma regra é criada para a porta 80. Conforme o tráfego HTTP chega ao NLB, ele é roteado para a porta 80, uma das VMs no conjunto do NLB. |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Cria um balanceador de carga de rede (NLB) do Azure. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | Cria uma investigação NLB. Uma investigação NLB é usada para monitorar cada VM no conjunto do NLB. Se qualquer VM ficar inacessível, o tráfego não é roteado para a máquina virtual. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria uma regra NLB. Neste exemplo, uma regra é criada para a porta 80. Conforme o tráfego HTTP chega ao NLB, ele é roteado para a porta 80, uma das VMs no conjunto do NLB. |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | Cria uma regra de conversão de endereços de rede (NAT) do NLB.  Regras de NAT mapeiam uma porta do NLB para uma porta em uma máquina virtual. Neste exemplo, é criada uma regra de NAT para o tráfego SSH para cada VM no conjunto do NLB.  |
-| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
+| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra NSG para permitir o tráfego de entrada. Neste exemplo, a porta 22 é aberta para o tráfego SSH. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | Cria uma placa de rede virtual e a anexa à rede virtual, à sub-rede e ao NSG. |
-| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Cria um conjunto de disponibilidade. Conjuntos de disponibilidade garantem o funcionamento de aplicativos, distribuindo as máquinas virtuais em recursos físicos, de modo que, se ocorrer uma falha, todo o conjunto não é afetado. |
+| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Cria uma placa de rede virtual e a anexa à rede virtual, à sub-rede e ao NSG. |
+| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria um conjunto de disponibilidade. Conjuntos de disponibilidade garantem o funcionamento de aplicativos, distribuindo as máquinas virtuais em recursos físicos, de modo que, se ocorrer uma falha, todo o conjunto não é afetado. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem da máquina virtual a ser usada e as credenciais administrativas.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e6128a9bbdba058068057c202595508cef69fbb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1fd2ab85631cf613297f260748c3b2b03e8a9870
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510503"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Início Rápido: Compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 * Os valores de nome de usuário e senha são definidos usando a página de cadeia de conexão no portal do Microsoft Azure. O `path\to\cert` fornece um caminho para um X509 certificado. 
 
-   ```nodejs
+   ```javascript
    var ssl_option = {
         cert : fs.readFileSync("path\to\cert"),
         rejectUnauthorized : true,
@@ -81,19 +81,19 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 * O `client` é inicializado com informações do contactPoint. O contactPoint é recuperado do Portal do Azure.
 
-    ```nodejs
+    ```javascript
     const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
     ```
 
 * O `client` se conecta à API Cassandra do Azure Cosmos DB.
 
-    ```nodejs
+    ```javascript
     client.connect(next);
     ```
 
 * Um novo keyspace é criado.
 
-    ```nodejs
+    ```javascript
     function createKeyspace(next) {
         var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
         client.execute(query, next);
@@ -103,7 +103,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 * Uma nova tabela é criada.
 
-   ```nodejs
+   ```javascript
    function createTable(next) {
     var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
@@ -113,7 +113,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 * Entidades de chave/valor são inseridas.
 
-    ```nodejs
+    ```javascript
     ...
        {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
@@ -125,7 +125,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 * Consulta para obter todos os pares chave-valor.
 
-    ```nodejs
+    ```javascript
    var query = 'SELECT * FROM uprofile.user';
     client.execute(query, { prepare: true}, function (err, result) {
       if (err) return next(err);
@@ -138,7 +138,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
     
 * Consulta para obter uma chave-valor.
 
-    ```nodejs
+    ```javascript
     function selectById(next) {
         console.log("\Getting by id");
         var query = 'SELECT * FROM uprofile.user where user_id=1';

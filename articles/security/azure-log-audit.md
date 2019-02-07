@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306243"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697910"
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 
@@ -194,9 +194,9 @@ A Análise de Armazenamento registra os seguintes tipos de solicitações anôni
 
 O log e monitoramento de rede no Azure é completo e abrange duas categorias amplas:
 
-* [Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Monitoramento de rede baseado em cenário fornecido com os recursos do Observador de Rede. Esse serviço inclui a captura de pacotes, próximo salto, verificação do fluxo de IP, exibição do grupo de segurança e logs de fluxo de NSG. O monitoramento no nível do cenário fornece uma exibição completa dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
+* [Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Monitoramento de rede baseado em cenário fornecido com os recursos do Observador de Rede. Esse serviço inclui a captura de pacotes, próximo salto, verificação do fluxo de IP, exibição do grupo de segurança e logs de fluxo de NSG. O monitoramento no nível do cenário fornece uma exibição completa dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
 
-* [Monitoramento de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): O monitoramento no nível do recurso é composto de quatro recursos: logs de diagnóstico, métricas, solução de problemas e integridade dos recursos. Todos esses recursos são compilados no nível do recurso da rede.
+* [Monitoramento de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): O monitoramento no nível do recurso é composto de quatro recursos: logs de diagnóstico, métricas, solução de problemas e integridade dos recursos. Todos esses recursos são compilados no nível do recurso da rede.
 
 ![Logs de rede do Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Além das funcionalidades de log mencionadas anteriormente, o Observador de Rede
 
 * [Solução de problemas de conexão e do gateway de rede virtual](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ajuda você a solucionar problemas de conexões e gateways de rede virtual.
 
-* [Limites de assinatura da rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Permite exibir o uso dos recursos de rede em relação aos limites.
+* [Limites de assinatura da rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Permite exibir o uso dos recursos de rede em relação aos limites.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -371,10 +371,10 @@ A Integração do Log dá suporte à integração dos logs de atividades do Azur
 
 | Tipo de log | Log Analytics que dá suporte a JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Logs de auditoria do Azure AD|   SIM|
-|Logs de atividade| SIM|
-|Alertas da Central de Segurança |SIM|
-|Logs de diagnóstico (logs de recurso)|  SIM|
+|Logs de auditoria do Azure AD|   Sim|
+|Logs de atividade| Sim|
+|Alertas da Central de Segurança |Sim|
+|Logs de diagnóstico (logs de recurso)|  Sim|
 |Logs da VM|   Sim, por meio de eventos encaminhados e não por meio do JSON|
 
 [Introdução à Integração de Logs do Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): Este tutorial explica as etapas de instalação da Integração de Logs do Azure, bem como a integração de logs do armazenamento do Azure, logs de atividades do Azure, alertas da Central de Segurança do Azure e logs de auditoria do Microsoft Azure Active Directory.

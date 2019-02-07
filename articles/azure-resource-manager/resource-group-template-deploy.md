@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a816542860a96a8b0dbbeaa63202b6cba4d24acc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ff67474566737ca75206cd1237c89f873cb173a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294971"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489845"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
@@ -26,6 +26,9 @@ Este artigo explica como usar o Azure PowerShell com modelos do Resource Manager
 O modelo do Resource Manager que você implementa pode ser um arquivo local em sua máquina ou um arquivo externo localizado em um repositório como o GitHub. O modelo implementado neste artigo está disponível como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 Se necessário, instale o módulo do Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 <a id="deploy-local-template" />
 

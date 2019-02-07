@@ -1,8 +1,21 @@
 ---
-Título: Treinar novamente um serviço Web clássico – titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 19/04/2017
+title: Treinar novamente um serviço Web Clássico
+titleSuffix: Azure Machine Learning Studio
+description: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 04/19/2017
+ms.openlocfilehash: 04dac55feaa6826e1b8b591df61e8ad413f24dad
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509398"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Treinar novamente um serviço Web clássico do Azure Machine Learning Studio
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web.

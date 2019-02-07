@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bbb2b292f2793a1d157a6ea87aa245ad39b15830
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241212"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729363"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um Standard Load Balancer para balancear a carga de VMs usando a CLI do Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um Standard Load Balancer para balancear a carga de VMs usando a CLI do Azure
 
 Este início rápido mostra como criar um balanceador de carga padrão. Para testar o balanceador de carga, implante duas máquinas virtuais (VMs) executando o servidor do Ubuntu e balanceie a carga de um aplicativo Web entre as duas VMs.
 
@@ -171,7 +171,7 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \

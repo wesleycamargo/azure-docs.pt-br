@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102114"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751898"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -117,7 +117,7 @@ Se você estiver usando qualquer proxy firewall baseado em URL para controlar a 
 
 **O coletor não é capaz de se conectar à Internet devido a uma falha de validação do certificado**
 
-Isso pode acontecer se você estiver usando um proxy de interceptação para se conectar à Internet e não tiver importado o certificado de proxy para a VM do coletor. Você pode importar o certificado de proxy usando as etapas detalhadas [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Isso pode acontecer se você estiver usando um proxy de interceptação para se conectar à Internet e não tiver importado o certificado de proxy para a VM do coletor. Você pode importar o certificado de proxy usando as etapas detalhadas [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **O coletor não consegue se conectar ao projeto usando a ID e a chave do projeto copiados do portal.**
 
@@ -172,7 +172,7 @@ Esse problema pode ocorrer devido a um problema com a instalação do VMware Pow
 
 Não é possível se conectar ao vCenter Server "Servername.com:9443" devido ao erro: "Não havia nenhum ponto de extremidade escutando em https://Servername.com:9443/sdk para aceitar a mensagem." Isso geralmente é causado por um endereço incorreto ou ação SOAP.
 
-Verifique se está executando a versão mais recente do dispositivo do coletor, caso não esteja, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Verifique se está executando a versão mais recente do dispositivo do coletor, caso não esteja, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Se o problema ainda ocorrer na versão mais recente, poderá ser porque o computador do coletor não consegue resolver o nome do vCenter Server especificado ou a porta especificada está errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
 
@@ -219,7 +219,7 @@ A lista de sistemas operacionais Linux com suporte no MMA está [aqui](https://d
 ### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operacionais com suporte no Dependency Agent?
 
 A lista de sistemas de operacionais Windows com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-A lista de sistemas de operacionais Linux com suporte no agente de dependência está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+A lista de sistemas de operacionais Linux com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo visualizar as dependências nas Migrações para Azure por um período maior de uma hora?
 As Migrações para Azure permitem que você visualize as dependências por um período de até uma hora. Embora as Migrações para Azure permitam que você volte para uma data específica no histórico de até um mês atrás, a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora. No entanto, você pode usar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) por um período mais longo.

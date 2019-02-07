@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102148"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734480"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory
 
@@ -36,7 +36,7 @@ As *permissões*, também conhecidas como *escopos*, facilitam a autorização p
 
 O Microsoft Active Directory do Azure define dois tipos de permissões:
 
-* **Permissões delegadas** - são usadas por aplicativos que têm um usuário conectado presente. Para esses aplicativos, o usuário ou administrador consente as permissões solicitadas pelo aplicativo e este recebe permissão para agir como o usuário conectado na hora de fazer chamadas à API. Dependendo da API, o usuário talvez não consiga dar o consentimento diretamente; em vez disso, seria [necessário um administrador para fornecer o "consentimento do administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Permissões delegadas** - são usadas por aplicativos que têm um usuário conectado presente. Para esses aplicativos, o usuário ou administrador consente as permissões solicitadas pelo aplicativo e este recebe permissão para agir como o usuário conectado na hora de fazer chamadas à API. Dependendo da API, o usuário talvez não consiga dar o consentimento diretamente; em vez disso, seria [necessário um administrador para fornecer o "consentimento do administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Permissões de aplicativo** - são usadas por aplicativos executados sem um usuário conectado presente; por exemplo, aplicativos executados como serviços em segundo plano ou daemons. As permissões de aplicativo só podem ser [consentidas por um administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque eles são geralmente poderosos e permitem o acesso a dados entre limites de usuário, ou a dados que seriam restritos aos administradores.
 
 Permissões efetivas são as permissões que seu aplicativo terá ao fazer solicitações para uma API. 

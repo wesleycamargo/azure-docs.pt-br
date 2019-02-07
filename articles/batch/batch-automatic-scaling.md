@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459835"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729993"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático para expandir nós de computação em um pool do Lote
 
@@ -551,7 +551,7 @@ No .NET do Lote, a propriedade [CloudPool.AutoScaleRun](https://docs.microsoft.c
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-Na API REST a solicitação [Obter informações sobre um pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as últimas informações de execução de dimensionamento automático na propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun).
+Na API REST a solicitação [Obter informações sobre um pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as últimas informações de execução de dimensionamento automático na propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool).
 
 O seguinte snippet de código C# utiliza a biblioteca .NET do Lote para imprimir informações sobre a última execução de dimensionamento automático executada no pool _myPool_:
 

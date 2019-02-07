@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903886"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497598"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
 Ao implantar os recursos, especifique que a implantação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Gerenciador de Recursos lida com recursos existentes no grupo de recursos que não estão no modelo. O modo padrão é incremental.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="incremental-and-complete-deployments"></a>Implantações incrementais e completas
 
@@ -64,7 +66,7 @@ Quando implantado no modo **completo**, o Recurso C é excluído. O grupo de rec
 Para definir o modo de implantação ao implantar com o PowerShell, use o `Mode` parâmetro.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

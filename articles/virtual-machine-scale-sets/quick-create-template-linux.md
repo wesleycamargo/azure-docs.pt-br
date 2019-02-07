@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 00f446c545a11b859fe0ee966898fa5c6aa16a1d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 29cc340820fbf0e35b8b142f0bea91da82ff7b61
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884445"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728343"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com um modelo do Azure Resource Manager.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -137,7 +137,7 @@ Dois scripts são definidos em **fileUris** - *installserver.sh* e *workserver.p
 
 [![Implantar o modelo no Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Também é possível usar a CLI do Azure para instalar o servidor HTTP Python no Linux com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) da seguinte maneira:
+Também é possível usar a CLI do Azure para instalar o servidor HTTP Python no Linux com [az group deployment create](/cli/azure/group/deployment) da seguinte maneira:
 
 ```azurecli-interactive
 # Create a resource group
@@ -153,7 +153,7 @@ Responda os prompts para fornecer nome do conjunto de dimensionamento, uma conta
 
 
 ## <a name="test-your-scale-set"></a>Testar seu conjunto de dimensionamento
-Para ver seu conjunto de dimensionamento em ação, acesse o aplicativo Web de exemplo em um navegador da Web. Obtenha o endereço IP público do balanceador de carga com a [az network public-ip list](/cli/azure/network/public-ip#show) da seguinte maneira:
+Para ver seu conjunto de dimensionamento em ação, acesse o aplicativo Web de exemplo em um navegador da Web. Obtenha o endereço IP público do balanceador de carga com a [az network public-ip list](/cli/azure/network/public-ip) da seguinte maneira:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -167,7 +167,7 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web no
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, use [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados, como demonstrado a seguir. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
+Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados, como demonstrado a seguir. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

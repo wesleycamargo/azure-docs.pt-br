@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471769"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744391"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
 Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar grupos de recursos do Azure e criar recursos do Azure em nível de assinatura. Para implantar modelos em nível de assinatura, você pode usar a CLI do Azure e o Azure PowerShell. O portal do Azure não dá suporte à implantação em nível de assinatura.
 
-Para criar um grupo de recursos em um modelo do Azure Resource Manager, defina um recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) com um nome e localização para o grupo de recursos. Crie um grupo de recursos e implante recursos nesse grupo de recursos no mesmo modelo. Os recursos que podem ser implantados em nível de assinatura incluem: [Políticas](../azure-policy/azure-policy-introduction.md) e [controle de acesso baseado em função](../role-based-access-control/overview.md).
+Para criar um grupo de recursos em um modelo do Azure Resource Manager, defina um recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) com um nome e localização para o grupo de recursos. Crie um grupo de recursos e implante recursos nesse grupo de recursos no mesmo modelo. Os recursos que podem ser implantados em nível de assinatura incluem: [Políticas](../azure-policy/azure-policy-introduction.md) e [controle de acesso baseado em função](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Considerações de implantação
 
@@ -99,7 +101,7 @@ O modelo a seguir cria um grupo de recursos vazio.
 }
 ```
 
-O esquema de modelo pode ser encontrado [aqui](/azure/templates/microsoft.resources/allversions.md). Modelos semelhantes podem ser encontrados no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+O esquema de modelo pode ser encontrado [aqui](/azure/templates/microsoft.resources/allversions). Modelos semelhantes podem ser encontrados no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## <a name="create-multiple-resource-groups"></a>Criar múltiplos grupos de recursos
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5088d1d4f5b80e4de3dca1d8d41ee48feea12a46
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019734"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566050"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados do Hive usando o Azure Data Factory 
 
@@ -41,12 +41,12 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hive:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Hive** | SIM |
-| host | Endereço IP ou nome de host do servidor Hive, separado por ';' para vários hosts (somente quando serviceDiscoveryMode estiver habilitado).  | SIM |
-| porta | A porta TCP usada pelo servidor Hive para ouvir conexões de cliente. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | SIM |
+| Tipo | A propriedade type deve ser definida como: **Hive** | Sim |
+| host | Endereço IP ou nome de host do servidor Hive, separado por ';' para vários hosts (somente quando serviceDiscoveryMode estiver habilitado).  | Sim |
+| porta | A porta TCP usada pelo servidor Hive para ouvir conexões de cliente. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Sim |
 | serverType | O tipo do servidor Hive. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não  |
 | thriftTransportProtocol | O protocolo de transporte a ser usado na camada de Thrift. <br/>Valores permitidos são: **Binary**, **SASL**, **HTTP** | Não  |
-| authenticationType | O método de autenticação usado para acessar o servidor do Hive. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | SIM |
+| authenticationType | O método de autenticação usado para acessar o servidor do Hive. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | serviceDiscoveryMode | verdadeiro para indicar o uso do serviço ZooKeeper, falso não.  | Não  |
 | zooKeeperNameSpace | O namespace no ZooKeeper no qual os2 nós do Hive Server são adicionados.  | Não  |
 | useNativeQuery | Especifica se o driver usa consultas HiveQL nativas ou as converte em uma forma equivalente no HiveQL.  | Não  |
@@ -73,8 +73,8 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hive:
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         }
     }
@@ -89,7 +89,7 @@ Para copiar dados de Hive, defina a propriedade type do conjunto de dados como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HiveObject** | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HiveObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -118,7 +118,7 @@ Para copiar dados de Hive, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HiveSource** | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HiveSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

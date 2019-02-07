@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103484"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700767"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -170,7 +170,7 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
     - **Frequência de instantâneos consistentes com o aplicativo**: Por padrão, o Site Recovery obtém um instantâneo consistente com o aplicativo a cada 4 horas. É possível configurar qualquer valor entre 1 e 12 horas. Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no tempo dos dados do aplicativo dentro da VM. O VSS (Serviço de Cópias de Sombra de Volume) garante que o aplicativo na VM esteja em um estado consistente quando o instantâneo for criado.
     - **Grupo de replicação**: Se o aplicativo precisa de consistência de VMs múltiplas entre VMs, você pode criar um grupo de replicação para essas VMs. Por padrão, as VMs selecionadas não fazem parte de nenhum grupo de replicação.
 
-5. Em **Personalizar**, selecione **Sim** para a consistência de várias VMs caso queira adicionar VMs a um grupo de replicação novo ou existente. para tornar as VMs parte de um grupo de replicação. Em seguida, clique em **OK**.
+5. Em **Personalizar**, selecione **Sim** para a consistência de várias VMs caso queira adicionar VMs a um grupo de replicação novo ou existente. Em seguida, clique em **OK**.
 
     - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. A habilitação da coerência de várias VMs pode afetar o desempenho da carga de trabalho (devido ao uso intensivo de CPU) e só deverá ser feita se as máquinas estiverem executando a mesma carga de trabalho e se você precisar de coerência entre as máquinas.
     - É possível optar por ter, no máximo, 16 máquinas virtuais em um grupo de replicação.

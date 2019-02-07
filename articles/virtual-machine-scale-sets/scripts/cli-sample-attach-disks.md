@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f7acfb068d000eb76ea526ea7fb3244c585beebf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887658"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661371"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anexar e usar discos de dados com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara os discos de dados.
@@ -45,11 +45,11 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um conjunt
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Cria um conjunto de dimensionamento de máquinas virtuais e a conecta à rede virtual, à sub-rede e ao grupo de segurança de rede. Um balanceador de carga também é criado para distribuir o tráfego para as diversas instâncias de VM. Esse comando também especifica a imagem da VM a ser usada e as credenciais administrativas.  |
-| [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) | Cria e anexa um disco de dados ao conjunto de dimensionamento de máquinas virtuais. |
-| [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | Instala a Extensão de Script Personalizado do Azure para executar um script que prepara os discos de dados em cada instância de VM. |
-| [az group delete](/cli/azure/ad/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/ad/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vmss create](/cli/azure/vmss) | Cria um conjunto de dimensionamento de máquinas virtuais e a conecta à rede virtual, à sub-rede e ao grupo de segurança de rede. Um balanceador de carga também é criado para distribuir o tráfego para as diversas instâncias de VM. Esse comando também especifica a imagem da VM a ser usada e as credenciais administrativas.  |
+| [az vmss disk attach](/cli/azure/vmss/disk) | Cria e anexa um disco de dados ao conjunto de dimensionamento de máquinas virtuais. |
+| [az vmss extension set](/cli/azure/vmss/extension) | Instala a Extensão de Script Personalizado do Azure para executar um script que prepara os discos de dados em cada instância de VM. |
+| [az group delete](/cli/azure/ad/group) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231777"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656746"
 ---
 # <a name="manage-workspaces"></a>Gerenciar workspaces
 
@@ -40,7 +40,7 @@ Hoje, um workspace fornece:
 
 * Uma localização geográfica para o armazenamento dos dados
 * Isolamento de dados para definir direitos de acesso de usuário diferente
-* Escopo para a definição de configurações como [tipo de preço](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) e [limitação de dados](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
+* Escopo para a definição de configurações como [tipo de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) e [limitação de dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 Do ponto de vista do consumo, recomendamos que você crie o menor número de workspaces possível. Isso torna a administração e a consulta mais fácil e rápida. Porém, com base nas características anteriores, pode ser útil criar vários workspaces se:
 
@@ -97,7 +97,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| Tipo    | Permissão | DESCRIÇÃO |
+| Type    | Permissão | DESCRIÇÃO |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidade de execução de consultas de Pesquisa de Logs v2 |

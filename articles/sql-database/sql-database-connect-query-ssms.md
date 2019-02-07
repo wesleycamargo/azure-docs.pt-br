@@ -4,7 +4,7 @@ description: Saiba como se conectar a um banco de dados SQL no Azure usando o SS
 keywords: conectar-se ao banco de dados sql, sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461739"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756777"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Usar o SQL Server Management Studio para conectar e consultar um Banco de Dados SQL do Azure
 
@@ -30,7 +30,7 @@ Para concluir este tutorial, você precisará:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* Uma regra de firewall de nível de servidor configurada. Para saber mais, confira [Create server-level firewall rule](sql-database-get-started-portal-firewall.md) (Criar regra de firewall no nível do servidor).
+* Uma regra de firewall de nível de servidor configurada. Para saber mais, confira [Create server-level firewall rule](sql-database-server-level-firewall-rule.md) (Criar regra de firewall no nível do servidor).
 
 ## <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 

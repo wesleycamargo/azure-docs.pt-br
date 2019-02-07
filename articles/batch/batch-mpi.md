@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 420f69e246b322eff28b56237613cea250be7530
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460532"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766547"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de transmissão de mensagens) no Lote
 
@@ -49,7 +49,7 @@ Quando você envia uma tarefa com as configurações de várias instâncias para
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos para tarefas de várias instâncias
-As tarefas de várias instâncias exigem um pool com **comunicação entre nós habilitada** e com a **execução de tarefas simultâneas desabilitada**. Para desabilitar a execução de tarefas simultâneas, defina a propriedade [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) para 1.
+As tarefas de várias instâncias exigem um pool com **comunicação entre nós habilitada** e com a **execução de tarefas simultâneas desabilitada**. Para desabilitar a execução de tarefas simultâneas, defina a propriedade [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) para 1.
 
 > [!NOTE]
 > O lote [limita](batch-quota-limit.md#other-limits) o tamanho de um pool que tenha comunicação entre nós habilitada.

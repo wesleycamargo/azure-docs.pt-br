@@ -1,8 +1,21 @@
 ---
-Título: Avaliação de dados – titleSuffix: Descrição do Azure Machine Learning Studio: Quatro critérios que seus dados precisam atender para estarem prontos para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação dos dados básicos.
-serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
-
-autor: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
+title: Avaliação dos dados
+titleSuffix: Azure Machine Learning Studio
+description: Quatro critérios que seus dados precisam atender para estarem prontos para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação dos dados básicos.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/03/2018
+ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496016"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de Dados para série de Iniciantes

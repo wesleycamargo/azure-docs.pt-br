@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178028"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813527"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas para entrar em um aplicativo a partir do Painel de Acesso
 
@@ -104,7 +104,7 @@ Todos os aplicativos na galeria do Azure AD habilitados com o recurso de Logon �
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
--   [Adicionar um aplicativo da galeria do Azure AD](#add-an-application)
+-   Adicionar um aplicativo da galeria do Azure AD
 
 -   [Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Atribuir usuários ao aplicativo](#assign-users-to-the-application)
+-   Atribuir usuários ao aplicativo
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 
@@ -362,9 +362,9 @@ Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas ab
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
--   [Adicionar um aplicativo da galeria do Azure AD](#add-an-application)
+-   Adicionar um aplicativo da galeria do Azure AD
 
--   [Configurar o aplicativo para logon único com senha](#configure-the-application)
+-   Configurar o aplicativo para logon único com senha
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 

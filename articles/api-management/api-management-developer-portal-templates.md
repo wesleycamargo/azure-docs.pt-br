@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446952"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733052"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
 
@@ -45,15 +45,15 @@ A lista de modelos exibe várias categorias de modelos que abrangem diferentes p
 
 ![Modelos de portal do desenvolvedor][api-management-templates-menu]
 
-Clicar em um modelo levará você para a página de portal do desenvolvedor, que é personalizável pelo modelo. Neste exemplo, o modelo da **Lista de produtos** é exibido. O modelo da **Lista de produtos** controla a área da tela indicada pelo retângulo vermelho. 
+Clicar em um modelo levará você para a página de portal do desenvolvedor, que é personalizável pelo modelo. Neste exemplo, o modelo da **Lista de produtos** é exibido. O modelo da **Lista de produtos** controla a área da tela indicada pelo retângulo vermelho.
 
 ![Modelo de lista de produtos][api-management-developer-portal-templates-overview]
 
-Alguns modelos, como o de **Perfil do Usuário** , personalizam partes diferentes da mesma página. 
+Alguns modelos, como o de **Perfil do Usuário** , personalizam partes diferentes da mesma página.
 
 ![Modelos de perfil do usuário][api-management-user-profile-templates]
 
-O editor para cada modelo de portal do desenvolvedor tem duas seções exibidas na parte inferior da página. O lado esquerdo exibe o painel de edição para o modelo e o lado direito exibe o modelo de dados para o modelo. 
+O editor para cada modelo de portal do desenvolvedor tem duas seções exibidas na parte inferior da página. O lado esquerdo exibe o painel de edição para o modelo e o lado direito exibe o modelo de dados para o modelo.
 
 O painel de edição de modelo contém a marcação que controla a aparência e o comportamento da página correspondente no portal do desenvolvedor. A marcação no modelo usa a sintaxe [DotLiquid](http://dotliquidmarkup.org/) . É um editor popular para DotLiquid é [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todas as alterações feitas ao modelo durante a edição são exibidas em tempo real no navegador, mas não são visíveis aos clientes até você [salvar](#to-save-a-template) e [publicar](#to-publish-a-template) o modelo.
 
@@ -118,7 +118,7 @@ A marcação no modelo de **Lista de produtos** processa os dados para fornecer 
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Para obter informações de referência para modelos do portal do desenvolvedor,
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463235"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692452"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato de arquivo de manifesto do serviço de Importação/Exportação do Azure
 O arquivo de manifesto da unidade descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e os arquivos na unidade que compõem um trabalho de importação ou exportação. Para uma operação de importação, o arquivo de manifesto é criado como parte do processo de preparação da unidade e é armazenado na unidade antes de ser enviado ao datacenter do Azure. Durante uma operação de exportação, o manifesto é criado e armazenado na unidade pelo serviço de Importação/Exportação do Azure.  
@@ -97,7 +97,7 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`Drive`|Elemento XML aninhado|Contém o manifesto de cada unidade.|  
 |`DriveId`|Cadeia de caracteres|O identificador de unidade exclusivo. O identificador de unidade pode ser encontrado consultando o número de série da unidade. O número de série da unidade também é normalmente impresso na parte externa da unidade. O elemento `DriveID` deve aparecer antes de qualquer elemento `BlobList` no arquivo de manifesto.|  
 |`StorageAccountKey`|Cadeia de caracteres|Obrigatório para os trabalhos de importação se, e somente se, `ContainerSas` não for especificado. A chave de conta da conta de armazenamento do Azure associada ao trabalho.<br /><br /> Esse elemento é omitido do manifesto em uma operação de exportação.|  
-|`ContainerSas`|Cadeia de caracteres|Obrigatório para os trabalhos de importação se, e somente se, `StorageAccountKey` não for especificado. O SAS do contêiner para acessar os blobs associados ao trabalho. Consulte [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) para saber o formato. Esse elemento é omitido do manifesto em uma operação de exportação.|  
+|`ContainerSas`|Cadeia de caracteres|Obrigatório para os trabalhos de importação se, e somente se, `StorageAccountKey` não for especificado. O SAS do contêiner para acessar os blobs associados ao trabalho. Consulte [Put Job](/rest/api/storageimportexport/jobs) para saber o formato. Esse elemento é omitido do manifesto em uma operação de exportação.|  
 |`ClientCreator`|Cadeia de caracteres|Especifica o cliente que criou o arquivo XML. Esse valor não é interpretado pelo serviço de Importação/Exportação.|  
 |`BlobList`|Elemento XML aninhado|Contém uma lista de blobs que fazem parte do trabalho de importação ou exportação. Cada blob em uma lista de blobs compartilha os mesmos metadados e propriedades.|  
 |`BlobList/MetadataPath`|Cadeia de caracteres|Opcional. Especifica o caminho relativo de um arquivo no disco que contém os metadados padrão que serão definidos em blobs na lista de blobs para uma operação de importação. Opcionalmente, esses metadados podem ser substituídos de blob em blob.<br /><br /> Esse elemento é omitido do manifesto em uma operação de exportação.|  

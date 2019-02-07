@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179473"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751014"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais definido com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
@@ -41,7 +41,7 @@ Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *eastus*. 
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *eastus*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ Leva alguns minutos para criar e configurar todos os recursos e as instâncias d
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Exibir as instâncias de VM em um conjunto de dimensionamento
-Para exibir uma lista de instância de VM em um conjunto de dimensionamento, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) da seguinte forma:
+Para exibir uma lista de instância de VM em um conjunto de dimensionamento, use [az vmss list-instances](/cli/azure/vmss) da seguinte forma:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ A saída de exemplo abaixo mostra duas instâncias de VM no conjunto de dimensio
 ```
 
 
-A primeira coluna na saída mostra um *InstanceId*. Para exibir informações adicionais sobre uma instância específica de VM, adicione o parâmetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view). O exemplo abaixo exibe informações sobre a instância de VM *1*:
+A primeira coluna na saída mostra um *InstanceId*. Para exibir informações adicionais sobre uma instância específica de VM, adicione o parâmetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss). O exemplo abaixo exibe informações sobre a instância de VM *1*:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Entender imagens de instância de VM
-Quando você criou um conjunto de dimensionamento definido no início do tutorial, uma `--image` de *UbuntuLTS* foi especificada para as instâncias de VM. O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâncias de VM. Para ver uma lista dos mais usados imagens, use o comando [lista de imagens de vm az](/cli/azure/vm/image#az_vm_image_list).
+Quando você criou um conjunto de dimensionamento definido no início do tutorial, uma `--image` de *UbuntuLTS* foi especificada para as instâncias de VM. O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâncias de VM. Para ver uma lista dos mais usados imagens, use o comando [lista de imagens de vm az](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
 Quando você criou um conjunto de dimensionamento definido no início do tutorial, duas instâncias de VM foram implantadas por padrão. Você pode especificar o parâmetro `--instance-count` com [az vmss create](/cli/azure/vmss) para alterar o número de instâncias criadas com um conjunto de dimensionamento. Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento existente, você pode alterar a capacidade manualmente. O conjunto de dimensionamento cria ou remove o número necessário de instâncias de VM e configura o balanceador de carga para distribuir o tráfego.
 
-Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento manualmente, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). O seguinte exemplo aumenta o número de instâncias de VM no conjunto de dimensionamento para *3*:
+Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento manualmente, use [az vmss scale](/cli/azure/vmss). O seguinte exemplo aumenta o número de instâncias de VM no conjunto de dimensionamento para *3*:
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-Demora alguns minutos para atualizar a capacidade do seu conjunto de dimensionamento. Para ver o número de instâncias atualmente em um conjunto de dimensionamento, use [az vmss show](/cli/azure/vmss#az_vmss_show) e consulte *sku.capacity*:
+Demora alguns minutos para atualizar a capacidade do seu conjunto de dimensionamento. Para ver o número de instâncias atualmente em um conjunto de dimensionamento, use [az vmss show](/cli/azure/vmss) e consulte *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 Agora você pode criar um conjunto de dimensionamento, listar as informações de conexão e se conectar a instâncias de VM. Você aprendeu como pode usar uma imagem de sistema operacional diferente para suas instâncias de VM, selecionar um tamanho de VM diferente ou dimensionar o número de instâncias manualmente. Como parte do gerenciamento diário, talvez seja necessário parar, iniciar ou reiniciar as instâncias de VM em seu conjunto de dimensionamento.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Parar e desalocar instâncias de VM em um conjunto de dimensionamento
-Para parar uma ou mais instâncias de VM em um conjunto de dimensionamento, use [az vmss stop](/cli/azure/vmss#az_vmss_stop). O parâmetro `--instance-ids` permite que você especifique uma ou mais instâncias de VM a serem paradas. Se você não especificar uma ID de instância, todas as instâncias de VM no conjunto de dimensionamento serão paradas. O exemplo abaixo interrompe a instância *1*:
+Para parar uma ou mais instâncias de VM em um conjunto de dimensionamento, use [az vmss stop](/cli/azure/vmss). O parâmetro `--instance-ids` permite que você especifique uma ou mais instâncias de VM a serem paradas. Se você não especificar uma ID de instância, todas as instâncias de VM no conjunto de dimensionamento serão paradas. O exemplo abaixo interrompe a instância *1*:
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-As instâncias de VM paradas permanecem alocadas e continuam a incorrer em encargos de computação. Se, em vez disso, você deseja que as instâncias de VM sejam desalocadas e incorram somente em encargos de armazenamento, use [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). O exemplo abaixo interrompe e desaloca a instância *1*:
+As instâncias de VM paradas permanecem alocadas e continuam a incorrer em encargos de computação. Se, em vez disso, você deseja que as instâncias de VM sejam desalocadas e incorram somente em encargos de armazenamento, use [az vmss deallocate](/cli/azure/vmss). O exemplo abaixo interrompe e desaloca a instância *1*:
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Iniciar instâncias de VM em um conjunto de dimensionamento
-Para iniciar uma ou mais instâncias de VM em um conjunto de dimensionamento, use [az vmss start](/cli/azure/vmss#az_vmss_start). O parâmetro `--instance-ids` permite que você especifique uma ou mais instâncias de VM a serem iniciadas. Se você não especificar uma ID de instância, todas as instâncias de VM no conjunto de dimensionamento serão iniciadas. O exemplo abaixo inicia a instância *1*:
+Para iniciar uma ou mais instâncias de VM em um conjunto de dimensionamento, use [az vmss start](/cli/azure/vmss). O parâmetro `--instance-ids` permite que você especifique uma ou mais instâncias de VM a serem iniciadas. Se você não especificar uma ID de instância, todas as instâncias de VM no conjunto de dimensionamento serão iniciadas. O exemplo abaixo inicia a instância *1*:
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Reiniciar instâncias de VM em um conjunto de dimensionamento
-Para reiniciar uma ou mais instâncias de VM em um conjunto de dimensionamento, use [az vmss restart](/cli/azure/vmss#az_vm_restart). O parâmetro `--instance-ids` permite que você especifique uma ou mais instâncias de VM a serem reiniciadas. Se você não especificar uma ID de instância, todas as instâncias de VM no conjunto de dimensionamento serão reiniciadas. O exemplo abaixo reinicia a instância *1*:
+Para reiniciar uma ou mais instâncias de VM em um conjunto de dimensionamento, use [az vmss restart](/cli/azure/vmss). O parâmetro `--instance-ids` permite que você especifique uma ou mais instâncias de VM a serem reiniciadas. Se você não especificar uma ID de instância, todas as instâncias de VM no conjunto de dimensionamento serão reiniciadas. O exemplo abaixo reinicia a instância *1*:
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301247"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564945"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -55,7 +55,7 @@ R: Clique em "Filtros"' na panorâmica à esquerda para ver uma versão prévia 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou recebendo o erro: "Registre o provedor de recursos 'Microsoft.Insights' para esta assinatura para habilitar essa consulta" nos Logs, após realizar o drilling in da VM? 
 
-R: Por padrão, muitos provedores de recursos são automaticamente registrados, no entanto, pode ser necessário registrar manualmente alguns provedores de recursos. Isso configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Para saber mais, veja [Provedores e tipos de recursos](../../azure-resource-manager/resource-manager-supported-services.md#portal).
+R: Por padrão, muitos provedores de recursos são automaticamente registrados, no entanto, pode ser necessário registrar manualmente alguns provedores de recursos. Isso configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Para saber mais, veja [Provedores e tipos de recursos](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>P. Por que não estou obtendo uma mensagem de erro de acesso ao acessar os Logs de uma página da VM? 
 

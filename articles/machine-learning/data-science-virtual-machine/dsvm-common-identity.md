@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452848"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754593"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurar uma identidade comum na Máquina Virtual de Ciência de Dados
 
@@ -31,7 +31,7 @@ O Active Directory é um provedor de identidade popular e tem suporte no Azure c
 
 Se você já tiver o Active Directory para gerenciar as identidades, poderá usá-lo como seu provedor de identidade comum. Se você não tiver o Active Directory, poderá executar uma instância gerenciada do Active Directory no Azure por meio de um serviço chamado [Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure Active Directory Domain Services). 
 
-A documentação do [Azure AD](https://docs.microsoft.com/azure/active-directory/) fornece [instruções detalhadas de gerenciamento](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), incluindo a conexão do Azure AD a seu diretório local, se você tiver um. 
+A documentação do [Azure AD](https://docs.microsoft.com/azure/active-directory/) fornece [instruções detalhadas de gerenciamento](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), incluindo a conexão do Azure AD a seu diretório local, se você tiver um. 
 
 Este artigo descreve as etapas para configurar um serviço de domínio do Active Directory totalmente gerenciado no Azure usando o Azure AD DS. Posteriormente, você poderá associar DSVMs ao domínio gerenciado do Active Directory para permitir que os usuários acessem um conjunto de DSVMs (e outros recursos do Azure) usando uma conta de usuário e credenciais comuns. 
 

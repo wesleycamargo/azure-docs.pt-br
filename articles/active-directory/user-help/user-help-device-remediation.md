@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164054"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770462"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis motivos para a mensagem de erro "Você não pode acessar esse lugar daqui"
 Ao acessar a aplicativos Web ou serviços internos da sua organização, você pode receber uma mensagem de erro que diz **Você não pode acessar esse lugar daqui**. Essa mensagem significa que sua organização aplicou uma política que está impedindo o dispositivo de acessar recursos da organização. Talvez você precise entrar em contato com o suporte técnico para corrigir esse problema, mas consulte aqui algumas coisas que você pode tentar primeiro.
@@ -68,4 +68,4 @@ Se o dispositivo não estiver adicionado à rede da sua organização, você ter
 ## <a name="next-steps"></a>Próximas etapas
 - [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
-- [Entre com seu telefone, não com sua senha](microsoft-authenticator-app-phone-signin-faq.md)
+- [Entre com seu telefone, não com sua senha](user-help-auth-app-sign-in.md)

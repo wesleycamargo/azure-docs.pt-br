@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021851"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561086"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
@@ -30,7 +30,7 @@ Para uma introdução de dez minutos e demonstração desse recurso, assista ao 
 
 
 > [!NOTE]
-> A integração descrita neste artigo depende na [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se a assinatura está registrada no provedor de recursos da Grade de Eventos. Para obter mais informações, confira [Provedores e tipos de recursos](../azure-resource-manager/resource-manager-supported-services.md#portal).
+> A integração descrita neste artigo depende na [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se a assinatura está registrada no provedor de recursos da Grade de Eventos. Para obter mais informações, confira [Provedores e tipos de recursos](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -69,7 +69,7 @@ A tabela a seguir fornece uma visão geral dos elementos do esquema relacionados
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Obrigatório** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | A ID do recurso do Azure Resource Manager da Conta de Armazenamento. | Cadeia de caracteres | ID do Azure Resource Manager | SIM |
+| **scope** | A ID do recurso do Azure Resource Manager da Conta de Armazenamento. | Cadeia de caracteres | ID do Azure Resource Manager | Sim |
 | **events** | O tipo de eventos que causam o acionamento desse gatilho. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação desses valores. |
 | **blobPathBeginsWith** | O caminho do blob deve começar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `/records/blobs/december/` só aciona o gatilho para blobs na pasta `december` no contêiner `records`. | Cadeia de caracteres   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 | **blobPathEndsWith** | O caminho do blob deve terminar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `december/boxes.csv` só aciona o gatilho de blobs denominado `boxes` em uma pasta `december`. | Cadeia de caracteres   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |

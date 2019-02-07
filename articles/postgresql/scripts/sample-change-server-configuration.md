@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: c570982fed746b01f5a8c15edb94bdeac679b248
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6b5a855c8db5cb87f313e14c42396ae70b407e61
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545596"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692198"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Listar e atualizar as configurações de um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 Este script de exemplo da CLI lista todos os parâmetros de configuração disponíveis, bem como seus valores permitidos para o servidor do Banco de Dados do Azure para PostgreSQL e define o *log_retention_days* como um valor diferente do padrão.
@@ -35,12 +35,12 @@ Esse script usa os comandos descritos na tabela abaixo:
 
 | **Comando** | **Observações** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Cria um servidor PostgreSQL que hospeda os bancos de dados. |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Liste as configurações de um servidor do Banco de Dados do Azure para PostgreSQL. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Atualize as configurações de um servidor do Banco de Dados do Azure para PostgreSQL. |
-| [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) | Mostre as configurações de um servidor do Banco de Dados do Azure para PostgreSQL. |
-| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az postgres server create](/cli/azure/postgres/server) | Cria um servidor PostgreSQL que hospeda os bancos de dados. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Liste as configurações de um servidor do Banco de Dados do Azure para PostgreSQL. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Atualize as configurações de um servidor do Banco de Dados do Azure para PostgreSQL. |
+| [az postgres server configuration show](/cli/azure/postgres/server/configuration) | Mostre as configurações de um servidor do Banco de Dados do Azure para PostgreSQL. |
+| [az group delete](/cli/azure/group) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 - Leia mais sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).

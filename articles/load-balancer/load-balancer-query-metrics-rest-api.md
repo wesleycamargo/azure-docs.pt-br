@@ -11,12 +11,12 @@ ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 43de0de6fb81d50459ba5b027a8ae1718a89c9a3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5f92ae386730032e7da278b9dd2b0effef313741
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183855"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752051"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obter as métricas de utilização do Load Balancer usando a API REST
 
@@ -45,7 +45,7 @@ Os cabeçalhos a seguir são necessários:
 
 | NOME | DESCRIÇÃO |
 | :--- | :---------- |
-| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Você pode obter esse valor por meio da API do Azure Resource Manager, da CLI ou do portal. |
 | loadBalancerName | O nome do Azure Load Balancer. |
 | metricnames | Lista separada por vírgulas de [métricas válidas do Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |

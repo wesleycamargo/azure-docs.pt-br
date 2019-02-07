@@ -9,25 +9,25 @@ editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0c08aa187b98e2f0cce96d58ca85bf732e83338f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: aa6579719588889ae23f664391d893b04e103804
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183808"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492956"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
 
 * Administração
-* Autenticação
+* Authentication
 * Autorização
 * Auditoria
 

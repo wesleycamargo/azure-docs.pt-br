@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: aa5fef6e8910a5b0b5fe89d5c8cfb141415d07a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846631"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694543"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicativos de várias camadas
 
@@ -36,7 +36,7 @@ Este exemplo de script cria uma rede virtual com sub-redes de front-end e back-e
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -48,17 +48,17 @@ az group delete --name MyResourceGroup --yes
 
 Este script usa os comandos a seguir para criar um grupo de recursos, uma rede virtual e grupos de segurança de rede. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual do Azure e uma sub-rede front-end. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma sub-rede back-end. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Cria um endereço IP público para acessar a VM da Internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Cria as interfaces de rede virtual e as anexa às sub-redes de front-end e back-end da rede virtual. |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Cria NSG (grupos de segurança de rede) associados às sub-redes de front-end e back-end. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Cria regras NSG que permitem ou bloqueiam portas específicas para sub-redes específicas. |
-| [az vm create](/cli/azure/vm#az_vm_create) | Cria máquinas virtuais e anexa um NIC a cada VM. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas. |
-| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos e todos os seus recursos contidos nele. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede virtual do Azure e uma sub-rede front-end. |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | Cria uma sub-rede back-end. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Cria um endereço IP público para acessar a VM da Internet. |
+| [az network nic create](/cli/azure/network/nic) | Cria as interfaces de rede virtual e as anexa às sub-redes de front-end e back-end da rede virtual. |
+| [az network nsg create](/cli/azure/network/nsg) | Cria NSG (grupos de segurança de rede) associados às sub-redes de front-end e back-end. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |Cria regras NSG que permitem ou bloqueiam portas específicas para sub-redes específicas. |
+| [az vm create](/cli/azure/vm) | Cria máquinas virtuais e anexa um NIC a cada VM. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas. |
+| [az group delete](/cli/azure/group) | Exclui um grupo de recursos e todos os seus recursos contidos nele. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

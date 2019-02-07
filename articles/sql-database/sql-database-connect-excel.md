@@ -12,18 +12,18 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 318dce78059a169ede2f19f6aadaab9d61e07086
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474948"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754571"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Conectar o Excel a um Banco de Dados SQL do Azure e criar um relatório
 
 Conectar o Excel a um banco de dados SQL na nuvem e importar dados e criar tabelas e gráficos com base nos valores no banco de dados. Neste tutorial, você irá configurar a conexão entre o Excel e uma tabela do banco de dados, salvar o arquivo que armazena os dados e as informações de conexão para o Excel, em seguida, criar um gráfico dinâmico a partir dos valores do banco de dados.
 
-Você precisará de um banco de dados SQL no Azure antes de começar. Se você não tiver um, consulte [Criar seu primeiro banco de dados SQL](sql-database-get-started-portal.md) para obter um banco de dados com dados de exemplo em funcionamento em alguns minutos. Neste artigo, você importará dados de exemplo do artigo para o Excel, mas poderá seguir etapas semelhantes em seus próprios dados.
+Você precisará de um banco de dados SQL no Azure antes de começar. Se você não tiver um, consulte [Criar seu primeiro banco de dados SQL](sql-database-single-database-get-started.md) para obter um banco de dados com dados de exemplo em funcionamento em alguns minutos. Neste artigo, você importará dados de exemplo do artigo para o Excel, mas poderá seguir etapas semelhantes em seus próprios dados.
 
 Você também precisará de uma cópia do Excel. Este artigo usa o [Microsoft Excel 2016](https://products.office.com/).
 

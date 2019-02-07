@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017091"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751915"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Diretrizes de Conexão Confiável com a Internet
 
@@ -49,7 +49,7 @@ Há várias maneiras de atender aos requisitos do Apêndice H (Considerações s
 
 Para permitir a conexão do **Departamento ou da Agência (D/A)** com o Azure ou o Office 365, sem o tráfego de roteamento por meio do TIC do D/A, o D/A precisa usar um túnel criptografado e/ou uma conexão dedicada com o CSP (Provedor de Serviços de Nuvem). Os serviços do CSP podem garantir que a conectividade com os ativos de nuvem do D/A e que eles não sejam oferecidos para a Internet pública para o acesso de funcionários diretos da agência.
 
-O Office O365 está em conformidade com o TIC 2.0 Apêndice H usando o ExpressRoute com o [Emparelhamento da Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) habilitado ou uma conexão com a Internet que criptografa todo o tráfego usando o TLS 1.2. Os usuários finais de D/A na rede de D/A podem se conectar por meio da rede e da infraestrutura de TIC de sua agência pela Internet. Todo o acesso remoto à Internet ao Office 365 é bloqueado e encaminhado por meio da agência. O D/A també pode se conectar ao Office 365 por uma conexão do ExpressRoute com o emparelhamento da Microsoft (tipo de emparelhamento Público) habilitado.  
+O Office O365 está em conformidade com o TIC 2.0 Apêndice H usando o ExpressRoute com o [Emparelhamento da Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) habilitado ou uma conexão com a Internet que criptografa todo o tráfego usando o TLS 1.2. Os usuários finais de D/A na rede de D/A podem se conectar por meio da rede e da infraestrutura de TIC de sua agência pela Internet. Todo o acesso remoto à Internet ao Office 365 é bloqueado e encaminhado por meio da agência. O D/A també pode se conectar ao Office 365 por uma conexão do ExpressRoute com o emparelhamento da Microsoft (tipo de emparelhamento Público) habilitado.  
 
 Somente para o Azure, a segunda opção (VPN) e a terceira opção (ExpressRoute) podem atender a esses requisitos quando elas são usadas em conjunto com serviços que limitam o acesso à Internet.
 
@@ -249,25 +249,25 @@ Você pode configurar facilmente o acesso ao Microsoft Azure, ao Office 365 e ao
 
 | Categoria | Carga de trabalho | IaaS | PaaS dedicado / injeção de rede virtual  | Pontos de extremidade de serviço  |
 |---------|---------|---------|---------|--------|
-| Computação | Máquinas Virtuais do Linux do Azure | SIM | | |
-| Computação | Máquinas Virtuais do Windows do Azure | SIM | | |
-| Computação | conjuntos de escala de máquina virtual | SIM | | |
+| Computação | Máquinas Virtuais do Linux do Azure | Sim | | |
+| Computação | Máquinas Virtuais do Windows do Azure | Sim | | |
+| Computação | conjuntos de escala de máquina virtual | Sim | | |
 | Computação | Funções do Azure | | Ambiente do Serviço de Aplicativo | |
 | Web e móvel | Aplicativo Web interno | | Ambiente do Serviço de Aplicativo| |
 | Web e móvel | Aplicativo móvel interno | | Ambiente do Serviço de Aplicativo | |
 | Web e móvel | Aplicativos de API | | Ambiente do Serviço de Aplicativo | |
-| Contêineres | Serviço de Contêiner do Azure | | | SIM |
-| Contêineres | AKS (Serviço do Kubernetes do Azure) \* | | | SIM |
+| Contêineres | Serviço de Contêiner do Azure | | | Sim |
+| Contêineres | AKS (Serviço do Kubernetes do Azure) \* | | | Sim |
 | Banco de dados | Banco de Dados SQL do Azure | | Instância Gerenciada do Banco de Dados SQL do Azure \* | SQL do Azure |
-| Banco de dados | Banco de Dados do Azure para MySQL | | | SIM |
-| Banco de dados | Banco de Dados do Azure para PostgreSQL | | | SIM |
-| Banco de dados | SQL Data Warehouse do Azure | | | SIM |
-| Banco de dados | Azure Cosmos DB | | | SIM |
-| Banco de dados | Cache Redis do Azure | | SIM | |
-| Armazenamento | Armazenamento de Blobs do Azure | SIM | | |
-| Armazenamento | Arquivos do Azure | SIM | | |
-| Armazenamento | Armazenamento de Filas do Azure | SIM | | |
-| Armazenamento | Armazenamento da tabela do Azure | SIM | | |
-| Armazenamento | Armazenamento de disco do Azure | SIM | | |
+| Banco de dados | Banco de Dados do Azure para MySQL | | | Sim |
+| Banco de dados | Banco de Dados do Azure para PostgreSQL | | | Sim |
+| Banco de dados | SQL Data Warehouse do Azure | | | Sim |
+| Banco de dados | Azure Cosmos DB | | | Sim |
+| Banco de dados | Cache Redis do Azure | | Sim | |
+| Armazenamento | Armazenamento de Blobs do Azure | Sim | | |
+| Armazenamento | Arquivos do Azure | Sim | | |
+| Armazenamento | Armazenamento de Filas do Azure | Sim | | |
+| Armazenamento | Armazenamento da tabela do Azure | Sim | | |
+| Armazenamento | Armazenamento de disco do Azure | Sim | | |
 
 \* Versão prévia pública no Azure Governamental, maio de 2018.

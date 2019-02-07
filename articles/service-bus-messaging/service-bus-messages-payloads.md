@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849355"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733919"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -28,7 +28,7 @@ O modelo de objeto dos clientes oficiais do Barramento de Serviço para .NET e J
  
 Uma mensagem do Barramento de Serviço consiste em uma seção de payload binário que o Barramento de Serviço nunca manipula em nenhuma forma no lado do serviço e dois conjuntos de propriedade. As *propriedades do agente* são predefinidas pelo sistema. Essas propriedades predefinidas controlam a funcionalidade de nível de mensagem dentro do agente ou são mapeados para os itens de metadados comuns e padronizados. As *propriedades do usuário* são uma coleção de pares chave-valor que podem ser definidas pelo aplicativo.
  
-As propriedades do agente predefinidas são listadas na tabela a seguir. Os nomes são usados com todas as APIs oficiais do cliente e também no objeto JSON [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) do mapeamento do protocolo HTTP.
+As propriedades do agente predefinidas são listadas na tabela a seguir. Os nomes são usados com todas as APIs oficiais do cliente e também no objeto JSON [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) do mapeamento do protocolo HTTP.
  
 Os nomes equivalentes usados no nível do protocolo AMQP estão listados entre parênteses. 
 

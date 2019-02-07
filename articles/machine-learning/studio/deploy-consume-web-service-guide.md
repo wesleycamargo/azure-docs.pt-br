@@ -1,7 +1,21 @@
 ---
-Título: Implantação e consumo – titleSuffix: Descrição do Azure Machine Learning Studio: Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote. serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
+title: implantação e consumo
+titleSuffix: Azure Machine Learning Studio
+description: Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497665"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning Studio: implantação e consumo
 Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote. Como os serviços Web são RESTful, você pode chamá-los por meio de várias linguagens de programação e plataformas, como .NET e Java, e de aplicativos, como o Excel.

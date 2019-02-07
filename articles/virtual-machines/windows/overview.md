@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc9907930283e07ef8df826d2e7653b96f116518
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f08ef19e6829fc1563eced54ade1e4f59c0c33be
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852041"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728564"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -62,7 +62,7 @@ Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíve
 | --- | --- |
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
-| API REST |Use a operação [Listar locais](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
+| API REST |Use a operação [Listar locais](https://docs.microsoft.com/rest/api/resources/subscriptions). |
 | CLI do Azure |Use a operação [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ### <a name="vm-size"></a>Tamanho da VM
@@ -85,7 +85,7 @@ Esta tabela mostra algumas maneiras de encontrar as informações de uma imagem.
 | Portal do Azure |Os valores são especificados automaticamente quando você seleciona uma imagem a ser usada. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | APIs REST |[Listar editores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location *location* --publisher *publisherName* --offer *offerName*|
+| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Você pode optar por [carregar e usar sua própria imagem](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) e, quando faz isso, o nome do editor, da oferta e da sku não são usados.
 
@@ -103,11 +103,11 @@ Os recursos nesta tabela são usados por VM e precisam existir ou ser criados qu
 
 | Recurso | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) |SIM |A VM deve estar contida em um grupo de recursos. |
-| [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |SIM |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |
-| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |SIM |A VM deve ser membro de uma rede virtual. |
+| [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) |Sim |A VM deve estar contida em um grupo de recursos. |
+| [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |Sim |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |
+| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |Sim |A VM deve ser membro de uma rede virtual. |
 | [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Não  |A VM pode ter um endereço IP público atribuído a ela para acessá-la remotamente. |
-| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |SIM |A VM precisa de interface de rede para se comunicar na rede. |
+| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |Sim |A VM precisa de interface de rede para se comunicar na rede. |
 | [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Não  |A VM pode incluir discos de dados para expandir os recursos de armazenamento. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Como criar minha primeira VM?

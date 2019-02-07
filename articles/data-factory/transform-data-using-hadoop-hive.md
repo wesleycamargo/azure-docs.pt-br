@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321323"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491001"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Hive do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,22 +52,22 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade            | DESCRIÇÃO                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| Nome                | Nome da atividade                                         | SIM      |
+| Nome                | Nome da atividade                                         | Sim      |
 | Descrição         | Texto que descreve qual a utilidade da atividade                | Não        |
-| Tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | SIM      |
-| linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
+| Tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
+| linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Hive a ser executado. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não        |
-| scriptPath          | Forneça o caminho para o arquivo de script armazenado no Armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | SIM      |
+| scriptPath          | Forneça o caminho para o arquivo de script armazenado no Armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhuma. | Não        |
 | argumentos           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não        |
 | define             | Especifique parâmetros como pares chave-valor para referências no script do Hive. | Não        |
-| queryTimeout        | Consultar o valor do tempo limite (em minutos).  Aplicável quando o cluster do HDInsight está habilitado para o Enterprise Security Package. | Não        |
+| queryTimeout        | Consultar o valor do tempo limite (em minutos). Aplicável quando o cluster do HDInsight está habilitado para o Enterprise Security Package. | Não        |
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
@@ -80,4 +80,3 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
 * [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
-

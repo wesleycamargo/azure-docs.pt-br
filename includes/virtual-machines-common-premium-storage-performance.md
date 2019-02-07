@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553482"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757608"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Design para Alto Desempenho
 
@@ -464,7 +464,7 @@ Usaremos quatro threads de trabalho para impulsionar operações de gravação e
 *IOPS máxima de gravação*  
  Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de gravação. Dê o nome de "fiowrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Enquanto o teste é executado, você poderá ver o número de IOPS de gravação
 *IOPS máxima de leitura*  
  Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de leitura. Dê o nome de "fioread.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Enquanto o teste for executado, você poderá ver o número de IOPS de leitura f
 *IOPS Máxima de Leitura e Gravação*  
  Crie o arquivo de trabalho com as especificações a seguir para obter a IOPS Máxima de Leitura e Gravação. Dê o nome de "fioreadwrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1

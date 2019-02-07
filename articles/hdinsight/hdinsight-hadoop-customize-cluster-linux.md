@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20894a74bf0cc3911272385721da74871df95ade
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913202"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662900"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
@@ -224,7 +224,7 @@ Saiba mais sobre como implantar um modelo:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Usar uma ação de script durante a criação do cluster no Azure PowerShell
 
-Nesta seção, você usa o cmdlet [AzureRmHDInsightScriptAction adicionar](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) invocar scripts para personalizar um cluster. Antes de começar, instale e configure o Azure PowerShell. Para saber mais sobre como configurar uma estação de trabalho para executar cmdlets do PowerShell do HDInsight, confira [Visão geral do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Nesta seção, você usa o cmdlet [AzureRmHDInsightScriptAction adicionar](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) invocar scripts para personalizar um cluster. Antes de começar, instale e configure o Azure PowerShell. Para saber mais sobre como configurar uma estação de trabalho para executar cmdlets do PowerShell do HDInsight, confira [Visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 O seguinte script mostra como aplicar uma ação de script ao criar um cluster usando o PowerShell:
 
@@ -276,7 +276,7 @@ Vá para o [Portal do Azure](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Aplicar uma ação de script em um cluster em execução no Azure PowerShell
 
-Antes de começar, instale e configure o Azure PowerShell. Para saber mais sobre como configurar uma estação de trabalho para executar cmdlets do PowerShell do HDInsight, confira [Visão geral do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Antes de começar, instale e configure o Azure PowerShell. Para saber mais sobre como configurar uma estação de trabalho para executar cmdlets do PowerShell do HDInsight, confira [Visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 O seguinte exemplo mostra como aplicar uma ação de script a um cluster em execução:
 

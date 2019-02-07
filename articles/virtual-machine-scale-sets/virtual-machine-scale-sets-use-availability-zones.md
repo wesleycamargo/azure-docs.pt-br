@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886230"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816230"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -65,7 +65,7 @@ Quando você cria um conjunto de dimensionamento em uma única zona, você contr
 Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser criado em uma [região do Azure com suporte](../availability-zones/az-overview.md#regions-that-support-availability-zones). Você pode criar um conjunto de dimensionamento que usa Zonas de Disponibilidade com um dos seguintes métodos:
 
 - [Portal do Azure](#use-the-azure-portal)
-- [CLI do Azure](#use-the-azure-cli-20)
+- CLI do Azure
 - [PowerShell do Azure](#use-azure-powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
 
@@ -81,7 +81,7 @@ O conjunto de escala e os recursos de suporte, como o balanceador de carga do Az
 
 O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte.
 
-Adicione o parâmetro `--zones` ao comando [az vmss create](/cli/azure/vmss#az_vmss_create) e especifique qual zona usar (como zona *1*, *2* ou *3*). O exemplo a seguir cria um conjunto de dimensionamento de zona única chamado *myScaleSet* na zona *1*:
+Adicione o parâmetro `--zones` ao comando [az vmss create](/cli/azure/vmss) e especifique qual zona usar (como zona *1*, *2* ou *3*). O exemplo a seguir cria um conjunto de dimensionamento de zona única chamado *myScaleSet* na zona *1*:
 
 ```azurecli
 az vmss create \

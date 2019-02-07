@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a413b82f352613031446cd3eec1c13610b73155c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c12675f28664da07aeebf8302b196d372c1f1d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186290"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495404"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 

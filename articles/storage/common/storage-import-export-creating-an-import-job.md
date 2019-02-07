@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451658"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729397"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
@@ -61,14 +61,14 @@ Antes de criar um trabalho de importação, você precisa obter um nome e o ende
 
  Siga as etapas abaixo para obter a localização de envio:
 
--   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal do Azure ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento de serviços.
+-   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal do Azure ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts) da API de gerenciamento de serviços.
 
 -   Recupere o local que está disponível para processar esta conta de armazenamento chamando a operação `Get Location`.
 
 -   Se a propriedade `AlternateLocations` do local contiver o próprio local, então é seguro usar este local. Caso contrário, chame a operação `Get Location` novamente com uma das localizações alternativas. O local original pode estar fechado temporariamente para manutenção.
 
 ## <a name="creating-the-import-job"></a>Criando o trabalho de importação
-Para criar o trabalho de importação, chame a operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Primeiro, forneça as seguintes informações:
+Para criar o trabalho de importação, chame a operação [Put Job](/rest/api/storageimportexport/jobs). Primeiro, forneça as seguintes informações:
 
 -   Um nome para o trabalho.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227226"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736085"
 ---
 Antes de usar a CLI do Azure com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessário ter uma conta com o Azure. Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -44,7 +44,7 @@ Este artigo aborda os comandos básicos que você desejará usar com a CLI clás
 | Excluir uma VM |`azure vm delete [options] <resource_group> <name>` |
 | Capturar uma VM |`azure vm capture [options] <resource_group> <name>` |
 | Criar uma VM por meio de uma imagem do usuário |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Criar uma VM por meio de um disco especializado |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Criar uma VM por meio de um disco especializado |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Adicionar um disco de dados a uma VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Remover um disco de dados de uma VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Adicionar uma extensão genérica a uma VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

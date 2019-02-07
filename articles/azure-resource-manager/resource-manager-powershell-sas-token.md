@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: f138cceb88cb9a43efdd3f11b24203378a288286
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0935952011bf4cbcae9bf2e9ac218a9fc3be47ad
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497648"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Implantar o modelo particular do Resource Manager com o Azure PowerShell e o token SAS
 
 Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação. Este tópico explica como usar o Azure PowerShell com modelos do Resource Manager para fornecer um token SAS durante a implantação. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-private-template-to-storage-account"></a>Adicionar modelo privado à conta de armazenamento
 
@@ -38,9 +40,9 @@ O seguinte exemplo configura um contêiner de conta de armazenamento privado e c
    
 ```powershell
 # create a storage account for templates
-New-AzureRmResourceGroup -Name ManageGroup -Location "South Central US"
-New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+New-AzResourceGroup -Name ManageGroup -Location "South Central US"
+New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
 New-AzureStorageContainer -Name templates -Permission Off
@@ -51,15 +53,15 @@ Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.js
 Para implantar um modelo privado em uma conta de armazenamento, gere um token SAS e inclua-o no URI para o modelo. Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação.
    
 ```powershell
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
 $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
 ```
 
 Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).

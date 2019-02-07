@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297133"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733630"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -22,7 +22,7 @@ As Migrações para Azure têm um limite de 1500 computadores por projeto e este
 - **VMware**: as VMs que você planeja migrar devem ser gerenciadas pelo vCenter Server versão 5.5, 6.0, 6.5 ou 6.7. Além disso, é necessário um host ESXi executando a versão 5.5 ou posterior para implantar a VM de coletor.
 - **conta do vCenter**: você precisa de uma conta somente leitura para acessar o vCenter Server. O Migrações para Azure usa essa conta para descobrir as VMs locais.
 - **Permissões**: no vCenter Server, você precisa de permissões para criar uma VM importando um arquivo no formato .OVA.
-- **Configurações de estatísticas**: esse requisito só é aplicável ao [modelo de descoberta única](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) que agora foi preterido. Para o modelo de descoberta única, as configurações de estatísticas para o vCenter Server devem ser definidas como nível 3 antes de você iniciar a implantação. O nível de estatísticas deve ser definido como 3 para cada um dos intervalos de coleta do dia, da semana e do mês. Se o nível for inferior ao 3 para cada um dos três intervalos de coleta, a avaliação funcionará, mas os dados de desempenho para armazenamento e rede não serão coletados. As recomendações de tamanho serão feitas então com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
+- **Configurações de estatísticas**: esse requisito só é aplicável ao [modelo de descoberta única](https://docs.microsoft.com/azure/migrate/concepts-collector) que agora foi preterido. Para o modelo de descoberta única, as configurações de estatísticas para o vCenter Server devem ser definidas como nível 3 antes de você iniciar a implantação. O nível de estatísticas deve ser definido como 3 para cada um dos intervalos de coleta do dia, da semana e do mês. Se o nível for inferior ao 3 para cada um dos três intervalos de coleta, a avaliação funcionará, mas os dados de desempenho para armazenamento e rede não serão coletados. As recomendações de tamanho serão feitas então com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
 
 > [!NOTE]
 > O dispositivo de descoberta única já foi preterido, pois esse método se baseou nas configurações de estatísticas do vCenter Server para disponibilidade de pontos de dados de desempenho e contadores de desempenho médios coletados, o que resultou em subdimensionamento de VMs para migração para o Azure.

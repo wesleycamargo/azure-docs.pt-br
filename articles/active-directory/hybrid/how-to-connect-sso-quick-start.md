@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 25546c37db7e1117ed73c17f2f7b2a5211d48d51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162609"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755448"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início rápido
 
@@ -164,14 +164,6 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
     ![Logon único](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Logon único](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Navegue até **Configuração do Usuário** > **Modelos Administrativos** > **Componentes do Windows** > **Internet Explorer** > **Painel de Controle da Internet** > **Página de Segurança** > **Zona de Intranet**. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
-
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Habilite a configuração de política e, em seguida, selecione **OK**.
-
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>Considerações de navegador
 

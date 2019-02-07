@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1983ecbdee3d15efc73ad395fd07cbc7cd4f279c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472483"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769718"
 ---
 # <a name="what-is-translator-speech-api"></a>O que é a API de Tradução de Fala?
 
@@ -23,7 +23,7 @@ ms.locfileid: "55472483"
 
 A API de Tradução de Fala pode ser usada para adicionar traduções de fala de ponta a ponta e em tempo real a aplicativos, ferramentas ou a qualquer solução que requeira tradução de fala em vários idiomas, seja qual for o sistema operacional ou as linguagens de desenvolvimento de destino. A API pode ser usada para a conversão de fala em fala e de fala em texto.
 
-A API de Tradução de Texto é um serviço do Azure, que faz parte da [coleção de APIs dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) de aprendizado de máquina e algoritmos de IA na nuvem, prontamente consumíveis nos projetos de desenvolvimento.
+A API de Tradução de Texto é um serviço do Azure, que faz parte da [coleção de APIs dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/) de aprendizado de máquina e algoritmos de IA na nuvem, prontamente consumíveis nos projetos de desenvolvimento.
 
 Com a API de Tradução de Fala, os aplicativos clientes transmitem um áudio de fala ao serviço e recebem um fluxo de resultados baseados em texto e áudio, que incluem o texto reconhecido no idioma de origem e sua tradução no idioma de destino. Os resultados de texto são produzidos pela aplicação do ASR (Reconhecimento Automático de Fala) ativado por redes neurais profundas no fluxo de áudio de entrada. A saída bruta do ASR é aprimorada ainda por uma nova técnica chamada TrueText para refletir melhor a intenção do usuário. Por exemplo, o TrueText remove disfluências (hesitações e pigarros), palavras repetidas e restaura pontuação e uso adequados de maiúsculas. A capacidade de mascarar ou excluir linguagem vulgar também está incluída. Os mecanismos de reconhecimento e tradução são especificamente treinados para lidar com a fala conversacional. 
 
@@ -66,6 +66,6 @@ Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translato
 > [Iniciar codificação](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Consulte também
-- [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/)
 - [Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
 - [Informações sobre a solução e preços](https://www.microsoft.com/en-us/translator/home.aspx) 

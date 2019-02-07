@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465581"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733105"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -79,7 +79,7 @@ Os SDKs nativos (.NET/.NET Core, Java, Node.js e Python) capturam essa resposta 
 
 Se você tiver mais de um cliente operando cumulativamente e consistentemente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida como 9 poderá não ser suficiente. Nesse caso, o cliente gerará um `DocumentClientException` com código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo `RetryOptions` na instância de ConnectionPolicy. Por padrão, a DocumentClientException com o código de status 429 será retornada após uma espera cumulativa de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetição atual é menor que a contagem de repetição máxima, seja o padrão 9 seja um valor definido pelo usuário. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) é definido como 3, ou seja, nesse caso, se uma operação de solicitação tiver limitação de taxa ao exceder a taxa de transferência reservada para a coleção, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, ou seja, nesse caso, se o tempo de espera para a repetição cumulativo desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) é definido como 3, ou seja, nesse caso, se uma operação de solicitação tiver limitação de taxa ao exceder a taxa de transferência reservada para a coleção, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, ou seja, nesse caso, se o tempo de espera para a repetição cumulativo desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

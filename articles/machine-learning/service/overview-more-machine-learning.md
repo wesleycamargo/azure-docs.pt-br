@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451862"
+ms.locfileid: "55505692"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quais são os produtos de aprendizado de máquina na Microsoft?
 
@@ -27,7 +27,7 @@ As seguintes opções estão disponíveis para o aprendizado de máquina na nuve
 
 | Opções&nbsp;de nuvem | O que é | O que você pode fazer com ele |
 |-|-|-|
-| [Serviço do Azure Machine Learning](#azure-machine-learning-services) | O serviço de nuvem gerenciado para ML  | Treinar, implantar e gerenciar modelos no Azure usando o Python e a CLI |
+| [Serviço do Azure Machine Learning](#azure-machine-learning-service) | O serviço de nuvem gerenciado para ML  | Treinar, implantar e gerenciar modelos no Azure usando o Python e a CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visual do tipo arrastar&ndash;e&ndash;soltar para ML | Criar, experimentar e implantar modelos usando algoritmos pré-configurados (Python e R)|
 | [Azure Databricks](#azure-databricks) | Plataforma de análise com base no Spark | Crie e implante modelos e fluxos de trabalho de dados |
 | [Serviços Cognitivos do Azure](#azure-cognitive-services) | Serviços do Azure com modelos predefinidos de ML e IA | Adicione facilmente recursos inteligentes aos seus aplicativos |

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
-ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/10/2019
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198177"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750334"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar um banco de dados distribuído geograficamente
 
@@ -36,7 +36,7 @@ Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
 - [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
 - Um banco de dados SQL do Azure. Para criar um, use
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Para concluir o tutorial, verifique se você instalou os seguintes itens:
 > [!IMPORTANT]
 > Não se esqueça de configurar regras de firewall para usar o endereço IP público do computador em que você está executando as etapas nesse tutorial. As regras de firewall no nível do banco de dados serão replicadas automaticamente para o servidor secundário.
 >
-> Para obter informações, confira [Criar uma regra de firewall de nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, para determinar o endereço IP usado para a regra de firewall de nível de servidor para seu computador, confira [Criar um firewall de nível de servidor](sql-database-get-started-portal-firewall.md).  
+> Para obter informações, confira [Criar uma regra de firewall de nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, para determinar o endereço IP usado para a regra de firewall de nível de servidor para seu computador, confira [Criar um firewall de nível de servidor](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Criar um grupo de failover
 

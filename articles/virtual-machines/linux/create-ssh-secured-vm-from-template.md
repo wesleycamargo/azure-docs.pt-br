@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6e4e142025e40e77afee01d70de9cef68eca1f0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62ef6cad2f1c8f8f871043a8d1f70cbd08ccd65f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013189"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729380"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-O exemplo a seguir cria uma VM [neste modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Somente a autenticação SSH tem permissão. Mediante solicitação, forneça o valor de sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se você precisar criar um par de chaves SSH, confira [Como criar um par de chaves SSH para VMs Linux no Azure](mac-create-ssh-keys.md).
+O exemplo a seguir cria uma VM [neste modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [az group deployment create](/cli/azure/group/deployment). Somente a autenticação SSH tem permissão. Mediante solicitação, forneça o valor de sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se você precisar criar um par de chaves SSH, confira [Como criar um par de chaves SSH para VMs Linux no Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create \

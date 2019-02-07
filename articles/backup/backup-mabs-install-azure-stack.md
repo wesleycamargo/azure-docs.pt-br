@@ -2,23 +2,20 @@
 title: Instalar Servidor de Backup do Azure no Azure Stack | Microsoft Docs
 description: Use o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: servidor de backup do Azure; proteger cargas de trabalho; fazer backup de cargas de trabalho
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 6/5/2018
+ms.topic: conceptual
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497920"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 

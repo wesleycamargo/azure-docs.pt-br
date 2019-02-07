@@ -3,7 +3,7 @@ title: Como configurar o Banco de Dados SQL do Azure – autônomo | Microsoft D
 description: Saiba como configurar e gerenciar o Banco de Dados SQL do Azure – Banco de Dados Autônomo
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: howto
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 613b4b700be580c2a0847881e64eedbeedee0c65
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477787"
+ms.locfileid: "55510531"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no Banco de Dados SQL do Azure
 

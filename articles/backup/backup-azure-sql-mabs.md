@@ -2,18 +2,18 @@
 title: Backup do Azure para cargas de trabalho do SQL Server usando o Servidor de Backup do Azure
 description: Uma introdução ao backup de bancos de dados do SQL Server usando o Servidor de Backup do Azure
 services: backup
-author: pvrk
-manager: Shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606385"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490458"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Fazer backup do SQL Server no Azure com o Servidor de Backup do Azure
 Este artigo guia você pelas etapas de configuração de backup de bancos de dados do SQL Server usando o MABS (Servidor de Backup do Microsoft Azure).
@@ -66,7 +66,7 @@ Antes de começar, verifique se você [instalou e preparou o Servidor de Backup 
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de backup inicial exige a transferência de toda a fonte de dados (banco de dados do SQL Server) do servidor de produção (computador do SQL Server) para o MABS. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, os administradores podem optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
+    A cópia de backup inicial exige a transferência de toda a fonte de dados (banco de dados do SQL Server) do servidor de produção (computador do SQL Server) para o MABS. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, os administradores podem optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
 
     Quando o backup inicial for concluído, os backups restantes serão backups incrementais na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 10. Escolha quando deseja que a verificação de consistência seja executada e clique em **Avançar**.
@@ -88,7 +88,7 @@ Antes de começar, verifique se você [instalou e preparou o Servidor de Backup 
     >
     >
 
-    **Prática recomendada**: verifique se os Backups do Azure estão agendados após a conclusão de backups em disco local usando o DPM. Isso permite que o último backup de disco seja copiado para o Azure.
+    **Melhor prática**: verifique se os Backups do Azure estão agendados após a conclusão de backups em disco local usando o DPM. Isso permite que o último backup de disco seja copiado para o Azure.
 
 13. Escolha o agendamento de política de retenção. Os detalhes sobre como funciona a política de retenção são fornecidos no artigo [Usar o Backup do Azure para substituir a infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
 

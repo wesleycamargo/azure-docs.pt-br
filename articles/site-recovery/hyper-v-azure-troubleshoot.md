@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228195"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756658"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -115,7 +115,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
         - Contador: “Bytes de Gravação / Seg”</br>
         - A taxa de rotatividade de dados aumentará ou permanecerá em um nível alto, dependendo de quão ocupada a VM ou seus aplicativos estiverem.
         - A rotatividade de dados do disco de origem médio é de 2 MB/seg. para armazenamento padrão para Site Recovery. [Saiba mais](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Além disso, você pode [verificar destinos de escalabilidade de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
+    - Além disso, você pode [verificar destinos de escalabilidade de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 8. Execute o [Planejador de Implantações](hyper-v-deployment-planner-run.md).
 9. Revise as recomendações para [rede](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e [armazenamento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

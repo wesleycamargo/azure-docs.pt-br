@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: fdd5e3577c91f288919b7223287d2d3722f0259c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e07937710dd36c14e7118caf6028a161ad7dc4ee
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543437"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753615"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Administrando notificações de manutenção planejada para máquinas virtuais do Linux
 
@@ -74,7 +74,7 @@ A manutenção de autoatendimento não é recomendada para implantações usando
 
 ## <a name="find-vms-scheduled-for-maintenance-using-cli"></a>Encontrar VMs agendadas para manutenção usando a CLI
 
-Informações de manutenção planejada podem ser vistas usando [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view).
+Informações de manutenção planejada podem ser vistas usando [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest).
  
 Informações de manutenção são retornadas somente se houver manutenção planejada. Se não houver que nenhuma manutenção agendada que afete a VM, o comando não retornará nenhuma informação de manutenção. 
 

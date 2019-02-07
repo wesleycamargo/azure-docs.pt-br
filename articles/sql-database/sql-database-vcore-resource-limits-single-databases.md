@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460158"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663971"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites do modelo de compra com base em vCore do Banco de Dados SQL do Azure para um banco de dados individual
 
@@ -39,7 +39,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|
 |Tamanho máximo de log (GB)|307|307|307|461|461|461|
@@ -61,7 +61,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1536|3072|3072|3072|4096|4096|
 |Tamanho máximo de log (GB)|461|922|922|922|1229|1229|
@@ -83,7 +83,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Tamanho máximo de log (GB)|307|307|307|461|461|461|461|
@@ -105,7 +105,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo de log (GB)|922|922|922|1229|1229|1229|1229|
@@ -140,8 +140,8 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
-|Escala de leitura|SIM|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 4 (parte 2)
@@ -162,8 +162,8 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
-|Escala de leitura|SIM|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 1)
@@ -172,8 +172,8 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|11|22|33|44|55|66|77|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|1. 571|3.142|4,713|6.284|8,655|11,026|13,397|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Tamanho máximo de log (GB)|307|307|307|461|461|461|461|
@@ -184,7 +184,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|1.400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|sim|Sim|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -194,8 +194,8 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
-|Memória (GB)|88|99|110|132|176|220|440|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|SIM|
+|Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo de log (GB)|922|922|922|1229|1229|1229|1229|
@@ -206,7 +206,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|SIM|sim|sim|sim|sim|SIM|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -219,7 +219,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memória (GB)|7|14|28|56|112|168|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |
 |Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |
@@ -231,7 +231,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|2|2|2|2|2|2|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escala de leitura|SIM|sim|sim|sim|sim|SIM|
+|Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|7|7|7|7|7|7|
 |||
 
@@ -242,7 +242,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memória (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
-|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|sim|SIM|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
@@ -254,7 +254,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escala de leitura|SIM|sim|sim|sim|sim|sim|sim|SIM|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído (limite da versão prévia)|7|7|7|7|7|7|7|7|
 |||
 
