@@ -1,8 +1,21 @@
 ---
-Título: Treinar novamente modelos do Machine Learning Studio programaticamente – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como treinar novamente de forma programática um modelo usando C# e o serviço de execução em lotes do Machine Learning.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
+title: Treinar novamente os modelos do Machine Learning Studio programaticamente
+titleSuffix: Azure Machine Learning Studio
+description: Saiba como treinar novamente de forma programática um modelo usando C# e o serviço de execução em lotes do Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511387"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Treinar novamente os modelos do Azure Machine Learning Studio de forma programática
 Neste tutorial, você aprenderá a treinar de maneira programática um serviço da web do Azure Machine Learning Studio usando C# e o serviço de Execução em Lote de Aprendizado da Máquina.

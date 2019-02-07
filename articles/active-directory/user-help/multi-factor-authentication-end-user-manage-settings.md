@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: ab3de9b010c0356dea17520b497235e0bf7c818e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2129b1f70ea19bdb2144f0f2a9ca4a6dbac0acbd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181309"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766802"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerenciar as configurações de verificação em duas etapas
 Este artigo responde a perguntas sobre como atualizar as configurações de autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas ao se conectar à sua conta, confira [Tendo problemas com a verificacão em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para a resolução de problemas.
@@ -74,7 +74,7 @@ Dependendo das configurações de sua organização, uma caixa de seleção "Nã
 2. Na próxima vez que você entrar em qualquer dispositivo, receberá uma solicitação para executar a verificação de duas etapas.
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Como limpar o Microsoft Authenticator de meu dispositivo antigo e movê-lo para um novo?
-Quando você desinstala o aplicativo do dispositivo ou reinicia o dispositivo, ele não remove a ativação no back-end. Para saber mais, veja [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+Quando você desinstala o aplicativo do dispositivo ou reinicia o dispositivo, ele não remove a ativação no back-end. Para saber mais, veja [Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Obter dicas de solução de problemas e ajuda em [Tendo problemas com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md)

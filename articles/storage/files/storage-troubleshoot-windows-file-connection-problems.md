@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477685"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564435"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -61,7 +61,7 @@ Pode ocorrer um erro de sistema 53 ou erro de sistema 67 se a comunicação de s
 
 Para verificar se o firewall ou ISP está bloqueando a porta 445, use a ferramenta [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou o cmdlet `Test-NetConnection`. 
 
-Para usar o cmdlet `Test-NetConnection`, o módulo do PowerShell AzureRM deve ser instalado; consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes referentes a sua conta de armazenamento.
+Para usar o cmdlet `Test-NetConnection`, o módulo do PowerShell AzureRM deve ser instalado; consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -265,11 +265,11 @@ Por exemplo, você pode defini-lo como 0x100000 e ver se o desempenho se torna m
 
 ### <a name="cause"></a>Causa
 
-O erro AadDsTenantNotFound acontece quando você tenta [habilitar a autenticação do AAD (Azure Active Directory) para Arquivos do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) em uma conta de armazenamento em que o [AAD DS (Azure Active Directory Domain Services)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no locatário do AAD da assinatura associada.  
+O erro AadDsTenantNotFound acontece quando você tenta [habilitar a autenticação do AAD (Azure Active Directory) para Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) em uma conta de armazenamento em que o [AAD DS (Azure Active Directory Domain Services)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no locatário do AAD da assinatura associada.  
 
 ### <a name="solution"></a>Solução
 
-Habilite o AAD DS no locatário do AAD da assinatura na qual a conta de armazenamento é implantada. Você precisa de privilégios de administrador do locatário do AAD para criar um domínio gerenciado. Se você não for o administrador do locatário do Azure AD, entre em contato com o administrador e siga as orientações passo a passo para [Habilitar os Serviços de Domínio do Active Directory do Azure usando o portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Habilite o AAD DS no locatário do AAD da assinatura na qual a conta de armazenamento é implantada. Você precisa de privilégios de administrador do locatário do AAD para criar um domínio gerenciado. Se você não for o administrador do locatário do Azure AD, entre em contato com o administrador e siga as orientações passo a passo para [Habilitar os Serviços de Domínio do Active Directory do Azure usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Caso ainda precise de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

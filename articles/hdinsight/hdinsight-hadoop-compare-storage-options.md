@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/20/2019
-ms.openlocfilehash: 14db76068cc11d3f57a72e3e540a5e0da7e1c254
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.date: 02/04/2019
+ms.openlocfilehash: 7f113587dfabd66461a9bcfbde18a0178c6608f0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853605"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733538"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -153,6 +153,8 @@ Determinados trabalhos e pacotes do MapReduce podem criar resultados intermediá
 
 ## <a name="use-azure-data-lake-storage-gen1"></a>Usar o Azure Data Lake Storage Gen1
 
+### <a name="overview"></a>Visão geral
+
 Para saber mais sobre o Azure Data Lake Storage Gen1, confira [Visão geral do Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
 O Azure Data Lake Storage Gen1 é um repositório de hiperescala em toda a empresa para cargas de trabalho analíticas de big data. O Azure Data Lake permite que você capture dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análises operacionais e exploratórias.
@@ -163,38 +165,38 @@ O Data Lake Storage Gen1 pode ser acessado a partir do Hadoop (disponível com u
 
 Alguns dos principais recursos do Data Lake Storage Gen1 incluem o seguinte.
 
-### <a name="built-for-hadoop"></a>Desenvolvido para Hadoop
+#### <a name="built-for-hadoop"></a>Desenvolvido para Hadoop
 
 Data Lake Storage O Gen1 é um sistema de arquivos Apache Hadoop compatível com o Hadoop Distributed File System (HDFS) e funciona com o ecossistema Hadoop.  Seus aplicativos ou serviços existentes do HDInsight que usam a API WebHDFS podem ser facilmente integrados ao Data Lake Storage Gen1. O Data Lake Storage Gen1 também expõe uma interface REST compatível com WebHDFS para aplicativos
 
 Os dados armazenados no Data Lake Storage Gen1 podem ser facilmente analisados usando estruturas analíticas do Hadoop, como MapReduce ou Hive. Os clusters do Microsoft Azure HDInsight podem ser provisionados e configurados para acessar diretamente os dados armazenados no Data Lake Storage Gen1.
 
-### <a name="unlimited-storage-petabyte-files"></a>Armazenamento ilimitado, arquivos em petabytes
+#### <a name="unlimited-storage-petabyte-files"></a>Armazenamento ilimitado, arquivos em petabytes
 
 O Data Lake Storage Gen1 fornece armazenamento ilimitado e é adequado para armazenar uma variedade de dados para análise. Ele não impõe qualquer limite de tamanho de conta, de tamanho de arquivo ou de quantidade de dados que podem ser armazenados em um Data Lake. Os arquivos individuais podem variar de quilobytes a petabytes, tornando-os uma ótima opção para armazenar qualquer tipo de dados. Os dados são armazenados permanentemente por meio de várias cópias, e não há limite de tempo de armazenamento dos dados no Data Lake.
 
-### <a name="performance-tuned-for-big-data-analytics"></a>Desempenho ajustado para a análise de big data
+#### <a name="performance-tuned-for-big-data-analytics"></a>Desempenho ajustado para a análise de big data
 
 O Data Lake Storage Gen1 foi desenvolvido para executar sistemas analíticos de larga escala que exigem um throughput massivo para consultar e analisar grandes quantidades de dados. O Data Lake espalha partes de um arquivo por vários servidores de armazenamento individuais. Isso melhora a produtividade da leitura do arquivo em paralelo para a realização de análises de dados.
 
-### <a name="enterprise-ready-highly-available-and-secure"></a>Pronto para empresas: altamente disponível e seguro
+#### <a name="enterprise-ready-highly-available-and-secure"></a>Pronto para empresas: altamente disponível e seguro
 
 O Data Lake Storage Gen1 fornece disponibilidade e confiabilidade padrão do setor. Seus ativos de dados são armazenados permanentemente por meio de cópias redundantes, a fim de se proteger contra quaisquer falhas inesperadas. As empresas podem usar o Data Lake Storage Gen1 em suas soluções como parte importante de sua plataforma de dados existente.
 
 O Data Lake Storage Gen1 também fornece segurança de nível corporativo para os dados armazenados. Para obter mais informações, consulte [Protegendo dados no Armazenamento de dados do Lake Azure Gen1](#DataLakeStoreSecurity).
 
-### <a name="all-data"></a>Todos os dados
+#### <a name="all-data"></a>Todos os dados
 
 O Data Lake Storage Gen1 pode armazenar qualquer dado em seu formato nativo, sem necessidade de transformações anteriores. O Data Lake Storage Gen1 não exige que um esquema seja definido antes de os dados serem carregados, deixando a estrutura analítica individual interpretar os dados e definir um esquema no momento da análise. A capacidade de armazenar arquivos de tamanhos e formatos arbitrários possibilita que o Data Lake Storage Gen1 manipule dados estruturados, semi-estruturados e não estruturados.
 
 Os contêineres Data Lake Storage Gen1 para dados são essencialmente pastas e arquivos. Você opera nos dados armazenados usando SDKs, o portal do Azure e o Azure PowerShell. Desde que você coloque os dados no repositório usando essas interfaces e os contêineres apropriados, é possível armazenar qualquer tipo de dados. O Data Lake Storage Gen1 não executa nenhum tratamento especial de dados com base no tipo de dados que armazena.
 
-## <a name="DataLakeStoreSecurity"></a> Protegendo dados no Data Lake Storage Gen1
+### <a name="DataLakeStoreSecurity"></a> Protegendo dados no Data Lake Storage Gen1
 O Data Lake Storage Gen1 usa o Azure Active Directory para autenticação e listas de controle de acesso (ACLs) para gerenciar o acesso aos seus dados.
 
 | Recurso | DESCRIÇÃO |
 | --- | --- |
-| Autenticação |O Data Lake Storage Gen1 integra-se ao Azure Active Directory (AAD) para gerenciamento de identidade e acesso para todos os dados armazenados no Data Lake Storage Gen1. Como resultado da integração, o Data Lake Storage Gen1 se beneficia de todos os recursos do AAD, incluindo autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento do uso do aplicativo, monitoramento e alerta de segurança, etc. O Data Lake Storage Gen1 suporta o protocolo OAuth 2.0 para autenticação na interface REST. Consulte [autenticação Gen1 de armazenamento do Data Lake](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Authentication |O Data Lake Storage Gen1 integra-se ao Azure Active Directory (AAD) para gerenciamento de identidade e acesso para todos os dados armazenados no Data Lake Storage Gen1. Como resultado da integração, o Data Lake Storage Gen1 se beneficia de todos os recursos do AAD, incluindo autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento do uso do aplicativo, monitoramento e alerta de segurança, etc. O Data Lake Storage Gen1 suporta o protocolo OAuth 2.0 para autenticação na interface REST. Consulte [autenticação Gen1 de armazenamento do Data Lake](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Controle de acesso |O Data Lake Storage Gen1 fornece controle de acesso, suportando permissões no estilo POSIX expostas pelo protocolo WebHDFS. As ACLs podem ser habilitadas na pasta raiz, nas subpastas e nos arquivos individuais. Para obter mais informações sobre como as ACLs funcionam no contexto do Data Lake Storage Gen1, consulte [Controle de acesso no Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Criptografia |O Azure Data Lake Storage Gen1 também fornece criptografia para dados armazenados na conta. Você especifica as configurações de criptografia ao criar uma conta do Data Lake Storage Gen1. Você pode optar por ter seus dados criptografados ou optar por nenhuma criptografia. Para obter mais informações, consulte [Criptografia no Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Para obter instruções sobre como fornecer configuração relacionada à criptografia, consulte [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure ](../data-lake-store/data-lake-store-get-started-portal.md). |
 
@@ -202,14 +204,14 @@ Deseja saber mais sobre como proteger dados no Data Lake Storage Gen1? Siga os l
 
 * Para obter instruções sobre como proteger dados no Data Lake Storage Gen1, consulte [Protegendo dados no Armazenamento de dados do Azure Data Lake Gen1](../data-lake-store/data-lake-store-secure-data.md).
 
-## <a name="applications-compatible-with-data-lake-storage-gen1"></a>Aplicativos compatíveis com o Data Lake armazenamento Gen1
+### <a name="applications-compatible-with-data-lake-storage-gen1"></a>Aplicativos compatíveis com o Data Lake armazenamento Gen1
 O Azure Data Lake Storage Gen1 é compatível com a maioria dos componentes de software livre no ecossistema do Hadoop. Ele também se integra perfeitamente com outros serviços do Azure.  Siga os links abaixo para saber mais sobre como o Data Lake Storage Gen1 pode ser usado tanto com componentes de software livre quanto com outros serviços do Azure.
 
 * Confira [Aplicativos e serviços compatíveis com o Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-compatible-oss-other-applications.md) para obter uma lista de aplicativos de software livre interoperáveis com o Data Lake Storage Gen1.
 * Consulte [Integração com outros serviços do Azure](../data-lake-store/data-lake-store-integrate-with-other-services.md) para entender como o Data Lake Storage Gen1 pode ser usado com outros serviços do Azure para permitir uma gama mais ampla de cenários.
 * Veja [Cenários para usar o Data Lake Storage Gen1](../data-lake-store/data-lake-store-data-scenarios.md) para aprender a usar o Data Lake Storage Gen1 em cenários como a ingestão de dados, o processamento de dados, o download de dados e a visualização de dados.
 
-## <a name="what-is-data-lake-storage-gen1-file-system-adl"></a>O que é o sistema de arquivos Data Lake Storage Gen1 (adl://)?
+### <a name="what-is-data-lake-storage-gen1-file-system-adl"></a>O que é o sistema de arquivos Data Lake Storage Gen1 (adl://)?
 O Data Lake Storage Gen1 pode ser acessado por meio do novo sistema de arquivos, o AzureDataLakeFilesystem (adl: //), em ambientes do Hadoop (disponíveis com o cluster HDInsight). Os aplicativos e os serviços que usam adl:// podem aproveitar a otimização adicional de desempenho que não está disponível no momento no WebHDFS. Como resultado, o Data Lake Storage Gen1 oferece a flexibilidade de aproveitar o melhor desempenho com a opção recomendada de usar adl:// ou manter o código existente, continuando a usar a API WebHDFS diretamente. O Azure HDInsight aproveita totalmente o AzureDataLakeFilesystem para fornecer o melhor desempenho no Data Lake Storage Gen1.
 
 Você pode acessar seus dados no Data Lake Storage Gen1 usando `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`. Para obter mais informações sobre como acessar os dados no Data Lake Storage Gen1, consulte [Exibir propriedades dos dados armazenados](../data-lake-store/data-lake-store-get-started-portal.md#properties)

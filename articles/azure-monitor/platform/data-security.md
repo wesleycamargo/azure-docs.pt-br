@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e520c5dc2ae086305692c4bec1e1786d335c97e5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319045"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765986"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](../../security/security-microsoft-trust-center.md).  
@@ -52,7 +52,6 @@ Não é recomendável definir explicitamente seu agente para usar somente o TLS 
 | Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
-| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>Segregação de dados
 Depois que seus dados são ingeridos pelo serviço Log Analytics, os dados são mantidos separados logicamente em cada componente no serviço. Todos os dados são marcados por workspace. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço. Os dados ficam armazenados em um banco de dados dedicado no cluster de armazenamento na região selecionada.

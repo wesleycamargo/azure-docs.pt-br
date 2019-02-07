@@ -269,7 +269,7 @@ Em seguida, [crie uma função do Azure](../azure-functions/functions-create-fir
 
 Para criar uma função do Azure, escolha **Criar um recurso**, pesquise no marketplace por _Aplicativo de funções_ e clique em **Criar**. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Você também pode optar pela hospedagem dinâmica. Mais detalhes sobre opções de hospedagem de Função podem ser encontrados em [Como dimensionar as Funções do Azure](../azure-functions/functions-scale.md).
 
-Quando a função do Azure for criada, navegue até ela, escolha uma função de timer e C\#. Em seguida, clique em **Criar esta função.
+Quando a função do Azure for criada, navegue até ela, escolha uma função de timer e C\#. Em seguida, clique em **Criar esta função**
 
 ![Folha de Início das Funções do Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 

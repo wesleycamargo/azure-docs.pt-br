@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102662"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696176"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Coletar rastreamentos distribuídos do Python (Versão Prévia)
 
@@ -24,7 +24,7 @@ Agora o Application Insights dá suporte ao rastreamento distribuído de aplicat
 
 - É necessária uma assinatura do Azure.
 - O Python deve ser instalado; este artigo usa [Python 3.7.0](https://www.python.org/downloads/), embora versões anteriores provavelmente funcionem com um pequeno ajuste.
-- Siga as instruções para instalar o [encaminhador local como um serviço Windows](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)
+- Siga as instruções para instalar o [encaminhador local como um serviço Windows](./../../azure-monitor/app/opencensus-local-forwarder.md)
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -57,7 +57,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
    ![Captura de tela da chave de instrumentação](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. Edite o arquivo `LocalForwarder.config` e adicione a chave de instrumentação. Se você tiver seguido as instruções de [pré-requisito](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service), o arquivo estará localizado em `C:\LF-WindowsServiceHost`
+2. Edite o arquivo `LocalForwarder.config` e adicione a chave de instrumentação. Se você tiver seguido as instruções de [pré-requisito](./../../azure-monitor/app/opencensus-local-forwarder.md), o arquivo estará localizado em `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -158,7 +158,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
 6. Agora, quando você executa o script Python acima, ainda deve ser solicitado a inserir valores, mas agora apenas o valor que está sendo impresso no shell.
 
-7. Para confirmar que o **local encaminhador** está capturando os rastreamentos, verifique o arquivo `LocalForwarder.config`. Se você tiver seguido as etapas em [pré-requisito](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), ele estará localizado em `C:\LF-WindowsServiceHost`.
+7. Para confirmar que o **local encaminhador** está capturando os rastreamentos, verifique o arquivo `LocalForwarder.config`. Se você tiver seguido as etapas em [pré-requisito](https://docs.microsoft.com/azure/application-insights/local-forwarder), ele estará localizado em `C:\LF-WindowsServiceHost`.
 
     Na imagem abaixo do arquivo de log, você pode ver que, antes de executar o segundo script em que adicionamos um exportador, `OpenCensus input BatchesReceived` era 0. Depois que começamos a executar o script atualizado, `BatchesReceived` foi incrementado do mesmo modo que o número de valores que inserimos:
     

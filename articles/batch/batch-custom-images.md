@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: lahugh
-ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840360"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752119"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada para criar um pool de máquinas virtuais 
 
@@ -69,7 +69,7 @@ Um instantâneo é uma cópia completa somente leitura de um VHD. Para criar um 
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Criar uma imagem de um ou mais instantâneos
 
-Para criar uma imagem gerenciada de um instantâneo, use ferramentas de linha de comando do Azure como o comando [az image create](/cli/azure/image#az_image_create). Você pode criar uma imagem especificando um instantâneo do disco do sistema operacional e, opcionalmente, um ou mais instantâneos de disco de dados.
+Para criar uma imagem gerenciada de um instantâneo, use ferramentas de linha de comando do Azure como o comando [az image create](/cli/azure/image). Você pode criar uma imagem especificando um instantâneo do disco do sistema operacional e, opcionalmente, um ou mais instantâneos de disco de dados.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Criar um pool de uma imagem personalizada no portal
 

@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460712"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734497"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
@@ -73,7 +73,7 @@ Há outra alteração nos dados ingeridos no Log Analytics ou no Application Ins
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Novo modelo de preços e direitos de inscrição do Operations Management Suite
 
-Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esses direitos para workspaces Log Analytics ou recursos Application Insights em uma determinada assinatura: 
+Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Para receber esses direitos para workspaces Log Analytics ou recursos Application Insights em uma determinada assinatura: 
 
 - O modelo de preços da assinatura deve permanecer no modelo de pré-abril 2018.
 - Workspaces do Log Analytics devem usar o tipo de preço "por nó (OMS)".

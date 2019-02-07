@@ -1,8 +1,21 @@
 ---
-Título: Estender seu experimento com R – titleSuffix: Descrição do Azure Machine Learning Studio: Como estender a funcionalidade do Azure Machine Learning Studio por meio da linguagem R usando o módulo Executar o Script R.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
+title: Estender seu experimento com R
+titleSuffix: Azure Machine Learning Studio
+description: Como estender a funcionalidade do Azure Machine Learning Studio por meio da linguagem R usando o módulo Executar o Script R.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: 98f5922cc329aedc8deeffbcb042bddf90405883
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497128"
 ---
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Estender seu experimento com R 
 Você pode estender a funcionalidade do Machine Learning Studio do Azure por meio da linguagem R, usando o módulo [Executar Script R][execute-r-script].

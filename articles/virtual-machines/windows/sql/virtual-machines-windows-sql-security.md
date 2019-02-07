@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332380"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731709"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure
 
@@ -54,7 +54,7 @@ As opções selecionadas no portal usam regras de segurança de entrada no [NSG]
 
 Além das regras do NSG para restringir o tráfego de rede, você também pode usar o Firewall do Windows na máquina virtual.
 
-Se estiver usando pontos de extremidade com o modelo de implantação clássico, remova todos os pontos de extremidade da máquina virtual, caso não estejam sendo usados. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint). Isso não é necessário para VMs que usam o Resource Manager.
+Se estiver usando pontos de extremidade com o modelo de implantação clássico, remova todos os pontos de extremidade da máquina virtual, caso não estejam sendo usados. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Isso não é necessário para VMs que usam o Resource Manager.
 
 Por fim, considere a possibilidade de habilitar as conexões criptografadas na instância do Mecanismo de Banco de Dados do SQL Server na máquina virtual do Azure. Configure a instância do SQL Server com um certificado assinado. Para saber mais, veja [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) (Habilitar conexões criptografadas para o mecanismo de banco de dados) e [Sintaxe da cadeia de conexão](https://msdn.microsoft.com/library/ms254500.aspx).
 

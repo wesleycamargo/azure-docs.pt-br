@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 443020bd6ca024cb5a04b2a8be5b7cbe7122efac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169681"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734132"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com a CLI do Azure
 
@@ -35,7 +35,7 @@ Certifique-se de que você instalou a versão mais recente [CLI do Azure](/cli/a
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
-Execute o comando [az vm image list](/cli/azure/vm/image#az_vm_image_list) sem a opção `--all` para ver uma lista de imagens de VM populares no Azure Marketplace. Por exemplo, execute o comando a seguir para exibir uma lista armazenada em cache de imagens populares em formato de tabela:
+Execute o comando [az vm image list](/cli/azure/vm/image) sem a opção `--all` para ver uma lista de imagens de VM populares no Azure Marketplace. Por exemplo, execute o comando a seguir para exibir uma lista armazenada em cache de imagens populares em formato de tabela:
 
 ```azurecli
 az vm image list --output table
@@ -152,7 +152,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens
  
-Outra maneira de localizar uma imagem em um local é executar os comandos [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image) e [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) em sequência. Com esses comandos, você determina estes valores:
+Outra maneira de localizar uma imagem em um local é executar os comandos [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image) e [az vm image list-skus](/cli/azure/vm/image) em sequência. Com esses comandos, você determina estes valores:
 
 1. Liste os editores de imagem.
 2. Para um determinado editor, liste suas ofertas.
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Agora você pode escolher exatamente a imagem que deseja usar anotando o valor do URN. Passe esse valor com o parâmetro `--image` quando criar uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create). Lembre-se de que é possível substituir, como opção, o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da imagem. 
+Agora você pode escolher exatamente a imagem que deseja usar anotando o valor do URN. Passe esse valor com o parâmetro `--image` quando criar uma VM com o comando [az vm create](/cli/azure/vm). Lembre-se de que é possível substituir, como opção, o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da imagem. 
 
 Se você implantar uma VM com um modelo do Gerenciador de Recursos, defina os parâmetros de imagem individualmente nas propriedades `imageReference`. Consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -337,7 +337,7 @@ Saída:
 
 ### <a name="accept-the-terms"></a>Aceitar os termos
 
-Para exibir e aceitar os termos de licença, use o comando [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms). Quando aceita os termos, você habilita a implantação programática na sua assinatura. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Por exemplo: 
+Para exibir e aceitar os termos de licença, use o comando [az vm image accept-terms](/cli/azure/vm/image?). Quando aceita os termos, você habilita a implantação programática na sua assinatura. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Por exemplo: 
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

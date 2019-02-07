@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454837"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697825"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato de arquivo de log de serviço de Importação/Exportação do Azure
 Quando o serviço de importação/exportação do Microsoft Azure executa uma ação em uma unidade como parte de um trabalho de importação ou exportação, os logs são gravados para bloquear blobs na conta de armazenamento associado ao trabalho.  
@@ -22,7 +22,7 @@ Há dois logs que podem ser gravados pelo serviço de importação/exportação:
   
 -   O log de erros sempre é gerado se ocorrer um erro.  
   
--   O log detalhado não é habilitado por padrão, mas pode ser habilitado configurando a propriedade `EnableVerboseLog` em um [Trabalho Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou em uma operação de [Atualização de Propriedades do Trabalho](/rest/api/storageimportexport/jobs#Jobs_Update).  
+-   O log detalhado não é habilitado por padrão, mas pode ser habilitado configurando a propriedade `EnableVerboseLog` em um [Trabalho Put Job](/rest/api/storageimportexport/jobs) ou em uma operação de [Atualização de Propriedades do Trabalho](/rest/api/storageimportexport/jobs).  
   
 ## <a name="log-file-location"></a>Local do arquivo de log  
 Os logs são gravados para bloquear blobs no contêiner ou diretório virtual especificado pela configuração `ImportExportStatesPath`, que pode ser definida em um operação `Put Job`. O local no qual os logs são gravados depende de como a autenticação é especificada para o trabalho, junto com o valor especificado para `ImportExportStatesPath`. A autenticação para o trabalho pode ser especificada por meio de uma chave de conta de armazenamento ou um contêiner SAS (assinatura de acesso compartilhado).  
@@ -38,7 +38,7 @@ A tabela a seguir mostra as opções possíveis:
 |SAS do contêiner|Valor padrão|Um diretório virtual chamado `waimportexport`, que é o nome padrão, sob o contêiner especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para o trabalho é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, então o local do log será`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAS do contêiner|Valores especificados pelo usuário|Um diretório virtual nomeado pelo usuário, sob o contêiner especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para o trabalho é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e o diretório virtual especificado for denominado `mylogblobs`, então o local do log será `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Você pode recuperar a URL de erro e logs detalhados chamando a operação [Obter Trabalho](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Os logs estão disponíveis após a conclusão do processamento da unidade.  
+Você pode recuperar a URL de erro e logs detalhados chamando a operação [Obter Trabalho](/rest/api/storageimportexport/jobs). Os logs estão disponíveis após a conclusão do processamento da unidade.  
   
 ## <a name="log-file-format"></a>Formato do arquivo de log  
 O formato para ambos os logs é o mesmo: um blob que contém descrições XML dos eventos ocorridos ao copiar blobs entre o disco rígido e a conta do cliente.  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687377"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734514"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Criptografar os discos de sistema operacional e de dados anexados em um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure (versão prévia)
 
@@ -42,13 +42,13 @@ Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você 
 
 ## <a name="register-for-disk-encryption-preview"></a>Registre-se para visualização de criptografia de disco
 
-O Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento de máquinas virtuais requer que você faça o registro da sua própria assinatura com [az feature register](/cli/azure/feature#az_feature_register). Você só precisará executar as seguintes etapas na primeira vez que você usar o recurso de visualização de criptografia de disco:
+O Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento de máquinas virtuais requer que você faça o registro da sua própria assinatura com [az feature register](/cli/azure/feature). Você só precisará executar as seguintes etapas na primeira vez que você usar o recurso de visualização de criptografia de disco:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [az feature show](/cli/azure/feature#az_feature_show). Quando `State` reportar *Registrado*, registre novamente o *provedor Microsoft.Compute* com [registro do provedor de sincronização az](/cli/azure/provider#az_provider_register):
+Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [az feature show](/cli/azure/feature). Quando `State` reportar *Registrado*, registre novamente o *provedor Microsoft.Compute* com [registro do provedor de sincronização az](/cli/azure/provider):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -56,13 +56,13 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
 
-Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que está definido para atualizar automaticamente à medida que alterações são aplicadas e gera chaves SSH caso elas não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM e a [extensão de Script personalizado](../virtual-machines/linux/extensions-customscript.md) do Azure é usada para preparar os discos de dados com [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set):
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que está definido para atualizar automaticamente à medida que alterações são aplicadas e gera chaves SSH caso elas não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM e a [extensão de Script personalizado](../virtual-machines/linux/extensions-customscript.md) do Azure é usada para preparar os discos de dados com [az vmss extension set](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
