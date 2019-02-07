@@ -13,12 +13,12 @@ caps.latest.revision: 17
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 71c791c9ac6f679f0f67b014c8fb5dd915d1a3e3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004397"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821665"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição dos Serviços de Nuvem do Azure
 O nó `NetworkTrafficRules` é um elemento opcional no arquivo de definição de serviço que especifica como as funções comunicam-se entre si. Ele limita quais funções podem acessar os pontos de extremidade internos da função específica. O `NetworkTrafficRules` não é um elemento autônomo; ele é combinado com duas ou mais funções em um arquivo de definição de serviço.
@@ -58,7 +58,7 @@ O nó `NetworkTrafficRules` do arquivo de definição de serviço inclui estes e
 
 [Elemento RoleEndpoint](#RoleEndpoint)
 
-[Elemento AllowAllTraffic](#AllowAllTraffic)
+Elemento AllowAllTraffic
 
 [Elemento WhenSource](#WhenSource)
 
@@ -76,7 +76,7 @@ O elemento `Destinations` descreve uma coleção de RoleEndpoints com a qual é 
 ##  <a name="RoleEndpoint"></a> Elemento RoleEndpoint
 O elemento `RoleEndpoint` descreve um ponto de extremidade em uma função com a qual ele permite comunicações. Será possível especificar vários elementos `RoleEndpoint` se houver mais de um ponto de extremidade na função.
 
-| Atributo      | Tipo     | DESCRIÇÃO |
+| Atributo      | Type     | DESCRIÇÃO |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Obrigatório. O nome do ponto de extremidade com o qual permitir o tráfego.|
 | `roleName`     | `string` | Obrigatório. O nome da função web com a qual permitir a comunicação.|
@@ -87,14 +87,14 @@ O elemento `AllowAllTraffic` é uma regra que permite que todas as funções se 
 ##  <a name="WhenSource"></a> Elemento WhenSource
 O elemento `WhenSource` descreve uma coleção de funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`.
 
-| Atributo | Tipo     | DESCRIÇÃO |
+| Atributo | Type     | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obrigatório. Especifica a regra a ser aplicada ao permitir comunicações. No momento, o único valor válido é `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 O elemento `FromRole` especifica as funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`. Será possível especificar vários elementos `FromRole` se houver mais de uma função que pode se comunicar com os pontos de extremidade.
 
-| Atributo  | Tipo     | DESCRIÇÃO |
+| Atributo  | Type     | DESCRIÇÃO |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obrigatório. O nome da função da qual permitir a comunicação.|
 

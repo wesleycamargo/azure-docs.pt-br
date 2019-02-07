@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190778"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820310"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -49,8 +49,6 @@ O relatório de logs de auditoria consolida os seguintes relatórios:
 
 É possível usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro **Categoria de atividade**. Por exemplo, para exibir todas as atividades relacionadas à redefinição de senha de autoatendimento, selecione a categoria **Gerenciamento de senha de autoatendimento**. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 As categorias de atividades incluem:
 
 - Diretório principal
@@ -62,8 +60,6 @@ As categorias de atividades incluem:
 ## <a name="sign-ins-report"></a>Relatório de entradas 
 
 A exibição **Entradas** inclui todas as entradas do usuário, bem como o relatório **Uso do Aplicativo**. Também é possível exibir as informações de uso do aplicativo na seção **Gerenciar** da visão geral dos **Aplicativos empresariais**.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Para acessar o relatório de entradas:
 

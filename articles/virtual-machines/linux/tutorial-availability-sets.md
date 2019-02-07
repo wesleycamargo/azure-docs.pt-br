@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885580"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756403"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
 
@@ -49,7 +49,7 @@ Use Conjuntos de Disponibilidade quando você deseja implantar soluções confi�
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). Nesse exemplo, o número de domínios de atualização e de falha são definidos para *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
+Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/vm/availability-set). Nesse exemplo, o número de domínios de atualização e de falha são definidos para *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
 
 Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create), em seguida, crie um conjunto de disponibilidade:
 

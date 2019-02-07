@@ -131,7 +131,7 @@ Aqui está o que a Contoso precisa para executar esse cenário.
 > [!div class="checklist"]
 > * **Etapa 1: Provisionar Serviços de Aplicativos do Azure**: Os administradores da Contoso provisionarão aplicativos Web nas regiões primárias e secundárias.
 > * **Etapa 2: Configurar o Gerenciador de Tráfego**: Irá configurar o Gerenciador de Tráfego na frente dos aplicativos Web para balanceamento de carga e roteamento de tráfego.
-> *  **Etapa 3: Provisionar MySQL**: No Azure, eles provisionam uma instância do Banco de Dados MySQL no Azure.
+> * **Etapa 3: Provisionar MySQL**: No Azure, eles provisionam uma instância do Banco de Dados MySQL no Azure.
 > * **Etapa 4: Migrar o banco de dados**: Irá migrar o banco de dados usando o Workbench do MySQL. 
 > * **Etapa 5: Configurar o GitHub**: Irá configurar um repositório do GitHub local para o código/sites da Web do aplicativo.
 > * **Etapa 6: Implantar os aplicativos web**: Irá implantar os aplicativos web do GitHub.

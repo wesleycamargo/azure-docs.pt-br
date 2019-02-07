@@ -16,21 +16,21 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 55866d5ff28c707c26141683bb90c8f2873b17c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104296"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818899"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Início rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft (Versão Prévia)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Início Rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft (Versão Prévia)
 
 Os desenvolvedores corporativos e provedores de SaaS (software como serviço) que registraram aplicativos na Microsoft Identity Platform podem precisar remover o registro do aplicativo.
 
 Neste início rápido, você aprenderá a:
 
-* [Remover um aplicativo criado por você ou por sua organização](#remove-an-application-authored-by-your-organization)
-* [Remover um aplicativo criado por outra organização](#remove-an-application-authoried-by-another-organization)
+* Remover um aplicativo criado por você ou por sua organização
+* Remover um aplicativo criado por outra organização
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

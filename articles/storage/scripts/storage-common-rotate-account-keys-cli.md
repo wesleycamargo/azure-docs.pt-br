@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 160509a5a82b71b281d57d97e103bb4190605b7c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847804"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693914"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e reciclar suas chaves de acesso da conta
 
@@ -34,7 +34,7 @@ Esse script cria uma conta de Armazenamento do Azure, exibe as chaves de acesso 
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a conta de armazenamento e todos os recursos relacionados.
 
@@ -46,12 +46,12 @@ az group delete --name myResourceGroup
 
 Esse script usa os comandos a seguir para criar a conta de armazenamento e recuperar e reciclar as respectivas chaves de acesso. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Exibe as chaves de acesso da conta de armazenamento da conta especificada. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Regenera a chave de acesso da conta de armazenamento primária ou secundária. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Exibe as chaves de acesso da conta de armazenamento da conta especificada. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Regenera a chave de acesso da conta de armazenamento primária ou secundária. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

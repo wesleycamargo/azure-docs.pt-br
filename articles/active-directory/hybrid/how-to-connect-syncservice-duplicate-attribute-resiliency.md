@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: acc2790f935eae9bcb68c9fa3c443d7449922e71
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192461"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815789"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência do atributo duplicado 
 A Resiliência do Atributo Duplicado é um recurso do Azure Active Directory que eliminará o atrito causado por conflitos de **UserPrincipalName** e **ProxyAddress** ao executar uma das ferramentas de sincronização da Microsoft.
@@ -81,7 +81,7 @@ Em seguida, use os cmdlets e os operadores a seguir para exibir os erros de mane
 2. [Por Tipo de Propriedade](#by-property-type)
 3. [Por Valor Conflitante](#by-conflicting-value)
 4. [Usando uma Pesquisa da Cadeia de Caracteres](#using-a-string-search)
-5. [Classificado](#sorted)
+5. Classificado
 6. [Em uma Quantidade Limitada ou Todos](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Ver tudo

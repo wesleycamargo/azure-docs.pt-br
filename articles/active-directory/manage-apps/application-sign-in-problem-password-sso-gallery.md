@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184964"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822520"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha
 
@@ -88,7 +88,7 @@ Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Intern
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
--   [Adicionar um aplicativo da galeria do Azure AD](#_Add_an_application)
+-   Adicionar um aplicativo da galeria do Azure AD
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 8.  Selecione o modo **Logon baseado em senha.**
 
-9.  [Atribuir usuários ao aplicativo](#_How_to_assign).
+9.  Atribuir usuários a um aplicativo.
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 

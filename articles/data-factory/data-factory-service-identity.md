@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017677"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814179"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidade do serviço Azure Data Factory
 
@@ -44,7 +44,7 @@ Se você achar que seu data factory não tem uma identidade do serviço associad
 
 - [Gerar a identidade de serviço usando o PowerShell](#generate-service-identity-using-powershell)
 - [Gerar a identidade de serviço usando o API REST](#generate-service-identity-using-rest-api)
-- [Gerar identidade do serviço usando um modelo do Azure Resource Manager](#generate-service-identity-using-azure-resource-manager-template)
+- Gerar identidade do serviço usando um modelo do Azure Resource Manager
 - [Gerar a identidade de serviço usando o SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -192,4 +192,4 @@ Consulte os tópicos a seguir que apresentam quando e como usar a identidade do 
 - [Armazenar credencial no Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiar dados de/para o Azure Data Lake Store usando identidades gerenciadas para autenticação de recursos do Azure](connector-azure-data-lake-store.md)
 
-Confira [Visão geral de identidades gerenciadas para recursos do Azure](~/articles/active-directory/msi-overview.md) para ver mais informações sobre identidades gerenciadas para recursos do Azure, em que a identidade de serviço de data factory se baseia. 
+Confira [Visão geral de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) para ver mais informações sobre identidades gerenciadas para recursos do Azure, em que a identidade de serviço de data factory se baseia. 

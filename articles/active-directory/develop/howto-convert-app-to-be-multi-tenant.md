@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1b303fb66e71ffb1834c5b5fb4796867a0944
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819409"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário
 
@@ -38,7 +38,7 @@ Há quatro etapas simples para converter seu aplicativo em um aplicativo multilo
 1. [Atualizar seu registro de aplicativo para ser multilocatário](#update-registration-to-be-multi-tenant)
 2. [Atualizar seu código para enviar solicitações para o ponto de extremidade /common](#update-your-code-to-send-requests-to-common)
 3. [Atualizar seu código para lidar com vários valores de emissor](#update-your-code-to-handle-multiple-issuer-values)
-4. [Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas](#understanding-user-and-admin-consent)
+4. Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas
 
 Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatário][AAD-Samples-MT].
 

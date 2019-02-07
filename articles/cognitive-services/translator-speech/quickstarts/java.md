@@ -10,14 +10,14 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459155"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753122"
 ---
-# <a name="quickstart-translator-speech-api-with-java"></a>Início Rápido: API de Tradução de Fala com Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Início rápido: API de Tradução de Fala com Java 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -39,7 +39,7 @@ Os arquivos a seguir serão necessários.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (ou mais recente)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (ou mais recente)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono. É possível obter esse arquivo .wav a partir da [API de Conversão de Texto em Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono. É possível obter esse arquivo .wav a partir da [API de Conversão de Texto em Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Tradução de Fala da Microsoft**. Você precisará de uma chave de assinatura paga no [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

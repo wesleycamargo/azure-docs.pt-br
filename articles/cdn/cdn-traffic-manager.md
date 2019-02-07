@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091599"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749207"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar o failover em vários pontos de extremidade de CDN do Azure com o Gerenciador de Tráfego do Azure
 
@@ -42,7 +42,7 @@ Crie dois ou mais perfis de CDN do Azure e pontos de extremidade com provedores 
 ## <a name="set-up-azure-traffic-manager"></a>Configurar Gerenciador de Tráfego do Azure
 Criar um perfil do Gerenciador de tráfego do Azure e configurar o balanceamento de carga entre os pontos de extremidade CDN. 
 
-1. Crie um perfil do Gerenciador de Tráfego do Azure seguindo as etapas em [Criar um perfil do Gerenciador de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. Crie um perfil do Gerenciador de Tráfego do Azure seguindo as etapas em [Criar um perfil do Gerenciador de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
     Para **método de roteamento**, selecione **prioridade**.
 
@@ -60,7 +60,7 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
 
 1. Vá para o site do provedor de domínio de seu domínio personalizado, como o GoDaddy, e crie duas entradas CNAME de DNS. 
 
-    a. Para a primeira entrada CNAME, mapeie seu domínio personalizado, com o subdomínio cdnverify, para o seu ponto de extremidade CDN. Essa entrada é uma etapa obrigatória para registrar o domínio personalizado no ponto de extremidade da CDN que você adicionou ao Gerenciador de Tráfego na etapa 2.
+     a. Para a primeira entrada CNAME, mapeie seu domínio personalizado, com o subdomínio cdnverify, para o seu ponto de extremidade CDN. Essa entrada é uma etapa obrigatória para registrar o domínio personalizado no ponto de extremidade da CDN que você adicionou ao Gerenciador de Tráfego na etapa 2.
 
       Por exemplo:  
 
