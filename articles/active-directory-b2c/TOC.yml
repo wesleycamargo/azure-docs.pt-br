@@ -19,11 +19,13 @@ items:
   items:
   - name: 1 - Criar o locatário B2C
     href: tutorial-create-tenant.md
-  - name: 2 - Registrar os aplicativos
+  - name: 2 – Registrar um aplicativo
     href: tutorial-register-applications.md
   - name: 3 - Criar fluxos de usuário
     href: tutorial-create-user-flows.md
-  - name: 4 - Personalizar a interface do usuário
+  - name: Adicionar provedores de identidade
+    href: tutorial-add-identity-providers.md
+  - name: Personalizar a interface do usuário
     href: tutorial-customize-ui.md
   - name: Autenticar contas
     items:
@@ -75,7 +77,11 @@ items:
   items:
   - name: Acesse os logs de auditoria
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Restrição de idade
+  - name: Adicionar um aplicativo API Web
+    href: add-web-application.md
+  - name: Adicionar um aplicativo cliente nativo
+    href: add-native-application.md
+  - name: Configurar restrição de idade
     href: basic-age-gating.md
   - name: Configurar tokens
     href: active-directory-b2c-token-session-sso.md
@@ -318,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240838"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751779"

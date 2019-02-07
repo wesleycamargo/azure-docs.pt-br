@@ -6,6 +6,8 @@ items:
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
+  - name: Comparar os nossos produtos de ML
+    href: ../service/overview-more-machine-learning.md
   - name: Funcionalidades do ML Studio
     displayName: overview
     href: studio-overview-diagram.md
@@ -93,10 +95,6 @@ items:
     - name: Testar experimentos na Galeria de IA
       displayName: gallery
       href: sample-experiments.md
-    - name: Escolher algoritmos
-      href: algorithm-choice.md
-    - name: Roteiro de algoritmo
-      href: algorithm-cheat-sheet.md
     - name: Avaliar e interpretar os resultados
       items:
       - name: Desempenho da avaliação
@@ -118,6 +116,12 @@ items:
         href: custom-r-modules.md
       - name: Executar scripts Python
         href: execute-python-scripts.md
+  - name: Selecionar um algoritmo
+    items:
+    - name: Escolher algoritmos
+      href: algorithm-choice.md
+    - name: Roteiro de algoritmo
+      href: algorithm-cheat-sheet.md
   - name: Implantar modelos
     items:
     - name: Implantar um serviço Web
@@ -210,15 +214,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: Guia do desenvolvedor R
-    href: ../r-developers-guide.md
   - name: Redes neurais personalizadas (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Comparar os nossos produtos de ML
-    href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 400e6a2e98b8d29018b135204eaefa7ae3a7d965
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d6d4020d76c8eab2418b3b7ac5d26eaf93363870
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731420"
+ms.locfileid: "55746159"

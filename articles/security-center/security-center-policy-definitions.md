@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261886"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180663"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Políticas de Central de Segurança do Azure monitoradas pelo Azure Security Center
 Este artigo fornece uma lista de definições de políticas do Azure Policy que podem ser monitoradas na Central de Segurança. Para obter mais informações sobre políticas de segurança, confira [Trabalhando com políticas de segurança](tutorial-security-policy.md).
@@ -34,7 +34,7 @@ Para reconhecer políticas internas monitoradas pela Central de Segurança do Az
 |Auditoria de regras de autorização em namespaces do Hub de Eventos|Os clientes do Hub de Eventos não devem usar uma política de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso somente à entidade específica.|
 |Auditar a existência de regras de autorização em entidades do Hub de Eventos|Auditar a existência de regras de autorização em entidades do Hub de Eventos para conceder acesso com privilégios mínimos.|
 |Auditar o acesso irrestrito à rede para contas de armazenamento|Audite o acesso irrestrito à rede nas configurações de firewall da conta de armazenamento. Em vez disso, configure as regras de rede de forma que somente aplicativos das redes permitidas podem acessar a conta de armazenamento. Para permitir conexões de clientes específicos locais ou da internet, o acesso pode ser concedido para o tráfego de redes virtuais do Azure específicas ou para intervalos de endereços IP públicos da internet.|
-|Auditar o uso de regras personalizadas do RBAC|Auditar funções internas, como 'Proprietário, Contribuidor, Leitor', em vez de funções RBAC personalizadas, que são propensas a erros. O uso de funções personalizadas é tratado como uma exceção e requer uma revisão rigorosa e uma modelagem de ameaças.|
+|Auditar o uso de regras personalizadas do RBAC|Auditar funções internas, como 'Proprietário, Colaborador, Leitor', em vez de funções RBAC personalizadas, que são propensas a erros. O uso de funções personalizadas é tratado como uma exceção e requer uma revisão rigorosa e uma modelagem de ameaças.|
 |Auditar a ativação de logs de diagnóstico no Azure Stream Analytics|Auditoria habilitando de logs e retê-los até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida.|
 |Auditar transferência segura para contas de armazenamento|Exigência de auditoria de transferência segura em sua conta de armazenamento. A transferência segura é uma opção que força a sua conta de armazenamento a aceitar somente solicitações de conexões seguras (HTTPS). O uso de HTTPS garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão.|
 |Provisionamento de auditoria de um administrador do Azure Active Directory Domain Services para o SQL Server|Audite o provisionamento de um administrador do Active Directory Domain Services do Azure para o seu servidor SQL para habilitar a autenticação do AD do Azure. A autenticação do Microsoft Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.|

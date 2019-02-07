@@ -4,43 +4,41 @@ items:
 - name: Visão geral
   items:
   - name: O que é a Pesquisa de Entidade do Bing?
-    href: search-the-web.md
+    href: overview.md
   - name: Comparar as APIs de Pesquisa do Bing
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
 - name: Guias de início rápido da API REST
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+  - name: API REST
+    items:
+    - name: Usando C#
+      href: quickstarts/csharp.md
+    - name: Usando Java
+      href: quickstarts/java.md
+    - name: Usando o Node.js
+      href: quickstarts/nodejs.md
+    - name: Usando o PHP
+      href: quickstarts/php.md
+    - name: Usando Python
+      href: quickstarts/python.md
+    - name: Usando o Ruby
+      href: quickstarts/ruby.md
+  - name: .
+    items:
+    - name: Usando C#
+      href: quickstarts/entity-sdk-csharp-quickstart.md
+    - name: Usando o Node.js
+      href: quickstarts/entity-sdk-node-quickstart.md
+    - name: Usando Python
+      href: quickstarts/entity-sdk-python-quickstart.md
+    - name: Usando Java
+      href: quickstarts/entity-sdk-java-quickstart.md
   expanded: true
-- name: Guias de início rápido do SDK
-  items:
-  - name: Visão geral dos exemplos do SDK
-    href: sdk.md
-  - name: Guia de início rápido do C# da Entidade de Pesquisa
-    href: entity-search-sdk-quickstart.md
-  - name: Guia de início rápido do Node.js da Entidade de Pesquisa
-    href: entity-search-sdk-node-quickstart.md
-  - name: Guia de início rápido do Python da Entidade de Pesquisa
-    href: entity-sdk-python-quickstart.md
-  - name: Guia de início rápido do Java da Entidade de Pesquisa
-    href: entity-sdk-java-quickstart.md
 - name: Tutoriais
   items:
-  - name: Aplicativo Web de página única
+  - name: Criar um aplicativo Web de página única
     href: tutorial-bing-entities-search-single-page-app.md
-  - name: Aplicativo Web de página única (código-fonte)
-    href: tutorial-bing-entities-search-single-page-app-source.md
 - name: Exemplos
   items:
   - name: Exemplos de código
@@ -49,6 +47,12 @@ items:
   items:
   - name: Miniaturas de redimensionamento e corte
     href: resize-and-crop-thumbnails.md
+- name: Conceitos
+  items:
+  - name: Pesquisando entidades
+    href: concepts/search-for-entities.md
+  - name: Enviando solicitações de pesquisa
+    href: concepts/sending-requests.md
 - name: Referência
   items:
   - name: Requisitos de uso e exibição da API de Pesquisa do Bing
@@ -90,9 +94,9 @@ items:
     href: entity-search-endpoint.md
   - name: Análise da API de Pesquisa de Entidade do Bing
     href: bing-entity-stats.md
-ms.openlocfilehash: 919d44bbf41397cf58c06cfe2eff56867546b61e
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 6574b06a9aced43f381bcb106e0b6426bd6f4fd7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509925"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755781"

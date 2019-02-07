@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042148"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470681"
 ---
-# <a name="understanding-your-azure-cosmos-db-bill"></a>Entendendo sua cobrança do Azure Cosmos DB
+# <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 
 Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, o Azure Cosmos DB simplifica a cobrança cobrando apenas a taxa de transferência provisionada e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
 
