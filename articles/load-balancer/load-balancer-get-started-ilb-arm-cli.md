@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105998"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732083"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balancear a carga de VMs usando a CLI do Azure
 
@@ -30,7 +30,7 @@ Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroupILB* na localização *eastus*:
 
@@ -41,7 +41,7 @@ O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroupILB* na loc
 ```
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *myResourceGroup* usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *myResourceGroup* usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -60,7 +60,7 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Load Balancer Básico com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) chamado **myLoadBalancer** que inclui uma configuração de IP de front-end denominada **myFrontEnd**, um pool de back-end chamado **myBackEndPool** que está associado a um endereço IP privado **10.0.0.7.
+Crie um Load Balancer Básico com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclui uma configuração de IP de front-end denominada **myFrontEnd**, um pool de back-end chamado **myBackEndPool** que está associado a um endereço IP privado **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Crie um Load Balancer Básico com [az network lb create](https://docs.microsoft.
   ```
 ### <a name="create-the-health-probe"></a>Criar a investigação de integridade
 
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) para monitorar a integridade das máquinas virtuais. 
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Uma investigação de integridade verifica todas as instâncias da máquina virt
 
 ### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
 
-Uma regra de balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escutar a porta 80 no pool de front-end *myFrontEnd* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
+Uma regra de balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no pool de front-end *myFrontEnd* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -128,7 +128,7 @@ Neste exemplo, você criará duas máquinas virtuais a serem usadas como servido
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ Para testar o balanceador de carga, crie uma máquina virtual, *myVMTest*e assoc
 
 Para testar o balanceador de carga, você deve primeiro obter o endereço IP privado do balanceador de carga. Em seguida, entre na máquina virtual myVMTest e digite o endereço IP privado na barra de endereços do seu navegador da Web.
 
-Para obter o endereço IP do balanceador de carga, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copie o endereço IP privado e cole-o na barra de endereço de um navegador da Web da máquina virtual - *myVMTest*.
+Para obter o endereço IP do balanceador de carga, use [az network lb show](/cli/azure/network/public-ip). Copie o endereço IP privado e cole-o na barra de endereço de um navegador da Web da máquina virtual - *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \

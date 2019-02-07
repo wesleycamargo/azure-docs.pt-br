@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496220"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Como usar a API REST de QnA Maker com Node.js 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ O código a seguir cria uma nova base de dados conhecimento, usando o método [C
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ O código a seguir atualiza uma base de dados de conhecimento existente, usando 
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ O código a seguir publica uma base de dados de conhecimento existente, usando o
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ O código a seguir substitui o conteúdo da base de dados de conhecimento especi
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ O código a seguir baixa o conteúdo da base de dados de conhecimento especifica
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ O código a seguir obtém respostas para uma pergunta usando a base de dados de 
 1. Substitua o valor `kb` pela ID da base de dados de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
 1. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ O código a seguir obtém informações sobre a base de dados de conhecimento es
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ O código a seguir obtém informações sobre todas as bases de dados de conheci
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ O código a seguir exclui a base de dados de conhecimento especificada, usando o
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ O código a seguir obtém as chaves do ponto de extremidade atual, usando o mét
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ O código a seguir gera novamente as chaves do ponto de extremidade atual, usand
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ O código a seguir obtém as alterações de palavras atuais, usando o método [
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ O código a seguir substitui as alterações de palavras atuais, usando o métod
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

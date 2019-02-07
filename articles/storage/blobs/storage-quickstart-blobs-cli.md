@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473989"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749228"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, baixar e listar blobs usando a CLI do Azure
 
@@ -46,7 +46,7 @@ O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e bl
 Primeiramente, crie um arquivo para ser carregado em um blob.
 Se você estiver usando o Azure Cloud Shell, use o seguinte para criar um arquivo: `vi helloworld` quando o arquivo é aberto, pressione **insert**, digite "Olá, Mundo" e, em seguida, pressione **Esc**, digite `:x` e pressione **Enter**.
 
-Nesse exemplo, você carregou um blob no contêiner criado na etapa anterior usando o comando [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
+Nesse exemplo, você carregou um blob no contêiner criado na etapa anterior usando o comando [az storage blob upload](/cli/azure/storage/blob).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 Essa operação criará o blob se ele ainda não existir e o substituirá se já existir. Carregue quantos arquivos desejar antes de continuar.
 
-Para carregar vários arquivos ao mesmo tempo, você pode usar o comando [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
+Para carregar vários arquivos ao mesmo tempo, você pode usar o comando [az storage blob upload-batch](/cli/azure/storage/blob).
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
-Liste os blobs em um contêiner com o comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Liste os blobs em um contêiner com o comando [az storage blob list](/cli/azure/storage/blob).
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Baixar um blob
 
-Use o comando [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) para baixar o blob que você carregou anteriormente.
+Use o comando [az storage blob download](/cli/azure/storage/blob) para baixar o blob que você carregou anteriormente.
 
 ```azurecli-interactive
 az storage blob download \
@@ -105,7 +105,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais de qualquer um dos recursos no seu grupo de recursos, incluindo a conta de armazenamento que você criou neste guia de início rápido, exclua o grupo de recursos com comando [az group delete](/cli/azure/group#az_group_delete).
+Se você não precisar mais de qualquer um dos recursos no seu grupo de recursos, incluindo a conta de armazenamento que você criou neste guia de início rápido, exclua o grupo de recursos com comando [az group delete](/cli/azure/group).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236923"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661081"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-Há métodos disponíveis dentro dos SDKs que facilitam a criação de tokens de aplicativo. Por exemplo, para .NET, você pode examinar a classe [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) e os métodos [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_).
+Há métodos disponíveis dentro dos SDKs que facilitam a criação de tokens de aplicativo. Por exemplo, para .NET, você pode examinar a classe [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) e os métodos [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN).
 
 Para o SDK do .NET, você pode consultar [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -176,7 +176,7 @@ Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o 
 
 ## <a name="see-also"></a>Veja também
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Introdução ao exemplo de Coleções de Workspaces do Microsoft Power BI](get-started-sample.md)  
 [Cenários comuns das Coleções de Workspaces do Microsoft Power BI](scenarios.md)  
 [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)  

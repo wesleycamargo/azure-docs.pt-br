@@ -8,12 +8,13 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9738c745064607493fb2660c033dd3f2499fee58
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.topic: reference
+ms.openlocfilehash: 7d4533f928470c0e468ea833d1ccfb6f7d78bb15
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158682"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498311"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADConnectivityTools
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADConnectivityTools.psm1 que é incluído no Azure AD Connect.

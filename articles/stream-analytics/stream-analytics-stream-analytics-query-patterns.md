@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794525"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663495"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões de uso do Stream Analytics
 
@@ -270,7 +270,7 @@ Por exemplo, o carro anterior na rodovia é da mesma marca que o carro atual?
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-**Explicação**: Use **LAG** para inspecionar um fluxo de entrada do evento anterior e obter o valor **Make**. Em seguida, compare-o ao valor **Make** no evento atual e retire o evento se eles forem diferentes.
+**Explicação**: Use **LAG** para inspecionar um fluxo de entrada do evento anterior e obter o valor **Make**. Em seguida, compare-o ao valor **Marca** no evento atual e retire o evento se eles forem diferentes.
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>Exemplo de consulta: Localizar o primeiro evento em uma janela
 **Descrição**: Localize o primeiro carro a cada intervalo de 10 minutos.
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Explicação**: [COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) retorna o número de valores distintos na coluna Time dentro de uma janela de tempo. Em seguida, você poderá usar a saída dessa etapa para computar a média por dispositivo, descartando duplicatas.
+**Explicação**: [COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) retorna o número de valores distintos na coluna Time dentro de uma janela de tempo. Em seguida, você poderá usar a saída dessa etapa para computar a média por dispositivo, descartando duplicatas.
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

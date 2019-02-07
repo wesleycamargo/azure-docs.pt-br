@@ -3,7 +3,7 @@ title: Camada de Uso Geral - Serviço do Banco de Dados SQL do Azure | Microsoft
 description: Saiba mais sobre a camada de Uso Geral do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8b708818584be6cdb84530ce008295ccee080d94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 943982b056a83488426c48763deac14fd5347b8e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884405"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508984"
 ---
 # <a name="general-purpose-tier---azure-sql-database"></a>Camada de Uso Geral - Banco de Dados SQL do Azure
 
@@ -50,4 +50,4 @@ A camada de Uso Geral é uma camada de serviço padrão no Banco de Dados SQL qu
 
 - Saiba mais sobre camadas [Comercialmente Críticas](sql-database-service-tier-business-critical.md) e de [Hiperescala](sql-database-service-tier-hyperscale.md).
 - Saiba mais sobre o [Service Fabric](../service-fabric/service-fabric-overview.md).
-- Para ver mais opções de alta disponibilidade e recuperação de desastre, consulte [Continuidade de Negócios](sql-database-business-continuity.md).
+- Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte [Continuidade de Negócios](sql-database-business-continuity.md).

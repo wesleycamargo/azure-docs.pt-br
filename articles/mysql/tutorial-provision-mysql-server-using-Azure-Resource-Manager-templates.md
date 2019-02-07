@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: fa8091011575822907915b67cf48bffaf5e7e728
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061033"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657069"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Provisionar um servidor do Banco de Dados do Azure para MySQL usando modelos do Azure Resource Manager
 
-A [API REST do Banco de Dados do Azure para MySQL](https://docs.microsoft.com/en-us/rest/api/mysql/) permite que os engenheiros de DevOps automatizem e integrem o provisionamento, a configuração e as operações de servidores MySQL e bancos de dados gerenciados no Azure.  A API permite a criação, a enumeração, o gerenciamento e a exclusão de servidores MySQL e bancos de dados no serviço Banco de Dados do Azure para MySQL.
+A [API REST do Banco de Dados do Azure para MySQL](https://docs.microsoft.com/rest/api/mysql/) permite que os engenheiros de DevOps automatizem e integrem o provisionamento, a configuração e as operações de servidores MySQL e bancos de dados gerenciados no Azure.  A API permite a criação, a enumeração, o gerenciamento e a exclusão de servidores MySQL e bancos de dados no serviço Banco de Dados do Azure para MySQL.
 
-O Azure Resource Manager aproveita a API REST básica para declarar e programar os recursos do Azure necessários para implantações em escala, alinhando-os com a infraestrutura como um conceito de código. O modelo parametriza a configuração de nome de recurso do Azure, de SKU, de rede e de firewall, bem como as configurações, permitindo que sejam criadas uma vez e usadas várias vezes.  Os modelos do Azure Resource Manager podem ser criados com facilidade usando o [portal do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Eles possibilitam o empacotamento de aplicativos, a padronização e a automação da implantação, que podem ser integrados no pipeline de CI/CD de DevOps.  Por exemplo, se pretender implantar rapidamente um Aplicativo Web com o back-end do Banco de Dados do Azure para MySQL, execute a implantação de ponta a ponta usando este [modelo de Início Rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) da galeria do GitHub.
+O Azure Resource Manager aproveita a API REST básica para declarar e programar os recursos do Azure necessários para implantações em escala, alinhando-os com a infraestrutura como um conceito de código. O modelo parametriza a configuração de nome de recurso do Azure, de SKU, de rede e de firewall, bem como as configurações, permitindo que sejam criadas uma vez e usadas várias vezes.  Os modelos do Azure Resource Manager podem ser criados com facilidade usando o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou o [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Eles possibilitam o empacotamento de aplicativos, a padronização e a automação da implantação, que podem ser integrados no pipeline de CI/CD de DevOps.  Por exemplo, se pretender implantar rapidamente um Aplicativo Web com o back-end do Banco de Dados do Azure para MySQL, execute a implantação de ponta a ponta usando este [modelo de Início Rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) da galeria do GitHub.
 
 Neste tutorial, você usará um modelo do Azure Resource Manager e outros utilitários para aprender a:
 

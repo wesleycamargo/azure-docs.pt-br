@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d37245d7eed39ee9d219578db9e0a50d758ba9a2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870547"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660860"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Serviço de Backup do Azure
 Este artigo fornece os problemas conhecidos e soluções alternativas para o Servidor de Backup do Azure (MABS) V3.
@@ -64,7 +64,7 @@ Este artigo fornece os problemas conhecidos e soluções alternativas para o Ser
 4.  [Instale](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) o SQL Server Management Studio (SSMS).
 5.  Configure o Relatório usando os parâmetros conforme documentado na [Configuração do SSRS com o SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Instalar](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Restaure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando SSMS e a execução da ferramenta de sincronização de DPM, conforme descrito [aqui](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+7. [Restaure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando SSMS e a execução da ferramenta de sincronização de DPM, conforme descrito [aqui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Atualize a propriedade "DataBaseVersion" na tabela dbo.tbl_DLS_GlobalSetting usando o seguinte comando:
 
         UPDATE dbo.tbl_DLS_GlobalSetting

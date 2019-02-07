@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498243"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usar API de autenticação do Resource Manager para acessar assinaturas
-## <a name="introduction"></a>Introdução
+
 Se você é um desenvolvedor de software que precisa criar um aplicativo que gerencia os recursos do Azure de um cliente, este artigo mostra como se autenticar com as APIs do Azure Resource Manager e obter acesso a recursos em outras assinaturas.
 
 Seu aplicativo pode acessar as APIs do Gerenciador de Recursos de duas maneiras:
@@ -32,7 +32,10 @@ Seu aplicativo pode acessar as APIs do Gerenciador de Recursos de duas maneiras:
 
 Este artigo fornece instruções passo a passo para criar um aplicativo que utiliza ambos os métodos de autorização. Ele mostra como executar cada etapa com a API REST ou o C#. O aplicativo ASP.NET MVC completo está disponível em [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>O que o aplicativo Web faz
+
 O aplicativo Web:
 
 1. Conecta um usuário do Azure.
@@ -74,7 +77,7 @@ Como o aplicativo acessa outra assinatura, você deve configurá-lo como um apli
 O exemplo a seguir mostra como registrar o aplicativo usando o Azure PowerShell. Você deve ter a versão mais recente (agosto de 2016) do Azure PowerShell para que esse comando funcione.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 Para entrar como o aplicativo do AD, são necessárias a ID e a senha do aplicativo. Para ver a ID do aplicativo retornada pelo comando anterior, use:

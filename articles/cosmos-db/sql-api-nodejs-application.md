@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: fb0a2160991b3fd51b69822f3e3167b929581e50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 47a4b3bc1e71c9dacc53ca3ff507768d4a0f20e9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352335"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510571"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar uma conta de API do SQL no Azure Cosmos DB 
 
@@ -115,7 +115,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 3. Copie o código a seguir para o arquivo **taskDao.js**:
 
-   ```nodejs
+   ```javascript
    // @ts-check
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const debug = require("debug")("todo:taskDao");
@@ -195,7 +195,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 2. Adicione os seguintes códigos ao **tasklist.js**. Esse código carrega os módulos CosmosClient e assíncrono que são usados pelo **tasklist.js**. Ele também define a classe **TaskList** que é transmitida a uma instância do objeto **TaskDao** definido anteriormente:
    
-   ```nodejs
+   ```javascript
    const TaskDao = require("../models/TaskDao");
 
    class TaskList {
@@ -256,7 +256,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 2. Adicione o código a seguir ao arquivo **config.js**. Esse código define as configurações e valores necessários para nosso aplicativo.
    
-   ```nodejs
+   ```javascript
    const config = {};
 
    config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
@@ -285,7 +285,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 
 2. Adicione o código a seguir ao arquivo **app.js**. Esse código define o arquivo de configuração a ser usado e carrega os valores para algumas variáveis que você usará nas próximas seções. 
    
-   ```nodejs
+   ```javascript
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const config = require("./config");
    const TaskList = require("./routes/tasklist");

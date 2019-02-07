@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247112"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658327"
 ---
 # <a name="marketplace-faqs"></a>Perguntas frequentes sobre o Marketplace
 
@@ -358,7 +358,7 @@ Editores que estão publicando tipos de listagem Transact: VM, aplicativos do Az
 
 **Quais são os clientes potenciais e por que são importantes para mim como um editor no Marketplace?**
 
-Clientes potenciais são clientes que estão implantando seus produtos usando o Marketplace. Se seu produto estiver listado no [Azure Marketplace](https://azuremarketplace.microsoft.com) ou [AppSource](https://appsource.microsoft.com), você poderá receber clientes potenciais leads de clientes interessados em seu produto.  Você pode configurar o destino do cliente potencial em sua oferta. Para obter mais informações, confira [Tornar-se um editor do Cloud Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Clientes potenciais são clientes que estão implantando seus produtos usando o Marketplace. Se seu produto estiver listado no [Azure Marketplace](https://azuremarketplace.microsoft.com) ou [AppSource](https://appsource.microsoft.com), você poderá receber clientes potenciais leads de clientes interessados em seu produto.  Você pode configurar o destino do cliente potencial em sua oferta. Para obter mais informações, confira [Tornar-se um editor do Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Onde posso obter ajuda na configuração de meu destino de cliente potencial?**
 

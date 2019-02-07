@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dfed8ce93a97b31380b44f0ac7057c0cff60901e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464691"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497274"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
 Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Embora um tipo de recurso seja compatível com a operação de movimentação, pode haver condições que impeçam que o recurso seja movido. Para obter detalhes sobre as condições que afetam as operações de movimentação, confira [Move resources to new resource group or subscription](resource-group-move-resources.md) (Mover recursos para um novo grupo de recursos ou assinatura).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="find-resource-provider-and-resource-type"></a>Localizar o provedor de recursos e o tipo de recurso
 
@@ -29,7 +31,7 @@ Para determinar se um recurso pode ser movido, é necessário localizar o seu pr
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 Para a CLI do Azure, use:
@@ -51,12 +53,12 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| servers | SIM | SIM |
+| servers | Sim | Sim |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | --------------- | ----------- |
-| propriedade serviço | SIM | SIM |
+| propriedade serviço | Sim | Sim |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -66,19 +68,19 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| automationaccounts | SIM | SIM |
-| automationaccounts/configurations | SIM | SIM |
-| automationaccounts/runbooks | SIM | SIM |
+| automationaccounts | Sim | Sim |
+| automationaccounts/configurations | Sim | Sim |
+| automationaccounts/runbooks | Sim | Sim |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| b2cdirectories | SIM | SIM |
+| b2cdirectories | Sim | Sim |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| registrations | SIM | SIM |
+| registrations | Sim | Sim |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -88,7 +90,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| batchaccounts | SIM | SIM |
+| batchaccounts | Sim | Sim |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -98,7 +100,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| biztalk | SIM | SIM |
+| biztalk | Sim | Sim |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -108,29 +110,29 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| botservices | SIM | SIM |
+| botservices | Sim | Sim |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| redis | SIM | SIM |
+| redis | Sim | Sim |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| perfis | SIM | SIM |
-| profiles/endpoints | SIM | SIM |
+| perfis | Sim | Sim |
+| profiles/endpoints | Sim | Sim |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| certificateorders | SIM | SIM |
+| certificateorders | Sim | Sim |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| domainnames | SIM | Não  |
-| virtualmachines | SIM | Não  |
+| domainnames | Sim | Não  |
+| virtualmachines | Sim | Não  |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -142,29 +144,29 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| storageaccounts | SIM | Não  |
+| storageaccounts | Sim | Não  |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| availabilitysets | SIM | SIM |
-| disks | SIM | SIM |
+| availabilitysets | Sim | Sim |
+| disks | Sim | Sim |
 | galleries | Não  | Não  |
 | galleries/images | Não  | Não  |
 | galleries/images/versions | Não  | Não  |
-| images | SIM | SIM |
+| images | Sim | Sim |
 | restorepointcollections | Não  | Não  |
 | sharedvmimages | Não  | Não  |
 | sharedvmimages/versions | Não  | Não  |
-| snapshots | SIM | SIM |
-| virtualmachines | SIM | SIM |
-| virtualmachines/extensions | SIM | SIM |
-| virtualmachinescalesets | SIM | SIM |
+| snapshots | Sim | Sim |
+| virtualmachines | Sim | Sim |
+| virtualmachines/extensions | Sim | Sim |
+| virtualmachinescalesets | Sim | Sim |
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -179,11 +181,11 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| registries | SIM | SIM |
-| registries/buildtasks | SIM | SIM |
+| registries | Sim | Sim |
+| registries/buildtasks | Sim | Sim |
 | registries/replications | Não  | Não  |
-| registries/tasks | SIM | SIM |
-| registries/webhooks | SIM | SIM |
+| registries/tasks | Sim | Sim |
+| registries/webhooks | Sim | Sim |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -195,17 +197,17 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| de dimensionamento da Web | SIM | SIM |
+| de dimensionamento da Web | Sim | Sim |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| conectores | SIM | SIM |
+| conectores | Sim | Sim |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| hubs | SIM | SIM |
+| hubs | Sim | Sim |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -225,13 +227,13 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| catalogs | SIM | SIM |
+| catalogs | Sim | Sim |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| datafactories | SIM | SIM |
-| factories | SIM | SIM |
+| datafactories | Sim | Sim |
+| factories | Sim | Sim |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -241,12 +243,12 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -263,13 +265,13 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| servers | SIM | SIM |
+| servers | Sim | Sim |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
 | servergroups | Não  | Não  |
-| servers | SIM | SIM |
+| servers | Sim | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -283,16 +285,16 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| iothubs | SIM | SIM |
-| provisioningservices | SIM | SIM |
+| iothubs | Sim | Sim |
+| provisioningservices | Sim | Sim |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
 | labcenters | Não  | Não  |
-| labs | SIM | Não  |
-| labs/servicerunners | SIM | SIM |
-| labs/virtualmachines | SIM | Não  |
+| labs | Sim | Não  |
+| labs/servicerunners | Sim | Sim |
+| labs/virtualmachines | Sim | Não  |
 | schedules | Não  | Não  |
 
 ## <a name="microsoftdns"></a>microsoft.dns
@@ -311,28 +313,28 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| databaseaccounts | SIM | SIM |
+| databaseaccounts | Sim | Sim |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| domains | SIM | SIM |
+| domains | Sim | Sim |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| topics | SIM | SIM |
+| topics | Sim | Sim |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| clusters | SIM | SIM |
-| namespaces | SIM | SIM |
+| clusters | Sim | Sim |
+| namespaces | Sim | Sim |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| hanainstances | SIM | SIM |
+| hanainstances | Sim | Sim |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -342,103 +344,103 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| clusters | SIM | SIM |
+| clusters | Sim | Sim |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| jobs | SIM | SIM |
+| jobs | Sim | Sim |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| actiongroups | SIM | SIM |
+| actiongroups | Sim | Sim |
 | activitylogalerts | Não  | Não  |
-| alertrules | SIM | SIM |
-| autoscalesettings | SIM | SIM |
-| components | SIM | SIM |
+| alertrules | Sim | Sim |
+| autoscalesettings | Sim | Sim |
+| components | Sim | Sim |
 | metricalerts | Não  | Não  |
-| scheduledqueryrules | SIM | SIM |
-| webtests | SIM | SIM |
-| workbooks | SIM | SIM |
+| scheduledqueryrules | Sim | Sim |
+| webtests | Sim | Sim |
+| workbooks | Sim | Sim |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| iotapps | SIM | SIM |
+| iotapps | Sim | Sim |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| vaults | SIM | SIM |
+| vaults | Sim | Sim |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| clusters | SIM | SIM |
+| clusters | Sim | Sim |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| labaccounts | SIM | SIM |
+| labaccounts | Sim | Sim |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| integrationaccounts | SIM | SIM |
-| workflows | SIM | SIM |
+| integrationaccounts | Sim | Sim |
+| workflows | Sim | Sim |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| commitmentplans | SIM | SIM |
-| webservices | SIM | Não  |
-| workspaces | SIM | SIM |
+| commitmentplans | Sim | Sim |
+| webservices | Sim | Não  |
+| workspaces | Sim | Sim |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| operationalizationclusters | SIM | SIM |
+| operationalizationclusters | Sim | Sim |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
-| accounts/workspaces | SIM | SIM |
-| accounts/workspaces/projects | SIM | SIM |
-| teamaccounts | SIM | SIM |
-| teamaccounts/workspaces | SIM | SIM |
-| teamaccounts/workspaces/projects | SIM | SIM |
+| accounts | Sim | Sim |
+| accounts/workspaces | Sim | Sim |
+| accounts/workspaces/projects | Sim | Sim |
+| teamaccounts | Sim | Sim |
+| teamaccounts/workspaces | Sim | Sim |
+| teamaccounts/workspaces/projects | Sim | Sim |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| workspaces | SIM | SIM |
+| workspaces | Sim | Sim |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| userassignedidentities | SIM | SIM |
+| userassignedidentities | Sim | Sim |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| accounts | SIM | SIM |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -448,9 +450,9 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| mediaservices | SIM | SIM |
-| mediaservices/liveevents | SIM | SIM |
-| mediaservices/streamingendpoints | SIM | SIM |
+| mediaservices | Sim | Sim |
+| mediaservices/liveevents | Sim | Sim |
+| mediaservices/streamingendpoints | Sim | Sim |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -461,123 +463,123 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
 | applicationgateways | Não  | Não  |
-| applicationsecuritygroups | SIM | SIM |
+| applicationsecuritygroups | Sim | Sim |
 | azurefirewalls | Não  | Não  |
-| connections | SIM | SIM |
+| connections | Sim | Sim |
 | ddosprotectionplans | Não  | Não  |
-| dnszones | SIM | SIM |
+| dnszones | Sim | Sim |
 | expressroutecircuits | Não  | Não  |
 | expressroutecrossconnections | Não  | Não  |
 | expressroutegateways | Não  | Não  |
 | expressrouteports | Não  | Não  |
-| frontdoors | SIM | SIM |
-| frontdoorwebapplicationfirewallpolicies | SIM | SIM |
+| frontdoors | Sim | Sim |
+| frontdoorwebapplicationfirewallpolicies | Sim | Sim |
 | interfaceendpoints | Não  | Não  |
-| loadbalancers | SIM | SIM |
-| localnetworkgateways | SIM | SIM |
-| networkintentpolicies | SIM | SIM |
-| networkinterfaces | SIM | SIM |
+| loadbalancers | Sim | Sim |
+| localnetworkgateways | Sim | Sim |
+| networkintentpolicies | Sim | Sim |
+| networkinterfaces | Sim | Sim |
 | networkprofiles | Não  | Não  |
-| networksecuritygroups | SIM | SIM |
-| networkwatchers | SIM | SIM |
-| networkwatchers/connectionmonitors | SIM | SIM |
-| networkwatchers/lenses | SIM | SIM |
-| networkwatchers/pingmeshes | SIM | SIM |
-| publicipaddresses | SIM | SIM |
-| publicipprefixes | SIM | SIM |
+| networksecuritygroups | Sim | Sim |
+| networkwatchers | Sim | Sim |
+| networkwatchers/connectionmonitors | Sim | Sim |
+| networkwatchers/lenses | Sim | Sim |
+| networkwatchers/pingmeshes | Sim | Sim |
+| publicipaddresses | Sim | Sim |
+| publicipprefixes | Sim | Sim |
 | routefilters | Não  | Não  |
-| routetables | SIM | SIM |
-| serviceendpointpolicies | SIM | SIM |
-| trafficmanagerprofiles | SIM | SIM |
-| virtualhubs | SIM | SIM |
-| virtualnetworkgateways | SIM | SIM |
-| virtualnetworks | SIM | SIM |
+| routetables | Sim | Sim |
+| serviceendpointpolicies | Sim | Sim |
+| trafficmanagerprofiles | Sim | Sim |
+| virtualhubs | Sim | Sim |
+| virtualnetworkgateways | Sim | Sim |
+| virtualnetworks | Sim | Sim |
 | virtualnetworktaps | Não  | Não  |
-| virtualwans | SIM | SIM |
-| vpngateways | SIM | SIM |
-| vpnsites | SIM | SIM |
-| webapplicationfirewallpolicies | SIM | SIM |
+| virtualwans | Sim | Sim |
+| vpngateways | Sim | Sim |
+| vpnsites | Sim | Sim |
+| webapplicationfirewallpolicies | Sim | Sim |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| namespaces | SIM | SIM |
-| namespaces/notificationhubs | SIM | SIM |
+| namespaces | Sim | Sim |
+| namespaces/notificationhubs | Sim | Sim |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| workspaces | SIM | SIM |
+| workspaces | Sim | Sim |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| managementconfigurations | SIM | SIM |
-| solutions | SIM | SIM |
-| Modos de exibição | SIM | SIM |
+| managementconfigurations | Sim | Sim |
+| solutions | Sim | Sim |
+| Modos de exibição | Sim | Sim |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| dashboards | SIM | SIM |
+| dashboards | Sim | Sim |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| workspacecollections | SIM | SIM |
+| workspacecollections | Sim | Sim |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| capacities | SIM | SIM |
+| capacities | Sim | Sim |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| vaults | SIM | SIM |
+| vaults | Sim | Sim |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| namespaces | SIM | SIM |
+| namespaces | Sim | Sim |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| de dimensionamento da Web | SIM | Não  |
+| de dimensionamento da Web | Sim | Não  |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| flows | SIM | SIM |
-| jobcollections | SIM | SIM |
+| flows | Sim | Sim |
+| jobcollections | Sim | Sim |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| searchservices | SIM | SIM |
+| searchservices | Sim | Sim |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| namespaces | SIM | SIM |
+| namespaces | Sim | Sim |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| clusters | SIM | SIM |
+| clusters | Sim | Sim |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| de dimensionamento da Web | SIM | SIM |
-| networks | SIM | SIM |
-| volumes | SIM | SIM |
+| de dimensionamento da Web | Sim | Sim |
+| networks | Sim | Sim |
+| volumes | Sim | Sim |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| signalr | SIM | SIM |
+| signalr | Sim | Sim |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -595,22 +597,22 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| managedinstances | SIM | SIM |
-| managedinstances/databases | SIM | SIM |
-| servers | SIM | SIM |
-| servers/databases | SIM | SIM |
-| servidores/elasticpools | SIM | SIM |
-| virtualclusters | SIM | SIM |
+| managedinstances | Sim | Sim |
+| managedinstances/databases | Sim | Sim |
+| servers | Sim | Sim |
+| servers/databases | Sim | Sim |
+| servidores/elasticpools | Sim | Sim |
+| virtualclusters | Sim | Sim |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| storageaccounts | SIM | SIM |
+| storageaccounts | Sim | Sim |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| storagesyncservices | SIM | SIM |
+| storagesyncservices | Sim | Sim |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -620,40 +622,40 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| streamingjobs | SIM | SIM |
+| streamingjobs | Sim | Sim |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| environments | SIM | SIM |
-| environments/eventsources | SIM | SIM |
-| environments/referencedatasets | SIM | SIM |
+| environments | Sim | Sim |
+| environments/eventsources | Sim | Sim |
+| environments/referencedatasets | Sim | Sim |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| conta | SIM | SIM |
-| account/extension | SIM | SIM |
-| account/project | SIM | SIM |
+| conta | Sim | Sim |
+| account/extension | Sim | Sim |
+| account/project | Sim | Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| certificates | Não  | SIM |
+| certificates | Não  | Sim |
 | classicmobileservices | Não  | Não  |
-| connectiongateways | SIM | SIM |
-| connections | SIM | SIM |
-| customapis | SIM | SIM |
+| connectiongateways | Sim | Sim |
+| connections | Sim | Sim |
+| customapis | Sim | Sim |
 | hostingenvironments | Não  | Não  |
-| serverfarms | SIM | SIM |
-| sites | SIM | SIM |
-| sites/premieraddons | SIM | SIM |
-| sites/slots | SIM | SIM |
+| serverfarms | Sim | Sim |
+| sites | Sim | Sim |
+| sites/premieraddons | Sim | Sim |
+| sites/slots | Sim | Sim |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| deviceservices | SIM | SIM |
+| deviceservices | Sim | Sim |
 
 
 ## <a name="third-party-services"></a>Serviços de terceiros

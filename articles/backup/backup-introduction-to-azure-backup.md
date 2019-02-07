@@ -7,15 +7,15 @@ manager: carmonm
 keywords: backup e restauração; serviços de recuperação; soluções de backup
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631142"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487873"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -116,11 +116,11 @@ As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o supo
 ### <a name="storage"></a>Armazenamento
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Cofre dos Serviços de Recuperação |![SIM][green] |![sim][green] |![sim][green] |![SIM][green] |
-| Armazenamento em disco | |![SIM][green] |![SIM][green] | |
-| Armazenamento em fita | |![SIM][green] | | |
-| Compactação <br/>(no cofre dos Serviços de Recuperação) |![SIM][green] |![sim][green] |![SIM][green] | |
-| Backup incremental |![SIM][green] |![sim][green] |![sim][green] |![SIM][green] |
+| Cofre dos Serviços de Recuperação |![Sim][green] |![sim][green] |![sim][green] |![Sim][green] |
+| Armazenamento em disco | |![Sim][green] |![Sim][green] | |
+| Armazenamento em fita | |![Sim][green] | | |
+| Compactação <br/>(no cofre dos Serviços de Recuperação) |![Sim][green] |![sim][green] |![Sim][green] | |
+| Backup incremental |![Sim][green] |![sim][green] |![sim][green] |![Sim][green] |
 | Eliminação de duplicação de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ O **Backup Incremental** alcança alta eficiência de armazenamento e de rede ar
 ### <a name="security"></a>Segurança
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Segurança de rede<br/> (para o Azure) |![SIM][green] |![sim][green] |![sim][green] |![SIM][green] |
-| Segurança de dados<br/> (no Azure) |![SIM][green] |![sim][green] |![sim][green] |![SIM][green] |
+| Segurança de rede<br/> (para o Azure) |![Sim][green] |![sim][green] |![sim][green] |![Sim][green] |
+| Segurança de dados<br/> (no Azure) |![Sim][green] |![sim][green] |![sim][green] |![Sim][green] |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -176,8 +176,8 @@ Fazer backup de VMs do Azure requer a configuração da criptografia *na* máqui
 ### <a name="network"></a>Rede
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Compactação de rede <br/>(para **servidor de backup**) | |![SIM][green] |![SIM][green] | |
-| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![SIM][green] |![sim][green] |![SIM][green] | |
+| Compactação de rede <br/>(para **servidor de backup**) | |![Sim][green] |![Sim][green] | |
+| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![Sim][green] |![sim][green] |![Sim][green] | |
 | Protocolo de rede <br/>(para **servidor de backup**) | |TCP |TCP | |
 | Protocolo de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

@@ -4,17 +4,17 @@ description: Este artigo orienta você na criação e gerenciamento por meio de 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101780"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510812"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
@@ -96,8 +96,9 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
    Substitua _ContosoRG_ pelo nome do grupo de recursos desejado.
 
    O parâmetro **Escopo** em `New-AzPolicyAssignment` também funciona com as assinaturas e os grupos de gerenciamento. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue.
-   Substitua `{rgName}`, `{subId}` e `{mgName}` pelo nome do seu grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente.
+   Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
 
+   - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos – `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Assinatura – `/subscriptions/{subId}/`
    - Grupo de gerenciamento – `/providers/Microsoft.Management/managementGroups/{mgName}`
