@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745394"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766934"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usar perfis de versão de API com o Go no Azure Stack
 
@@ -86,7 +86,7 @@ Para executar um exemplo de código Go no Azure Stack, siga estas etapas:
 
 3. Se não estiver disponível, crie uma assinatura e salve a ID da assinatura a ser usado posteriormente. Para obter informações sobre como criar uma assinatura, consulte [criar assinaturas de ofertas no Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Criar entidade com um tipo de serviço **assinatura** escopo e **proprietário** função. Salve a ID da entidade de serviço e o segredo. Para obter informações sobre como criar uma entidade de serviço para o Azure Stack, consulte [criar entidade de serviço](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Seu ambiente do Azure Stack agora está configurado.
+4. Criar entidade com um tipo de serviço **assinatura** escopo e **proprietário** função. Salve a ID da entidade de serviço e o segredo. Para obter informações sobre como criar uma entidade de serviço para o Azure Stack, consulte [criar entidade de serviço](azure-stack-create-service-principals.md). Seu ambiente do Azure Stack agora está configurado.
 
 5. Importe um módulo de serviço do perfil do SDK Go em seu código. É a versão atual do perfil do Azure Stack **2017-03-09**. Por exemplo, para importar o módulo de rede a partir da **2017-03-09** tipo de perfil, use o seguinte código:
 
@@ -126,7 +126,7 @@ Para executar um exemplo de código Go no Azure Stack, siga estas etapas:
 
 Para obter um exemplo completo de criação de uma rede virtual no Azure Stack usando o perfil de SDK Go, consulte o [exemplo](#example).
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Para obter o **autorizador** propriedade do Azure Active Directory usando o SDK do Go, instale o **Go AutoRest** módulos. Esses módulos já devem ter sido instalados com a instalação "SDK Go"; Se não estiver, instale o [pacote de autenticação do GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 

@@ -6,17 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.lastreviewed: 12/06/2018
-keywords: ''
-ms.openlocfilehash: 5946f62821d05bd9036b9fc0e6b0fc8daa74c5dc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241195"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816348"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -54,7 +53,7 @@ A infraestrutura interna VIPs não estão listados porque eles não são necess�
 |Tabela de Armazenamento|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Blob de Armazenamento|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Provedor de recursos do SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Provedor de recursos do MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Provedor de Recursos do MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |Serviço de Aplicativo|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
@@ -69,19 +68,24 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 > [!Note]  
 > O Azure Stack não oferece suporte ao uso de rota expressa para acessar os serviços do Azure listados na tabela a seguir.
 
-|Finalidade|URL|Protocolo|Portas|
-|---------|---------|---------|---------|
-|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
-|Sindicalização do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|Patch e atualização|https://&#42;.azureedge.net|HTTPS|443|
-|Registro|https://management.azure.com|HTTPS|443|
-|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|(Fornecido para a implantação de servidor IP de NTP)|UDP|123|
-|DNS|(Servidor de DNS do IP fornecido para implantação)|TCP<br>UDP|53|
-|CRL|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|
-|Backup de infraestrutura|(IP ou FQDN do servidor de arquivos de destino externo)|SMB|445|
-|     |     |     |     |
+|Finalidade|Destination URL|Protocolo|Portas|Rede de Origem|
+|---------|---------|---------|---------|---------|
+|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|Sindicalização do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 públicos|
+|Patch e atualização|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 públicos|
+|Registro|https://management.azure.com|HTTPS|443|VIP - /27 públicos|
+|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 públicos|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|NTP|(Fornecido para a implantação de servidor IP de NTP)|UDP|123|VIP - /27 públicos|
+|DNS|(Servidor de DNS do IP fornecido para implantação)|TCP<br>UDP|53|VIP - /27 públicos|
+|CRL|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|VIP - /27 públicos|
+|Backup de infraestrutura|(IP ou FQDN do servidor de arquivos de destino externo)|SMB|445|Infraestrutura de rede pública|
+|LDAP|Floresta do Active Directory fornecido para a integração do Graph|TCP<br>UDP|389|VIP - /27 públicos|
+|LDAP SSL|Floresta do Active Directory fornecido para a integração do Graph|TCP|636|VIP - /27 públicos|
+|LDAP GC|Floresta do Active Directory fornecido para a integração do Graph|TCP|3268|VIP - /27 públicos|
+|LDAP SSL DE GC|Floresta do Active Directory fornecido para a integração do Graph|TCP|3269|VIP - /27 públicos|
+|AD FS|AD FS ponto de extremidade metadados fornecido para a integração do AD FS|TCP|443|VIP - /27 públicos|
+|     |     |     |     |     |
 
 > [!Note]  
 > URLs de saída têm a carga balanceada usando o Gerenciador de tráfego do Azure para fornecer a melhor conectividade possíveis com base na localização geográfica. Com as URLs com balanceamento de carga, a Microsoft pode atualizar e alterar pontos de extremidade de back-end sem afetar os clientes. A Microsoft não compartilha a lista de endereços IP para as URLs com balanceamento de carga. Você deve usar um dispositivo que dá suporte à filtragem por URL em vez de IP.

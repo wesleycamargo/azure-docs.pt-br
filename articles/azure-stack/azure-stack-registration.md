@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247384"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817250"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -142,7 +142,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você [baixado as ferramentas do Azure Stack](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
+5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -206,7 +206,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você [baixado as ferramentas do Azure Stack](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
+5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registrar desconectada com a cobrança de capacidade
 
-Se você estiver registrando o Azure Stack em um ambiente desconectado (sem conectividade com a internet), você precisará obter um registro de token do ambiente do Azure Stack e, em seguida, usar esse token em um computador que pode se conectar ao Azure e tem [PowerShell para o Azure Stack instalado](#bkmk_powershell).  
+Se você estiver registrando o Azure Stack em um ambiente desconectado (sem conectividade com a internet), você precisará obter um registro de token do ambiente do Azure Stack e, em seguida, usar esse token em um computador que pode se conectar ao Azure e tem o PowerShell para o Azure Stack instalado.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obter um registro de token do ambiente do Azure Stack
 
-1. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você [baixado as ferramentas do Azure Stack](#bkmk_tools). Importar o **RegisterWithAzure.psm1** módulo:  
+1. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -454,7 +454,7 @@ Para executar o cmdlet, você precisa:
 | ResourceGroupLocation | Cadeia de caracteres |  |
 | BillingModel | Cadeia de caracteres | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso | Determina se o recurso de gerenciamento do marketplace está disponível no portal. Defina como verdadeiro se registrar com conectividade com a internet. Defina como false se o registro em ambientes desconectados. Para registros desconectados, o [ferramenta de sindicalização offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) pode ser usado para baixar itens do marketplace. |
-| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: Verdadeiro, FALSO. |
+| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: True, False. |
 | AgreementNumber | Cadeia de caracteres |  |
 | RegistrationName | Cadeia de caracteres | Defina um nome exclusivo para o registro, se você estiver executando o script de registro em mais de uma instância do Azure Stack usando a assinatura do Azure mesmo ID. O parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se você usar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
 
@@ -476,7 +476,7 @@ Get-AzsRegistrationToken gera um token de registro de parâmetros de entrada.
 | ResourceGroupLocation | Cadeia de caracteres |  |
 | BillingModel | Cadeia de caracteres | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso |  |
-| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: Verdadeiro, FALSO. |
+| UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: True, False. |
 | AgreementNumber | Cadeia de caracteres |  |
 
 

@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243759"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816400"
 ---
 # <a name="connect-to-azure-stack"></a>Conectar-se ao Azure Stack
 
 Para gerenciar recursos, você deve conectar o Kit de desenvolvimento do Azure Stack. Este artigo detalha as etapas necessárias para conectar-se para o kit de desenvolvimento. Você pode usar qualquer uma das seguintes opções de conexão:
 
-* [Área de trabalho remota](#connect-with-remote-desktop): permite que um único usuário simultâneo conectar-se rapidamente no kit de desenvolvimento.
-* [Rede virtual privada (VPN)](#connect-with-vpn): permite que vários usuários simultâneos se conecta de clientes fora da infraestrutura do Azure Stack (requer configuração).
+* Área de trabalho remota: permite que um único usuário simultâneo conectar-se rapidamente no kit de desenvolvimento.
+* Rede privada virtual (VPN): permite que vários usuários simultâneos se conecta de clientes fora da infraestrutura do Azure Stack (requer configuração).
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Conectar-se ao Azure Stack com área de trabalho remota
 Com uma conexão de área de trabalho remota, um único usuário simultâneo pode trabalhar com o portal para gerenciar recursos.

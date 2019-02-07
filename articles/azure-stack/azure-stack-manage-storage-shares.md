@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249088"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819511"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
@@ -51,7 +51,7 @@ Como os compartilhamentos do serviço de armazenamento são para uso exclusivo d
 
 Compartilhamentos em volumes contêm dados de locatário. Dados de locatário inclui blobs de página, blobs de blocos, acrescentar blobs, tabelas, filas, os bancos de dados e relacionados ao armazenamento de metadados. Como os objetos de armazenamento (blobs, etc.) individualmente estão contidos dentro de um único compartilhamento, o tamanho máximo de cada objeto não pode exceder o tamanho de um compartilhamento. O tamanho máximo de novos objetos depende da capacidade que permanece em um compartilhamento como espaço não utilizado quando esse novo objeto é criado.
 
-Quando um compartilhamento está baixo no espaço livre e ações a serem [recuperar](#reclaim-capacity) espaço não estão disponíveis ou bem-sucedida, o operador de nuvem do Azure Stack pode [migrar](#migrate-a-container-between) os contêineres de blob de um compartilhamento para outro.
+Quando um compartilhamento está baixo no espaço livre e ações a serem [recuperar](#reclaim-capacity) espaço não estão disponíveis ou bem-sucedida, o operador de nuvem do Azure Stack pode migrar os contêineres de blob de um compartilhamento para outro.
 
 - Para obter mais informações sobre contêineres e blobs, consulte [armazenamento de BLOBs](azure-stack-key-features.md#blob-storage) nos principais recursos e conceitos do Azure Stack.
 - Para obter informações sobre como os usuários de locatário funcionam com o armazenamento de BLOBs do Azure Stack, consulte [serviços de armazenamento do Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
