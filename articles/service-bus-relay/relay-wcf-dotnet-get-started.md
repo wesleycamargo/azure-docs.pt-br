@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854109"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728305"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Como usar as retransmissões WCF da Retransmissão do Azure com .NET
 Este artigo descreve como usar o serviço Retransmissão do Azure. Os exemplos são escritos em C# e usam a API da WCF (Windows Communication Foundation) com extensões contidas no assembly do Barramento de Serviço. Para obter mais informações sobre a retransmissão do Azure, consulte a [Visão geral da Retransmissão do Azure](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio da Retransmissão do Azure. As principais diferenças entre eles são as associações; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) para o local e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) para o ponto de extremidade de retransmissão e os endereços. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade de retransmissão tem um endereço do ponto de extremidade composto pela cadeia de caracteres `sb`, o nome do namespace e o caminho “solver”. Isso resulta na identificação pelo URI `sb://[serviceNamespace].servicebus.windows.net/solver` do ponto de extremidade de serviço como um ponto de extremidade TCP (retransmissão) do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, na função `Main` do aplicativo **Serviço**, você terá um serviço funcional. Se desejar que o serviço ouça exclusivamente na retransmissão, remova a declaração de ponto de extremidade local.
+No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio da Retransmissão do Azure. As principais diferenças entre eles são as associações; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) para o local e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) para o ponto de extremidade de retransmissão e os endereços. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade de retransmissão tem um endereço do ponto de extremidade composto pela cadeia de caracteres `sb`, o nome do namespace e o caminho “solver”. Isso resulta na identificação pelo URI `sb://[serviceNamespace].servicebus.windows.net/solver` do ponto de extremidade de serviço como um ponto de extremidade TCP (retransmissão) do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, na função `Main` do aplicativo **Serviço**, você terá um serviço funcional. Se desejar que o serviço ouça exclusivamente na retransmissão, remova a declaração de ponto de extremidade local.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Configure um host de serviço no arquivo App.config
 Você também pode configurar o host usando o arquivo App.config. O serviço de hospedagem de código, nesse caso, é exibido no exemplo a seguir.
@@ -161,7 +161,7 @@ Depois de fazer essas alterações, o serviço é iniciado como antes, mas com d
 
 ### <a name="create-the-client"></a>Crie o cliente
 #### <a name="configure-a-client-programmatically"></a>Configure um cliente de forma programática
-Para consumir o serviço, você pode construir um cliente WCF usando um objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). O Barramento de Serviço usa um modelo de segurança baseado em token implementado com a SAS. A classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. O exemplo a seguir usa o método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para lidar com a aquisição do token SAS apropriado. O nome e a chave são os obtidos no portal, conforme descrito na seção anterior.
+Para consumir o serviço, você pode construir um cliente WCF usando um objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). O Barramento de Serviço usa um modelo de segurança baseado em token implementado com a SAS. A classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. O exemplo a seguir usa o método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) para lidar com a aquisição do token SAS apropriado. O nome e a chave são os obtidos no portal, conforme descrito na seção anterior.
 
 Primeiro, faça referência ou copie o código do contrato `IProblemSolver` do serviço para o projeto cliente.
 

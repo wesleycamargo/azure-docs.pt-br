@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 044bd34a5b9e4b9bea61e804aa038daf6129185d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 030f3d9455956c3c728e450aca058b2df10eb3d3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584557"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691177"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Criar um disco gerenciado com base em um instantâneo com a CLI
 
@@ -43,8 +43,8 @@ Esse script usa os comandos a seguir para criar um disco gerenciado com base em 
 
 | Comando | Observações |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtém todas as propriedades de um instantâneo usando o nome e as propriedades do grupo de recursos do instantâneo. A propriedade de ID é usada para criar disco gerenciado.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Cria um disco gerenciado usando a Id de instantâneo de um instantâneo gerenciado |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtém todas as propriedades de um instantâneo usando o nome e as propriedades do grupo de recursos do instantâneo. A propriedade de ID é usada para criar disco gerenciado.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Cria um disco gerenciado usando a Id de instantâneo de um instantâneo gerenciado |
 
 ## <a name="next-steps"></a>Próximas etapas
 

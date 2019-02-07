@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239563"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694526"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Criar uma máquina virtual de um instantâneo com a CLI
 
@@ -49,9 +49,9 @@ Este script usa os comandos a seguir para criar um disco gerenciado, uma máquin
 
 | Comando | Observações |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtém o instantâneo usando o nome do instantâneo e o nome do grupo de recursos. A propriedade de ID do objeto retornado é usada para criar um disco gerenciado.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Cria discos gerenciados de um instantâneo usando ID de instantâneo, nome do disco, tipo de armazenamento e tamanho  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria uma VM usando um disco do sistema operacional gerenciado |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtém o instantâneo usando o nome do instantâneo e o nome do grupo de recursos. A propriedade de ID do objeto retornado é usada para criar um disco gerenciado.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Cria discos gerenciados de um instantâneo usando ID de instantâneo, nome do disco, tipo de armazenamento e tamanho  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria uma VM usando um disco do sistema operacional gerenciado |
 
 ## <a name="next-steps"></a>Próximas etapas
 

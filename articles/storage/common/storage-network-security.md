@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473622"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699169"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -241,7 +241,7 @@ Cada conta de armazenamento pode dar suporte a até 100 regras de rede virtual d
 
 Para conceder acesso de suas redes locais para sua conta de armazenamento com uma regra de rede IP, você deve identificar os endereços IP voltados para Internet usados por sua rede. Entre em contato com o administrador de rede para obter ajuda.
 
-Você pode usar [ExpressRoute](/azure/expressroute/expressroute-introduction) para conectar sua rede à rede do Azure. Aqui, cada circuito é configurado com dois endereços IP públicos. Podem ser encontradas no Microsoft Edge e usar o [Emparelhamento Público do Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) para se conectar ao Microsoft Services, como o Armazenamento do Microsoft Azure. Para permitir a comunicação com o Armazenamento do Microsoft Azure, crie regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do circuito do ExpressRoute, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do portal do Azure.
+Você pode usar [ExpressRoute](/azure/expressroute/expressroute-introduction) para conectar sua rede à rede do Azure. Aqui, cada circuito é configurado com dois endereços IP públicos. Podem ser encontradas no Microsoft Edge e usar o [Emparelhamento Público do Azure](/azure/expressroute/expressroute-circuit-peerings) para se conectar ao Microsoft Services, como o Armazenamento do Microsoft Azure. Para permitir a comunicação com o Armazenamento do Microsoft Azure, crie regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do circuito do ExpressRoute, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do portal do Azure.
 
 ### <a name="managing-ip-network-rules"></a>Gerenciando regras de rede IP
 
@@ -355,7 +355,7 @@ Se você habilitar a exceção **Permitir serviços Microsoft confiáveis...**, 
 |Grade de Eventos do Azure|Microsoft.EventGrid|Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers).|
 |Hubs de eventos do Azure|Microsoft.EventHub|Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).|
 |Rede do Azure|Microsoft.Networking|Armazenar e analisar os logs de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.insights|Permite a gravação de dados de monitoramento para uma conta de armazenamento protegida [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.insights|Permite a gravação de dados de monitoramento para uma conta de armazenamento protegida [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |SQL Data Warehouse do Azure|Microsoft.Sql|Permite importar e exportar cenários usando o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306328"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750402"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
 
@@ -170,7 +170,7 @@ O número de nós e o tamanho da VM são definidos usando constantes definidas. 
 
 Além das propriedades do nó físico, essa configuração de pool inclui um objeto [StartTask](/python/api/azure.batch.models.starttask). StartTask é executado em cada nó quando o nó ingressa no pool e sempre que um nó é reiniciado. Neste exemplo, o StartTask executa comandos do shell Bash para instalar o pacote de ffmpeg e as dependências nos nós.
 
-O método [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) envia o pool para o serviço do Lote.
+O método [pool.add](/python/api/azure.batch.operations.pooloperations) envia o pool para o serviço do Lote.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Criar um trabalho
 
-Um trabalho do Lote especifica um pool onde executar tarefas, e configurações opcionais, como uma prioridade e uma agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Essa função definida usa a classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para criar um trabalho em seu pool. O método [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) envia o pool ao serviço do Lote. Inicialmente, o trabalho não tem nenhuma tarefa.
+Um trabalho do Lote especifica um pool onde executar tarefas, e configurações opcionais, como uma prioridade e uma agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Essa função definida usa a classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para criar um trabalho em seu pool. O método [job.add](/python/api/azure.batch.operations.joboperations) envia o pool ao serviço do Lote. Inicialmente, o trabalho não tem nenhuma tarefa.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ O aplicativo cria tarefas no trabalho com uma chamada para `add_tasks`. Essa fun
 
 O exemplo cria um objeto [OutputFile](/python/api/azure.batch.models.outputfile) para o arquivo MP3 depois de executar a linha de comando. Os arquivos de saída de cada tarefa (um, neste caso) são carregados em um contêiner na conta de armazenamento vinculada, usando a propriedade `output_files` da tarefa.
 
-Depois, o aplicativo adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), que as enfileira para execução em nós de computação. 
+Depois, o aplicativo adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure.batch.operations.taskoperations), que as enfileira para execução em nós de computação. 
 
 ```python
 tasks = list()

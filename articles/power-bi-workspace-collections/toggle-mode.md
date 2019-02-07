@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 19a576440742684849ffc74092162be7008621ba
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045011"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754329"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Workspaces do Power BI
 
@@ -114,8 +114,8 @@ report.switchMode("edit");
 
 [Introdução a exemplos](get-started-sample.md)  
 [Inserir um relatório](embed-report.md)  
-[Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositório de Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  

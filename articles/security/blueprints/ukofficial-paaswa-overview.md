@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718462"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700971"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de Segurança e Conformidade do Azure: Hospedagem de Aplicativo Web de PaaS para carga de trabalho OFICIAL DO REINO UNIDO
 
@@ -73,7 +73,7 @@ A seção a seguir fornece detalhes sobre os elementos de implantação e implem
 
 #### <a name="identity-and-authentication"></a>Identidade e autenticação
 
-Esta especificação técnica garante que o acesso aos recursos seja protegido por meio dos serviços de gerenciamento de identidade e diretório. Essa arquitetura torna o uso total de [identidade como o perímetro de segurança](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter). 
+Esta especificação técnica garante que o acesso aos recursos seja protegido por meio dos serviços de gerenciamento de identidade e diretório. Essa arquitetura torna o uso total de [identidade como o perímetro de segurança](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
 As tecnologias a seguir fornecem funcionalidades de gerenciamento de identidades no ambiente do Azure:
 

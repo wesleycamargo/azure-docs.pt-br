@@ -4,17 +4,17 @@ description: Como criar um runbook de Automação do Azure
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/14/2017
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: d1563e819666a428258c34d55be8f9b6980a151a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436006"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750259"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Criar um runbook de Automação do Azure
 
@@ -22,9 +22,9 @@ Os runbooks de Automação do Azure podem ser criados por meio do Azure. Esse m�
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Fazer logon no Azure em https://portal.azure.com
+Entre no Azure em https://portal.azure.com
 
 ## <a name="create-runbook"></a>Criar runbook
 

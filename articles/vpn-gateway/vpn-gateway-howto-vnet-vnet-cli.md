@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846295"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698982"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -140,7 +140,7 @@ Usamos os seguintes valores nos exemplos:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Crie outro espaço de endereço para a sub-rede de back-end. Observe que nesta etapa, especificamos o espaço de endereço criado anteriormente e outro espaço de endereço que desejamos adicionar. Isso ocorre porque o comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) substitui as configurações anteriores. Não deixe de especificar todos os prefixos de endereço ao usar o comando.
+3. Crie outro espaço de endereço para a sub-rede de back-end. Observe que nesta etapa, especificamos o espaço de endereço criado anteriormente e outro espaço de endereço que desejamos adicionar. Isso ocorre porque o comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) substitui as configurações anteriores. Não deixe de especificar todos os prefixos de endereço ao usar o comando.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -384,5 +384,5 @@ Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, confira a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, confira a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

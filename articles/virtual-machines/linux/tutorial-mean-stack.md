@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883204"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754210"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
@@ -42,7 +42,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
 
-Criar um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e criar uma VM do Linux com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Criar um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group) e criar uma VM do Linux com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 O exemplo a seguir usa a CLI do Azure para criar um grupo de recursos chamado *myResourceGroupMEAN* no local *eastus*. Uma VM é criada com o nome *myVM* com chaves SSH, caso elas ainda não existam em um local de chave padrão. Para usar um conjunto específico de chaves, use a opção --ssh-key-value.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177400"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768176"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda com a verificação em duas etapas
 
@@ -36,7 +36,7 @@ Há vários motivos por que talvez você precise usar um método de verificaçã
 
 - **Você perdeu seu telefone ou conseguiu um novo número de telefone.** Se você tiver perdido seu telefone ou conseguiu um novo número, você pode entrar usando um método diferente ou solicitar ao administrador para limpar as suas configurações. É altamente recomendável informar o administrador se o seu telefone foi perdido ou roubado, assim, as atualizações adequadas podem ser feitas para sua conta. Após suas configurações serem limpas,você será solicitado a [registrar-se para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) na próxima vez que você entrar.
 
-- **Não obtendo o texto de autenticação ou chamada telefônica.** Há vários motivos por que talvez não obtenha o texto ou chamada telefônica. Se você já recebeu com êxito mensagens ou chamadas telefônicas antes, então, este é provavelmente um problema com o provedor de telefone, não sua conta. Se você geralmente tem atrasos na recepção devido a um sinal de celular ruim, recomendamos que você use o [aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) em seu celular. Este aplicativo pode gerar códigos de segurança aleatórios para entrar, sem a necessidade de qualquer sinal de celular ou conexão de Internet.<br><br>Se você estiver tentando receber uma mensagem de texto, peça a um amigo para enviar para você como um teste para garantir que você pode obter um e se você tiver chegado várias mensagens, verifique se você estiver usando o código da mais atual.
+- **Não obtendo o texto de autenticação ou chamada telefônica.** Há vários motivos por que talvez não obtenha o texto ou chamada telefônica. Se você já recebeu com êxito mensagens ou chamadas telefônicas antes, então, este é provavelmente um problema com o provedor de telefone, não sua conta. Se você geralmente tem atrasos na recepção devido a um sinal de celular ruim, recomendamos que você use o [aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) em seu celular. Este aplicativo pode gerar códigos de segurança aleatórios para entrar, sem a necessidade de qualquer sinal de celular ou conexão de Internet.<br><br>Se você estiver tentando receber uma mensagem de texto, peça a um amigo para enviar para você como um teste para garantir que você pode obter um e se você tiver chegado várias mensagens, verifique se você estiver usando o código da mais atual.
 
 - **As suas senhas de aplicativo não estão funcionando.** A senha de aplicativo substitui a senha normal, para aplicativos de área de trabalho mais antigos que não dão suporte à verificação em duas etapas. Primeiro, verifique se você digitou a senha corretamente. Se isso não resolver, tente entrar no [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords.md) ou entrar em contato com seu administrador para [exclua suas senhas de aplicativo existentes](../authentication/howto-mfa-userdevicesettings.md) para que você possa criar um novo.
 
@@ -61,4 +61,4 @@ Se você tiver tentado essas etapas, mas ainda estiver encontrando problemas, en
 
 * [Gerenciar as configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Perguntas frequentes sobre o aplicativo Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+* [Perguntas frequentes sobre o aplicativo Microsoft Authenticator](user-help-auth-app-faq.md)

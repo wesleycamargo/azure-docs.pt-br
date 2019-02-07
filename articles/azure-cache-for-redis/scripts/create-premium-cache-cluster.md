@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: abd69e27cf95a882ae7c299cbe19e2c30c35a918
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7ecae6711950ac180d8126060e9bc5a8e71e71d6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096818"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696091"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Criar um Cache do Azure para Redis Premium com clustering
 
@@ -40,12 +40,12 @@ Este script usa os seguintes comandos para criar um grupo de recursos e uma cama
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Criar instância de Cache do Azure para Redis. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis) | Criar instância de Cache do Azure para Redis. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Exemplos adicionais de scripts da CLI do Cache do Azure para Redis podem ser encontrados na [Documentação do Cache do Azure para Redis](../cli-samples.md).
+Exemplos adicionais de scripts da CLI do Cache Redis do Azure podem ser encontrados na [Documentação do Cache Redis do Azure](../cli-samples.md).

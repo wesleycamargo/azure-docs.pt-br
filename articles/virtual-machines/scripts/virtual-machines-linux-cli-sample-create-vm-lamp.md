@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155146"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731097"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Implantar a pilha LAMP em um conjunto de dimensionamento de máquinas virtuais com balanceamento de carga
 
@@ -53,14 +53,14 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Criar um conjunto de dimensionamento de máquinas virtuais |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Adicionar um ponto de extremidade com balanceamento de carga |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Criar a extensão que executa o script personalizado na implantação de uma VM |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Execute o script personalizado nas instâncias de VM que foram implantadas antes de a extensão ser aplicada ao conjunto de dimensionamento. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Escale verticalmente o conjunto de dimensionamento adicionando mais instâncias de VM. O script personalizado é executado nelas quando elas são implantadas. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Criar um conjunto de dimensionamento de máquinas virtuais |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Adicionar um ponto de extremidade com balanceamento de carga |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Criar a extensão que executa o script personalizado na implantação de uma VM |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Execute o script personalizado nas instâncias de VM que foram implantadas antes de a extensão ser aplicada ao conjunto de dimensionamento. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Escale verticalmente o conjunto de dimensionamento adicionando mais instâncias de VM. O script personalizado é executado nelas quando elas são implantadas. |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtenha os endereços IP das VMs criadas pela amostra. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Obtenha as portas de front-end e back-end usadas pelo balanceador de carga. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Obtenha as portas de front-end e back-end usadas pelo balanceador de carga. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

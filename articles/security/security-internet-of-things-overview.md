@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758613"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695246"
 ---
 # <a name="internet-of-things-security-overview"></a>Visão geral da segurança da Internet das Coisas
 Os serviços de IoT (Internet das Coisas) do Azure oferecem uma ampla variedade de funcionalidades. Esses serviços de nível corporativo permitem que você:
@@ -45,7 +45,7 @@ Este artigo discute os seguintes tópicos:
 
 * [A segurança começa com um modelo de risco](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [Segurança na IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [Fazendo a modelagem de risco da arquitetura de referência de IoT do Azure](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [Fazendo a modelagem de risco da arquitetura de referência de IoT do Azure](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Segurança desde o início
 A IoT apresenta desafios específicos de segurança, privacidade e conformidade para empresas em todo o mundo. Ao contrário da tecnologia cibernética tradicional, na qual esses problemas giram em torno do software e de como ele é implementado, a IoT se preocupa com o que acontece quando os mundos físico e cibernético convergem. Proteger as soluções da IoT exige a garantia de provisionamento seguro dos dispositivos, a conectividade segura entre eles e a nuvem e a proteção garantida dos dados na nuvem durante o processamento e o armazenamento. No entanto, trabalhando contra essa funcionalidade estão os dispositivos com recursos limitados, a distribuição geográfica das implantações e vários dispositivos em uma solução.

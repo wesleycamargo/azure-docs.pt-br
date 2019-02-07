@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001457"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698204"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor usando o Azure Functions
 
@@ -53,7 +53,7 @@ Por padrão, sua função disparada por HTTP é configurada para aceitar qualque
 
 1. Clique em **Salvar**.
 
-Você pode aprender mais sobre a personalização de funções HTTP em [Associações de HTTP do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Você pode aprender mais sobre a personalização de funções HTTP em [Associações de HTTP do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Testar sua API
 
@@ -176,7 +176,7 @@ Em seguida, você adicionará sua API de simulação. Substitua o arquivo proxie
 }
 ```
 
-Isso adiciona um novo proxy "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, ele modifica a resposta padrão dos Proxies usando uma substituição de resposta. Substituições de solicitação e resposta também podem ser usadas em conjunto com uma URL de back-end. Isso é particularmente útil ao transmitir por proxy para um sistema herdado, quando talvez você precise modificar cabeçalhos, consultar parâmetros etc. Para saber mais sobre as substituições de solicitação e resposta, Confira [Modificar solicitações e respostas em Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
+Isso adiciona um novo proxy "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, ele modifica a resposta padrão dos Proxies usando uma substituição de resposta. Substituições de solicitação e resposta também podem ser usadas em conjunto com uma URL de back-end. Isso é particularmente útil ao transmitir por proxy para um sistema herdado, quando talvez você precise modificar cabeçalhos, consultar parâmetros etc. Para saber mais sobre as substituições de solicitação e resposta, Confira [Modificar solicitações e respostas em Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Teste sua API de simulação chamando o ponto de extremidade `<YourProxyApp>.azurewebsites.net/api/users/{username}` usando um navegador ou seu cliente REST favorito. Não deixe de substituir _{username}_ por um valor de cadeia de caracteres que represente um nome de usuário.
 

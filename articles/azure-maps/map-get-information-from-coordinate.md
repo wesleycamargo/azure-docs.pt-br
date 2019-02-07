@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ada579af44d1d0b4ea08a8ae9eadbec386e44f08
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20616adf649924a13e80411aa5135889a175f442
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823003"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750181"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações de uma coordenada
 
@@ -33,7 +33,7 @@ A linha no segundo bloco de código instancia um serviço de cliente.
 
 O terceiro bloco de código atualiza o estilo do cursor do mouse para um ponteiro e o objeto [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). Você pode ver [adicionar um popup no mapa](./map-add-popup.md) para obter instruções.
 
-O quarto bloco de código adiciona um [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para cliques do mouse. Com um clique do mouse, ele cria uma consulta de pesquisa com as coordenadas do ponto clicado. Em seguida, ele usa o ponto de extremidade [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) do mapa para consultar o endereço das coordenadas.
+O quarto bloco de código adiciona um [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para cliques do mouse. Com um clique do mouse, ele cria uma consulta de pesquisa com as coordenadas do ponto clicado. Em seguida, ele usa o ponto de extremidade [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) do mapa para consultar o endereço das coordenadas.
 
 Para uma resposta bem-sucedida, ele coleta o endereço do local clicado e define o conteúdo e a posição do popup por meio da função [ setOptions ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) da classe pop-up.
 

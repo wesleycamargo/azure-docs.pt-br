@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
-ms.openlocfilehash: 03e22ae9aaa3ab967b55443ccbd933c265510227
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42b0ab15f43d301629b9fbb3208ba24eae8c227e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180102"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694594"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure
 
@@ -113,7 +113,7 @@ Se você tiver uma máquina virtual que não precise mais da identidade gerencia
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Para remover as identidades gerenciadas da extensão da VM dos recursos do Azure (reprovação planejada para janeiro de 2019), use o comando [az vmss identity remove](/cli/azure/vmss/identity/#az-vmss-remove-identity) e remova a identidade gerenciada atribuída ao sistema de um VMSS:
+Para remover as identidades gerenciadas da extensão da VM dos recursos do Azure (reprovação planejada para janeiro de 2019), use o comando [az vmss identity remove](/cli/azure/vmss/identity/) e remova a identidade gerenciada atribuída ao sistema de um VMSS:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -190,7 +190,7 @@ A resposta contém detalhes para a identidade gerenciada atribuída ao usuário 
    }
    ```
 
-2. Atribua a identidade gerenciada atribuída ao usuário ao VMSS usando [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY>` é um recurso da identidade de usuário atribuída `name` propriedade, conforme criado na etapa anterior:
+2. Atribua a identidade gerenciada atribuída ao usuário ao VMSS usando [az vmss identity assign](/cli/azure/vmss/identity). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY>` é um recurso da identidade de usuário atribuída `name` propriedade, conforme criado na etapa anterior:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

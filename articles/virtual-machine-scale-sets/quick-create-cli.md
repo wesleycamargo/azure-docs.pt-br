@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884887"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733171"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com a CLI do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -40,7 +40,7 @@ Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group c
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que está definido para atualizar automaticamente à medida que alterações são aplicadas e gera chaves SSH caso elas não existam em *~/.ssh/id_rsa*. Essas chaves SSH são usadas se você precisar fazer logon nas instâncias de VM. Para usar um conjunto existente de chaves SSH, em vez disso, use o parâmetro `--ssh-key-value` e especifique o local de suas chaves.
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que está definido para atualizar automaticamente à medida que alterações são aplicadas e gera chaves SSH caso elas não existam em *~/.ssh/id_rsa*. Essas chaves SSH são usadas se você precisar fazer logon nas instâncias de VM. Para usar um conjunto existente de chaves SSH, em vez disso, use o parâmetro `--ssh-key-value` e especifique o local de suas chaves.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjun
 ## <a name="deploy-sample-application"></a>Implantar um aplicativo de exemplo
 Para testar seu conjunto de dimensionamento, instale um aplicativo Web básico. A Extensão de Script Personalizado do Azure para baixar e executar um script que instala um aplicativo nas instâncias de VM. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
 
-Use a Extensão de Script Personalizado para instalar um servidor Web NGINX básico. Aplique a Extensão do Script Personalizado que instala o NGINX com [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) da seguinte maneira:
+Use a Extensão de Script Personalizado para instalar um servidor Web NGINX básico. Aplique a Extensão do Script Personalizado que instala o NGINX com [az vmss extension set](/cli/azure/vmss/extension) da seguinte maneira:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Permitir o tráfego para o aplicativo
-Quando o conjunto de dimensionamento foi criado, um balanceador de carga do Azure foi automaticamente implantado. Um balanceador de carga distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Para permitir que o tráfego alcance o aplicativo Web de exemplo, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). O exemplo a seguir cria uma regra chamada *myLoadBalancerRuleWeb*:
+Quando o conjunto de dimensionamento foi criado, um balanceador de carga do Azure foi automaticamente implantado. Um balanceador de carga distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Para permitir que o tráfego alcance o aplicativo Web de exemplo, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo a seguir cria uma regra chamada *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web. O
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, use [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados, como demonstrado a seguir. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
+Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados, como demonstrado a seguir. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

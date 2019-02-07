@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062937"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745259"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -61,21 +61,22 @@ Se o workspace selecionado não estiver vinculado a uma Conta de Automação, vo
 
 Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um Workspace do Log Analytics e uma Conta de Automação.
 
-A tabela abaixo mostra o mapeamento suportado:
+A tabela abaixo mostra os mapeamentos com suporte:
 
 |**Região do Workspace do Log Analytics**|**Região da Automação do Azure**|
 |---|---|
-|SudesteAustraliano|SudesteAustraliano|
+|AustraliaSoutheast|AustraliaSoutheast|
 |Canadá Central|Canadá Central|
 |CentralIndia|CentralIndia|
-|LesteDosEUA|LesteDosEUA2|
-|LesteJapão|LesteJapão|
-|SudesteAsiático|SudesteAsiático|
-|CentroOesteEUA|CentroOesteEUA|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
-|SulReinoUnido|SulReinoUnido|
-|VirginiaGovEUA|VirginiaGovEUA|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
 |LesteEUA2EUAP|CentroEUAEUAP|
+|Oeste dos EUA 2|Oeste dos EUA 2|
 
 Desmarque a caixa de seleção ao lado de qualquer máquina virtual que você não deseja habilitar. Máquinas virtuais que não podem ser habilitadas já estão desmarcadas.
 

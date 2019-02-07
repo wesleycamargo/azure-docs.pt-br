@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881691"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733118"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 Para executar aplicativos em instâncias de VM (máquina virtual) em um conjunto de dimensionamento, primeiro é necessário instalar os componentes de aplicativo e os arquivos necessários. Este artigo apresenta maneiras de criar uma imagem de VM personalizada para instâncias em um conjunto de dimensionamento ou executar scripts de instalação automaticamente em instâncias de VM existentes. Você também aprenderá a gerenciar aplicativos ou atualizações do SO em um conjunto de dimensionamento.
@@ -97,7 +97,7 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
 Para obter mais informações, incluindo um arquivo de exemplo *cloud-init.txt*, consulte [Usar cloud-init para personalizar as VMs do Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Para criar um conjunto de dimensionamento e usar um arquivo cloud-init, adicione o parâmetro `--custom-data` para o comando [az vmss create](/cli/azure/vmss#az_vmss_create) e especifique o nome de um arquivo de cloud-init. O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* em *myResourceGroup* e configura as instâncias de VM com um arquivo chamado *cloud-init.txt*. Insira seus próprios nomes da seguinte maneira:
+Para criar um conjunto de dimensionamento e usar um arquivo cloud-init, adicione o parâmetro `--custom-data` para o comando [az vmss create](/cli/azure/vmss) e especifique o nome de um arquivo de cloud-init. O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* em *myResourceGroup* e configura as instâncias de VM com um arquivo chamado *cloud-init.txt*. Insira seus próprios nomes da seguinte maneira:
 
 ```azurecli
 az vmss create \

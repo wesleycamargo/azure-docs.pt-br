@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 935af10c2ebcdc5273671ed058fdf72099059da3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475611"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731387"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criando um trabalho de exportação para o serviço de Importação/Exportação do Azure
 A criação de um trabalho de exportação do serviço de Importação/Exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
@@ -45,21 +45,21 @@ A criação de um trabalho de exportação do serviço de Importação/Exportaç
 
 -   É possível exportar todos os blobs e instantâneos na conta de armazenamento.
 
- Para obter mais informações sobre como especificar os blobs a serem exportados, consulte a operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
+ Para obter mais informações sobre como especificar os blobs a serem exportados, consulte a operação [Put Job](/rest/api/storageimportexport/jobs).
 
 ## <a name="obtaining-your-shipping-location"></a>Obtendo o local de envio
 Antes de criar um trabalho de exportação, você precisa obter um nome e o endereço de uma localização de envio chamando a operação [Get Location](https://portal.azure.com) ou [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` retornará uma lista de localizações e seus endereços para correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
 
 Siga as etapas abaixo para obter a localização de envio:
 
--   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal do Azure ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento de serviços.
+-   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal do Azure ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts) da API de gerenciamento de serviços.
 
 -   Recupere a localização que está disponível para processar essa conta de armazenamento chamando a operação `Get Location`.
 
 -   Se a propriedade `AlternateLocations` da localização contiver a própria localização, será seguro usá-la. Caso contrário, chame a operação `Get Location` novamente com uma das localizações alternativas. O local original pode estar fechado temporariamente para manutenção.
 
 ## <a name="creating-the-export-job"></a>Criando o trabalho de exportação
- Para criar o trabalho de exportação, chame a operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Você precisará fornecer as seguintes informações:
+ Para criar o trabalho de exportação, chame a operação [Put Job](/rest/api/storageimportexport/jobs). Você precisará fornecer as seguintes informações:
 
 -   Um nome para o trabalho.
 
@@ -82,10 +82,10 @@ Siga as etapas abaixo para obter a localização de envio:
 >  Você deve enviar suas unidades por meio de um serviço de transporte compatível, que fornecerá um número de rastreamento para seu pacote.
 
 ## <a name="updating-the-export-job-with-your-package-information"></a>Atualizando o trabalho de exportação com as informações do pacote
- Depois que tiver o número de acompanhamento, chame a operação [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) para atualizar o nome da carrier e o número de acompanhamento do trabalho. Opcionalmente, você pode especificar o número de unidades, o endereço do remetente, bem como a data de remessa.
+ Depois que tiver o número de acompanhamento, chame a operação [Update Job Properties](/rest/api/storageimportexport/jobs) para atualizar o nome da carrier e o número de acompanhamento do trabalho. Opcionalmente, você pode especificar o número de unidades, o endereço do remetente, bem como a data de remessa.
 
 ## <a name="receiving-the-package"></a>Recebendo o pacote
- Após o processamento do trabalho de exportação, as unidades serão retornadas para você com os dados criptografados. É possível recuperar a chave do BitLocker para cada uma das unidades chamando a operação [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Em seguida, você poderá desbloquear a unidade usando a chave. O arquivo de manifesto da unidade em cada unidade contém a lista de arquivos na unidade, bem como o endereço original do blob para cada arquivo.
+ Após o processamento do trabalho de exportação, as unidades serão retornadas para você com os dados criptografados. É possível recuperar a chave do BitLocker para cada uma das unidades chamando a operação [Get Job](/rest/api/storageimportexport/jobs). Em seguida, você poderá desbloquear a unidade usando a chave. O arquivo de manifesto da unidade em cada unidade contém a lista de arquivos na unidade, bem como o endereço original do blob para cada arquivo.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

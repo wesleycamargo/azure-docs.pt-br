@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 557b47aab5cdadef79427c4da9c18477daac0689
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969610"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745411"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 
@@ -413,7 +413,7 @@ Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento 
     }
     ```
     
-    A seguir, o método `ListBlobs` concluído é exibido (com um caminho totalmente qualificado para o arquivo que está sendo criado):
+    A seguir, o método `DownloadBlob` concluído é exibido (com um caminho totalmente qualificado para o arquivo que está sendo criado):
     
     ```csharp
     public string DownloadBlob()
