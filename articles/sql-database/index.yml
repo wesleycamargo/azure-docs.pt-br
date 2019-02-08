@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 437ab5fe8eec2a7c097805f3328df4dd9a2398c6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752238"
+ms.locfileid: "55769940"
 documentType: LandingData
 title: Documentação do Banco de dados SQL do Azure
 metadata:
@@ -68,7 +68,7 @@ sections:
       html: <p>Use a Instância Gerenciada para facilmente migrar seus bancos de dados locais para o serviço de banco de dados de PaaS do Azure totalmente gerenciado com pouca ou nenhuma alteração de código do banco de dados.</p>
       image:
         src: media/index/i_mi.svg
-      title: Instância Gerenciada
+      title: Instância gerenciada
     - href: /azure/sql-database/sql-database-paas
       html: <p>Alta disponibilidade interna, backups automatizados e replicação geográfica impedirão que operações de manutenção, falhas de infraestrutura ou hardware interrompam seus negócios.</p>
       image:
@@ -110,18 +110,18 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: Criar Instância Gerenciada
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Criar pool elástico
       values:
       - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Criar Instância Gerenciada
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
@@ -129,11 +129,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Comece a usar o <a href="/azure/sql-database/sql-database-quickstart-guide">Banco de dados singleton</a> e a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Instância gerenciada</a> com os nossos guias de início rápido.
+    - html: Comece a usar <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">um banco de dados individual</a> e uma <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">instância gerenciada</a> com nossos guias de início rápido.
     - html: Criar e projetar o esquema para um novo banco de dados individual usando <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: Migrar um banco de dados existente para o Azure usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">RESTAURAR Banco de Dados</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistente de Migração de Banco de Dados</a> ou <a href="/azure/sql-database/sql-database-import">Importar BACPAC</a>
+    - html: Migrar um banco de dados existente para o Azure usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">um arquivo de backup do SQL Server nativo</a>, usando <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">o assistente de migração de banco de dados</a> ou <a href="/azure/sql-database/sql-database-import">importando um arquivo BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteja seu banco de dados SQL</a>
-    - html: Distribuir dados globalmente usando o <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Banco de dados distribuído geograficamente</a>
+    - html: Distribuir dados globalmente usando <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">um banco de dados distribuído geograficamente</a>
 - title: Desenvolva suas habilidades com o Microsoft Learn
   items:
   - type: list

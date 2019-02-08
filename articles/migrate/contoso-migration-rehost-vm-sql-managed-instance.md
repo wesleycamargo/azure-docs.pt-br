@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826608"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694475"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração para Contoso: Hospedar novamente um aplicativo local em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure
 
@@ -173,7 +173,7 @@ Para configurar uma Instância Gerenciada do Banco de Dados SQL do Azure, a Cont
 - A sub-rede deve ter uma tabela de rotas de UDR (rota definida pelo usuário). A única rota atribuída deve ser 0.0.0.0/0 do próximo salto para a Internet. 
 - DNS personalizado opcional: Se o DNS personalizado for especificado na rede virtual do Azure, o endereço IP dos resolvedores recursivos do Azure (como 168.63.129.16) deverá ser adicionado à lista. Saiba como [configurar DNS personalizado para uma Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - A sub-rede não deve ter um ponto de extremidade de serviço (armazenamento ou SQL) associado a ela. Os pontos de extremidade de serviço devem ser desabilitados na rede virtual.
-- A sub-rede deve ter no mínimo 16 endereços IP. Saiba como [dimensionar a sub-rede da Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- A sub-rede deve ter no mínimo 16 endereços IP. Saiba como [dimensionar a sub-rede da Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - No ambiente híbrido da Contoso, são necessárias configurações de DNS personalizadas. A Contoso configura as configurações de DNS para usar um ou mais dos servidores DNS do Azure da empresa. Saiba mais sobre [personalização de DNS](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Configurar uma rede virtual para a Instância Gerenciada
@@ -207,7 +207,7 @@ Os administradores da Contoso configuram a rede virtual da seguinte maneira:
 *Precisa de mais ajuda?*
 
 - Obtenha uma visão geral da [Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Saiba como [criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Saiba como [criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Saiba como [configurar emparelhamento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Saiba como [atualizar configurações de DNS do Azure Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ A equipe de segurança da Contoso revisa as VMs do Azure e a Instância Gerencia
 
      ![Segurança de Instância Gerenciada - Detecção de ameaça](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-Para saber mais sobre práticas de segurança para VMs, consulte [Melhores práticas de segurança para cargas de trabalho de IaaS no Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+Para saber mais sobre práticas de segurança para VMs, consulte [Melhores práticas de segurança para cargas de trabalho de IaaS no Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

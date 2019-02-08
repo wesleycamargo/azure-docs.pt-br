@@ -88,7 +88,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
   *  Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
-*  *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*
+* *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*
   * Não, você receberá uma mensagem sobre cada problema apenas uma vez. Se o problema persistir, ele será atualizado na folha de feed Detecção Inteligente.
 * *Perdi o email. Onde posso encontrar as notificações no portal?*
   * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Inteligente**. Nele, você poderá encontrar todas as notificações de até 90 dias anteriores.

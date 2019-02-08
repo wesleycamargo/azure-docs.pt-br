@@ -17,7 +17,8 @@ items:
     href: apache-spark-jupyter-spark-sql-use-portal.md
   - name: Criar um cluster Apache Spark - PowerShell
     href: apache-spark-jupyter-spark-sql-use-powershell.md
-  - name: Criar um cluster Apache Spark - Modelo
+  - name: Criar um cluster do Apache Spark – modelo do Resource Manager
+    displayName: resource manager template, arm template, resource manager group
     href: apache-spark-jupyter-spark-sql.md
 - name: Tutoriais
   items:
@@ -245,6 +246,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Usar modelos do Gerenciador de Recursos do Azure
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
       maintainContext: true
     - name: Criar clusters sob demanda
@@ -437,6 +439,7 @@ items:
   - name: API REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Modelo do Resource Manager
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Recursos
   items:
@@ -460,9 +463,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9f6cad17d2263d250ff1bfad53a0756b5007209d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7c8adaa2fca41e5a2b501d10ba446c756e09740d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427450"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891571"
