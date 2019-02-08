@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ddf08c69b5ef06d6243230230bcfdb56965aef4d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239937"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893673"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gerenciar o Key Vault no Azure Stack usando o PowerShell
 
@@ -65,7 +65,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 Se o registro for bem-sucedido, a seguinte saída será retornada:
 
-![Registrar](media/azure-stack-key-vault-manage-powershell/image2.png) ao invocar os comandos do Cofre de chaves, você poderá receber um erro, como "a assinatura não está registrada para usar o namespace 'Microsoft. keyvault'." Se você receber um erro, confirme se você tem [habilitou o provedor de recursos do Key Vault](#enable-your-tenant-subscription-for-vault-operations) seguindo as instruções mencionadas anteriormente.
+![Registrar](media/azure-stack-key-vault-manage-powershell/image2.png) ao invocar os comandos do Cofre de chaves, você poderá receber um erro, como "a assinatura não está registrada para usar o namespace 'Microsoft. keyvault'." Se você receber um erro, confirme que você habilitou o provedor de recursos do Cofre de chaves, seguindo as instruções mencionadas anteriormente.
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
 
