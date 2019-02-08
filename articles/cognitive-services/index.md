@@ -4,17 +4,17 @@ title: Documentação dos Serviços Cognitivos do Azure
 description: Saiba como criar algoritmos inteligentes em apps, sites e bots para que eles vejam, ouçam, falem, entendam e interpretem as necessidades do usuário por meio de métodos naturais de comunicação. Os tutoriais, as guias de início rápido, as referências de API e os exemplos mostram como usar as APIs.
 services: cognitive-services
 author: nitinme
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 3c67a6fc7345cb533ad0c7088ac09fb02d3da1f2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213967"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872927"
 ---
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Saiba como criar algoritmos inteligentes em apps, sites e bots para que eles vejam, ouçam, falem e entendam as necessidades do usuário por meio de métodos naturais de comunicação. Os tutoriais, as guias de início rápido, as referências de API e os exemplos mostram como.</p>
