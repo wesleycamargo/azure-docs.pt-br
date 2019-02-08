@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766496"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895051"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerenciar contas de armazenamento no Azure Stack
 
@@ -67,7 +67,7 @@ Você pode estar em uma situação em que você precisa recuperar uma conta excl
 
 No Azure Stack, há uma maneira simples de fazer isso:
 
-1. Navegue até a lista de contas de armazenamento. Ver [encontrar uma conta de armazenamento](#find) neste artigo para obter mais informações.
+1. Navegue até a lista de contas de armazenamento. Consulte localizar uma conta de armazenamento neste artigo para obter mais informações.
 2. Localize essa conta específica na lista. Talvez você precise filtrar.
 3. Verifique as *estado* da conta. Este campo deve dizer **Deleted**.
 4. Selecione a conta, que abre o painel de detalhes da conta.
@@ -113,7 +113,7 @@ Um dos efeitos colaterais de ter um período de retenção é que uma conta excl
 Você pode recuperar a capacidade usando o portal ou o PowerShell.
 
 **Para recuperar a capacidade usando o portal:**
-1. Navegue até o painel de contas de armazenamento. Ver [encontrar uma conta de armazenamento](#find).
+1. Navegue até o painel de contas de armazenamento. Consulte localizar uma conta de armazenamento.
 2. Selecione **recuperar espaço** na parte superior do painel.
 3. Ler a mensagem e, em seguida, selecione **Okey**.
 
