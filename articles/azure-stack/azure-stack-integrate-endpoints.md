@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816348"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977740"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -38,11 +38,11 @@ A infraestrutura interna VIPs não estão listados porque eles não são necess�
 |Ponto de extremidade (VIP)|DNS host A record|Protocolo|Portas|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|O Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Portal (usuário)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|O Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (usuário)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Grafo|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista de certificados revogados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP E UDP|53|
@@ -79,7 +79,6 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 |NTP|(Fornecido para a implantação de servidor IP de NTP)|UDP|123|VIP - /27 públicos|
 |DNS|(Servidor de DNS do IP fornecido para implantação)|TCP<br>UDP|53|VIP - /27 públicos|
 |CRL|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|VIP - /27 públicos|
-|Backup de infraestrutura|(IP ou FQDN do servidor de arquivos de destino externo)|SMB|445|Infraestrutura de rede pública|
 |LDAP|Floresta do Active Directory fornecido para a integração do Graph|TCP<br>UDP|389|VIP - /27 públicos|
 |LDAP SSL|Floresta do Active Directory fornecido para a integração do Graph|TCP|636|VIP - /27 públicos|
 |LDAP GC|Floresta do Active Directory fornecido para a integração do Graph|TCP|3268|VIP - /27 públicos|
@@ -89,9 +88,6 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 
 > [!Note]  
 > URLs de saída têm a carga balanceada usando o Gerenciador de tráfego do Azure para fornecer a melhor conectividade possíveis com base na localização geográfica. Com as URLs com balanceamento de carga, a Microsoft pode atualizar e alterar pontos de extremidade de back-end sem afetar os clientes. A Microsoft não compartilha a lista de endereços IP para as URLs com balanceamento de carga. Você deve usar um dispositivo que dá suporte à filtragem por URL em vez de IP.
-
-> [!Note]  
-> 1809, o serviço de backup de infraestrutura se comunica para o servidor de arquivo externo da rede VIP pública. Antes de 1809, o serviço de comunicado através da rede de infraestrutura pública. Se seu ambiente não permite acesso aos recursos de infraestrutura da rede VIP pública, aplicar a versão mais recente [1809 hotfix](azure-stack-update-1809.md#post-update-steps) para o Azure Stack. Este hotfix será mover o serviço de backup de infraestrutura de volta para a rede de infraestrutura pública. 1811, se você aplicar o hotfix 1809, o serviço de backup de infraestrutura permanece na rede de infraestrutura pública. Se você não aplicar o hotfix, a atualização move o serviço para a rede de infraestrutura pública.
 
 ## <a name="next-steps"></a>Próximas etapas
 
