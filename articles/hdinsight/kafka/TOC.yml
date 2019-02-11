@@ -18,6 +18,7 @@ items:
   - name: Criar um cluster do Apache Kafka - PowerShell
     href: apache-kafka-quickstart-powershell.md
   - name: Criar um cluster do Apache Kafka – modelo do Resource Manager
+    displayName: resource manager template, arm template, resource manager group
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutoriais
   items:
@@ -142,6 +143,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Usar modelos do Gerenciador de Recursos do Azure
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
@@ -262,6 +264,7 @@ items:
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Modelo do Resource Manager
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Recursos
   items:
@@ -278,9 +281,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 11468d52eb07180abc6624772d69a3c0cd122ae7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c9524d96975a2eb443e3daec7122dc10ecc7e56d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814292"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893623"

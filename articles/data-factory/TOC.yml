@@ -304,6 +304,8 @@ items:
     items:
     - name: Copiar dados usando Atividade de Cópia
       href: copy-activity-overview.md
+    - name: Excluir arquivos usando a Atividade de Exclusão
+      href: delete-activity.md
     - name: Ferramenta Copiar Dados
       href: copy-data-tool.md
     - name: Carregar Data Lake Storage Gen2
@@ -458,8 +460,22 @@ items:
       href: how-to-create-schedule-trigger.md
     - name: Criar um gatilho de janela em cascata
       href: how-to-create-tumbling-window-trigger.md
+    - name: Criar uma dependência de gatilho de janela em cascata
+      href: tumbling-window-trigger-dependency.md
     - name: Criar gatilho baseado em eventos
       href: how-to-create-event-trigger.md
+  - name: Modelos
+    items:
+    - name: Visão geral de modelos
+      href: solution-templates-introduction.md
+    - name: Copiar arquivos de vários contêineres
+      href: solution-template-copy-files-multiple-containers.md
+    - name: Cópia em massa com uma tabela de controle
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: Cópia delta com uma tabela de controle
+      href: solution-template-delta-copy-with-control-table.md
+    - name: Transformar dados com o Databricks
+      href: solution-template-databricks-notebook.md
 - name: Referência
   items:
   - name: .NET
@@ -490,9 +506,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: fd664db6e5f4bfbf0a86d9984559a1e5eabf262d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c73a736dadee91f344da32fb5569d5809a382f1b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567240"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960234"

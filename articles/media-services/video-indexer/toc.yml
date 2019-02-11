@@ -19,6 +19,8 @@ items:
   items:
   - name: Comparar as predefinições do Video Indexer e dos Serviços de Mídia
     href: compare-video-indexer-with-media-services-presets.md
+  - name: Gerenciar vários locatários
+    href: manage-multiple-tenants.md
   - name: Personalizando modelos de conteúdo
     items:
     - name: Marcas
@@ -79,9 +81,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Regiões
     href: regions.md
-ms.openlocfilehash: 9b87d0495951823808cf64b125af35759b5881c6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+  - name: Perguntas frequentes
+    href: faq.md
+ms.openlocfilehash: c805ae4149bab0d5ce72a1fd0d63cc74fbe4272d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015977"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984453"

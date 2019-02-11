@@ -10,16 +10,16 @@ ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: a38158467664eb12b388ad6bdc4bb5d783aa8762
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283591"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979659"
 ---
-# <a name="media-services-documentation"></a>Documentação de Serviços de Mídia
+# <a name="media-services-documentation-legacy"></a>Documentação dos Serviços de Mídia (herdada)
 
 Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de Mídia, uma plataforma de nuvem extensível. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
 
@@ -191,7 +191,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linguagens</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
                    </div>
                 </div>
