@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458205"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696126"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para determinar o comprimento de frase usando Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Atualmente, um ponto de extremidade está disponível para a Tradução de Texto, e está definido como a `base_url`. `path` define a rota `breaksentence` e identifica que queremos usar a versão 3 da API.
+O ponto de extremidade global de Tradução de Texto é definido como o `base_url`. `path` define a rota `breaksentence` e identifica que queremos usar a versão 3 da API.
 
 Os `params` neste exemplo são usados para definir o idioma do texto fornecido. `params` não é necessário para a rota `breaksentence`. Se deixada de fora da solicitação, a API tentará detectar o idioma do texto fornecido e fornecer essas informações, juntamente com uma pontuação de confiança na resposta.
 

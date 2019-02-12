@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 31d18d7ea4ee195f7ffcfa04fb247b5dfd525c6a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251463"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813595"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados da Versão Prévia do Data Lake Storage Gen2 com o Azure Databricks usando o Spark
 
@@ -24,29 +24,37 @@ Neste tutorial, você irá:
 > [!div class="checklist"]
 > * Criar um cluster Databricks
 > * Ingerir dados não estruturados em uma conta de armazenamento
-> * Executar a análise em seus dados no armazenamento de blobs
+> * Executar a análise em seus dados no Armazenamento de Blobs
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial demonstra como consumir e consultar dados de um voo aéreo, disponibilizados pela [Agência Nacional de Aviação dos EUA (United States Department of Transportation)](https://transtats.bts.gov/DL_SelectFields.asp). 
+* Criar uma conta do Azure Data Lake Storage Gen2.
 
-1. Marque a caixa de seleção **Arquivo pré-compactado** para selecionar todos os campos de dados.
-2. Selecione **Baixar** e salve os resultados no computador.
-3. Anote o nome de arquivo e o caminho do download; você precisará dessas informações em uma etapa posterior.
+  Confira [Criar uma conta do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-Para concluir este tutorial, você precisará de uma conta de armazenamento com funcionalidades analíticas. Recomendamos a conclusão de nosso [início rápido](data-lake-storage-quickstart-create-account.md) sobre o assunto para criar uma. 
+* Verifique se a sua conta de usuário tem a [função Colaborador de Dados do Storage Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atribuída a ela.
 
-## <a name="set-aside-storage-account-configuration"></a>Por enquanto deixe de lado a configuração da conta de armazenamento
+* Instale o AzCopy v10. Confira [Transferir dados com o AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-Você precisará do nome de sua conta de armazenamento e de um URI do ponto de extremidade do sistema de arquivos.
+### <a name="download-the-flight-data"></a>Baixar os dados de voos
 
-Para obter o nome de sua conta de armazenamento no portal do Azure, escolha **Todos os Serviços** e filtre o termo *armazenamento*. Em seguida, selecione **Contas de armazenamento** e localize sua conta de armazenamento.
+Este tutorial usa dados de voo do Bureau of Transportation Statistics (Departamento de Estatísticas de Transporte dos EUA) para demonstrar como executar uma operação de ETL. Você precisa baixar esses dados para concluir o tutorial.
 
-Para obter o URI do ponto de extremidade do sistema de arquivos, escolha **Propriedades** e, no painel de propriedades, encontre o valor do campo **PONTO DE EXTREMIDADE DO SISTEMA DE ARQUIVOS do ADLS primário**.
+1. Acesse [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time) (Administração de pesquisa e inovação em tecnologia, Departamento de Estatísticas de Transporte dos EUA).
 
-Cole esses valores em um arquivo de texto. Você precisará deles em breve.
+2. Marque a caixa de seleção **Arquivo Pré-compactado** para selecionar todos os campos de dados.
+
+3. Selecione o botão **Baixar** e salve os resultados no computador. 
+
+4. Descompacte o conteúdo do arquivo compactado e anote o nome e o caminho do arquivo. Você precisará dessas informações em uma etapa posterior.
+
+## <a name="get-your-storage-account-name"></a>Obter o nome da conta de armazenamento
+
+Você precisará do nome de sua conta de armazenamento. Para obtê-la, faça logon no [portal do Azure](https://portal.azure.com/), escolha **Todos os Serviços** e filtre o termo *armazenamento*. Em seguida, selecione **Contas de armazenamento** e localize sua conta de armazenamento.
+
+Cole o nome em um arquivo de texto. Você precisará dele em breve.
 
 <a id="service-principal"/>
 
@@ -54,35 +62,75 @@ Cole esses valores em um arquivo de texto. Você precisará deles em breve.
 
 Crie uma entidade de serviço seguindo as diretrizes deste tópico: [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Há algumas tarefas específicas que você precisará realizar conforme executar as etapas desse artigo.
-
-:heavy_check_mark: Ao executar as etapas da seção [Criar um aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) do artigo, defina o campo **URL de Logon** da caixa de diálogo **Criar** como o URI do ponto de extremidade recém-coletado.
+Há algumas tarefas que você precisará realizar conforme executar as etapas deste artigo.
 
 :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua o aplicativo à **Função Colaborador do Armazenamento de Blobs**.
 
 :heavy_check_mark: Ao executar as etapas da seção [Obter valores para conexão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores de chave de autenticação em um arquivo de texto. Você precisará deles em breve.
 
-## <a name="create-a-databricks-cluster"></a>Criar um cluster Databricks
+## <a name="create-an-azure-databricks-service"></a>Criar um serviço do Azure Databricks
 
-A próxima etapa é criar um cluster do Databricks para criar um workspace de dados.
+Nesta seção, você criará um serviço do Azure Databricks usando o portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
-2. Insira **Azure Databricks** no campo de pesquisa.
-3. Selecione **Criar** na folha do Azure Databricks.
-4. Nomeie o serviço Databricks **myFlightDataService** (marque a caixa de seleção *Fixar no painel* quando criar o serviço).
-5. Selecione **Iniciar Workspace** para abrir o workspace em uma nova janela do navegador.
-6. Selecione **Clusters** na barra de navegação à esquerda.
-7. Selecione **Criar Cluster**.
-8. Insira um **myFlightDataCluster** no campo **Nome do cluster**.
-9. Selecione **Standard_D8s_v3** no campo **Tipo de Trabalho**.
-10. Altere o valor **Mín. de trabalhos** para **4**.
-11. Selecione **Criar Cluster** na parte superior da página. (Este processo poderá levar até 5 minutos para ser concluído.)
-12. Quando o processo for concluído, selecione **Azure Databricks** no canto superior esquerdo da barra de navegação.
-13. Selecione **Notebook** na seção **Novo** na metade inferior da página.
-14. Insira um nome de sua escolha no campo **Nome** e selecione **Python** como a linguagem.
-15. Todos os outros campos podem ser deixados com valores padrão.
-16. Selecione **Criar**.
-17. Copie e cole o bloco de código a seguir na primeira célula, mas não execute esse código ainda.
+1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+
+    ![Databricks no portal do Azure](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks no portal do Azure")
+
+2. Em **Serviço do Azure Databricks**, forneça os seguintes valores para criar um serviço do Databricks:
+
+    |Propriedade  |DESCRIÇÃO  |
+    |---------|---------|
+    |**Nome do workspace**     | Forneça um nome para o seu workspace do Databricks.  |
+    |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
+    |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../../azure-resource-manager/resource-group-overview.md). |
+    |**Localidade**     | Selecione **Oeste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).       |
+    |**Tipo de preço**     |  Selecione **Padrão**.     |
+
+    ![Criar um workspace do Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Criar um serviço do Azure Databricks")
+
+3. Selecione **Fixar no painel** e depois **Criar**.
+
+4. A criação da conta leva alguns minutos. Durante a criação da conta, o portal exibirá o bloco **Enviando a implantação para o Azure Databricks** no lado direito. Para monitorar o status da operação, veja a barra de progresso na parte superior.
+
+    ![Bloco de implantação do Databricks](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Bloco de implantação do Databricks")
+
+## <a name="create-a-spark-cluster-in-azure-databricks"></a>Criar um cluster Spark no Azure Databricks
+
+1. No portal do Azure, acesse o serviço do Databricks criado e selecione **Iniciar Workspace**.
+
+2. Você será redirecionado ao portal do Azure Databricks. No portal, selecione **Cluster**.
+
+    ![Databricks no Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks no Azure")
+
+3. Na página **Novo cluster**, forneça os valores para criar um cluster.
+
+    ![Criar cluster do Databricks Spark no Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+
+4. Preencha os valores para os seguintes campos e aceite os valores padrão para os outros campos:
+
+    * Insira um nome para o cluster.
+
+    * Neste artigo, crie um cluster com o tempo de execução **5.1**.
+
+    * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para terminar o cluster quando ele não estiver sendo usado.
+
+    * Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar notebooks a ele e executar trabalhos do Spark.
+
+## <a name="create-a-file-system-and-mount-it"></a>Criar um sistema de arquivos e montá-lo
+
+Nesta seção, você criará um sistema de arquivos e uma pasta em sua conta de armazenamento.
+
+1. No [portal do Azure](https://portal.azure.com), acesse o serviço do Azure Databricks criado e selecione **Iniciar Workspace**.
+
+2. À esquerda, selecione **Workspace**. Na lista suspensa **Workspace**, selecione **Criar** > **Notebook**.
+
+    ![Criar um notebook no Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Criar notebook no Databricks")
+
+3. Na caixa de diálogo **Criar Bloco de Anotações**, digite um nome para o bloco de anotações. Selecione **Python** como a linguagem e, em seguida, selecione o cluster Spark criado anteriormente.
+
+4. Selecione **Criar**.
+
+5. Copie e cole o bloco de código a seguir na primeira célula, mas não execute esse código ainda.
 
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
@@ -99,63 +147,66 @@ A próxima etapa é criar um cluster do Databricks para criar um workspace de da
     ```
 18. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções [Reservar a configuração da conta de armazenamento](#config) e [Criar uma entidade de serviço](#service-principal) deste artigo. Substitua o espaço reservado `file-system-name` por qualquer nome que deseje fornecer ao sistema de arquivos.
 
-19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
+19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco. 
+
+    Mantenha esse notebook aberto, pois você adicionará comandos a ele mais tarde.
 
 ## <a name="ingest-data"></a>Ingestão de dados
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copiar dados de origem para a conta de armazenamento
 
-A próxima tarefa é usar o AzCopy para copiar dados do arquivo *.csv* para o armazenamento do Azure. Abra uma janela do prompt de comando e digite os comandos a seguir. Substitua os espaços reservados `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` e `<ACCOUNT_KEY>` pelos valores correspondentes que você reservou em uma etapa anterior.
+Use o AzCopy para copiar dados do arquivo *.csv* para sua conta do Data Lake Storage Gen2.
 
-```bash
-set ACCOUNT_NAME=<ACCOUNT_NAME>
-set ACCOUNT_KEY=<ACCOUNT_KEY>
-azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
-```
+1. Abra uma janela do prompt de comando e insira o comando a seguir para fazer logon em sua conta de armazenamento.
+
+   ```bash
+   azcopy login
+   ```
+
+   Siga as instruções exibidas na janela do prompt de comando para autenticar sua conta de usuário.
+
+2. Para copiar dados da conta *.csv*, insira o comando a seguir.
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   ```
+   * Substitua o valor de espaço reservado `<csv-folder-path>` pelo caminho do diretório no arquivo *.csv* (exceto o nome do arquivo).
+
+   * Substitua o valor de espaço reservado `storage-account-name` pelo nome da sua conta de armazenamento.
+
+   * Substitua o espaço reservado `file-system-name` por qualquer nome que deseje fornecer ao sistema de arquivos.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Use o Databricks Notebook para converter CSV em Parquet
 
-Abra o Databricks novamente no navegador e siga as seguintes etapas:
+No notebook criado anteriormente, adicione uma nova célula e cole o código a seguir nessa célula. Substitua o valor de espaço reservado `storage-account-name` neste snippet de código pelo nome da pasta na qual o arquivo CSV foi salvo.
 
-1. Selecione **Azure Databricks** no canto superior esquerdo da barra de navegação.
-2. Selecione **Notebook** na seção **Novo** na metade inferior da página.
-3. Digite **CSV2Parquet** no campo **Nome**.
-4. Todos os outros campos podem ser deixados com valores padrão.
-5. Selecione **Criar**.
-6. Cole o código a seguir na célula **Cmd 1**. (Este código é salvo automaticamente no editor.)
+```python
+# Use the previously established DBFS mount point to read the data.
+# create a data frame to read data.
 
-    ```python
-    # Use the previously established DBFS mount point to read the data
-    # create a dataframe to read data
-    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time_On_Time*.csv")
-    # read the all the airline csv files and write the output to parquet format for easy query
-    flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
-    print("Done")
-    ```
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+
+# read the airline csv file and write the output to parquet format for easy query.
+ flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+ print("Done")
+ ```
 
 ## <a name="explore-data"></a>Explorar dados
 
-Retorne ao workspace do Databricks e selecione o ícone **Recentes** na barra de navegação à esquerda.
-
-1. Selecione o notebook **Análise de Dados de Voo**.
-2. Pressione **Ctrl+Alt+N** para criar uma nova célula.
-
-Insira cada um dos blocos de código a seguir em **Cmd 1** e pressione **Cmd+Enter** para executar o script de Python.
-
-Para obter uma lista de arquivos CSV carregados por meio do AzCopy, execute o seguinte script:
+Em uma nova célula, cole o código a seguir para obter uma lista de arquivos CSV carregados por meio do AzCopy. Substitua o valor de espaço reservado `<csv-folder-path>` pelo mesmo valor desse espaço reservado usado anteriormente.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/temp/"))
+display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
 ```
 
 Para criar um novo arquivo e listá-los na pasta *parquet/voos*, execute este script:
 
 ```python
-dbutils.fs.put("/mnt/flightdata/temp/1.txt", "Hello, World!", True)
-dbutils.fs.ls("/mnt/flightdata/temp/parquet/flights")
+dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)
+dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 ```
 
 Com esses exemplos de código, você explorou a natureza hierárquica do HDFS usando dados armazenados em uma conta de armazenamento com o Data Lake Storage Gen2 habilitado.
@@ -164,16 +215,15 @@ Com esses exemplos de código, você explorou a natureza hierárquica do HDFS us
 
 Em seguida, você pode começar a consultar os dados carregados na sua conta de armazenamento. Insira cada um dos blocos de código a seguir em **Cmd 1** e pressione **Cmd+Enter** para executar o script de Python.
 
-### <a name="run-simple-queries"></a>Executar consultas simples
+Para criar quadros de dados para suas fontes de dados, execute o seguinte script:
 
-Para criar dataframes para suas fontes de dados, execute o seguinte script:
+* Substitua o valor de espaço reservado `<csv-folder-path>` pelo caminho do diretório no arquivo *.csv* (exceto o nome do arquivo).
 
-> [!IMPORTANT]
-> Substitua o espaço reservado **<NOME_DO_SEU_ARQUIVO_CSV>** pelo nome do arquivo baixado no início deste tutorial.
+* Substitua o valor de espaço reservado `<your-csv-file-name` pelo nome do arquivo *CSV*.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/<YOUR_CSV_FILE_NAME>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -196,7 +246,7 @@ flightDF.show(20, False)
 display(flightDF)
 ```
 
-Para executar consultas de análise nos dados, execute o seguinte script:
+Insira esse script para executar algumas consultas básicas de análise nos dados.
 
 ```python
 #Run each of these queries, preferably in a separate cmd cell for separate analysis
@@ -222,51 +272,8 @@ out = spark.sql("SELECT distinct(OriginCityName) FROM FlightTable where OriginSt
 print('Airports in Texas: ', out.show(100))
 
 #find all airlines that fly from Texas
-out1 = spark.sql("SELECT distinct(Carrier) FROM FlightTable WHERE OriginStateName='Texas'")
+out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
-```
-
-### <a name="run-complex-queries"></a>Executar consultas complexas
-
-Para executar os consultas mais complexas a seguir, execute um segmento de cada vez no notebook e inspecione os resultados.
-
-```python
-#find the airline with the most flights
-
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v")
-spark.sql("CREATE TEMPORARY VIEW v AS SELECT Carrier, count(*) as NumFlights from FlightTable group by Carrier, UniqueCarrier order by NumFlights desc LIMIT 10")
-output = spark.sql("SELECT AirlineName FROM AirlineCodes WHERE AirlineCode in (select Carrier from v)")
-
-#show the top row without truncation
-output.show(1, False)
-
-#show the top 10 airlines
-output.show(10, False)
-
-#Determine which is the least on time airline
-
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v")
-spark.sql("CREATE TEMPORARY VIEW v AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE DepDelay>60 or ArrDelay>60 group by Carrier, UniqueCarrier order by NumFlights desc LIMIT 10")
-output = spark.sql("select * from v")
-#output = spark.sql("SELECT AirlineName FROM AirlineCodes WHERE AirlineCode in (select Carrier from v)")
-#show the top row without truncation
-output.show(1, False)
-
-#which airline improved its performance
-#find the airline with the most improvement in delays
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v1")
-spark.sql("DROP VIEW IF EXISTS v2")
-spark.sql("CREATE TEMPORARY VIEW v1 AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE (DepDelay>0 or ArrDelay>0) and Year=2016 group by Carrier order by NumFlights desc LIMIT 10")
-spark.sql("CREATE TEMPORARY VIEW v2 AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE (DepDelay>0 or ArrDelay>0) and Year=2017 group by Carrier order by NumFlights desc LIMIT 10")
-output = spark.sql("SELECT distinct ac.AirlineName, v1.Carrier, v1.NumFlights, v2.NumFlights from v1 INNER JOIN v2 ON v1.Carrier = v2.Carrier INNER JOIN AirlineCodes ac ON v2.Carrier = ac.AirlineCode WHERE v1.NumFlights > v2.NumFlights")
-#show the top row without truncation
-output.show(10, False)
-
-#display for visual analysis
-display(output)
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -277,4 +284,3 @@ Quando não forem mais necessários, exclua o grupo de recursos e todos os recur
 
 [!div class="nextstepaction"] 
 > [Extrair, transformar e carregar dados usando o Apache Hive no HDInsight do Azure](data-lake-storage-tutorial-extract-transform-load-hive.md)
-

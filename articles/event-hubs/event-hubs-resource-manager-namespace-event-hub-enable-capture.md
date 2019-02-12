@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3228783b3f827ddb0dce947c9c1894110bf41fb7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054819"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818763"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um namespace com o hub de eventos e habilitar a Captura usando um modelo
 
@@ -317,6 +317,7 @@ Cria um namespace do tipo **EventHub** com um hub de eventos, e também habilita
             "partitionCount": "[parameters('partitionCount')]",
             "captureDescription": {
               "enabled": "true",
+              "skipEmptyArchives": false,
               "encoding": "[parameters('captureEncodingFormat')]",
               "intervalInSeconds": "[parameters('captureTime')]",
               "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -364,6 +365,7 @@ Cria um namespace do tipo **EventHub**, com um hub de eventos, e também habilit
                         "path": "[parameters('eventHubName')]",
                         "captureDescription": {
                             "enabled": "true",
+                            "skipEmptyArchives": false,
                             "encoding": "[parameters('archiveEncodingFormat')]",
                             "intervalInSeconds": "[parameters('captureTime')]",
                             "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -383,6 +385,9 @@ Cria um namespace do tipo **EventHub**, com um hub de eventos, e também habilit
         }
     ]
 ```
+
+> [!NOTE]
+> Você pode habilitar ou desabilitar a emissão de arquivos vazios quando nenhum evento ocorre durante a janela de Captura usando a propriedade **skipEmptyArchives**. 
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 

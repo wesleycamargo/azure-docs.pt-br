@@ -3,7 +3,7 @@ title: Tutorial da Central de segurança do Azure - Proteger seus recursos com a
 description: Este tutorial mostra como configurar uma política de acesso just in time de VM e uma política de controle de aplicativo.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,16 +14,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: monhaber
+ms.openlocfilehash: df9e804e8b8f3a9b40a18873f61ec96edee1503d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839340"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490237"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
-A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso da VM (máquina virtual) just-in-time reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
+A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso da VM (máquina virtual) JIT (just-in-time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
 
 Neste tutorial, você aprenderá a:
 
@@ -37,15 +37,15 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo de preço da Central de Segurança Padrão. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
 
 ## <a name="manage-vm-access"></a>Gerenciar acesso à VM
-O acesso just in time à VM pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.
+O acesso JIT à VM pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.
 
 As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só precisam ser abertas enquanto você estiver conectado à VM, por exemplo, para realizar tarefas de manutenção ou gerenciamento. Quando o just in time está habilitado, a Central de Segurança usa regras de NSG (Grupo de Segurança de Rede), que restringem o acesso às portas de gerenciamento para que elas não se tornem alvo de invasores.
 
-1. No menu principal da Central de Segurança, selecione **Acesso just in time à VM** em **DEFESA AVANÇADA DE NUVEM**.
+1. No menu principal da Central de Segurança, selecione **Acesso Just-in-Time à VM** em **DEFESA AVANÇADA DE NUVEM**.
 
   ![Acesso just in time à VM][1]
 
-  **Acesso à VM just in time** fornece informações sobre o estado das suas VMs:
+  O **Acesso à VM Just-in-Time** fornece informações sobre o estado das suas VMs:
 
   - **Configurada** – VMs que foram configuradas para dar suporte ao acesso à VM just in time.
   - **Recomendada** – VMs que podem dar suporte ao acesso à VM just in time, mas não foram configurados para isso.
@@ -82,8 +82,8 @@ Este recurso só está disponível para máquinas com Windows.
   A seção **Grupos de Recursos** contém três guias:
 
   - **Configurado**: lista de grupos de recursos contendo as VMs que foram configuradas com controle de aplicativo.
-  - **Recomendado**: lista de grupos de recursos para os quais o controle de aplicativos é recomendado.
-  - **Nenhuma recomendação**: lista de grupos de recursos contendo VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs que sempre têm aplicativos mudando e que ainda não estão estáveis.
+  - **Recomendados**: lista de grupos de recursos para os quais o controle de aplicativos é recomendado.
+  - **Sem recomendações**: lista de grupos de recursos contendo VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs que sempre têm aplicativos mudando e que ainda não estão estáveis.
 
 2. Selecione a guia **Recomendado** para obter uma lista de grupos de recursos com as recomendações de controle de aplicativo.
 
@@ -91,9 +91,9 @@ Este recurso só está disponível para máquinas com Windows.
 
 3. Selecione um grupo de recursos para abrir a opção **Criar regras de controle de aplicativo**. Em **Selecionar VMs**, revise a lista de VMs recomendadas e desmarque as que não devem receber o controle de aplicativo. Em **Selecionar processos para regras de lista de permissões**, revise a lista de aplicativos recomendados e desmarque o que não deve ser aplicado. A lista inclui:
 
-  - **NOME**: o caminho completo do aplicativo
+  - **NAME**: o caminho completo do aplicativo
   - **PROCESSOS**: quantos aplicativos residem em cada caminho
-  - **COMUNS**: “Sim” indica que esses processos foram executados na maioria das VMs no grupo de recursos
+  - **COMUM**: "Sim" indica que esses processos foram executados na maioria das VMs no grupo de recursos
   - **EXPLORÁVEL**: um ícone de aviso indica se os aplicativos podem ser usados por um invasor para ignorar a lista de permissões de aplicativos. É recomendável examinar esses aplicativos antes da aprovação.
 
 4. Após concluir suas seleções, selecione **Criar**.
@@ -128,7 +128,7 @@ Neste tutorial, você aprendeu a limitar sua exposição a ameaças fazendo o se
 Avance para o próximo tutorial para saber mais sobre como responder a incidentes de segurança.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Responder a incidentes de segurança](tutorial-security-incident.md)
+> [Tutorial: Responder a alertas de segurança](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

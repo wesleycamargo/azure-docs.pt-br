@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d80a10bea58fdcd5b20e24f9f8ba633f2714d55c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556180"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822571"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início Rápido: Criar um aplicativo Web ASP .NET 
 
@@ -98,9 +98,9 @@ Em seguida, crie o cache para o aplicativo.
 Nesta seção, você atualiza o aplicativo para dar suporte a uma nova exibição que exibe um teste simples no Cache do Azure para Redis.
 
 * [Atualizar o arquivo web.config com uma configuração de aplicativo para o cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [Configurar o aplicativo para usar o cliente StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
-* [Atualizar o HomeController e o Layout](#update-the-homecontroller-and-layout)
-* [Adicionar uma nova exibição RedisCache](#add-a-new-rediscache-view)
+* Configurar o aplicativo para usar o cliente StackExchange.Redis
+* Atualizar o HomeController e o Layout
+* Adicionar uma nova exibição RedisCache
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>Atualizar o arquivo web.config com uma configuração de aplicativo para o cache
 

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/30/2019
+ms.openlocfilehash: a969c026d702c423bee4871651c8b4fa26b3d37a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604058"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700937"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar um aplicativo Scala Maven para Apache Spark no HDInsight usando IntelliJ
 
@@ -28,7 +28,6 @@ Neste tutorial, você aprenderá a criar um aplicativo [Apache Spark](https://sp
 
 > [!NOTE]  
 > O HDInsight também fornece uma ferramenta de plug-in do IntelliJ IDEA para facilitar o processo de criação e envio de aplicativos para um cluster HDInsight Spark no Linux. Para saber mais, consulte [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Apache Spark](apache-spark-intellij-tool-plugin.md).
-> 
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -36,93 +35,103 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](https://aka.ms/azure-jdks).
-* Um Java IDE. Este artigo usa IntelliJ IDEA 18.1.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
+* [Kit de desenvolvimento Oracle Java](https://www.azul.com/downloads/azure-only/zulu/).  Este tutorial usa o Java versão 8.0.202.
+* Um Java IDE. Este artigo usa o [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+* Azure Toolkit for IntelliJ.  Confira [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable) (Instalação do Azure Toolkit for IntelliJ).
+
+## <a name="install-scala-plugin-for-intellij-idea"></a>Instalar o plug-in Scala para IntelliJ IDEA
+Siga estas etapas para instalar o plug-in Scala:
+
+1. Abra o IntelliJ IDEA.
+
+2. Na tela de boas-vindas, navegue até **Configurar** > **Plug-ins** para abrir a janela **Plug-ins**.
+   
+    ![Habilitar plug-in do scala](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
+
+3. Selecione **Instalar** para o plug-in Scala caracterizado na nova janela.  
+ 
+    ![Instalar o plug-in do scala](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
+
+4. Depois que o plug-in foi instalado com êxito, você deve reiniciar o IDE.
+
 
 ## <a name="use-intellij-to-create-application"></a>Use o IntelliJ para criar o aplicativo
 
-1. Inicie o IDEA do IntelliJ e crie um projeto. Na caixa de diálogo **Novo Projeto** , faça o seguinte: 
+1. Inicie o IntelliJ IDEA e selecione **Criar novo projeto** para abrir a janela **Novo projeto**.
 
-    a. Selecione **HDInsight** > **Spark no HDInsight (Scala)**.
+2. Selecione **Azure Spark/HDInsight** no painel esquerdo.
 
-   b. Na lista **Ferramenta de build**, selecione uma das seguintes opções, de acordo com suas necessidades:
+3. Selecione **Projeto Spark (Scala)** na janela principal.
 
-      * **Maven**, para obter suporte ao assistente de criação de projetos Scala
-      * **SBT**, para gerenciar as dependências e a compilação no projeto Scala
+4. Na lista suspensa **Ferramenta de build**, selecione uma das seguintes opções:
+      * **Maven** para obter suporte ao assistente de criação de projetos Scala.
+      * **SBT** para gerenciar as dependências e para criar no projeto Scala.
 
    ![A caixa de diálogo Novo Projeto](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
 
-1. Selecione **Avançar**.
+5. Selecione **Avançar**.
 
-1. O assistente de criação de projetos Scala detecta automaticamente se você instalou o plug-in Scala. Selecione **Instalar**.
+6. Na janela **Novo Projeto**, forneça as seguintes informações:  
 
-   ![Verificação do plug-in Scala](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
-
-1. Para baixar o plug-in Scala, selecione **OK**. Siga as instruções para reiniciar o IntelliJ. 
-
-   ![A caixa de diálogo Instalação do plug-in Scala](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
-
-1. Na janela **Novo Projeto**, faça o seguinte:  
+  	|  Propriedade   | DESCRIÇÃO   |  
+  	| ----- | ----- |  
+  	|Nome do projeto| Insira um nome.|  
+  	|Local do&nbsp;projeto| Insira o local desejado para salvar o projeto.|
+  	|SDK do projeto| Isso ficará em branco na primeira utilização do IDEA.  Selecione **Novo...** e navegue até o JDK.|
+  	|Versão do Spark|O assistente de criação integra a versão apropriada para o SDK do Spark e o SDK do Scala. Se a versão do cluster do Spark for inferior a 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark 2.x**. Esse exemplo usa o **Spark 2.3.0 (Scala 2.11.8)**.|
 
     ![Selecionando o SDK do Spark](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
-    a. Insira um nome e o local do projeto.
-
-   b. Na lista suspensa **SDK do Projeto**, selecione **Java 1.8** para o cluster Spark 2.x ou selecione **Java 1.7** para o cluster Spark 1.x.
-
-   c. Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão apropriada do SDK do Spark e do SDK do Scala. Se a versão do cluster do Spark for inferior a 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark 2.x**. Esse exemplo usa o **Spark 2.0.2 (Scala 2.11.8)**.
-
-1. Selecione **Concluir**.
-
-## <a name="install-scala-plugin-for-intellij-idea"></a>Instalar o plug-in Scala para IntelliJ IDEA
-Para instalar o plug-in Scala, use as seguintes etapas:
-
-1. Abra o IntelliJ IDEA.
-1. Na tela de boas-vindas, selecione **Configurar** e, em seguida, selecione **Plug-ins**.
-   
-    ![Habilitar plug-in do scala](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
-1. Selecione **Instalar o plugin JetBrains** no canto inferior esquerdo. 
-1. Na caixa de diálogo **Procurar plug-ins da JetBrains**, pesquise por **Scala** e, em seguida, selecione **Instalar**.
-   
-    ![Instalar o plug-in do scala](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
-1. Depois que o plug-in foi instalado com êxito, você deve reiniciar o IDE.
+7. Selecione **Concluir**.
 
 ## <a name="create-a-standalone-scala-project"></a>Criar um projeto de Scala autônomo
-1. Abra o IntelliJ IDEA.
-1. Do menu **Arquivo**, selecione **Novo > Projeto** para criar um novo projeto.
-1. Na caixa de diálogo Novo Projeto, faça as opções a seguir:
-   
-    ![Criar projeto Maven](./media/apache-spark-create-standalone-application/create-maven-project.png)
-   
-   * Selecione **Maven** como o tipo de projeto.
-   * Especifique um **SDK do projeto**. Selecione **Novo** e navegue até o diretório de instalação do Java, normalmente `C:\Program Files\Java\jdk1.8.0_66`.
-   * Selecione a opção **Criar do Arquétipo** .
-   * Na lista de arquétipos, selecione **org.scala-tools.archetypes:scala-archetype-simple**. Esse arquétipo cria a estrutura de diretório certa e baixará as dependências padrão necessárias para gravar o programa Scala.
-1. Selecione **Avançar**.
-1. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Os valores a seguir são usados neste tutorial:
 
-    - GroupId: com.microsoft.spark.example
-    - ArtifactId: SparkSimpleApp
-1. Selecione **Avançar**.
-1. Verifique as configurações e selecione **Avançar**.
-1. Verifique o nome de projeto e local e, em seguida, selecione **Concluir**.
-1. No painel esquerdo, selecione **src > test > scala > com > microsoft > spark > exemple**, clique com botão direito **MySpec** e, em seguida, selecione **Excluir**. Você não precisa desse arquivo para o aplicativo.
+1. Inicie o IntelliJ IDEA e selecione **Criar novo projeto** para abrir a janela **Novo projeto**.
+
+2. Selecione **Maven** no painel esquerdo.
+
+3. Especifique um **SDK do projeto**. Se estiver em branco, selecione **Novo…** e navegue até o diretório de instalação do Java.
+
+4. Marque a caixa de seleção **Criar do arquétipo**.  
+
+5. Na lista de arquétipos, selecione **org.scala-tools.archetypes:scala-archetype-simple**. Esse arquétipo cria a estrutura de diretório certa e baixa as dependências padrão necessárias para gravar o programa Scala.
+
+    ![Criar projeto Maven](./media/apache-spark-create-standalone-application/create-maven-project.png)
+
+6. Selecione **Avançar**.
+
+7. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Os valores a seguir são usados neste tutorial:
+
+    - **GroupId:** com.microsoft.spark.example
+    - **ArtifactId:** SparkSimpleApp
+
+8. Selecione **Avançar**.
+
+9. Verifique as configurações e selecione **Avançar**.
+
+10. Verifique o nome de projeto e local e, em seguida, selecione **Concluir**.  A importação do projeto levará alguns minutos.
+
+11. Após a importação do projeto, no painel esquerdo, navegue até **SparkSimpleApp** > **src** > **test** > **scala** > **com** > **microsoft** > **spark** > **example**.  Clique com o botão direito do mouse em **MySpec** e selecione **Excluir…**. Você não precisa desse arquivo para o aplicativo.  Selecione **OK** na caixa de diálogo.
   
-1. Nas etapas subsequentes, você atualiza o pom.xml para definir as dependências do aplicativo Spark Scala. Para que essas dependências sejam baixadas e resolvidas automaticamente, você deve configurar o Maven adequadamente.
+12. Nas etapas subsequentes, você atualizará **pom.xml** para definir as dependências para o aplicativo Spark Scala. Para que essas dependências sejam baixadas e resolvidas automaticamente, você deve configurar o Maven adequadamente.
+
+13. No menu **Arquivo**, selecione **Configurações** para abrir a janela **Configurações**.
+
+14. Na janela **Configurações**, navegue até **Build, Execução, Implantação** > **Ferramentas de Build** > **Maven** > **Importando**.
+
+15. Marque a caixa de seleção **Importar projetos Maven automaticamente**.
+
+16. Selecione **Aplicar** e, depois, **OK**.  Em seguida, você retornará à janela do projeto.
    
     ![Configurar Maven para downloads automáticos](./media/apache-spark-create-standalone-application/configure-maven.png)
    
-   1. No menu **Arquivo**, selecione **Configurações**.
-   1. Na caixa de diálogo **Configurações**, navegue até **Build, Execução, Implantação** > **Ferramentas de Compilação** > **Maven** > **Importando**.
-   1. Selecione a opção para **Importar projetos Maven automaticamente**.
-   1. Selecione **Aplicar** e, depois, **OK**.
-1. No painel esquerdo, selecione **src > principal > scala > com.microsoft.spark.example**e, em seguida, clique duas vezes em **Aplicativo** abrir App.scala.
 
-1. Substitua o código de exemplo existente pelo código a seguir e salve as alterações. Esse código lê os dados no HVAC.csv (disponível em todos os clusters Spark HDInsight), recupera as linhas com apenas um dígito na sexta coluna e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
+17. No painel esquerdo, navegue até **src** > **main** > **scala** > **com.microsoft.spark.example** e clique duas vezes em **Aplicativo** para abrir App.scala.
+
+18. Substitua o código de exemplo existente pelo código a seguir e salve as alterações. Esse código lê os dados no HVAC.csv (disponível em todos os clusters Spark HDInsight), recupera as linhas com apenas um dígito na sexta coluna e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
 
         package com.microsoft.spark.example
    
@@ -145,41 +154,49 @@ Para instalar o plug-in Scala, use as seguintes etapas:
             rdd1.saveAsTextFile("wasb:///HVACout")
           }
         }
-1. No painel esquerdo, clique duas vezes em **pom.xml**.
+19. No painel esquerdo, clique duas vezes em **pom.xml**.  
    
-   1. Dentro de `<project>\<properties>`, adicione os seguintes segmentos:
+20. Dentro de `<project>\<properties>`, adicione os seguintes segmentos:
       
-          <scala.version>2.10.4</scala.version>
-          <scala.compat.version>2.10.4</scala.compat.version>
-          <scala.binary.version>2.10</scala.binary.version>
-   1. Dentro de `<project>\<dependencies>`, adicione os seguintes segmentos:
+          <scala.version>2.11.8</scala.version>
+          <scala.compat.version>2.11.8</scala.compat.version>
+          <scala.binary.version>2.11</scala.binary.version>
+
+21. Dentro de `<project>\<dependencies>`, adicione os seguintes segmentos:
       
            <dependency>
              <groupId>org.apache.spark</groupId>
              <artifactId>spark-core_${scala.binary.version}</artifactId>
-             <version>1.4.1</version>
+             <version>2.3.0</version>
            </dependency>
       
-      Salve as alterações a pom.xml.
-1. Crie o arquivo .jar. O IntelliJ IDEA permite a criação de JAR como um artefato de um projeto. Execute as seguintes etapas:
+    Salve as alterações a pom.xml.
+
+22. Crie o arquivo .jar. O IntelliJ IDEA permite a criação de JAR como um artefato de um projeto. Execute as seguintes etapas:
     
-    1. No menu **Arquivo**, escolha **Estrutura do Projeto**.
-    1. Na caixa de diálogo **Estrutura do Projeto**, selecione **Artefatos** e, em seguida, selecione o símbolo de adição. Na caixa de diálogo pop-up, clique em **JAR** e em seguida, clique em **Dos módulos com dependências**.
+    1. No menu **Arquivo**, selecione **Estrutura do Projeto…**.
+
+    2. Na janela **Estrutura do projeto**, navegue até **Artefatos** > **o símbolo de adição +** > **JAR** > **De módulos com dependências…**.
        
         ![Criar JAR](./media/apache-spark-create-standalone-application/create-jar-1.png)
-    1. Na caixa de diálogo **Criar JAR de Módulos** selecione o botão de reticências (![reticências](./media/apache-spark-create-standalone-application/ellipsis.png)) em relação à **Classe Principal**.
-    1. Na caixa de diálogo **Selecionar Classe Principal**, selecione a classe que é exibida por padrão e, em seguida, selecione **OK**.
+
+    3. Na janela **Criar JAR de Módulos** janela, selecione o ícone de pasta na **classe principal** caixa de texto.
+
+    4. Na janela **Selecionar classe principal**, selecione a classe exibida por padrão e, em seguida, selecione **OK**.
        
         ![Criar JAR](./media/apache-spark-create-standalone-application/create-jar-2.png)
-    1. Na caixa de diálogo **Criar JAR de Módulos**, certifique-se de que a opção **extrair para o JAR de destino** esteja selecionada e, em seguida, selecione **OK**.  Essa configuração cria um JAR único com todas as dependências.
+
+    5. Na janela **Criar JAR de Módulos**, verifique se a opção **extrair para o JAR de destino** está selecionada e, em seguida, selecione **OK**.  Essa configuração cria um JAR único com todas as dependências.
        
         ![Criar JAR](./media/apache-spark-create-standalone-application/create-jar-3.png)
-    1. A guia layout de saída lista todos os jars incluídos como parte do projeto Maven. Você pode selecionar e excluir aqueles dos quais o aplicativo Scala não tem qualquer dependência direta. Para o aplicativo que estamos criando aqui, você pode remover tudo, exceto o último (**Saída de compilação SparkSimpleApp**). Selecione os jars para excluir e, em seguida, selecione o ícone **Excluir**.
+
+    6. A guia **Layout de Saída** lista todos os jars incluídos como parte do projeto Maven. Você pode selecionar e excluir aqueles dos quais o aplicativo Scala não tem qualquer dependência direta. Para o aplicativo que estamos criando aqui, você pode remover tudo, exceto o último (**Saída de compilação SparkSimpleApp**). Selecione os jars para excluir e, em seguida, selecione o símbolo negativo **-**.
        
         ![Criar JAR](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        
-        Certifique-se de que a caixa **Incluir na compilação do projeto** esteja selecionada, o que garante que o jar seja criado sempre que o projeto for criado ou atualizado. Selecione **Aplicar** e **OK**.
-    1. Do menu **Criar**, selecione **Criar artefatos** para criar o jar. O jar de saída é criado em **\out\artifacts**.
+        Verifique se a caixa **Incluir no build do projeto** está selecionada, o que garante que o jar seja criado sempre que o projeto for criado ou atualizado. Selecione **Aplicar** e, em seguida, **OK**.
+
+    7. Para criar o arquivo jar, navegue até **Compilar** > **Compilar artefatos** > **Compilar**. O projeto será compilado em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
        
         ![Criar JAR](./media/apache-spark-create-standalone-application/output.png)
 
@@ -187,6 +204,7 @@ Para instalar o plug-in Scala, use as seguintes etapas:
 Para executar o aplicativo no cluster, você pode usar as seguintes abordagens:
 
 * **Copie o jar do aplicativo para o blob de armazenamento do Azure** associado ao cluster. Você pode usar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes também que você pode usar para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
+
 * **Use o Apache Livy para enviar um trabalho de aplicativo remotamente** para o cluster Spark. Os clusters Spark no HDInsight incluem Livy, que expõe pontos de extremidade REST para enviar remotamente trabalhos do Spark. Para saber mais, consulte [Enviar trabalhos do Apache Spark remotamente usando o Apache Livy com clusters Spark no HDInsight](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-step"></a>Próxima etapa
@@ -195,4 +213,3 @@ Neste artigo, você aprendeu a criar um aplicativo Scala do Apache Spark. Avance
 
 > [!div class="nextstepaction"]
 >[Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](./apache-spark-livy-rest-interface.md)
-

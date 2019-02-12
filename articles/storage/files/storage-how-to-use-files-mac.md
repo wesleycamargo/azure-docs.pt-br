@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475696"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820395"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montagem do compartilhamento de arquivos do Azure no SMB com macOS
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados com o protocolo SMB 3 padrão do setor do macOS El Capitan 10.11 e versões posteriores. Este artigo mostra duas maneiras diferentes para montar um compartilhamento de arquivos do Azure no macOS: com a interface do usuário do Finder e usando o Terminal.
@@ -38,7 +38,7 @@ ms.locfileid: "55475696"
 1. **Abrir o Localizador**: o Localizador é aberto no macOS por padrão, mas você pode garantir que ele seja o aplicativo selecionado clicando no "ícone de rosto do macOS" no encaixe:  
     ![O ícone de rosto do macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecione "Conectar ao Servidor" no Menu "Go"**: usando o caminho UNC dos [pré-requisitos](#preq), converta a barra invertida dupla de início (`\\`) para `smb://` e todas as barras invertidas (`\`) para barras de encaminhamento (`/`). Seu link deverá ter a seguinte aparência: ![A caixa de diálogo "Conectar ao Servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecione "Conectar ao Servidor" no Menu "Go"**: Usando o caminho UNC dos pré-requisitos, converta a barra invertida dupla de início (`\\`) em `smb://` e todas as outras barras invertidas (`\`) em barras "/" (`/`). Seu link deverá ter a seguinte aparência: ![A caixa de diálogo "Conectar ao Servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Use o nome da conta de armazenamento e a chave de conta de armazenamento quando for solicitado a fornecer um nome de usuário e senha**: ao clicar em "Conectar" na caixa de diálogo "Conectar ao Servidor", você será solicitado a fornecer o nome de usuário e senha (ele será preenchido automaticamente com seu nome de usuário do macOS). Você tem a opção de colocar a chave da conta de armazenamento/nome da conta de armazenamento em seu conjunto de chaves do macOS.
 

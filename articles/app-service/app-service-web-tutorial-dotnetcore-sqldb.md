@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721845"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510690"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar um aplicativo .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
 
@@ -366,6 +366,37 @@ Quando `git push` estiver completo, navegue até seu aplicativo de Serviço de A
 ![Aplicativo do Azure após Migração do Code First](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Observe que todos os itens de tarefas existentes ainda são exibidos. Quando você republicar o aplicativo .NET Core, os dados existentes no Banco de Dados SQL não serão perdidos. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e deixam os dados existentes intactos.
+
+## <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo
+
+Enquanto o aplicativo ASP.NET Core é executado no serviço de aplicativo do Azure, você pode transferir os logs do console para o Cloud Shell. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
+
+O projeto de exemplo já segue as diretrizes em [Registro do ASP.NET Core no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) com duas alterações de configuração:
+
+- Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` em *DotNetCoreSqlDb.csproj*.
+- Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` em *Startup.cs*.
+
+Para definir o [nível de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) do ASP.NET Core no Serviço de Aplicativo para `Information` do nível padrão `Warning`, use o comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) no Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> O nível de log do projeto já está definido como `Information` em *appsettings.json*.
+> 
+
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Depois que o streaming de log for iniciado, atualize o aplicativo do Azure no navegador para obter parte do tráfego da Web. Agora é possível ver os logs do console redirecionados para o terminal. Se você não vir os logs do console imediatamente, verifique novamente após 30 segundos.
+
+Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
+
+Para obter mais informações sobre como personalizar os logs do ASP.NET Core, veja [Efetuar logon no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gerenciar o aplicativo do Azure
 

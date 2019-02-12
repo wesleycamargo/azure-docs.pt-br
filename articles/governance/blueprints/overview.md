@@ -4,17 +4,17 @@ description: O Azure Blueprint é um serviço no Azure usado para criar, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246238"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563364"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -56,19 +56,16 @@ Um plano gráfico é composto por _artefatos_. Plantas atualmente dão suporte o
 
 |Recurso  | Opções de hierarquia| DESCRIÇÃO  |
 |---------|---------|---------|
-|Grupos de recursos     | Assinatura | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager.         |
-|Modelo do Azure Resource Manager      | Assinatura, Grupo de Recursos | Modelos são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
-|Atribuição de política     | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à assinatura a qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do blueprint (no grupo de gerenciamento de blueprint ou abaixo). Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint.       |
-|Atribuição de função   | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para fazer com que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
+|Grupos de recursos | Assinatura | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager. |
+|Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
+|Atribuição de política | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à assinatura a qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do blueprint. Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint. |
+|Atribuição de função | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para fazer com que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
 
-### <a name="blueprints-and-management-groups"></a>Plantas e grupos de gerenciamento
+### <a name="blueprint-definition-locations"></a>Localizações de definição do blueprint
 
-Ao criar uma definição de blueprint, você definirá onde o blueprint será salvo. Atualmente, os blueprints só podem ser salvos em um [grupo de gerenciamento](../management-groups/overview.md) ao qual você tenha acesso **Contributor**. O blueprint está disponível para atribuição a qualquer assinatura filha desse grupo de gerenciamento.
+Ao criar uma definição de blueprint, você definirá onde o blueprint será salvo. Blueprints podem ser salvos em um [grupo de gerenciamento](../management-groups/overview.md) ou assinatura ao qual você tenha acesso de **Contribuidor**. Se o local for um grupo de gerenciamento, o blueprint estará disponível para atribuir qualquer assinatura filho daquele grupo de gerenciamento.
 
-> [!IMPORTANT]
-> Se você não tiver acesso a nenhum grupo de gerenciamento ou grupo de gerenciamento configurado, carregar a lista de definições de blueprint mostrará que nenhuma está disponível e clicar em **Escopo** abrirá uma janela com um aviso sobre a recuperação de grupos de gerenciamento. Para resolver isso, certifique-se de que uma assinatura à qual você tenha acesso apropriado faça parte de um grupo de [gerenciamento](../management-groups/overview.md).
-
-### <a name="blueprint-parameters"></a>Parâmetros de plano gráfico
+### <a name="blueprint-parameters"></a>Parâmetros de blueprint
 
 Planos gráficos podem passar parâmetros para uma iniciativa de política/ou um modelo do Azure Resource Manager.
 Ao adicionar um _artefato_ a um blueprint, o criador decide fornecer um valor definido para cada atribuição de blueprint ou permitir que cada atribuição de blueprint forneça um valor na hora da atribuição. Essa flexibilidade fornece a opção para definir um valor predeterminado para todos os usos do plano gráfico ou para habilitar essa decisão a ser feita no momento da atribuição.
@@ -101,7 +98,7 @@ Para excluir os planos gráficos, sua conta precisa das seguintes permissões:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Como as definições de especificações técnicas são criadas em um grupo de gerenciamento, as permissões de definição de plano gráfico devem ser concedidas em um escopo de grupo de gerenciamento ou ser herdadas para um escopo de grupo de gerenciamento.
+> As permissões de definição de blueprint devem ser concedidas ou herdadas no escopo de assinatura ou do grupo de gerenciamento em que estão salvas.
 
 Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes permissões:
 

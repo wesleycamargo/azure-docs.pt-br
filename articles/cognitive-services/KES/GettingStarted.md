@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819528"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -100,7 +100,7 @@ Após ter um arquivo de esquema e um arquivo de dados, você poderá compilar um
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Para prototipagem rápida fora do Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) é possível compilar pequenos índices localmente, a partir de arquivos de dados contendo até 10.000 objetos. Para arquivos de dados maiores, é possível executar o comando de dentro de uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou executar uma compilação remota no Azure. Para mais detalhes, consulte [Escalando Verticalmente](#scaling-up).
+Para prototipagem rápida fora do Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) é possível compilar pequenos índices localmente, a partir de arquivos de dados contendo até 10.000 objetos. Para arquivos de dados maiores, é possível executar o comando de dentro de uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou executar uma compilação remota no Azure. Para obter detalhes, confira Como escalar verticalmente.
 
 ## <a name="use-an-xml-grammar-specification"></a>Use uma especificação de gramática XML
 
@@ -211,7 +211,7 @@ Para prototipagem rápida, é possível hospedar a gramática e o índice em um 
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Isso inicia uma instância local do serviço Web. É possível testar o serviço de forma interativa, visitando `http::localhost:<port>` de um navegador. Para obter mais informações, consulte [Testar serviço](#testing-service).
+Isso inicia uma instância local do serviço Web. É possível testar o serviço de forma interativa, visitando `http::localhost:<port>` de um navegador. Para obter mais informações, confira Testando o serviço.
 
 Você também pode chamar diretamente várias [APIs da Web](WebAPI.md) para testar a interpretação de linguagem natural, a conclusão de consultas, a avaliação de consultas estruturadas e a computação de histogramas. Para parar o serviço, digite "quit" no prompt de comando `kes.exe host_service` ou pressione Ctrl+C. Estes são alguns exemplos:
 
@@ -220,7 +220,7 @@ Você também pode chamar diretamente várias [APIs da Web](WebAPI.md) para test
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Fora do Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) é limitado a índices de até 10.000 objetos. Outros limites incluem uma taxa de API de 10 solicitações por segundo e um total de 1.000 solicitações antes do término automático do processo. Para ignorar essas restrições, execute o comando em uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou implante em um serviço de nuvem do Azure usando o comando [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Para obter mais detalhes, consulte [Implantar serviço](#deploying-service).
+Fora do Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) é limitado a índices de até 10.000 objetos. Outros limites incluem uma taxa de API de 10 solicitações por segundo e um total de 1.000 solicitações antes do término automático do processo. Para ignorar essas restrições, execute o comando em uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou implante em um serviço de nuvem do Azure usando o comando [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Para obter detalhes, confira Implantando o serviço.
 
 ## <a name="scale-up-to-host-larger-indices"></a>Escalar verticalmente para hospedar índices maiores
 
@@ -262,7 +262,7 @@ Após implantar o serviço, você poderá chamar as várias [APIs da Web](WebAPI
 
 ## <a name="test-the-service"></a>Teste o serviço
 
-Para depurar um serviço dinâmico, navegue até o computador host a partir de um navegador da Web. Para um serviço local implantado por meio de [host_service](#hosting-service), visite `http://localhost:<port>/`.  Para um serviço de nuvem do Azure implantado por meio de [deploy_service](#deploying-service), visite `http://<serviceName>.cloudapp.net/`.
+Para depurar um serviço dinâmico, navegue até o computador host a partir de um navegador da Web. Para obter um serviço local implantado por meio de host_service, visite `http://localhost:<port>/`.  Para obter um serviço de nuvem do Azure implantado por meio de deploy_service, visite `http://<serviceName>.cloudapp.net/`.
 
 Esta página contém um link para informações sobre estatísticas básicas de chamadas à API, bem como a gramática e o índice hospedados nesse serviço. Esta página também contém uma interface de pesquisa interativa que demonstra o uso das APIs da Web. Insira as consultas na caixa de pesquisa para ver os resultados das chamadas à API [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) e [calchistogram](calchistogramMethod.md). A fonte HTML subjacente desta página também serve como um exemplo de como integrar as APIs da Web em um aplicativo, para criar uma experiência de pesquisa avançada e interativa.
 

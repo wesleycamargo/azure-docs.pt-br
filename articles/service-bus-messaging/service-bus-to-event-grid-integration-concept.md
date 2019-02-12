@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856903"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818253"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -43,7 +43,7 @@ Navegue até seu namespace do Barramento de Serviço, selecione **Controle de ac
 Hoje, o Barramento de Serviço envia eventos para dois cenários:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
@@ -115,7 +115,7 @@ Caso queira obter apenas eventos, por exemplo, de uma fila ou assinatura em seu 
 
 Há três maneiras de criar assinaturas da Grade de Eventos para namespaces do Barramento de Serviço:
 
-* No [Portal do Azure](#portal-instructions)
+* No portal do Azure
 * Na [CLI do Azure](#azure-cli-instructions)
 * No [PowerShell](#powershell-instructions)
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-A partir daqui, é possível explorar as outras opções de instalação ou [testar os eventos que estão fluindo](#test-that-events-are-flowing).
+Daqui em diante, você poderá explorar as outras opções de instalação ou testar os eventos que estão fluindo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

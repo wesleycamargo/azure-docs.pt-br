@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node – Azure Key Vault | Microsoft Docs'
-description: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET'
+description: Neste início rápido, você define e recupera um segredo do Azure Key Vault usando um aplicativo Web do .NET
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,31 +9,32 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002596"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565540"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET
 
-Neste tutorial, siga as etapas necessárias para obter um aplicativo Web do Azure para ler informações do Azure Key Vault usando identidades gerenciadas dos recursos do Azure. Você aprenderá como:
+Neste tutorial, siga as etapas para obter um aplicativo Web do Azure para ler informações do Azure Key Vault usando identidades gerenciadas dos recursos do Azure. Usar o Key Vault ajuda a proteger as informações. Você aprenderá como:
 
-> [!div class="checklist"]
-> * Crie um cofre da chave.
-> * Armazenar um segredo no cofre de chaves.
-> * Recuperar um segredo do cofre de chaves.
-> * Criar um aplicativo Web do Azure.
-> * Habilite uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para o aplicativo Web.
-> * Conceder as permissões necessárias para o aplicativo Web ler dados do cofre de chaves.
+* Crie um cofre da chave.
+* Armazenar um segredo no cofre de chaves.
+* Recuperar um segredo do cofre de chaves.
+* Criar um aplicativo Web do Azure.
+* Habilite uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para o aplicativo Web.
+* Conceder as permissões necessárias para o aplicativo Web ler dados do cofre de chaves.
 
-Antes de continuarmos, leia os [conceitos básicos](key-vault-whatis.md#basic-concepts).
+Antes de continuarmos, leia os [conceitos básicos para o Key Vault](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
->O Key Vault é um repositório central para armazenar segredos de forma programática. Mas, para fazer isso, os aplicativos e usuários precisam autenticar primeiro o Key Vault, ou seja, introduzir um segredo. Para seguir as melhores práticas de segurança, esse primeiro segredo deve ser girado periodicamente. 
+>O Key Vault é um repositório central para armazenar segredos de forma programática. Mas, para fazer isso, os aplicativos e usuários precisam autenticar primeiro o Key Vault, ou seja, introduzir um segredo. Seguindo as melhores práticas de segurança, esse primeiro segredo deve ser girado periodicamente. 
 >
->Com as [identidades de serviço gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md), os aplicativos executados no Azure recebem uma identidade gerenciada automaticamente pelo Azure. Isso ajuda a resolver o *problema de introdução do segredo* para que os usuários e aplicativos possam seguir as melhores práticas e não precisem se preocupar em girar o primeiro segredo.
+>Com as [identidades de serviço gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md), os aplicativos executados no Azure obtêm uma identidade gerenciada automaticamente pelo Azure. Isso ajuda a resolver o *problema de introdução do segredo* para que os usuários e aplicativos possam seguir as melhores práticas e não precisem se preocupar em girar o primeiro segredo.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +78,7 @@ O grupo de recursos que você acabou de criar é usado ao longo deste artigo.
 
 Em seguida, você cria um cofre de chaves no grupo de recursos criado na etapa anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: O nome precisa ser uma cadeia de 3 a 24 caracteres e conter apenas (0 – 9, a – z, A – Z e -).
+* Nome do cofre de chaves: O nome precisa ser uma cadeia de 3 a 24 caracteres e conter apenas 0-9, a-z, A-Z e um hífen (-).
 * Nome do grupo de recursos.
 * Localização: **Leste dos EUA**.
 
@@ -143,8 +144,7 @@ Publique esse aplicativo no Azure para vê-lo funcionando como um aplicativo Web
 
 O Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais e outras chaves e segredos, mas seu código precisa autenticar para o Key Vault para recuperá-los. [Visão geral das identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) facilita a solução desse problema, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter que todas as credenciais no seu código.
 
-1. Retorne para a CLI do Azure.
-2. Execute o comando assign-identity para criar a identidade para esse aplicativo:
+Na CLI do Azure, execute o comando de atribuir identidade para criar a identidade para esse aplicativo:
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -171,10 +171,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Agora, ao executar o aplicativo, você verá o valor do segredo recuperado. No comando acima, você está dando permissões para a Identidade (MSI) do Serviço de Aplicativo para executar operações **get** e **list** no Key Vault
+Agora, ao executar o aplicativo, você verá o valor do segredo recuperado. No comando anterior, você está dando permissões para a identidade do serviço de aplicativo para executar operações **get** e **list** no cofre de chaves.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+Exclua o grupo de recursos, a máquina virtual e todos os recursos relacionados quando não precisar mais deles. Para fazer isso, selecione o grupo de recursos da VM e selecione **Excluir**.
+
+Exclua o cofre de chaves usando o comando [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre o Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [SDK do Azure para .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Referência de API REST do Azure](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

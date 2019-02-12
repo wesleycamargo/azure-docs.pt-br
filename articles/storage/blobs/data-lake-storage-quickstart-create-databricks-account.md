@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks | Microsoft Docs'
+title: 'Início rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks | Microsoft Docs'
 description: Saiba como executar um trabalho do Spark no Azure Databricks usando o portal do Azure e uma conta de armazenamento do Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
@@ -8,14 +8,14 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239904"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694160"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
+# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
 
 Este início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise dos dados armazenados em uma conta de armazenamento com a versão prévia do Azure Data Lake Storage Gen2 habilitada.
 
@@ -29,15 +29,11 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Por enquanto deixe de lado a configuração da conta de armazenamento
-
-Você precisará do nome de sua conta de armazenamento e de um URI do ponto de extremidade do sistema de arquivos.
+## <a name="get-the-name-of-your-storage-account"></a>Obter o nome da conta de armazenamento
 
 Para obter o nome de sua conta de armazenamento no portal do Azure, escolha **Todos os Serviços** e filtre o termo *armazenamento*. Em seguida, selecione **Contas de armazenamento** e localize sua conta de armazenamento.
 
-Para obter o URI do ponto de extremidade do sistema de arquivos, escolha **Propriedades** e, no painel de propriedades, encontre o valor do campo **PONTO DE EXTREMIDADE DO SISTEMA DE ARQUIVOS do ADLS primário**.
-
-Cole esses valores em um arquivo de texto. Você precisará deles em breve.
+Cole esse nome em um arquivo de texto. Você precisará dele em breve.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Cole esses valores em um arquivo de texto. Você precisará deles em breve.
 
 Crie uma entidade de serviço seguindo as diretrizes deste tópico: [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Há algumas tarefas específicas que você precisará realizar conforme executar as etapas desse artigo.
-
-:heavy_check_mark: Ao executar as etapas da seção [Criar um aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) do artigo, defina o campo **URL de Logon** da caixa de diálogo **Criar** como o URI do ponto de extremidade recém-coletado.
+Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
 
 :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua o aplicativo à **Função Colaborador do Armazenamento de Blobs**.
 
@@ -136,7 +130,7 @@ Nesta seção, você cria um bloco de anotações no workspace do Azure Databric
     > [!NOTE]
     > Esse bloco de código acessa diretamente o ponto de extremidade do Data Lake Gen2 usando o OAuth, mas há outras maneiras de conectar o workspace do Databricks à sua conta do Data Lake Storage Gen2. Por exemplo, você pode montar o sistema de arquivos usando o OAuth ou usar um acesso direto com uma Chave Compartilhada. <br>Para ver exemplos dessas abordagens, confira o artigo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks.
 
-5. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções [Reservar a configuração da conta de armazenamento](#config) e [Criar uma entidade de serviço](#service-principal) deste artigo.  Defina o valor de espaço reservado `file-system-name` com qualquer nome que deseja fornecer ao sistema de arquivos.
+5. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas nas seções [Obter o nome da conta de armazenamento](#config) e [Criar uma entidade de serviço](#service-principal) deste artigo.  Defina o valor de espaço reservado `file-system-name` com qualquer nome que deseja fornecer ao sistema de arquivos.
 
 6. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 

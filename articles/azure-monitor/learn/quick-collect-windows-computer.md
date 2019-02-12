@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0900f5e2cab24004c4e2a358a98cd750f0968b50
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193682"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752971"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows em um ambiente híbrido
 O [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) pode coletar dados diretamente dos computadores Windows físicos ou virtuais em seu datacenter ou de outro ambiente de nuvem um único repositório para correlação e análise detalhadas.  Este guia de início rápido mostra como configurar e coletar dados do computador Windows com algumas etapas simples.  Para VMs Windows do Azure, consulte o tópico a seguir [Coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -83,7 +83,7 @@ O Log Analytics pode coletar eventos dos logs de eventos do Windows e de contado
 4. Adicione um novo log de eventos digitando o nome do log.  Digite **Sistema** e, em seguida, clique no sinal de adição **+**.  
 5. Na tabela, verifique as severidades **Erro** e **Aviso**.   
 6. Clique em **Salvar** na parte superior da página para salvar a configuração.
-7. Selecione **Dados de Desempenho do Windows** para habilitar a coleta de contadores de desempenho em um computador Windows. 
+7. Selecione **Contadores de Desempenho do Windows** para habilitar a coleta de contadores de desempenho em um computador Windows. 
 8. Quando você configura os contadores de desempenho do Windows para um novo workspace do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.<br> ![Contadores de desempenho padrão do Windows selecionados](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> Clique em **Adicionar os contadores de desempenho selecionados**.  Eles são adicionados e predefinidos com um intervalo de amostragem de coleta de dez segundos.  
 9. Clique em **Salvar** na parte superior da página para salvar a configuração.
 

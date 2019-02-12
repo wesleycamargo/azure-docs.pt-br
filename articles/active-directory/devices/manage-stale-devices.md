@@ -1,6 +1,6 @@
 ---
-title: Como gerenciar o ciclo de vida de dispositivos no Azure AD | Microsoft Docs
-description: Saiba como o gerenciamento de dispositivos pode ajudar você a controlar os dispositivos que estão acessando os recursos do seu ambiente.
+title: Como gerenciar dispositivos obsoletos no Azure AD | Microsoft Docs
+description: Devido a dispositivos perdidos, roubados ou quebrados, por exemplo, ou reinstalações do sistema operacional, normalmente você tem dispositivos obsoletos em seu ambiente. Saiba como remover dispositivos obsoletos do seu banco de dados de dispositivos registrados no Azure AD (Azure Active Directory).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092107"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493297"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Como: gerenciar os dispositivos obsoletos no Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerenciar dispositivos obsoletos no Azure AD
 
 O ideal é que, para concluir o ciclo de vida, o registro dos dispositivos registrados seja cancelado quando eles não forem mais necessários. No entanto, devido a dispositivos perdidos, roubados ou quebrados, por exemplo, ou reinstalações do sistema operacional, normalmente você tem dispositivos obsoletos em seu ambiente. Como administrador de TI, você provavelmente deseja ter um método para remover dispositivos obsoletos para poder focar em seus recursos ao gerenciar dispositivos que realmente requerem gerenciamento.
 

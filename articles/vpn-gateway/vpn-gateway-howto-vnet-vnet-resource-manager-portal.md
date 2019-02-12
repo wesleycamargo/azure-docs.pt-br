@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 245710d1ae3e7af4db5286a5db985fe35549ad3a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098759"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821654"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -133,7 +133,7 @@ Este artigo mostra como conectar VNets usando o tipo de conexão VNet a VNet. Ao
        - **Chave compartilhada**: Insira *abc123*. Você pode criar a chave compartilhada por conta própria. Quando você cria a conexão entre as redes virtuais, os valores devem corresponder.
 
 ## <a name="create-and-configure-testvnet1"></a>Criar e configurar a TestVNet1
-Se você já tiver uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN. Preste atenção especial em todas as sub-redes que possam se sobrepor a outras redes. Sua conexão não funcionará corretamente se você tiver uma sobreposição de sub-redes. Depois que sua VNet estiver configurada com as definições corretas, você poderá começar as etapas na seção [Especificar um servidor DNS](#dns).
+Se você já tiver uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN. Preste atenção especial em todas as sub-redes que possam se sobrepor a outras redes. Sua conexão não funcionará corretamente se você tiver uma sobreposição de sub-redes. Depois que a VNet for definida com as configurações corretas, você poderá começar as etapas na seção Especificar um servidor DNS.
 
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

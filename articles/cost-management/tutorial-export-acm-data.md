@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053527"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766394"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -30,8 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar se os dados são coletados
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-A exportação de dados está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Há suporte para as seguintes permissões do Azure por assinatura para exportações de dados por usuário e por grupo:
+A exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Para exibir a lista completa dos tipos de conta compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Há suporte para as seguintes permissões do Azure por assinatura para exportações de dados por usuário e por grupo:
 
 - Proprietário – pode criar, modificar ou excluir exportações agendadas de uma assinatura.
 - Colaborador – pode criar, modificar ou excluir suas próprias exportações agendadas. Pode modificar o nome de exportações agendadas criadas por outras pessoas.

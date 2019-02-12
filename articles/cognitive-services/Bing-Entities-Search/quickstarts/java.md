@@ -1,123 +1,156 @@
 ---
-title: 'Início Rápido: API de Pesquisa de Entidade do Bing, Java'
+title: 'Início rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o Java'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
+description: Use este Início Rápido para enviar uma solicitação para a API REST de Pesquisa de Entidade do Bing usando o Java e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 000ae54d578ab7223293fc7c089d91a593931533
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5adf40648118f8eb6c33df80ba3e30208f1b2059
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169444"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813391"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-java"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Java 
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o Java
 
-Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  com o Java.
+Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Este aplicativo Java simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta.
+
+Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter o [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Você poderá usar um Java IDE se tiver um favorito, mas um editor de texto será suficiente.
+* O [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* A [biblioteca Gson](https://github.com/google/gson)
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidade do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="search-entities"></a>Pesquisar entidades
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-Para executar o aplicativo, siga estas etapas.
+## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um projeto Java em seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+1. Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas a seguir.
 
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+  ```java
+  import java.io.*;
+  import java.net.*;
+  import java.util.*;
+  import javax.net.ssl.HttpsURLConnection;
+  import com.google.gson.Gson;
+  import com.google.gson.GsonBuilder;
+  import com.google.gson.JsonObject;
+  import com.google.gson.JsonParser;
+  import com.google.gson.Gson;
+  import com.google.gson.GsonBuilder;
+  import com.google.gson.JsonObject;
+  import com.google.gson.JsonParser;
+  ```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (EntitySearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac EntitySearch.java -cp .;gson-2.8.1.jar
- * java -cp .;gson-2.8.1.jar EntitySearch
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+2. Em uma classe, crie variáveis para o ponto de extremidade de API, a chave de assinatura e uma consulta de pesquisa.
 
-public class EntitySearch {
+  ```java
+  public class EntitySearch {
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+      static String subscriptionKey = "ENTER KEY HERE";
+    
+        static String host = "https://api.cognitive.microsoft.com";
+        static String path = "/bing/v7.0/entities";
+    
+        static String mkt = "en-US";
+        static String query = "italian restaurant near me";
+  //...
+    
+  ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+## <a name="construct-a-search-request-string"></a>Construir uma cadeia de caracteres de solicitação de pesquisa
 
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/entities";
-
-    static String mkt = "en-US";
-    static String query = "italian restaurant near me";
-
+1. Crie uma função chamada `search()` que retorna uma `String` JSON. codifique a consulta de pesquisa em URL e a adicione a uma cadeia de caracteres de parâmetros com `&q=`. Adicione seu mercado à cadeia de caracteres com `?mkt=`.
+ 
+2. Crie um objeto de URL com as cadeias de caracteres de host, caminho e parâmetros.
+    
+    ```java
+    //...
     public static String search () throws Exception {
         String encoded_query = URLEncoder.encode (query, "UTF-8");
         String params = "?mkt=" + mkt + "&q=" + encoded_query;
         URL url = new URL (host + path + params);
+    //...
+    ```
+      
+## <a name="send-a-search-request-and-receive-a-response"></a>Enviar uma solicitação de pesquisa e receber uma resposta
 
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
+1. Na função `search()` criada acima, crie um objeto `HttpsURLConnection` com `url.openCOnnection()`. Defina o método de solicitação como `GET` e adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(
+    ```java
+    //...
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    connection.setDoOutput(true);
+    //...
+    ```
+
+2. Crie um `StringBuilder`. Use um novo `InputStreamReader` como parâmetro ao criar uma instância do `BufferedReader` para ler a resposta da API.  
+    
+    ```java
+    //...
+    StringBuilder response = new StringBuilder ();
+    BufferedReader in = new BufferedReader(
         new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+    //...
+    ```
 
-        return response.toString();
+3. Crie um objeto `String` para armazenar a resposta do `BufferedReader`. Itere por ele e acrescente cada linha à cadeia de caracteres. Em seguida, feche o leitor e retorne a resposta. 
+    
+    ```java
+    String line;
+    
+    while ((line = in.readLine()) != null) {
+      response.append(line);
     }
+    in.close();
+    
+    return response.toString();
+    ```
 
-    public static String prettify (String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+## <a name="format-the-json-response"></a>Formatar a resposta JSON
 
-    public static void main(String[] args) {
-        try {
-            String response = search ();
-            System.out.println (prettify (response));
+1. Crie uma função chamada `prettify` para formatar a resposta JSON. Crie um `JsonParser`, chame `parse()` no texto JSON e armazene-o como um objeto JSON. 
+
+2. Use a biblioteca Gson para criar um `GsonBuilder()` e use `setPrettyPrinting().create()` para formatar o JSON. Em seguida, retorne-o.    
+  
+  ```java
+  //...
+  public static String prettify (String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+  }
+  //...
+  ```
+
+## <a name="call-the-search-function"></a>Chamar a função de pesquisa
+
+1. No método principal do projeto, chame `search()` e use `prettify()` para formatar o texto.
+    
+    ```java
+        public static void main(String[] args) {
+            try {
+                String response = search ();
+                System.out.println (prettify (response));
+            }
+            catch (Exception e) {
+                System.out.println (e);
+            }
         }
-        catch (Exception e) {
-            System.out.println (e);
-        }
-    }
-}
-```
+    ```
 
-**Resposta**
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -182,11 +215,12 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 }
 ```
 
-[Voltar ao início](#HOLTop)
+[Voltar ao início](#main)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial da Pesquisa de Entidade do Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Visão geral da Pesquisa de Entidade do Bing](../search-the-web.md )
-> [Referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+
+* [O que é a API de Pesquisa de Entidade do Bing?](../overview.md )
+* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

@@ -1,19 +1,19 @@
 ---
-title: Usar a WAN Virtual do Azure para criar conexões do ExpressRoute para ambientes locais e do Azure | Microsoft Docs
-description: Neste tutorial, saiba como usar a WAN Virtual do Azure para criar conexões do ExpressRoute para ambientes do Azure e locais.
+title: Usar a WAN Virtual do Azure para criar conexões do ExpressRoute com o Azure e com ambientes locais | Microsoft Docs
+description: Neste tutorial, saiba como usar a WAN Virtual do Azure para criar conexões do ExpressRoute com o Azure e com ambientes locais.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248173"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692818"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure (versão prévia)
 
@@ -45,7 +45,7 @@ Antes de configurar a WAN Virtual, você precisa inscrever sua assinatura na ver
 
 **Considerações sobre a versão prévia:**
 
-* Disponibilidade de região: Centro-oeste dos EUA
+* Disponibilidade de região: Centro-Oeste dos EUA
 * O Circuito de ExpressRoute deve estar habilitado em um país que dá suporte ao [Alcance Global do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Criar uma rede virtual
@@ -71,7 +71,7 @@ Em um navegador, navegue para o [portal do Azure (versão prévia)](https://aka.
 1. Selecione sua vWAN e, em **Arquitetura da WAN Virtual**, selecione **Circuitos do ExpressRoute**
 2. Se o circuito do ExpressRoute na mesma assinatura do que sua vWAN, clique em **Selecionar circuito do ExpressRoute** da(s) sua(s) assinatura(s) 
 3. Usando a lista suspensa, selecione o ExpressRoute que você gostaria de associar ao hub.
-4. Se o circuito da ExpressRoute não estiver na mesma assinatura ou se você tiver recebido [uma chave de autorização e uma ID de emparelhamento](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **Encontrar um circuito ao resgatar uma chave de autorização**
+4. Se o circuito da ExpressRoute não estiver na mesma assinatura ou se você tiver recebido [uma chave de autorização e uma identificação de emparelhamento](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **Encontrar um circuito ao resgatar uma chave de autorização**
 5. Insira os seguintes detalhes:
 * **Chave de autorização**: gerada pelo proprietário do circuito, conforme descrito acima
 * **URI do circuito de pares**: o URI do circuito que é fornecido pelo proprietário do circuito e é o identificador exclusivo para o circuito

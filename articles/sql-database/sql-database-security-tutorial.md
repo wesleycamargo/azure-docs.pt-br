@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461195"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752510"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Proteger um banco de dados independente ou em pool
 
@@ -45,7 +45,7 @@ Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um servidor e um banco de dados SQL do Azure
-  - Crie-os com o [portal do Azure](sql-database-get-started-portal.md), a [CLI](sql-database-cli-samples.md) ou o [PowerShell](sql-database-powershell-samples.md)
+  - Crie-os com o [portal do Azure](sql-database-single-database-get-started.md), a [CLI](sql-database-cli-samples.md) ou o [PowerShell](sql-database-powershell-samples.md)
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -64,7 +64,7 @@ Defina **Permitir acesso aos serviços do Azure** como **DESATIVADO** para a con
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar regras de firewall do servidor de Banco de Dados SQL
 
-As regras de firewall no nível do servidor se aplicam a todos os bancos de dados dentro do mesmo servidor do Banco de Dados SQL.
+As regras de firewall de IP no nível do servidor se aplicam a todos os bancos de dados dentro do mesmo servidor do Banco de Dados SQL.
 
 Para configurar uma regra de firewall no nível do servidor:
 
@@ -231,7 +231,7 @@ Para copiar uma cadeia de conexão segura:
 
 ## <a name="enable-security-features"></a>Habilitar recursos de segurança
 
-O Banco de Dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis para o banco de dados e o servidor, exceto a máscara de dados, que só está disponível no banco de dados. Para saber mais, consulte [Segurança de dados avançada](sql-advanced-threat-protection.md), [Auditoria](sql-database-auditing.md), [Máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md) e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
+O Banco de Dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis para o banco de dados e o servidor, exceto a máscara de dados, que só está disponível no banco de dados. Para saber mais, consulte [Segurança de dados avançada](sql-database-advanced-data-security.md), [Auditoria](sql-database-auditing.md), [Máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md) e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Segurança de dados avançada
 

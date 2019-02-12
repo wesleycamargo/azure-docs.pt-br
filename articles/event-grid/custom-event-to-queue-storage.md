@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474975"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728037"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o Armazenamento de Filas do Azure com a CLI do Azure e a Grade de Eventos
 
@@ -24,9 +24,12 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. O Armazename
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>Instalar versão prévia do recurso
+Se você estiver usando a CLI do Azure ou o Azure PowerShell em seu computador local, em vez de usar o Cloud Shell no portal do Azure, verifique se você tem as seguintes versões da CLI do Azure e do Azure PowerShell. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- CLI do Azure versão 2.0.56 ou superior. Para obter instruções sobre como instalar a versão mais recente da CLI do Azure, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+- Azure PowerShell versão 1.1.0 ou superior. Baixe a versão mais recente do Azure PowerShell em seu computador Windows em [Downloads do Azure – Ferramentas de linha de comando](https://azure.microsoft.com/downloads/). 
+
+Este artigo fornece comandos para o uso da CLI do Azure. 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. O exemplo a seguir cria o tópico personalizado no seu grupo de recursos. Substitua `<topic_name>` por um nome exclusivo para o tópico personalizado. O nome do tópico de grade de eventos deve ser exclusivo, pois é representado por uma entrada DNS.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

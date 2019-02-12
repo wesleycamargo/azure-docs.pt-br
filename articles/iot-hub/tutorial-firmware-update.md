@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: bc1887ef3cdbc56732317aea15be7a618c35847e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003569"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729805"
 ---
-# <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: implementar um processo de atualização de firmware do dispositivo
+# <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware de dispositivos
 
 Talvez seja necessário atualizar o firmware dos dispositivos conectados ao seu Hub IoT. Por exemplo, talvez você queira adicionar novos recursos para o firmware ou aplicar patches de segurança. Em muitos cenários de IoT, é impraticável visitar fisicamente e depois aplicar manualmente atualizações de firmware para seus dispositivos. Este tutorial mostra como você pode iniciar e monitorar o processo de atualização de firmware remotamente por meio de um aplicativo de back-end conectado ao seu hub.
 
@@ -39,7 +39,7 @@ Neste tutorial, você completa as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v4.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -150,7 +150,7 @@ Durante o processo de atualização, o dispositivo simulado relata o andamento u
 
 [!code-javascript[Reported properties](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=reportedProperties "Reported properties")]
 
-O trecho a seguir mostra a implementação da fase de download. Durante a fase de download, o dispositivo simulado usa propriedades relatadas para enviar informações de status para o aplicativo de back-end:
+O snippet a seguir mostra a implementação da fase de download. Durante a fase de download, o dispositivo simulado usa propriedades relatadas para enviar informações de status para o aplicativo de back-end:
 
 [!code-javascript[Download image phase](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=downloadimagephase "Download image phase")]
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ccba82e626882a99deaca2f12be3d2f96869b81
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078942"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814785"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Serviço do Azure Kubernetes e o Terraform
 [ O Azure Kubernetes Service (AKS) ](/azure/aks/) gerencia seu ambiente hospedado do Kubernetes, tornando rápido e fácil implantar e gerenciar aplicativos em contêiner sem a experiência em orquestração de contêineres. Também elimina a sobrecarga das operações em andamento e a manutenção provisionando, atualizando e dimensionamento os recursos sob demanda, sem colocar seus aplicativos offline.
@@ -352,7 +352,7 @@ Nesta seção, você verá como usar o comando `terraform init` para criar os re
 
     ![Exemplo de resultados do "plano de terraform"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode levar vários minutos, resultando no tempo limite da sessão do Cloud Shell. Se a sessão do Cloud Shell expirar, você poderá seguir as etapas na seção [ "Recuperar de um tempo limite do Cloud Shell" ](#recover-from-a-dloud-shell-timeout) para permitir que você conclua o tutorial.
+1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode levar vários minutos, resultando no tempo limite da sessão do Cloud Shell. Se a sessão do Cloud Shell expirar, siga as etapas da seção "Recuperação de um tempo limite do Cloud Shell" para permitir que você conclua o tutorial.
 
     ```bash
     terraform apply out.plan
@@ -362,7 +362,7 @@ Nesta seção, você verá como usar o comando `terraform init` para criar os re
 
     ![Exemplo de resultados de "terraform apply"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. No portal do Azure, selecione **Todos os serviços** no menu à esquerda para ver os recursos criados para o novo cluster do Kubernetese.
+1. No portal do Azure, selecione **Todos os serviços** no menu à esquerda para ver os recursos criados para o novo cluster do Kubernetes.
 
     ![Aviso do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 

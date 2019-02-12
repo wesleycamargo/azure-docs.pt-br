@@ -4,17 +4,17 @@ description: Use o Blueprint do Azure para criar, definir e implantar artefatos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315291"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566305"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um Azure Blueprint no portal
 
@@ -42,10 +42,7 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
 
    ![Criar plano gráfico](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Forneça um **Blueprint Name** como "MyBlueprint" (letras e números - até 48 caracteres, mas sem espaços ou caracteres especiais) para o blueprint, mas deixe **Blueprint Description** em branco por enquanto .  Na caixa **Definir Local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) no qual deseja salvar o blueprint e clique em **Selecione**.
-
-   > [!NOTE]
-   > Definições de plantas só podem ser salvo para grupos de gerenciamento. Para criar seu primeiro grupo de gerenciamento, siga [estas etapas](../management-groups/create.md).
+1. Forneça um **Blueprint Name** como "MyBlueprint" (letras e números - até 48 caracteres, mas sem espaços ou caracteres especiais) para o blueprint, mas deixe **Blueprint Description** em branco por enquanto .  Na caixa **Definir Local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que deseja salvar o blueprint e clique em **Selecione**.
 
 1. Verifique se as informações estão corretas (os campos **Blueprint Name** e **Definition Location** não podem ser alterados mais tarde) e clique em **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
@@ -154,7 +151,7 @@ A publicação torna disponível para ser atribuído a uma assinatura.
 
 ## <a name="assign-a-blueprint"></a>Atribuir um modelo
 
-Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatura. Atribua o blueprint criado a uma das assinaturas na sua hierarquia do grupo de gerenciamento.
+Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatura. Atribua o blueprint que você criou a uma das assinaturas em sua hierarquia do grupo de gerenciamento. Se o blueprint for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura.
 
 1. Selecione **Definições do Blueprint** na página à esquerda.
 

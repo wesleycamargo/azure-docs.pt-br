@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 66c6b6908a225301f0bce9f70b43e96047bcd6d1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ff34eef76e03bbf4ae0195960847b7748235483c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791138"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822452"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster do HDInsight
 
 O [Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. 
 
-Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https://kafka.apache.org) usando o modelo do Azure Resource Manager. Você também aprenderá a usar os utilitários incluídos para enviar e receber mensagens usando o Kafka.
+Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https://kafka.apache.org) usando o modelo do Azure Resource Manager. Você também aprenderá a usar os utilitários incluídos para enviar e receber mensagens usando o Kafka. Modelos semelhantes podem ser exibidos nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). A referência de modelo pode ser encontrada [aqui](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

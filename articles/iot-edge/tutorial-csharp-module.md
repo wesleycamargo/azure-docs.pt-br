@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2acf30a9f71accb4780d473ce51b3ff640f12dac
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 21f59ad03f2ff91b3c33675b0994b7f565bf5031
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303501"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563194"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado
 
@@ -99,7 +99,7 @@ Crie um modelo de solução de C# que possa ser personalizado com seu próprio c
    | Fornecer um nome para a solução | Insira um nome descritivo para a solução ou aceite o padrão **EdgeSolution**. |
    | Selecionar modelo do módulo | Escolha **Módulo C#**. |
    | Fornecer um nome de módulo | Nomeie o módulo **CSharpModule**. |
-   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. A cadeia de caracteres final se parece com \<nome do registro\>.azurecr.io/csharpmodule. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é preenchida previamente o nome fornecido na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br>O repositório de imagem final se parece com \<nome_do_registro\>.azurecr.io/csharpmodule. |
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-csharp-module/repository.png)
 
@@ -306,6 +306,12 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usará as informações no modelo de implantação e gerará um arquivo deployment.json em uma nova pasta chamada **config**. Em seguida, ele executará dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, conteinerizam o CSharpModule.dll e enviam o código por push para o registro de contêiner especificado ao inicializar a solução. 
 
 Você pode conferir o endereço de imagem de contêiner completo com marca no terminal integrado do VS Code. O endereço da imagem é criado a partir de informações que estão no arquivo module.json com o formato \<repositório\>:\<versão\>-\<plataforma\>. Para este tutorial,ele deve ser parecido com registryname.azurecr.io/csharpmodule:0.0.1-amd64.
+
+>[!TIP]
+>Se você receber um erro ao tentar compilar e efetuar push do seu módulo, faça as seguintes verificações:
+>* Você entrou no Docker no Visual Studio Code usando as credenciais do seu Registro de contêiner? Essas credenciais são diferentes daquelas que você usa para entrar no portal do Azure.
+>* Seu repositório de contêiner está correto? Abra **modules** > **cmodule** > **module.json** e encontre o campo **repository**. O repositório de imagens deve se parecer com **\<nome_do_registro\>.azurecr.io/csharpmodule**. 
+>* Você está criando o mesmo tipo de contêiner que seu computador de desenvolvimento está executando? Visual Studio Code assume como padrão contêineres do Linux amd64. Se seu computador de desenvolvimento está executando contêineres do Windows ou Linux arm32v7, atualize a plataforma na barra de status azul na parte inferior da janela do VS Code para corresponder à sua plataforma de contêiner.
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 

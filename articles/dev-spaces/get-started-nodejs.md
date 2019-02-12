@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 91c4bc76a7753c7d51310fbe9b807f0969ca900c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 942d9a7b4160189d14ecdd85b21b2537d1a2a8d3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467281"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656355"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com Node.js
 
@@ -101,7 +101,7 @@ Nesta seção, você criará um aplicativo Web Node. js e o executará em um con
 ### <a name="create-a-nodejs-web-app"></a>Criar um aplicativo Web Node.js
 Baixe código do GitHub navegando até https://github.com/Azure/dev-spaces e selecionando **Clonar ou Baixar** para baixar o repositório do GitHub em seu ambiente local. O código para este guia está em `samples/nodejs/getting-started/webfrontend`.
 
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar código para desenvolvimento Docker e Kubernetes
+## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Preparar código para desenvolvimento de Docker e Kubernetes
 Até o momento, você tem um aplicativo Web básico que pode ser executado localmente. Agora, você colocará o aplicativo em contêiner criando ativos que definem o contêiner do aplicativo e como ele será implantado no Kubernetes. Isso é fácil de fazer usando o Azure Dev Spaces: 
 
 1. Inicialize o VS Code e abra a pasta `webfrontend`. (Você pode ignorar todos os prompts padrão para adicionar ativos de depuração ou restaurar o projeto.)
@@ -278,5 +278,5 @@ Nessa configuração, o contêiner está configurado para iniciar o *nodemon*. Q
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o desenvolvimento em equipe](team-development-nodejs.md)
+> [Saiba mais sobre o desenvolvimento de vários serviços](multi-service-nodejs.md)
 

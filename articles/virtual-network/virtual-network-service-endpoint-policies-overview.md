@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051304"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812337"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto de extremidade de serviço de rede virtual (versão prévia)
 
@@ -154,7 +154,7 @@ Nenhum registro em log centralizado está disponível para políticas de ponto d
 ### <a name="troubleshooting-scenarios"></a>Cenários de solução de problemas
 - Acesso permitido a contas de armazenamento não listadas nas políticas de ponto de extremidade
   - Grupos de segurança de rede podem estar permitindo acesso às contas de Armazenamento do Azure ou da Internet em outras regiões.
-  - Grupos de segurança de rede devem ser configurados para negar todo o tráfego na Internet de saída e permitir somente o tráfego para regiões específicas do Armazenamento do Azure. Para obter detalhes, veja [Grupos de segurança de rede](#network-security-groups).
+  - Grupos de segurança de rede devem ser configurados para negar todo o tráfego na Internet de saída e permitir somente o tráfego para regiões específicas do Armazenamento do Azure. Para obter detalhes, confira Grupos de Segurança de Rede.
 - O acesso é negado para contas listadas nas políticas de ponto de extremidade
   - Grupos de segurança de rede ou a filtragem de firewall podem estar bloqueando o acesso
   - Se remover/reaplicar a política resultar em perda de conectividade:

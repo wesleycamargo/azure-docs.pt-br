@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 12/04/2018
+ms.date: 02/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c199a403e65bd084428fd45e8dc67cca214f5f9f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7be1bf8c003315fc4dbed449283f7c92850edced
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251275"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752034"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
@@ -33,34 +33,71 @@ Neste tutorial, você irá:
 > * Transformar dados usando transformações inteligentes para criar recursos.
 > * Salvar o objeto de fluxo de dados a ser usado em um modelo de regressão.
 
-Você pode preparar seus dados em Python usando o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="get-the-notebook"></a>Obter o bloco de anotações
+Vá para [Configurar seu ambiente de desenvolvimento](#start) para ler as etapas do notebook ou use as instruções abaixo para obter o notebook e executá-lo em Azure Notebooks ou seu próprio servidor de notebook. Para executar o notebook, você precisará de:
 
-Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Execute o notebook **regression-part1-data-prep.ipynb** no [Azure Notebooks](https://notebooks.azure.com/) ou em seu próprio servidor do Jupyter Notebook.
+* Um servidor de notebook do Python 3.6 com o seguinte instalado:
+    * O SDK de Preparação de Dados do Azure Machine Learning para Python
+* O notebook do tutorial
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
 
-## <a name="import-packages"></a>Importar pacotes
+* Usar o [Azure Notebooks](#azure)
+* Usar [seu próprio servidor de notebook](#server)
 
-Comece importando o SDK.
+### <a name="azure"></a>Usar o Azure Notebooks: notebooks gratuitos do Jupyter na nuvem
 
-```python
-import azureml.dataprep as dprep
-```
+É fácil começar a usar o Azure Notebooks! O [SDK da Preparação de Dados do Azure Machine Learning para Python](https://aka.ms/data-prep-sdk) já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
 
-Se você estiver seguindo o tutorial em seu próprio ambiente Python, use o seguinte para instalar os pacotes necessários.
+Após concluir as etapas abaixo, execute o notebook **tutorials/regression-part1-data-prep.ipynb** em seu projeto de **Introdução**.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
+
+Use estas etapas para criar um servidor de notebook local do Jupyter no seu computador.  Após concluir as etapas, execute o notebook **tutorials/regression-part1-data-prep.ipynb**.
+
+1. Conclua o [Início rápido do Python do Azure Machine Learning](quickstart-create-workspace-with-python.md) para criar um ambiente Miniconda.  Fique à vontade ignorar a seção **Criar um workspace** se você desejar, mas você precisará dela para a [parte 2](tutorial-auto-train-models.md) desta série de tutoriais.
+1. Instale o SDK de Preparação de Dados em seu ambiente usando `pip install azureml-dataprep`.
+1. Clone [o repositório do GitHub](https://aka.ms/aml-notebooks).
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Inicie o servidor de notebook do seu diretório clonado.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+
+### Install and import packages
+
+Use the following to install necessary packages if you don't already have them.
 
 ```shell
 pip install azureml-dataprep
+```
+
+Importe o SDK.
+
+```python
+import azureml.dataprep as dprep
 ```
 
 ## <a name="load-data"></a>Carregar dados
 
 Baixe dois conjuntos de dados diferentes de táxi em Nova York em objetos de fluxo de dados. Os conjuntos de dados têm campos um pouco diferentes. O método `auto_read_file()` reconhece automaticamente o tipo de arquivo de entrada.
 
-
 ```python
+from IPython.display import display
 dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
 green_path = "/".join([dataset_root, "green-small/*"])

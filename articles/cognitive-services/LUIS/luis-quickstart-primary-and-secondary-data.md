@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211399"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820973"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com uma entidade simples e uma lista de frases
 
@@ -239,7 +239,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-service
 
     [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa de valores da lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa de valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. [Treine](#train) e [publique](#publish) o aplicativo novamente para usar a lista de frases.
+1. Treine e publique o aplicativo novamente para usar a lista de frases.
 
 1. Repita a consulta no ponto de extremidade com o mesmo enunciado: `This is the lead welder paperwork.`
 

@@ -4,15 +4,15 @@ description: Descreve como descobrir e avaliar as VMs do VMware locais para a mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298714"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730757"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -78,7 +78,7 @@ O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor.
     > [!NOTE]
     > O dispositivo de descoberta única já foi preterido, pois esse método se baseou nas configurações de estatísticas do vCenter Server para disponibilidade de pontos de dados de desempenho e contadores de desempenho médios coletados, o que resultou em subdimensionamento de VMs para migração para o Azure.
 
-    **Gratificação instantânea:** com o dispositivo de descoberta contínua, após a conclusão da descoberta (leva algumas horas dependendo do número de VMs), você poderá criar avaliações imediatamente. Já que a coleta de dados de desempenho começa quando você inicia a descoberta, se estiver procurando por gratificação instantânea, você deverá escolher o critério de dimensionamento na avaliação como *local*. Para avaliações baseadas no desempenho, é aconselhável esperar pelo menos um dia após o início da descoberta para obter recomendações de tamanhos confiáveis.
+    **Avaliações rápidas:** com o dispositivo de descoberta contínua, após a conclusão da descoberta (leva algumas horas dependendo do número de VMs), você poderá criar avaliações imediatamente. Já que a coleta de dados de desempenho começa quando você inicia a descoberta, se você estiver procurando avaliações rápidas, deverá escolher o critério de dimensionamento na avaliação como *local*. Para avaliações baseadas no desempenho, é aconselhável esperar pelo menos um dia após o início da descoberta para obter recomendações de tamanhos confiáveis.
 
     O dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
 
@@ -185,7 +185,7 @@ Importe o arquivo baixado para o vCenter Server.
     - Se a VM acessa a internet através de um proxy, clique em **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade com a Internet e a [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) acessada pelo coletor.
 
       > [!NOTE]
-      > O endereço de proxy deve ser inserido no formato http://ProxyIPAddress ou http://ProxyFQDN. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre como pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
+      > O endereço de proxy deve ser inserido no formato http://ProxyIPAddress ou http://ProxyFQDN. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre como pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
 
     - O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
     - Baixe e instale o VMware PowerCLI.
@@ -196,7 +196,7 @@ Importe o arquivo baixado para o vCenter Server.
     - Em **Escopo de coleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente maior.
 
 7. Em **Especificar projeto de migração**, especifique a ID do projeto de Migrações para Azure e da chave que você copiou do portal. Se não as copiar, abra o portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, clique em **Descobrir Máquinas** e copie os valores.  
-8. Em **Exibir progresso da coleção**, monitore o status da descoberta. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre quais dados são coletados pelo Coletor de Migrações para Azure.
+8. Em **Exibir progresso da coleção**, monitore o status da descoberta. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre quais dados são coletados pelo Coletor de Migrações para Azure.
 
 > [!NOTE]
 > O coletor só oferece suporte para "Inglês (Estados Unidos)" como o idioma do sistema operacional e o idioma da interface do coletor.

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Ingerir Blobs do Azure no Azure Data Explorer'
+title: 'Início Rápido: Ingerir Blobs do Azure no Azure Data Explorer'
 description: Neste guia de início rápido, você aprenderá a enviar dados de conta de armazenamento para o Azure Data Explorer usando uma assinatura da Grade de Eventos.
 services: data-explorer
 author: radennis
@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 8b56203b700d42f3fdec1b066ed05caf92eb53f1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462028"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743677"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início Rápido: Ingerir Blobs do Azure no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -111,7 +111,7 @@ Agora você se conecta à Grade de Eventos do Azure Data Explorer, de modo que o
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela criada na **TestDatabase**. |
-    | Formato de dados | *JSON* | Há suporte para formatos JSON e CSV. |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
     | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDatabase**, que mapeia os dados de entrada JSON para tipos de dados e nomes de coluna da **TestTable**.|
     | | |
 

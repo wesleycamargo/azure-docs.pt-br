@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352793"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819341"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -26,7 +26,7 @@ Os Serviços de Mídia do Microsoft Azure (AMS) permitem que você carregue com 
 
 O AMS opera em vários datacenters no mundo inteiro. Esses datacenters estão agrupados em regiões geográficas, oferecendo a você a flexibilidade de escolher onde compilar seus aplicativos. Você pode ver a [lista de regiões e suas localizações](https://azure.microsoft.com/regions/). 
 
-Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_scenarios) ou [sob demanda](#vod_scenarios). O tópico também fornece detalhes sobre a disponibilidade dos recursos de mídia e serviços nos datacenters.
+Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_scenarios) ou sob demanda. O tópico também fornece detalhes sobre a disponibilidade dos recursos de mídia e serviços nos datacenters.
 
 ## <a name="overview"></a>Visão geral
 
@@ -148,7 +148,7 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
 
     Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada US fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
 
-* Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
+* Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Escolha um entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
 
     Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento de sua conta com as **URs** (Unidades Reservadas). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
 
@@ -183,7 +183,7 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Índia Ocidental, sul da Índia e Índia Central. 
+Disponível em todos os datacenters, exceto: Alemanha, Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Codificando processadores de mídia
 
@@ -240,7 +240,7 @@ Disponível em todos os datacenters.
 
 ### <a name="reserved-unit-ru-type"></a>Tipo de unidade reservada (UR)
 
-Uma conta dos Serviços de Mídia está associada a um tipo de Unidade reservada, que determina a velocidade com a qual suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: S1, S2 ou S3.
+Uma conta dos Serviços de Mídia está associada a um tipo de Unidade reservada, que determina a velocidade com a qual suas tarefas de processamento de mídia são processadas. Escolha um entre os seguintes tipos de unidade reservada: S1, S2 ou S3.
 
 Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
 

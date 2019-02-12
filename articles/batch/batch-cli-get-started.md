@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476818"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812354"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -63,7 +63,7 @@ Para usar a CLI do Azure com o Lote, você precisa fazer logon e autenticar. Sig
 Existem algumas maneiras diferentes de fazer logon no Azure, descritas detalhadamente em [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli):
 
 1. [Fazer logon interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Faça logon interativamente quando você estiver executando comandos da CLI do Azure na linha de comando.
-2. [Fazer logon com uma entidade de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Faça logon com uma entidade de serviço quando você estiver executando comandos da CLI do Azure de um script ou aplicativo.
+2. [Fazer logon com uma entidade de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Faça logon com uma entidade de serviço quando você estiver executando comandos da CLI do Azure de um script ou aplicativo.
 
 Para os fins deste artigo, vamos mostrar como entrar no Azure interativamente. Digite [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) na linha de comando:
 
@@ -76,7 +76,7 @@ O comando `az login` retorna um token que você pode usar para autenticar, confo
 
 ![Fazer logon no Azure](./media/batch-cli-get-started/az-login.png)
 
-Os exemplos listados na seção [Scripts de shell de exemplo](#sample-shell-scripts) também mostra como iniciar a sessão da CLI do Azure entrando no Azure interativamente. Depois de fazer logon, você pode chamar comandos para trabalhar com recursos do gerenciamento em lotes, incluindo contas, chaves, pacotes de aplicativos e cotas do Lote.  
+Os exemplos listados na seção Scripts do shell de exemplo também mostra como iniciar a sessão da CLI do Azure fazendo logon no Azure de forma interativa. Depois de fazer logon, você pode chamar comandos para trabalhar com recursos do gerenciamento em lotes, incluindo contas, chaves, pacotes de aplicativos e cotas do Lote.  
 
 ### <a name="log-in-to-your-batch-account"></a>Fazer logon sua conta do Lote
 
@@ -110,7 +110,7 @@ Você tem duas opções para autenticação na sua conta do Lote:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-Os exemplos listados na seção [Scripts de shell de exemplo](#sample-shell-scripts) mostram como entrar na conta do Lote com a CLI do Azure usando o Azure AD e a Chave Compartilhada.
+Os exemplos listados na seção Scripts do shell de exemplo mostram como fazer logon na conta do Lote com a CLI do Azure usando o Azure AD e a Chave Compartilhada.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Usar comandos de extensão da CLI do Lote do Azure
 
@@ -168,7 +168,7 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 
 * Use `-h` para obter um **texto de ajuda** para qualquer comando da CLI
 * Use `-v` e `-vv` para exibir saídas de comando **detalhadas**. Quando o sinalizador `-vv` é incluído, a CLI do Azure exibe as respostas e solicitações REST reais. Essas opções são úteis para exibir a saída completa do erro.
-* Você pode exibir a **saída do comando como JSON** com a opção `--json`. Por exemplo, o `az batch pool show pool001 --json` exibe propriedades do pool001 no formato JSON. Você pode copiar e modificar essa saída a fim de usá-la em um `--json-file` (consulte [Arquivos JSON](#json-files) anteriormente neste artigo).
+* Você pode exibir a **saída do comando como JSON** com a opção `--json`. Por exemplo, o `az batch pool show pool001 --json` exibe propriedades do pool001 no formato JSON. Em seguida, você poderá copiar e modificar essa saída para usá-la em um `--json-file` (confira Arquivos JSON anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Próximas etapas

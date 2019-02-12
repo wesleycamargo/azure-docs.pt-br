@@ -12,35 +12,42 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/11/2018
+ms.date: 01/30/2019
 ms.author: twhitney,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c569a100984b77b05eac9f8b345faa05fb6848d7
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: fdb0d8e8def8429ff4c7c377df254fdfc0300637
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508837"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implantar contêineres do Linux no Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis.
 
-Este guia de início rápido mostra como implantar contêineres do Linux em um cluster do Service Fabric. Uma vez concluído, você terá um aplicativo de votação que consiste em um front-end de Web em Python e um back-end em Redis em execução em um cluster do Service Fabric. Você também aprenderá a fazer o failover de um aplicativo e a dimensionar um aplicativo em seu cluster.
+Este guia de início rápido mostra como implantar contêineres do Linux em um cluster do Service Fabric no Azure. Uma vez concluído, você terá um aplicativo de votação que consiste em um front-end de Web em Python e um back-end em Redis em execução em um cluster do Service Fabric. Você também aprenderá a fazer o failover de um aplicativo e a dimensionar um aplicativo em seu cluster.
 
 ![Página da Web do aplicativo de votação][quickstartpic]
 
-Neste início rápido, você usa o ambiente Bash no Azure Cloud Shell para executar comandos de CLI do Service Fabric. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Para concluir este guia de início rápido:
 
-Se estiver executando o Cloud Shell pela primeira vez, você terá que configurar seu compartilhamento de arquivos `clouddrive`. Aceite os padrões ou anexe um compartilhamento de arquivo existente. Para saber mais, confira [Configurar um `clouddrive` compartilhamento de arquivos](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share).
+1. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar se você não tiver uma assinatura.
+
+2. Instale a [CLI do Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+
+3. Instalar o [SDK e a CLI do Service Fabric](service-fabric-get-started-linux.md#installation-methods)
+
+4. Instalar o [Git](https://git-scm.com/)
+
 
 ## <a name="get-the-application-package"></a>Obter o pacote de aplicativos
 
 Para implantar os contêineres no Service Fabric, você precisa de um conjunto de arquivos de manifesto (a definição do aplicativo) que descreve os contêineres individuais e o aplicativo.
 
-No Cloud Shell, use o Git para clonar uma cópia da definição do aplicativo; altere os diretórios para o diretório `Voting` em seu clone.
+Em um console, use o Git para clonar uma cópia da definição de aplicativo; altere os diretórios para o diretório `Voting` em seu clone.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
@@ -50,14 +57,37 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
-Para implantar o aplicativo no Azure, é necessário que um cluster do Service Fabric execute o aplicativo. Os party clusters facilitam a criação rápida de um cluster do Service Fabric. Party clusters são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure e executados pela equipe do Service Fabric. Você pode usar party clusters para implantar aplicativos e saber mais sobre a plataforma. O cluster usa um certificado único e autoassinado para segurança entre nós e entre cliente e nó.
+Para implantar o aplicativo no Azure, é necessário que um cluster do Service Fabric execute o aplicativo. Os comandos a seguir criam um cluster de cinco nós no Azure.  Os comandos também criam um certificado autoassinado, adicionam-no a um cofre de chaves e baixam o certificado localmente. O novo certificado é usado para proteger o cluster quando ele é implantado e é usado para autenticar clientes.
 
-Entre e ingresse em um [cluster do Linux](https://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Leiame** para localizar a senha do certificado e as instruções sobre como configurar vários ambientes para usar o certificado. Mantenha ambas as páginas **Bem-vindo** e **Leiame** abertas. Você usará algumas das instruções nas etapas a seguir.
+```azurecli
+#!/bin/bash
+
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
+
+# Login to Azure and set the subscription
+az login
+
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
+```
 
 > [!Note]
-> Há um número limitado de party clusters disponíveis por hora. Se você receber um erro ao tentar se inscrever em um party cluster, poderá aguardar um período e tentar novamente, ou poderá seguir estas etapas em [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) para criar um cluster em sua assinatura.
->
->Se você criar seu próprio cluster, lembre-se de que o serviço Web de front-end está configurado para escutar o tráfego de entrada na porta 80. Verifique se a porta está aberta no cluster. (Se você estiver usando um party cluster, essa porta estará aberta.)
+> O serviço de front-end da Web está configurado para escutar o tráfego de entrada na porta 80. Por padrão, a porta 80 está aberta no seu cluster de VMs e no Azure Load Balancer.
 >
 
 ## <a name="configure-your-environment"></a>Configurar seu ambiente
@@ -68,53 +98,33 @@ O Service Fabric fornece várias ferramentas que você pode usar para gerenciar 
 - CLI (Interface de Linha de Comando) do Service Fabric, que é executada sobre a CLI do Azure. 
 - Comandos do PowerShell.
 
-Neste início rápido você usa a CLI do Service Fabric no Cloud Shell e no Service Fabric Explorer. As seções a seguir mostram como instalar o certificado necessário para se conectar ao cluster seguro com essas ferramentas.
+Neste início rápido você usa a CLI do Service Fabric e o Service Fabric Explorer (uma ferramenta baseada na Web). Para usar o Service Fabric Explorer, você precisa importar o arquivo PFX de certificado para o navegador. Por padrão, o arquivo PFX não tem nenhuma senha.
 
-### <a name="configure-certificate-for-the-service-fabric-cli"></a>Configurar um certificado para a CLI do Service Fabric
-
-Para usar a CLI no Cloud Shell, carregue o arquivo PFX de certificado para o Cloud Shell e use-o para criar um arquivo PEM.
-
-1. Para carregar o certificado em seu diretório de trabalho atual do Cloud Shell, arraste o arquivo PFX de certificado da pasta onde ele foi baixado em seu computador e solte-o na janela do Cloud Shell.
-
-2. Para converter um arquivo PFX em um arquivo PEM, use o comando a seguir. (Para party clusters, você pode copiar um comando específico para o arquivo e senha PFX seguindo as instruções na página **Leiame**.)
-
-    ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-    ```
-
-### <a name="configure-certificate-for-service-fabric-explorer"></a>Configurar certificado para o Service Fabric Explorer
-
-Para usar o Service Fabric Explorer, você precisa importar o arquivo PFX do certificado baixado do site do Party Cluster para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Você precisa da senha de chave privada do PFX, que pode ser obtida na página **Leiame**.
-
-Use qualquer método com o qual você está mais familiarizado para importar o certificado em seu sistema. Por exemplo: 
-
-- No Windows: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu armazenamento pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell nas instruções **Leiame**.
-- No Mac: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado no conjunto de chaves.
-- No Ubuntu: o Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
+O Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
 
    ![Instalar certificado no Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
 ## <a name="deploy-the-service-fabric-application"></a>Implantar o aplicativo do Service Fabric
 
-1. No Cloud Shell, conecte-se ao cluster do Service Fabric no Azure usando a CLI. O ponto de extremidade é o ponto de extremidade de gerenciamento do cluster. Você criou o arquivo PEM na seção anterior. (Para party clusters, você pode copiar um comando específico para o arquivo PEM e para o ponto de extremidade de gerenciamento seguindo as instruções na página **Leiame**.)
+1. Conecte-se ao cluster do Service Fabric no Azure usando a CLI. O ponto de extremidade é o ponto de extremidade de gerenciamento do cluster. Você criou o arquivo PEM na seção anterior. 
 
     ```bash
-    sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+    sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Use o script de instalação para copiar a definição do aplicativo de votação para o cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
+2. Use o script de instalação para copiar a definição do aplicativo de votação para o cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.  O arquivo PEM do certificado deve estar localizado no mesmo diretório que o arquivo *install.sh*.
 
     ```bash
     ./install.sh
     ```
 
-3. Abra um navegador da Web e navegue até o ponto de extremidade do Service Fabric Explorer para seu cluster. O ponto de extremidade tem o seguinte formato: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; por exemplo, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. </br>(Para party clusters, encontre o ponto de extremidade do Service Fabric Explorer para seu cluster na página **inicial**.)
+3. Abra um navegador da Web e navegue até o ponto de extremidade do Service Fabric Explorer para seu cluster. O ponto de extremidade tem o seguinte formato: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expanda o nó **Aplicativos** para ver que agora há uma entrada para o tipo de aplicativo de votação e a instância que você criou.
 
     ![Service Fabric Explorer][sfx]
 
-5. Para conectar-se ao contêiner em execução, abra um navegador da Web e navegue até a URL do seu cluster. Por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Você deve ver o aplicativo de votação no navegador.
+5. Para conectar-se ao contêiner em execução, abra um navegador da Web e navegue até a URL do seu cluster. Por exemplo, `http://containertestcluster.eastus.cloudapp.azure.com:80`. Você deve ver o aplicativo de votação no navegador.
 
     ![Página da Web do aplicativo de votação][quickstartpic]
 
@@ -130,8 +140,8 @@ O Service Fabric faz com que suas instâncias de contêiner sejam movidas automa
 
 Para fazer failover do contêiner de front-end, execute as seguintes etapas:
 
-1. Abra o Service Fabric Explorer no cluster, por exemplo, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
-2. Clique no nó **fabric:/Voting/azurevotefront** do modo de exibição de árvore e expanda o nó de partição (representado por um GUID). Observe o nome do nó no modo de exibição de árvore, que mostra os nós onde o contêiner está em execução no momento, por exemplo, `_nodetype_4`.
+1. Abra o Service Fabric Explorer no cluster, por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`.
+2. Clique no nó **fabric:/Voting/azurevotefront** do modo de exibição de árvore e expanda o nó de partição (representado por um GUID). Observe o nome do nó no modo de exibição de árvore, que mostra os nós onde o contêiner está em execução no momento, por exemplo, `_nodetype_1`.
 3. Expanda o nó **Nós** no modo de exibição de árvore. Clique nas reticências (...) ao lado do nó que está executando o contêiner.
 4. Escolha **Reiniciar** para reiniciar o nó e confirmar a ação de reinicialização. A reinicialização faz o contêiner fazer failover para outro nó no cluster.
 
@@ -143,7 +153,7 @@ Os serviços do Service Fabric podem ser facilmente dimensionados em um cluster 
 
 Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
-1. Abra o Service Fabric Explorer no cluster, por exemplo, `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Abra o Service Fabric Explorer no cluster, por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080`.
 2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/azurevotefront** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
 
     ![Início do serviço de escala do Service Fabric Explorer][containersquickstartscale]
@@ -161,18 +171,27 @@ Com essa tarefa de gerenciamento simples, você dobrou o número de recursos dis
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-1. Use o script de desinstalação (uninstall.sh) fornecido com o modelo para excluir a instância do aplicativo no cluster e cancelar o registro do tipo de aplicativo. Esse script leva algum tempo para limpar a instância e, portanto, você não deve executar o script de instalação imediatamente após esse script. Você pode usar o Service Fabric Explorer para determinar quando a instância foi removida e o tipo de aplicativo teve o registro cancelado.
+Use o script de desinstalação (uninstall.sh) fornecido com o modelo para excluir a instância do aplicativo no cluster e cancelar o registro do tipo de aplicativo. Esse script leva algum tempo para limpar a instância e, portanto, você não deve executar o script de instalação imediatamente após esse script. Você pode usar o Service Fabric Explorer para determinar quando a instância foi removida e o tipo de aplicativo teve o registro cancelado.
 
-    ```bash
-    ./uninstall.sh
-    ```
+```bash
+./uninstall.sh
+```
 
-2. Se você concluiu o trabalho com o cluster, remova o certificado do repositório de certificados. Por exemplo: 
-   - No Windows: use o [snap-in do MMC dos Certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Selecione **Minha conta de usuário** ao adicionar o snap-in. Navegue até `Certificates - Current User\Personal\Certificates` e remova o certificado.
-   - No Mac: use o aplicativo de conjunto de chaves.
-   - No Ubuntu: siga as etapas usadas para exibir certificados e remova o certificado.
+A maneira mais simples de excluir o cluster e todos os recursos que ele consume é excluir o grupo de recursos.
 
-3. Se você não quiser continuar usando o Cloud Shell, exclua a conta de armazenamento associada para evitar encargos. Feche a sessão do Cloud Shell. No portal do Azure, clique na conta de armazenamento associada ao Cloud Shell, clique em **Excluir** na parte superior da página e responda às solicitações.
+Faça logon no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster. Você pode encontrar sua ID de assinatura fazendo logon no portal do Azure. Exclua o grupo de recursos e todos os recursos do cluster usando o comando [az group delete](/cli/azure/group?view=azure-cli-latest).
+
+```azurecli
+az login
+az account set --subscription <guid>
+ResourceGroupName="containertestcluster"
+az group delete --name $ResourceGroupName
+```
+
+Se você concluiu o trabalho com o cluster, remova o certificado do repositório de certificados. Por exemplo: 
+- No Windows: Use o [snap-in MMC de certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Selecione **Minha conta de usuário** ao adicionar o snap-in. Navegue até `Certificates - Current User\Personal\Certificates` e remova o certificado.
+- No Mac: Use o aplicativo de Conjunto de Chaves.
+- No Ubuntu: siga as etapas usadas para exibir certificados e remova o certificado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

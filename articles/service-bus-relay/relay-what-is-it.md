@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621013"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818032"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
@@ -44,7 +44,7 @@ No padrão de transferência de dados retransmitidos, as etapas básicas envolvi
 A Retransmissão do Azure tem dois recursos:
 
 - [Conexões Híbridas](#hybrid-connections) – usa os soquetes Web de padrão aberto, habilitando cenários de várias plataformas.
-- [Retransmissões de WCF](#wcf-relays) – usa o WCF (Windows Communication Foundation) para habilitar chamadas de procedimento remotas. A Retransmissão de WCF é a oferta de retransmissão herdada oferta que muitos clientes já usam com seus modelos de programação do WCF.
+- Retransmissões do WCF – usa o WCF (Windows Communication Foundation) para habilitar chamadas de procedimento remotas. A Retransmissão de WCF é a oferta de retransmissão herdada oferta que muitos clientes já usam com seus modelos de programação do WCF.
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
 
@@ -70,7 +70,7 @@ Tanto as Conexões Híbridas quanto a Retransmissão do WCF habilitam a conexão
 | **Protocolo aberto baseado em padrões** | |x |
 | **Modelos de programação RPC** | |x |
 
-## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: processamento de mensagens de solicitações de retransmissão
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: Processamento de mensagens de solicitações de retransmissão
 O diagrama a seguir mostra como as solicitações de retransmissão de entrada são manipuladas pelo serviço de Retransmissão do Azure:
 
 ![Processamento de mensagens de solicitações de retransmissão WCF](./media/relay-what-is-it/ic690645.png)

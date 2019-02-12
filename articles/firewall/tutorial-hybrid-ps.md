@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458203"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815737"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -54,7 +54,7 @@ Há três requisitos principais para que este cenário funcione corretamente:
 - Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
 - Verifique se você definiu **AllowGatewayTransit** ao emparelhar a VNet-Hub com a VNet-Spoke e **UseRemoteGateways** ao emparelhar a VNet-Spoke com a VNet-Hub.
 
-Consulte a seção [Criar Rotas](#create-routes) deste tutorial para ver como essas rotas são criadas.
+Confira a seção Criar rotas deste tutorial para ver como essas rotas são criadas.
 
 >[!NOTE]
 >O Firewall do Azure deve ter conectividade direta com a Internet. Se você tiver habilitado o túnel forçado para local por meio do ExpressRoute ou do Gateway de Aplicativo, será necessário configurar a UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** e, em seguida, atribuí-lo a **AzureFirewallSubnet**.

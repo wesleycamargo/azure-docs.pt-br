@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474863"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694016"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -33,6 +33,7 @@ Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela 
    * [Ingressados no Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * É necessário habilitar a redefinição de senha self-service do Azure AD.
 * Se seus dispositivos Windows 10 estiverem atrás de um firewall ou de um servidor proxy, você deverá adicionar as URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidas para tráfego HTTPS (porta 443).
+* Examine as limitações abaixo antes de experimentar esse recurso em seu ambiente.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
 
@@ -86,7 +87,7 @@ Agora você criou e atribuiu uma política de configuração de dispositivo para
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configurar o link Redefinir senha usando o registro
 
-1. Faça logon no PC Windows usando as credenciais administrativas
+1. Entre no Windows PC usando credenciais administrativas
 2. Execute o **regedit** como administrador
 3. Defina a seguinte chave do registro
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -98,13 +99,15 @@ Agora que a política foi configurada e atribuída, o que muda para o usuário? 
 
 ![LoginScreen][LoginScreen]
 
-Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
+Quando os usuários tentarem se conectar, agora eles verão um link para Redefinir a senha que abre a experiência de redefinição de senha self-service na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
 
 Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
 
 ![Exemplo de redefinição de senha na tela de logon no log de auditoria do Microsoft Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Quando os usuários reiniciam sua senha na tela de logon de um dispositivo Windows 10, uma conta temporária com baixos privilégios chamada “defaultuser1” é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A própria conta tem uma senha gerada aleatoriamente, não é mostrada na conexão do dispositivo e será removida automaticamente após o usuário reiniciar sua senha. Vários perfis "defaultuser" podem existir, mas podem ser ignorados com segurança.
 
 ## <a name="limitations"></a>Limitações
 
@@ -116,7 +119,9 @@ Ao testar essa funcionalidade usando a Área de Trabalho Remota ou uma seção d
 
 * Atualmente não há suporte para a redefinição de senha a partir de uma Área de Trabalho Remota.
 
-Se for exigido o Ctrl + Alt + Del pela política ou as notificações de tela de bloqueio estiverem desativadas, a **Redefinição de senha** não funcionará.
+Se Ctrl+Alt+Del for exigido pela política nas versões do Windows 10 antes de 1809, a **Redefinição de senha** não funcionará.
+
+Se as notificações de tela de bloqueio estiverem desativadas, a **Redefinição de senha** não funcionará.
 
 As configurações de política a seguir são conhecidas por interferir com a capacidade de redefinir senhas
 
@@ -128,7 +133,7 @@ As configurações de política a seguir são conhecidas por interferir com a ca
 
 Esse recurso não funciona para redes com autenticação de rede 802.1x implantada e a opção "Executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1x implantada, é recomendável usar a autenticação de computador para habilitar esse recurso.
 
-Para cenários Ingressados em Domínio Híbrido, existe um cenário em que o fluxo de trabalho SSPR será concluído sem necessidade de um controlador de domínio do Active Directory. Conectividade com um controlador de domínio é necessária para usar a nova senha pela primeira vez.
+Para cenários Ingressados em Domínio Híbrido, o fluxo de trabalho SSPR será concluído com êxito sem necessidade de um controlador de domínio do Active Directory. Se um usuário concluir o processo de redefinição de senha quando a comunicação com um controlador de domínio do Active Directory não estiver disponível, por exemplo, ao trabalhar remotamente, o usuário não poderá entrar no dispositivo até que ele possa se comunicar com um controlador de domínio e atualizar a credencial armazenada em cache. **A conectividade com um controlador de domínio é necessária para usar a nova senha pela primeira vez**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

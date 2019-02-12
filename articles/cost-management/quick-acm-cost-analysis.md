@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077650"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769844"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com análise de custo
 
@@ -32,7 +32,9 @@ Neste guia de início rápido, você aprende a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custo está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para saber mais sobre como atribuir acesso aos dados de Gerenciamento de Custos, consulte [Atribuir acesso aos dados](assign-access-acm-data.md).
+A análise de custo dá suporte a uma variedade de tipos de conta do Azure. Para exibir a lista completa dos tipos de conta compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os dados de custo, você precisará de, pelo menos, acesso de leitura em sua conta do Azure.
+
+Para clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/), é necessário ter, pelo menos, acesso de leitura a um ou mais dos escopos a seguir para exibir os dados de custo.
 
 - Conta de cobrança
 - department
@@ -41,13 +43,15 @@ A análise de custo está disponível para todos os clientes do [EA (Contrato En
 - Assinatura
 - Grupo de recursos
 
+Para saber mais sobre como atribuir acesso aos dados de Gerenciamento de Custos, consulte [Atribuir acesso aos dados](assign-access-acm-data.md).
+
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 - Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Examine os custos de análise de custo
 
-Para examinar os custos com análise de custo, no portal do Azure, navegue até **Gerenciamento de Custos + Cobrança** &gt; **Gerenciamento de Custos** &gt; **Alterar escopo**, escolha um escopo e, em seguida, clique em **Selecionar**.
+Para examinar os custos com a análise de custo, no portal do Azure, navegue para **Gerenciamento de Custos + Cobrança** &gt; **Análise de custo**. Selecione **Escopo: _ScopeName_**, escolha um escopo e, em seguida, clique em **Selecionar**.
 
 O escopo que você seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, você não faz multisseleção. Você seleciona um escopo mais amplo com o acúmulo de outros e, em seguida, filtra o que deseja. É importante entender isso porque algumas pessoas não devem ter acesso a um escopo pai com escopos filho acumulados.
 
@@ -94,7 +98,8 @@ Aqui está uma exibição dos custos de serviço do Azure para uma exibição do
 
 ![Exibição acumulada diária agrupada, mostrando exemplos de custos de serviço do Azure do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Gráficos dinâmicos sob os gráficos principais exibem diferentes agrupamentos para dar uma visão mais ampla dos custos gerais para o período de tempo e filtros selecionados. Selecione uma propriedade ou uma marca para exibir os custos agregados em qualquer dimensão. O conjunto completo de dados para exibição total está na parte inferior da tela, expandindo a gaveta de **Dados** ou selecionando **Exportar > Baixar CSV** na parte superior da tela. Eis um exemplo da gaveta de dados para grupos de recursos.
+Gráficos dinâmicos sob os gráficos principais exibem diferentes agrupamentos para dar uma visão mais ampla dos custos gerais para o período de tempo e filtros selecionados. Selecione uma propriedade ou uma marca para exibir os custos agregados em qualquer dimensão.
+
 
 ![Dados completos para a exibição atual, mostrando os nomes de grupos de recursos](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +108,10 @@ A imagem anterior mostra nomes de grupos de recursos. Embora você possa agrupar
 Ao agrupar os custos segundo um atributo específico, os dez principais colaboradores de custo são mostrados, do mais alto para o mais baixo. Se houver mais de dez grupos, os nove principais colaboradores serão mostrados. Também será mostrado um grupo **Outros**, que abrange todos os grupos restantes em conjunto. Ao agrupar por marcas, você também poderá ver um grupo **Sem marca** para custos sem a chave de marca aplicada. Os custos **Sem marca** aparecem sempre por último, mesmo que haja mais custos sem marca que com marca. Se houver dez ou mais valores de marca, os custos sem marca farão parte da categoria **Outros**.
 
 As máquinas virtuais *Clássicas* (Gerenciamento de Serviços do Azure ou ASM), as redes e os recursos de armazenamento não compartilham dados detalhados de cobrança. Eles são mesclados como **Serviços clássicos** quando os custos são agrupados.
+
+Você pode exibir o conjunto de dados completo de qualquer exibição. As seleções ou os filtros aplicados afetam os dados apresentados. Para ver o conjunto de dados completo, clique na lista **tipo de gráfico** e, em seguida, clique na exibição **Tabela**.
+
+![Dados da exibição atual em uma exibição de tabela](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>Baixar dados de análise de custo

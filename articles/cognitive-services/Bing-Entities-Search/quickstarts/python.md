@@ -1,74 +1,79 @@
 ---
-title: 'Início rápido: API de Pesquisa de Entidade do Bing, Python'
+title: 'Início Rápido: Enviar uma solicitação de pesquisa à API REST de Pesquisa de Entidade do Bing usando Python'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
+description: Use este início rápido para enviar uma solicitação para a API REST de Pesquisa de Entidade do Bing usando Python e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: fb0ed14a2369034b3185875f7e94e4576277b4fb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: df78c6930552865db9fb25df8e412e8644c8f265
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186273"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754703"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-python"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Início Rápido: Enviar uma solicitação de pesquisa à API REST de Pesquisa de Entidade do Bing usando Python
 
-Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  com Python.
+Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Este aplicativo Python simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
+
+Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do [Python 3.x](https://www.python.org/downloads/) para executar esse código.
+* [Python](https://www.python.org/downloads/) 2.x ou 3.x
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Pesquisa de Entidade do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.   Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## <a name="search-entities"></a>Pesquisar entidades
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-Para executar esse aplicativo, siga estas etapas.
+1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as seguintes importações. Crie variáveis para a chave de assinatura, um ponto de extremidade, um mercado e uma consulta de pesquisa. Encontre o ponto de extremidade no painel do Azure.
 
-1. Crie um novo projeto Python no seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+    ```python
+    import http.client, urllib.parse
+    import json
+    
+    subscriptionKey = 'ENTER YOUR KEY HERE'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/entities'
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-```python
-# -*- coding: utf-8 -*-
+2. Crie uma url de solicitação acrescentando sua variável de mercado ao parâmetro `?mkt=`. Codifique sua consulta como URL e acrescente-a ao parâmetro `&q=`. 
+    
+    ```python
+    params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
+    ```
 
-import http.client, urllib.parse
-import json
+## <a name="send-a-request-and-get-a-response"></a>Enviar uma solicitação e obter uma resposta
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+1. Crie uma função chamada `get_suggestions()`. Em seguida, siga estas etapas.
+    1. Adicione a chave de assinatura a um dicionário com `Ocp-Apim-Subscription-Key` como uma chave.
+    2. Use `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Envie uma solicitação `GET` usando `request()` com seu caminho e parâmetros e informações de cabeçalho.
+    3. Armazene a resposta com `getresponse()` e retorne `response.read()`.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+    ```python
+    def get_suggestions ():
+        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+        conn = http.client.HTTPSConnection (host)
+        conn.request ("GET", path + params, None, headers)
+        response = conn.getresponse ()
+        return response.read()
+    ```
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+2. Chame `get_suggestions()` e imprima a resposta json.
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
-
-def get_suggestions ():
-    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-    conn = http.client.HTTPSConnection (host)
-    conn.request ("GET", path + params, None, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
-
-**Resposta**
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -133,11 +138,10 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 }
 ```
 
-[Voltar ao início](#HOLTop)
-
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial da Pesquisa de Entidade do Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Visão geral da Pesquisa de Entidade do Bing](../search-the-web.md )
-> [Referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+
+* [O que é a API de Pesquisa de Entidade do Bing](../search-the-web.md)
+* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

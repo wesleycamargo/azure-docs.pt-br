@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052880"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565761"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python em seu dispositivo simulado
 
@@ -113,7 +113,7 @@ Use o pacote do Python **cookiecutter** para criar um modelo de solução em Pyt
    | Fornecer um nome para a solução | Insira um nome descritivo para a solução ou aceite o padrão **EdgeSolution**. |
    | Selecionar modelo do módulo | Escolha **Módulo de Python**. |
    | Fornecer um nome de módulo | Nomeie seu módulo **PythonModule**. |
-   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. A cadeia de caracteres final se parece com \<nome do registro\>.azurecr.io/pythonmodule. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é preenchida previamente o nome fornecido na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br>O repositório de imagem final se parece com \<nome_do_registro\>.azurecr.io/pythonmodule. |
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-python-module/repository.png)
 
@@ -246,6 +246,12 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usará as informações no modelo de implantação e gerará um arquivo deployment.json em uma nova pasta chamada **config**. Em seguida, ele executará dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, conteinerizam o código em Python e enviam o código por push para o registro de contêiner especificado ao inicializar a solução. 
 
 Você pode obter o endereço de imagem de contêiner completo com marca no comando `docker build` executado no terminal integrado do VS Code. O endereço da imagem é criado de informações do arquivo module.json com o formato \<repositório\>:\<versão\>-\<plataforma\>. Para este tutorial,ele deve ser parecido com registryname.azurecr.io/pythonmodule:0.0.1-amd64.
+
+>[!TIP]
+>Se você receber um erro ao tentar compilar e efetuar push do seu módulo, faça as seguintes verificações:
+>* Você entrou no Docker no Visual Studio Code usando as credenciais do seu Registro de contêiner? Essas credenciais são diferentes daquelas que você usa para entrar no portal do Azure.
+>* Seu repositório de contêiner está correto? Abra **modules** > **cmodule** > **module.json** e encontre o campo **repository**. O repositório de imagens deve se parecer vom **\<nome_do_registro\>.azurecr.io/pythonmodule**. 
+>* Você está criando o mesmo tipo de contêiner que seu computador de desenvolvimento está executando? Visual Studio Code assume como padrão contêineres do Linux amd64. Se seu computador de desenvolvimento consistir em contêineres Linux arm32v7, atualize a plataforma na barra de status azul na parte inferior da janela do VS Code para corresponder. Módulos Python não dão suporte a contêineres do Windows. 
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 

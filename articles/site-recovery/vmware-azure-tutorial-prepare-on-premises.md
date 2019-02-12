@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970807"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700104"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
@@ -107,11 +107,11 @@ Para conectar-se a VMs do Linux usando SSH após o failover, faça o seguinte:
 
 
 ## <a name="failback-requirements"></a>Requisitos de failback
-Se planeja realizar o failback no seu local, você também precisará garantir que certos [pré-requisitos sejam atendidos](vmware-azure-reprotect.md##before-you-begin). No entanto, eles **não são necessários para iniciar a habilitação da recuperação de desastre** das VMs e também podem ser feitos após o failover do Azure.
+Se planeja realizar failback no seu local, também é necessário garantir que determinados [pré-requisitos sejam atendidos](vmware-azure-reprotect.md##before-you-begin). No entanto, eles **não são necessários para iniciar a habilitação da recuperação de desastre** das VMs e também podem ser feitos após o failover do Azure.
 
 ## <a name="useful-links"></a>Links úteis
 
-Se você estiver replicando várias VMs, você deve planejar a capacidade e a implantação antes de iniciar. [Saiba mais](site-recovery-deployment-planner.md).
+Se estiver replicando várias VMs, você deverá planejar a capacidade e a implantação antes de iniciar. [Saiba mais](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

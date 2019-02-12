@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095679"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814003"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Início rápido: Configurar um aplicativo para expor APIs Web (versão prévia)
 
@@ -116,7 +116,7 @@ Para expor um novo escopo ou função pelo manifesto do aplicativo:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificar se a API Web está exposta a outros aplicativos
 
 1. Volte para o locatário do Azure AD, clique em **Registros de aplicativo** e localize e selecione o aplicativo cliente que você deseja configurar.
-1. Repita as etapas definidas em [Configurar um aplicativo cliente para acessar APIs Web](#configure-a-client-application-to-access-web-apis).
+1. Repita as etapas descritas em Configurar um aplicativo cliente para acessar APIs Web.
 1. Quando chegar à etapa **Selecionar uma API**, selecione o recurso. Você deve ver o novo escopo, disponível para solicitações de permissão do cliente.
 
 ## <a name="more-on-the-application-manifest"></a>Mais sobre o manifesto do aplicativo

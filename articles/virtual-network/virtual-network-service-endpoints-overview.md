@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382507"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818593"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -37,10 +37,7 @@ Este recurso está disponível para os seguintes serviços e regiões do Azure:
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Disponível ao público em geral em todas as regiões de nuvem pública do Azure.
 - **[Barramento de Serviço do Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível ao público em geral em todas as regiões de nuvem pública do Azure.
 - **[Hubs de Eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível ao público em geral em todas as regiões de nuvem pública do Azure.
-
-**Visualização**
-
-- **[Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em versão prévia.
+- **[Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em todas as regiões do Azure nas quais o ADLS Gen1 está disponível.
 
 Para obter as notificações mais recentes, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -99,7 +96,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 ### <a name="scenarios"></a>Cenários
 
 - **Redes emparelhadas, conectadas ou múltiplas**: Para proteger os serviços do Azure em várias sub-redes em uma rede virtual ou em várias redes virtuais, você pode habilitar pontos de extremidade de serviço em cada uma das sub-redes independentemente e proteger os recursos do serviço do Azure em todas elas.
-- **Filtrando tráfego de saída da rede virtual para os serviços do Azure**: Se deseja verificar ou filtrar o tráfego destinado a um serviço do Azure por meio de uma rede virtual, você pode implantar um dispositivo de rede virtual na rede virtual. Você pode aplicar os pontos de extremidade de serviço à sub-rede na qual o dispositivo de rede virtual está implantado e proteger os recursos do serviço do Azure apenas nessa sub-rede. Esse cenário pode ser útil se você deseja restringir o acesso do serviço do Azure de sua rede virtual somente para recursos específicos do Azure usando a filtragem por dispositivo de rede virtual. Para obter mais informações, consulte [Saída com dispositivos de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Filtrando tráfego de saída da rede virtual para os serviços do Azure**: Se deseja verificar ou filtrar o tráfego destinado a um serviço do Azure por meio de uma rede virtual, você pode implantar um dispositivo de rede virtual na rede virtual. Você pode aplicar os pontos de extremidade de serviço à sub-rede na qual o dispositivo de rede virtual está implantado e proteger os recursos do serviço do Azure apenas nessa sub-rede. Esse cenário pode ser útil se você deseja restringir o acesso do serviço do Azure de sua rede virtual somente para recursos específicos do Azure usando a filtragem por dispositivo de rede virtual. Para obter mais informações, consulte [Saída com dispositivos de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha).
 - **Garantindo os recursos do Azure para serviços implantados diretamente em redes virtuais**: Vários serviços do Azure podem ser implantados diretamente em sub-redes específicas em uma rede virtual. Você pode proteger recursos do serviço do Azure em sub-redes de [serviço gerenciado](virtual-network-for-azure-services.md) configurando um ponto de extremidade de serviço na sub-rede de serviço gerenciado.
 - **Tráfego de disco de uma máquina virtual do Azure**: O tráfego de disco da máquina virtual (incluindo montagem, desmontagem, diskIO) para discos gerenciados/não gerenciados, não é afetado por pontos de extremidade do serviço que estão encaminhando alterações para o Armazenamento do Azure. Você pode limitar o acesso REST a blobs de página para selecionar as redes, por meio de pontos de extremidade de serviço e [regras de rede do Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 

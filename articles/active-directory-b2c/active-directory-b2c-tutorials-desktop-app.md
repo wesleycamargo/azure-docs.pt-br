@@ -1,195 +1,89 @@
 ---
-title: Tutorial - Permitir autenticação de aplicativos de desktop com contas usando o Azure Active Directory B2C | Microsoft Docs
-description: Tutorial sobre como usar o Azure Active Directory B2C para fornecer o logon do usuário para um aplicativo de desktop .NET.
+title: Tutorial – Habilitar autenticação em um aplicativo cliente nativo – Azure Active Directory B2C | Microsoft Docs
+description: Tutorial sobre como usar o Azure Active Directory B2C para fornecer o logon do usuário para um aplicativo da área de trabalho .NET.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.author: davidmu
-ms.date: 11/30/2018
+ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a99e141a59be654d6d4285be73b0bea60b1e813b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a1842859723173412df2053a242ebe9ca4cf7f32
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166962"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754016"
 ---
-# <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Permitir autenticação de aplicativos da área de trabalho com contas usando o Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo cliente nativo usando o Azure Active Directory B2C
 
-Este tutorial mostra como usar o Azure Active Directory (Azure AD) B2C para inscrever e conectar usuários em um aplicativo de desktop do Windows Presentation Foundation (WPF). O Azure AD B2C permite que seus aplicativos quem com contas sociais, corporativas e do Azure Active Directory usando protocolos padrão.
+Este tutorial mostra como usar o Azure Active Directory (Azure AD) B2C para inscrever e conectar usuários em um aplicativo de desktop do Windows Presentation Foundation (WPF). O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais, corporativas e do Azure Active Directory usando protocolos padrão abertos.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Registrar um aplicativo de desktop de exemplo em seu locatário do Azure AD B2C.
-> * Criar fluxos de usuário para inscrição, entrada, edição de perfil e redefinição de senha para usuários.
-> * Configurar o aplicativo de exemplo para usar o locatário do Azure AD B2C.
+> * Adicionar um aplicativo cliente nativo
+> * Configurar o exemplo para usar o aplicativo
+> * Inscrever-se usando o fluxo de usuário
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Criar seu próprio [locatário do Azure AD B2C](active-directory-b2c-get-started.md)
-* [Instale o Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho de **desenvolvimento de desktop .NET** e de **desenvolvimento para a Web e ASP.NET**.
+- [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo. 
+- [Instale o Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho de **desenvolvimento de desktop .NET** e de **desenvolvimento para a Web e ASP.NET**.
 
-## <a name="register-desktop-app"></a>Registrar o aplicativo de desktop
+## <a name="add-the-native-client-application"></a>Adicionar um aplicativo cliente nativo
 
-Aplicativos precisam ser [registrados](../active-directory/develop/developer-glossary.md#application-registration) em seu locatário antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registro do aplicativo cria uma [id do aplicativo](../active-directory/develop/developer-glossary.md#application-id-client-id) para o aplicativo no locatário. 
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
+3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+4. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
+5. Insira um nome para o aplicativo. Por exemplo, *nativeapp1*.
+6. Para **incluir o aplicativo web / API web**, selecione **não**.
+7. Para **incluir cliente nativo**, selecione **Sim**.
+8. Para **URI de redirecionamento**, insira um URI de redirecionamento válido com um esquema personalizado. Há duas considerações importantes ao escolher um URI de redirecionamento:
 
-Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
+    - **Exclusivo** – o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário terá a opção de escolher um aplicativo. Se o usuário fizer uma escolha incorreta, ocorrerá falha na conexão.
+    - **Completo** – o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//contoso/` funciona e `//contoso` falha. Certifique-se de que o URI de redirecionamento não inclua caracteres especiais, como sublinhados.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+9. Clique em **Criar**.
+10. Na página de propriedades, registre a ID do aplicativo que você usará ao configurar o exemplo.
 
-1. Selecione **Azure AD B2C** da lista de serviços no Portal do Azure. 
+## <a name="configure-the-sample"></a>Configurar o exemplo
 
-2. Nas configurações de B2C, clique em **Aplicativos** e em **Adicionar**. 
-
-    Para registrar o aplicativo Web de exemplo no locatário, use as seguintes configurações:
-    
-    ![Adicionar um novo aplicativo](media/active-directory-b2c-tutorials-desktop-app/desktop-app-registration.png)
-    
-    | Configuração      | Valor sugerido  | Descrição                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | Meu aplicativo WPF de exemplo | Insira um **Nome** que descreve seu aplicativo para os consumidores. | 
-    | **Incluir aplicativo Web/API Web** | Não  | Selecione **Não** para um aplicativo de desktop. |
-    | **Incluir cliente nativo** | SIM | Como este é um aplicativo de desktop ele é considerado um cliente nativo. |
-    | **URI de redirecionamento** | Valores padrão | Identificador exclusivo para o qual o Azure AD B2C redireciona o agente do usuário em uma resposta do OAuth 2.0. |
-    | **URI de Redirecionamento Personalizado** | `com.onmicrosoft.contoso.appname://redirect/path` | Insira `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` Fluxos de usuário enviam tokens para esse URI. |
-    
-3. Clique em **Criar** para registrar o aplicativo.
-
-Os aplicativos registrados são exibidos na lista de aplicativos para o locatário do Azure AD B2C. Selecione o aplicativo de desktop na lista. O painel de propriedades do aplicativo de desktop registrado é exibido.
-
-![Propriedades do aplicativo de desktop](./media/active-directory-b2c-tutorials-desktop-app/b2c-desktop-app-properties.png)
-
-Anote a **ID do aplicativo cliente**. A ID identifica o aplicativo exclusivamente e é necessário para configurá-lo mais adiante no tutorial.
-
-## <a name="create-user-flows"></a>Criar fluxos de usuário
-
-Um fluxo de usuário do Azure AD B2C define a experiência do usuário para uma tarefa de identidade. Por exemplo, inscrição, entrada, alteração de senhas e edição de perfis são fluxos de usuário comuns.
-
-### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Criar um fluxo de usuário de inscrição ou entrada
-
-Para inscrever usuários para acesso e entrada no aplicativo de desktop, crie um **fluxo de usuário de inscrição ou entrada**.
-
-1. Na página do portal do Azure AD B2C, selecione **Fluxos de usuário** e clique em **Novo fluxo de usuário**.
-2. Na guia **Recomendado**, clique em **Inscrever-se e entrar**.
-
-    Para configurar o fluxo de usuário, use as configurações a seguir:
-
-    ![Adicione um fluxo de usuário de inscrição ou entrada](media/active-directory-b2c-tutorials-desktop-app/add-susi-user-flow.png)
-
-    | Configuração      | Valor sugerido  | Descrição                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SiUpIn | Insira um **Nome** para o fluxo de usuário. O nome do fluxo de usuário é prefixado com **B2C_1_**. Use o nome do fluxo de usuário completo **B2C_1_SiUpIn** no código de exemplo. | 
-    | **Provedores de Identidade** | Inscrição de email | O provedor de identidade usado para identificar o usuário exclusivamente. |
-
-3.  Em **Atributos de usuário e declarações**, clique em **Mostrar mais** e selecione as seguintes configurações:
-
-    ![Adicionar declarações e atributos de usuário](media/active-directory-b2c-tutorials-desktop-app/add-attributes-and-claims.png)
-
-    | Coluna      | Valores sugeridos  | DESCRIÇÃO                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Coletar atributo** | Nome de exibição e CEP | Selecione os atributos a serem coletados do usuário durante a inscrição. |
-    | **Declaração de retorno** | Nome de exibição, CEP, Usuário é novo, ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token). |
-
-4. Clique em **OK**.
-
-5. Clique em **Criar** para criar o seu fluxo de usuário. 
-
-### <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de usuário de edição de perfil
-
-Para permitir que os usuários redefinam suas informações de perfil de usuário por conta própria, crie um **fluxo de usuário de edição de perfil**.
-
-1. Na página do portal do Azure AD B2C, selecione **Fluxo de usuário** e clique em **Novo fluxo de usuário**.
-2. Na guia **Recomendado**, clique em **Inscrever-se e entrar**.
-
-    Para configurar o fluxo de usuário, use as configurações a seguir:
-
-    | Configuração      | Valor sugerido  | Descrição                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SiPe | Insira um **Nome** para o fluxo de usuário. O nome do fluxo de usuário é prefixado com **B2C_1_**. Use o nome do fluxo de usuário completo **B2C_1_SiPe** no código de exemplo. | 
-    | **Provedores de Identidade** | Entrada na conta local | O provedor de identidade usado para identificar o usuário exclusivamente. |
-
-3. Em **Atributos de usuário**, clique em **Mostrar mais** e selecione as configurações a seguir:
-
-    | Coluna      | Valores sugeridos  | DESCRIÇÃO                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Coletar atributo** | Nome de exibição e CEP | Selecione os atributos que os usuários podem modificar durante a edição de perfil. |
-    | **Declaração de retorno** | Nome de exibição, CEP, ID de Objeto do Usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
-
-4. Clique em **OK**.
-5. Clique em **Criar** para criar o seu fluxo de usuário. 
-
-### <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de usuário de redefinição de senha
-
-Para habilitar a redefinição de senha no seu aplicativo, você precisa criar um **fluxo de usuário de redefinição de senha**. Esse fluxo de usuário descreve a experiência do consumidor durante a redefinição de senha e o conteúdo de tokens que o aplicativo recebe após a conclusão bem-sucedida.
-
-1. Na página do portal do Azure AD B2C, selecione **Fluxos de usuário** e clique em **Novo fluxo de usuário**.
-2. Na guia **Recomendado**, clique em **Redefinição de senha**.
-
-    Para configurar o fluxo de usuário, use as configurações a seguir.
-
-    | Configuração      | Valor sugerido  | Descrição                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SSPR | Insira um **Nome** para o fluxo de usuário. O nome do fluxo de usuário é prefixado com **B2C_1_**. Use o nome do fluxo de usuário completo **B2C_1_SSPR** no código de exemplo. | 
-    | **Provedores de Identidade** | Redefinição de senha usando endereço de email | É o provedor de identidade usado para identificar o usuário exclusivamente. |
-
-3. Em **Declarações de aplicativo**, clique em **Mostrar mais** e selecione a seguinte configuração:
-
-    | Coluna      | Valor sugerido  | DESCRIÇÃO                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Declaração de retorno** | ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma redefinição de senha bem-sucedida. |
-
-4. Clique em **OK**.
-5. Clique em **Criar** para criar o seu fluxo de usuário. 
-
-## <a name="update-desktop-app-code"></a>Atualizar o código do aplicativo de desktop
-
-Agora que registrou o aplicativo de desktop e criou os fluxos de usuário, você precisa configurar o aplicativo para usar o seu locatário do Azure AD B2C. Neste tutorial, você configura um aplicativo de desktop de exemplo. 
-
-[Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [procure no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo do GitHub.
+Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O aplicativo da área de trabalho WPF de exemplo demonstra a inscrição e a conexão e chama uma API Web protegida no Azure AD B2C. [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [procure no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
 ```
 
-O aplicativo de desktop WPF de exemplo demonstra como um aplicativo de desktop pode usar o Azure AD B2C para usuário inscrever-se, entrar e chamar uma API Web protegida.
-
-Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário e configurar os fluxos de usuário que você criou. 
-
-Para alterar as configurações do aplicativo:
+Para alterar as configurações do aplicativo, substitua o `<your-tenant-name>` pelo nome do locatário e substitua`<application-ID`> pela ID do aplicativo que você registrou.
 
 1. Abra a solução `active-directory-b2c-wpf` no Visual Studio.
-
 2. No projeto `active-directory-b2c-wpf`, abra o arquivo **App.xaml.cs** e faça as seguintes atualizações:
 
     ```C#
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
-    private static string ClientId = "The Application ID for your desktop app registered in your tenant";
+    private static string ClientId = "<application-ID>";
     ```
 
-3. Atualize a variável **PolicySignUpSignIn** com o nome do *fluxo de usuário de inscrição ou entrada* que você criou na etapa anterior. Lembre-se de incluir o prefixo *b2c_1_*.
+3. Atualize a variável **PolicySignUpSignIn** com o nome do fluxo de usuário que você criou.
 
     ```C#
-    public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
+    public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 
-## <a name="run-the-sample-desktop-application"></a>Executar o aplicativo de desktop de exemplo
+## <a name="run-the-sample"></a>Execute o exemplo
 
-Pressione **F5** para compilar e executar o aplicativo de desktop. 
-
-O aplicativo de exemplo dá suporte a inscrição, entrada, edição de perfil e redefinição de senha. Este tutorial destaca como um usuário se inscreve para usar o aplicativo usando um endereço de email. Você pode explorar os outros cenários por conta própria.
+Pressione **F5** para criar e executar o exemplo.
 
 ### <a name="sign-up-using-an-email-address"></a>Criar conta usando um endereço de email
 
-1. Clique no botão **Entrar** para inscrever-se como um usuário do aplicativo de desktop. Este usa o fluxo de usuário **B2C_1_SiUpIn** definido em uma etapa anterior.
-
+1. Clique em **Entrar** para inscrever-se como um usuário. Isso usa o fluxo de usuário **B2C_1_signupsignin1**.
 2. O Azure AD B2C apresenta uma página de entrada com um link de inscrição. Como você ainda não tem uma conta, clique no link **Inscrever-se agora**. 
-
 3. O fluxo de trabalho de inscrição apresenta uma página para coletar e verificar a identidade do usuário usando um endereço de email. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo de usuário.
 
     Use um endereço de email válido e valide-o usando o código de verificação. Defina uma senha. Insira valores para os atributos necessários. 
@@ -201,15 +95,16 @@ O aplicativo de exemplo dá suporte a inscrição, entrada, edição de perfil e
 Agora o usuário pode usar seu endereço de email para entrar e usar o aplicativo de desktop.
 
 > [!NOTE]
-> Se você clicar no botão **Chamar API**, você receberá um erro "Não autorizado". Você recebe esse erro porque você está tentando acessar um recurso do locatário de demonstração. Como o token de acesso só é válido para seu locatário do Azure AD, a chamada à API não é autorizada. Continue com o próximo tutorial para criar uma API Web protegida para seu locatário. 
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Você pode usar o seu locatário do Azure AD B2C se planeja experimentar outros tutoriais do Azure AD B2C. Quando não for mais necessário, você poderá [excluir o locatário do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+> Se você clicar no botão **Chamar API**, você receberá um erro "Não autorizado". Você recebe esse erro porque você está tentando acessar um recurso do locatário de demonstração. Como o token de acesso só é válido para seu locatário do Azure AD, a chamada à API não é autorizada. Continue com o próximo tutorial para criar uma API Web protegida para seu locatário.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Nesse tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar fluxos de usuário e a atualizar o aplicativo desktop de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma API Web protegida a partir do seu aplicativo de desktop.
+Neste tutorial, você aprendeu como:
+
+> [!div class="checklist"]
+> * Adicionar um aplicativo cliente nativo
+> * Configurar o exemplo para usar o aplicativo
+> * Inscrever-se usando o fluxo de usuário
 
 > [!div class="nextstepaction"]
-> 
+> [Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)

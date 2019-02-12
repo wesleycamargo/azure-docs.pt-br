@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733490"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749011"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Enviar um fluxo de trabalho para o Microsoft Genomics usando SAS em vez de uma chave de conta de armazenamento 
 
@@ -32,12 +32,12 @@ Dois ou mais tokens SAS são necessários para cada fluxo de trabalho enviado pa
 
 A SAS para os arquivos de entrada deve ter as seguintes propriedades:
 1.  Escopo (conta, contêiner, blob): blob
-2.  Validade: 48 horas a partir de agora
+2.  Término: 48 horas a partir de agora
 3.  Permissões: leitura
 
 A SAS para o contêiner de saída deve ter as seguintes propriedades:
 1.  Escopo (conta, contêiner, blob): contêiner
-2.  Validade: 48 horas a partir de agora
+2.  Término: 48 horas a partir de agora
 3.  Permissões: leitura, gravação, exclusão
 
 
@@ -49,14 +49,14 @@ Há duas maneiras de criar um token SAS: usando o Gerenciador de Armazenamento d
 
 O [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma ferramenta para gerenciar os recursos que você guardou no Armazenamento do Azure.  Você pode aprender mais sobre como usar o Gerenciador de Armazenamento do Azure [aqui](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-A SAS para os arquivos de entrada deve ser delimitada para o arquivo de entrada específico (blob). Para criar um token SAS, execute [estas instruções](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Depois de criar a SAS, a URL completa com a cadeia de consulta e a própria cadeia de consulta são fornecidas e podem ser copiadas na tela.
+A SAS para os arquivos de entrada deve ser delimitada para o arquivo de entrada específico (blob). Para criar um token SAS, execute [estas instruções](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Depois de criar a SAS, a URL completa com a cadeia de consulta e a própria cadeia de consulta são fornecidas e podem ser copiadas na tela.
 
  ![Gerenciador de Armazenamento SAS do Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Gerenciador de Armazenamento SAS do Genomics")
 
 
 ### <a name="set-up-create-a-sas-programattically"></a>Configurar: criar uma SAS programaticamente
 
-Para criar uma SAS usando o SDK do Armazenamento do Azure, confira a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+Para criar uma SAS usando o SDK do Armazenamento do Azure, confira a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Para criar uma SAS sem um SDK, a cadeia de caracteres de consulta da SAS pode ser construída diretamente, incluindo todas as informações necessárias para autenticar a SAS. Estas [instruções](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) detalham os componentes da cadeia de caracteres de consulta SAS e como criá-la. A assinatura SAS necessária é criada pela geração de um HMAC usando as informações de autenticação do blob/contêiner, conforme descrito nestas [instruções](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

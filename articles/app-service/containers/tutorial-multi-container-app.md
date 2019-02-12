@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716031"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657548"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -37,6 +37,11 @@ Neste tutorial, você aprenderá como:
 > * Solucionar problemas de erros
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>Limitações da versão prévia do recurso
+O modo de vários contêineres está na versão prévia, de modo que não há suporte para os seguintes recursos da plataforma do Serviço de Aplicativo. Esperamos habilitar esses recursos para o aplicativo Web de vários contêineres antes da GA (disponibilidade geral):
+* Autenticação/Autorização
+* Identidades gerenciadas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

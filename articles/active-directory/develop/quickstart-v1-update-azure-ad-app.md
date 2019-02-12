@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093301"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819086"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início Rápido: atualizar um aplicativo no Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início rápido: atualizar um aplicativo no Azure Active Directory
 
 Os desenvolvedores corporativos e os provedores de SaaS (software como serviço) que registraram aplicativos no Azure AD (Azure Active Directory) podem precisar configurar seus aplicativos para acessar outros recursos, como APIs Web, disponibilizá-los em outras organizações, entre outras ações.
 
@@ -156,7 +156,7 @@ Ao registrar um aplicativo no Azure AD, talvez você queira que ele seja acessad
 É importante observar as diferenças entre um aplicativo de locatário único e multilocatário:  
 
 - Um aplicativo de locatário único é destinado para uso em uma organização. Normalmente, trata-se de um aplicativo LoB (linha de negócios) escrito por um desenvolvedor corporativo. Um aplicativo de locatário único só pode ser acessado por usuários com contas no mesmo locatário que o registro do aplicativo. Como resultado, ele só precisa ser provisionado em um diretório.
-- Um aplicativo multilocatário é destinado a uso em muitas organizações. Chamado de aplicativo Web SaaS (software como serviço), costuma ser escrito por um ISV (fornecedor independente de software). Aplicativos multilocatário devem ser provisionados em cada locatário que os usuários precisem acessar. Para locatários diferentes daquele em que o aplicativo está registrado, o consentimento do usuário ou do administrador é necessário para registrá-los. Observe que os aplicativos cliente nativos são multilocatários por padrão, pois são instalados no dispositivo do proprietário do recurso. Consulte a seção [Visão geral da estrutura de autorização](#overview-of-the-consent-framework) anterior para obter mais detalhes sobre a estrutura de autorização.
+- Um aplicativo multilocatário é destinado a uso em muitas organizações. Chamado de aplicativo Web SaaS (software como serviço), costuma ser escrito por um ISV (fornecedor independente de software). Aplicativos multilocatário devem ser provisionados em cada locatário que os usuários precisem acessar. Para locatários diferentes daquele em que o aplicativo está registrado, o consentimento do usuário ou do administrador é necessário para registrá-los. Observe que os aplicativos cliente nativos são multilocatários por padrão, pois são instalados no dispositivo do proprietário do recurso. Confira a seção anterior Visão geral da estrutura de consentimento para obter detalhes sobre a estrutura de consentimento.
 
 Tornar um aplicativo multilocatário requer tanto alterações de registro de aplicativo quanto alterações no próprio aplicativo Web. As seções a seguir cobrem ambas.
 
@@ -184,7 +184,7 @@ O suporte para aplicativos multilocatário depende muito da estrutura de consent
 Seu aplicativo Web também pode oferecer:
 
 - A capacidade de os administradores "inscreverem a minha empresa". Essa experiência, chamada de "consentimento do administrador", oferece ao administrador a capacidade de conceder consentimento em nome de *todos os usuários* em sua organização. Somente um usuário autenticado com uma conta que pertença à função de Administrador Global pode dar consentimento do administrador; os outros recebem um erro.
-- Uma experiência de inscrição para os usuários. Espera-se que o usuário receba um botão de "inscrição" que redirecionará o navegador para o ponto de extremidade `/authorize` do Azure AD OAuth2.0 ou um ponto de extremidade `/userinfo` do OpenID Connect. Esses pontos de extremidade permitem ao aplicativo obter informações sobre o novo usuário inspecionando o id_token. Depois da fase de inscrição, é apresentado ao usuário uma solicitação de consentimento semelhante àquela mostrada na seção [Visão geral da estrutura de autorização](#overview-of-the-consent-framework).
+- Uma experiência de inscrição para os usuários. Espera-se que o usuário receba um botão de "inscrição" que redirecionará o navegador para o ponto de extremidade `/authorize` do Azure AD OAuth2.0 ou um ponto de extremidade `/userinfo` do OpenID Connect. Esses pontos de extremidade permitem ao aplicativo obter informações sobre o novo usuário inspecionando o id_token. Após a fase de inscrição, o usuário receberá uma solicitação de consentimento semelhante àquela mostrada na seção Visão geral da estrutura de consentimento.
 
 Para obter mais informações sobre as alterações de aplicativo necessárias para dar suporte ao acesso multilocatário e experiências de inscrição/entrada, consulte:
 

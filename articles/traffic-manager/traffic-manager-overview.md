@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 1698b89cd32fd7fd90a178ece25ee6869c1aa3e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7fa72df04b0507a915a75688b38e26ed0f21e5a5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229686"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486003"
 ---
 # <a name="what-is-traffic-manager"></a>O que é o Gerenciador de Tráfego?
 O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que permite que você distribua o tráfego de maneira ideal para serviços em todas as regiões globais do Azure, fornecendo alta disponibilidade e capacidade de resposta.
@@ -26,9 +26,9 @@ O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego basead
 O Gerenciador de Tráfego usa o DNS para direcionar as solicitações do cliente ao ponto de extremidade de serviço mais apropriado com base em um método de roteamento de tráfego e a integridade dos pontos de extremidade. Um ponto de extremidade é qualquer serviço para a Internet hospedado dentro ou fora do Azure. O Gerenciador de Tráfego oferece uma variedade de [métodos de roteamento de tráfego](traffic-manager-routing-methods.md) e [opções de monitoramento de ponto de extremidade](traffic-manager-monitoring.md) para atender às diferentes necessidades dos aplicativos e modelos de failover automático. O Gerenciador de Tráfego é resistente a falhas, incluindo a falha de toda a região do Azure.
 
 >[!NOTE]
-> O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. Se estiver em busca de informações sobre o encerramento de protocolo TLS ("descarregamento de SSL") ou sobre o processamento de camada de aplicativo por solicitação HTTP/HTTPS, consulte [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md). Caso esteja procurando por balanceamento regional, consulte [Balanceador de carga](../load-balancer/load-balancer-overview.md). Cenários de ponta a ponta podem se beneficiar da combinação dessas soluções conforme for necessário.
+> O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. Se estiver em busca de informações sobre o encerramento de protocolo TLS ("descarregamento de SSL") ou sobre o processamento de camada de aplicativo por solicitação HTTP/HTTPS, consulte [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md). Caso esteja procurando por balanceamento de carga regional, examine [Load Balancer](../load-balancer/load-balancer-overview.md). Cenários de ponta a ponta podem se beneficiar da combinação dessas soluções conforme for necessário.
 
-Os recursos abaixo são incluídos com o Gerenciador de Tráfego:
+O Gerenciador de Tráfego oferece os seguintes recursos:
 
 ## <a name="increase-application-availability"></a>Aumentar a disponibilidade de aplicativo
 
@@ -40,7 +40,7 @@ O Azure permite executar serviços de nuvem ou sites em data centers espalhados 
 
 ## <a name="perform-service-maintenance-without-downtime"></a>Realizar manutenção de serviço sem tempo de inatividade
 
-Você pode executar operações de manutenção planejada em seus aplicativos sem tempo de inatividade. O Gerenciador de Tráfego direciona tráfego para pontos de extremidade alternativos enquanto a manutenção está em andamento.
+Você pode executar operações de manutenção planejada em seus aplicativos sem tempo de inatividade. O Gerenciador de Tráfego pode direcionar tráfego para pontos de extremidade alternativos enquanto a manutenção está em andamento.
 
 ## <a name="combine-hybrid-applications"></a>Combinar aplicativos híbridos
 
@@ -48,7 +48,7 @@ O Gerenciador de Tráfego tem suporte para pontos de extremidade externos não d
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>Distribuir o tráfego para implantações complexas
 
-Usando [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md), métodos de roteamento de tráfego podem ser combinados para criar regras sofisticadas e flexíveis para escalar a necessidades de implantações maiores e mais complexas.
+Usando [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md), vários métodos de roteamento de tráfego podem ser combinados para criar regras sofisticadas e flexíveis para escalar a necessidades de implantações maiores e mais complexas.
 
 ## <a name="pricing"></a>Preços
 

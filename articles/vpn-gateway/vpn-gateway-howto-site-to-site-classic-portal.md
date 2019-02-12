@@ -1,5 +1,5 @@
 ---
-title: 'Conectar a sua rede local a uma rede virtual do Azure: VPN Site a Site (clássico): portal | Microsoft Docs'
+title: 'Conecte sua rede local a uma rede virtual do Azure: VPN de site a site (clássica): Portal | Microsoft Docs'
 description: Criar uma conexão IPsec de sua rede local para uma rede virtual clássica do Azure pela Internet pública.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477889"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695597"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
@@ -54,7 +54,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 Os exemplos neste artigo usam os seguintes valores. Você pode usar esses valores para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo.
 
-* **Nome da rede virtual:** TestVNet1
+* **Nome da VNet:** TestVNet1
 * **Espaço de endereço:** 
   * 10.11.0.0/16
   * 10.12.0.0/16 (opcional para este exercício)
@@ -63,7 +63,7 @@ Os exemplos neste artigo usam os seguintes valores. Você pode usar esses valore
   * BackEnd: 10.12.0.0/24 (opcional para este exercício)
 * **GatewaySubnet:** 10.11.255.0/27
 * **Grupo de recursos:** TestRG1
-* **Local:** Leste dos EUA
+* **Localização:** Leste dos EUA
 * **Servidor DNS:** 10.11.0.3 (opcional para este exercício)
 * **Nome do site local:** Site2
 * **Espaço de endereço do cliente:** o espaço de endereço localizado no site local.
@@ -208,7 +208,7 @@ Ao trabalhar com o PowerShell e com o modelo de implantação clássica, às vez
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Quando a conexão é criada, o resultado é: **Status: Bem-sucedida**.
+Quando a conexão é criada, o resultado é: **Status: bem-sucedido**.
 
 ## <a name="verify"></a>9. Verificar a conexão
 
@@ -226,5 +226,5 @@ Para obter as etapas para alterar um SKU de gateway, consulte [Redimensionar um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/).
 * Para saber mais sobre Túneis Forçados, confira [Sobre o Túnel Forçado](vpn-gateway-about-forced-tunneling.md).

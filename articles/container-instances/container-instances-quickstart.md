@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189597"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562055"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Início Rápido: Executar um aplicativo de contêiner nas Instâncias de Contêiner do Azure na CLI do Azure
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner com a CLI do Azure, forneça um nome de grupo de recursos, um nome da instância de contêiner e uma imagem de contêiner do Docker para o comando [az container create][az-container-create]. Você pode expor seus contêineres à Internet especificando um ou mais portas a serem abertas, um rótulo de nome DNS ou ambos. Neste Início Rápido, você implantará um contêiner com um rótulo de nome DNS que hospeda um pequeno aplicativo Web escrito em Node.js.
+Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner com a CLI do Azure, forneça um nome de grupo de recursos, um nome da instância de contêiner e uma imagem de contêiner do Docker para o comando [az container create][az-container-create]. Neste início rápido, você deve usar a imagem `microsoft/aci-helloworld` do Registro do Hub do Docker público. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
+
+Você pode expor seus contêineres à Internet especificando um ou mais portas a serem abertas, um rótulo de nome DNS ou ambos. Neste início rápido, você implanta um contêiner com um rótulo de nome DNS para que o aplicativo Web fique publicamente acessível.
 
 Execute o comando a seguir para iniciar uma instância do contêiner. O valor `--dns-name-label` precisa ser exclusivo na região do Azure que instância será criada. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
@@ -145,7 +147,7 @@ Neste Início Rápido, você criou uma Instância de Contêiner do Azure usando 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)
 
-Para experimentar as opções para contêineres em execução em um sistema de orquestração no Azure, veja os inícios rápidos do [Service Fabric][service-fabric] ou do [Serviço de Kubernetes do Azure (AKS)][container-service].
+Para experimentar as opções para contêineres em execução em um sistema de orquestração no Azure, veja os inícios rápidos do [AKS (Serviço de Kubernetes do Azure)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Para experimentar as opções para contêineres em execução em um sistema de o
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

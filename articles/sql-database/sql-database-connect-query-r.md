@@ -11,58 +11,42 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/30/2018
-ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/31/2019
+ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725736"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815533"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início Rápido: Usar os Serviços de Machine Learning (com R) no Banco de Dados SQL do Azure (versão prévia)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início Rápido: Usar os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure (versão prévia)
 
-Este artigo explica como você pode usar a versão prévia pública dos Serviços de Machine Learning (com R) no Banco de Dados SQL do Azure. Ele explica as noções básicas da movimentação de dados entre um banco de dados SQL e R. Também explica como encapsular o código R bem formado no procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) a fim de criar, treinar e usar modelos de machine learning em um banco de dados SQL.
+Este artigo explica como você pode usar a versão prévia pública dos [Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure](sql-database-machine-learning-services-overview.md). Ele explica as noções básicas da movimentação de dados entre um banco de dados SQL e R. Também explica como encapsular o código R bem formado no procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) a fim de criar, treinar e usar modelos de machine learning em um banco de dados SQL.
 
-O aprendizado de máquina no Banco de Dados SQL é usado para executar funções e código R, e o código fica totalmente disponível para dados relacionais como procedimentos armazenados, como um script T-SQL que contém instruções R, ou como um código R que contém o T-SQL. Use o poder dos pacotes corporativos de R para fornecer análise avançada em larga escala, e a capacidade de levar cálculos e processamento até onde estão os dados, eliminando a necessidade de efetuar pull de dados pela rede.
+Use o poder da linguagem R para fornecer análise avançada e aprendizado de máquina no banco de dados. Essa capacidade leva os cálculos e o processamento para o local em que os dados residem, eliminando a necessidade de efetuar pull de dados na rede. Além disso, aproveite o poder dos pacotes empresariais do R para fornecer análise avançada em escala.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Os Serviços do Machine Learning incluem uma distribuição base do R, sobreposta com pacotes empresariais do R da Microsoft. As funções e os algoritmos do R da Microsoft foram desenvolvidos para escala e utilidade, fornecendo análise preditiva, modelagem estatística, visualizações de dados e algoritmos de aprendizado de máquina de ponta.
 
-## <a name="sign-up-for-the-preview"></a>Inscrever-se para obter a visualização
+Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-A versão prévia pública dos Serviços de Machine Learning (com R) no Banco de Dados SQL não está habilitada por padrão. Envie um email para a Microsoft pelo endereço [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) a fim de se inscrever na versão prévia pública.
-
-Depois de se inscrever no programa, a Microsoft integrará você à versão prévia pública e migrará seus bancos de dados existentes ou criará um novo banco de dados em um serviço habilitado para R.
-
-Os Serviços de Machine Learning (com R) no Banco de Dados SQL estão disponíveis atualmente apenas no modelo de compra baseado em vCore das camadas de serviço **Uso Geral** e **Comercialmente Crítico** para bancos de dados únicos e em pools. Nesta versão prévia pública inicial, a camada de serviço **Hiperescala** e a **Instância Gerenciada** não têm suporte. Não use os Serviços de Machine Learning com R para cargas de trabalho de produção durante a versão prévia pública.
-
-Quando os Serviços de Machine Learning (com R) tiverem sido habilitados para seu Banco de Dados SQL, retorne a esta página para aprender a executar scripts R no contexto de um procedimento armazenado.
-
-Atualmente, R é a única linguagem com suporte. No momento, não há suporte para Python.
+> [!NOTE]
+> Atualmente, os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure estão em versão prévia pública. [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar o código de exemplo nestes exercícios, primeiro você precisa ter um banco de dados SQL com os Serviços de Machine Learning (com R) habilitado. Durante a versão prévia pública, a Microsoft realizará sua integração e habilitará o aprendizado de máquina para seu banco de dados novo ou existente, conforme descrito acima.
+Para executar o código de exemplo nestes exercícios, primeiro você precisa ter um banco de dados SQL com os Serviços de Machine Learning (com R) habilitado. Durante a versão prévia pública, a Microsoft realizará sua integração e habilitará o aprendizado de máquina para seu banco de dados novo ou existente. Siga as etapas em [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
 
 Você pode se conectar ao Banco de Dados SQL e executar os scripts R em qualquer ferramenta de gerenciamento de banco de dados ou de consulta, contanto que ele possa se conectar a um Banco de Dados SQL e executar uma consulta T-SQL ou um procedimento armazenado. Este início rápido usa o [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
 Para o exercício de [adicionar um pacote](#add-package), você também precisará instalar [R](https://www.r-project.org/) e [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) no computador local.
 
-Este início rápido também exige a configuração de uma regra de firewall no nível de servidor. Para obter um início rápido que mostra como fazer isso, confira [Criar regra de firewall no nível de servidor](sql-database-get-started-portal-firewall.md).
-
-## <a name="different-from-sql-server"></a>Diferente do SQL Server
-
-A funcionalidade dos Serviços de Machine Learning (com R) no Banco de Dados SQL é semelhante aos [Serviços de Machine Learning do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). No entanto, há algumas diferenças:
-
-- Somente R. Atualmente, não há suporte para Python.
-- Não é necessário configurar `external scripts enabled` via `sp_configure`.
-- Os pacotes precisam ser instalados via **sqlmlutils**.
-- Não há governança separada de recursos externos. Os recursos de R representam uma porcentagem dos recursos de SQL, dependendo da camada.
+Este início rápido também exige a configuração de uma regra de firewall no nível de servidor. Para obter um início rápido que mostra como fazer isso, confira [Criar regra de firewall no nível de servidor](sql-database-server-level-firewall-rule.md).
 
 ## <a name="verify-r-exists"></a>Verificação da existência de R
 
 Você pode confirmar se os Serviços de Machine Learning (com R) estão habilitados para seu banco de dados SQL. Siga as etapas abaixo.
 
-1. Abra o SQL Server Management Studio e conecte-se ao seu banco de dados SQL.
+1. Abra o SQL Server Management Studio e conecte-se ao seu banco de dados SQL. Para obter mais informações sobre como se conectar, confira [Início Rápido: Usar o SQL Server Management Studio para conectar e consultar um Banco de Dados SQL do Azure](sql-database-connect-query-ssms.md).
 
 1. Execute o código abaixo. 
 
@@ -263,7 +247,6 @@ A Microsoft fornece alguns pacotes de R pré-instalados com os Serviços de Mach
 
     ![Pacotes instalados em R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## <a name="create-a-predictive-model"></a>Criar um modelo preditivo
 
 Você pode treinar um modelo usando R e salvá-lo em uma tabela no banco de dados SQL. Neste exercício, você treinará um modelo de regressão simples que prevê a distância de parada de um carro com base na velocidade. Você usará o conjunto de dados `cars` incluído com o R, pois ele é pequeno e fácil de entender.
@@ -293,7 +276,7 @@ Você pode treinar um modelo usando R e salvá-lo em uma tabela no banco de dado
     - Forneça dados de entrada para usar no treinamento do modelo.
 
     > [!TIP]
-    > Se você precisar relembrar modelos lineares, recomendamos este tutorial, que descreve o processo de ajuste de um modelo usando rxLinMod: [Ajustar modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+    > Caso você precise relembrar os modelos lineares, recomendamos este tutorial, que descreve o processo de ajuste de um modelo usando rxLinMod: [Ajustando modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Para criar o modelo, defina a fórmula dentro do código R e passe os dados como um parâmetro de entrada.
 
@@ -530,9 +513,10 @@ Se você precisar usar um pacote que ainda não está instalado em seu banco de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre Serviços de Machine Learning, consulte os artigos abaixo sobre Serviços de Machine Learning do SQL Server. Embora esses artigos sejam para SQL Server, a maioria das informações também é aplicável aos Serviços de Machine Learning (com R) no Banco de Dados SQL do Azure.
+Para obter mais informações sobre os Serviços do Machine Learning, confira os artigos abaixo. Embora alguns desses artigos refiram-se ao SQL Server, a maioria das informações também é aplicável aos Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure.
 
+- [Serviços do Machine Learning do Banco de Dados SQL do Azure (com o R)](sql-database-machine-learning-services-overview.md)
 - [Serviços de Machine Learning do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Aprender sobre análise no banco de dados usando R no SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Tutorial: Aprender sobre a análise no banco de dados usando o R no SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [Passo a passo sobre ciência de dados de ponta a ponta para R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Usar funções RevoScaleR R com dados do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Tutorial: Usar funções RevoScaleR do R com os dados do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

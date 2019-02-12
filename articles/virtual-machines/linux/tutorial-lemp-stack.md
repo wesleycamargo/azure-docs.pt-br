@@ -3,7 +3,7 @@ title: Tutorial – Implantar o LEMP em uma máquina virtual do Linux no Azure |
 description: Neste tutorial, você aprenderá a instalar a pilha do LEMP em uma máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: c4926760162baa5687242f4372377c64c7e24b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999351"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511270"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web do LEMP em uma máquina virtual do Linux no Azure
 
@@ -46,17 +46,15 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 Execute o seguinte comando para atualizar as fontes de pacote do Ubuntu e instalar NGINX, MySQL e PHP. 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-Você será solicitado a instalar os pacotes e outras dependências. Quando solicitado, defina uma senha raiz para o MySQL e, em seguida, pressione [Enter] para continuar. Avance pelas solicitações restantes. Esse processo instala as extensões PHP mínimas obrigatórias e necessárias para usar o PHP com o MySQL. 
-
-![Página de senha raiz do MySQL][1]
+Você será solicitado a instalar os pacotes e outras dependências. Esse processo instala as extensões PHP mínimas obrigatórias e necessárias para usar o PHP com o MySQL.  
 
 ## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
 
 
-### <a name="nginx"></a>NGINX
+### <a name="verify-nginx"></a>Verificar o NGINX
 
 Verifique a versão do NGINX com o seguinte comando:
 ```bash
@@ -68,7 +66,7 @@ Com o NGINX instalado e a porta 80 aberta para a sua VM, o servidor Web agora po
 ![Página padrão do NGINX][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Verificar e proteger o MySQL
 
 Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em letra maiúscula):
 
@@ -76,24 +74,24 @@ Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em
 mysql -V
 ```
 
-Para proteger a instalação do MySQL, execute o script `mysql_secure_installation`. Se estiver configurando um servidor temporário, você poderá ignorar essa etapa. 
+Para ajudar a proteger a instalação do MySQL, incluindo a configuração de uma senha raiz, execute o script `mysql_secure_installation`. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Digite a senha raiz do MySQL e defina as configurações de segurança do seu ambiente.
+Também é possível configurar o Plug-in de Validação de Senha (recomendado). Em seguida, defina uma senha para o usuário raiz do MySQL e as configurações de segurança restantes para o seu ambiente. É recomendável que você responda "Y" (sim) para todas as perguntas.
 
 Se você quiser experimentar os recursos MySQL (criar um banco de dados MySQL, adicionar usuários ou alterar as definições de configuração), faça logon no MySQL. Esta etapa não é necessária para concluir este tutorial. 
 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 Quando terminar, saia do prompt do MySQL digitando `\q`.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>Verificar PHP
 
 Verifique a versão do PHP com o seguinte comando:
 
@@ -109,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-No editor, substitua o conteúdo de `/etc/nginx/sites-available/default` pelo seguinte. Consulte os comentários para obter explicação sobre as configurações. Substitua o endereço IP público da sua VM por *yourPublicIPAddress* e deixe as configurações restantes. Em seguida, salve o arquivo.
+No editor, substitua o conteúdo de `/etc/nginx/sites-available/default` pelo seguinte. Consulte os comentários para obter explicação sobre as configurações. Substitua o endereço IP público da sua VM por *yourPublicIPAddress*, confirme a versão do PHP em `fastcgi_pass` e deixe as configurações restantes. Em seguida, salve o arquivo.
 
 ```
 server {
@@ -129,7 +127,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -177,6 +175,5 @@ Vá para o próximo tutorial para saber como proteger servidores Web com certifi
 > [!div class="nextstepaction"]
 > [Proteger servidor Web com SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

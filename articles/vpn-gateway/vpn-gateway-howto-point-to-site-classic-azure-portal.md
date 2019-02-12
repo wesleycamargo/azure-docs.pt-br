@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321470"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809789"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma conexão ponto a site usando a autenticação de certificado (clássico)
 
@@ -249,7 +249,7 @@ Você pode adicionar e remover um certificado raiz do Azure. Quando você remove
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Para adicionar um certificado raiz confiável
 
-Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. Para obter instruções, confira [Carregar o arquivo .cer do certificado raiz](#upload-the-root-certificate-.cer-file).
+Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. Para obter instruções, confira Carregar o arquivo .cer do certificado raiz.
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Para remover um certificado raiz confiável
 
@@ -290,7 +290,7 @@ Após a conclusão da atualização, o certificado não poderá mais ser usado p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Após sua conexão ser concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). 
+- Após sua conexão ser concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/). 
 
 - Para saber mais sobre redes e máquinas virtuais do Linux, confira [Visão geral de rede de VMs do Linux e do Azure](../virtual-machines/linux/network-overview.md).
 

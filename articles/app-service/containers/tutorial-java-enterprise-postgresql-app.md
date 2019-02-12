@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539714"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746993"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web Java EE e um aplicativo Web Postgres no Azure
 
-Este tutorial mostrará como criar um aplicativo Web Java Enterprise Edition (EE) no Serviço de Aplicativo do Azure e conectá-lo a um banco de dados Postgres. Quando tiver terminado, você terá um aplicativo [WildFly](https://www.wildfly.org/about/) armazenando dados no [Banco de Dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no [Serviço de Aplicativo do Azure para Linux](app-service-linux-intro.md).
+Este tutorial mostrará como criar um aplicativo Web Java Enterprise Edition (EE) no Serviço de Aplicativo do Azure e conectá-lo a um banco de dados Postgres. Quando tiver terminado, você terá um aplicativo [WildFly](https://www.wildfly.org/about/) armazenando dados no [Banco de Dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no [Serviço de Aplicativo do Azure no Linux](app-service-linux-intro.md).
 
 Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
@@ -50,40 +50,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Atualizar o POM do Maven
 
-Atualize o POM do Maven com o grupo de recursos e o nome desejados de seu Serviço de Aplicativo. Esses valores serão injetados no plug-in do Azure, que está mais adiante no arquivo _pom.xml_. Você não precisa criar o Plano do Serviço de Aplicativo ou a instância com antecedência. O plug-in do Maven criará o grupo de recursos e o Serviço de Aplicativo, se ele ainda não existir.
+Atualize o Plug-in do Azure do Maven com o grupo de recursos e o nome desejados de seu Serviço de Aplicativo. Você não precisa criar o Plano do Serviço de Aplicativo ou a instância com antecedência. O plug-in do Maven criará o grupo de recursos e o Serviço de Aplicativo, se ele ainda não existir. 
 
-Role a tela para baixo até a seção `<plugins>` do _pom.xml_ para inspecionar o plug-in do Azure. A seção da configuração `<plugin>`, no _pom.xml_ para o azure-webapp-maven-plugin deve incluir a seguinte configuração:
+Role a tela para baixo até a seção `<plugins>` do _pom.xml_, linha 200, para fazer as alterações. 
 
 ```xml
-      <!--*************************************************-->
-      <!-- Deploy to WildFly in App Service Linux           -->
-      <!--*************************************************-->
- 
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.0</version>
-        <configuration>
- 
-          <!-- Web App information -->
-          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-          <appName>${WEBAPP_NAME}</appName>
-          <region>${REGION}</region>
- 
-          <!-- Java Runtime Stack for Web App on Linux-->
-          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
- 
-        </configuration>
-      </plugin>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-Substitua os espaços reservados pelos nomes de recurso que você quer:
-```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
-```
-
+Substitua `YOUR_APP_NAME` e `YOUR_RESOURCE_GROUP` pelos nomes do grupo de recursos e do Serviço de Aplicativo.
 
 ## <a name="build-and-deploy-the-application"></a>Compilar e implantar o aplicativo
 
@@ -139,12 +123,27 @@ Agora, faremos algumas alterações no aplicativo Java a fim de habilitá-lo par
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>Adicionar credenciais do Postgres ao POM
 
-Em _pom.xml_, substitua os valores de espaço reservado pelo nome do servidor Postgres, pelo nome de logon de administrador e pela senha. Esses valores serão injetados como variáveis de ambiente na instância do Serviço de Aplicativo quando você reimplantar o aplicativo.
+Em _pom.xml_, substitua os valores de espaço reservado em maiúsculas pelo nome do servidor Postgres, pelo nome de logon de administrador e pela senha. Esses campos estão dentro do Plug-in do Maven do Azure. (Não se esqueça de substituir `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME` e `YOUR_PG_PASSWORD` nas tags `<value>`… não dentro das marcas `<name>`!)
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### <a name="update-the-java-transaction-api"></a>Atualizar a API de Transação Java

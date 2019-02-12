@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467128"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700676"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introdução ao Azure Dev Spaces com .NET Core
 
@@ -99,13 +99,7 @@ Recursos avançados como depuração do Kubernetes estão disponíveis para dese
 Nesta seção, você criará um aplicativo Web ASP.NET Core e o executará em um contêiner no Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Criar um aplicativo Web ASP.NET Core
-Se você tiver [.NET Core](https://www.microsoft.com/net) instalado, você pode criar rapidamente um aplicativo Web do ASP.NET Core em uma pasta chamada `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Ou, **baixar o código de exemplo do GitHub** navegando até https://github.com/Azure/dev-spaces e selecionando **Clonar ou baixar** para baixar o repositório do GitHub para seu ambiente local. O código para este guia está em `samples/dotnetcore/getting-started/webfrontend`.
+Clone ou baixe o [aplicativo de exemplo do Azure Dev Spaces](https://github.com/Azure/dev-spaces). Este artigo usa o código no diretório *samples/dotnetcore/getting-started/webfrontend*.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar código para desenvolvimento Docker e Kubernetes
 Até o momento, você tem um aplicativo Web básico que pode ser executado localmente. Agora, você colocará o aplicativo em contêiner criando ativos que definem o contêiner do aplicativo e como ele será implantado no Kubernetes. Isso é fácil de fazer usando o Azure Dev Spaces: 
@@ -245,4 +239,4 @@ Atualize o aplicativo Web no navegador e vá para a página Sobre. Sua mensagem 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o desenvolvimento em equipe](team-development-netcore.md)
+> [Saiba mais sobre o desenvolvimento de vários serviços](multi-service-netcore.md)

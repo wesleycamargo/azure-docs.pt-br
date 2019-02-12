@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6e378263ac8bcd7cfee36209f70f26680988e6e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883968"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753791"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
@@ -27,11 +27,11 @@ O Azure Front Door Service dá suporte a HTTPS em um nome do host padrão do Fro
 
 Alguns dos principais atributos do recurso HTTPS são:
 
-- Sem custo adicional: não há custos de aquisição ou renovação do certificado e não há custo adicional para tráfego HTTPS. 
+- Sem custo adicional: não há nenhum custo para a aquisição ou renovação do certificado e nenhum custo para tráfego HTTPS. 
 
 - Habilitação simples: o provisionamento com um clique está disponível no [portal do Azure](https://portal.azure.com). Você também pode usar a API REST ou outras ferramentas de desenvolvedor para habilitar o recurso.
 
-- Gerenciamento de certificado completo está disponível: todos os certificados de aquisição e gerenciamento são manipulados para você. Os certificados são provisionados e renovados automaticamente antes da expiração, o que remove os riscos de interrupção do serviço devido à expiração de um certificado.
+- Gerenciamento de certificado completo disponível: todos os certificados de aquisição e gerenciamento são manipulados para você. Os certificados são provisionados e renovados automaticamente antes da expiração, o que remove os riscos de interrupção do serviço devido à expiração de um certificado.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir as etapas deste tutorial, crie primeiro um Front Door e integre pelo menos um domínio personalizado. Para saber mais, consulte [Tutorial: Adicionar um domínio personalizado ao seu Front Door](front-door-custom-domain.md).
+Antes de concluir as etapas deste tutorial, crie primeiro um Front Door e integre pelo menos um domínio personalizado. Para obter mais informações, confira [Tutorial: Adicionar um domínio personalizado ao seu Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
@@ -67,15 +67,15 @@ Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 5. Prossiga para [Validar o domínio](#validate-the-domain).
 
 
-### <a name="option-2-use-your-own-certificate"></a>Opção 2: usar o seu próprio certificado
+### <a name="option-2-use-your-own-certificate"></a>Opção 2: Usar o seu próprio certificado
 
 Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. O Azure Front Door Service usa esse mecanismo seguro para obter o certificado e requer algumas etapas adicionais. Quando você cria o certificado SSL, você deve criá-lo com uma autoridade de certificação (CA) com permissão. Caso contrário, se você usar uma autoridade de certificação sem permissão, sua solicitação será rejeitada. Para obter uma lista das autoridades de certificação permitidas, consulte [Autoridades de certificação permitidas para habilitar HTTPS personalizado no Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparar a conta e o certificado do Azure Key Vault
  
-1. Azure Key Vault: você deve ter uma conta do Azure Key Vault em execução sob a mesma assinatura que o Front Door para o qual deseja habilitar o HTTPS personalizado. Crie uma conta do Azure Key Vault caso não tenha uma.
+1. Azure Key Vault: é necessário ter uma conta do Azure Key Vault em execução na mesma assinatura que o Front Door para o qual você deseja habilitar o HTTPS personalizado. Crie uma conta do Azure Key Vault caso não tenha uma.
  
-2. Certificados do Azure Key Vault: se já tiver um certificado, você poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um novo certificado diretamente pelo Azure Key Vault a partir de uma das Autoridades de Certificação (CA) de parceiros às quais o Azure Key Vault se integra.
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra.
 
 > [!WARNING]
 > </br> - No momento, o Azure Front Door Service dá suporte apenas a contas do Key Vault na mesma assinatura que a configuração do Front Door. Se você escolher um Key Vault com uma assinatura diferente do Front Door, ocorrerá uma falha.
@@ -143,7 +143,7 @@ O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de dom�
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azurefd.net |
 
-Para obter mais informações sobre os registros CNAME, consulte [criar o registro de DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+Para obter mais informações sobre os registros CNAME, consulte [criar o registro de DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 Se o registro CNAME estiver no formato correto, o DigiCert verificará automaticamente seu nome de domínio personalizado e criará um certificado dedicado ao seu nome de domínio. O DigitCert não enviará um email de verificação, e você não precisará aprovar sua solicitação. O certificado é válido por um ano e será renovado automaticamente antes de expirar. Avance para a [Aguardar a propagação](#wait-for-propagation). 
 

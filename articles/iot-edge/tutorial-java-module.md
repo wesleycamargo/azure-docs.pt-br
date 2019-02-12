@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1b2692df51afb50822ec542fbda423f598bcb8e4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 9abdbd232b7f346aae9ee5fbe93d23afa4aaf32c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054734"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562361"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Java em seu dispositivo simulado
 
@@ -99,7 +99,7 @@ Crie um modelo de solução em Java que possa ser personalizado com seu próprio
    | Selecionar modelo do módulo | Escolha o **Módulo Java**. |
    | Fornecer o valor para a ID do grupo | Insira um valor para a ID do grupo ou aceite o padrão **com.edgemodule**. |
    | Fornecer um nome de módulo | Nomeie o módulo como **JavaModule**. |
-   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. A cadeia de caracteres final se parece com \<nome do Registro\>.azurecr.io/cmodule. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é preenchida previamente o nome fornecido na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br>O repositório de imagens final se parece com \<nome_do_registro\>.azurecr.io/javamodule. |
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-java-module/repository.png)
    
@@ -260,6 +260,12 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usará as informações no modelo de implantação e gerará um arquivo deployment.json em uma nova pasta chamada **config**. Em seguida, ele executará dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos realizam o build do seu código, conteinerizam o aplicativo Java e efetuam o push do código para o Registro de contêiner que você especificou ao inicializar a solução. 
 
 Você pode conferir o endereço de imagem de contêiner completo com marca no terminal integrado do VS Code. O endereço da imagem é criado a partir de informações que estão no arquivo module.json com o formato \<repositório\>:\<versão\>-\<plataforma\>. Para este tutorial, deve ser parecido com registryname.azurecr.io/javamodule:0.0.1-amd64.
+
+>[!TIP]
+>Se você receber um erro ao tentar compilar e efetuar push do seu módulo, faça as seguintes verificações:
+>* Você entrou no Docker no Visual Studio Code usando as credenciais do seu Registro de contêiner? Essas credenciais são diferentes daquelas que você usa para entrar no portal do Azure.
+>* Seu repositório de contêiner está correto? Abra **modules** > **cmodule** > **module.json** e encontre o campo **repository**. O repositório de imagens deve se parecer com **\<nome_do_registro\>.azurecr.io/javamodule**. 
+>* Você está criando o mesmo tipo de contêiner que seu computador de desenvolvimento está executando? Visual Studio Code assume como padrão contêineres do Linux amd64. Se seu computador de desenvolvimento está executando contêineres do Windows ou Linux arm32v7, atualize a plataforma na barra de status azul na parte inferior da janela do VS Code para corresponder à sua plataforma de contêiner.
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 

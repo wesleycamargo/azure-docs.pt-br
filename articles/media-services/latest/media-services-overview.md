@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/14/2019
+ms.date: 02/05/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c58c31a0d6238720d643d5b1508a7ec04749887b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 31bf120b590ad8de3263e2d3a553f1d5fcfcd7f9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352114"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756879"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Mídia v3 do Azure?
 
@@ -76,11 +76,13 @@ Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3?
 
-Como desenvolvedor, você pode usar a [API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) dos Serviços de Mídia ou bibliotecas de cliente que permitam interagir com a API REST, para criar, gerenciar e manter fluxos de trabalho de mídia personalizados com facilidade.  
+Como desenvolvedor, você pode usar a [API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) dos Serviços de Mídia ou bibliotecas de clientes que permitem interagir com a API REST para criar, gerenciar e manter fluxos de trabalho de mídia personalizados com facilidade. A API dos Serviços de Mídia v3 se baseia na [especificação do OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (anteriormente conhecida como um Swagger).
 
-Os Serviços de Mídia fornecem [arquivos do Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) que podem ser usados para gerar SDKs para a sua linguagem/tecnologia preferida.  
+O [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) (Gerenciador dos Serviços de Mídia do Azure) é uma ferramenta disponível para clientes do Windows que desejam saber mais sobre os Serviços de Mídia. O AMSE é um aplicativo do WinForms/C# que carrega, baixa, codifica e transmite VoD e conteúdo ao vivo com os Serviços de Mídia. A ferramenta AMSE destina-se aos clientes que desejam testar os Serviços de Mídia sem escrever nenhum código. O código por trás do AMSE destina-se aos clientes que precisam realizar o desenvolvimento com os Serviços de Mídia e desejam ver um código de produção de qualidade.
 
-A Microsoft gera e oferece suporte às seguintes bibliotecas de cliente: 
+O AMSE é um projeto de software livre, cujo suporte é fornecido pela comunidade (os problemas podem ser relatados a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, confira as [Perguntas frequentes sobre o Código de Conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate opencode@microsoft.com para enviar outras perguntas ou comentários.
+ 
+Os Serviços de Mídia do Azure dão suporte às seguintes bibliotecas de clientes: 
 
 |Referências de API|SDKs/Ferramentas|Exemplos|
 |---|---|---|---|

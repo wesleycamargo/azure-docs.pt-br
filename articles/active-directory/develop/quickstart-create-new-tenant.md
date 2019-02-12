@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101253"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692130"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Início rápido: Configurar um ambiente
 
@@ -64,8 +64,11 @@ Se não houver um locatário existente associado à sua conta, você verá um GU
 Se você ainda não tem um locatário do Azure AD ou deseja criar um para desenvolvimento, siga a [experiência de criação de diretório](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Você precisará fornecer as informações a seguir para criar o locatário:
 
 - **Nome da organização**
-- **Domínio inicial** – fará parte do *.onmicrosoft.com. Você poderá personalizar o domínio mais tarde. 
+- **Domínio inicial** – fará parte do *.onmicrosoft.com. Você poderá personalizar o domínio mais tarde.
 - **País ou região**
+
+> [!NOTE]
+> Ao nomear seu locatário, use caracteres alfanuméricos. Caracteres especiais não são permitidos. O nome não pode ultrapassar 256 caracteres.
 
 ## <a name="social-and-local-accounts"></a>Contas locais e sociais
 

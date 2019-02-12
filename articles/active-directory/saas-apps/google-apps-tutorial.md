@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902458"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para configurar a integração do Microsoft Azure AD com o G Suite, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do G Suite
 - Uma assinatura do Google Apps ou uma assinatura do Google Cloud Platform.
 
@@ -77,9 +77,9 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
     O atributo de email é populado automaticamente para qualquer usuário com uma licença válida do Exchange. Se o usuário não estiver habilitado para email, esse erro será recebido, o aplicativo precisa obter esse atributo para fornecer acesso.
 
-    Para atribuir uma licença do Exchange, acesse portal.office.com com uma conta do administrador, clique no Centro de administração, cobrança, assinaturas, selecione sua assinatura do Office 365 e, em seguida, clique em atribuir a usuários, selecione os usuários que você deseja verificar a sua assinatura e, no painel direito, clique em editar licenças.
+    Você pode ir para portal.office.com com uma conta de Administrador, em seguida, clique no Centro de administração, cobrança, assinaturas, selecione sua assinatura do Office 365 e, em seguida, clique em atribuir a usuários, selecione os usuários que você deseja verificar a sua assinatura e no painel direito, clique em editar licenças.
 
-    Depois que a licença do Exchange tiver sido atribuída, poderão levar alguns minutos para ela ser aplicada. Depois disso, o atributo user.mai será preenchido automaticamente e o problema deve ser resolvido.
+    Depois que a licença do O365 for atribuída, pode levar alguns minutos para ser aplicado. Depois disso, o atributo user.mai será preenchido automaticamente e o problema deve ser resolvido.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -142,28 +142,45 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração Básica do SAML**, caso deseje realizar a configuração para o **Gmail**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+     a. Na caixa de texto **URL de Entrara**, digite uma URL usando o padrão a seguir: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do G Suite](https://www.google.com/contact/) para obter esses valores.
 
-5. Seu aplicativo G Suite espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **Identificador Exclusivo de Usuário** é **user.userprincipalname**, mas o G Suite espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização.
+5. Na seção **Configuração Básica do SAML**, caso deseje realizar a configuração para a **Google Cloud Platform**, execute as seguintes etapas:
+
+    ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
+
+     a. Na caixa de texto **URL de Entrara**, digite uma URL usando o padrão a seguir: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do G Suite](https://www.google.com/contact/) para obter esses valores.
+
+6. Seu aplicativo G Suite espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **Identificador Exclusivo de Usuário** é **user.userprincipalname**, mas o G Suite espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização.
 
     ![image](common/edit-attribute.png)
 
-6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
+7. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
 
     | NOME | Atributo de Origem |
     | ---------------| --------------- |
@@ -187,11 +204,11 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     g. Clique em **Salvar**.
 
-7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-8. Na seção **Configurar o G Suite**, copie as URLs apropriadas, de acordo com suas necessidades.
+9. Na seção **Configurar o G Suite**, copie as URLs apropriadas, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
 ### <a name="configure-g-suite-single-sign-on"></a>Configurar o logon único do G Suite
 
-1. Abra uma nova guia no navegador e entre no [Console de Admin do G Suite](https://admin.google.com/) usando sua conta de administrador.
+1. Abra uma nova guia no navegador e entre no [Console de Admin do G Suite](http://admin.google.com/) usando sua conta de administrador.
 
 2. Clique em **Segurança**. Se você não enxergar o link, ele pode estar oculto sob o menu **Mais Controles** , na parte inferior da tela.
 

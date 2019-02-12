@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301451"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756862"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -105,7 +105,7 @@ Agora você deve configurar o aplicativo de função para se conectar à conta d
 
 ## <a name="configure-the-function-app"></a>Configurar o aplicativo de funções
 
-A função precisa da cadeia de conexão para se conectar à conta de armazenamento de blobs. O código de função que você vai implantar no Azure na etapa a seguir procura a cadeia de conexão na configuração do aplicativo myblobstorage_STORAGE, além de procurar o nome do contêiner de imagem em miniatura na configuração de aplicativo myContainerName. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Defina as configurações de aplicativo com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+A função precisa da cadeia de conexão para se conectar à conta de armazenamento de blobs. O código de função que você vai implantar no Azure na etapa a seguir procura a cadeia de conexão na configuração do aplicativo myblobstorage_STORAGE, além de procurar o nome do contêiner de imagem em miniatura na configuração de aplicativo myContainerName. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account). Defina as configurações de aplicativo com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 Nos comados da CLI a seguir, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs criado no tutorial anterior.
 
@@ -128,7 +128,7 @@ Agora você pode implantar um projeto de código de função nesse aplicativo de
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-O redimensionamento do exemplo do script C# (.csx) está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+O redimensionamento do exemplo do script C# (.csx) está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
 
 No comando a seguir, `<function_app>` é o nome do aplicativo de funções criado anteriormente.
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-A função de redimensionamento do exemplo Node.js está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
+A função de redimensionamento do exemplo Node.js está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 No comando a seguir, `<function_app>` é o nome do aplicativo de funções criado anteriormente.
 
@@ -184,8 +184,12 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
     | **Tipos de evento** | Blob criado | Desmarque todos os tipos que não sejam **Blob criado**. Somente os tipos de evento `Microsoft.Storage.BlobCreated` são passados para a função.| 
     | **Tipo de assinante** |  gerado automaticamente |  Pré-definidas como Web Hook. |
     | **Ponto de extremidade do assinante** | gerado automaticamente | Use a URL de ponto de extremidade gerada para você. | 
-4. *Opcional:* Caso você precise criar contêineres adicionais no mesmo armazenamento de blobs para outras finalidades no futuro, pode usar os recursos **Filtragem de assunto** da guia **Filtros** para direcionamento mais granular de eventos de blob para garantir que seu aplicativo de função seja chamado somente quando blobs são adicionados ao contêiner **imagens** especificamente. 
-5. Clique em **Criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara a função `Thumbnail` quando um blob é adicionado ao contêiner de *imagens*. A função redimensiona as imagens e adiciona-as ao contêiner de *miniaturas*.
+4. Alterne para a guia **Filtro** e execute as seguintes ações:     
+    1. Selecione a opção **Habilitar filtragem por assunto**.
+    2. Em **O assunto começa com**, insira o seguinte valor: **/blobServices/default/containers/images/blobs/**.
+
+        ![Especificar o filtro para a assinatura de evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. Selecione **Criar** para adicionar a assinatura de evento. Isso criará uma assinatura de evento que dispara a função `Thumbnail` quando um blob é adicionado ao contêiner `images`. A função redimensiona as imagens e as adiciona ao contêiner `thumbnails`.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento da imagem no aplicativo Web de exemplo. 
 

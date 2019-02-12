@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224234"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770420"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -202,6 +202,7 @@ Para garantir backups estáveis usando o Backup do Azure para SQL Server em VM I
 
   * Espaços à esquerda ou à direita
   * '!' à direita
+  * Colchete de fechamento ‘]’
 
 Temos o uso de alias para caracteres não compatíveis com a Tabela do Azure, mas é recomendável evitá-los também. Para obter mais informações, veja este [artigo](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -721,6 +722,8 @@ Quando você interrompe a proteção para um banco de dados do SQL Server, o Bac
 * Interromper todos os trabalhos de backup futuros, mas deixar os pontos de recuperação.
 
 Se você optar por Parar o backup com retenção de dados, pontos de recuperação serão removidos de acordo com a política de backup. Você incorrerá em encargo de preço de instância protegida SQL, além do armazenamento consumido, até que todos os pontos de recuperação sejam removidos. Para saber mais sobre os preços de Backup do Azure para SQL, veja a [página de preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+
+Sempre que você Parar o Backup com retenção de dados, os pontos de recuperação expirarão de acordo com a política de retenção, mas o Backup do Azure sempre manterá um último ponto de recuperação até que você exclua explicitamente os dados de backup. Da mesma forma, se você excluir uma fonte de dados sem executar Parar Backup, os novos backups começarão a falhar e os pontos de recuperação antigos expirarão de acordo com a política de retenção. No entanto, um último ponto de recuperação sempre será retido até que você execute Parar Backup com exclusão de dados.
 
 Para interromper a proteção para um banco de dados:
 

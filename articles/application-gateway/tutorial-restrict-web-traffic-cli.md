@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 92e4f93f3bf384ef8ec75a6f65d49a7b81e0925b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: db95ec05d7c2a61a75c0051b65d9c9c9943b732c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432317"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753649"
 ---
-# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Ativar firewall do aplicativo Web usando a CLI do Azure
+# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Habilitar firewall do aplicativo Web usando a CLI do Azure
 
 Você pode restringir tráfego em um [gateway de aplicativo](overview.md) com um [firewall de aplicativo de web](waf-overview.md) (WAF). O WAF usa as regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger o seu aplicativo. Essas regras incluem proteção contra ataques, como injeção de SQL, ataques de script entre sites e sequestros de sessão. 
 
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Criar um gateway de aplicativo com um WAF
 
-Você pode usar [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que você criou anteriormente.
+Você pode usar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que você criou anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301721"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696771"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutorial: conceder acesso a um usuário usando o RBAC e o Azure PowerShell
+# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um usuário usando o RBAC e o Azure PowerShell
 
 O [Controle de acesso baseado em função (RBAC)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Neste tutorial, você concede acesso a um usuário para exibir tudo em uma assinatura e gerenciar tudo em um grupo de recursos usando o Azure PowerShell.
 
@@ -32,6 +32,8 @@ Neste tutorial, você aprenderá como:
 > * Remover acesso
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,10 +81,10 @@ Para atribuir uma função, você precisa de um usuário, grupo ou entidade de s
 
 Você usa um grupo de recursos para mostrar como atribuir uma função em um escopo do grupo de recursos.
 
-1. Obtenha uma lista de locais de região usando o comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+1. Obtenha uma lista de locais de região usando o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. Selecione um local perto de você e atribua-o a uma variável.
@@ -91,10 +93,10 @@ Você usa um grupo de recursos para mostrar como atribuir uma função em um esc
    $location = "westus"
    ```
 
-1. Crie um novo grupo de recursos usando o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+1. Crie um novo grupo de recursos usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -107,12 +109,12 @@ Você usa um grupo de recursos para mostrar como atribuir uma função em um esc
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para conceder acesso ao usuário, você usa o comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir uma função. Você deve especificar a entidade de segurança, a definição de função e o escopo.
+Para permitir acesso ao usuário, use o comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para atribuir uma função. Você deve especificar a entidade de segurança, a definição de função e o escopo.
 
-1. Obtenha a ID de sua assinatura usando o comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Obtenha a ID de sua assinatura usando o comando [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -131,7 +133,7 @@ Para conceder acesso ao usuário, você usa o comando [New-AzureRmRoleAssignment
 1. Atribua a função [Leitor](built-in-roles.md#reader) ao usuário no escopo da assinatura.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -151,7 +153,7 @@ Para conceder acesso ao usuário, você usa o comando [New-AzureRmRoleAssignment
 1. Atribuir a função [Colaborador](built-in-roles.md#contributor) ao usuário no escopo do grupo de recursos.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -170,10 +172,10 @@ Para conceder acesso ao usuário, você usa o comando [New-AzureRmRoleAssignment
 
 ## <a name="list-access"></a>Relacionar acesso
 
-1. Para verificar o acesso para a assinatura, use o comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) para listar as atribuições de função.
+1. Para verificar o acesso para a assinatura, use o comando [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) para listar as atribuições de função.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
     ```
 
     ```Example
@@ -190,10 +192,10 @@ Para conceder acesso ao usuário, você usa o comando [New-AzureRmRoleAssignment
 
     Na saída, você pode ver que a função de Leitor foi atribuída ao Usuário do Tutorial de RBAC no escopo da assinatura.
 
-1. Para verificar o acesso ao grupo de recursos, use o comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) para listar as atribuições de função.
+1. Para verificar o acesso ao grupo de recursos, use o comando [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) para listar as atribuições de função.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -232,12 +234,12 @@ Para conceder acesso ao usuário, você usa o comando [New-AzureRmRoleAssignment
 
 ## <a name="remove-access"></a>Remover acesso
 
-Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) para remover a atribuição de função.
+Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) para remover a atribuição de função.
 
 1. Use o comando a seguir para remover a atribuição de função de Colaborador do usuário no escopo do grupo de recursos.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -245,7 +247,7 @@ Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzureRmR
 1. Use o comando a seguir para remover a atribuição de função de Leitor do usuário no escopo da assinatura.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -254,10 +256,10 @@ Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzureRmR
 
 Para limpar os recursos criados por este tutorial, exclua o grupo de recursos e o usuário.
 
-1. Exclua o grupo de recursos usando o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+1. Exclua o grupo de recursos usando o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

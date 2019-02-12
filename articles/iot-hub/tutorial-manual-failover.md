@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249897"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821279"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Executar failover manual para um hub IoT (versão prévia pública)
 
@@ -50,7 +50,7 @@ Neste tutorial, você executa as seguintes tarefas:
     **Região**: selecione uma região perto de você que seja parte da versão prévia. Este tutorial usa `westus2`. Um failover só pode ser executado entre regiões do Azure emparelhadas geograficamente. A região geográfica emparelhada com westus2 é WestCentralUS.
     
    > [!NOTE]
-   > O failover manual está atualmente em versão prévia pública e *não* está disponível nas seguintes regiões do Azure: Leste dos EUA, Oeste dos EUA, Europa Setentrional, Europa Ocidental, Sul do Brasil e Centro-Sul dos EUA.
+   > Atualmente, o failover manual está em versão prévia pública e *não* está disponível nas seguintes regiões do Azure: Leste dos EUA, Oeste dos EUA, Europa Setentrional, Europa Ocidental, Sul do Brasil e Centro-Sul dos EUA.
 
    **Nome do Hub IoT**: especifique um nome para o hub IoT. O nome do hub deve ser globalmente exclusivo. 
 
@@ -112,7 +112,7 @@ Um failback é executado da mesma forma que um failover manual. Estas são as et
 
    ![Captura de tela da solicitação de failback manual](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   As faixas são exibidas conforme explicado na seção [Executar um failover](#perform-a-failover). Após concluir o failback, ele mostra novamente `westus2` como a localização principal e `WestCentralUS` como a localização secundária, conforme definido originalmente.
+   As faixas são exibidas conforme explicado na seção Executar um failover. Após concluir o failback, ele mostra novamente `westus2` como a localização principal e `WestCentralUS` como a localização secundária, conforme definido originalmente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

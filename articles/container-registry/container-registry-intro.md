@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298340"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814241"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -32,7 +32,7 @@ Obtenha imagens de um registro de contêiner do Azure para vários destinos de i
 
 Os desenvolvedores também podem enviar um registro de contêiner como parte de um fluxo de trabalho de desenvolvimento do contêiner. Por exemplo, direcione uma ferramenta de implantação e integração contínua de destino como [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) ou [Jenkins](https://jenkins.io/) a um registro de contêiner.
 
-Configure [Tarefas do ACR](#azure-container-registry-build) para recompilar automaticamente as imagens de aplicativo quando suas imagens de base são atualizadas. Use Tarefas do ACR para automatizar os builds de imagem quando sua equipe confirmar o código para um repositório Git.
+Configure Tarefas do ACR para recompilar automaticamente as imagens de aplicativo quando suas imagens base forem atualizadas. Use Tarefas do ACR para automatizar os builds de imagem quando sua equipe confirmar o código para um repositório Git.
 
 ## <a name="key-concepts"></a>Principais conceitos
 

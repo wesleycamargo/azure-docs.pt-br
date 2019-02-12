@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b397d77b525bdb63f2531634e397ec210d4a6202
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165071"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736024"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Para configurar o gerenciamento remoto no dispositivo de nuvem
 
@@ -29,5 +29,5 @@ ms.locfileid: "50165071"
     2. O padrão é conectar-se por HTTPS. Escolha se conectar usando HTTP. A conexão por HTTP só será aceitável em redes confiáveis. Certifique-se de que HTTP esteja habilitado.
     3. Na barra de comandos na parte superior da folha, clique em **... Clique em**  e depois em **Baixar certificado** para baixar um certificado de gerenciamento remoto. Especifique um local no qual o arquivo será salvo. Esse certificado deve ser instalado na máquina cliente ou host que você usa para se conectar ao dispositivo de nuvem.
 
-        ![Folha Gerenciamento remoto](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
+        ![Folha do gerenciamento remoto](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
 5. Clique em **Salvar** e, quando receber a solicitação, confirme as alterações.

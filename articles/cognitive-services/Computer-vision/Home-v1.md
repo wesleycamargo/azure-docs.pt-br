@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816536"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a API da Pesquisa Visual Computacional versão 1.0?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198139"
 >- [API da Pesquisa Visual Computacional versão 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 A API da Pesquisa Visual Computacional baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Ao fazer upload de uma imagem ou especificar uma URL de imagem, algoritmos da Pesquisa Visual Computacional da Microsoft podem analisar o conteúdo visual de maneiras diferentes com base em entradas e nas opções do usuário. Com a API da Pesquisa Visual Computacional, os usuários podem analisar imagens para:
-* [Marcar imagens com base no conteúdo.](#Tagging)
-* [Categorizar imagens.](#Categorizing)
-* [Identificar o tipo e a qualidade das imagens.](#Identifying)
+* Marcar imagens com base no conteúdo.
+* Categorizar imagens.
+* Identificar o tipo e a qualidade das imagens.
 * [Detectar faces humanas e retornar suas coordenadas. ](#Faces)
-* [Reconhecer um conteúdo específico a um domínio.](#Domain-Specific)
-* [Gerar descrições do conteúdo.](#Descriptions)
-* [Usar o reconhecimento óptico de caracteres para identificar o texto impresso encontrado nas imagens.](#OCR)
-* [Reconhecer texto manuscrito.](#RecognizeText)
-* [Distinguir esquemas de cores.](#Color)
-* [Sinalizar um conteúdo para adulto.](#Adult)
-* [Cortar as fotos a serem usadas como miniaturas.](#Thumbnails)
+* Reconhecer um conteúdo específico a um domínio.
+* Gerar descrições do conteúdo.
+* Usar o reconhecimento óptico de caracteres para identificar o texto impresso encontrado nas imagens.
+* Reconhecer texto manuscrito.
+* Distinguir esquemas de cores.
+* Sinalizar conteúdo para adulto.
+* Cortar as fotos a serem usadas como miniaturas.
 
 ## <a name="requirements"></a>Requisitos
 * Suporte para métodos de entrada: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem.

@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997116"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768643"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
 
-O gerenciamento de custos é o processo no qual você efetivamente planeja e controla os custos envolvidos em seus negócios. As tarefas de gerenciamento de custos são normalmente executadas por equipes de finanças, gerenciamento e aplicativos. O Azure Cost Management ajuda as organizações com o Microsoft Enterprise Agreements (EA) a planejar com o custo em mente. Também ajuda a analisar os custos de maneira eficaz e a tomar medidas para otimizar os gastos na nuvem. Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](cost-mgt-best-practices.md).
+O gerenciamento de custos é o processo no qual você efetivamente planeja e controla os custos envolvidos em seus negócios. As tarefas de gerenciamento de custos são normalmente executadas por equipes de finanças, gerenciamento e aplicativos. O Gerenciamento de Custos do Azure ajuda as organizações a planejar priorizando o custo. Também ajuda a analisar os custos de maneira eficaz e a tomar medidas para otimizar os gastos na nuvem. Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](cost-mgt-best-practices.md).
 
 Embora relacionado, o faturamento difere do gerenciamento de custos. O faturamento é o processo de faturar os clientes por bens ou serviços e gerenciar o relacionamento comercial.  As equipes de suprimento e finanças geralmente realizam tarefas de faturamento.
 
@@ -45,7 +45,7 @@ Se você usar sistemas externos para acessar ou revisar dados de gerenciamento d
 
 ## <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 
-O Azure tem outras ferramentas que não fazem parte do conjunto de recursos do Azure Cost Management. No entanto, eles têm um papel importante no processo de gerenciamento de custos. Para saber mais sobre essas ferramentas, consulte os links a seguir.
+O Azure tem outras ferramentas que não fazem parte do conjunto de recursos do Azure Cost Management. No entanto, elas têm um papel importante no processo de gerenciamento de custos. Para saber mais sobre essas ferramentas, consulte os links a seguir.
 
 - [Calculadora de preço do Azure](https://azure.microsoft.com/pricing/calculator/): use essa ferramenta para estimar seus custos iniciais de nuvem.
 - [Azure Migrate](../migrate/migrate-overview.md) - Avalie sua carga de trabalho atual do data center para obter insights sobre o que é necessário de uma solução de substituição do Azure.

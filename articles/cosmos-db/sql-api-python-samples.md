@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: e5d765536d182700b25b7f21eebe6c16b4c0bdef
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 35ce6a09b77b1cebe00f3ee11f09d526dd9b0b22
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212219"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768599"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python no Azure Cosmos DB
 
@@ -84,11 +84,11 @@ O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/blob/mas
 
 | Tarefa | Referência de API |
 | --- | --- |
-| [Usar indexação manual (em vez de automática)](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L245-L246) |**IndexingPolicy.Automatic** |
-| [Excluir caminhos do documento especificado do índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L294-L367) |**IndexingPolicy.ExcludedPaths** |
+| [Usar indexação manual (em vez de automática)](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L245-L246) | Política de indexação automática |
+| [Excluir caminhos do documento especificado do índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L294-L367) | Política de indexação com caminhos excluídos|
 | [Excluir um documento do índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L204-L210) |[IndexingDirective.Exclude](/python/api/azure-cosmos/azure.cosmos.documents.indexingdirective#exclude) |
 | [Definir o modo de indexação](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L533) |[IndexingMode](/python/api/azure-cosmos/azure.cosmos.documents.indexingmode) |
-| [Usar índices de intervalo em cadeias de caracteres](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L440-L456) |**IndexingPolicy.IncludedPaths** |
+| [Usar índices de intervalo em cadeias de caracteres](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L440-L456) | Política de indexação com caminhos incluídos|
 | [Executar uma transformação de índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replacecontainer-collection-link--collection--options-none-) |
 
 ## <a name="query-examples"></a>Exemplos de consulta

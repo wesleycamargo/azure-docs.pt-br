@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a82ea1e7f584cd9cab794d147c3f19f04e23732b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474795"
+ms.locfileid: "55507766"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -130,13 +130,13 @@ As bibliotecas de cliente de armazenamento possuem métodos que você pode chama
 
 Para saber mais sobre criptografia no lado do cliente, confira [Criptografia no cliente com o .NET para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md).
 
-## <a name="replication"></a>Replicação
+## <a name="redundancy"></a>Redundância
 
-Para fazer com que seus dados sejam duráveis, o Armazenamento do Azure replica várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona um tipo de replicação. Na maioria dos casos, essa configuração pode ser modificada depois que a conta de armazenamento é criada. 
+Para fazer com que seus dados sejam duráveis, o Armazenamento do Azure replica várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Para obter informação sobre recuperação de desastre, consulte [O que fazer se ocorrer uma interrupção do Armazenamento do Azure](storage-disaster-recovery-guidance.md).
+Para obter mais informações sobre a recuperação de desastres, veja [Recuperação de desastre e failover de conta de armazenamento (versão prévia) no Armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transferência de dados do Armazenamento do Azure e para ele
 

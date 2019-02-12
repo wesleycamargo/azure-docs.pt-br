@@ -3,7 +3,7 @@ title: Tutorial – Implantar o LAMP em uma máquina virtual do Linux no Azure |
 description: Neste tutorial, você aprenderá a instalar a pilha do LAMP em uma máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: c69c7055e420ffa64e547f5c3fe53d997cf90168
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970678"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753700"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web do LAMP em uma máquina virtual do Linux no Azure
 
@@ -50,15 +50,12 @@ Execute o seguinte comando para atualizar as fontes de pacote do Ubuntu e instal
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-Você será solicitado a instalar os pacotes e outras dependências. Quando solicitado, defina uma senha raiz para o MySQL e, em seguida, pressione [Enter] para continuar. Avance pelas solicitações restantes. Esse processo instala as extensões PHP mínimas obrigatórias e necessárias para usar o PHP com o MySQL. 
-
-![Página de senha raiz do MySQL][1]
+Você será solicitado a instalar os pacotes e outras dependências. Esse processo instala as extensões PHP mínimas obrigatórias e necessárias para usar o PHP com o MySQL.  
 
 ## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>Verifique o Apache
 
 Verifique a versão do Apache com o seguinte comando:
 ```bash
@@ -70,7 +67,7 @@ Com o Apache instalado e a porta 80 aberta para a sua VM, o servidor Web agora p
 ![Página padrão do Apache][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Verificar e proteger o MySQL
 
 Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em letra maiúscula):
 
@@ -78,23 +75,23 @@ Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em
 mysql -V
 ```
 
-Para proteger a instalação do MySQL, execute o script `mysql_secure_installation`. Se estiver configurando um servidor temporário, você poderá ignorar essa etapa.
+Para ajudar a proteger a instalação do MySQL, incluindo a configuração de uma senha raiz, execute o script `mysql_secure_installation`. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Digite a senha raiz do MySQL e defina as configurações de segurança do seu ambiente.
+Também é possível configurar o Plug-in de Validação de Senha (recomendado). Em seguida, defina uma senha para o usuário raiz do MySQL e as configurações de segurança restantes para o seu ambiente. É recomendável que você responda "Y" (sim) para todas as perguntas.
 
 Se você quiser experimentar os recursos MySQL (criar um banco de dados MySQL, adicionar usuários ou alterar as definições de configuração), faça logon no MySQL. Esta etapa não é necessária para concluir este tutorial.
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 Quando terminar, saia do prompt do MySQL digitando `\q`.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>Verificar PHP
 
 Verifique a versão do PHP com o seguinte comando:
 
@@ -114,7 +111,6 @@ Agora você pode verificar a página de informações de PHP que você criou. Ab
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você implantou um servidor LAMP no Azure. Você aprendeu como:
@@ -131,6 +127,5 @@ Vá para o próximo tutorial para saber como proteger servidores Web com certifi
 > [!div class="nextstepaction"]
 > [Proteger servidor Web com SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

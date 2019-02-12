@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409569"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821795"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure
 
 Neste artigo, você aprenderá a configurar uma função do Azure e um aplicativo lógico que recebe mensagens baseadas no recebimento de um evento da Grade de Eventos do Azure. Você fará o seguinte:
  
-* Crie um [teste de função do Azure](#test-function-setup) simples para depurar e ver o fluxo inicial de eventos da Grade de Eventos. Execute esta etapa, independentemente se você executar as outras.
-* Crie uma [função do Azure para receber e processar mensagens do Barramento de Serviço do Azure](#receive-messages-using-azure-function) com base em eventos da Grade de Eventos.
-* Utilize o [recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure](#receive-messages-using-azure-logic-app).
+* Crie um teste de função do Azure simples para depurar e ver o fluxo inicial de eventos na Grade de Eventos. Execute esta etapa, independentemente se você executar as outras.
+* Crie uma função do Azure para receber e processar mensagens do Barramento de Serviço do Azure com base em eventos da Grade de Eventos.
+* Utilize o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure.
 
 O exemplo que você criar pressupõe que o tópico do Barramento de Serviço tem duas assinaturas. O exemplo também pressupõe que a assinatura da Grade de Eventos foi criada para enviar eventos para apenas uma assinatura do Barramento de Serviço. 
 
@@ -197,7 +197,7 @@ Conecte um aplicativo lógico com o Barramento de Serviço do Azure e a Grade de
 
 1. Adicione suas informações fazendo o seguinte:
 
-    a. Na caixa **Nome do Recurso**, digite seu próprio nome de namespace. 
+     a. Na caixa **Nome do Recurso**, digite seu próprio nome de namespace. 
 
     b. Em **Opções avançadas**, na caixa **Filtro do Sufixo**, insira o filtro para sua assinatura.
 

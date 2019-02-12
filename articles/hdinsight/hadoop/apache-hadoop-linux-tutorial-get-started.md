@@ -10,18 +10,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: a445f41732973dcd0053ada4aaef2458ec474830
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a3f1720f6ce62f65c3efce420c6f297e09894b8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913505"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812551"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início Rápido: Introdução ao Apache Hadoop e ao Apache Hive no Azure HDInsight usando um modelo do Resource Manager
 
 Neste artigo, você aprenderá a criar clusters [Apache Hadoop](https://hadoop.apache.org/) no HDInsight usando um modelo do Resource Manager e, depois, executar trabalhos do Hive no HDInsight. A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Neste artigo, você deve executar as três tarefas.
 
-Neste início rápido, você usará um modelo do Resource Manager para criar um cluster Hadoop do HDInsight. Você também pode criar um cluster usando o [Portal do Azure](apache-hadoop-linux-create-cluster-get-started-portal.md).  Modelos semelhantes podem ser exibidos nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+Neste início rápido, você usará um modelo do Resource Manager para criar um cluster Hadoop do HDInsight. Você também pode criar um cluster usando o [Portal do Azure](apache-hadoop-linux-create-cluster-get-started-portal.md).  Modelos semelhantes podem ser exibidos nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). A referência de modelo pode ser encontrada [aqui](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 Atualmente, o HDInsight vem com [sete tipos diferentes de cluster](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [Novidades nas versões de cluster Hadoop fornecidas pelo HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -256,6 +256,10 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 * Para saber mais sobre como gerenciar o cluster HDInsight baseado em Linux, confira [Manage HDInsight clusters using Apache Ambari](../hdinsight-hadoop-manage-ambari.md) (Gerenciar clusters HDInsight usando o Apache Ambari).
 * Para saber mais sobre as opções que você pode selecionar ao criar um cluster HDInsight, confira [Como criar o HDInsight no Linux usando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md).
 
+Para saber mais sobre como criar um cluster HDInsight usando modelos do Azure Resource Manager, confira:
+
+* [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
+* [Referência de modelo do Azure](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
 

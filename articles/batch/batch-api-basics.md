@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754060"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818576"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -62,7 +62,7 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
   * [Iniciar tarefa](#start-task)
   * [Tarefa do Gerenciador de Trabalhos](#job-manager-task)
   * [Tarefas de preparação e liberação do trabalho](#job-preparation-and-release-tasks)
-  * [MPI (tarefa de várias instâncias)](#multi-instance-tasks)
+  * MPI (tarefa de várias instâncias)
   * [Dependências da tarefa](#task-dependencies)
 * [Pacotes de aplicativos](#application-packages)
 
@@ -153,7 +153,7 @@ Para obter requisitos e etapas detalhadas, consulte [Usar uma imagem personaliza
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Suporte de contêiner em pools de Máquina Virtual
 
-Ao criar um pool de Configuração de Máquina Virtual usando as APIs do Lote, você pode configurar o pool para executar tarefas em contêineres do Docker. Atualmente, você deve criar o pool usando uma imagem que dê suporte a contêineres do Docker. Use o Windows Server 2016 Datacenter com a imagem de Contêineres do Azure Marketplace, ou fornecer uma imagem de VM personalizada que inclua o Docker Community Edition ou Enterprise Edition e todos os drivers necessários. As configurações de pool devem incluir uma [configuração de contêiner](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie as imagens de contêiner para as máquinas virtuais quando o pool é criado. As tarefas executadas no pool podem fazer referência a imagens de contêiner e a opções de execução do contêiner.
+Ao criar um pool de Configuração de Máquina Virtual usando as APIs do Lote, você pode configurar o pool para executar tarefas em contêineres do Docker. Atualmente, você deve criar o pool usando uma imagem que dê suporte a contêineres do Docker. Use o Windows Server 2016 Datacenter com a imagem de Contêineres do Azure Marketplace, ou fornecer uma imagem de VM personalizada que inclua o Docker Community Edition ou Enterprise Edition e todos os drivers necessários. As configurações de pool devem incluir uma [configuração de contêiner](/rest/api/batchservice/pool/add) que copie as imagens de contêiner para as máquinas virtuais quando o pool é criado. As tarefas executadas no pool podem fazer referência a imagens de contêiner e a opções de execução do contêiner.
 
 Para obter mais informações, consulte [Executar aplicativos de contêiner do Docker no Lote do Azure](batch-docker-container-workloads.md).
 
@@ -215,7 +215,7 @@ Você pode especificar [pacotes de aplicativos](#application-packages) para impl
 
 ### <a name="network-configuration"></a>Configuração de rede
 
-Você pode especificar a sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure em que nós de computação do pool devem ser criados. Veja a seção [Configuração de rede do pool](#pool-network-configuration) para obter mais informações.
+Você pode especificar a sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure em que nós de computação do pool devem ser criados. Confira a seção Configuração da rede do pool para obter mais informações.
 
 
 ## <a name="job"></a>Trabalho
@@ -271,7 +271,7 @@ Além das tarefas que você pode definir para realizar computação em um nó, a
 * [Iniciar tarefa](#start-task)
 * [Tarefa do Gerenciador de Trabalhos](#job-manager-task)
 * [Tarefas de preparação e liberação do trabalho](#job-preparation-and-release-tasks)
-* [MPI (Tarefas de várias instâncias)](#multi-instance-tasks)
+* MPI (tarefas de várias instâncias)
 * [Dependências da tarefa](#task-dependencies)
 
 ### <a name="start-task"></a>Iniciar tarefa

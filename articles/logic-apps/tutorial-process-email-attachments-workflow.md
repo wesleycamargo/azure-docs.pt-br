@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508599"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o manuseio de emails e anexos com os Aplicativos Lógicos do Azure
 
@@ -64,7 +64,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
    | **Modelo de implantação** | Gerenciador de recursos | O [modelo de implantação](../azure-resource-manager/resource-manager-deployment-model.md) para gerenciar a implantação de recursos | 
    | **Tipo de conta** | Propósito geral | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Localidade** | Oeste dos EUA | A região na qual armazenar informações sobre sua conta de armazenamento | 
-   | **Replicação** | Armazenamento com redundância local (LRS) | Essa configuração especifica como os dados são copiados, armazenados, gerenciados e sincronizados. Confira [Replicação](../storage/common/storage-introduction.md#replication). | 
+   | **Replicação** | Armazenamento com redundância local (LRS) | Essa configuração especifica como os dados são copiados, armazenados, gerenciados e sincronizados. Veja [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../storage/common/storage-redundancy-lrs.md). | 
    | **Desempenho** | Standard | Essa configuração especifica os tipos de dados com suporte e a mídia para armazenar dados. Confira os [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Transferência segura é necessária** | Desabilitado | Essa configuração especifica a segurança necessária para solicitações de conexões. Confira [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). | 
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | O nome e a ID da assinatura do Azure | 
@@ -274,8 +274,8 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
       | Configuração | Valor | DESCRIÇÃO | 
       | ------- | ----- | ----------- | 
-      | **Tem Anexo** | SIM | Obter somente emails com anexos. <p>**Observação:** o gatilho não remove emails da sua conta; ele verifica apenas novas mensagens e processa somente os emails que correspondem ao filtro de assunto. | 
-      | **Incluir Anexos** | SIM | Obter os anexos como entrada para o fluxo de trabalho, em vez de simplesmente procurar anexos. | 
+      | **Tem Anexo** | Sim | Obter somente emails com anexos. <p>**Observação:** o gatilho não remove emails da sua conta; ele verifica apenas novas mensagens e processa somente os emails que correspondem ao filtro de assunto. | 
+      | **Incluir Anexos** | Sim | Obter os anexos como entrada para o fluxo de trabalho, em vez de simplesmente procurar anexos. | 
       | **Filtro de Assunto** | ```Business Analyst 2 #423501``` | O texto a ser localizado no assunto do email | 
       |  |  |  | 
 

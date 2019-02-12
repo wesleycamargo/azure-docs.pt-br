@@ -6,29 +6,16 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038187"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770377"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais
 
-<table>
-<tr>
-  <td><strong>Binários</strong></td>
-  <td>[Baixar MSI](https://aka.ms/cosmosdb-emulator)</td>
-</tr>
-<tr>
-  <td><strong>Docker</strong></td>
-  <td>[Hub de Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
-</tr>
-<tr>
-  <td><strong>Fonte de Docker</strong></td>
-  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
-</tr>
-</table>
+|**Binários**|[Baixar MSI](https://aka.ms/cosmosdb-emulator)| |**Docker**|[Hub do Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)| |**Fonte do Docker** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
 
 O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento. Com o Emulador do Azure Cosmos DB, você pode desenvolver e testar seu aplicativo localmente sem criar uma assinatura Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no Emulador do Azure Cosmos DB, você poderá passar a usar uma conta do Azure Cosmos DB na nuvem.
 
@@ -162,133 +149,28 @@ No local da instalação, você pode usar a linha de comando para iniciar e inte
 
 Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de comando.
 
-<table>
-<tr>
-  <td><strong>Opção</strong></td>
-  <td><strong>Descrição</strong></td>
-  <td><strong>Comando</strong></td>
-  <td><strong>Argumentos</strong></td>
-</tr>
-<tr>
-  <td>[No arguments]</td>
-  <td>Inicia o Emulador do Azure Cosmos DB com as configurações padrão.</td>
-  <td>CosmosDB.Emulator.exe</td>
-  <td></td>
-</tr>
-<tr>
-  <td>[Ajuda]</td>
-  <td>Exibe a lista de argumentos de linha de comando com suporte.</td>
-  <td>CosmosDB.Emulator.exe /?</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GetStatus</td>
-  <td>Obtém o status do Emulador do Azure Cosmos DB. O status é indicado pelo código de saída: 1 = Iniciando, 2 = Em execução, 3 = Parado. Um código de saída negativo indica que ocorreu um erro. Nenhum outro resultado é produzido.</td>
-  <td>CosmosDB.Emulator.exe /GetStatus</td>
-  <td></td>
-<tr>
-  <td>Shutdown</td>
-  <td>Desliga o Emulador do Azure Cosmos DB.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DataPath</td>
-  <td>Especifica o caminho no qual armazenar os arquivos de dados. O padrão é %LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
-  <td>&lt;datapath&gt;: um caminho acessível</td>
-</tr>
-<tr>
-  <td>Porta</td>
-  <td>Especifica o número da porta a ser usada para o emulador. O padrão é 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;porta&gt;</td>
-  <td>&lt;port&gt;: número da porta único</td>
-</tr>
-<tr>
-  <td>MongoPort</td>
-  <td>Especifica o número da porta a ser usada para API de compatibilidade do MongoDB. O padrão é 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;: número da porta único</td>
-</tr>
-<tr>
-  <td>DirectPorts</td>
-  <td>Especifica as portas a serem usadas para conectividade direta. Os padrões são 10251,10252,10253,10254.</td>
-  <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;: lista de 4 portas delimitada por vírgula</td>
-</tr>
-<tr>
-  <td>Chave</td>
-  <td>Chave de autorização para o emulador. A chave deve ser a codificação de base 64 de um vetor de 64 bytes.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;chave&gt;</td>
-  <td>&lt;key&gt;: A chave deve ser a codificação base-64 de um vetor de 64 bytes</td>
-</tr>
-<tr>
-  <td>EnableRateLimiting</td>
-  <td>Especifica que o comportamento de limitação da taxa de solicitação está habilitado.</td>
-  <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DisableRateLimiting</td>
-  <td>Especifica que o comportamento de limitação da taxa de solicitação está desabilitado.</td>
-  <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoUI</td>
-  <td>Não mostra o emulador de interface do usuário.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoExplorer</td>
-  <td>Não mostra o Data Explorer na inicialização.</td>
-  <td>CosmosDB.Emulator.exe /NoExplorer</td>
-  <td></td>
-</tr>
-<tr>
-  <td>PartitionCount</td>
-  <td>Especifica o número máximo de coleções particionadas. Veja [Alterar o número de coleções](#set-partitioncount) para saber mais.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;partitioncount&gt;: número máximo permitido de coleções de partição única. O padrão é 25. O máximo permitido é 250.</td>
-</tr>
-<tr>
-  <td>DefaultPartitionCount</td>
-  <td>Especifica o número padrão de partições para uma coleção particionada.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
-  <td>&lt;defaultpartitioncount&gt; O padrão é 25.</td>
-</tr>
-<tr>
-  <td>AllowNetworkAccess</td>
-  <td>Permite o acesso para o emulador através de uma rede. Você também deve passar /Key=&lt;key_string&gt; ou /KeyFile=&lt;file_name&gt; para habilitar o acesso à rede.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>ou o<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoFirewall</td>
-  <td>Não ajuste as regras de firewall quando /AllowNetworkAccess for usado.</td>
-  <td>CosmosDB.Emulator.exe /NoFirewall</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GenKeyFile</td>
-  <td>Gere uma nova chave de autorização e salve no arquivo especificado. A chave gerada pode ser usada com as opções /Key ou /KeyFile.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;caminho para o arquivo da chave&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>Consistência</td>
-  <td>Defina o nível de consistência padrão da conta.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistência&gt;</td>
-  <td>&lt;consistency&gt;: O valor deve ser um dos seguintes [níveis de consistência](consistency-levels.md): Session, Strong, Eventual ou BoundedStaleness. O valor padrão é Sessão.</td>
-</tr>
-<tr>
-  <td>?</td>
-  <td>Mostre a mensagem de ajuda.</td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
+|**Opção** | **Descrição** | **Comando**| **Argumentos**|
+|---|---|---|---|
+|[No arguments] | Inicia o Emulador do Azure Cosmos DB com as configurações padrão. |CosmosDB.Emulator.exe| |
+|[Ajuda] |Exibe a lista de argumentos de linha de comando com suporte.|CosmosDB.Emulator.exe /? | |
+| GetStatus |Obtém o status do Emulador do Azure Cosmos DB. O status é indicado pelo código de saída: 1 = Iniciando, 2 = Em execução, 3 = Parado. Um código de saída negativo indica que ocorreu um erro. Nenhum outro resultado é produzido. | CosmosDB.Emulator.exe /GetStatus| |
+| Shutdown| Desliga o Emulador do Azure Cosmos DB.| CosmosDB.Emulator.exe /Shutdown | |
+|DataPath | Especifica o caminho no qual armazenar os arquivos de dados. O padrão é %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: um caminho acessível |
+|Porta | Especifica o número da porta a ser usada para o emulador. O padrão é 8081. |CosmosDB.Emulator.exe /Port=\<porta\> | \<port\>: número da porta único |
+| MongoPort | Especifica o número da porta a ser usada para API de compatibilidade do MongoDB. O padrão é 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: número da porta único|
+| DirectPorts |Especifica as portas a serem usadas para conectividade direta. Os padrões são 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: lista de 4 portas delimitada por vírgula |
+| Chave |Chave de autorização para o emulador. A chave deve ser a codificação de base 64 de um vetor de 64 bytes. | CosmosDB.Emulator.exe /Key:\<chave\> | \<key\>: A chave deve ser a codificação base-64 de um vetor de 64 bytes|
+| EnableRateLimiting | Especifica que o comportamento de limitação da taxa de solicitação está habilitado. |CosmosDB.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |Especifica que o comportamento de limitação da taxa de solicitação está desabilitado. |CosmosDB.Emulator.exe /DisableRateLimiting | |
+| NoUI | Não mostra o emulador de interface do usuário. | CosmosDB.Emulator.exe /NoUI | |
+| NoExplorer | Não mostra o Data Explorer na inicialização. |CosmosDB.Emulator.exe /NoExplorer | | 
+| PartitionCount | Especifica o número máximo de coleções particionadas. Veja [Alterar o número de coleções](#set-partitioncount) para saber mais. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: número máximo permitido de coleções de partição única. O padrão é 25. O máximo permitido é 250.|
+| DefaultPartitionCount| Especifica o número padrão de partições para uma coleção particionada. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> O padrão é 25.|
+| AllowNetworkAccess | Permite o acesso para o emulador através de uma rede. Você também deve passar /Key=\<key_string\> ou /KeyFile=\<file_name\> para habilitar o acesso à rede. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> ou CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
+| NoFirewall | Não ajuste as regras de firewall quando /AllowNetworkAccess for usado. |CosmosDB.Emulator.exe /NoFirewall | |
+| GenKeyFile | Gere uma nova chave de autorização e salve no arquivo especificado. A chave gerada pode ser usada com as opções /Key ou /KeyFile. | CosmosDB.Emulator.exe /GenKeyFile=\<caminho para o arquivo da chave\> | |
+| Consistência | Defina o nível de consistência padrão da conta. | CosmosDB.Emulator.exe /Consistency=\<consistência\> | \<consistency\>: O valor deve ser um dos seguintes [níveis de consistência](consistency-levels.md): Session, Strong, Eventual ou BoundedStaleness. O valor padrão é Sessão. |
+| ? | Mostre a mensagem de ajuda.| | |
 
 ## <a id="set-partitioncount"></a>Alterar o número de coleções
 

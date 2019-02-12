@@ -12,12 +12,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: e81073850ebb45e82f2f702bec976eed4725f62e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 08903bcb15c69e3bc9a2b5435785d4a1ee8edb5c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462555"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659041"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introdução ao Azure Dev Spaces com .NET Core e Visual Studio
 
@@ -158,4 +158,4 @@ Atualize o aplicativo Web no navegador e vá para a página Sobre. Sua mensagem 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o desenvolvimento em equipe](team-development-netcore-visualstudio.md)
+> [Saiba mais sobre o desenvolvimento de vários serviços](multi-service-netcore-visualstudio.md)

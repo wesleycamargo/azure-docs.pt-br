@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d5633648ee94c4db20f095619871ac5cd9cec7da
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825163"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -180,7 +180,7 @@ Para configurar o logon único do Azure AD com a AWS (Amazon Web Services), exec
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -398,7 +398,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -442,6 +442,12 @@ O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no AWS (
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve fazer logon automaticamente na AWS (Amazon Web Services) para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+ * Na seção **Provisionamento**, a subseção **Mapeamentos** mostrará uma mensagem "Carregando..." e nunca exibirá os mapeamentos de atributo. O único fluxo de trabalho de provisionamento compatível hoje é a importação de funções do AWS no Azure AD para seleção durante a atribuição de usuário/grupo. Os mapeamentos de atributo para isso são predeterminados e não configuráveis.
+ 
+ * A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são gravadas na propriedade appRoles do [objeto servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) do Azure AD para o locatário do AWS. Vários locatários do AWS (representados por servicePrincipals) podem ser adicionados ao Azure AD da galeria para provisionamento; no entanto, há um problema conhecido por não ser possível gravar automaticamente todas as funções importadas de várias servicePrincipals do AWS usadas para provisionar na única servicePrincipal usada para logon único. Como alternativa, a [API do Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pode ser usada para extrair todas as appRoles importadas para cada servicePrincipal do AWS em que o provisionamento foi configurado. Essas cadeias de caracteres de função podem ser adicionadas posteriormente à servicePrincipal do AWS na qual o logon único está configurado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
