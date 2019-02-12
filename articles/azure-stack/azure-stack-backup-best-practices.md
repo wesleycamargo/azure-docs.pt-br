@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241145"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993870"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Práticas recomendadas do serviço de Backup de infraestrutura
 
@@ -43,9 +43,18 @@ A cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o cam
 
 ### <a name="encryption"></a>Criptografia
 
+#### <a name="version-1901-and-newer"></a>Versão 1901 e mais recente
+
+O certificado de criptografia é usado para criptografar dados de backup que são exportados para o armazenamento externo. O certificado pode ser um certificado autoassinado, pois o certificado só é usado para transportar chaves. Consulte New-SelfSignedCertificate para obter mais informações sobre como criar um certificado.  
+A chave deve ser armazenada em um local seguro (por exemplo, certificado global do Azure Key Vault). O formato CER do certificado é usado para criptografar os dados. O formato PFX deve ser usado durante a implantação da recuperação de nuvem do Azure Stack para descriptografar os dados de backup.
+
+![Armazenado o certificado em um local seguro.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 e anteriores
+
 A chave de criptografia é usada para criptografar dados de backup que são exportados para o armazenamento externo. A chave é gerada como parte da [habilitação do backup para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-A chave deve ser armazenada em um local seguro (por exemplo, segredo do Cofre de chaves do Azure público). Essa chave deve ser usada durante a reimplantação do Azure Stack. 
+A chave deve ser armazenada em um local seguro (por exemplo, segredo do Cofre de chaves do Azure global). Essa chave deve ser usada durante a reimplantação do Azure Stack. 
 
 ![Armazenou a chave de um local seguro.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -74,7 +83,7 @@ Região: nyc
 
 Pasta MASBackup é onde o Azure Stack armazena seus dados de backup. Você não deve usar essa pasta para armazenar seus próprios dados. OEM não deve usar essa pasta para armazenar os dados de backup seja. 
 
-Os OEMs são incentivados a armazenar dados de backup para os componentes na pasta de região. Cada comutadores de rede, host de ciclo de vida do hardware (HLH) e assim por diante podem ser armazenados em sua própria subpasta. Por exemplo: 
+Os OEMs são incentivados a armazenar dados de backup para os componentes na pasta de região. Cada comutadores de rede, host de ciclo de vida do hardware (HLH) e assim por diante, podem ser armazenados em sua própria subpasta. Por exemplo: 
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -95,6 +104,6 @@ Os alertas a seguir têm suporte pelo sistema:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine o material de referência para o [serviço de Backup de infraestrutura](azure-stack-backup-reference.md).
+Examine o material de referência para o [infraestrutura de serviço de Backup](azure-stack-backup-reference.md)
 
-Habilitar o [serviço de Backup de infraestrutura](azure-stack-backup-enable-backup-console.md).
+Habilitar o [infraestrutura de serviço de Backup](azure-stack-backup-enable-backup-console.md)

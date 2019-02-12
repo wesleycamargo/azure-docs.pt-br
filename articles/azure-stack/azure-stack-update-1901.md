@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: cf86fafc1fcb0ffd6513abc9d02da16d1f00f22b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978911"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993581"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização da pilha 1901 do Azure
 
@@ -68,6 +68,35 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 Esta atualização inclui os seguintes novos recursos e melhorias para o Azure Stack:
 
 - Imagens gerenciadas em ativação do Azure Stack de criar um objeto de imagem gerenciada em uma VM generalizada (ambos não gerenciados e gerenciados) que só pode criar gerenciada disco VMs no futuro. Para obter mais informações, consulte [Managed Disks do Azure Stack](user/azure-stack-managed-disk-considerations.md#managed-images).
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Correção de bug – `Import-AzureRmContext` para desserializar o token salvo corretamente.  
+   * **AzureRm.Resources**  
+         Correção de bug – `Get-AzureRmResource` ao caso de consulta e minúsculas por tipo de recurso.  
+   * **Azure.Storage**  
+         Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 4.5.0 que dão suporte à **api-version 2017-07-29**.  
+   * **AzureRm.Storage**  
+         Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.0.4 com suporte a **2017-10-01 de versão de api**.  
+   * **AzureRm.Compute**  
+         Adicionado o parâmetro simple define `New-AzureRMVM` e `NewAzureRMVMSS`, `-ImageName` parâmetro dá suporte à especificação de imagens de usuário.  
+   * **AzureRm.Insights**  
+         Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.1.5 com suporte a **api-version 2018-01-01** para métricas, tipos de recursos de definições de métrica.
+
+- **AzureStack 1.7.0** esta versão uma alteração significativa. Para obter detalhes sobre as alterações significativas, consulte https://aka.ms/azspshmigration170
+   * **Módulo Azs.Backup.Admin**  
+         Alterações da falha: Alterações de backup para o modo de criptografia baseada em certificado. Suporte para chaves simétricas é preterido.  
+   * **Módulo Azs.Fabric.Admin**  
+         `Get-AzsInfrastructureVolume` foi preterido. Usar o novo cmdlet `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` foi preterido.  Usar o novo cmdlet novo `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` foi preterido. O `StorageSubSystem` objeto contém a propriedade de capacidade.  
+   * **Módulo Azs.Compute.Admin**  
+         Correção de bug – `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Chamar `ConvertTo-PlatformImageObject` somente no caminho do sucesso.  
+         Correção de bug - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Chamando ConvertTo-VmExtensionObject somente no caminho do sucesso.  
+   * **Módulo Azs.Storage.Admin**  
+         Correção de bug – nova cota de armazenamento usa padrões se não houver nenhuma fornecido.
+
+Para examinar a referência para os módulos atualizados, consulte [referência de módulo do Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## <a name="fixed-issues"></a>Problemas corrigidos
 

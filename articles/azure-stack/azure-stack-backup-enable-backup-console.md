@@ -12,21 +12,21 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: db2c55ec30e766496b98ef66b584df26f2dfe116
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239274"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995723"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
-Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.
+Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups de infraestrutura. O parceiro de hardware pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento, cotas de rede e segredos do Key Vault.
 
-No entanto, o serviço de Backup de infraestrutura não fazer backup de VMs de IaaS, configurações de rede e recursos de armazenamento, como contas de armazenamento, blobs, tabelas, e assim por diante, para que os usuários que fazem logon após a recuperação de nuvem for concluído não verão qualquer um dos seus previamente existente recursos. Plataforma como serviço (PaaS) recursos e dados também não passam por backup pelo serviço. 
+No entanto, o serviço de Backup de infraestrutura não fazer backup de VMs de IaaS, as configurações de rede e recursos de armazenamento, como contas de armazenamento, blobs, tabelas e assim por diante, para que os usuários que fazem logon depois de concluir a recuperação de nuvem não verão qualquer um dos seus previamente existente recursos. Plataforma como serviço (PaaS) recursos e dados também não passam por backup pelo serviço. 
 
 Os administradores e usuários são responsáveis por fazer backup e restaurar os recursos de IaaS e PaaS separadamente dos processos de backup de infraestrutura. Para obter informações sobre como fazer backup de recursos de IaaS e PaaS, consulte os links a seguir:
 
@@ -43,7 +43,7 @@ Os administradores e usuários são responsáveis por fazer backup e restaurar o
 
     > [!Note]  
     > Se seu ambiente oferece suporte a resolução de nome de rede de infraestrutura do Azure Stack para seu ambiente corporativo, você pode usar um FQDN em vez do IP.
-    
+
 4. Tipo de **nome de usuário** usando o domínio e o nome de usuário com acesso suficiente para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`.
 5. Tipo de **senha** para o usuário.
 6. Digite a senha novamente até **Confirmar senha**.
@@ -53,13 +53,26 @@ Os administradores e usuários são responsáveis por fazer backup e restaurar o
     > [!Note]  
     > Se você quiser arquivar backups mais antigos que o período de retenção, certifique-se os arquivos de backup antes que o Agendador exclui os backups. Se você reduzir o período de retenção de backup (por exemplo, de 7 dias para 5 dias), o Agendador excluirá todos os backups mais antigos que o novo período de retenção. Verifique se que você está okey com os backups excluídos antes de atualizar esse valor. 
 
-9. Fornecer uma chave pré-compartilhada na **chave de criptografia** caixa. Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você defina essa chave pela primeira vez ou gire a chave no futuro, você não pode exibir a chave dessa interface. Para criar a chave, execute os seguintes comandos do PowerShell do Azure Stack:
+9. Nas configurações de criptografia de fornecer um certificado na caixa de arquivo. cer de certificado. Arquivos de backup são criptografados usando essa chave pública no certificado. Você deve fornecer um certificado que contém apenas a parte da chave pública quando você configura as configurações de backup. Depois que você configurar este certificado pela primeira vez ou girar o certificado no futuro, você pode exibir somente a impressão digital do certificado. Você não pode baixar ou exibir o arquivo de certificado carregado. Para criar o arquivo de certificado, execute o seguinte comando do PowerShell para criar um certificado autoassinado com as chaves públicas e privadas e exportar um certificado com apenas a parte de chave pública.
+
     ```powershell
-    New-AzsEncryptionKeyBase64
+
+        $cert = New-SelfSignedCertificate `
+            -DnsName "www.contoso.com" `
+            -CertStoreLocation "cert:\LocalMachine\My"
+
+        New-Item -Path "C:\" -Name "Certs" -ItemType "Directory" 
+        Export-Certificate `
+            -Cert $cert `
+            -FilePath c:\certs\AzSIBCCert.cer 
     ```
+
+    > [!Note]  
+    > **1901 e acima**: O Azure Stack aceita um certificado para criptografar os dados de backup de infraestrutura. Certifique-se de armazenar o certificado com a chave pública e privada em um local seguro. Por motivos de segurança, não é recomendável que você usa o certificado com as chaves públicas e privadas para definir configurações de backup. Para obter mais informações sobre como gerenciar o ciclo de vida desse certificado, consulte [práticas recomendadas do serviço de Backup de infraestrutura](azure-stack-backup-best-practices.md).
+
 10. Selecione **Okey** para salvar suas configurações de backup do controlador.
 
-    ![O Azure Stack - configurações de controlador de Backup](media/azure-stack-backup/backup-controller-settings.png)
+![O Azure Stack - configurações de controlador de Backup](media/azure-stack-backup/backup-controller-settings-certificate.png)
 
 ## <a name="start-backup"></a>Iniciar o backup
 Para iniciar um backup, clique em **fazer Backup agora** para iniciar um backup sob demanda. Um backup sob demanda não modificará o tempo para o próximo backup agendado. Depois que a tarefa for concluída, você pode confirmar as configurações no **Essentials**:
@@ -89,8 +102,30 @@ Clique em **habilitar Backups automáticos** para informar o Agendador para inic
 > [!Note]  
 > Se você tiver configurado o backup de infraestrutura antes de atualizar para 1807, backups automáticos serão desabilitados. Dessa forma os backups iniciados pelo Azure Stack não entrem em conflito com iniciado por uma tarefa externa do mecanismo de agendamento de backups. Depois de desabilitar qualquer Agendador de tarefas externos, clique em **habilitar Backups automáticos**.
 
+## <a name="update-backup-settings"></a>Atualizar as configurações de backup
+A partir de 1901, suporte para chave de criptografia é preterido. Se você estiver configurando o backup pela primeira vez no 1901, você deve usar um certificado. O Azure Stack dá suporte a chave de criptografia somente se a chave estiver configurada antes de atualizar para 1901. Modo de compatibilidade com versões anteriores continuarão para três versões. Depois disso, as chaves de criptografia não terá suporte. 
+
+### <a name="default-mode"></a>Modo padrão
+Nas configurações de criptografia, se você estiver configurando o backup da infra-estrutura pela primeira vez após instalar ou atualizar para 1901, você deve configurar o backup com um certificado. Não há suporte para o uso de uma chave de criptografia. 
+
+Para atualizar o certificado usado para criptografar dados de backup, você pode carregar um novo. CER com a parte pública da chave de arquivo e selecione Okey para salvar as configurações. 
+
+Novos backups serão começar a usar a chave pública no certificado novo. Não há nenhum impacto para todos os backups existentes criados com o certificado anterior. Certifique-se de manter o certificado mais antigo em torno de em um local seguro no caso de você precisar dela para recuperação na nuvem.
+
+![O Azure Stack - impressão digital do certificado de modo de exibição](media/azure-stack-backup/encryption-settings-thumbprint.png)
+
+### <a name="backwards-compatibility-mode"></a>Com versões anteriores modo de compatibilidade
+Se você tiver configurado o backup antes de atualizar para 1901, as configurações são transmitidas com nenhuma alteração no comportamento. Nesse caso, chave de criptografia tem suporte para versões anteriores compatibilidade. Você tem a opção atualizar a chave de criptografia ou alternar para usar um certificado. Você terá três versões continuar atualizando a chave de criptografia. Use esse tempo para fazer a transição para um certificado. 
+
+![O Azure Stack - usando a chave de criptografia no modo de compatibilidade com versões anteriores](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
+
+> [!Note]  
+> Atualização de chave de criptografia para o certificado é uma operação unidirecional. Depois de fazer essa alteração, você não pode alternar novamente para chave de criptografia. Todos os backups existentes permanecerão criptografados com a chave de criptografia anterior. 
+
+![O Azure Stack - usar o certificado de criptografia no modo de compatibilidade com versões anteriores](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda a executar um backup. Ver [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Saiba como verificar se o backup foi executado. Ver [concluído no portal de administração de backup de confirmar](azure-stack-backup-back-up-azure-stack.md).
+Aprenda a executar um backup. Consulte [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md)
+
+Saiba como verificar se o backup foi executado. Consulte [backup confirmar concluído no portal de administração](azure-stack-backup-back-up-azure-stack.md)
