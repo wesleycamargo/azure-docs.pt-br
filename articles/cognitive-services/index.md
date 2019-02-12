@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872927"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998920"
 ---
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Saiba como criar algoritmos inteligentes em apps, sites e bots para que eles vejam, ouçam, falem e entendam as necessidades do usuário por meio de métodos naturais de comunicação. Os tutoriais, as guias de início rápido, as referências de API e os exemplos mostram como.</p>
@@ -316,7 +316,6 @@ ms.locfileid: "55872927"
                         <p><a href="/azure/cognitive-services/speech-service">API do Serviço de Fala</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Reconhecimento do Locutor&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>API de Fala do Bing&nbsp;<sup style="font-size:70%">DESATIVANDO</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Serviço de Fala Personalizado&nbsp;<sup style="font-size:70%">DESATIVANDO</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Tradução de Fala&nbsp;<sup style="font-size:70%">DESATIVANDO</sup></span></a></p>
                      </div>
                 </div>
