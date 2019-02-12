@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251292"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097378"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e recuperação de dados para o Azure Stack com o serviço de Backup de infraestrutura
 
@@ -52,12 +52,16 @@ Os serviços de contenham os seguintes recursos.
   Você precisa de um compartilhamento de arquivos acessíveis a partir do Azure Stack que pode conter sete backups. Cada backup é cerca de 10 GB. O compartilhamento deve ser capaz de armazenar 140 GB de backups. Para obter mais informações sobre como selecionar um local de armazenamento para o serviço de Backup de infraestrutura do Azure Stack, consulte [requisitos de controlador de Backup](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credenciais**  
   Você precisa de uma conta de usuário de domínio e as credenciais, por exemplo, você pode usar as credenciais de administrador do Azure Stack.
-- **Chave de criptografia**  
-  Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você defina essa chave pela primeira vez ou gire a chave no futuro, você não pode exibir essa chave dessa interface. Para obter mais instruções gerar uma chave pré-compartilhada, execute os scripts em [habilitar o Backup para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- **Certificado de criptografia**  
+  Arquivos de backup são criptografados usando a chave pública no certificado. Certifique-se de armazenar esse certificado em um local seguro. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [habilitar o Backup para o Azure Stack a partir do portal de administração](azure-stack-backup-enable-backup-console.md).
-- Saiba como [habilitar o Backup para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Saiba como [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Saiba como [recuperar da perda de dados catastrófica](azure-stack-backup-recover-data.md)
+Saiba como [habilitar o Backup para o Azure Stack a partir do portal de administração](azure-stack-backup-enable-backup-console.md).
+
+Saiba como [habilitar o Backup para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+Saiba como [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+
+Saiba como [recuperar da perda de dados catastrófica](azure-stack-backup-recover-data.md)
