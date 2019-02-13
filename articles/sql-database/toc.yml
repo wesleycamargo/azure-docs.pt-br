@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Criar Banco de Dados SQL do Azure
+  - name: Criar um banco de dados no Banco de Dados SQL
     items:
     - name: Criar Banco de Dados usando SSMS
       href: sql-database-design-first-database.md
     - name: Criar Banco de Dados usando .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migrar para o Banco de Dados SQL do Azure
+  - name: Migrar para o Banco de Dados SQL
     items:
     - name: Migrar para um banco de dados individual/em pool usando DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrar para uma instância gerenciada usando DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Segurança no Banco de Dados SQL do Azure
+  - name: Segurança no Banco de Dados SQL
     items:
-    - name: Segurança do banco de dados individual
+    - name: Segurança de banco de dados individual e em pool
       href: sql-database-security-tutorial.md
-    - name: Segurança de instância gerenciada com logons do Azure AD
+    - name: Segurança de instância gerenciada
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implementar um banco de dados distribuído geograficamente
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Adquirir modelos
     items:
     - name: Visão geral
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: Modelo baseado em vCore
       href: sql-database-service-tiers-vcore.md
-    - name: Modelo de CPU
+    - name: Camadas de serviço DTU
       href: sql-database-service-tiers-dtu.md
     - name: Pagar antecipadamente por capacidade reservada
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Visão geral
       href: sql-database-howto-single-database.md
-    - name: Migrar para o Banco de Dados SQL
-      href: sql-database-cloud-migrate.md
+    - name: Migrar para um banco de dados individual/em pool
+      href: sql-database-single-database-migrate.md
     - name: Gerenciar Banco de Dados SQL após migração
       href: sql-database-manage-after-migration.md
     - name: Configurar replicação
@@ -405,7 +405,7 @@ items:
         href: sql-database-elastic-scale-add-a-shard.md
       - name: Corrigir problemas de mapa de fragmentos
         href: sql-database-elastic-database-recovery-manager.md
-      - name: Migrar Banco de Dados fragmentado
+      - name: Migrar banco de dados fragmentado
         href: sql-database-elastic-convert-to-use-elastic-tools.md
       - name: Criar contadores
         href: sql-database-elastic-database-perf-counters.md
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Como consultar tabelas com esquemas diferentes
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Trabalhos de Banco de Dados Elástico
+    - name: Trabalhos elásticos
       items:
       - name: Criar e gerenciar (PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,11 +459,11 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: Carregar e mover dados
     items:
-    - name: Copiar um BD no Azure
+    - name: Copiar um banco de dados dentro do Azure
       href: sql-database-copy.md
-    - name: Importar um BD de um BACPAC
+    - name: Importar um banco de dados de um arquivo BACPAC
       href: sql-database-import.md
-    - name: Exportar um BD de um BACPAC
+    - name: Exportar um banco de dados para um arquivo BACPAC
       href: sql-database-export.md
     - name: Sincronização de dados
       items:
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Análise de locatário
             items:
-            - name: Com banco de dados SQL
+            - name: Com o Banco de Dados SQL
               href: saas-tenancy-tenant-analytics.md
-            - name: Com data warehouse SQL
+            - name: Com o SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Recuperação de desastre usando a restauração geográfica
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960540"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100033"
