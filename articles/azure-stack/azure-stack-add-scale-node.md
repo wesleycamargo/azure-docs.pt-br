@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247639"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172392"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Adicionar nós de unidade de escala adicional no Azure Stack
 
-Operadores do Azure Stack podem aumentar a capacidade geral de uma unidade de escala existente com a adição de um computador físico adicional. O computador físico também é referenciado como um nó de unidade de escala. Cada novo nó de unidade de escala que você adicionar deve ser homogêneo no tipo de CPU, memória e número do disco e tamanho para os nós que já estão presentes na unidade de escala.
-
-> [!NOTE]  
-Você deve executar a escala adicional do Azure Stack 1807 ou posterior para adicionar nós de unidade.
+Operadores do Azure Stack podem aumentar a capacidade geral de uma unidade de escala existente com a adição de um computador físico adicional. O computador físico também é referenciado como um nó de unidade de escala. Cada novo nó de unidade de escala que você adicionar deve ser homogêneo no tipo de CPU, memória e o número de disco e tamanho para os nós que já estão presentes na unidade de escala.
 
 Para adicionar um nó de unidade de escala, você agir no Azure Stack e executar as ferramentas do fabricante de equipamento de hardware (OEM). As ferramentas de OEM é executada no host de ciclo de vida do hardware (HLH) para garantir que o novo computador físico coincide com o mesmo nível de firmware que nós existentes.
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240804"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207051"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: tornar bancos de dados SQL disponível para seus usuários do Azure Stack
 
@@ -35,7 +35,7 @@ Como um administrador de nuvem do Azure Stack, você pode criar ofertas que perm
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>Implantar o provedor de recursos do SQL Server
 
-O processo de implantação é descrito detalhadamente na [bancos de dados SQL de uso no artigo do Azure Stack](azure-stack-sql-resource-provider-deploy.md)e consiste as seguintes etapas principais:
+O processo de implantação é descrito detalhadamente na [usar bancos de dados SQL no artigo do Azure Stack](azure-stack-sql-resource-provider-deploy.md)e consiste as seguintes etapas principais:
 
 1. [Implantar o provedor de recursos do SQL](azure-stack-sql-resource-provider-deploy.md).
 2. [Verificar a implantação](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).

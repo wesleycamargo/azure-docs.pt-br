@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3a80e3a95252b60dd39ad4ce20878922aeee5730
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246875"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165018"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do MySQL
 
-Você pode hospedar uma instância do MySQL em uma máquina virtual (VM) em [do Azure Stack](azure-stack-poc.md), ou em uma VM fora de seu ambiente do Azure Stack, desde que o provedor de recursos do MySQL pode se conectar à instância.
+Você pode hospedar um instância de servidor em uma máquina virtual (VM) de hospedagem MySQL em [do Azure Stack](azure-stack-poc.md), ou em uma VM fora de seu ambiente do Azure Stack, desde que o provedor de recursos do MySQL pode se conectar à instância.
 
 > [!NOTE]
-> Bancos de dados MySQL devem ser criados no servidor do provedor de recursos MySQL. O provedor de recursos do MySQL deve ser criado na assinatura padrão do provedor, enquanto os servidores de hospedagem MySQL devem ser criados em uma assinatura faturável, do usuário. O servidor do provedor de recursos não deve ser usado para hospedar bancos de dados do usuário.
+> O provedor de recursos do MySQL deve ser criado na assinatura padrão do provedor, enquanto os servidores de hospedagem MySQL devem ser criados em faturáveis, assinaturas de usuário. O servidor do provedor de recursos não deve ser usado para hospedar bancos de dados do usuário.
 
 Versões do MySQL 5.6, 5.7 e 8.0 podem ser usadas para servidores de hospedagem. O RP MySQL não dá suporte à autenticação de caching_sha2_password; que será adicionado na próxima versão. Servidores MySQL 8.0 devem ser configurados para usar mysql_native_password. Também há suporte para o MariaDB.
 

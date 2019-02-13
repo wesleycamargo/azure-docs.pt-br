@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2111fe6a70f45559faeb3e0f8096548dcc7b48bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 40394409dfafa3ad6b3d6685f5c944fc78df813f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238934"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172209"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Solução de problemas do Microsoft Azure Stack desenvolvimento ASDK (Kit)
-Este documento fornece informações de solução de problemas comuns para o ASDK. Se você estiver tendo um problema que não esteja documentado, certifique-se de verificar a [Fórum do MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  
+Este artigo fornece informações de solução de problemas comuns para o ASDK. Se você estiver tendo um problema que não esteja documentado, certifique-se de verificar a [Fórum do MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  
 
 > [!IMPORTANT]
 > Como o ASDK é um ambiente de avaliação, não há nenhum oficial de suporte oferecido por meio de serviços de suporte de cliente do Microsoft (CSS).
@@ -32,7 +32,7 @@ Este documento fornece informações de solução de problemas comuns para o ASD
 As recomendações para solução de problemas que são descritos nesta seção são derivadas de várias fontes e podem ou não podem resolver seu problema específico. Exemplos de código são fornecidos "como está" e os resultados esperados não podem ser garantidos. Esta seção está sujeito aos edições frequentes e atualizações, como melhorias ao produto são implementadas.
 
 ## <a name="deployment"></a>Implantação
-### <a name="deployment-failure"></a>Falha de implantação
+### <a name="deployment-failure"></a>Falha na implantação
 Se você enfrentar uma falha durante a instalação, você poderá reiniciar a implantação da etapa com falha usando a - opção nova execução do script de implantação como no exemplo a seguir:
 
   ```powershell
