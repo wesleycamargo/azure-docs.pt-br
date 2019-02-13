@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 69a0bde58a365ff124bc41b6039c606cb38f71fe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768538"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168129"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Atualização de VM de pilha e gerenciamento do Azure
 Você pode usar os seguintes recursos de solução de automação do Azure para gerenciar o Windows e VMs do Linux que são implantados usando o Azure Stack:
@@ -100,4 +100,4 @@ As VMs do Azure Stack agora podem ser incluídas em implantações de atualizaç
 Se você tiver um grande número de VMs do Azure Stack, você pode usar [este modelo do Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) para implantar mais facilmente a solução em máquinas virtuais. O modelo implanta a extensão Microsoft Monitoring Agent em uma VM de pilha do Azure existente e adiciona-o para um espaço de trabalho existente do Azure LogAnalytics.
  
 ## <a name="next-steps"></a>Próximas etapas
-[Otimizar o desempenho do SQL Server](azure-stack-sql-server-vm-considerations.md)
+[Otimizar o desempenho de VM do SQL Server](azure-stack-sql-server-vm-considerations.md)

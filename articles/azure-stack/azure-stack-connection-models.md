@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246578"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182007"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modelos de conexão de sistemas integrados do Azure Stack
-Se você estiver interessado em um sistema integrado do Azure Stack, você precisará entender [várias considerações de integração do datacenter](azure-stack-datacenter-integration.md) para implantação do Azure Stack determinar como o sistema se ajustarem ao seu datacenter. Além disso, você precisará decidir exatamente como você irá integrar Azure Stack em seu ambiente de nuvem híbrida. Este artigo fornece uma visão geral dessas decisões importantes, incluindo a conexão do Azure, o repositório de identidades e decisões do modelo de cobrança.
+Se você estiver interessado em adquirir um sistema integrado do Azure Stack, você precisará entender [várias considerações de integração do datacenter](azure-stack-datacenter-integration.md) para implantação do Azure Stack determinar como o sistema se ajustarem ao seu datacenter. Além disso, você precisará decidir como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida. Este artigo fornece uma visão geral dessas decisões importantes, incluindo a conexão do Azure, o repositório de identidades e decisões do modelo de cobrança.
 
 Se você decidir comprar um sistema integrado, o fornecedor de hardware do fabricante original do equipamento (OEM) ajuda a orientar você por meio da maior parte do processo de planejamento mais detalhadamente. Eles também executará a implantação real.
 

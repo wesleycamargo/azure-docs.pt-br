@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 20cddc74dd05e982cbd332a65f9a477559caece7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4deb72eae7dffac6eabb34b18a9e879ac1fd8113
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244089"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179953"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Visão geral da oferta de serviços no Azure Stack
 
@@ -42,7 +42,7 @@ Você também pode implantar [plataforma como serviço](https://azure.microsoft.
 
 Você pode até combinar serviços para integrar e desenvolver soluções complexas para usuários diferentes.
 
-Para fornecer esses serviços para seus usuários, você deve criar [planos, ofertas e cotas](azure-stack-plan-offer-quota-overview.md). Os usuários, em seguida, podem assinar suas ofertas para usar os serviços.
+Para fornecer esses serviços para seus usuários, você deve primeiro criar [planos, ofertas e cotas](azure-stack-plan-offer-quota-overview.md). Os usuários, em seguida, podem assinar suas ofertas para usar os serviços.
 
 ## <a name="plan-your-service-offers"></a>Planejar suas ofertas de serviço
 

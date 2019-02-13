@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691160"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210774"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de implantação do Azure desconectada, decisões de planejamento para o Azure Stack
-Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, você pode finalizar suas decisões de implantação do Azure Stack.
+Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), você pode finalizar suas decisões de implantação do Azure Stack.
 
-Você pode implantar e usar o Azure Stack sem uma conexão à internet. No entanto, com uma implantação desconectada, você está limitado a um repositório de identidades do AD FS e o modelo de cobrança com base em capacidade. Como a multilocação requer o uso do AD do Azure, multilocação não há suporte para implantações desconectadas. 
+Você pode implantar e usar o Azure Stack sem uma conexão à internet. No entanto, com uma implantação desconectada, você está limitado a um repositório de identidades do AD FS e o modelo de cobrança com base em capacidade. Como a multilocação requer o uso do Azure Active Directory (Azure AD), a multilocação não há suporte para implantações desconectadas. 
 
 Escolha esta opção se você:
 - Ter segurança ou outras restrições que exigem que você implante o Azure Stack em um ambiente que não está conectado à Internet.
@@ -34,9 +34,9 @@ Escolha esta opção se você:
 - Deseja usar o Azure Stack puramente como uma solução de nuvem privada que é implantada em sua Intranet corporativa e não esteja interessado em cenários híbridos.
 
 > [!TIP]
-> Às vezes, esse tipo de ambiente é também conhecido como um "cenário submarino".
+> Às vezes, esse tipo de ambiente é mencionado como uma *cenário submarino*.
 
-Uma implantação desconectada não estritamente significa que você não pode mais tarde se conectar sua instância do Azure Stack para o Azure para cenários VM de locatário de híbrida. Isso significa que você não tiver conectividade com o Azure durante a implantação ou você não quiser usar o Azure Active Directory como seu repositório de identidades.
+Uma implantação desconectada não restringir posteriormente se conecte sua instância do Azure Stack para o Azure para cenários VM de locatário de híbrida. Isso significa que você não tiver conectividade com o Azure durante a implantação ou você não quiser usar o Azure AD como o armazenamento de identidade.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Recursos que estão com deficiência ou não está disponíveis em implantações desconectadas 
 O Azure Stack foi projetado para funcionar melhor quando conectado ao Azure, portanto, é importante observar que há alguns recursos e funcionalidades que estão completamente indisponível no modo desconectado ou com deficiência. 

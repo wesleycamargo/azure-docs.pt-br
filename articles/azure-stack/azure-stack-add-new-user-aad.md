@@ -3,7 +3,7 @@ title: Adicionar uma nova conta de locatário do Azure Stack no Active Directory
 description: Depois de implantar o Kit de desenvolvimento do Microsoft Azure Stack, você precisará criar a conta de usuário de pelo menos um locatário para que você possa explorar o portal de locatário.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240312"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163216"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de locatário do Azure Stack no Active Directory do Azure
 
@@ -56,14 +56,12 @@ Após [Implantando o Kit de desenvolvimento do Azure Stack](azure-stack-run-powe
 7. Entre no portal do Microsoft Azure com a nova conta. Altere a senha, quando solicitado.
 8. Entrar para `https://portal.local.azurestack.external` com a nova conta para ver o portal de locatário.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Criar uma conta de locatário do Azure Stack usando o PowerShell
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>Criar uma conta de usuário do Azure Stack usando o PowerShell
 
 Se você não tiver uma assinatura do Azure, você não pode usar o portal do Azure para adicionar uma conta de usuário do locatário. Nesse caso, você pode usar o módulo Azure Active Directory para Windows PowerShell em vez disso.
 
 > [!NOTE]
 > Se você estiver usando Account da Microsoft (Live ID) para implantar o Kit de desenvolvimento do Azure Stack, você não pode usar o PowerShell do AAD para criar a conta de locatário. 
-> 
-> 
 
 1. Instale o [Assistente de Conexão do Microsoft Online Services para Profissionais de TI RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
 2. Instalar o [módulo Azure Active Directory para Windows PowerShell (versão de 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) e abri-lo.
@@ -85,3 +83,6 @@ Se você não tiver uma assinatura do Azure, você não pode usar o portal do Az
 1. Entrar no Microsoft Azure com a nova conta. Altere a senha, quando solicitado.
 2. Entrar para `https://portal.local.azurestack.external` com a nova conta para ver o portal de locatário.
 
+## <a name="next-steps"></a>Próximas etapas
+
+[Adicionar usuários do Azure Stack no AD FS](azure-stack-add-users-adfs.md)

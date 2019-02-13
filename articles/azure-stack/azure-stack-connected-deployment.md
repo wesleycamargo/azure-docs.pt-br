@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243174"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175380"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de implantação do Azure conectada, decisões de planejamento para o Azure Stack
-Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, você pode finalizar suas decisões de implantação do Azure Stack.
+Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), você pode finalizar suas decisões de implantação do Azure Stack.
 
 Implantação do Azure Stack, conectado ao Azure significa que você pode ter o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) para armazenamento de identidade. Você também pode escolher a partir de qualquer um dos modelos de cobrança: de pagamento-como-o uso ou baseada em capacidade. Uma implantação conectada é a opção padrão, pois permite que os clientes obtenham o máximo valor fora do Azure Stack, principalmente para cenários de nuvem híbrida que envolvem o Azure e o Azure Stack. 
 

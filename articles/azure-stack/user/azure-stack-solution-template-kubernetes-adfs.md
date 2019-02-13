@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a197a366d70958859eed47a9d66606adf80344e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891265"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115395"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implantar Kubernetes no Azure Stack usando o Active Directory Federated Services
 
@@ -43,13 +43,19 @@ Para começar, verifique se você tiver as permissões corretas e que o Azure St
 
     O cluster não pode ser implantado para Azure Stack **administrador** assinatura. Você deve usar um **usuário** assinatura. 
 
-1. Se você não tiver um Kubernetes Cluster no seu marketplace, contate o administrador do Azure Stack.
+1. Será necessário o serviço de Cofre de chaves em sua assinatura do Azure Stack.
+
+1. Será necessário o Kubernetes Cluster no seu marketplace. 
+
+Se você não tiver o serviço Key Vault e o item do marketplace Kubernetes Cluster, contate o administrador do Azure Stack.
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
 Você precisará trabalhar com o administrador do Azure Stack para configurar a entidade de serviço ao usar o AD FS como sua solução de identidade. A entidade de serviço fornece o aplicativo tenha acesso aos recursos do Azure Stack.
 
-1. O administrador do Azure Stack fornece um certificado e as informações para a entidade de serviço. Essa informação deve parecer com:
+1. O administrador do Azure Stack fornece um certificado e as informações para a entidade de serviço.
+
+    - As informações de entidade de serviço devem parecer com:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -60,9 +66,11 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
+    - O certificado será um arquivo com a extensão `.pfx`. Você armazenará o certificado como um segredo em um keyvault.
+
 2. Atribua uma função como um colaborador de sua nova entidade de serviço para sua assinatura. Para obter instruções, consulte [atribuir uma função](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
-3. Crie um cofre de chaves para armazenar o certificado para a implantação.
+3. Crie um cofre de chaves para armazenar o certificado para a implantação. Use os seguintes scripts do PowerShell, em vez do Portal.
 
     - Você precisa que as seguintes partes de informações:
 
@@ -70,12 +78,12 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
         | ---   | ---         |
         | Ponto de extremidade do Azure Resource Manager | O Gerenciador de recursos do Microsoft Azure é uma estrutura de gerenciamento que permite aos administradores implantar, gerenciar e monitorar recursos do Azure. O Azure Resource Manager pode lidar com essas tarefas, como um grupo, em vez de individualmente, em uma única operação.<br>O ponto de extremidade no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`<br>É o ponto de extremidade em sistemas integrados: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Sua ID de assinatura | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |
-        | Seu nome de usuário | Seu nome de usuário. |
+        | Seu nome de usuário | Use apenas seu nome de usuário em vez de seu nome de domínio e nome de usuário, como `username` em vez de `azurestack\username`. |
         | O nome do grupo de recursos  | O nome de um novo grupo de recursos ou selecione um grupo de recursos. O nome do recurso precisa ser alfanuméricos e minúsculos. |
         | Nome do Keyvault | Nome do cofre.<br> Padrão de Regex: `^[a-zA-Z0-9-]{3,24}$` |
         | Localização do grupo de recursos | O local do grupo de recursos. Essa é a região que você escolhe para sua instalação do Azure Stack. |
 
-    - Abra o PowerShell com um prompt com privilégios elevados. Execute o script a seguir com os parâmetros atualizados para seus valores:
+    - Abra o PowerShell com um prompt com privilégios elevados, e [conectar-se ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o script a seguir com os parâmetros atualizados para seus valores:
 
     ```PowerShell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -103,7 +111,7 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
         Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
     ```
 
-4. Carregue seu certificado para o Cofre de chaves.
+4. Carregue seu certificado ao Cofre de chaves.
 
     - Você precisa que as seguintes partes de informações:
 
@@ -111,12 +119,12 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
         | ---   | ---         |
         | Caminho do certificado | O caminho de arquivo ou FQDN para o certificado. |
         | Senha de certificado | A senha do certificado. |
-        | Nome do segredo | O segredo é produzida na etapa anterior. |
-        | Nome do Keyvault | O nome do Cofre de chaves criado na etapa anterior. |
+        | Nome do segredo | O nome do segredo usado para referenciar o certificado armazenado no cofre. |
+        | Nome do Cofre de chaves | O nome do Cofre de chaves criado na etapa anterior. |
         | Ponto de extremidade do Azure Resource Manager | O ponto de extremidade no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`<br>É o ponto de extremidade em sistemas integrados: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Sua ID de assinatura | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |
 
-    - Abra o PowerShell com um prompt com privilégios elevados. Execute o script a seguir com os parâmetros atualizados para seus valores:
+    - Abra o PowerShell com um prompt com privilégios elevados, e [conectar-se ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o script a seguir com os parâmetros atualizados para seus valores:
 
     ```PowerShell  
         
@@ -124,7 +132,7 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
     $tempPFXFilePath = "<certificate path>"
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<keyvault name>"
+    $keyVaultName = "<key vault name>"
     $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
@@ -194,11 +202,11 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
 
 1. Insira o **entidade de serviço ClientId** isso é usado pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando o administrador do Azure Stack criado a entidade de serviço.
 
-1. Insira o **grupo de recursos do Key Vault**. 
+1. Insira o **grupo de recursos do Key Vault** que origina o Cofre de chaves que contém o certificado.
 
-1. Insira o **nome do Key Vault**.
+1. Insira o **nome do Key Vault** o nome do Cofre de chaves que contém o certificado como um segredo. 
 
-1. Insira o **segredo do Key Vault**.
+1. Insira o **segredo do Key Vault**. O nome do segredo faz referência a seu certificado.
 
 1. Insira o **versão do provedor de nuvem Azure Kubernetes**. Essa é a versão para o provedor do Azure do Kubernetes. O Azure Stack libera uma criação personalizada de Kubernetes para cada versão do Azure Stack.
 

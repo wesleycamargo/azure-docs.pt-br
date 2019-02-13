@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250037"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210290"
 ---
 # <a name="back-up-azure-stack"></a>Fazer backup do Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Execute um backup sob demanda no Azure Stack com backup em vigor. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure Stack ](azure-stack-powershell-install.md). Para entrar Azure Stack, consulte [usando o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
+Execute um backup sob demanda no Azure Stack. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure Stack ](azure-stack-powershell-install.md). Para entrar Azure Stack, consulte [usando o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Iniciar o backup do Azure Stack
 
@@ -121,4 +121,4 @@ Use o portal de administração do Azure Stack para verificar que o backup foi c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o fluxo de trabalho para se recuperar de um evento de perda de dados. Ver [recuperar da perda de dados catastrófica](azure-stack-backup-recover-data.md).
+Saiba mais sobre o fluxo de trabalho [recuperação de um evento de perda de dados](azure-stack-backup-recover-data.md).
