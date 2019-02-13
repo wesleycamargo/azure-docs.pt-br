@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251870"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207527"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas integrados do Azure Stack
-Se você estiver interessado em um sistema integrado do Azure Stack, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões de infraestrutura importante para o seu sistema de vários nó do Azure Stack. Ajuda a compreender essas considerações ao trabalhar com o fornecedor do hardware OEM como implantar o Azure Stack para seu datacenter.  
+Se você estiver interessado em um sistema integrado do Azure Stack, você deve compreender as principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões de infraestrutura importante para o seu sistema de vários nó do Azure Stack. Ajuda a compreender essas considerações ao trabalhar com o fornecedor do hardware OEM como implantar o Azure Stack para seu datacenter.  
 
 > [!NOTE]
 > Sistemas de vários nós de pilha do Azure só podem ser adquiridos de fornecedores de hardware autorizado. 
@@ -53,8 +53,6 @@ Quando um nível mais alto de acesso é necessária para solução de problemas 
 
 ### <a name="choose-identity-provider"></a>Escolha o provedor de identidade
 Você precisará considerar qual provedor de identidade que você deseja usar para implantação do Azure Stack, Azure AD ou AD FS. É possível alternar os provedores de identidade após a implantação sem reimplantação completa do sistema. Se você não possui a conta do AD do Azure e estiver usando uma conta fornecida pelo seu provedor de serviços de nuvem, e se você decidir mudar o provedor e usar um Azure AD diferente da conta, neste momento você terá que entre em contato com seu provedor de soluções para reimplantar a solução f ou você em seu custo.
-
-
 
 Sua escolha de provedor de identidade não tem nenhuma relevância em máquinas virtuais de locatário, o sistema de identidade e as contas que eles usam, se eles podem ingressar em um domínio do Active Directory, etc. Isso é separado.
 
@@ -110,7 +108,7 @@ Para obter mais informações sobre quais PKI certificados são necessários par
 
 
 ## <a name="time-synchronization"></a>Sincronização de horário
-Você deve escolher um horário específico de servidor com é usado para sincronizar o Azure Stack.  Symbolization tempo é essencial para o Azure Stack e suas funções de infraestrutura, como ele é usado para gerar os tíquetes Kerberos que são usados para autenticar os serviços internos uns com os outros.
+Você deve escolher um horário específico de servidor com é usado para sincronizar o Azure Stack.  Sincronização de hora é essencial para o Azure Stack e suas funções de infraestrutura, como ele é usado para gerar os tíquetes Kerberos que são usados para autenticar os serviços internos uns com os outros.
 
 Você deve especificar que um IP para o servidor de sincronização de hora, embora a maioria dos componentes da infra-estrutura pode resolver uma URL, algumas só há suporte a endereços IP. Se você estiver usando a opção de implantação desconectado, você deve especificar um servidor de horário na sua rede corporativa que você está claro que pode ser atingido de rede de infraestrutura no Azure Stack.
 

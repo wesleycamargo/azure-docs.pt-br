@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246426"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207103"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração do firewall de pilha do Azure
-É recomendável que você use um dispositivo de firewall para ajudar a proteger o Azure Stack. Embora firewalls podem ajudar com coisas como ataques (DDOS) de negação de serviço distribuído, detecção de intrusão e inspeção de conteúdo, eles também podem se tornar um gargalo de produtividade para os serviços de armazenamento do Azure como blobs, tabelas e filas.
+É recomendável que você use um dispositivo de firewall para ajudar a proteger o Azure Stack. Firewalls podem ajudar a proteger contra a coisas como ataques distribuídos negação de serviço (DDOS), detecção de intrusão e inspeção de conteúdo. No entanto, eles também podem se tornar um gargalo de produtividade para os serviços de armazenamento do Azure como blobs, tabelas e filas.
 
-Com base no modelo de identidade do Azure AD (Active Directory do Azure) ou o Windows Server Active Directory Federation Services (AD FS), talvez seja necessário para publicar o ponto de extremidade do AD FS. Se for usado um modo de implantação desconectado, você deve publicar o ponto de extremidade do AD FS. Para obter mais informações, consulte o [artigo de identidade de integração do datacenter](azure-stack-integrate-identity.md).
+ Se for usado um modo de implantação desconectado, você deve publicar o ponto de extremidade do AD FS. Para obter mais informações, consulte o [artigo de identidade de integração do datacenter](azure-stack-integrate-identity.md).
 
-O Gerenciador de recursos do Azure (administrador), portal do administrador e pontos de extremidade do Cofre de chaves (administrador) não exigem necessariamente publicação externa. Por exemplo, como um provedor de serviços, você talvez queira limitar a superfície de ataque e administrar o Azure Stack de somente dentro de sua rede e não da internet.
+O Gerenciador de recursos do Azure (administrador), portal do administrador e pontos de extremidade do Cofre de chaves (administrador) não exigem necessariamente publicação externa. Por exemplo, como um provedor de serviços, você pode limitar a superfície de ataque administrando o Azure Stack de apenas dentro de sua rede e não da internet.
 
-Para organizações empresariais, a rede externa pode ser a rede corporativa existente. Nesse cenário, você deve publicar esses pontos de extremidade para operar o Azure Stack da rede corporativa.
+Para organizações empresariais, a rede externa pode ser a rede corporativa existente. Nesse cenário, você deve publicar pontos de extremidade para operar o Azure Stack da rede corporativa.
 
 ### <a name="network-address-translation"></a>Conversão de Endereços de Rede
-Conversão de endereço de rede (NAT) é o método recomendado para permitir que a máquina virtual de implantação DVM () para acessar os recursos externos e a internet durante a implantação, bem como as VMs do Console de recuperação de emergência (ERCS) ou com privilégios ponto de extremidade (PEP) durante a o registro e solução de problemas.
+Conversão de endereço de rede (NAT) é o método recomendado para permitir que a máquina virtual de implantação DVM () para acessar recursos externos e a internet durante a implantação, bem como as VMs do Console de recuperação de emergência (ERCS) ou com privilégios ponto de extremidade (PEP) durante a o registro e solução de problemas.
 
-NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicos. No entanto, não é recomendável fazer isso porque limita a experiência do usuário de locatário e aumenta a complexidade. As duas opções seria um 1:1 NAT que ainda requer um IP público por IP do usuário no pool ou muitas: 1 NAT que exigirá uma regra NAT por usuário VIP que contém associações para todas as portas em que um usuário poderia utilizar.
+NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicos. No entanto, não é recomendável fazer isso porque limita a experiência do usuário de locatário e aumenta a complexidade. Uma opção seria um NAT um-para-um que ainda requer um IP público por IP do usuário no pool. Outra opção é um muitos para um NAT que requer uma regra NAT por usuário VIP para todas as portas que um usuário poderia utilizar.
 
 Estas são algumas das desvantagens do uso do NAT para o VIP público:
 - NAT adiciona sobrecarga ao gerenciar regras de firewall, como os usuários controlar seus próprios pontos de extremidade e suas próprias regras de publicação na pilha de (de SDN) rede definida pelo software. Os usuários devem entre em contato com o operador do Azure Stack para obter seus VIPs publicados e para atualizar a lista de porta.
@@ -48,7 +48,7 @@ No momento, é recomendável desabilitar a descriptografia de SSL em todo o trá
 ## <a name="edge-firewall-scenario"></a>Cenário de firewall de borda
 Em uma implantação de borda, o Azure Stack é implantado diretamente usando o roteador de borda ou o firewall. Nesses cenários, há suporte para o firewall esteja acima da borda (cenário 1) em que ele dá suporte a configurações de firewall ativo-ativo e ativo-passivo ou atuando como o dispositivo de borda (cenário 2) em que ele só dá suporte a firewall ativo-ativo configuração de terceira parte confiável no igual Cost Multi Path (ECMP) com o BGP ou roteamento estático para o failover.
 
-Normalmente, os endereços IP roteáveis públicos são especificados para o pool de VIP público da rede externa no momento da implantação. Em um cenário de borda, não é recomendável usar IPs roteáveis públicos em nenhuma outra rede para fins de segurança. Esse cenário permite que um usuário aproveitar a experiência completa na nuvem autogerenciado autocontrolado como em uma nuvem pública, como o Azure.  
+Os endereços IP roteáveis públicos são especificados para o pool de VIP público da rede externa no momento da implantação. Em um cenário de borda, não é recomendável usar IPs roteáveis públicos em nenhuma outra rede para fins de segurança. Esse cenário permite que um usuário aproveitar a experiência completa na nuvem autogerenciado autocontrolado como em uma nuvem pública, como o Azure.  
 
 ![Exemplo de firewall de borda de pilha do Azure](./media/azure-stack-firewall/firewallScenarios.png)
 

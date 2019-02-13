@@ -220,16 +220,13 @@ items:
     - name: Usando o dashboard
       displayName: analytics, usage
       href: luis-how-to-use-dashboard.md
-    - name: Criar chaves de ponto de extremidade
-      displayName: azure portal
+    - name: Usando chaves de assinatura com seu aplicativo LUIS
+      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
       href: luis-how-to-azure-subscription.md
-    - name: Adicionar chaves de ponto de extremidade ao aplicativo
-      displayName: assign key, assign
-      href: luis-how-to-manage-keys.md
     - name: Gerenciar versões
       href: luis-how-to-manage-versions.md
     - name: Gerenciar autores e colaboradores
-      displayName: access, transfer, AAD, tenant, Azure AD, consent
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
       href: luis-how-to-collaborate.md
     - name: Gerenciar chave de criação
       href: luis-how-to-account-settings.md
@@ -389,9 +386,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 175d21f23f204f564608613fb490af989eeab42d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 905a208980407c6456d8ad36ed4e952a12f50435
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261427"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200574"

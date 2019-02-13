@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245643"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203804"
 ---
 # <a name="validate-azure-stack-system-state"></a>Validar o estado do sistema do Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Como um operador do Azure Stack, é essencial ter a capacidade de saber a integridade e o status de seu sistema sob demanda. A ferramenta de validação do Azure Stack (**AzureStack teste**) é um cmdlet do PowerShell que permite que você execute uma série de testes em seu sistema para identificar falhas, se estiver presente. Você normalmente precisará executar essa ferramenta por meio de [privilegiado (PEP) de ponto de extremidade](azure-stack-privileged-endpoint.md) quando você contatar o suporte de serviços de atendimento da Microsoft (CSS) com um problema. Com a integridade de todo o sistema e informações de status em mãos, CSS pode coletar e analisar logs detalhados, concentre-se na área onde ocorreu o erro e trabalhar com você para resolver o problema.
+Como um operador do Azure Stack, sendo capaz de determinar a integridade e o status de seu sistema sob demanda é essencial. A ferramenta de validação do Azure Stack (**AzureStack teste**) é um cmdlet do PowerShell que permite que você execute uma série de testes em seu sistema para identificar falhas, se estiver presente. Você normalmente precisará executar essa ferramenta por meio de [privilegiado (PEP) de ponto de extremidade](azure-stack-privileged-endpoint.md) quando você contatar o suporte de serviços de atendimento da Microsoft (CSS) com um problema. Com a integridade de todo o sistema e informações de status em mãos, CSS pode coletar e analisar logs detalhados, concentre-se na área onde ocorreu o erro e trabalhar com você para resolver o problema.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Executando a ferramenta de validação e acessando os resultados
 
@@ -93,7 +93,6 @@ Esses testes de baixo impacto trabalhar em um nível de infraestrutura e fornece
 
 Além dos testes infraestrutura acima, você também tem a capacidade de executar testes de cenário de nuvem para verificar a funcionalidade entre os componentes de infraestrutura. Credenciais de administrador são necessários para executar esses testes conforme eles envolvem a implantação de recursos. 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 Os seguintes cenários de nuvem são testados pela ferramenta de validação:
