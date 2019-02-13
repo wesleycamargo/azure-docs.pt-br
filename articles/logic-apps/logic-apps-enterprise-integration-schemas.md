@@ -1,6 +1,6 @@
 ---
-title: Adicionar esquemas para validação de XML – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Criar esquemas que validam documentos XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
+title: Validar XML com esquemas – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Adicionar esquemas para validar documentos XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,124 +9,185 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
-ms.date: 07/29/2016
-ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 02/06/2019
+ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123066"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768270"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
-Esquemas confirmam que os documentos XML recebidos são válidos e têm os dados esperados em um formato predefinido. Esquemas também ajudam a validar mensagens trocadas em um cenário B2B.
+Seu aplicativo lógico pode usar esquemas para verificar se os documentos usam um XML válido e tem os dados esperados no formato predefinido para cenários de integração corporativa nos Aplicativos Lógicos do Azure. Um esquema também pode validar as mensagens trocadas por aplicativos lógicos em cenários de business-to-business (B2B).
 
-## <a name="add-a-schema"></a>Adicionar um esquema
+Para obter os limites relacionados aos artefatos e as contas de integração como esquemas, confira [Informações de configuração e limites para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-1. No portal do Azure, clique em **Todos os serviços**.
+## <a name="prerequisites"></a>Pré-requisitos
 
-    ![Portal do Azure, "Todos os serviços"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+* Uma assinatura do Azure. Se você não tem uma assinatura, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>.
 
-2. Insira **integração** na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados.
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) onde você armazena seus esquemas e outros artefatos para soluções de business-to-business (B2B) e integração empresarial. 
 
-    ![Filtre a caixa de pesquisa](media/logic-apps-enterprise-integration-schemas/overview-21.png)
+  Se o esquema tiver [2 MB ou menos](#smaller-schema), é possível adicioná-lo na sua conta de integração diretamente do portal do Azure. No entanto, se o esquema for maior do que 2 MB, mas não for maior que o [limite de tamanho do esquema](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), é possível carregá-lo na conta de armazenamento do Azure. 
+  Para adicionar esse esquema à sua conta de integração, você pode vincular a conta de armazenamento à sua conta de integração. 
+  Aqui estão os itens necessários para essa tarefa: 
 
-3. Escolha a **conta de integração** à qual você deseja adicionar o esquema.
+  * [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) na qual você cria um contêiner de blob para o esquema. Saiba como [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). 
 
-    ![Lista de contas de integração](media/logic-apps-enterprise-integration-schemas/overview-31.png)
+  * Contêiner de blob para armazenar o esquema. Saiba como [criar um contêiner de blob](../storage/blobs/storage-quickstart-blobs-portal.md). 
+  Posteriormente, você precisará do URI do conteúdo do contêiner ao adicionar o esquema na conta de integração.
 
-4. Escolha o bloco **Esquemas**.
+  * [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md), que você pode usar para gerenciar as contas de armazenamento e os contêineres de blob. 
+  Para usar o Gerenciador de Armazenamento, escolha uma das opções:
+  
+    * No portal do Azure, encontre e selecione a conta de armazenamento. 
+    No menu da sua conta de armazenamento, selecione **Gerenciador de Armazenamento**.
 
-    ![Conta de integração de exemplo, "Esquemas"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
+    * Para obter a versão da área de trabalho, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). 
+    Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+    Para obter mais informações, confira [Início Rápido: criar um blob no armazenamento de objetos com o Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
-### <a name="add-a-schema-file-smaller-than-2-mb"></a>Adicione um arquivo de esquema com menos de 2 MB
+Não é necessário um aplicativo lógico durante a criação e adição de esquemas. No entanto, para usar um esquema, o aplicativo lógico precisa ser vinculado a conta de integração na qual esse esquema está armazenado. Saiba mais [como vincular aplicativos lógicos a contas de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se você ainda não tiver um aplicativo lógico, saiba [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na folha **Esquemas** (das etapas anteriores), selecione **Adicionar**.
+## <a name="add-schemas"></a>Adicionar esquemas
 
-    ![Folha Esquemas, "Adicionar"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+1. Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
 
-2. Digite um nome para o seu esquema. Para carregar o arquivo de esquema, selecione o ícone de pasta ao lado da caixa **Esquema**. Após a conclusão do processo de upload, selecione **OK**.
+1. Para localizar e abrir sua conta de integração, no menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, digite “conta de integração”. Selecione **Contas de Integração**.
 
-    ![Captura de tela de "Adicionar esquema" com "Arquivo pequeno" realçado](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+   ![Localizar conta de integração](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>Adicione um arquivo de esquema com mais de 2 MB (até um máximo de 8 MB)
+1. Escolha a conta de integração à qual deseja adicionar o esquema, por exemplo:
 
-Essas etapas dependem do nível de acesso do contêiner de blob: **Público** ou **Sem acesso anônimo**.
+   ![Selecionar conta de integração](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
-**Para determinar esse nível de acesso**
+1. Na página **Visão geral** da conta de integração, em **Componentes**, selecione o bloco **Esquemas**.
 
-1.  Abra o **Gerenciador de Armazenamento do Azure**. 
+   ![Selecione "Esquemas"](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
 
-2.  Em **Contêineres de Blob**, selecione o contêiner de blob que você deseja. 
+1. Depois que abrir a página **Esquemas**, escolha **Adicionar**.
 
-3.  Selecione **Segurança**, **Nível de Acesso**.
+   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
 
-Se o nível de acesso de segurança do blob é **Público**, siga estas etapas.
+Com base no tamanho do arquivo de esquema (.xsd), siga as etapas para carregar um esquema que tenha [até 2 MB](#smaller-schema) ou [mais de 2 MB, mas até 8 MB](#larger-schema).
 
-![Gerenciador de Armazenamento do Azure, com "Contêineres de Blob", "Segurança" e "Público" realçados](media/logic-apps-enterprise-integration-schemas/blob-public.png)
+<a name="smaller-schema"></a>
 
-1. Carregue o esquema na conta de armazenamento e copie o URI.
+### <a name="add-schemas-up-to-2-mb"></a>Adicionar esquemas até 2 MB
 
-    ![Conta de armazenamento com o URI realçado](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+1. Em **Adicionar Esquema**, insira um nome para seu esquema. 
+   Mantenha **Arquivo pequeno** marcado. Ao lado da caixa **Esquema**, escolha o ícone de pasta. Localize e selecione o esquema que você está carregando, por exemplo:
 
-2. Selecione o **arquivo grande** em **Adicionar Esquema** e forneça o URI na caixa de texto **URI de Conteúdo**.
+   ![Carregar esquema menor](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
 
-    ![Esquemas, com o botão "Adicionar" e "Arquivo grande" realçados](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. Quando estiver pronto, escolha **OK**.
 
-Se o nível de acesso da segurança do blob é **Sem acesso anônimo**, siga estas etapas.
+   Depois que o esquema termina de carregar, ele aparece na lista **Esquemas**.
 
-![Gerenciador de Armazenamento do Azure, com "Contêineres de Blob", "Segurança" e "Sem acesso anônimo" realçados](media/logic-apps-enterprise-integration-schemas/blob-1.png)
+<a name="larger-schema"></a>
 
-1. Carregue o esquema na sua conta de armazenamento.
+### <a name="add-schemas-more-than-2-mb"></a>Adicionar esquemas com mais de 2 MB
 
-    ![Conta de armazenamento](media/logic-apps-enterprise-integration-schemas/blob-3.png)
+Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. As etapas para adicionar mapas diferem dependendo do seu contêiner de blob ter acesso de leitura público. Primeiro, verifique se seu contêiner de blob tem ou não acesso de leitura público seguindo estas etapas: [Definir o nível de acesso público para contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-2. Gere uma Assinatura de Acesso Compartilhado para o esquema.
+#### <a name="check-container-access-level"></a>Verificar o nível de acesso do contêiner
 
-    ![Conta de armazenamento com a guia assinaturas de acesso compartilhado realçada](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+1. Abra o Gerenciador de Armazenamento do Azure. Na janela do Explorer, expanda sua assinatura do Azure, caso ainda não esteja expandida.
 
-3. Escolha **Arquivo grande** em **Adicionar Esquema** e forneça o URI da Assinatura de Acesso Compartilhado na caixa de texto **URI de Conteúdo**.
+1. Expanda **Contas de armazenamento** > {*sua conta de armazenamento*} > **Contêineres de Blob**. Selecione seu contêiner de blob.
 
-    ![Esquemas, com o botão "Adicionar" e "Arquivo grande" realçados](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. No menu de atalho do seu contêiner de blob, selecione **Definir o nível de acesso público**.
 
-4. Na folha **Esquemas** da conta de integração, você deve ver o esquema recém-adicionado.
+   * Se seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar** e siga as etapas posteriores nesta página: [Carregar nos contêineres com acesso público](#public-access)
 
-    ![Sua conta de integração com "Esquemas" e o novo esquema realçados](media/logic-apps-enterprise-integration-schemas/schema-41.png)
+     ![Acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+
+   * Se seu contêiner de blob não tiver acesso público, escolha **Cancelar** e siga as etapas posteriores nesta página: [Carregar nos contêineres sem acesso público](#public-access)
+
+     ![Sem acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+
+<a name="public-access"></a>
+
+#### <a name="upload-to-containers-with-public-access"></a>Carregar nos contêineres com acesso público
+
+1. Carregue o esquema na sua conta de armazenamento. 
+   Na janela à direita, escolha **Carregar**.
+
+1. Depois de terminar de carregar, selecione o esquema carregado. Na barra de ferramentas, escolha **Copiar URL** para copiar a URL do esquema.
+
+1. Retorne ao portal do Azure onde o painel **Adicionar esquema** está aberto. 
+   Digite um nome para o seu assembly. 
+   Escolha **Arquivo grande (com mais de 2 MB)**. 
+
+   A caixa do **URI de conteúdo** agora é exibida, em vez da caixa **Esquema**.
+
+1. Na caixa **URI de conteúdo**, cole a URL do seu esquema. 
+   Conclua a adição do esquema.
+
+Depois que o esquema termina de carregar, ele aparece na lista **Esquemas**. Na página **Visão geral** da sua conta de integração, em **Componentes**, o bloco **Esquemas** agora mostra o número de esquemas carregados.
+
+<a name="no-public-access"></a>
+
+#### <a name="upload-to-containers-without-public-access"></a>Carregar nos contêineres sem acesso público
+
+1. Carregue o esquema na sua conta de armazenamento. 
+   Na janela à direita, escolha **Carregar**.
+
+1. Depois de terminar de carregar, gere uma assinatura de acesso compartilhado (SAS) para o esquema. 
+   No menu de atalho do esquema, selecione **Obter assinatura de acesso compartilhado**.
+
+1. No painel **Assinatura de acesso compartilhado**, selecione **Gerar URI de assinatura de acesso compartilhado no nível do contêiner** > **Criar**. 
+   Depois que a URL de SAS for gerada, ao lado da caixa **URL**, escolha **Copiar**.
+
+1. Retorne ao portal do Azure onde o painel **Adicionar esquema** está aberto. Escolha **Arquivo grande**.
+
+   A caixa do **URI de conteúdo** agora é exibida, em vez da caixa **Esquema**.
+
+1. Na caixa **URI de conteúdo**, cole o URI de SAS gerado anteriormente. Conclua a adição do esquema.
+
+Depois que o esquema termina de carregar, ele aparece na lista **Esquemas**. Na página **Visão geral** da sua conta de integração, em **Componentes**, o bloco **Esquemas** agora mostra o número de esquemas carregados.
 
 ## <a name="edit-schemas"></a>Editar esquemas
 
-1. Escolha o bloco **Esquemas**.
+Para atualizar um esquema existente, você precisa carregar um novo arquivo de esquema com as alterações desejadas. No entanto, você pode baixar primeiro o esquema existente para edição.
 
-2. Após a folha **Esquemas** se abrir, selecione o esquema que deseja editar.
+1. No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, localize e abra a conta de integração, caso ainda não esteja aberta.
 
-3. Na folha **Esquemas**, selecione **Editar**.
+1. No menu principal do Azure, selecione **Todos os serviços**. 
+   Na caixa de pesquisa, digite “conta de integração”. 
+   Selecione **Contas de Integração**.
 
-    ![Folha Esquemas](media/logic-apps-enterprise-integration-schemas/edit-12.png)
+1. Escolha a conta de integração na qual você deseja atualizar o esquema.
 
-4. Selecione o arquivo de esquema que você deseja editar e, em seguida, selecione **Abrir**.
+1. Na página **Visão geral** da conta de integração, em **Componentes**, selecione o bloco **Esquemas**.
 
-    ![Arquivo de esquema aberto para edição](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+1. Após abrir a página **Esquemas**, selecione seu esquema. 
+   Para baixar e editar o esquema primeiro, escolha **Baixar**e salve o esquema.
 
-O Azure mostrará uma mensagem informando que o esquema foi carregado com êxito.
+1. Quando estiver pronto para carregar o esquema atualizado, na página **Esquemas**, selecione o esquema que deseja atualizar e, em seguida, escolha **Atualizar**.
+
+1. Localize e selecione o esquema atualizado que deseja carregar. 
+   Depois que o arquivo do esquema termina de carregar, o esquema atualizado aparece na lista **Esquemas**.
 
 ## <a name="delete-schemas"></a>Excluir esquemas
 
-1. Escolha o bloco **Esquemas**.
+1. No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, localize e abra a conta de integração, caso ainda não esteja aberta.
 
-2. Após a folha **Esquemas** se abrir, selecione o esquema que deseja excluir.
+1. No menu principal do Azure, selecione **Todos os serviços**. 
+   Na caixa de pesquisa, digite “conta de integração”. 
+   Selecione **Contas de Integração**.
 
-3. Na folha **Esquemas**, selecione **Excluir**.
+1. Escolha a conta de integração na qual você deseja excluir o esquema.
 
-    ![Folha Esquemas](media/logic-apps-enterprise-integration-schemas/delete-12.png)
+1. Na página **Visão geral** da conta de integração, em **Componentes**, selecione o bloco **Esquemas**.
 
-4. Clique em **Sim** para confirmar que deseja excluir o esquema selecionado.
+1. Após abrir a página **Esquemas**, selecione seu esquema e selecione **Excluir**.
 
-    ![Mensagem de confirmação "Excluir esquema"](media/logic-apps-enterprise-integration-schemas/delete-21.png)
-
-    Na folha **Esquemas**, a lista de esquemas será atualizada e não incluirá mais o esquema excluído.
-
-    ![Conta de integração com "Esquemas" realçado](media/logic-apps-enterprise-integration-schemas/delete-31.png)
+1. Clique em **Sim** para confirmar que deseja excluir o esquema.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack").  
 
+* [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md)
+* [Saiba mais sobre as transformações](../logic-apps/logic-apps-enterprise-integration-transform.md)

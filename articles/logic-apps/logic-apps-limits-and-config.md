@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912775"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769861"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -85,13 +85,13 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
-| Simultaneidade do gatilho | 50 quando você limita a simultaneidade | Quando você ativa o controle de simultaneidade para um gatilho, o limite padrão é 25. Esse limite descreve o número máximo de instâncias de aplicativos lógicos que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Execuções de espera máximo | 100 quando você limita a simultaneidade | Quando você ativa o controle de simultaneidade para um gatilho, o limite padrão é 10. Esse limite descreve o número máximo de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão para um valor entre 0 e 100, inclusive, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Itens da matriz de foreach | 100.000 | Esse limite descreve o número máximo de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](../connectors/connectors-native-query.md). | 
-| Simultaneidade de foreach | 50 quando você limita a simultaneidade | Quando você ativa o controle de simultaneidade para este loop, o limite padrão é 20. Esse limite descreve o número máximo de iterações de loop "para cada" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| Itens SplitOn | 100.000 | | 
-| Iterações Until | 5.000 | | 
-|||| 
+| Simultaneidade do gatilho | * Ilimitada quando o controle de simultaneidade está desativado <p><p>* 25 é o limite padrão, quando o controle de simultaneidade está ativado, o que não pode ser desfeito depois de ativar o controle. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Execuções de espera máximo | Quando o controle de simultaneidade é ativado, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade do gatilho). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Itens da matriz de foreach | 100.000 | Esse limite descreve o maior número de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](../connectors/connectors-native-query.md). | 
+| Simultaneidade de foreach | 20 é o limite padrão quando o controle de simultaneidade é desativado. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Itens SplitOn | 100.000 | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. |
+| Iterações Until | 5.000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -195,53 +195,58 @@ Use a camada gratuita somente para cenários exploratórios, não cenários de p
 
 | Artefato | Limite | Observações | 
 |----------|-------|-------| 
-| Parceiros comerciais de EDI | 25 | | 
-| Contratos comerciais de EDI | 10 | | 
-| Mapas | 25 | | 
-| Esquemas | 25 | 
 | Assemblies | 10 | | 
 | Configurações de lote | 5 | 
 | Certificados | 25 | | 
+| Contratos comerciais de EDI | 10 | | 
+| Parceiros comerciais de EDI | 25 | | 
+| Mapas | 25 | | 
+| Esquemas | 25 | 
 |||| 
 
 *Camada básica*
 
 | Artefato | Limite | Observações | 
 |----------|-------|-------| 
-| Parceiros comerciais de EDI | 2 | | 
-| Contratos comerciais de EDI | 1 | | 
-| Mapas | 500 | | 
-| Esquemas | 500 | 
 | Assemblies | 25 | | 
 | Configurações de lote | 1 | | 
 | Certificados | 2 | | 
+| Contratos comerciais de EDI | 1 | | 
+| Parceiros comerciais de EDI | 2 | | 
+| Mapas | 500 | | 
+| Esquemas | 500 | 
 |||| 
 
 *Camada Standard*
 
 | Artefato | Limite | Observações | 
 |----------|-------|-------| 
-| Parceiros comerciais de EDI | 500 | | 
-| Contratos comerciais de EDI | 500 | | 
-| Mapas | 500 | | 
-| Esquemas | 500 | 
 | Assemblies | 50 | | 
 | Configurações de lote | 5 |  
 | Certificados | 50 | | 
+| Contratos comerciais de EDI | 500 | | 
+| Parceiros comerciais de EDI | 500 | | 
+| Mapas | 500 | | 
+| Esquemas | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Limites de capacidade do artefato
 
-| NOME | Limite | Observações | 
-| ---- | ----- | ----- | 
-| Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use o [URI do blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Mapa (arquivo XSLT) | 2 MB | | 
-| Ponto de extremidade de tempo de execução: Chamadas de leitura a cada 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
-| Ponto de extremidade de tempo de execução: Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
-| Ponto de extremidade de tempo de execução: Chamadas de acompanhamento a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
-| Ponto de extremidade de tempo de execução: Chamadas simultâneas de bloqueio | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
+| Artefato | Limite | Observações | 
+| -------- | ----- | ----- | 
+| Assembly | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Mapa (arquivo XSLT) | 8 MB | Para carregar arquivos maiores que 2 MB, use a [API REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Ponto de extremidade de tempo de execução | Limite | Observações |
+|------------------|-------|-------|
+| Chamadas de leitura a cada 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Chamadas de acompanhamento a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Chamadas simultâneas de bloqueio | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30173314"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820549"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure 
 Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -107,7 +107,7 @@ NOME | Finalidade
 
 A condição de correspondência Sempre aplica um conjunto de recursos padrão a todas as solicitações.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -116,8 +116,8 @@ A condição de correspondência Sempre aplica um conjunto de recursos padrão a
 A rede de número AS é definida por seu número de sistema autônomo (ASN). 
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Número e Sistema Automático é atendida:
-- **Corresponde**: Exige que o ASN da rede do cliente corresponda a um dos ASNs especificados. 
-- **Não Corresponde**: Exige que o ASN da rede do cliente não corresponda a nenhum dos ASNs especificados.
+- **Corresponde**: exige que o ASN da rede do cliente corresponda a um dos ASNs especificados. 
+- **Não corresponde**: exige que o ASN da rede do cliente não corresponda a nenhum dos ASNs especificados.
 
 Informações de chave:
 - Especifique vários ASNs delimitando cada um deles com um único espaço. Por exemplo, 64514 64515 corresponde a solicitações que chegam de 64514 ou 64515.
@@ -130,7 +130,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -139,31 +139,31 @@ Informações de chave:
 A condição de correspondência de origem CDN é atendida quando as condições a seguir são atendidas:
 - O conteúdo do armazenamento CDN foi solicitado.
 - A URI de solicitação usa o tipo do ponto de acesso ao conteúdo (por exemplo, /000001) que está definido nessa condição de correspondência:
-  - URL da CDN: O URI da solicitação deve conter o ponto de acesso ao conteúdo selecionado.
-  - URL CNAME de borda: A configuração CNAME de borda correspondente deve apontar para o ponto de acesso ao conteúdo selecionado.
+  - URL da CDN: o URI da solicitação deve conter o ponto de acesso ao conteúdo selecionado.
+  - URL CNAME de borda: a configuração do CNAME de borda correspondente deve apontar para o ponto de acesso ao conteúdo selecionado.
   
 Informações de chave:
  - O ponto de acesso ao conteúdo identifica o serviço que deve ser o conteúdo solicitado.
  - Não use uma instrução AND IF para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Origem CDN com uma condição de correspondência de Origem do Cliente cria um padrão de correspondência que não poderia ser satisfeito. Por esse motivo, as duas condições de correspondência de Origem de CDN não podem ser combinadas por meio de uma instrução AND IF.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
 ---
 ### <a name="client-ip-address"></a>Endereço IP do Cliente
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência de Endereço de IP de Cliente são atendidas:
-- **Corresponde**: Exige que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
-- **Não Corresponde**: Exige que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
+- **Corresponde**: requer que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
+- **Não corresponde**: requer que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
 
 Informações de chave:
 - Use a notação CIDR.
 - Especifique vários endereços IP e/ou blocos de endereços IP delimitando cada um com um único espaço. Por exemplo: 
-  - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a qualquer solicitação que chegue do endereço 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a qualquer solicitação que chegue do endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+  - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a qualquer solicitação que chega dos endereços 1.2.3.4 ou 10.20.30.40.
+  - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a qualquer solicitação que chega dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo: 
-  - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a qualquer solicitação que chegue do endereço 5.5.5.64 ou 5.5.5.127.
-  - **Exemplo de IPv6**: 1:2:3:/48 corresponde a qualquer solicitação que chegue dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a qualquer solicitação que chega dos endereços 5.5.5.64 a 5.5.5.127.
+  - **Exemplo de IPv6**: 1:2:3:/48 corresponde a qualquer solicitação que chega dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - Devido à maneira como as configurações de cache são acompanhadas, essa condição de correspondência é incompatível com os recursos a seguir:
   - Concluir o Preenchimento do Cache
   - Idade Máxima Interna Padrão
@@ -171,14 +171,14 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
 ---
 ### <a name="cookie-parameter"></a>Parâmetro de Cookie
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Parâmetro de Cookie são atendidas.
-- **Corresponde**: requer uma solicitação para conter o cookie especificado com um valor que corresponde a pelo menos um dos valores definidos nessa condição de correspondência.
+- **Corresponde**: requer que uma solicitação contenha o cookie especificado com um valor que corresponde a pelo menos um dos valores definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cookie especificado.
   - Ela contém o cookie especificado, mas seu valor não corresponde a nenhum dos valores que são definidos nessa condição de correspondência.
@@ -200,7 +200,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -209,7 +209,7 @@ Informações de chave:
 A condição de correspondência de Regex de Parâmetro de Cookie define o valor e o nome de um cookie. Você pode usar [expressões regulares](cdn-rules-engine-reference.md#regular-expressions) para definir o valor do cookie desejado. 
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Regex de Parâmetro de Cookie são atendidas.
-- **Corresponde**: Requer que uma solicitação contenha o cookie especificado com um valor que corresponde à expressão regular especificada.
+- **Corresponde**: requer que uma solicitação contenha o cookie especificado com um valor que corresponde à expressão regular especificada.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cookie especificado.
   - Ela contém o cookie especificado, mas seu valor não corresponde à expressão regular especificada.
@@ -229,17 +229,17 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
 --- 
-### <a name="country"></a>País
+### <a name="country"></a>País/Região
 Você pode especificar um país por meio de seu código de país. 
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência País são atendidas:
-- **Correspondências**: Requer que a solicitação contenha os valores de código de país especificados. 
-- **Não Corresponde**: Requer que a solicitação não contenha os valores de código de país especificados.
+- **Corresponde**: requer que a solicitação contenha os valores de código de país especificados. 
+- **Não corresponde**: requer que a solicitação não contenha os valores de código de país especificados.
 
 Informações de chave:
 - Especifique vários códigos de país delimitando cada um deles com um único espaço.
@@ -257,16 +257,16 @@ Informações de chave:
 #### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementando a filtragem de país, usando o mecanismo de regras
 Essa condição de correspondência permite que você execute uma variedade de personalizações com base no local de origem de uma solicitação. Por exemplo, o comportamento do recurso de filtragem de país pode ser replicado por meio da configuração a seguir:
 
-- Correspondência de curinga de caminho de URL: Definir a [condição de correspondência de Curinga de caminho de URL](#url-path-wildcard) para o diretório que será protegido. 
+- Correspondência do Curinga de Caminho da URL: defina a [condição de correspondência do Curinga de Caminho da URL](#url-path-wildcard) para o diretório que será protegido. 
     Acrescente um asterisco no final do caminho relativo para garantir que o acesso a todos os seus elementos filho sejam restritos por essa regra.
 
-- Correspondência de país: define a condição de correspondência de país para o conjunto desejado de países.
-   - Permitir: define a condição de correspondência de país como **Não corresponde** para permitir que somente o acesso de países especificados para o conteúdo armazenado no local definido pela condição de correspondência de curinga do caminho de URL.
-   - Bloquear: define a condição de correspondência de país como **Corresponde** para bloquear o acesso de países especificados para o conteúdo armazenado no local definido pela condição de correspondência de curinga do caminho de URL.
+- Correspondência de país: defina a condição de correspondência de país para o conjunto desejado de países.
+   - Permitir: defina a condição de correspondência de país como **Não corresponde** para permitir que apenas os países especificados tenham acesso ao conteúdo armazenado no local definido pela condição de correspondência do Curinga de Caminho da URL.
+   - Bloquear: defina a condição de correspondência de país como **Corresponde** para bloquear o acesso dos países especificados ao conteúdo armazenado no local definido pela condição de correspondência do Curinga de Caminho da URL.
 
-- Recurso do negar acesso (403): habilita o [Recurso negar acesso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar a porção permitir ou bloquear do recurso de filtragem de país.
+- Recurso do negar acesso (403): habilite o [Recurso negar acesso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar a porção permitir ou bloquear do recurso de filtragem de país.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -280,7 +280,7 @@ Informações de chave:
   - Uma configuração CNAME de borda
 - Não use uma instrução AND IF para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Origem do Cliente com uma condição de correspondência de Origem de CDN cria um padrão de correspondência que não poderia ser satisfeito. Por esse motivo, as duas condições de correspondência de Origem do Cliente não podem ser combinadas por meio de uma instrução AND IF.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -290,8 +290,8 @@ Informações de chave:
 A condição de correspondência Dispositivo identifica solicitações feitas de um dispositivo móvel baseadas em suas propriedades. A detecção de dispositivos móveis é alcançada por meio de [WURFL](http://wurfl.sourceforge.net/). 
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Dispositivo são atendidas:
-- **Correspondências**: Requer que o dispositivo do solicitante corresponda ao valor especificado. 
-- **Não Corresponde**: Requer que o dispositivo do solicitante não corresponda ao valor especificado.
+- **Corresponde**: requer que o dispositivo do solicitante corresponda ao valor especificado. 
+- **Não corresponde**: requer que o dispositivo do solicitante não corresponda ao valor especificado.
 
 Informações de chave:
 
@@ -306,7 +306,7 @@ Informações de chave:
 #### <a name="string-type"></a>Tipo de cadeia de caracteres
 Normalmente, um recurso WURFL aceita qualquer combinação de números, letras e símbolos. Devido à natureza flexível dessa funcionalidade, você deve escolher como o valor associado a essa condição de correspondência é interpretado. A tabela a seguir descreve o conjunto disponível de opções:
 
-type     | DESCRIÇÃO
+Type     | DESCRIÇÃO
 ---------|------------
 Literal  | Selecione esta opção para impedir que a maioria dos caracteres tenham um significado especial usando seus [valores literal](cdn-rules-engine-reference.md#literal-values).
 Curinga | Selecione esta opção para aproveitar todos os [caracteres curinga] ([valores curinga](cdn-rules-engine-reference.md#wildcard-values).
@@ -343,7 +343,7 @@ Data do lançamento | %{wurfl_cap_release_date} | Uma cadeia de caracteres que i
 Altura de resolução | %{wurfl_cap_resolution_height} | Um inteiro que indica a altura do dispositivo em pixels. | 768
 Largura de resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a largura do dispositivo em pixels. | 1024
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -360,7 +360,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -369,8 +369,8 @@ Informações de chave:
 O nome do host associado com o referenciador por meio do qual o conteúdo foi solicitado determina se a condição do domínio de referência é atendida. 
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Domínio de Referência são atendidas:
-- **Correspondências**: Requer que o nome do host corresponda ao valor especificado. 
-- **Não Corresponde**: Requer que o nome do host não corresponda ao valor especificado.
+- **Corresponde**: requer que o nome do host de referência corresponda aos valores especificados. 
+- **Não corresponde**: requer que o nome do host de referência não corresponda ao valor especificado.
 
 Informações de chave:
 - Especifique vários nomes de host delimitando cada um deles com um único espaço.
@@ -384,14 +384,14 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
 ---  
 ### <a name="request-header-literal"></a>Literal de Cabeçalho de Solicitação
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Literal do Cabeçalho da Solicitação será atendida.
-- **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao que está definido nessa condição de correspondência.
+- **Corresponde**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao que está definido nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cabeçalho especificado.
   - Ela contém o cabeçalho especificado, mas seu valor não corresponde ao que está definido nessa condição de correspondência.
@@ -405,14 +405,14 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
 ---  
 ### <a name="request-header-regex"></a>Regex do Cabeçalho da Solicitação
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Regex do Cabeçalho da Solicitação será atendida.
-- **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao padrão que é definido na [expressão regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
+- **Corresponde**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao padrão que é definido na [expressão regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cabeçalho especificado.
   - Ela contém o cabeçalho especificado, mas seu valor não corresponde à expressão regular especificada.
@@ -432,14 +432,14 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno 
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
 ---
 ### <a name="request-header-wildcard"></a>Curinga de Cabeçalho de Solicitação
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Curinga do Cabeçalho da Solicitação será atendida.
-- **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder a pelo menos um dos valores que são definidos nessa condição de correspondência.
+- **Corresponde**: requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder a pelo menos um dos valores que são definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cabeçalho especificado.
   - Ela contém o cabeçalho especificado, mas seu valor não corresponde a nenhum dos valores especificados.
@@ -460,7 +460,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -485,7 +485,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -503,7 +503,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -512,18 +512,18 @@ Informações de chave:
 Identifica uma solicitação por seu caminho relativo, que exclui o nome do arquivo do ativo solicitado.
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Diretório de Caminho de URL são atendidas.
-- **Corresponde**: requer a solicitação para conter um caminho de URL relativo, exceto o nome do arquivo, que corresponde ao padrão de URL especificado.
-- **Não corresponde**: requer a solicitação para conter um caminho de URL relativo, exceto o nome do arquivo, que não corresponde ao padrão de URL especificado.
+- **Corresponde**: requer que a solicitação contenha um caminho de URL relativa, exceto pelo nome do arquivo, que corresponda ao padrão de URL especificado.
+- **Não corresponde**: requer que a solicitação contenha um caminho de URL relativa, exceto pelo nome do arquivo, que não corresponda ao padrão de URL especificado.
 
 Informações de chave:
 - Use a opção **Relativo a** para especificar se a comparação de URL começa antes ou após o ponto de acesso do conteúdo. O ponto de acesso de conteúdo é a parte do caminho que aparece entre o nome do host Verizon CDN e o caminho relativo ao ativo solicitado (por exemplo, /800001/CustomerOrigin). Ele identifica um local por tipo de servidor (por exemplo, origem de cliente ou CDN) e seu número de conta do cliente.
 
    Os valores a seguir estão disponíveis para a opção **Relativo a**:
-   - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN. 
+   - **Raiz**: indica que o ponto de comparação de URL começa logo após o nome de host da CDN. 
 
      Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder**/index.htm
 
-   - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
+   - **Origem**: indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
      Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
@@ -557,7 +557,7 @@ Informações de chave:
 
 - Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas será feita.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -596,7 +596,7 @@ Esta condição de correspondência é atendida quando encontra URLs que termina
 - .php
 - .html
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -623,7 +623,7 @@ Informações de chave:
 
     Por exemplo, especificar "presentation.ppt" corresponde a um ativo chamado "presentation.ppt", mas não a um chamado "presentation.pptx."
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -639,11 +639,11 @@ Informações de chave:
 - Use a opção **Relativo a** para especificar se o ponto de comparação de URL começa antes ou após o ponto de acesso do conteúdo. 
 
     Os valores a seguir estão disponíveis para a opção **Relativo a**:
-     - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN.
+     - **Raiz**: indica que o ponto de comparação de URL começa logo após o nome de host da CDN.
 
        Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
+     - **Origem**: indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
        Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
@@ -667,7 +667,7 @@ Informações de chave:
 
 - Para combinar todas as solicitações feitas a um diretório específico, use a condição de correspondência do [Diretório de caminho de URL](#url-path-directory) ou do [Curinga de caminho de URL](#url-path-wildcard).
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -698,7 +698,7 @@ Informações de chave:
     
 - Espaços no caminho de URL devem ser substituídos por "%20".
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -711,14 +711,14 @@ A opção **Corresponde**/**Não corresponde** determina as condições sob as q
 - **Não corresponde**: requer que a solicitação contenha um caminho de URL que não corresponda ao padrão de curinga especificado.
 
 Informações de chave:
-- Opção **Relativo a**: Essa opção determina se o ponto de comparação de URL começa antes ou após o ponto de acesso do conteúdo.
+- Opção **Relativo a**: esta opção determina se o ponto de comparação de URL começa antes ou após o ponto de acesso do conteúdo.
 
    Essa opção pode ter os seguintes valores:
-     - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN.
+     - **Raiz**: indica que o ponto de comparação de URL começa logo após o nome de host da CDN.
 
        Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
+     - **Origem**: indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
        Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
@@ -760,7 +760,7 @@ Valor                   | Relativo a    | Result
 *.jpg *.gif *.png       | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda terminando com .jpg, .gif, ou .png. Uma maneira alternativa de especificar esse padrão é com a [condição de correspondência de Extensão de Caminho de URL](#url-path-extension).
 /images/\* /media/\*      | Origem         | Esse padrão é correspondido pelas URLs CNAME de borda ou CDN cujo caminho relativo começa com uma pasta "imagens" ou "mídia". <br />- URL da CDN: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -794,7 +794,7 @@ Informações de chave:
    - Ignorar Ausência de Cache de Origem
    - Máximo de Estado Obsoleto Interno
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -874,7 +874,7 @@ Usuário  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres 
 Usuário  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
 Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de E-mail que começa com “Joe”.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -919,7 +919,7 @@ Informações de chave:
    - Máximo de Estado Obsoleto Interno
 
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 
@@ -944,7 +944,7 @@ Informações de chave:
 
 - Especifique vários valores delimitando cada um deles com um único espaço.
 
-   Por exemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por exemplo:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Apenas as correspondências exatas a pelo menos um dos padrões de cadeia de caracteres de consulta especificados satisfazem essa condição de correspondência.
     
@@ -965,7 +965,7 @@ O exemplo a seguir demonstra como essa opção funciona em situações específi
 user=joe              | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
 \*user=\* \*optout=\* | Esse padrão é correspondido quando a consulta de URL CDN contém o parâmetro opcional ou de usuário.
 
-[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
+[Voltar ao início](#main)
 
 </br>
 

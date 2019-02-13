@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452540"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822724"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 
@@ -129,7 +129,7 @@ O sistema operacional Linux instalado no SAP HANA (Instâncias Grandes) do Azure
 
 No entanto, é sua responsabilidade instalar o cliente do SAP HANA HDB nas unidades de SAP HANA em Instâncias Grandes durante a instalação do SAP HANA.
 
-### <a name="step-2-change-the-etcsshsshconfig"></a>Etapa 2: Alterar o /etc/ssh/ssh\_config
+### <a name="step-2-change-the-etcsshsshconfig"></a>Etapa 2: Alterar a /etc/ssh/ssh\_config
 
 Altere `/etc/ssh/ssh_config` adicionando a linha _MACs hmac-sha1_ conforme mostrado aqui:
 ```
@@ -179,7 +179,7 @@ Neste ponto, entre em contato com o Gerenciamento de Serviços do SAP HANA no Az
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Etapa 4: Criar uma conta de usuário do SAP HANA
 
-Para iniciar a criação de instantâneos do SAP HANA, é necessário criar uma conta de usuário no SAP HANA que os scripts de instantâneo de armazenamento possam usar. Crie uma conta de usuário do SAP HANA no SAP HANA Studio para essa finalidade. O usuário deve ser criado no SYSTEMDB, e NÃO no banco de dados do SID para MDC. No ambiente de contêiner único, o usuário é configurado no banco de dados de locatário. Essa conta deve ter os seguintes privilégios: **Administrador de Backup** e **Leitura de Catálogo**. Neste exemplo, o nome de usuário é **SCADMIN**. O nome da conta de usuário criada no HANA Studio diferencia maiúsculas de minúsculas. Certifique-se de selecionar **Não** para exigir que o usuário altere a senha na próxima conexão.
+Para iniciar a criação de instantâneos do SAP HANA, é necessário criar uma conta de usuário no SAP HANA que os scripts de instantâneo de armazenamento possam usar. Crie uma conta de usuário do SAP HANA no SAP HANA Studio para essa finalidade. O usuário deve ser criado no SYSTEMDB, e NÃO no banco de dados do SID para MDC. No ambiente de contêiner único, o usuário é configurado no banco de dados de locatário. Essa conta deve ter os seguintes privilégios: **Administrador de backup** e **Leitura do catálogo**. Neste exemplo, o nome de usuário é **SCADMIN**. O nome da conta de usuário criada no HANA Studio diferencia maiúsculas de minúsculas. Certifique-se de selecionar **Não** para exigir que o usuário altere a senha na próxima conexão.
 
 ![Criando um usuário no Studio HANA](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -258,9 +258,9 @@ A finalidade dos diferentes scripts e arquivos é conforme a seguir:
       - ID do HANA Backup associada a esse instantâneo, se relevante
 - **azure\_hana\_snapshot\_delete.pl**: este script exclui um instantâneo de armazenamento ou um conjunto de instantâneos. É possível usar a ID de backup do SAP HANA como encontrada no HANA Studio, ou o nome do instantâneo de armazenamento. Atualmente, a ID de backup só está vinculada aos instantâneos criados para os volumes data/log/shared HANA. Caso contrário, se a ID de instantâneo for inserida, serão procurados todos os instantâneos que correspondam à ID de instantâneo inserida.  
 - **testHANAConnection.pl**: este script testa a conexão com a instância do SAP HANA e é necessário para configurar o instantâneo de armazenamento.
-- **testStorageSnapshotConnection.pl**: esse script tem dois propósitos. Primeiro, ele garante que a unidade do SAP HANA em Instâncias Grandes que executa os scripts tenha acesso à máquina virtual de armazenamento atribuído e com a interface de instantâneo de armazenamento do SAP HANA em Instâncias Grandes. A segunda finalidade é criar um instantâneo temporário para a instância do HANA que você está testando. Esse script deve ser executado para cada instância do HANA em um servidor para garantir que os scripts de backup funcionem conforme o esperado.
-- **removeTestStorageSnapshot.pl**: esse script exclui o instantâneo de teste criado com o script **testStorageSnapshotConnection.pl**.
-- **azure\_hana\_dr\_failover.pl**: esse script inicia um failover de recuperação de desastre em outra região. O script precisa ser executado na unidade do SAP HANA em Instâncias Grande na região de DR ou na unidade para a qual você deseja fazer failover. Esse script interrompe a replicação do armazenamento do lado primário para o lado secundário, restaura o instantâneo mais recente nos volumes de DR e fornece os pontos de montagem para os volumes de DR.
+- **testStorageSnapshotConnection.pl**: Este script tem duas finalidades. Primeiro, ele garante que a unidade do SAP HANA em Instâncias Grandes que executa os scripts tenha acesso à máquina virtual de armazenamento atribuído e com a interface de instantâneo de armazenamento do SAP HANA em Instâncias Grandes. A segunda finalidade é criar um instantâneo temporário para a instância do HANA que você está testando. Esse script deve ser executado para cada instância do HANA em um servidor para garantir que os scripts de backup funcionem conforme o esperado.
+- **removeTestStorageSnapshot.pl**: este script exclui o instantâneo de teste criado com o script **testStorageSnapshotConnection.pl**.
+- **azure\_hana\_dr\_failover.pl**: este script inicia um failover de recuperação de desastre em outra região. O script precisa ser executado na unidade do SAP HANA em Instâncias Grande na região de DR ou na unidade para a qual você deseja fazer failover. Esse script interrompe a replicação do armazenamento do lado primário para o lado secundário, restaura o instantâneo mais recente nos volumes de DR e fornece os pontos de montagem para os volumes de DR.
 - **azure\_hana\_test\_dr\_failover.pl**: esse script executa um failover de teste no site de DR. Ao contrário do script azure_hana_dr_failover.pl, essa execução não interrompe a replicação do armazenamento do primário para o secundário. Em vez disso, clones dos volumes de armazenamento replicados são criados no lado de DR e os pontos de montagem dos volumes clonados são fornecidos. 
 - **HANABackupCustomerDetails.txt**: este arquivo é um arquivo de configuração modificável que você precisa modificar para adaptar-se à sua configuração do SAP HANA. O arquivo *HANABackupCustomerDetails.txt* é o arquivo de controle e configuração do script que executa os instantâneos de armazenamento. Ajuste o arquivo para suas finalidades e configuração. Você receberá o **Nome do Backup de Armazenamento** e o **Endereço IP da Conta de Armazenamento**  do SAP HANA no Gerenciamento de Serviços do Azure quando as instâncias forem implantadas. Não é possível modificar a sequência, ordenação nem o espaçamento de qualquer uma das variáveis nesse arquivo. Se você fizer isso, os scripts não serão executados corretamente. Além disso, você recebe o endereço IP do nó de escala vertical ou do nó mestre (se expansão) do SAP HANA no Gerenciamento de Serviços do Azure. Você também conhece o número de instância do HANA obtido durante a instalação do SAP HANA. Agora, é necessário adicionar um nome de backup ao arquivo de configuração.
 
@@ -388,7 +388,7 @@ Quando as etapas de preparação estiverem concluídas, você poderá começar a
 Você pode criar três tipos de backups de instantâneos:
 - **HANA**: um backup de instantâneo combinado no qual os volumes que contêm o /hana/data e /hana/shared (que também contém /usr/sap) são cobertos pelo instantâneo coordenado. Uma restauração de arquivo único é possível desse instantâneo.
 - **Logs**: um backup de instantâneo do volume /hana/logbackups. Nenhum instantâneo HANA é acionado para executar esse instantâneo de armazenamento. Esse volume de armazenamento deve conter os backups de log de transações do SAP HANA. Eles são executados com mais frequência para restringir o crescimento de log e evitar possíveis perdas de dados. Uma restauração de arquivo único é possível desse instantâneo. Não diminua a frequência para menos de 3 minutos.
-- **Inicialização**: um instantâneo do volume que contém o LUN (número de unidade lógica) de inicialização do SAP HANA em Instâncias Grandes. Esse backup de instantâneo só é possível com os SKUs tipo I das Instâncias Grandes HANA. Você não pode executar restaurações de arquivo único do instantâneo do volume que contém o LUN de inicialização.
+- **Inicialização**: o instantâneo do volume que contém o LUN (número de unidade lógica) de inicialização da Instância Grande do HANA. Esse backup de instantâneo só é possível com os SKUs tipo I das Instâncias Grandes HANA. Você não pode executar restaurações de arquivo único do instantâneo do volume que contém o LUN de inicialização.
 
 
 >[!NOTE]
@@ -532,8 +532,8 @@ Command completed successfully.
 Em um volume de armazenamento específico, você pode monitorar o número de instantâneos e o consumo de armazenamento desses instantâneos. O comando `ls` não mostra o diretório de instantâneo ou arquivos. No entanto, o comando do sistema operacional Linux `du` mostra detalhes sobre esses instantâneos de armazenamento, porque eles são armazenados nos mesmos volumes. O comando pode ser usado com as seguintes opções:
 
 - `du –sh .snapshot`: essa opção fornece um total de todos os instantâneos no diretório de instantâneos.
-- `du –sh --max-depth=1`: essa opção lista todos os instantâneos salvos na pasta **.snapshot** e o tamanho de cada instantâneo.
-- `du –hc`: essa opção fornece o tamanho total usado por todos os instantâneos.
+- `du –sh --max-depth=1`: esta opção lista todos os instantâneos salvos na pasta **.snapshot** e o tamanho de cada um deles.
+- `du –hc`: Esta opção fornece o tamanho total usando por todos os instantâneos.
 
 Use estes comandos para verificar se os instantâneos foram obtidos e armazenado não estão consumindo todo o armazenamento nos volumes.
 
@@ -687,7 +687,7 @@ O processo a seguir restaura um instantâneo HANA que foi incluído no instantâ
 >[!IMPORTANT]
 >Antes de continuar, verifique se você tem uma cadeia completa e contígua de backups de log de transações. Sem esses backups, você não poderá restaurar o estado atual do banco de dados.
 
-1. Conclua as etapas de 1 a 6 em [Recuperar para o instantâneo mais recente do HANA](#recovering-to-the-most-recent-hana-snapshot).
+1. Conclua as etapas de 1 a 6 em Recuperar para o instantâneo mais recente do HANA.
 
 1. Selecione **Recuperar o banco de dados para seu estado mais recente**.
 
@@ -713,7 +713,7 @@ O processo a seguir restaura um instantâneo HANA que foi incluído no instantâ
 Para recuperar para um ponto de tempo entre o instantâneo HANA (incluído no instantâneo de armazenamento) e um posterior àquele da recuperação pontual, execute as seguintes etapas:
 
 1. Certifique-se de que você tenha todos os backups de log de transações do instantâneo do HANA para a hora em que deseja recuperar.
-1. Inicie o procedimento em [Recuperar para o estado mais recente](#recovering-to-the-most-recent-state).
+1. Inicie o procedimento em Recuperar para o estado mais recente.
 1. Na etapa 2 do procedimento, na janela **Especificar o Tipo de Recuperação**, selecione **Recuperar o banco de dados para o seguinte ponto** e, em seguida, especifique o ponto em questão. 
 1. Conclua as etapas de 3 a 6.
 

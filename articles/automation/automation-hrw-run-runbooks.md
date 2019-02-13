@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425770"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657409"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
 Não há diferença na estrutura de runbooks executados na Automação do Azure daqueles que executam em um Hybrid Runbook Worker. Provavelmente, os runbooks usados em cada um serão bem diferentes. Essa diferença ocorre porque os runbooks direcionados a um Hybrid Runbook Worker normalmente gerenciam recursos no próprio computador local, ou com base em recursos no ambiente local onde ele é implantado. Os runbooks na Automação do Azure normalmente gerenciam recursos na nuvem do Azure.
 
-Ao criar runbooks para executar em um Hybrid Runbook Worker, é necessário editar e testar os runbooks no computador que hospeda o Hybrid Worker. O computador host possui todos os módulos e acesso à rede do PowerShell necessários para gerenciar e acessar os recursos locais. Após o teste de um runbook no computador do Hybrid Worker, você poderá carregá-lo no ambiente de Automação do Azure, onde ficará disponível para execução no Hybrid Worker. É importante conhecer os trabalhos executados na conta Sistema Local para Windows ou em uma conta de usuário especial **nxautomation** no Linux. Esse comportamento pode introduzir diferenças sutis ao criar runbooks para um Hybrid Runbook Worker. Essas alterações devem ser examinadas durante a produção de seus runbooks.
+Ao criar runbooks para executar em um Hybrid Runbook Worker, é necessário editar e testar os runbooks no computador que hospeda o Hybrid Worker. O computador host possui todos os módulos e acesso à rede do PowerShell necessários para gerenciar e acessar os recursos locais. Após um runbook ser testado no computador do Hybrid Worker, você poderá carregá-lo no ambiente de Automação do Azure, onde ficará disponível para execução no Hybrid Worker. É importante conhecer os trabalhos executados na conta Sistema Local para Windows ou em uma conta de usuário especial **nxautomation** no Linux. Esse comportamento pode introduzir diferenças sutis ao criar runbooks para um Hybrid Runbook Worker. Essas alterações devem ser examinadas durante a produção de seus runbooks.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Iniciar um runbook no Hybrid Runbook Worker
 
@@ -181,7 +181,7 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Ao pesquisar sua biblioteca de itens, se você não vir **Connect-AzureRMAccount**, você pode usar **Connect-AzureRmAccount**, ou você pode atualizar seus módulos em sua Conta de Automação.
 
-Salve o runbook *Export-RunAsCertificateToHybridWorker* no seu computador com uma extensão `.ps1`. Importe-o para sua conta de Automação e edite o runbook, alterando o valor da variável `$Password` pela sua própria senha. Publique e execute o runbook. Direcione o grupo Hybrid Worker que executará e autenticará runbooks usando a conta Executar como. O fluxo de trabalho informa a tentativa de importar o certificado no armazenamento do computador local e mostra várias linhas em seguida. Esse comportamento depende de quantas contas de Automação você define em sua assinatura, e do sucesso da autenticação.
+Salve o runbook *Export-RunAsCertificateToHybridWorker* no seu computador com uma extensão `.ps1`. Importe-o para sua conta de Automação e edite o runbook, alterando o valor da variável `$Password` pela sua própria senha. Publique e execute o runbook. Direcione o grupo Hybrid Worker que executa e autentica runbooks usando a conta Executar como. O fluxo de trabalho informa a tentativa de importar o certificado no armazenamento do computador local e mostra várias linhas em seguida. Esse comportamento depende de quantas contas de Automação você define em sua assinatura, e do sucesso da autenticação.
 
 ## <a name="job-behavior"></a>Comportamento do trabalho
 
@@ -189,12 +189,14 @@ Os trabalhos são tratados de forma ligeiramente diferente em Hybrid Runbook Wor
 
 ## <a name="run-only-signed-runbooks"></a>Executar somente runbooks assinados
 
-Os Hybrid Runbook Workers podem ser configurados para executar somente runbooks assinados com alguma configuração. A seção a seguir descreve como configurar os Hybrid Runbook Workers para executar runbooks assinados, e como assinar os runbooks.
+Os Hybrid Runbook Workers podem ser configurados para executar somente runbooks assinados com alguma configuração. A seção a seguir descreve como configurar os Hybrid Runbook Workers para executar o [Hybrid Runbook Worker do Windows](#windows-hybrid-runbook-worker) e o [Hybrid Runbook Worker do Linux](#linux-hybrid-runbook-worker) assinados
 
 > [!NOTE]
 > Após configurar um Hybrid Runbook Worker para executar somente runbooks assinados, os runbooks que **não** foram assinados não serão executados no trabalho.
 
-### <a name="create-signing-certificate"></a>Criar certificado de assinatura
+### <a name="windows-hybrid-runbook-worker"></a>Hybrid Runbook Worker do Windows
+
+#### <a name="create-signing-certificate"></a>Criar certificado de assinatura
 
 O exemplo a seguir cria um certificado autoassinado que pode ser usado para assinar runbooks. O exemplo cria o certificado e o exporta. O certificado será importado para os Hybrid Runbook Workers posteriormente. A impressão digital também retorna, e será utilizada posteriormente para referenciar o certificado.
 
@@ -220,7 +222,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### <a name="configure-the-hybrid-runbook-workers"></a>Configurar os Hybrid Runbook Workers
+#### <a name="configure-the-hybrid-runbook-workers"></a>Configurar os Hybrid Runbook Workers
 
 Copie o certificado criado para cada Hybrid Runbook Worker em um grupo. Execute o script a seguir para importar o certificado e configure o Hybrid Worker para usar a validação de assinatura em runbooks.
 
@@ -236,7 +238,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### <a name="sign-your-runbooks-using-the-certificate"></a>Assine os Runbooks usando o certificado
+#### <a name="sign-your-runbooks-using-the-certificate"></a>Assine os Runbooks usando o certificado
 
 Com o Hybrid Runbook workers configurados para usar somente assinado runbooks, você deve entrar runbooks que devem ser usados no Hybrid Runbook Worker. Use o exemplo de PowerShell a seguir para assinar os runbooks.
 
@@ -246,6 +248,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 Quando o runbook tiver sido assinado, ele deve ser importado para sua conta de automação e publicado com o bloco de assinatura. Para saber como importar os runbooks, consulte [Importando um runbook de um arquivo para a Automação do Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### <a name="linux-hybrid-runbook-worker"></a>Hybrid Runbook Worker do Linux
+
+Para assinar os runbooks em um Hybrid Runbook Worker do Linux, o Hybrid Runbook Worker precisa ter o [GPG](https://gnupg.org/index.html) executável presente no computador.
+
+#### <a name="create-a-gpg-keyring-and-keypair"></a>Criar um token de autenticação e um par de chaves do GPG
+
+Para criar o token de autenticação e o par de chaves, você precisará usar a conta do Hybrid Runbook Worker `nxautomation`.
+
+Use `sudo` fazer logon como a conta `nxautomation`.
+
+```bash
+sudo su – nxautomation
+```
+
+Uma vez usando a conta `nxautomation`, gere o par de chaves do GPG.
+
+```bash
+sudo gpg --generate-key
+```
+
+O GPG guiará você pelas etapas para criar o par de chaves. Você precisará fornecer um nome, um endereço de email, uma data de validade, uma frase secreta e aguardar entropia suficiente no computador para a chave ser gerada.
+
+Como o diretório do GPG foi gerado com sudo, você precisará alterar seu proprietário para nxautomation. 
+
+Execute o seguinte comando para alterar o proprietário.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Disponibilizar o token de autenticação para o Hybrid Runbook Worker
+
+Depois de criar o token de autenticação, você precisará disponibilizá-lo para o Hybrid Runbook Worker. Modifique o arquivo de configurações `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` para incluir o exemplo a seguir na seção `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### <a name="verify-signature-validation-is-on"></a>Verificar se a validação de assinatura está ativada
+
+Se a validação de assinatura tiver sido desabilitada no computador, você precisará ativá-la. Execute o seguinte comando para habilitar a validação de assinatura. Substituindo `<LogAnalyticsworkspaceId>` por sua ID do workspace.
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### <a name="sign-a-runbook"></a>Assinar um runbook
+
+Após configurar a validação de assinatura, você poderá usar o comando a seguir para assinar um runbook:
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+O runbook assinado terá o nome `<runbook name>.asc`.
+
+O runbook assinado agora pode ser carregado na Automação do Azure e pode ser executado como um runbook normal.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 

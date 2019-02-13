@@ -9,102 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742738"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743473"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
-É necessário fornecer aos clientes uma URL que eles possam usar para reproduzir arquivos de vídeo ou áudio codificados e, para isso, você precisa criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e criar as URLs de streaming. Para obter mais informações, consulte [Stream um arquivo](stream-files-dotnet-quickstart.md).
+Para fazer vídeos na saída do ativo disponível para clientes de reprodução, você precisa criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, criar URLs de streaming. Para um exemplo de .NET, veja [Obter um Localizador de Streaming](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
-## <a name="streaminglocator-definition"></a>Definição de StreamingLocator
+O processo de criação de um **Localizador de Streaming** é chamado de publicação. Por padrão, o **Localizador de Streaming** é válido imediatamente após você fazer as chamadas à API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
 
-A tabela a seguir mostra as propriedades do StreamingLocator e fornece suas definições.
+Ao criar um **Localizador de Streaming**, você precisa especificar o nome do [Ativo](https://docs.microsoft.com/rest/api/media/assets) e o nome da [Política Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies). Você pode usar uma das Políticas de Streaming predefinidas ou criar uma política personalizada. As políticas predefinidas disponíveis no momento são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e 'Predefined_MultiDrmStreaming'. Ao usar uma Política de Streaming personalizada, será necessário estruturar um conjunto limitado dessas políticas para sua conta de Serviço de Mídia e reutilizá-las em seus Localizadores de Streaming, sempre que as mesmas opções e protocolos forem necessários. 
 
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID |ID de recurso totalmente qualificada para o recurso.|
-|Nome|O nome do recurso.|
-|properties.alternativeMediaId|ID de mídia alternativa deste localizador de streaming.|
-|properties.assetName|Nome do ativo|
-|properties.contentKeys|Os ContentKeys usadas por esse localizador de Streaming.|
-|properties.created|O horário de criação do Localizador de Transmissão.|
-|properties.defaultContentKeyPolicyName|Nome da ContentKeyPolicy padrão usada por este Streaming Locator.|
-|properties.endTime|A hora final do Localizador de Transmissão.|
-|properties.startTime|A hora de início do Localizador de Transmissão.|
-|properties.streamingLocatorId|O StreamingLocatorId do Localizador de Transmissão.|
-|properties.streamingPolicyName |Nome da política de fluxo usado por esse localizador de Streaming. Especifique o nome da política de Streaming que você criou ou use uma das políticas predefinidas de Streaming. As Políticas de Streaming predefinidas disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e 'Predefined_MultiDrmStreaming'|
-|Tipo|Tipo do recurso.|
+Se você quiser especificar opções de criptografia em seu fluxo, crie a [Política de Chave de Conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) que configura como a chave de conteúdo é entregue aos clientes finais por meio do componente Entrega de chave de Serviços de Mídia. Associe o Localizador de Streaming com a **Política de Chave de Conteúdo** e a chave de conteúdo. Você pode permitir que os Serviços de Mídia gerem automaticamente a chave. O exemplo de .NET a seguir mostra como configurar a criptografia AES com uma restrição de token em Serviços de Mídia v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Políticas de Chave de Conteúdo** serão atualizáveis, você pode desejar atualizar a política se precisar fazer uma rotação de chaves. Pode levar até 15 minutos para que os caches de entrega de Chaves atualizem e selecionem a política atualizada. É recomendável não criar uma nova Política de Chave de Conteúdo para cada localizador de Streaming. Você deve tentar reutilizar as políticas existentes sempre que as mesmas opções forem necessárias.
 
-A definição completa, consulte [localizadores de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators).
+> [!IMPORTANT]
+> * As propriedades de **Localizadores de Streaming** que são do tipo Datetime estão sempre no formato UTC.
+> * Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-los para os Localizadores de Streaming sempre que as mesmas opções forem necessárias. 
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 
-Os Serviços de Mídia do Microsoft Azure suportam as seguintes opções de consulta OData para ativos: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skipToken 
-
-Descrição do operador:
-
-* Eq = igual a
-* Ne = não é igual a
-* Ge = maior que ou igual a
-* Le = menor ou igual a
-* Gt = maior que
-* Lt = menor que
-
-### <a name="filteringordering"></a>Filtragem/pedidos
-
-A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades do StreamingLocator: 
-
-|NOME|Filter|Classificar|
-|---|---|---|
-|ID |||
-|Nome|Eq, ne, ge, le, gt, lt|Em ordem crescente e decrescente|
-|properties.alternativeMediaId  |||
-|properties.assetName   |||
-|properties.contentKeys |||
-|properties.created |Eq, ne, ge, le,  gt, lt|Em ordem crescente e decrescente|
-|properties.defaultContentKeyPolicyName |||
-|properties.endTime |Eq, ne, ge, le, gt, lt|Em ordem crescente e decrescente|
-|properties.startTime   |||
-|properties.streamingLocatorId  |||
-|properties.streamingPolicyName |||
-|Tipo   |||
-
-### <a name="pagination"></a>Paginação
-
-A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 10.
-
-> [!TIP]
-> Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
-
-Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. 
-
-Se StreamingLocators forem criados ou excluídos durante a paginação da coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada). 
-
-O seguinte exemplo C# mostra como enumerar todos os StreamingLocators na conta.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Para obter exemplos REST, consulte [localizadores de Streaming - lista](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+Veja [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
+* [Tutorial: Carregar, codificar e transmitir vídeos usando .NET](stream-files-tutorial-with-api.md)
+* [Use criptografia dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)

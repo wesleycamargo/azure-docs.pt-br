@@ -1,28 +1,66 @@
 ---
-title: Histórico de lançamento de versão do agente de proteção de senha do Azure Active Directory no local
+title: Histórico de lançamento de versão do agente de Proteção de Senha do Azure AD local
 description: Lançamento de versão de documentos e o comportamento de histórico de alterações
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ccfe62e0002e3420303130840f1a0d393efb3420
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bcf5176728b520cae5d31750384f316efe244b7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078756"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663614"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Visualização:  Histórico de versão do agente de proteção por senha do Azure AD
+# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Visualização:  Histórico de versão do agente de Proteção de Senha do Azure AD
 
 |     |
 | --- |
-| A proteção de senha do Azure Active Directory é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| A Proteção de Senha do Azure AD é uma versão prévia pública do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12650"></a>1.2.65.0
+
+Data de lançamento: 1/2/2019
+
+Alterações:
+
+* Agora há compatibilidade com o serviço de agente e proxy do DC no Server Core. Os requisitos de sistema operacional mínimos são os mesmos de antes: Windows Server 2012 para agentes do DC e Windows Server 2012 R2 para proxies.
+* Os cmdlets Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest agora são compatíveis com os modos de autenticação do Azure baseados em código.
+* O cmdlet Get-AzureADPasswordProtectionDCAgent ignorará os pontos de conexão de serviço inválidos e/ou danificados. Isso corrige o bug em que os controladores de domínio, às vezes, apareciam várias vezes na saída.
+* O cmdlet Get-AzureADPasswordProtectionSummaryReport ignorará os pontos de conexão de serviço inválidos e/ou danificados. Isso corrige o bug em que os controladores de domínio, às vezes, apareciam várias vezes na saída.
+* O módulo do PowerShell Proxy agora é registrado de %ProgramFiles%\WindowsPowerShell\Modules. A variável de ambiente PSModulePath do computador não é mais modificada.
+* Foi adicionado um novo cmdlet Get-AzureADPasswordProtectionProxy para auxiliar na descoberta de proxies registrados em um domínio ou floresta.
+* O agente do DC usa uma nova pasta no compartilhamento sysvol para replicar políticas de senha e outros arquivos.
+
+   Localização da pasta antiga:
+
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+
+   Nova localização da pasta:
+
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
+
+   (Essa alteração foi feita para evitar avisos de “GPO órfão” falso-positivos.)
+
+   > [!NOTE]
+   > Nenhuma migração ou compartilhamento de dados será feita entre a pasta antiga e a nova pasta. As versões mais antigas do agente do DC continuarão a usar o local antigo até serem atualizadas para esta versão ou posterior. Depois que todos os agentes do DC estiverem executando a versão 1.2.65.0 ou posterior, a pasta sysvol antiga poderá ser excluída manualmente.
+
+* O serviço de proxy e do agente do DC agora detectarão e excluirão cópias danificadas de seus respectivos pontos de conexão de serviço.
+* Cada agente do DC excluirá periodicamente pontos de conexão de serviço danificado e obsoletos em seu domínio, para pontos de conexão do serviço de proxy e do agente do DC. Os pontos de conexão do serviço de proxy e do agente do DC são considerados obsoletos caso seu carimbo de data/hora de pulsação tenha mais de sete dias.
+* O agente do DC agora renovará o certificado da floresta conforme necessário.
+* O serviço de proxy agora renovará o certificado de proxy conforme necessário.
+* Atualizações para o algoritmo de validação de senha: a lista de senhas banidas global e a lista de senhas banidas específicas do cliente (se configuradas) são combinadas antes de validações de senha. Uma determinada senha agora pode ser rejeitada (falha ou somente auditoria) se ele contiver tokens na lista global e na específica do cliente. A documentação do log de eventos foi atualizada para refletir isso. Consulte [Monitorar Proteção de Senha do Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Correções de desempenho e robustez
+* Log aprimorado
+
+> [!WARNING]
+> Funcionalidade de tempo limitado: o serviço de agente do DC nesta versão (1.2.65.0) parará o processamento de solicitações de validação de senha a partir de 1º de setembro de 2019.  Serviços de agente do DC em versões anteriores (consulte a lista abaixo) parará de processar a partir de 1º de julho de 2019. O serviço de agente do DC em todas as versões registrará 10021 eventos para o log de eventos do administrador nos dois meses anteriores a esses prazos. Todas as restrições de limite de tempo serão removidas na próxima versão com disponibilidade geral. O serviço de agente de Proxy não tem limitação de tempo em nenhuma versão, mas ainda deve ser atualizada para a versão mais recente para aproveitar todas as correções de bug subsequentes e outras melhorias.
 
 ## <a name="12250"></a>1.2.25.0
 
@@ -39,6 +77,7 @@ Correções:
 Alterações:
 
 * O nível de sistema operacional mínimo exigido para o serviço Proxy é agora o Windows Server 2012 R2. O nível de sistema operacional mínimo exigido para o serviço do agente DC permanece no Windows Server 2012.
+* Agora, o serviço de Proxy requer o .NET versão 4.6.2.
 * O algoritmo de validação de senha usa uma tabela de normalização de caracteres expandida. Isso pode resultar na rejeição de senhas aceitas em versões anteriores.
 
 ## <a name="12100"></a>1.2.10.0
@@ -73,4 +112,4 @@ Versão prévia pública inicial
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar proteção de senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md)
+[Implantar Proteção de Senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md)

@@ -1,34 +1,35 @@
 ---
-title: Otimizar o tempo de consulta no Banco de Dados do Azure para PostgreSQL usando a estratégia de armazenamento da tabela de toast
-description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento da tabela de toast em um banco de dados do Azure para PostgreSQL.
+title: Otimizar o tempo de consulta no Banco de Dados do Azure para PostgreSQL usando a estratégia de armazenamento de tabela TOAST
+description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela TOAST em um Banco de Dados do Azure para PostgreSQL.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542183"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820855"
 ---
-# <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>Otimizando o tempo de consulta com a estratégia de armazenamento de tabela TOAST 
-Este artigo descreve como otimizar os tempos de consulta com a estratégia de armazenamento de tabelas TOAST.
+# <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de tabela TOAST 
+Este artigo descreve como otimizar os tempos de consulta com a estratégia de armazenamento de tabela TOAST (técnica de armazenamento de atributo de tamanho grande).
 
 ## <a name="toast-table-storage-strategies"></a>Estratégias de armazenamento de tabelas TOAST
-Existem quatro estratégias diferentes para armazenar colunas que podem ser torradas no disco, representando várias combinações entre a compactação e o armazenamento fora de linha. A estratégia pode ser definida no nível do tipo de dados e no nível da coluna.
-- **Sem Formatação** impede a compactação ou o armazenamento fora de linha; além disso, desabilita o uso de cabeçalhos de byte único para tipos de varlena. **Sem Formatação** é a única estratégia possível para colunas de tipos de dados que não podem ser torrados.
-- **Estendido** permite compactação e armazenamento fora de linha. **Estendido** é o padrão para a maioria dos tipos de dados capaz de notificação do sistema. A compactação será tentada primeiro e, em seguida, o armazenamento fora de linha se a linha ainda for muito grande.
-- **External** permite armazenamento fora de linha, mas não compactação. Uso de **Externo** fará as operações de sub cadeia de caracteres no texto grande e bytea colunas mais rápidas, em que a penalidade de aumento de espaço de armazenamento, porque essas operações são otimizadas para buscar apenas o necessário partes de fora da linha valor quando ele não é compactado.
-- **Principal** permite a compactação, mas não o armazenamento fora de linha. O armazenamento fora de linha ainda será executado para essas colunas, mas apenas como último recurso, quando não houver outra maneira de tornar a linha pequena o suficiente para caber em uma página.
+Quatro estratégias diferentes são usadas para armazenar colunas em disco que podem usar o TOAST. Elas representam várias combinações entre a compactação e o armazenamento fora de linha. A estratégia pode ser definida no nível do tipo de dados e no nível da coluna.
+- **Sem Formatação** impede a compactação ou o armazenamento fora de linha. Ela desabilita o uso de cabeçalhos de byte único para tipos varlena. Sem Formatação é a única estratégia possível para colunas de tipos de dados que não podem usar TOAST.
+- **Estendido** permite compactação e armazenamento fora de linha. Estendido é o padrão para a maioria dos tipos de dados que podem usar TOAST. Ocorre uma tentativa de compactação primeiro. Ocorrerá uma tentativa de armazenamento fora de linha se a linha ainda for muito grande.
+- **External** permite armazenamento fora de linha, mas não compactação. Uso de Externa realiza operações de subcadeia de caracteres em texto amplo e em colunas bytea mais rápido. Essa velocidade é fornecida às custas de um aumento no espaço de armazenamento. Essas operações são otimizadas para efetuar fetch apenas das partes necessárias do valor fora de linha quando ele não está compactado.
+- **Principal** permite a compactação, mas não o armazenamento fora de linha. O armazenamento fora de linha ainda é realizado para essas colunas, mas apenas como último recurso. Ele ocorre quando não há outra maneira de tornar a linha pequena o suficiente para caber em uma página.
 
-## <a name="using-toast-table-storage-strategies"></a>Usando estratégias de armazenamento de tabelas TOAST
-Se suas consultas acessarem tipos de dados compatíveis, considere usar **Principal** em vez da opção padrão **Estendido** para reduzir os tempos de consulta. **Principal** não evita que o armazenamento de fora de linha. Por outro lado, se suas consultas não acessarem tipos de dados compatíveis, poderá ser benéfico manter a opção **Estendido**. Portanto, uma parte maior das linhas da tabela principal caberá no cache de buffer compartilhado, ajudando no desempenho.
+## <a name="use-toast-table-storage-strategies"></a>Usar estratégias de armazenamento de tabela TOAST
+Se suas consultas acessarem tipos de dados que podem usar TOAST, considere usar a estratégia Principal, em vez da opção padrão Estendido para reduzir os tempos de consulta. A Principal não descarta o armazenamento fora de linha. Se suas consultas não acessam tipos de dados que podem usar TOAST, pode ser benéfico manter a opção Estendido. Uma parte maior das linhas da tabela principal cabe no cache do buffer compartilhado, que ajuda o desempenho.
 
-Se você tiver uma carga de trabalho usando um esquema com tabelas largas e altas contagens de caracteres, considere o uso de tabelas TOAST do PostgreSQL. Um exemplo de tabela de clientes tinha mais de 350 colunas com várias colunas abrangendo 255 caracteres. Seu tempo de consulta de benchmark reduziu de 4203 segundos para 467 segundos, uma melhoria de 89%, após a conversão da estratégia TOAST de **Principal**.
+Se você tiver uma carga de trabalho que usa um esquema com tabelas amplas e altas contagens de caracteres, considere usar as tabelas TOAST do PostgreSQL. Um exemplo de tabela de clientes tinha mais de 350 colunas com várias colunas que abrangiam 255 caracteres. Após sua conversão na estratégia Principal da tabela TOAST, o tempo de consulta de benchmarks foi reduzido de 4203 segundos para 467 segundos. É uma melhoria de 89%.
 
 ## <a name="next-steps"></a>Próximas etapas
-Analise sua carga de trabalho para as características acima. 
+Analise sua carga de trabalho quanto às características anteriores. 
 
-Examine a seguinte documentação do PostgreSQL: [Capítulo 68, Armazenamento físico de banco de dados](https://www.postgresql.org/docs/current/storage-toast.html) 
+Examine a seguinte documentação do PostgreSQL: 
+- [Capítulo 68, Armazenamento físico de banco de dados](https://www.postgresql.org/docs/current/storage-toast.html) 

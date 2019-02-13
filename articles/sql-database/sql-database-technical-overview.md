@@ -4,7 +4,7 @@ description: 'Obtenha uma introdução ao Banco de Dados SQL: detalhes e recurso
 keywords: introdução ao sql, introdução ao sql, o que é o banco de dados sql
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,23 +12,26 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469542"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755418"
 ---
 # <a name="the-azure-sql-database-service"></a>O serviço de banco de dados SQL
 
-O Banco de Dados SQL é um serviço gerenciado de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. O Banco de Dados SQL oferece desempenho dinamicamente escalonável em dois modelos de compra diferentes: um [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). O Banco de Dados SQL também fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise extrema e relatórios e [OLTP in-memory](sql-database-in-memory.md) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente.
+O Banco de Dados SQL é um serviço gerenciado de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. O Banco de Dados SQL oferece desempenho dinamicamente escalonável em dois modelos de compra diferentes: um modelo de compra baseado em vCore e um modelo de compra baseado em DTU. O Banco de Dados SQL também fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise extrema e relatórios e [OLTP in-memory](sql-database-in-memory.md) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente.
+
+> [!NOTE]
+> Para obter um glossário de termos no Banco de Dados SQL do Azure, veja [Glossário de termos de banco de dados SQL](sql-database-glossary-terms.md)
 
 O banco de dados SQL do Azure fornece as seguintes opções de implantação para um banco de dados SQL do Azure:
 
-- Como um banco de dados individual com seu próprio conjunto de recursos gerenciado por um servidor de Banco de Dados SQL
-- Como um banco de dados em pool em um [pool elástico](sql-database-elastic-pool.md) com um conjunto compartilhado de recursos gerenciados por meio de um servidor de Banco de Dados SQL
-- Como parte de uma coleção de bancos de dados conhecida como [instância gerenciada](sql-database-managed-instance.md) que contém os bancos de dados de usuário e sistema e compartilha um conjunto de recursos
+- Como um [banco de dados individual](sql-database-single-database.md) com seu próprio conjunto de recursos gerenciado por um servidor de Banco de Dados SQL. Um banco de dados individual é semelhante a [bancos de dados independentes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) no SQL Server.
+- Uma [pool Elástico](sql-database-elastic-pool.md), que é uma coleção de bancos de dados com um conjunto compartilhado de recursos gerenciados por meio de um servidor de Banco de Dados SQL. Bancos de dados individuais podem ser movidos para dentro e para fora de um pool elástico.
+- [A instância gerenciada](sql-database-managed-instance.md), que é uma coleção de bancos de dados do sistema e do usuário com um conjunto compartilhado de recursos. Uma instância gerenciada é semelhante a uma instância do [mecanismo de banco de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
 
 A ilustração a seguir mostra essas opções de implantação:
 
@@ -45,30 +48,29 @@ O Banco de Dados SQL compartilha a sua base de código com o [mecanismo de banco
   Um lugar onde os membros da equipe de produto do SQL Server escrevem sobre novidades e recursos do Banco de Dados SQL.
 
 > [!IMPORTANT]
-> Para entender as diferenças de recursos entre o Banco de Dados SQL e o SQL Server, consulte os [recursos do SQL](sql-database-features.md).
+> Para entender as diferenças de recursos entre o Banco de Dados SQL e o SQL Server, bem como as diferenças entre as opções de implantação de Banco de Dados SQL do Azure, veja [recursos do SQL](sql-database-features.md).
 
 O Banco de Dados SQL oferece desempenho previsível com vários tipos de recursos, níveis de serviço e tamanhos de computação, o que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente interna, escalabilidade e disponibilidade globais e opções avançadas de segurança, tudo com quase nenhuma administração. Esses recursos permitem que você se concentre no desenvolvimento rápido de aplicativos e acelere seu tempo de colocação no mercado, em vez de alocar tempo e recursos preciosos para gerenciamento de máquinas virtuais e infraestrutura. O serviço Banco de Dados SQL está atualmente 38 data centers ao redor do mundo, e mais data centers ficam online regularmente, o que permite a execução do banco de dados em um data center próximo.
 
 ## <a name="scalable-performance-and-pools"></a>Pools e desempenho dimensionável
 
-Com o Banco de Dados SQL, cada banco de dados é portátil e isolado entre si, cada qual com sua própria camada de serviço dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e uma garantia de tamanho de computação. O Banco de Dados SQL fornece diferentes tamanhos de computação para diferentes necessidades e permite que bancos de dados sejam colocados em pool para maximizar o uso de recursos e economizar dinheiro.
+- Com bancos de dados individuais, cada banco de dados é isolado do outro e é portátil, cada um com sua própria quantidade garantida de recursos de computação, memória e armazenamento. O Banco de Dados SQL fornece recursos de computação, memória e armazenamento diferentes para diferentes necessidades – e a capacidade de dinamicamente aumentar e reduzir [os recursos de banco de dados individual](sql-database-single-database-scale.md). A [camada de serviço em hiperescala](sql-database-service-tier-hyperscale.md) (versão prévia) para banco de dados individual permite que você dimensione para 100 TB, com funcionalidades de backup rápido e restauração.
+- Com os pools Elásticos, você pode criar novos bancos de dados ou mover bancos de dados individuais em um pool de recursos para maximizar o uso de recursos e economizar dinheiro – e a capacidade de aumentar e reduzir dinamicamente [os recursos do pool elástico](sql-database-elastic-pool-scale.md).
+- Com instâncias gerenciadas, cada instância gerenciada é isolada de outras instâncias com recursos garantidos. Em uma instância gerenciada, os bancos de dados da instância compartilham um conjunto de recursos – e a capacidade de aumentar e reduzir [recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md).
 
-- Com a [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md), cada instância é isolada de outras instâncias com recursos garantidos. Para saber mais, confira [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md).
-- Com a [Camada de serviço em hiperescala](sql-database-service-tier-hyperscale.md) (versão prévia) no modelo de compra de vCore, é possível dimensionar até 100 TB com funcionalidades rápidas de backup e restauração.
-
-### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste de desempenho e dimensionamento sem tempo de inatividade
-
-O Banco de Dados SQL oferece um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
-
-- O modelo de compra baseado em DTU oferece uma mistura de computação, memória e recursos de E/S em três camadas de serviço para dar suporte a cargas de trabalho leves e pesadas de banco de dados: Básico, Standard e Premium. Os tamanhos de computação dentro de cada camada fornecem uma mistura diferente desses recursos, aos quais você pode adicionar recursos de armazenamento.
-- O modelo de compra baseado em vCore permite que você escolha o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
-
-Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno com um baixo custo mensal na camada de serviço de Uso Geral e, depois, alterar a camada de serviço manualmente ou de forma programática a qualquer momento para a camada de serviço Comercialmente Crítico para atender às necessidades da solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
-
-> [!IMPORTANT]
-> A [camada de serviço Hyperscale](sql-database-service-tier-hyperscale.md) está atualmente em pré-visualização pública. Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados do Hyperscale ainda. Você não pode atualizar um banco de dados Hyperscale para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualize a cópia para a camada de serviço em hiperescala.
+Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno com um baixo custo mensal na camada de serviço de uso geral e, depois, alterar a camada de serviço manualmente ou de forma programática a qualquer momento para a camada de serviço comercialmente crítico para atender às necessidades da solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
 A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade. Um banco de dados individual dá suporte à escalabilidade dinâmica manual, mas não ao dimensionamento automático. Para uma experiência mais *automática*, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados. No entanto, há scripts que podem ajudar a automatizar a escalabilidade de um banco de dados individual. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md).
+
+### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Compra de modelos, camadas de serviço, tamanhos de computação e quantidades de armazenamento
+
+O Banco de Dados SQL oferece dois modelos de compra:
+
+- O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece uma combinação de computação, memória e recursos de E/S em três camadas de serviço para dar suporte a cargas de trabalho leves e pesadas de banco de dados. Os tamanhos de computação dentro de cada camada fornecem uma mistura diferente desses recursos, aos quais você pode adicionar recursos de armazenamento.
+- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite que você escolha o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
+
+  > [!IMPORTANT]
+  > A [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md) está atualmente em versão prévia pública. Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados de hiperescala ainda. Você não pode atualizar um banco de dados de hiperescala para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualize a cópia para a camada de serviço de hiperescala.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools elásticos para maximizar a utilização de recursos
 
@@ -81,17 +83,15 @@ Com os pools elásticos, você não precisa se concentrar em expandir ou reduzir
 Scripts podem ajudar com o monitoramento e dimensionamento pools elásticos. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 
 > [!IMPORTANT]
-> A Instância Gerenciada do Banco de Dados SQL não dá suporte a pools elásticos.
+> Uma instância gerenciada não dá suporte a pools elásticos. Em vez disso, uma instância gerenciada é uma coleção de bancos de dados de instância que compartilham recursos de instância gerenciada.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Combinar bancos de dados individuais a bancos de dados agrupados
 
-Seja qual for a sua escolha (bancos de dados únicos ou pools elásticos), você não está limitado. Você pode mesclar bancos de dados individuais com pools elásticos e alterar as camadas de serviço de bancos de dados individuais e pools elásticos de maneira rápida e fácil para se adaptar à sua situação. Com a potência e o alcance do Azure, você pode combinar e corresponder outros serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
+Você pode mesclar bancos de dados individuais com pools elásticos e alterar as camadas de serviço de bancos de dados individuais e pools elásticos de maneira rápida e fácil para se adaptar à sua situação. Com a potência e o alcance do Azure, você pode combinar e corresponder outros serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>Monitoramento abrangente e recursos de alerta
 
-Mas como você pode comparar o desempenho relativo de bancos de dados únicos e pools elásticos? Como você sabe o momento certo de parar ao fazer o ajuste? Use as ferramentas de [monitoramento de desempenho interno](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Ver [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [o modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para obter detalhes.
-
-Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
+Use as ferramentas de [monitoramento de desempenho interno](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
 - **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um preço baixo
 - **Hub de Eventos do Azure**: para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos
@@ -101,23 +101,24 @@ Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](
 
 ## <a name="availability-capabilities"></a>Recursos de disponibilidade
 
-Os acordos de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/)de disponibilidade de 99,99% de líderes do setor do Azure, alimentados por uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. A plataforma do Azure gerencia completamente cada banco de dados SQL do Azure e garante alta porcentagem de disponibilidade de dados sem perda de dados. O Azure controla automaticamente a aplicação de patches, potenciais falhas subjacentes de hardware, software ou rede, a implantação de correções de bug, failovers, upgrades de banco de dados e outras tarefas de manutenção. A disponibilidade padrão é obtida por uma separação de camadas de computação e armazenamento. A disponibilidade premium é obtida integrando computação e armazenamento em um único nó para desempenho e, em seguida, implementando uma tecnologia semelhante a Always On Availability Groups nas capas. Para conferir uma discussão completa sobre os recursos de alta disponibilidade do Banco de Dados SQL do Azure, veja [Disponibilidade do Banco de Dados SQL](sql-database-high-availability.md). Além disso, o Banco de Dados SQL fornece recursos internos de [continuidade dos negócios e a escalabilidade global](sql-database-business-continuity.md), incluindo:
+Os acordos de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/)de disponibilidade de 99,99% de líderes do setor do Azure, alimentados por uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. A plataforma do Azure gerencia completamente cada banco de dados e garante alto percentual de disponibilidade de dados sem perda de dados. O Azure controla automaticamente a aplicação de patches, potenciais falhas subjacentes de hardware, software ou rede, a implantação de correções de bug, failovers, upgrades de banco de dados e outras tarefas de manutenção. A disponibilidade padrão é obtida por uma separação de camadas de computação e armazenamento. A disponibilidade premium é obtida integrando computação e armazenamento em um único nó para desempenho e, em seguida, implementando uma tecnologia semelhante a Always On Availability Groups nas capas. Para conferir uma discussão completa sobre os recursos de alta disponibilidade do Banco de Dados SQL do Azure, veja [Disponibilidade do Banco de Dados SQL](sql-database-high-availability.md). Além disso, o Banco de Dados SQL fornece recursos internos de [continuidade dos negócios e a escalabilidade global](sql-database-business-continuity.md), incluindo:
 
 - **[Backups automáticos](sql-database-automated-backups.md)**:
 
-  Banco de dados SQL executa automaticamente completo, diferencial e backups de log de transações.
+  Banco de dados SQL executa automaticamente completo, diferencial e backups de log de transações de bancos de dados SQL do Azure para que você possa restaurar para qualquer ponto no tempo. Para bancos de dados individuais e bancos de dados em pool, você pode configurar o banco de dados SQL para armazenar os backups de banco de dados completo para o armazenamento do Azure para retenção de longo prazo. Para instâncias gerenciadas, você também pode executar backups somente cópia para retenção de backup de longo prazo.
+
 - **[Restaurações point-in-time](sql-database-recovery-using-backups.md)**:
 
-  O Banco de Dados SQL suporta a recuperação a qualquer momento no período de retenção de backup automático.
+  Todas as opções de implantação de Banco de Dados SQL dão suporte à recuperação para qualquer ponto no tempo dentro do período de retenção de backup automático para qualquer banco de dados SQL do Azure.
 - **[Replicação geográfica ativa](sql-database-active-geo-replication.md)**:
 
-  O Banco de Dados SQL permite que você configure até quatro bancos de dados secundários legíveis nos datacenters do Azure iguais ou distribuídos globalmente.  Por exemplo, se você tiver um aplicativo SaaS com um banco de dados de catálogo que tem um alto volume de transações simultâneas somente leitura, use a replicação geográfica ativa para habilitar a escala global de leitura e remover gargalos no primário devido a cargas de trabalho de leitura.
+  Bancos de dados individuais e bancos de dados em pool permitem que você configure até quatro bancos de dados secundários legíveis nos datacenters do Azure iguais ou distribuídos globalmente.  Por exemplo, se você tiver um aplicativo SaaS com um banco de dados de catálogo que tem um alto volume de transações simultâneas somente leitura, use a replicação geográfica ativa para habilitar a escala global de leitura e remover gargalos no primário devido a cargas de trabalho de leitura. Para instâncias gerenciadas, use grupos de failover automático.
 - **[Grupos de failover automático](sql-database-auto-failover-group.md)**:
 
-  O Banco de Dados SQL permite que você ative a alta disponibilidade e o balanceamento de carga em escala global, incluindo a replicação geográfica transparente e o failover de grandes conjuntos de bancos de dados e pools elásticos. Grupos de failover e replicação geográfica permitem a criação de aplicativos SaaS globalmente distribuídos com sobrecarga de administração mínima, deixando todos o monitoramento complexos, roteamento e coordenação de failover para o Banco de Dados SQL.
+  Todas as opções de implantação de Banco de Dados SQL permitem que você use grupos de failover para habilitar a alta disponibilidade e balanceamento de carga em escala global, incluindo replicação geográfica transparente e failover de grandes conjuntos de instâncias gerenciadas, pools elásticos e bancos de dados. Grupos de failover permitem a criação de aplicativos SaaS globalmente distribuídos com sobrecarga de administração mínima, deixando todos o monitoramento complexos, roteamento e coordenação de failover para o Banco de Dados SQL.
 - **[Bancos de dados com redundância de zona](sql-database-high-availability.md)**:
 
-  O Banco de Dados SQL permite provisionar bancos de dados Premium ou Business Critical ou pools elásticos em várias zonas de disponibilidade. Como esses bancos de dados e pools elásticos têm várias réplicas de redundância para alta disponibilidade, colocar essas réplicas em várias zonas de disponibilidade fornece maior resiliência, incluindo a capacidade de recuperar automaticamente de falhas de escala do datacenter sem perda de dados.  
+  O Banco de Dados SQL permite provisionar bancos de dados premium ou comercialmente críticos ou pools elásticos em várias zonas de disponibilidade. Como esses bancos de dados e pools elásticos têm várias réplicas de redundância para alta disponibilidade, colocar essas réplicas em várias zonas de disponibilidade fornece maior resiliência, incluindo a capacidade de recuperar automaticamente de falhas de escala do datacenter sem perda de dados.
 
 ## <a name="built-in-intelligence"></a>Inteligência interna
 
@@ -148,7 +149,7 @@ O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada contra Ameaças
 
-A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ela inclui funcionalidades para descobrir e classificar dados confidenciais, gerenciar vulnerabilidades de seu banco de dados e detectar atividades irregulares que possam indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
+A segurança de dados avançada é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ela inclui funcionalidades para descobrir e classificar dados confidenciais, gerenciar vulnerabilidades de seu banco de dados e detectar atividades irregulares que possam indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
 
 - [Descoberta e classificação de dados](sql-database-data-discovery-and-classification.md):
 
@@ -162,7 +163,7 @@ A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria de segurança e conformidade
 
-A [Auditoria do Banco de Dados SQL](sql-database-auditing.md) rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
+A [Auditoria](sql-database-auditing.md) acompanha eventos do banco de dados e os grava em um log de auditoria na sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
 ### <a name="data-encryption"></a>Criptografia de dados
 
@@ -208,7 +209,7 @@ O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, N
 - Confira a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para ver comparações de custos entre o banco de dados único e pools elásticos e calculadoras.
 - Veja estes inícios rápidos para começar:
 
-  - [Criar um banco de dados SQL no portal do Azure](sql-database-get-started-portal.md)  
+  - [Criar um banco de dados SQL no portal do Azure](sql-database-single-database-get-started.md)  
   - [Criar um banco de dados SQL com a CLI do Azure](sql-database-get-started-cli.md)
   - [Criar um banco de dados SQL usando o PowerShell](sql-database-get-started-powershell.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249261"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566033"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 ## <a name="overview"></a>Visão geral
@@ -102,7 +102,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    1. Selecione a guia **Configurar** e anote o endereço IP do dispositivo.
    1. Em suas VMs locais, acesse o **iniciador iSCSI** novamente e digite o IP na seção Conexão Rápida. Clique em **Conexão Rápida** (o dispositivo agora deve estar conectado).
    1. Abra o Portal do Azure e selecione a guia **Volumes e Dispositivos** . Clique em **Configuração Automática**. O volume que você criou deverá aparecer.
-   1. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.** (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
+   1. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.**  (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
    1. Volte para as VMs locais e abra o Gerenciamento de Disco (pressione a tecla Windows + X e selecione **Gerenciamento de Disco**).
    1. Você notará alguns discos extras (dependendo do número de volumes que você criou). Clique com o botão direito do mouse no primeiro, selecione **Inicializar Disco** e selecione **OK**. Clique com o botão direito do mouse na seção **Não Alocado**, selecione **Novo Volume Simples**, atribua uma letra da unidade e conclua o assistente.
    1. Repita a etapa l para todos os discos. Agora você pode ver todos os discos **neste computador** no Windows Explorer.
@@ -167,17 +167,17 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
 1. Na conta de automação, clique em **Variáveis** &gt; **Adicionar uma variável** e adicione os seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o seu plano de recuperação, que você criará na próxima etapa, o nome será TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
-   - **BaseUrl**: A URL do Gerenciador de recursos de url para a nuvem do Azure. Obter usando o cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
-   - *RecoveryPlanName* **-ResourceGroupName**: o grupo do Gerenciador de Recursos que possui o recurso StorSimple.
-   - *RecoveryPlanName* **-ManagerName**: o recurso StorSimple que possui o dispositivo StorSimple.
-   - *RecoveryPlanName* **-DeviceName**: o dispositivo StorSimple que precisa fazer failover.
-   - *RecoveryPlanName* **-DeviceIpAddress**: o endereço IP do dispositivo (isso pode ser encontrado na guia **Dispositivos** na seção Gerenciador de dispositivos do StorSimple &gt; **Configurações** &gt; **Rede** &gt; **grupo Configurações de DNS**).
-   - *RecoveryPlanName* **-VolumeContainers**: uma cadeia de caracteres separada por vírgula de contêineres de volume presentes no dispositivo que precisa fazer failover, por exemplo: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName* **-TargetDeviceName**: o StorSimple Cloud Appliance no qual os contêineres precisam fazer failover.
-   - *RecoveryPlanName* **-TargetDeviceIpAddress**: o endereço IP do dispositivo de destino (isso pode ser encontrado na seção **Máquina Virtual** grupo &gt; **Configurações** guia &gt; **Rede**).
-   - *RecoveryPlanName* **-StorageAccountName**:o nome da conta de armazenamento na qual o script (que deve ser executado na VM com failover) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha espaço para armazenar o script temporariamente.
-   - *RecoveryPlanName* **-StorageAccountKey**: a chave de acesso para a conta de armazenamento acima.
-   - *RecoveryPlanName* **-VMGUIDS**: ao proteger uma VM, o Azure Site Recovery atribui a cada VM uma ID exclusiva que fornece os detalhes da VM com failover. Para obter o VMGUID, selecione a guia **Serviços de Recuperação** e clique em **Item protegido** &gt; **Grupos de Proteção** &gt; **Computadores** &gt; **Propriedades**. Se você tiver várias VMs, adicione os GUIDs como uma cadeia de caracteres separada por vírgulas.
+   - **BaseUrl**: A URL do Gerenciador de Recursos de URL para a nuvem do Azure. Obter usando o cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
+   - *RecoveryPlanName***-ResourceGroupName**: O grupo do Gerenciador de Recursos que tem o recurso StorSimple.
+   - *RecoveryPlanName***-ManagerName**: O recurso StorSimple que tem o dispositivo StorSimple.
+   - *RecoveryPlanName***-DeviceName**: O dispositivo StorSimple que precisa sofrer failover.
+   - *RecoveryPlanName***-DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na guia **Dispositivos** na seção Gerenciador de Dispositivos do StorSimple &gt; **Configurações** &gt; **Rede** &gt; **grupo Configurações de DNS**).
+   - *RecoveryPlanName***-VolumeContainers**: Uma cadeia de caracteres separada por vírgula de contêineres de volume presentes no dispositivo que precisa fazer failover, por exemplo: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName***-TargetDeviceName**: O Dispositivo de Nuvem StorSimple no qual os contêineres precisam fazer failover.
+   - *RecoveryPlanName***-TargetDeviceIpAddress**: O endereço IP do dispositivo de destino (isso pode ser encontrado na seção **Máquina Virtual** grupo &gt; **Configurações** guia &gt; **Rede**).
+   - *RecoveryPlanName***-StorageAccountName**: O nome da conta de armazenamento na qual o script (que deve ser executado na VM com failover) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha espaço para armazenar o script temporariamente.
+   - *RecoveryPlanName***-StorageAccountKey**: A chave de acesso da conta de armazenamento acima.
+   - *RecoveryPlanName***-VMGUIDS**: Ao proteger uma VM, o Azure Site Recovery atribui a cada VM uma ID exclusiva que fornece os detalhes da VM com failover. Para obter o VMGUID, selecione a guia **Serviços de Recuperação** e clique em **Item protegido** &gt; **Grupos de Proteção** &gt; **Computadores** &gt; **Propriedades**. Se você tiver várias VMs, adicione os GUIDs como uma cadeia de caracteres separada por vírgulas.
 
     Por exemplo, se o nome do plano de recuperação for fileServerpredayRP, então, as suas guias **Variáveis**, **Conexões** e **Certificados** deverão aparecer da seguinte forma após a adição de todos os ativos.
 
@@ -208,7 +208,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
       
    1. Crie um módulo de Runbook de Automação da Automação do Azure para o gerenciamento de dispositivos StorSimple 8000 Series. Use os comandos abaixo para criar um arquivo zip do módulo de Automação.
          
-      ```
+      ```powershell
             # set path variables
             $downloadDir = "C:\scripts\StorSimpleSDKTools"
             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
@@ -250,16 +250,16 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
    - Abra a folha de ação Inserir, insira um nome, selecione a opção **Lado primário** na opção Onde executar, selecione a conta de Automação (na qual os runbooks foram adicionados) e, em seguida, selecione o runbook **Failover-StorSimple-Volume-Containers**.
    
-   - Clique com o botão direito em **Grupo 1: Iniciar** e clique na opção **Adicionar itens protegidos** e selecione as VMs que devem ser protegidas no plano de recuperação e clique no botão **OK**. Opcional, caso as VMs já estejam selecionadas.
+   - Clique com o botão direito do mouse em **Grupo 1: Iniciar** e clique na opção **Adicionar itens protegidos** e selecione as VMs que devem ser protegidas no plano de recuperação e clique no botão **OK**. Opcional, caso as VMs já estejam selecionadas.
    
-   - Clique com o botão direito em **Grupo 1: Iniciar** e clique na opção **Ação posterior** e adicione os seguintes scripts:  
+   - Clique com o botão direito do mouse em **Grupo 1: Iniciar** e clique na opção **Ação posterior** e adicione os seguintes scripts:  
       
       - Runbook Start-StorSimple-Virtual-Appliance  
       - Runbook Fail over-StorSimple-volume-containers  
       - Runbook mount-volumes-after-failover  
       - Runbook uninstall-custom-script-extension  
         
-   - Adicione uma ação manual após os quatro scripts acima na mesma seção **Grupo 1: etapas posteriores** . Essa ação é o ponto em que você pode verificar se tudo está funcionando corretamente. Essa ação precisa ser adicionada somente como parte do Failover de teste (portanto, selecione apenas a caixa de seleção **Failover de Teste** ).
+   - Adicione uma ação manual após os quatro scripts acima na mesma seção **Grupo 1: etapas posteriores**. Essa ação é o ponto em que você pode verificar se tudo está funcionando corretamente. Essa ação precisa ser adicionada somente como parte do Failover de teste (portanto, selecione apenas a caixa de seleção **Failover de Teste** ).
     
    - Após a ação manual, adicione o script **Limpeza**, usando o mesmo procedimento utilizado para os outros runbooks. **Salvar** o plano de recuperação.
     
@@ -340,19 +340,19 @@ O planejamento de capacidade é composto de, pelo menos, dois processos importan
    - Não limpe as VMs se o failover planejado/não planejado falhar e as VMs forem criadas no Azure. Em vez disso, faça um failback. Se você excluir as VMs, as VMs locais não poderão ser ativadas novamente.
    - Após um failover, se você não conseguir ver os volumes, acesse as VMs, abra o Gerenciamento de Disco, examine os discos novamente e coloque-os online.
    - Em alguns casos, as letras de unidade no site de DR podem ser diferentes das letras locais. Se isso ocorrer, você precisará corrigir o problema manualmente depois que o failover for concluído.
-   - Tempo limite do trabalho de failover: o script do StorSimple atingirá o tempo limite se o failover dos contêineres de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
-   - Tempo limite do trabalho de backup: o script do StorSimple atingirá o tempo limite se o backup de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+   - Tempo limite do trabalho de failover: O script do StorSimple atingirá o tempo limite se o failover dos contêineres de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+   - Tempo limite do trabalho de backup: O script do StorSimple atingirá o tempo limite se o backup de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
    
    > [!IMPORTANT]
    > Execute o backup manualmente no Portal do Azure e, em seguida, execute o plano de recuperação novamente.
    
-   - Tempo limite do trabalho de clonagem: o script do StorSimple atingirá o tempo limite se a clonagem de volumes levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
-   - Erro de sincronização de tempo: os erros de script do StorSimple informando que os backups não foram bem-sucedidos, mesmo que o backup tenha sido bem-sucedido no portal. Uma causa possível para isso seria que a hora do dispositivo StorSimple não estaria sincronizada com a hora atual no fuso horário.
+   - Tempo limite do trabalho de clonagem: O script do StorSimple atingirá o tempo limite se a clonagem de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+   - Erro de sincronização de tempo: Os erros de script do StorSimple informando que os backups não foram bem-sucedidos, mesmo que o backup tenha sido bem-sucedido no portal. Uma causa possível para isso seria que a hora do dispositivo StorSimple não estaria sincronizada com a hora atual no fuso horário.
    
    > [!IMPORTANT]
    > Sincronize a hora do dispositivo com a hora atual no fuso horário.
    
-   - Erro de failover do dispositivo: o script do StorSimple poderá falhar se houver um failover de dispositivo quando o plano de recuperação estiver em execução.
+   - Erro de failover do dispositivo: O script do StorSimple poderá falhar se houver um failover de dispositivo quando o plano de recuperação estiver em execução.
    
    > [!IMPORTANT]
    > Execute o plano de recuperação novamente após concluir o failover do dispositivo.
