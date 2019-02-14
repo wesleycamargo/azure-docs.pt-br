@@ -4,7 +4,7 @@ description: O artigo descreve os datacenters do Azure, incluindo as ofertas de 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 69a54640ae3b4e71d7782712ad1764babab7104a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170670"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112037"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Recursos, local e segurança física do Azure
 O Azure é composto de uma [infraestrutura de datacenter distribuída globalmente](https://azure.microsoft.com/global-infrastructure/), oferecendo suporte a milhares de serviços on-line e abrangendo mais de 100 instalações altamente seguras em todo o mundo.
@@ -67,7 +67,7 @@ A Microsoft usa os procedimentos de práticas recomendados e uma solução de ap
 No final de vida de um sistema, o pessoal operacional da Microsoft segue procedimentos rigorosos de manipulação de dados e descarte de hardware para garantir que o hardware que contém seus dados não seja disponibilizado para partes não confiáveis. Usamos uma abordagem de exclusão segura para discos rígidos que a suportam. Para discos rígidos que não podem ser limpos, usamos um processo de destruição que destrói a unidade e impossibilita a recuperação de informações. Esse processo de destruição pode ser desintegrar, destruir, pulverizar ou incinerar. Determinamos os meios de alienação de acordo com o tipo de ativo. Podemos manter registros da destruição. Todos os serviços do Azure usam serviços de gerenciamento de armazenamento e descarte de mídia aprovados.
 
 ## <a name="compliance"></a>Conformidade
-Projetamos e gerenciamos a infraestrutura do Azure para atender a um amplo conjunto de padrões de conformidade internacionais e específicos do setor, como ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Também atendemos aos padrões específicos do país, incluindo o IRAP da Austrália, o G-Cloud do Reino Unido e o MTCS de Cingapura. Auditorias rigorosas de terceiros, como as feitas pelo British Standards Institute, verificam a adesão aos rígidos controles de segurança que esses padrões exigem.
+Projetamos e gerenciamos a infraestrutura do Azure para atender a um amplo conjunto de padrões de conformidade internacionais e específicos do setor, como ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Também atendemos aos padrões específicos do país, incluindo o IRAP da Austrália, o G-Cloud do Reino Unido e o MTCS de Singapura. Auditorias rigorosas de terceiros, como as feitas pelo British Standards Institute, verificam a adesão aos rígidos controles de segurança que esses padrões exigem.
 
 Para obter uma lista completa dos padrões de conformidade que o Azure adota, consulte as [ofertas de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
 

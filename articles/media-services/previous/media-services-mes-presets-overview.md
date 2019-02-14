@@ -2,7 +2,7 @@
 title: Predefinições de tarefa para MES (Media Encoder Standard) | Microsoft Docs
 description: Este tópico apresenta uma visão geral das predefinições de exemplo definidas pelo serviço para MES (Media Encoder Standard).
 author: Juliako
-manager: cfow
+manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783315"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998085"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Predefinições de exemplo para MES (Media Encoder Standard)
 

@@ -4,7 +4,7 @@ description: Este documento mostra como implementar as recomendações da Centra
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a71f2044b799fb47e4ab8991d76f92a1ccc049f5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 731102037b596091b80fbdfa02a8ff3c111b556e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102440"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105511"
 ---
-# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar um Firewall de Próxima Geração na Central de Segurança do Azure
-A Central de Segurança do Azure pode recomendar que você adicione um NGFW (firewall de próxima geração) de um parceiro da Microsoft para aumentar as proteções de segurança. Este documento guiará você por um exemplo de como fazer isso.
+# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar um Firewall de Última Geração na Central de Segurança do Azure
+A Central de Segurança do Azure pode recomendar que você adicione um firewall de última geração (NGFW) de um parceiro da Microsoft para aumentar suas proteções de segurança. Este documento guiará você por um exemplo de como fazer isso.
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.

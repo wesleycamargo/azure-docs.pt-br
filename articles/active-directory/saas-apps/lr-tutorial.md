@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 90fda216fc1e4bd4e96714c625aaa9c01d11a70c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cddd239bba7d9b0f0a90e23f146263777806b187
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160129"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integração do Azure Active Directory ao LoginRadius
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao LoginRadius, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do LoginRadius
 
 > [!NOTE]

@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: API de Tradução de Fala com Python'
+title: 'Início Rápido: API de Tradução de Fala com Python'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Fala.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3cecb09488c40ee23ea34c75e666788a4ec47fdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459274"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872043"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Início Rápido: API de Tradução de Fala com Python
 <a name="HOLTop"></a>

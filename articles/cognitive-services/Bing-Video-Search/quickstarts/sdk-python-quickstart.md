@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Pesquisar vídeos usando o SDK de Pesquisa de Vídeo do Bing para Python'
+title: 'Início Rápido: Pesquisar vídeos usando o SDK de Pesquisa de Vídeo do Bing para Python'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo usando o SDK de Pesquisa de Vídeo do Bing para Python
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ef3e92ce708f2dfaeb38fcbb93dd0b34eb592032
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ead69b0165831fef04e68b4c2eb7ea43115ca4ea
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569035"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867793"
 ---
-#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Início Rápido: Executar uma pesquisa de vídeo com o SDK de Pesquisa de Vídeo do Bing para Python
+#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Início rápido: Executar uma pesquisa de vídeo com o SDK de Pesquisa de Vídeo do Bing para Python
 
 Use este início rápido para começar a pesquisar notícias com o SDK de Pesquisa de Vídeo do Bing para Python. Embora a Pesquisa de Vídeo do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). Ele contém mais recursos e anotações.
 

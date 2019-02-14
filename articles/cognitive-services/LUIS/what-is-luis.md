@@ -3,18 +3,18 @@ title: O que é o Reconhecimento Vocal (LUIS) - Serviços Cognitivos da Microsof
 description: O Reconhecimento Vocal (LUIS) é um serviço de API baseado em nuvem que aplica inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d64957ea5a5bb35ebaa781786964d421cf2703c1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 97632ad27a09451f47012dfb7bbc9d406cd37c89
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211892"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879251"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 

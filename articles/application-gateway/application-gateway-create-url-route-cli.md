@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: a1fadb098fdb4262ee73725ec96c3c9602b1b68d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 782869906f260fc8b47375f4d45f8558780a2aa8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734225"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108136"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicativo com regras de roteamento com base em caminhos de URL usando a CLI do Azure
 
@@ -99,7 +99,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar porta e pools de back-end de imagem e vídeo
 
-Você pode adicionar os pools de back-end denominados *imagesBackendPool* e *videoBackendPool* para o seu gateway de aplicativo usando [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create). Adicionar a porta de front-end para os pools usando [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create). 
+Você pode adicionar os pools de back-end denominados *imagesBackendPool* e *videoBackendPool* para o seu gateway de aplicativo usando [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create). Adicionar a porta de front-end para os pools usando [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -157,7 +157,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Adicionar regra de roteamento
 
-A regra de roteamento associa o mapa de URL ao listener que você criou. Você pode adicionar a regra denominada *rule2* usando [az network application-gateway rule create](/cli/azure/network/application-gatewaywork_application_gateway_rule_create).
+A regra de roteamento associa o mapa de URL ao listener que você criou. Você pode adicionar a regra denominada *rule2* usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

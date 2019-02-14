@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: f7582f26eb65526ad392f2df29f5686e18262e40
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6aba94aa083127c2300481dbc8e30c224a1813a3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068954"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109258"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurar um certificado de criptografia e criptografar segredos em clusters Windows
 Este artigo mostra como configurar um certificado de criptografia e criptografar segredos em clusters Windows. Para clusters Linux, consulte [Configurar um certificado de criptografia e criptografar segredos em clusters Linux.][secret-management-linux-specific-link]
@@ -55,7 +55,7 @@ A cadeia de caracteres codificada de base 64 resultante contém tanto o texto ci
 Saiba como [Especificar segredos criptografados em um aplicativo.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md

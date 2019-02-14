@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: A API da Pesquisa Visual Computacional fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816536"
+ms.locfileid: "55870292"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a API da Pesquisa Visual Computacional versão 1.0?
 

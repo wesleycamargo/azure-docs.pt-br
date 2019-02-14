@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral da rede de produção Mic
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505372"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112201"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
 A arquitetura de rede do Azure segue uma versão modificada do modelo de núcleo/distribuição/acesso padrão do setor, com camadas de hardware distintas. As camadas incluem:

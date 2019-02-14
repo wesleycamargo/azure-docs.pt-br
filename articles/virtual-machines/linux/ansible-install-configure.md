@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: abf5857ed105f85e51c7eac4a5d1eb8cabe7a44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3c57e46ebb8828cbf2e44ced95d2d37afe5671c5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815108"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893904"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Instalar o Ansible em máquinas virtuais do Azure
 
@@ -25,7 +25,7 @@ O Ansible permite que você automatize a implantação e a configuração de rec
 
 - **Acesso ao Linux ou a uma máquina virtual do Linux** - Se você não tiver acesso a um computador do Linux, crie uma [máquina virtual do Linux](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Entidade de serviço do Azure**: siga as instruções na seção **Criar a entidade de serviço** do artigo [Criar uma entidade de serviço do Azure com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Anote os valores para o **appId**, **displayName**, **senha** e **locatário**.
+- **Entidade de serviço do Azure**: siga as instruções na seção **Criar a entidade de serviço** do artigo [Criar uma entidade de serviço do Azure com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anote os valores para o **appId**, **displayName**, **senha** e **locatário**.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Instalar o Ansible em uma máquina virtual do Linux do Azure
 

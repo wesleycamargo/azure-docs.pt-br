@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 551a5499f7be83eea49210675e46923f5a2ca8ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2fa0cdf687349e9ca911e884f9f2a39096ee935
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204143"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Tutorial: integração do Azure Active Directory com o JobScore
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao JobScore, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do JobScore habilitada para logon único
 
 > [!NOTE]

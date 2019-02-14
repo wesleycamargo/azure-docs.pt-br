@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: aa7016c1466f765838ed4fc1bf3d6e87739e98df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3a57457ad8a05b5e1173ae3e7ab992dc27c32c1e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198241"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory com o SSO de SAML para o JIRA da Microsoft (V5.2)
 
@@ -41,7 +42,7 @@ Use sua conta do Microsoft Azure Active Directory com o servidor do Atlassian JI
 
 Para configurar a integração do Azure AD ao SSO do SAML para o JIRA da Microsoft (V5.2), você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - O JIRA Core e o Software 5.2 devem estar instalados e configurados na versão de 64 bits do Windows
 - O servidor do JIRA é habilitado para HTTPS
 - Observe que as versões com suporte no Plug-in do JIRA são mencionadas na seção abaixo.

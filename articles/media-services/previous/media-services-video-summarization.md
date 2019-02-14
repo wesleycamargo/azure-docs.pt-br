@@ -1,10 +1,10 @@
 ---
 title: Usar o Azure Media Video Thumbnails para Criar um Resumo de vídeo | Microsoft Docs
-description: O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Isso será útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração.
+description: O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de snippets interessantes do vídeo de origem. Isso será útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: aba01314b26f11df41aef25215697389bc7f46b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786005"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004794"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo  
 ## <a name="overview"></a>Visão geral
 O MP (processador de mídia) das **Miniaturas de Vídeo de Mídia do Azure** permite criar o resumo de um vídeo que é grande utilidade para clientes que desejam apenas visualizar um resumo de um vídeo de longa duração. Por exemplo, os clientes talvez queiram ver um breve “vídeo resumido” ao focalizar uma miniatura. Ao ajustar os parâmetros das **Miniaturas de Vídeo de Mídia do Azure** por meio de uma predefinição de configuração, é possível usar a avançada tecnologia de detecção de captura e concatenação do MP para gerar de forma algorítmica um subclipe descritivo.  
 
@@ -55,8 +55,8 @@ No momento, é possível alterar os seguintes parâmetros:
 
 | Param | DESCRIÇÃO |
 | --- | --- |
-| outputAudio |Especifica se o vídeo resultante conterá áudio. <br/>Valores permitidos: True ou False. Padrão: True. |
-| fadeInFadeOut |Especifica se as transições de esmaecimento serão usadas entre as miniaturas de movimento separadas.  <br/>Valores permitidos: True ou False.  Padrão: True. |
+| outputAudio |Especifica se o vídeo resultante conterá áudio. <br/>Valores permitidos são: Verdadeiro ou falso. Padrão: True. |
+| fadeInFadeOut |Especifica se as transições de esmaecimento serão usadas entre as miniaturas de movimento separadas.  <br/>Valores permitidos são: Verdadeiro ou falso.  Padrão: True. |
 | maxMotionThumbnailDurationInSecs |Inteiro que especifica qual será a duração de todo o vídeo resultante.  O padrão depende da duração do vídeo original. |
 
 A tabela a seguir descreve a duração padrão, quando **maxMotionThumbnailInSecs** não é usado.

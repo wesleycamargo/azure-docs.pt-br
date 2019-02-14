@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993056"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984249"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Existem duas ações definidas no fluxo de trabalho. A ação de início é *Run
 
 O RunHiveScript possui várias variáveis. Você passará os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o Azure PowerShell.
 
-<table border = "1">
-<tr><th>Variáveis de fluxo de trabalho</th><th>DESCRIÇÃO</th></tr>
-<tr><td>${jobTracker}</td><td>Especifica a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost: 9010</strong> nas versões 3.0 e 2.1 do HDInsight.</td></tr>
-<tr><td>${nameNode}</td><td>Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, <i>wasb://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho é enviado. Use o <strong>padrão</strong>.</td></tr>
-</table>
+|Variáveis de fluxo de trabalho|DESCRIÇÃO|
+|---|---|
+|${jobTracker}|Especifica a URL do controlador do trabalho do Hadoop. Use **jobtrackerhost: 9010** nas versões 3.0 e 2.1 do HDInsight.|
+|${nameNode}|Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, *wasb://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+|${queueName}|Especifica o nome da fila para a qual o trabalho é enviado. Use o **padrão**.|
 
-<table border = "1">
-<tr><th>Variável de ação do Hive</th><th>DESCRIÇÃO</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Especifica o diretório de origem do comando Hive Create Table.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída da instrução INSERT OVERWRITE.</td></tr>
-<tr><td>${hiveTableName}</td><td>O nome da tabela Hive que faz referência aos arquivos de dados log4j.</td></tr>
-</table>
+|Variável de ação do Hive|DESCRIÇÃO|
+|---|---|
+|${hiveDataFolder}|Especifica o diretório de origem do comando Hive Create Table.|
+|${hiveOutputFolder}|Especifica a pasta de saída da instrução INSERT OVERWRITE.|
+|${hiveTableName}|O nome da tabela Hive que faz referência aos arquivos de dados log4j.|
 
-<table border = "1">
-<tr><th>Variável de ação do Sqoop</th><th>DESCRIÇÃO</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Especifica a cadeia de conexão do Banco de Dados SQL do Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL do Azure para onde os dados são exportados.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
-</table>
+|Variável de ação do Sqoop|DESCRIÇÃO|
+|---|---|
+|${sqlDatabaseConnectionString}|Especifica a cadeia de conexão do Banco de Dados SQL do Azure.|
+|${sqlDatabaseTableName}|A tabela do Banco de Dados SQL do Azure para onde os dados são exportados.|
+|${hiveOutputFolder}|Especifica a pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).|
 
 Para saber mais sobre o fluxo de trabalho do Oozie e sobre como usar ações de fluxo de trabalho, confira a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para o HDInsight versão 3.0) ou a [Documentação do Oozie Apache 3.3.2][apache-oozie-332] (para o HDInsight versão 2.1).
 

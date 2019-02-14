@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140591"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976904"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
@@ -29,7 +29,7 @@ ms.locfileid: "42140591"
 O [Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão de máquina virtual do Agente do Observador de Rede é um requisito para capturar o tráfego de rede sob demanda e outras funcionalidades avançadas em máquinas virtuais do Azure.
 
 
-Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows. A instalação do agente não interrompe nem requer um reinício da máquina virtual. É possível implantar a extensão nas máquinas virtuais que você implanta. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não a instalação de extensões na máquina virtual.
+Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows. A instalação do agente não interrompe nem requer um reinício da máquina virtual. É possível implantar a extensão em máquinas virtuais que você implanta. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não a instalação de extensões na máquina virtual.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,10 +79,10 @@ Você pode implantar extensões de VM do Azure com os modelos do Azure Resource 
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-Use o comando `Set-AzureRmVMExtension` para implantar a extensão de máquina virtual do Agente do Observador de Rede em uma máquina virtual existente:
+Use o comando `Set-AzVMExtension` para implantar a extensão de máquina virtual do Agente do Observador de Rede em uma máquina virtual existente:
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMExtension `
 Você pode recuperar dados sobre o estado das implantações de extensão por meio do portal do Azure e do PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o módulo do Azure PowerShell:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 A saída de execução da extensão é registrada nos arquivos localizados no seguinte diretório:

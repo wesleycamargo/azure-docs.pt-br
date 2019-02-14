@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: a13a14ffbc88b655293cb35e72541df76551de62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 007989d51ad111fb6a3ef21daee6a7c484bd154d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172384"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integração do Azure Active Directory ao Sequr
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Microsoft Azure Active Directory com Sequr, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Sequr
 
 > [!NOTE]

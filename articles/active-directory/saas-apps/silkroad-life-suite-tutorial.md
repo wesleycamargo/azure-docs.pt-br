@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fd5b4da77c31bd5e0c095f24bea2d6ed8b0e93ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 729287cfcc557e167a70d6f69a5b2b34909df836
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154118"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integração do Azure Active Directory com SilkRoad Life Suite
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do AD do Azure com o SilkRoad Life Suite, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do SilkRoad Life Suite
 
 > [!NOTE]

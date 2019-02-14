@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 524e10b93905372377fe388a38c5dc55fdcee877
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509981"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991212"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviço em Hiperescala (versão prévia) para até 100 TB
 
@@ -32,7 +32,7 @@ A camada de serviço em hiperescala no banco de dados SQL é a camada de serviç
 > [!IMPORTANT]
 > A camada de serviço em hiperescala está atualmente em versão prévia pública e disponível em regiões limitadas do Azure. Para obter a lista completa de região, confira [Regiões disponíveis da camada de serviço em Hiperescala](#available-regions). Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados do Hyperscale ainda. Você não pode atualizar um banco de dados Hyperscale para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualizar a cópia para a camada de serviço em hiperescala.
 > [!NOTE]
-> Para obter detalhes sobre as camadas de serviço de Uso Geral e Comercialmente Crítica no modelo de compra baseado em vCore, confira [Camadas de serviço de Uso Geral](sql-database-service-tier-general-purpose.md) e [Comercialmente Crítico](sql-database-service-tier-business-critical.md). Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+> Para obter detalhes sobre as camadas de serviço de Uso Geral e Comercialmente Crítica no modelo de compra baseado em vCore, confira [Camadas de serviço de Uso Geral](sql-database-service-tier-general-purpose.md) e [Comercialmente Crítico](sql-database-service-tier-business-critical.md). Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-purchase-models.md).
 > [!IMPORTANT]
 > A camada de serviço em Hiperescala está atualmente em versão prévia pública. Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados do Hyperscale ainda. Você não pode atualizar um banco de dados Hyperscale para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualizar a cópia para a camada de serviço em hiperescala.
 
@@ -162,7 +162,7 @@ A camada de serviço em hiperescala está atualmente em versão prévia pública
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para perguntas frequentes sobre Hiperescala, confira [Perguntas frequentes sobre Hiperescala](sql-database-service-tier-hyperscale-faq.md).
-- Para obter informações sobre as camadas de serviço, consulte [camadas de serviço](sql-database-service-tiers.md)
+- Para obter informações sobre as camadas de serviço, consulte [camadas de serviço](sql-database-purchase-models.md)
 - Confira [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Visão geral dos limites de recursos em um servidor do Banco de Dados SQL) para obter informações sobre limites nos níveis de servidor e assinatura.
 - Para comprar os limites de modelo para um banco de dados individual, confira [Limites de modelo de compra baseados em vCore do Banco de Dados SQL do Azure para um banco de dados individual](sql-database-vcore-resource-limits-single-databases.md).
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).

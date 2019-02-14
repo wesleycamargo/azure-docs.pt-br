@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 80fbad64cda9267e468f9385d48dd5d40468eaca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203412"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181568"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Funções que não podem ser gerenciadas no PIM
 
@@ -43,6 +44,5 @@ As funções no Exchange Online ou no SharePoint Online, exceto de administrador
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Começar a usar o PIM](pim-getting-started.md)
 - [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

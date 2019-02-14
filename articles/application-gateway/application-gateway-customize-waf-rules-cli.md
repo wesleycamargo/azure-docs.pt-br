@@ -14,17 +14,17 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: c02e4edabdcb73bc14c64b42788cddc98d78498c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95eb0ef48f3e0cb6e835dc0582cc652f06315d44
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964114"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992850"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Personalizar as regras de firewall de aplicativo Web por meio da CLI do Azure
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](application-gateway-customize-waf-rules-portal.md)
+> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 
@@ -44,7 +44,7 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 A saída a seguir é uma resposta truncada do exemplo anterior:
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
@@ -97,7 +97,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 A saída a seguir é uma resposta truncada do exemplo anterior:
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",

@@ -16,19 +16,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075849"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173752"
 ---
 # <a name="azure-active-directory-graph-api"></a>API do Graph do Active Directory do Azure
 
 > [!IMPORTANT]
 > É altamente recomendável usar o [Microsoft Graph](https://developer.microsoft.com/graph/) em vez da API do Azure AD Graph para acessar recursos do Azure Active Directory. Nossos esforços de desenvolvimento agora estão concentrados no Microsoft Graph e não há planejamento de novas melhorias para a API do Azure AD Graph. Há um número muito limitado de cenários para os quais a API do Azure AD Graph ainda pode ser apropriada; para obter mais informações, consulte a postagem no blog [Microsoft Graph ou o Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) no Centro de Desenvolvimento do Office.
 
-Este artigo se aplica à API do Graph do Azure Active Directory. Para obter informações semelhantes relacionadas a API do Microsoft Graph, consulte [usar a API do Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
+Este artigo se aplica à API do Graph do Azure Active Directory. Para obter informações semelhantes relacionadas a API do Microsoft Graph, consulte [usar a API do Graph](https://docs.microsoft.com/graph/use-the-api). 
 
 A API do Graph do Active Directory do Azure fornece acesso programático ao AD do Azure por meio de pontos de extremidade da API REST. Aplicativos podem usar a API do Microsoft Azure AD Graph para realizar operações CRUD (criar, ler, atualizar e excluir) nos objetos e dados do diretório. Por exemplo, a API do Microsoft Azure AD Graph fornece suporte às seguintes operações comuns para um objeto de usuário:
 

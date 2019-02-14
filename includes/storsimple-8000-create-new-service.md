@@ -4,27 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 7139b8ef2bfc9262611e51ce620da6a4769494b4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165981"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888609"
 ---
-<!--author=alkohli last changed:02/10/2017-->
-
----
-title: Arquivo de inclusão
-description: Arquivo de inclusão
-services: storage
-author: alkohli
-ms.service: storage
-ms.topic: include
-ms.date: 08/20/2018
-ms.author: alkohli
-ms.custom: include file
----
-
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
 1. Use suas credenciais de conta da Microsoft para iniciar sessão no [portal do Azure](https://portal.azure.com/).

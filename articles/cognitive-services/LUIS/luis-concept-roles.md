@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: As funções são subtipos nomeados e contextuais de uma entidade usada apenas em padrões. Por exemplo, na declaração `buy a ticket from New York to London`, New York e London são cidades, mas cada uma tem um significado diferente na frase. Nova York é a cidade de origem e Londres é a cidade de destino.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: f5768012a03629190a65dd86d004dc842d99912e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 958194d49cd403caeaf9dd21dd90a02cab098e45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215939"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881450"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Papéis de entidades em padrões são subtipos contextuais
 As funções são subtipos nomeados, contextuais de uma entidade usada apenas em [padrões](luis-concept-patterns.md).

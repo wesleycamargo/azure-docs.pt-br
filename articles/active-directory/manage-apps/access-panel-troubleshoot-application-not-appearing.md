@@ -3,8 +3,8 @@ title: Um aplicativo atribuído não aparece no painel de acesso | Microsoft Doc
 description: Solucionar problemas por que um aplicativo não aparece no Painel de Acesso
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviwer: japere
-ms.openlocfilehash: 3a63f506b2b2072c385759044cd3a0c581a54185
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21ed169003caded8ef80689ceec61f6d2fc4305c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177705"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178984"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Um aplicativo atribuído não aparece no painel de acesso
 
@@ -203,13 +204,13 @@ Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas ab
 
 Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure AD Premium e o aplicativo com suporte SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)](#configuring-single-sign-on)
+-   [Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
 -   [Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Recuperar certificado e metadados Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configuring-single-sign-on)
+-   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configure-the-application-for-password-single-sign-on-1)
 
 #### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 

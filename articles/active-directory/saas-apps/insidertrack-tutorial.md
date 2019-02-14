@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: e23949ac4957325c3949312dad61071a1f527789
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28ea99f7e672339e45730e80294455931573d62a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Tutorial: Integração do Azure Active Directory ao Insider Track
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Insider Track, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Insider Track
 
 > [!NOTE]

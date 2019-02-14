@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381354"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985362"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Habilitando os SSDs Ultra do Azure
 
@@ -23,7 +23,7 @@ No momento, os SSds Ultra estão em versão prévia e é necessário [registrar-
 
 Após a aprovação, execute um dos seguintes comandos para determinar em qual zona no Leste dos EUA 2 você deseja implantar seu SSD Ultra:
 
-PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
+PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 

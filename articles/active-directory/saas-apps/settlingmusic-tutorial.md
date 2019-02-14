@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 900254e42410aafa0d8e58048c7d88efa94dfed5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0b7dee41b226cdacea1d9c7f1cf581d9f095977e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178538"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integração do Azure Active Directory com Settling music
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com a instalação de músicas, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Assinatura habilitada de assinatura única de música do Settling
 
 > [!NOTE]
@@ -211,15 +212,15 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O link “Usuários e grupos”][202]
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de Usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-1. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-1. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

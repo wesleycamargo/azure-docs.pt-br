@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017800"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992748"
 ---
-# <a name="use-the-copy-data-tool-to-copy-data"></a>Use a ferramenta Copy Data para copiar dados 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Use a ferramenta Copy Data para copiar dados
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-copy-data-tool.md)
 
@@ -70,7 +71,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
    ![Página “Propriedades”](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
 1. Na página **Configurações do armazenamento de dados**, conclua as seguintes etapas:
 
-    a. Clique em **+ Criar nova conexão** para adicionar uma conexão.
+     a. Clique em **+ Criar nova conexão** para adicionar uma conexão.
 
     ![Página “Armazenamento de dados de origem”](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
@@ -89,7 +90,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 
 1. Na página **Escolha o arquivo de entrada ou a pasta**, execute as seguintes etapas:
 
-   a. Clique em **Navegar** para navegar até a pasta **adftutorial/input**, selecione o arquivo **emp.txt**, depois clique em **Escolher**. 
+    a. Clique em **Navegar** para navegar até a pasta **adftutorial/input**, selecione o arquivo **emp.txt**, depois clique em **Escolher**. 
 
    ![Na página “Escolher o arquivo de entrada ou a pasta”](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 

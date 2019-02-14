@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Use os fluxos de trabalho usados com as operações de Trabalho da API de Análise para automatizar análises por interação humana com base nas políticas e limites de conteúdo.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4abe3a864b798552caa27d07a422a7d67b2e4018
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 56b3bffc7aca1ace4dfae78cdcd4394daae9360e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221378"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872787"
 ---
 # <a name="automate-moderation-reviews-with-workflows"></a>Automatizar as análises de moderação com fluxos de trabalho
 

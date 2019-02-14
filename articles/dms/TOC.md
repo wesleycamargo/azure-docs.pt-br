@@ -15,6 +15,7 @@
 ## [Migrar MySQL para Azure DB do MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrar PostgreSQL para Azure DB do PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 ## [Migrar MongoDB para API do Mongo do Azure Cosmos DB offline](tutorial-mongodb-cosmos-db.md)
+## [Migrar MongoDB para API do Mongo do Azure Cosmos DB online](tutorial-mongodb-cosmos-db-online.md)
 
 # Guias de instruções
 ## [Usar o PowerShell para migrar o SQL Server para o Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
