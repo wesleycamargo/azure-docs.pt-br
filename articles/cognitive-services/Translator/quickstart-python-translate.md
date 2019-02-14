@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá texto de um idioma para outro usando a API de Tradução de Texto com Python em menos de 10 minutos.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: f995c727f46957d663cb6a6a32ac1d4313c71e8f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 10839354339d7d4f39a041a9b0f11f3afa3845ef
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697132"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876460"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando Python
 

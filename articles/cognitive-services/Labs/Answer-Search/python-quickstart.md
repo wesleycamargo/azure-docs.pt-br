@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Exemplo de Python, introdução ao uso da Pesquisa de Resposta de Projeto.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218285"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860293"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Início Rápido: Pesquisa de Resposta de Projeto com Python
 

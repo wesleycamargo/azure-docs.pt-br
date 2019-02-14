@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 5b6ae20445b74aa1713f9af5765684a9c01e2953
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1ae1288c8efd138863d63fc6437115aeb5fe98c8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224302"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865770"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
 Este artigo mostra como detectar a linguagem, analisar o sentimento e extrair frases-chave usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com C#. O código foi escrito para funcionar em um aplicativo .Net Core, com referências mínimas a bibliotecas externas; portanto, você também pode executá-lo no Linux ou no macOS.

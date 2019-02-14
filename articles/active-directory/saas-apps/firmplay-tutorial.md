@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: ea7688f36c30c078fef033e4b2189ead85694380
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e2eb3085c652be1b86b6343850c5cad3dcdc4c14
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192733"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: integração do Azure Active Directory com o FirmPlay – Employee Advocacy for Recruiting
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 
 Para configurar a integração do Azure AD com FirmPlay - Employee Advocacy for Recruiting, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada com logon único do FirmPlay - Employee Advocacy for Recruiting
 
 

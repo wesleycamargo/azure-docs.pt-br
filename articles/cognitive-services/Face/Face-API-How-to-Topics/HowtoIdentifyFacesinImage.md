@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Use a API de Detecção Facial para identificar faces em imagens.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 013467cb64220b525d429c901c48028bf65b3852
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208084"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864920"
 ---
 # <a name="example-how-to-identify-faces-in-images"></a>Exemplo: Como identificar faces em imagens
 

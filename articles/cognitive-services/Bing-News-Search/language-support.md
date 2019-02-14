@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Uma lista de idiomas naturais, países e regiões compatíveis com a API de Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: MikeDodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 08ea569d3f8f7a8eda01346369b636fa76d9e863
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151866"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866740"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Idiomas e regiões compatíveis com a API de Pesquisa de Notícias do Bing
 

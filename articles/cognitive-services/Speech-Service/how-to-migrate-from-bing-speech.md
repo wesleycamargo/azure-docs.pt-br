@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Conheça as diferenças entre a Fala do Bing e o Serviço de Fala do ponto de vista do desenvolvedor e migre seu aplicativo para usar o Serviço de Fala.
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217995"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863560"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar da Fala do Bing para o Serviço de Fala
 

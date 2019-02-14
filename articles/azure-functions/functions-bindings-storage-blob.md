@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809957"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895883"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -127,7 +127,7 @@ Para obter mais informações sobre as propriedades do arquivo *function.json*, 
 Aqui está o código script C# que associa a um `Stream`:
 
 ```cs
-public static void Run(Stream myBlob, ILogger log)
+public static void Run(Stream myBlob, string name, ILogger log)
 {
    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
@@ -391,7 +391,7 @@ Se o blob é nomeado *{20140101}soundfile.mp3*, o valor da variável `name` no c
 
 O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Propriedade  |Tipo  |DESCRIÇÃO  |
+|Propriedade  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho do blob de gatilho.|
 |`Uri`|`System.Uri`|A URI do blob para o local principal.|

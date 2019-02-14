@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822622"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100768"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -982,7 +982,7 @@ Webhooks permitem reagir a eventos no Microsoft Graph. Para dar suporte a webhoo
 - Uma [associação de entrada de assinatura do webhook do Microsoft Graph](#webhook-input) permite que você liste as assinaturas existentes e, opcionalmente, atualize-as.
 - Uma [associação de saída de assinatura de webhook do Microsoft Graph](#webhook-output) permite que você crie ou exclua assinaturas do webhook.
 
-As associações em si não exigem permissões do Azure AD, mas você precisa solicitar permissões relevantes para o tipo de recurso ao qual você deseja reagir. Para obter uma lista de quais permissões são necessárias para cada tipo de recurso, consulte [permissões de assinatura](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+As associações em si não exigem permissões do Azure AD, mas você precisa solicitar permissões relevantes para o tipo de recurso ao qual você deseja reagir. Para obter uma lista de quais permissões são necessárias para cada tipo de recurso, consulte [permissões de assinatura](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Para obter mais informações sobre webhooks, confira [Como trabalhar com webhooks no Microsoft Graph].
 

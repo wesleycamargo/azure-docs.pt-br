@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: SDK da Pesquisa Visual do Bing, Python'
+title: 'Início Rápido: SDK da Pesquisa Visual do Bing, Python'
 titleSuffix: Azure Cognitive Services
 description: Configuração para pesquisa Visual aplicativo do console Python SDK
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: dfd611746b8d962d5844fcac0e9ea42638acad11
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 970b3e7e8e45e5d5249fb5a45c966d9395b130a0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766598"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884147"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Início rápido: Obtenha insights de imagem usando o SDK de Pesquisa Visual do Bing para Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Início Rápido: Obtenha insights de imagem usando o SDK de Pesquisa Visual do Bing para Python
 
 Use este início rápido para começar obtendo insights de imagem do serviço da Pesquisa Visual do Bing, usando o SDK do Python. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1ea4639d547616f2cfdf1d5e2b78c1388ef09dc4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826115"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001129"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas  
 > [!NOTE]
 > O final da vida útil do Microsoft Azure Media Packager e do Microsoft Azure Media Encryptor foi estendido até 1º de março de 2017. Antes dessa data, as funcionalidades desses processadores serão adicionadas ao MES (Codificador de Mídia Padrão). Os clientes recebem instruções sobre como migrar seus fluxos de trabalho para enviar trabalhos ao MES. Os recursos de criptografia e de conversão de formato também poderão ser disponibilizados por meio do empacotamento dinâmico e da criptografia dinâmica.
 > 

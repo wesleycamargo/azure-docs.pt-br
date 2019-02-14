@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Use o método CalcHistogram para calcular a distribuição de valores de atributos para um conjunto de entidades de papel.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192529"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879013"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -32,7 +32,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 NOME  |Valor | Obrigatório?  |DESCRIÇÃO
 -----------|----------|--------|----------
-**expr**    |Cadeia de caracteres de texto | SIM  |Uma expressão de consulta que especifica as entidades sobre as quais calcular histogramas.
+**expr**    |Cadeia de caracteres de texto | Sim  |Uma expressão de consulta que especifica as entidades sobre as quais calcular histogramas.
 **modelo** |Cadeia de caracteres de texto | Não  |Selecione o nome do modelo que você deseja consultar.  Atualmente, o valor padrão é o *mais recente*.
 **atributos** | Cadeia de caracteres de texto | Não <br>padrão: | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
 **count** |Número | Não <br>Padrão: 10 |Número de resultados para retornar.

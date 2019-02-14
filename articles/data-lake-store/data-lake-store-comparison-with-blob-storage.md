@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259777"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877687"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando o Azure Data Lake Storage Gen1 e o armazenamento de BLOBs do Azure
-  >[!NOTE] 
-    >[A versão prévia do Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) foi anunciada recentemente. A versão prévia do Azure Data Lake Storage Gen2 é o resultado obtido ao convergir os recursos de nossos dois serviços de armazenamento existentes, o Armazenamento de Blobs do Azure e o [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Os recursos do Azure Data Lake Storage Gen1, como semântica do sistema de arquivos, segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre do [Armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> É altamente recomendável que você comece a usar a versão prévia do Azure Data Lake Storage Gen2 uma vez que a fundação para construir seus lagos de dados da empresa e obter o melhor do Armazenamento de Blobs do Azure, bem como o Azure Data Lake Storage Gen1.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Storage Gen1 e o Armazenamento de Blobs do Azure em alguns aspectos fundamentais do processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Storage Gen1 é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Armazenamento do Blobs do Azure |
 | --- | --- | --- |
@@ -37,7 +33,7 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Storage Gen1
 | Estrutura |Sistema de arquivos hierárquico |Repositório de objetos com namespace simples |
 | API |API REST sobre HTTPS |API REST sobre HTTP/HTTPS |
 | API no servidor |[API REST compatível com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST do Armazenamento de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Cliente do sistema de arquivos Hadoop |SIM |SIM |
+| Cliente do sistema de arquivos Hadoop |Sim |Sim |
 | Operações de dados – autenticação |Com base em [Identidades do Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Com base em segredos compartilhados – [Chaves de Acesso de Conta](../storage/common/storage-account-manage.md#access-keys) e [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operações de dados – protocolo de autenticação |OAuth 2.0. As chamadas devem conter um JWT (Token Web JSON) válido emitido pelo Azure Active Directory |HMAC (Código de Autenticação de Mensagem Baseado em Hash). As chamadas devem conter um hash SHA-256 codificado na Base64 em uma parte da solicitação HTTP. |
 | Operações de dados – autorização |ACLs (Listas de Controle de Acesso) POSIX.  ACLs baseadas em identidades do Azure Active Directory podem ser definidas no arquivo e nível de pasta. |Para autorização no nível de conta — use [Chaves de Acesso da Conta](../storage/common/storage-account-manage.md#access-keys)<br>Para autorização de conta, contêiner ou blob — use [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

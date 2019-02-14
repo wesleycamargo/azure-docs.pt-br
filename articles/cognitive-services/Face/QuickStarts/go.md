@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces em uma imagem usando a API de Detecção Facial com Go.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: pafarley
-ms.openlocfilehash: 7b01acecb8ccf48ae9ba196671c156edfa688b3d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d1384e22d5a036002d59c30755a8a0e5de648102
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215088"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882957"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: Detectar rostos em uma imagem usando a API REST e Go
 
 Neste início rápido, você detecta rostos humanos em uma imagem usando a API de Detecção Facial.
 

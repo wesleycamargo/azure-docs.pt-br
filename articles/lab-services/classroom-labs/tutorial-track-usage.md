@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823820"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894353"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: acompanhar o uso de um laboratório no Azure Lab Services
 Este tutorial mostra como um criador/proprietário de laboratório pode acompanhar o uso de um laboratório.
@@ -55,6 +55,9 @@ Conforme você passar o mouse sobre uma linha na lista da máquina virtual, ver�
 - Iniciar uma VM
 - Parar uma VM
 - Excluir uma VM
+
+
+![Controles da VM](../media/tutorial-track-usage/vm-controls.png)
 
 Você também pode usar os botões de barra de ferramentas para iniciar, parar ou excluir uma VM. 
 

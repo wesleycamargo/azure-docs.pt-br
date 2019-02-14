@@ -4,7 +4,7 @@ description: 'Este tópico descreve como configurar um canal que recebe um fluxo
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809015"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990202"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 
@@ -187,7 +187,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- | --- |
 | **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
-| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou o<p>**Streaming** (há pelo menos um programa em execução) |SIM |
+| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou o<p>**Streaming** (há pelo menos um programa em execução) |Sim |
 | **Parando** |**Parando** |Nenhum (estado transitório) |
 | **Interrompido** |**Interrompido** |Não  |
 

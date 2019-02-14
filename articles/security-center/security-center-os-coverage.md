@@ -4,7 +4,7 @@ description: Este documento fornece uma lista de recursos e plataformas compatí
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5422ba1b29ac48a7255f25ac0beb43e3481d256a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265457"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105885"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos compatíveis com a Central de Segurança do Azure
 
@@ -97,11 +97,11 @@ A tabela a seguir fornece uma matriz de:
 
 | Proteção do ponto de extremidade| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| SIM |
-| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | SIM |
-| Trend Micro – Todas as versões | Família Windows Server  | Não  | SIM |
-| Symantec v12.1.1100+| Família Windows Server  | Não  | SIM |
-| McAfee v10+ | Família Windows Server  | Não  | SIM |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| Sim |
+| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | Sim |
+| Trend Micro – Todas as versões | Família Windows Server  | Não  | Sim |
+| Symantec v12.1.1100+| Família Windows Server  | Não  | Sim |
+| McAfee v10+ | Família Windows Server  | Não  | Sim |
 | Kaspersky| Família Windows Server  | Não  | Não   |
 | Sophos| Família Windows Server  | Não  | Não   |
 

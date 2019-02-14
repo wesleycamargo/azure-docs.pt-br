@@ -4,7 +4,7 @@ description: Este documento ajuda você a usar guias estratégicos de segurança
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619904"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116738"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Guia estratégico de segurança na Central de Segurança do Azure (versão prévia)
 Este documento ensina a usar guias estratégicos de segurança na Central de Segurança do Azure para responder a problemas de segurança.
@@ -93,7 +93,7 @@ Nesse fluxo de trabalho, você pode ver o tempo que cada tarefa levou para ser e
 Você pode alterar um guia estratégico existente na Central de Segurança para adicionar uma ação ou algumas condições. Para fazer isso, você precisa apenas clicar no nome do guia estratégico que deseja alterar, na guia Guias Estratégicos, para abrir o Designer de Aplicativos Lógicos.
 
 > [!NOTE]
-> Para saber mais sobre como criar seu próprio guia estratégico usando o Aplicativo Lógico do Azure, leia [Criar seu primeiro fluxo de trabalho de aplicativo lógico para automatizar processos entre aplicativos de nuvem e serviços de nuvem](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
+> Para saber mais sobre como criar seu próprio guia estratégico usando o Aplicativo Lógico do Azure, leia [Criar seu primeiro fluxo de trabalho de aplicativo lógico para automatizar processos entre aplicativos de nuvem e serviços de nuvem](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
 ## <a name="see-also"></a>Consulte também

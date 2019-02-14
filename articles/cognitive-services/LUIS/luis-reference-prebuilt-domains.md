@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Referência para os domínios predefinidos, que são conjuntos predefinidos de tentativas e entidades de idioma Noções básicas sobre inteligente serviços (LUÍS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221004"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868949"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
@@ -103,7 +103,7 @@ O domínio de comunicação fornece tentativas e entidades relacionadas a email,
 | AssignContactNickname| Atribua um apelido para um contato.|Alterar Isaac para pai <br/>Editar o apelido do Jim<br/>Adicionar apelido para Patti Owens|
 | CallVoiceMail| Conecte-se a mensagem de voz do usuário.|Conectar-me a minha caixa de correio de voz <br/>Mensagem de voz<br/>Chamada de correio de voz|
 | CheckIMStatus| Verifique o status de um contato do Skype.|O status online do Jim está definido como ausente? <br/>Carol está disponível para conversar?|
-| Confirmar| Confirme uma ação.|SIM<br/>Okey<br/>Está bem<br/>Confirmo que desejo enviar este email.<br/>|
+| Confirmar| Confirme uma ação.|Sim<br/>Okey<br/>Está bem<br/>Confirmo que desejo enviar este email.<br/>|
 | Discagem| Fazer uma chamada telefônica.|Chamar Jim<br/>Por favor, disque 311<br/>|
 | FindContact| Localize informações de contato por nome.|Localizar o número de Carol<br/>Mostre-me o número de Carol<br/>|
 | FindSpeedDial| Localize o número de discagem rápido que um número de telefone está definido como e vice-versa.|Qual é o meu número de discagem 5?<br/>É necessário velocidade discar conjunto?<br/>O que é o número de discagem para 941-5555-333?|

@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Traduzir texto, PHP – API de Tradução de Texto'
+title: 'Início rápido: Traduzir texto, PHP – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com PHP.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 66b4fddb84b28ba1189fff6c77c9ec588ee2c2e2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8c118092409ad1bc361255b05ff0b07719bd77ce
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207217"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977279"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Início Rápido: Traduzir texto com a API REST de Tradução de Texto (PHP)
 

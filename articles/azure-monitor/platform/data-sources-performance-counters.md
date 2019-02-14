@@ -1,6 +1,6 @@
 ---
-title: Coletar e analisar contadores de desempenho no Log Analytics | Microsoft Docs
-description: Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
+title: Coletar e analisar contadores de desempenho no Azure Monitor | Microsoft Docs
+description: Os contadores de desempenho são coletados pelo Azure Monitor para analisar o desempenho em agentes do Windows e do Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103699"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001912"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Fontes de dados de desempenho do Windows e Linux no Log Analytics
-Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Log Analytics pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Quase em Tempo Real) além de agregar dados de desempenho para análise e relatório de longo prazo.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
+Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
 
 ![contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Os parâmetros usados com este comando são descritos na tabela a seguir.
 | intervalo | A frequência na qual os contadores do objeto são coletados. |
 
 
-A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para certos aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos Linux no Log Analytics](data-sources-linux-applications.md).
+A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para alguns aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor](data-sources-linux-applications.md).
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -182,7 +182,7 @@ A seguir está a configuração padrão para as métricas de desempenho.
     </source>
 
 ## <a name="data-collection"></a>Coleta de dados
-O Log Analytics coleta todos os contadores de desempenho especificados no seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não são agregados, e os dados brutos ficam disponíveis em todas as exibições da consulta de log durante o período especificado pela assinatura.
+O Azure Monitor coleta todos os contadores de desempenho especificados em seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não são agregados, e os dados brutos ficam disponíveis em todas as exibições da consulta de log durante o período especificado pela assinatura.
 
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.

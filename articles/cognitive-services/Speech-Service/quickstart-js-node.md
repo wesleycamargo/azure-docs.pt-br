@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Reconhecer fala, Node.js – Serviços de Fala'
+title: 'Início rápido: Reconhecer fala, Node.js – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de console de conversão de fala em texto usando o SDK de Fala para Node.js. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747264"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871210"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Node.js
 

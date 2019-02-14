@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Use o método Interpretar para retornar interpretações formatadas de cadeia de caracteres de consulta do usuário com base em dados de Grafo Acadêmico e Gramática Acadêmica nos Serviços Cognitivos da Microsoft.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171642"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860517"
 ---
 # <a name="interpret-method"></a>Método Interpretar
 
@@ -31,7 +31,7 @@ Para fornecer uma experiência interativa, é possível chamar esse método repe
 
 NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 ---------|---------|---------|---------
-**query**    | Cadeia de caracteres de texto | SIM | Consulta inserida pelo usuário.  Se o parâmetro completo estiver definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
+**query**    | Cadeia de caracteres de texto | Sim | Consulta inserida pelo usuário.  Se o parâmetro completo estiver definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
 **modelo**    | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
 **completo** | 0 ou 1 | Não <br>default:0  | 1 significa que as sugestões de preenchimento automático são geradas com base nos dados de grafo e gramática.         
 **count**    | Número | Não <br>default:10 | Número máximo de interpretações para retornar.         

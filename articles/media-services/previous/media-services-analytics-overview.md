@@ -4,7 +4,7 @@ description: Visão geral da versão prévia pública da Análise de Mídia, uma
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783585"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003754"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de Serviços de Mídia
+# <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de Serviços de Mídia 
+
 ## <a name="overview"></a>Visão geral
 Mais organizações estão usando vídeos como o meio preferido de treinar seus funcionários, contatar seus clientes e documentar suas funções comerciais. A computação em nuvem fornece uma maneira de armazenar, transmitir e acessar esses grandes arquivos de mídia. Contudo, à medida que a biblioteca de uma empresa de conteúdo de vídeo cresce, ela precisa de uma forma igualmente eficaz de extrair de informações do conteúdo. 
 
@@ -46,7 +47,7 @@ O Microsoft Hyperlapse combina estabilização do vídeo e funcionalidades de la
 ### <a name="face-detector"></a>Detector Facial
 Usando o Face Detector, é possível detectar as faces das pessoas e suas emoções, incluindo felicidade, tristeza e surpresa. Isso tem várias aplicações úteis na indústria, descritas abaixo, incluindo agregar e analisar reações de pessoas participando de um evento. Para obter informações detalhadas e exemplos, consulte [Detecção facial e de emoções da Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
 ### <a name="video-summarization"></a>Resumo de vídeo
-O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Essa habilidade é útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração. Para obter informações detalhadas e exemplos, consulte [Usar Azure Media Video Thumbnails para criar um resumo de vídeo](media-services-video-summarization.md).
+O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de snippets interessantes do vídeo de origem. Essa habilidade é útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração. Para obter informações detalhadas e exemplos, consulte [Usar Azure Media Video Thumbnails para criar um resumo de vídeo](media-services-video-summarization.md).
 ### <a name="optical-character-recognition"></a>Reconhecimento de caractere óptico
 O OCR (reconhecimento óptico de caracteres) de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável. Você poderá então automatizar a extração de metadados significativos do sinal de vídeo de sua mídia.
 ### <a name="scalable-face-redaction"></a>Edição facial escalonável

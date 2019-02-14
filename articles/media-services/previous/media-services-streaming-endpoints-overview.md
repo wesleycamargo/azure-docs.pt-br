@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359980"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996913"
 ---
-# <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming 
+# <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
 ## <a name="overview"></a>Visão geral
 
@@ -48,7 +48,7 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.m
 
 Começando com a versão dos Serviços de Mídia de janeiro de 2017, há dois tipos de streaming: **Standard** e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
-Tipo|DESCRIÇÃO
+Type|DESCRIÇÃO
 ---|---
 **Standard**|Essa é a opção padrão que funciona para a maioria dos cenários.<br/>Com essa opção, você obtém SLA fixo/limitado e os primeiros 15 dias após iniciar o ponto de extremidade de streaming são gratuitos.<br/>Se você criar mais de um ponto de extremidade de streaming, somente o primeiro deles será gratuito pelos primeiros 15 dias, os outros serão cobrados assim forem iniciados. <br/>Observe que a avaliação gratuita se aplica somente a contas de serviços de mídia e do ponto de extremidade de streaming recém-criadas. Pontos de extremidade de streaming existentes e criados adicionalmente não incluem o período de avaliação gratuita mesmo se forem atualizados para a versão 2.0 ou criados nela.
 **Premium**|Esta opção é adequada para cenários profissionais que exigem maior escala ou controle.<br/>SLA variável com base na capacidade da UA (unidade de streaming) premium adquirida, pontos de extremidade de streaming dedicados residem em um ambiente isolado e não competem por recursos.
@@ -71,27 +71,27 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 ### <a name="versions"></a>Versões
 
-|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|Contrato de Nível de Serviço| 
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|Contrato de Nível de Serviço| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Clássico|1.0|0|ND|Grátis|ND|
-|Ponto de Extremidade de Streaming Standard|2,0|0|SIM|Pago|SIM|
-|Unidades de Streaming Premium|1.0|>0|SIM|Pago|SIM|
-|Unidades de Streaming Premium|2,0|>0|SIM|Pago|SIM|
+|Ponto de Extremidade de Streaming Standard|2,0|0|Sim|Pago|Sim|
+|Unidades de Streaming Premium|1.0|>0|Sim|Pago|Sim|
+|Unidades de Streaming Premium|2,0|>0|Sim|Pago|Sim|
 
 ### <a name="features"></a>Recursos
 
 Recurso|Standard|Premium
 ---|---|---
-Gratuito pelos primeiros 15 dias| SIM |Não 
+Gratuito pelos primeiros 15 dias| Sim |Não 
 Produtividade |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
 Contrato de Nível de Serviço | 99.9|99,9 (200 Mbps por UA).
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diário|Diário
-Criptografia dinâmica|SIM|SIM
-Empacotamento dinâmico|SIM|SIM
+Criptografia dinâmica|Sim|Sim
+Empacotamento dinâmico|Sim|Sim
 Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais
-Filtragem de IP/G20/Host personalizado|SIM|SIM
-Download progressivo|SIM|SIM
+Filtragem de IP/G20/Host personalizado|Sim|Sim
+Download progressivo|Sim|Sim
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.<br/>Se você achar que pode ter necessidades além do Standard. Contate-nos (amsstreaming@microsoft.com) se você espera ter uma audiência simultânea superior a 50.000 visualizadores.
 
 

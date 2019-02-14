@@ -4,7 +4,7 @@ description: Este artigo discute medidas para melhorar a segurança do gerenciam
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242000"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117915"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -117,7 +117,7 @@ Um Gateway de Área de Trabalho Remota é um serviço de proxy RDP com base em p
 ## <a name="security-guidelines"></a>Diretrizes de segurança
 Em geral, a proteção das estações de trabalho de administrador para uso com a nuvem é semelhante às práticas usadas para qualquer estação de trabalho local (por exemplo, compilação minimizada e permissões restritivas). Alguns aspectos exclusivos do gerenciamento de nuvem são mais semelhantes ao gerenciamento corporativo remoto ou fora de banda. Eles incluem o uso e a auditoria de credenciais, o acesso remoto com segurança avançada e a detecção e a resposta a ameaças.
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 Você pode usar restrições de logon do Azure para restringir os endereços IP de origem para acessar ferramentas administrativas e solicitações de acesso de auditoria. Para ajudar o Azure a identificar clientes de gerenciamento (estações de trabalho e/ou aplicativos), você pode configurar a SMAPI (por meio de ferramentas desenvolvidas pelo cliente, como cmdlets do Windows PowerShell) e o portal do Azure para exigir que certificados de gerenciamento do cliente sejam instalados, além de certificados SSL. Também recomendamos que o acesso de administrador exija a autenticação multifator.
 
 Alguns aplicativos ou serviços que você implanta no Azure podem ter seus próprios mecanismos de autenticação para acesso do administrador e do usuário final, enquanto outros aproveitam plenamente o Azure AD. Dependendo de você federar credenciais por meio de serviços do AD FS (Serviços de Federação do Active Directory), usar a sincronização de diretório ou manter contas de usuário somente na nuvem, o uso do [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte do Azure AD Premium) o ajuda a gerenciar ciclos de vida de identidades entre os recursos.

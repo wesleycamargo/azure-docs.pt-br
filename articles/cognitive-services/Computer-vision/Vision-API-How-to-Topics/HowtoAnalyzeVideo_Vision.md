@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Saiba como realizar análises quase em tempo real em quadros obtidos de um fluxo de vídeo ao vivo usando a API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b27db1edc60a4eede297ac1ecd8afda671912685
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0a605a7a0c29bc78686c7c50abb582ebe8fd2269
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222393"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871073"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Como analisar vídeos em tempo real
 Este guia demonstrará como executar uma análise quase em tempo real em quadros obtidos de um fluxo de vídeo ao vivo. Os componentes básicos de um sistema desse tipo são:

@@ -10,14 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979059"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864852"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Storage usando a CLI do Azure
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -37,7 +40,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 * **CLI do Azure** – Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Storage Gen1, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Storage Gen1 e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Storage Gen1, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como se autenticar, veja [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [Autenticação de serviço a serviço](data-lake-store-authenticate-using-active-directory.md).
 
@@ -230,7 +233,7 @@ az dls account delete --account mydatalakestoragegen1
 Quando solicitado, insira **Y** para excluir a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Usar o Azure Data Lake Storage Gen1 para requisitos de Big Data](data-lake-store-data-scenarios.md) 
+* [Use o Armazenamento de Data Lake do Azure Gen1 para requisitos de big data](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 * [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

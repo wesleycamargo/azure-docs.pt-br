@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: Detectar o idioma do texto, Node.js – API de Tradução de Texto'
+title: 'Início Rápido: Detectar o idioma do texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a identificar o idioma do texto fornecido usando o Node.js e a API REST de Tradução de Texto.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: ecf762d47a5e8aa9762b67d5b6419bede91c142c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8e09eb19558bf3c328c8ce29cf35ce83074568aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222041"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876208"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com Node.js
 
@@ -90,7 +90,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A maneira mais fácil de autenticar uma solicitação é transmitir sua chave de assinatura como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que usamos neste exemplo. Como alternativa, você pode trocar sua chave de assinatura por um token de acesso e passar o token de acesso como um cabeçalho `Authorization` para validar sua solicitação. Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037830"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116160"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -135,7 +135,7 @@ Algumas etapas podem ser automatizadas como parte do processo de migração usan
 - Execute todos os ajustes no aplicativo após a migração, como atualizar as cadeias de conexão de banco de dados e as configurações do servidor Web. 
 - Execute o aplicativo final e o teste de aceitação da migração no aplicativo migrado que está sendo executado no Azure.
 - O [agente de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) gerencia a interação entre uma VM do Azure e o controlador de malha do Azure. É necessário para alguns serviços do Azure, como o Backup do Azure, Site Recovery e Segurança do Azure.
-    - Se você estiver migrando máquinas VMware e servidores físicos, o instalador do Serviço de Mobilidade instalará o agente de VM do Azure disponível nos computadores Windows. Em VMs do Linux, é recomendável instalar o agente após o failover. a
+    - Se você estiver migrando máquinas VMware e servidores físicos, o instalador do Serviço de Mobilidade instalará o agente de VM do Azure disponível nos computadores Windows. Em VMs do Linux, é recomendável instalar o agente após o failover.
     - Se você estiver migrando VMs do Azure para uma região secundária, o agente de VM do Azure precisará ser provisionado na VM antes da migração.
     - Se você estiver migrando VMs Hyper-V para o Azure, instale o agente de VM do Azure na VM do Azure após a migração.
 - Remova manualmente todos os provedores/agentes do Site Recovery da VM. Se você migrar VMs VMware ou servidores físicos, [desinstale o Serviço de Mobilidade][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] da VM do Azure.

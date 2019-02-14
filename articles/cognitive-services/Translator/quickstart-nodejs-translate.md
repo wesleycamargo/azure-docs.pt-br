@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Traduzir texto, Node.js – API de Tradução de Texto'
+title: 'Início Rápido: Traduzir texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com Node.js.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 40b38fdf2773bd58cf1635d089aec7340b04ce07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5eba927b2080e7a7f98d6ea9de593edf846c3c02
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214006"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978486"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres com Node.js
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Início rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres com Node.js
 
 Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando Node.js e a API REST de Tradução de Texto.
 
@@ -93,7 +93,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A maneira mais fácil de autenticar uma solicitação é transmitir sua chave de assinatura como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que usamos neste exemplo. Como alternativa, você pode trocar sua chave de assinatura por um token de acesso e passar o token de acesso como um cabeçalho `Authorization` para validar sua solicitação. Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

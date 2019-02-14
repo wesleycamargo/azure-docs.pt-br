@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Antes de criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro você deve configurar um serviço de QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos em uma assinatura pode configurar o serviço QnA Maker.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 1fa66c5fb5cdace556154816d1a1fa5a1811be68
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f90c4cb1e98fe7ac43b21cd8ff01733f1d15cc50
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214595"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862217"
 ---
 # <a name="create-a-qna-maker-service"></a>Criar um serviço do QnA Maker
 

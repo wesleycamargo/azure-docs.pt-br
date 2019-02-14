@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Este início rápido baseado em REST de Go orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 248b10ea3c1b59c99d9bd45e0952dc95c2b88563
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: cfb8cb60a828220ea681ad06e86588d3453b8d1b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730380"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874984"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: Criar uma base de dados de conhecimento no QnA Maker usando Go
 

@@ -1,25 +1,18 @@
 ---
 title: Configurar notificações de integridade para sistemas de gerenciamento de problemas existentes usando um webhook | Microsoft Docs
 description: Obtenha notificações personalizadas sobre eventos de integridade do serviço para seu sistema de gerenciamento de problemas existente.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.workload: Supportability
 ms.date: 3/27/2018
-ms.author: shtabriz
-ms.openlocfilehash: 740adefbb8bfa53e96b5ed0e1c7181abf22f1490
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580257"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884861"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de integridade para sistemas de gerenciamento de problemas existentes usando um webhook
 

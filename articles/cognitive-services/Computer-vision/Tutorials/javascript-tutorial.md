@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Explore um aplicativo JavaScript básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 1ad25b383e3d275324b57ae1c343560c82b2a3a2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7ac8b9e28996c14e702730b72265fd6165798227
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215224"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865066"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript da API de Pesquisa Visual Computacional
 

@@ -4,21 +4,21 @@ description: Este tópico mostra como copiar um blob existente para um Ativo dos
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9305b3cb810af9f0653d980328c46e41a540bf1a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f34f7fe4fcdb79c6c01422f3248144fb000c2575
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783385"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998290"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar blobs existentes para um ativo dos Serviços de Mídia
 Este artigo mostra como copiar os blobs de uma conta de armazenamento para um novo ativo dos AMS (Serviços de Mídia do Azure) usando as [Extensões do SDK do .NET dos Serviços de Mídia do Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -40,7 +40,7 @@ O artigo mostra dois exemplos de código:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copiar blobs entre duas contas do AMS  
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Duas contas dos Serviços de Mídia. Confira o artigo [Como criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 
@@ -158,7 +158,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copiar blobs de uma conta de armazenamento para uma conta do AMS 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta de armazenamento do qual você deseja copiar blobs.
 - Uma conta do AMS para qual você deseja copiar blobs.

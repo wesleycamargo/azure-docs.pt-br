@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com PHP.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 8bb3860f1ed81799640d81414f8e00b35585e168
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1b91c5801a64581098250468c2cd1df448a7a7b1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206826"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976582"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Início Rápido: Obter idiomas compatíveis com a API REST de Tradução de Texto (PHP)
 
@@ -25,40 +25,23 @@ Neste início rápido, você obtém uma lista dos idiomas com suporte para tradu
 
 Você precisará do [PHP 5.6.x](http://php.net/downloads.php) para executar esse código.
 
-Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
-
 ## <a name="languages-request"></a>Solicitação de Idiomas
 
 O código a seguir obtém uma lista dos idiomas compatíveis para tradução, transliteração e pesquisa no dicionário, além de exemplos usando o método [Idiomas](./reference/v3-0-languages.md).
 
 1. Crie um novo projeto PHP em seu editor de código favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+3. Execute o programa.
 
 ```php
 <?php
-
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-$key = 'ENTER KEY HERE';
-
 $host = "https://api.cognitive.microsofttranslator.com";
 $path = "/languages?api-version=3.0";
-
 $output_path = "output.txt";
-
-function GetLanguages ($host, $path, $key) {
-
-    $headers = "Content-type: text/xml\r\n" .
-        "Ocp-Apim-Subscription-Key: $key\r\n";
-
+function GetLanguages ($host, $path) {
+    $headers = "Content-type: text/xml\r\n";
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
     // http://php.net/manual/en/function.stream-context-create.php
     $options = array (
@@ -71,13 +54,12 @@ function GetLanguages ($host, $path, $key) {
     $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
-
-$result = GetLanguages ($host, $path, $key);
-
+$result = GetLanguages ($host, $path);
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
 // http://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+// Write the output to file.
 $out = fopen($output_path, 'w');
 fwrite($out, $json);
 fclose($out);

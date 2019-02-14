@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: fdca883e2637998222bfcc4cdc799fe4dec4ab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0bf4e1f24d88b5fb1dbe92834dd7d78bc9b791d6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223299"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862098"
 ---
-# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Java para chamar o Serviço Cognitivo de Análise de Texto
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando Java para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar o sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Java.

@@ -4,7 +4,7 @@ description: Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente d
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243889"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000060"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming 
 ## <a name="overview"></a>Visão geral
 O Kit de Portabilidade de Cliente do Microsoft Smooth Streaming (**SSPK** ) é uma implementação de cliente do Smooth Streaming otimizada para ajudar fabricantes de dispositivos inseridos, operadoras de serviços móveis e a cabo, fornecedores de serviços de conteúdo, fabricantes de celulares, fornecedores de software independentes (ISVs) e fornecedores de soluções a criar produtos e serviços para transmitir conteúdo de streaming adaptativo no formato Smooth Streaming. O SSPK é uma implementação independente de dispositivo e de plataforma do cliente do Smooth Streaming que pode ser movida pelo licenciado para qualquer dispositivo e plataforma. 
 

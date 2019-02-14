@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: A API de Conversão de Texto em Fala oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para usar fontes de voz padrão, é necessário somente especificar o nome da voz com alguns outros parâmetros ao chamar o Serviço de Fala.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251547"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859327"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre a API de conversão de texto em fala
 
@@ -55,11 +55,11 @@ Muitos dos recursos da API de **conversão de texto em fala**, especialmente em 
 
 | Caso de uso | REST | SDKs |
 |-----|-----|-----|----|
-| Carregar conjuntos de dados para adaptação de voz | SIM | Não  |
-| Criar e gerenciar modelos de fontes de voz | SIM | Não  |
-| Criar e gerenciar implantações de fontes de voz | SIM | Não  |
-| Criar e gerenciar testes de fontes de voz| SIM | Não  |
-| Gerenciar Assinaturas | SIM | Não  |
+| Carregar conjuntos de dados para adaptação de voz | Sim | Não  |
+| Criar e gerenciar modelos de fontes de voz | Sim | Não  |
+| Criar e gerenciar implantações de fontes de voz | Sim | Não  |
+| Criar e gerenciar testes de fontes de voz| Sim | Não  |
+| Gerenciar Assinaturas | Sim | Não  |
 
 > [!NOTE]
 > A API implementa limitação que limita as solicitações de API a 25 por 5 segundos. Cabeçalhos de mensagens informarão sobre os limites.

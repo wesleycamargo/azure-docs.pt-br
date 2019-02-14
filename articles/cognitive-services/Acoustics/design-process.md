@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Este documento descreve como expressar sua intenção de projeto em todas as três fases do fluxo de trabalho Acústica do Projeto.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470477"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873930"
 ---
 # <a name="design-process-overview"></a>Visão geral do processo de design
 Você pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do Project Acoustics: configuração de cena pré-bake, posicionamento da fonte de som e design pós-bake. O processo requer menos marcação associada à colocação de volumes de reverberação, ao mesmo tempo em que retém o controle do designer sobre como uma cena é reproduzida.

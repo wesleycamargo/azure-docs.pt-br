@@ -4,18 +4,18 @@ description: Saiba como adicionar uma entidade de lista para ajudar LUIS a rotul
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fe9276cb0af96baa8d818b1f2e965c83cb6b26c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874595"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usar uma entidade de lista para aumentar a detecção de entidade 
 Este tutorial demonstra o uso de uma [lista entidade](luis-concept-entity-types.md) para aumentar a detecção de entidade. Entidades de lista não precisam ser rotuladas já que elas são uma correspondência exata de termos.  

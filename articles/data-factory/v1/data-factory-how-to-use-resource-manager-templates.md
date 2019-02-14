@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024851"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111315"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
@@ -236,7 +236,7 @@ Para obter as práticas recomendadas sobre parametrização, consulte [Práticas
 * As configurações variam de acordo com ambiente (exemplo: desenvolvimento, teste e produção)
 * Segredos (por exemplo, senhas)
 
-Se você precisar receber segredos do [Cofre de Chaves do Azure](../../key-vault/key-vault-get-started.md) ao implantar entidades do Azure Data Factory usando modelos, especifique o **cofre de chaves** e **nome secreto** conforme mostrado no exemplo a seguir:
+Se você precisar receber segredos do [Cofre de Chaves do Azure](../../key-vault/key-vault-overview.md) ao implantar entidades do Azure Data Factory usando modelos, especifique o **cofre de chaves** e **nome secreto** conforme mostrado no exemplo a seguir:
 
 ```JSON
 "parameters": {

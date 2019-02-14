@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie um aplicativo personalizado que preveja a intenção do usuário. Este aplicativo é o tipo mais simples de aplicativo LUIS porque ele não extrai vários elementos de dados do texto do enunciado, como endereços de email ou datas.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 6d663dfe90bb8178b2c66b21a58d59618bac30a4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b4ac0ccb249bac7149014861056c10f9093d6759
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223945"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878147"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Criar aplicativo LUIS para determinar as intenções dos usuários
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658327"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894149"
 ---
 # <a name="marketplace-faqs"></a>Perguntas frequentes sobre o Marketplace
 
@@ -350,7 +350,7 @@ Se você ainda não tiver uma conta Microsoft, poderá [criar uma conta](https:/
 
 **Por que a conta do Centro de Desenvolvimento é necessária?**
 
-Uma conta do Centro de Desenvolvimento é necessária para habilitar à Microsoft faturar dos clientes em nome do editor pelos tipos de listagem de Transact. O registro da conta do Centro de Desenvolvimento permite que a Microsoft valide as informações jurídicas, fiscais e bancárias. Para obter mais informações, confira [Registrar-se no Centro de Desenvolvimento](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+Uma conta do Centro de Desenvolvimento é necessária para habilitar à Microsoft faturar dos clientes em nome do editor pelos tipos de listagem de Transact. O registro da conta do Centro de Desenvolvimento permite que a Microsoft valide as informações jurídicas, fiscais e bancárias. Para obter mais informações, confira [Registrar-se no Centro de Desenvolvimento](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Quais editores exigem um registro de conta do Centro de Desenvolvimento?**
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Aprenda a usar a interpretação semântica na API do Serviço de Exploração de Conhecimento (KES).
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217264"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860806"
 ---
 # <a name="semantic-interpretation"></a>Interpretação de semântica
 

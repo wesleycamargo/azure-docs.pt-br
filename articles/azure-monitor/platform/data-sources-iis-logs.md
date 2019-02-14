@@ -1,6 +1,6 @@
 ---
-title: Logs do IIS no Log Analytics | Microsoft Docs
-description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros criados no Log Analytics.
+title: Fontes de dados no Azure Monitor | Microsoft Docs
+description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: cd63c63344f322f7d761a2907f52e97f1009e3b8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101948"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000158"
 ---
-# <a name="collect-iis-logs-in-log-analytics"></a>Coletar logs do IIS no Log Analytics
-O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics e armazenados como [dados de log](data-collection.md).
+# <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs II no Azure Monitor
+O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor e armazenados como [dados de log](data-collection.md).
 
 ![Logs IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configurando logs do IIS
-O Log Analytics coleta entradas de arquivos de log criados pelo IIS, por isso você deve [configurar o IIS para o registro em log](https://technet.microsoft.com/library/hh831775.aspx).
+O Azure Monitor coleta entradas de arquivos de log criados pelo IIS, por isso você deve [configurar o IIS para o registro em log](https://technet.microsoft.com/library/hh831775.aspx).
 
-O Log Analytics só oferece suporte a arquivos de log do IIS armazenados em formato W3C e não oferece suporte a campos personalizados ou a registro em Log Avançado do IIS. Ele não coleta logs no formato nativo IIS ou NCSA.
+O Azure Monitor só oferece suporte a arquivos de log do IIS armazenados em formato W3C e não oferece suporte a campos personalizados ou a registro em Log Avançado do IIS. Ele não coleta logs no formato nativo IIS ou NCSA.
 
-Configure os logs do IIS no Log Analytics por meio do [menu Configurações Avançadas](agent-data-sources.md#configuring-data-sources).  Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files**(Coletar arquivos de log do IIS no formato W3C).
+Configurar logs do IIS no Azure Monitor a partir de [menu de configurações avançadas](agent-data-sources.md#configuring-data-sources).  Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files**(Coletar arquivos de log do IIS no formato W3C).
 
 
 ## <a name="data-collection"></a>Coleta de dados
-Log Analytics coleta entradas de log do IIS de cada agente a cada vez que o log é fechado e um novo será criado. Essa frequência é controlada pela configuração **agendamento de substituição de arquivo de Log** para o site do IIS que é uma vez por dia por padrão. Por exemplo, se as configurações são **por hora**, então, o Log Analytics coletará o log de cada hora.  Se as configurações são **por dia**, então, o Log Analytics coletará o log de cada dia.
+O Azure Monitor coleta entradas de log do IIS de cada agente a cada vez que o log é fechado e um novo será criado. Essa frequência é controlada pela configuração **agendamento de substituição de arquivo de Log** para o site do IIS que é uma vez por dia por padrão. Por exemplo, se as configurações são **por hora**, então, o Azure Monitor coletará o log de cada hora.  Se as configurações for **diária**, então, o Azure Monitor coletará o log de cada dia.
 
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
@@ -76,5 +76,5 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recebidos por cada computador com IIS. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Configure o Log Analytics para coletar outras [fontes de dados](agent-data-sources.md) para análise.
-* Saiba mais sobre [registrar consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções.
+* Configure o Azure Monitor para coletar outras [fontes de dados](agent-data-sources.md) para análise.
+* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

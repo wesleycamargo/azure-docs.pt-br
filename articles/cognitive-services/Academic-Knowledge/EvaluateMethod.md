@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Use o Método de avaliação para retornar um conjunto de entidades acadêmicas com base em uma expressão de consulta.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187285"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871312"
 ---
 # <a name="evaluate-method"></a>Método Avaliar
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>Parâmetros de solicitação  
 NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 -----------|-----------|---------|--------
-**expr**       | Cadeia de caracteres de texto | SIM | Uma expressão de consulta que especifica quais entidades devem ser retornadas.
+**expr**       | Cadeia de caracteres de texto | Sim | Uma expressão de consulta que especifica quais entidades devem ser retornadas.
 **modelo**      | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
 **atributos** | Cadeia de caracteres de texto | Não <br>padrão: ID | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
 **count**        | Número | Não <br>Padrão: 10 | Número de resultados para retornar.

@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá como localizar traduções alternativas e exemplos de uso de um texto especificado usando o Node.js e a API REST de Tradução de Texto.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 502455c6302a19176b29e9e5dcbac4a9897a04ea
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e7757b05ba0e99c5c326f3c63aa6b1d3be06a365
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856964"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Início rápido: Procure palavras com o dicionário bilíngue Node.js
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Início Rápido: Procure palavras com o dicionário bilíngue Node.js
 
 Neste início rápido, você aprenderá como localizar traduções alternativas e exemplos de uso de um texto especificado usando o Node.js e a API REST de Tradução de Texto.
 
@@ -92,7 +92,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A maneira mais fácil de autenticar uma solicitação é transmitir sua chave de assinatura como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que usamos neste exemplo. Como alternativa, você pode trocar sua chave de assinatura por um token de acesso e passar o token de acesso como um cabeçalho `Authorization` para validar sua solicitação. Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

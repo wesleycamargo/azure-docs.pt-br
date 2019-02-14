@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: O serviço do QnA Maker tem muitos novos termos de processamento de linguagem natural e aprendizado de máquina, bem como termos específicos do serviço. Essa lista ajudará você a entender esses termos.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e86ea22208ccd08c0268fda0cc47d5127b4568a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226461"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871006"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossário do serviço e base de dados de conhecimento do QnA Maker
 

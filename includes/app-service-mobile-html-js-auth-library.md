@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973231"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905073"
 ---
 ### <a name="server-auth"></a>Como: Autenticar com um provedor (fluxo de servidor)
 Para que os Aplicativos Móveis gerenciem o processo de autenticação em seu aplicativo, é necessário registrá-los no provedor de identidade. Em seguida, no Serviço de Aplicativo do Azure, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor.
@@ -17,7 +17,7 @@ Para obter mais informações, consulte o tutorial [Adicionar autenticação ao 
 
 Depois de registrar seu provedor de identidade, chame o método `.login()` com o nome do seu provedor. Por exemplo, para entrar com o Facebook, use o código a seguir:
 
-```
+```javascript
 client.login("facebook").done(function (results) {
      alert("You are now signed in as: " + results.userId);
 }, function (err) {
@@ -40,7 +40,7 @@ Seu aplicativo também pode entrar em contato de forma independente com o proved
 
 Este exemplo usa o SDK de cliente do Facebook para a autenticação:
 
-```
+```javascript
 client.login(
      "facebook",
      {"access_token": token})
@@ -57,7 +57,7 @@ Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é
 
 As informações de autenticação podem ser obtidas no ponto de extremidade `/.auth/me` usando uma chamada HTTP com qualquer biblioteca do AJAX.  Certifique-se de definir o cabeçalho `X-ZUMO-AUTH` ao token de autenticação.  O token de autenticação está armazenado em `client.currentUser.mobileServiceAuthenticationToken`.  Por exemplo, para usar a API de busca:
 
-```
+```javascript
 var url = client.applicationUrl + '/.auth/me';
 var headers = new Headers();
 headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);

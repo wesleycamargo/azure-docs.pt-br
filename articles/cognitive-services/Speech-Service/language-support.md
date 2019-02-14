@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Os Serviços de Fala do Azure dão suporte a vários idiomas para conversão de fala em texto e de texto em fala, bem com a tradução de fala. Este artigo fornece uma lista abrangente de suporte ao idioma por serviço.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213295"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878027"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
 
@@ -31,30 +31,30 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  ar-EG | Árabe (Egito), padrão moderno | Não  | Sim | Não 
  ca-ES | Catalão (Espanha) | Não  | Não | Não 
  da-DK | Dinamarquês (Dinamarca) | Não  | Não | Não 
- de-DE | Alemão (Alemanha) | SIM | sim | Não 
- en-AU | Inglês (Austrália) | Não  | sim | SIM
- en-CA | Inglês (Canadá) | Não  | sim | SIM
- en-GB | Inglês (Reino Unido) | Não  | sim | SIM
- en-IN | Inglês (Índia) | SIM | sim | SIM
- en-NZ | Inglês (Nova Zelândia) | Não  | sim | SIM  
- en-US | Inglês (Estados Unidos) | SIM | sim | SIM
- es-ES | Espanhol (Espanha) | SIM | sim | Não 
+ de-DE | Alemão (Alemanha) | Sim | sim | Não 
+ en-AU | Inglês (Austrália) | Não  | sim | Sim
+ en-CA | Inglês (Canadá) | Não  | sim | Sim
+ en-GB | Inglês (Reino Unido) | Não  | sim | Sim
+ en-IN | Inglês (Índia) | Sim | sim | Sim
+ en-NZ | Inglês (Nova Zelândia) | Não  | sim | Sim  
+ en-US | Inglês (Estados Unidos) | Sim | sim | Sim
+ es-ES | Espanhol (Espanha) | Sim | sim | Não 
  es-MX | Espanhol (México) | Não  | Sim | Não 
  fi-FI | Finlandês (Finlândia) | Não  | Não | Não 
  fr-CA | Francês (Canadá) | Não  | Sim | Não 
- fr-FR | Francês (França) | SIM | sim | Não 
+ fr-FR | Francês (França) | Sim | sim | Não 
  hi-IN | Hindi (Índia) | Não  | Sim | Não 
- it-IT | Italiano (Itália) | SIM | sim | Não 
+ it-IT | Italiano (Itália) | Sim | sim | Não 
  ja-JP | Japonês (Japão) | Não  | Sim | Não 
  ko-KR | Coreano (Coreia do Sul) | Não  | Sim | Não 
  nb-NO | Norueguês (Bokmål) (Noruega) | Não  | Não | Não 
  nl-NL | Holandês (Países Baixos) | Não  | Sim | Não 
  pl-PL | Polonês (Polônia) | Não  | Não | Não 
- pt-BR | Português (Brasil) | SIM | sim | Não 
+ pt-BR | Português (Brasil) | Sim | sim | Não 
  pt-PT | Português (Portugal) | Não  | Sim | Não 
- ru-RU | Russo (Rússia) | SIM | sim | Não 
+ ru-RU | Russo (Rússia) | Sim | sim | Não 
  sv-SE | Sueco (Suécia) | Não  | Não | Não 
- zh-CN | Chinês (mandarim, simplificado) | SIM | sim | Não 
+ zh-CN | Chinês (mandarim, simplificado) | Sim | sim | Não 
  zh-HK | Chinês (Mandarim, tradicional) | Não  | Sim | Não 
  zh-TW | Chinês (Mandarim Taiwanês) | Não  | Sim | Não 
  th-TH | Tailandês (Tailândia) | Não  | Não | Não 

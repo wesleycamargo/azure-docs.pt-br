@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 'O Serviço de Fala, parte dos serviços Cognitivos do Azure, reúne diversos serviços de fala que antes estavam disponíveis separadamente: API de Fala do Bing (incluindo reconhecimento de fala e conversão de texto em fala), Serviço de Fala Personalizada e Tradução de Fala.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: beb1382d2e076052583dd5bbc546259c8aae2f96
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217961"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858816"
 ---
 # <a name="what-is-speech-services"></a>O que são Serviços de Fala?
 
@@ -55,8 +55,8 @@ Os Serviços de Fala também têm uma [API REST](rest-apis.md) que funciona com 
 
 |<br>Método|Fala<br>em Texto|Texto em<br>Fala|Fala<br>Tradução|<br>DESCRIÇÃO|
 |-|-|-|-|-|
-|[SDK da fala](speech-sdk.md)|SIM|Não |SIM|APIs nativas para C#, C++ e Java a fim de simplificar o desenvolvimento.|
-|[APIs REST](rest-apis.md)|SIM|sim|Não |Uma API simples baseada em HTTP que facilita a adição de fala a seus aplicativos.|
+|[SDK da fala](speech-sdk.md)|Sim|Não |Sim|APIs nativas para C#, C++ e Java a fim de simplificar o desenvolvimento.|
+|[APIs REST](rest-apis.md)|Sim|sim|Não |Uma API simples baseada em HTTP que facilita a adição de fala a seus aplicativos.|
 
 ### <a name="websockets"></a>WebSockets
 

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Como usar o método Analisar na API de Análise Linguística para analisar certas entradas de linguagem natural.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208628"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861673"
 ---
 # <a name="analyze-method"></a>Método Analisar
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 NOME | Type | Obrigatório | DESCRIÇÃO
 -----|-------|----------|------------
-**linguagem**    | string | SIM | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
-**analyzerIds** | lista de cadeias de caracteres | SIM | Lista de GUIDs de analisadores para aplicar. Para obter mais informações, confira a documentação do Analisadores.
-**text**        | string | SIM | Entrada bruta a ser analisada. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, um período completo, ou um parágrafo completo ou discurso.
+**linguagem**    | string | Sim | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
+**analyzerIds** | lista de cadeias de caracteres | Sim | Lista de GUIDs de analisadores para aplicar. Para obter mais informações, confira a documentação do Analisadores.
+**text**        | string | Sim | Entrada bruta a ser analisada. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, um período completo, ou um parágrafo completo ou discurso.
 
 ## <a name="response-json"></a>Resposta (JSON)
 

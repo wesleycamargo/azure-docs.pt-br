@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Introdução à Pesquisa de Resposta de Projeto.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1898a4576b86d7abb302e325aef827bab6b9d7dd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220188"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877405"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Resposta de Projeto?
 A API de Pesquisa de Resposta de Projeto usa o ponto de extremidade do Bing v7 para obter respostas para consultas interrogativas. A pergunta como "Qual é a circunferência da Terra?" retorna uma resposta com informações reais.  Uma consulta sobre uma pessoa, lugar ou coisa retorna informações sobre a entidade identificada pela consulta. Esses cenários podem ser úteis em aplicativos como bots de conversa, aplicativos de mensagens, leitores, etc.  

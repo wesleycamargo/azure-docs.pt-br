@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: Use este início rápido para enviar solicitações de pesquisa de vídeo para a API REST de Pesquisa de Vídeo do Bing usando JavaScript.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: f593863b86bf5170c4d5c19cece622c1dcafc89c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871975"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora o aplicativo seja escrito em JavaScript e use Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) com anotações de código e tratamentos de erro adicionais.
 

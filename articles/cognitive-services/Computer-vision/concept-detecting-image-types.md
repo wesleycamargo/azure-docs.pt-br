@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados adetecção do tipo de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: da7cce0cd69823f254cd6b666dc468f155b9e097
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156268"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872128"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detectar tipos de imagem com a Pesquisa Visual Computacional
 

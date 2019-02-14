@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: Reconhecimento de fala, JavaScript (navegador) – Serviços de Fala'
+title: 'Início Rápido: Reconhecimento de fala, JavaScript (navegador) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: a38553bc2c549989fe24f3a95e972858f6813fc5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211144"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872163"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 
