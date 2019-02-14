@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820378"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
 
@@ -83,11 +83,11 @@ az configure --defaults acr=myregistry
 
 Normalmente, as propriedades das tarefas são exibidas na parte superior de um arquivo `acr-task.yaml` e são propriedades globais aplicadas durante toda a execução da tarefa. Algumas dessas propriedades globais podem ser substituídas em uma etapa individual.
 
-| Propriedade | Tipo | Opcional | DESCRIÇÃO | Substituição com suporte | Valor padrão |
+| Propriedade | Type | Opcional | DESCRIÇÃO | Substituição com suporte | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Não  | A versão do arquivo `acr-task.yaml` conforme analisado pelo serviço de Tarefas do ACR. Enquanto as Tarefas do ACR se esforçam para manter a compatibilidade com versões anteriores, esse valor permite que as Tarefas do ACR mantenham a compatibilidade dentro de uma versão definida. | Não  | Nenhum |
-| `stepTimeout` | int (segundos) | SIM | O número máximo de segundos em que uma etapa pode ser executada. Essa propriedade pode ser substituída em uma etapa ao definir a propriedade [timeout](#timeout). | SIM | 600 (10 minutos) |
-| `totalTimeout` | int (segundos) | SIM | O número máximo de segundos em que uma tarefa pode ser executada. Uma "execução" inclui a execução e a conclusão de todas as etapas na tarefa, sejam elas concluídas com êxito ou falha. Também está inclusa uma saída da tarefa de impressão, como dependências de imagem detectadas e status de execução da tarefa. | Não  | 3600 (1 hora) |
+| `stepTimeout` | int (segundos) | Sim | O número máximo de segundos em que uma etapa pode ser executada. Essa propriedade pode ser substituída em uma etapa ao definir a propriedade timeout. | Sim | 600 (10 minutos) |
+| `totalTimeout` | int (segundos) | Sim | O número máximo de segundos em que uma tarefa pode ser executada. Uma "execução" inclui a execução e a conclusão de todas as etapas na tarefa, sejam elas concluídas com êxito ou falha. Também está inclusa uma saída da tarefa de impressão, como dependências de imagem detectadas e status de execução da tarefa. | Não  | 3600 (1 hora) |
 
 ## <a name="task-step-types"></a>Tipos de etapas das tarefas
 
@@ -116,8 +116,8 @@ O tipo de etapa `build` suporta os parâmetros na tabela a seguir. O tipo de eta
 
 | Parâmetro | DESCRIÇÃO | Opcional |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Define o `image:tag` totalmente qualificado da imagem compilada.<br /><br />Como as imagens podem ser utilizadas para validações de tarefas internas, como testes funcionais, nem todas as imagens exigem `push` para um Registro. No entanto, para criar uma instância de uma imagem dentro de uma execução de Tarefa, a imagem precisa de um nome para fazer referência.<br /><br />Ao contrário de `az acr build`, a execução de Tarefas do ACR não fornece um comportamento de push padrão. Com as Tarefas do ACR, o cenário padrão pressupõe a capacidade de compilar, validar e efetuar push de uma imagem. Confira [push](#push) para saber como efetuar push de imagens compiladas opcionalmente. | SIM |
-| `-f` &#124; `--file` | Especifica o Dockerfile passado para `docker build`. Se não for especificado, o Dockerfile padrão na raiz do contexto será considerado. Para especificar um Dockerfile alternativo, passe o nome do arquivo relativo à raiz do contexto. | SIM |
+| `-t` &#124; `--image` | Define o `image:tag` totalmente qualificado da imagem compilada.<br /><br />Como as imagens podem ser utilizadas para validações de tarefas internas, como testes funcionais, nem todas as imagens exigem `push` para um Registro. No entanto, para criar uma instância de uma imagem dentro de uma execução de Tarefa, a imagem precisa de um nome para fazer referência.<br /><br />Ao contrário de `az acr build`, a execução de Tarefas do ACR não fornece um comportamento de push padrão. Com as Tarefas do ACR, o cenário padrão pressupõe a capacidade de compilar, validar e efetuar push de uma imagem. Confira [push](#push) para saber como efetuar push de imagens compiladas opcionalmente. | Sim |
+| `-f` &#124; `--file` | Especifica o Dockerfile passado para `docker build`. Se não for especificado, o Dockerfile padrão na raiz do contexto será considerado. Para especificar um Dockerfile alternativo, passe o nome do arquivo relativo à raiz do contexto. | Sim |
 | `context` | O diretório raiz passado para `docker build`. O diretório raiz de cada tarefa é definido como um [workingDirectory](#task-step-properties) compartilhado e inclui a raiz do diretório clonado Git associado. | Não  |
 
 ### <a name="properties-build"></a>Propriedades: compilar
@@ -315,20 +315,20 @@ Usando a convenção de referência de imagem `docker run` padrão, o `cmd` cons
 
 Cada tipo de etapa dá suporte a várias propriedades apropriadas para seu tipo. A tabela a seguir define todas as propriedades das etapas disponíveis. Nem todos os tipos de etapas dão suporte a todas as propriedades. Para ver quais dessas propriedades estão disponíveis para cada tipo de etapa, confira as seções de referência de tipo de etapa [cmd](#cmd), [compilar](#build) e [efetuar push](#push).
 
-| Propriedade | Tipo | Opcional | DESCRIÇÃO |
+| Propriedade | Type | Opcional | DESCRIÇÃO |
 | -------- | ---- | -------- | ----------- |
-| `detach` | bool | SIM | Se o contêiner deve ser desanexado quando está em execução. |
-| `entryPoint` | string | SIM | Substitui o `[ENTRYPOINT]` do contêiner de uma etapa. |
-| `env` | [string, string, ...] | SIM | Matriz de cadeias de caracteres no formato `key=value` que definem as variáveis de ambiente para a etapa. |
-| [`id`](#example-id) | string | SIM | Identifica a etapa dentro da tarefa com exclusividade. Outras etapas na tarefa podem fazer referência ao `id` da etapa, como para verificação de dependência com `when`.<br /><br />O `id` também é o nome do contêiner em execução. Processos em execução em outros contêineres na tarefa podem consultar o `id` como seu nome de host DNS ou para acessá-lo com logs de docker [id], por exemplo. |
-| `ignoreErrors` | bool | SIM | Quando definida como `true`, a etapa está marcada como concluída, independentemente de ter ocorrido um erro durante sua execução. Padrão: `false`. |
-| `keep` | bool | SIM | Se o contêiner da etapa deve ser mantido após a execução. |
-| `startDelay` | int (segundos) | SIM | Número de segundos para atrasar a execução de uma etapa. |
-| `timeout` | int (segundos) | SIM | Número máximo de segundos em que uma etapa poderá ser executada antes de terminar. |
-| [`when`](#example-when) | [string, string, ...] | SIM | Configura a dependência de uma etapa em relação a uma ou mais etapas diferentes dentro da tarefa. |
-| `workingDirectory` | string | SIM | Define o diretório de trabalho para uma etapa. Por padrão, as Tarefas do ACR criam um diretório raiz como o diretório de trabalho. No entanto, se o build tiver várias etapas, as etapas anteriores poderão compartilhar artefatos com as etapas posteriores se o mesmo diretório de trabalho for especificado. |
+| `detach` | bool | Sim | Se o contêiner deve ser desanexado quando está em execução. |
+| `entryPoint` | string | Sim | Substitui o `[ENTRYPOINT]` do contêiner de uma etapa. |
+| `env` | [string, string, ...] | Sim | Matriz de cadeias de caracteres no formato `key=value` que definem as variáveis de ambiente para a etapa. |
+| [`id`](#example-id) | string | Sim | Identifica a etapa dentro da tarefa com exclusividade. Outras etapas na tarefa podem fazer referência ao `id` da etapa, como para verificação de dependência com `when`.<br /><br />O `id` também é o nome do contêiner em execução. Processos em execução em outros contêineres na tarefa podem consultar o `id` como seu nome de host DNS ou para acessá-lo com logs de docker [id], por exemplo. |
+| `ignoreErrors` | bool | Sim | Quando definida como `true`, a etapa está marcada como concluída, independentemente de ter ocorrido um erro durante sua execução. Padrão: `false`. |
+| `keep` | bool | Sim | Se o contêiner da etapa deve ser mantido após a execução. |
+| `startDelay` | int (segundos) | Sim | Número de segundos para atrasar a execução de uma etapa. |
+| `timeout` | int (segundos) | Sim | Número máximo de segundos em que uma etapa poderá ser executada antes de terminar. |
+| [`when`](#example-when) | [string, string, ...] | Sim | Configura a dependência de uma etapa em relação a uma ou mais etapas diferentes dentro da tarefa. |
+| `workingDirectory` | string | Sim | Define o diretório de trabalho para uma etapa. Por padrão, as Tarefas do ACR criam um diretório raiz como o diretório de trabalho. No entanto, se o build tiver várias etapas, as etapas anteriores poderão compartilhar artefatos com as etapas posteriores se o mesmo diretório de trabalho for especificado. |
 
-### <a name="examples-task-step-properties"></a>Exemplos: propriedades das etapas das tarefas
+### <a name="examples-task-step-properties"></a>Exemplos: Propriedades das etapas das tarefas
 
 #### <a name="example-id"></a>Exemplo: id
 

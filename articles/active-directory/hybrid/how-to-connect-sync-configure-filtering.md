@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 28f35fd1098e055b22dada703cd7e68de591eea7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192614"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811471"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: Configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -93,8 +93,8 @@ Você só deve seguir estas etapas se, por algum motivo, não conseguir executar
 
 A configuração de filtragem baseada em domínio consiste nestas etapas:
 
-1. [Selecione os domínios](#select-domains-to-be-synchronized) que você deseja incluir na sincronização.
-2. Para cada domínio adicionado e removido, ajuste os [perfis de execução](#update-run-profiles).
+1. Selecione os domínios que você deseja incluir na sincronização.
+2. Para cada domínio adicionado e removido, ajuste os perfis de execução.
 3. [Aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Selecionar os domínios a serem sincronizados
@@ -110,7 +110,7 @@ Para definir o filtro de domínio, siga estas etapas:
    Se você tiver alterado a infraestrutura local do Active Drectory e tiver adicionado ou removido domínios da floresta, clique no botão **Atualizar** para obter uma lista atualizada. Ao atualizar, você precisará fornecer as credenciais. Forneça todas as credenciais com o acesso de leitura para o Windows Server Active Directory. Ele não precisa ser o usuário previamente preenchido na caixa de diálogo.  
    ![Atualização necessária](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quando terminar, clique em **OK** para fechar a caixa de diálogo **Propriedades**. Se você tiver removido domínios da floresta, será exibida uma mensagem informando que um domínio foi removido e que a configuração será limpa.
-7. Prossiga para ajustar os [perfis de execução](#update-run-profiles).
+7. Prossiga para ajustar os perfis de execução.
 
 ### <a name="update-the-run-profiles"></a>Atualizar perfis de execução
 Se você tiver atualizado o filtro de domínio, também precisará atualizar os perfis de execução.

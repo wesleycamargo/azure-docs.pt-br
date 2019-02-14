@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 09f0416e5a03527613e7c353961d81de39c4fe0e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019445"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566832"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase usando o Azure Data Factory 
 
@@ -41,11 +41,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do HBase:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **HBase** | SIM |
-| host | O endereço IP ou nome do host do servidor HBase. (ou seja  `[clustername].azurehdinsight.net`， `192.168.222.160·)  | SIM |
+| Tipo | A propriedade type deve ser definida como: **HBase** | Sim |
+| host | O endereço IP ou nome do host do servidor HBase. (ou seja,  `[clustername].azurehdinsight.net`， `192.168.222.160·)  | Sim |
 | porta | A porta TCP que a instância HBase usa para escutar as conexões de clientes. O valor padrão é 9090. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não  |
 | httpPath | A URL parcial correspondente ao servidor do HBase, por exemplo, `/hbaserest0` ao usar cluster HDInsights. | Não  |
-| authenticationType | O mecanismo de autenticação a ser usado para se conectar ao servidor do HBase. <br/>Valores permitidos são: **Anônimo**, **Básico** | SIM |
+| authenticationType | O mecanismo de autenticação a ser usado para se conectar ao servidor do HBase. <br/>Valores permitidos são: **Anônimo**, **Básico** | Sim |
 | Nome de Usuário | O nome de usuário usado para se conectar à instância do HBase.  | Não  |
 | Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
@@ -71,8 +71,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do HBase:
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true
         },
@@ -98,8 +98,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do HBase:
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true,
             "trustedCertPath" : "<trustedCertPath>",
@@ -122,7 +122,7 @@ Para copiar dados de HBase, defina a propriedade type do conjunto de dados como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HBaseObject** | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HBaseObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -151,7 +151,7 @@ Para copiar dados de HBase, defina o tipo de fonte na atividade de cópia como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HBaseSource** | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HBaseSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

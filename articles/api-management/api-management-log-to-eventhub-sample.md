@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a868eb98121ff2e2a30657e301afba7b8618361
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956932"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728463"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorar suas APIs com o Gerenciamento de API do Azure, os Hubs de Eventos e o Runscope
 O [serviço Gerenciamento de API](api-management-key-concepts.md) oferece muitos recursos para aprimorar o processamento de solicitações HTTP enviadas à API do HTTP. No entanto, a existência das solicitações e respostas é transitória. A solicitação é feita e flui pelo serviço Gerenciamento de API para a API de back-end. Sua API processa a solicitação e uma resposta flui de volta para o consumidor da API. O serviço Gerenciamento de API mantém algumas estatísticas importantes sobre as APIs para exibição no painel do portal do Azure, mas fora isso, os detalhes são apagados.
 
-Ao usar a política log-to-eventhub no serviço Gerenciamento de API, você poderá enviar todos os detalhes da solicitação e da resposta para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Existem vários motivos pelos quais você pode querer gerar eventos de mensagens HTTP enviadas para suas APIs. Alguns exemplos incluem trilha de auditoria de atualizações, análise de uso, alerta de exceção e integrações de terceiros.   
+Ao usar a política log-to-eventhub no serviço Gerenciamento de API, você poderá enviar todos os detalhes da solicitação e da resposta para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Existem vários motivos pelos quais você pode querer gerar eventos de mensagens HTTP enviadas para suas APIs. Alguns exemplos incluem trilha de auditoria de atualizações, análise de uso, alerta de exceção e integrações de terceiros.
 
 Este artigo demonstra como capturar a mensagem inteira de solicitação e resposta HTTP, como enviá-la a um Hub de Eventos e como retransmitir essa mensagem a um serviço terceirizado que forneça serviços de registro em log e monitoramento de HTTP.
 
@@ -36,14 +36,14 @@ O uso do serviço Gerenciamento de API do Azure para se integrar à infraestrutu
 ## <a name="why-send-to-an-azure-event-hub"></a>Por que enviar a um Hub de Eventos do Azure?
 É pertinente perguntar, por que criar uma política que seja específica dos Hubs de Evento do Azure? Há muitos locais diferentes onde eu posso querer registrar em log minhas solicitações. Por que não basta enviar as solicitações diretamente para o destino final?  Essa é uma opção. No entanto, ao registrar em log as solicitações de um serviço de gerenciamento de API, será necessário considerar como as mensagens de log afetam o desempenho da API. Os aumentos graduais na carga podem ser tratados aumentando as instâncias disponíveis dos componentes do sistema ou aproveitando a replicação geográfica. No entanto, picos curtos no tráfego podem fazer com que as solicitações sejam atrasadas caso as solicitações para infraestrutura de registro em log comecem a ficar lentas sob carga.
 
-Os Hubs de Eventos do Azure foram desenvolvidos para acomodar volumes gigantes de dados, com capacidade para lidar com um número muito maior de eventos do que o número de solicitações HTTP processadas pelas APIs. O Hub de Eventos atua como um tipo de buffer sofisticado entre o serviço Gerenciamento de API e a infraestrutura que armazena e processa as mensagens. Isso garante que o desempenho da API não sofrerá devido à infraestrutura de log.  
+Os Hubs de Eventos do Azure foram desenvolvidos para acomodar volumes gigantes de dados, com capacidade para lidar com um número muito maior de eventos do que o número de solicitações HTTP processadas pelas APIs. O Hub de Eventos atua como um tipo de buffer sofisticado entre o serviço Gerenciamento de API e a infraestrutura que armazena e processa as mensagens. Isso garante que o desempenho da API não sofrerá devido à infraestrutura de log.
 
-Depois que os dados tiverem sido passados para um Hub de Eventos, eles serão mantidos e ficarão aguardando que os consumidores do Hub de Eventos os processem. Para o Hub de Eventos, não faz diferença como eles são processados; seu único interesse é ter certeza de que a mensagem será entregue com êxito.     
+Depois que os dados tiverem sido passados para um Hub de Eventos, eles serão mantidos e ficarão aguardando que os consumidores do Hub de Eventos os processem. Para o Hub de Eventos, não faz diferença como eles são processados; seu único interesse é ter certeza de que a mensagem será entregue com êxito.
 
 Os Hubs de Eventos conseguem transmitir eventos a vários grupos de consumidores. Isso permite que os eventos sejam processados por sistemas diferentes. Desse modo, é possível oferecer suporte a muitos cenários de integração, sem impor atrasos adicionais no processamento da solicitação de API no serviço Gerenciamento de API, pois somente um evento precisa ser gerado.
 
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>Uma política para enviar mensagens de aplicativo/http
-Um Hub de Eventos aceita dados de evento como uma cadeia de caracteres simples. Você é que define o conteúdo dessa cadeia de caracteres. Para poder empacotar uma solicitação HTTP e enviá-la para os Hubs de Eventos, precisamos formatar a cadeia de caracteres com as informações da solicitação ou da resposta. Em situações como essa, se houver um formato existente que possamos reutilizar, talvez não seja necessário escrever nosso próprio código de análise. Inicialmente, considerei o uso do [HAR](http://www.softwareishard.com/blog/har-12-spec/) para enviar solicitações e respostas HTTP. No entanto, esse formato é otimizado para armazenar uma sequência de solicitações HTTP em um formato baseado em JSON. Ele continha vários elementos obrigatórios que adicionaram complexidade desnecessária ao cenário de transmitir a mensagem HTTP por cabo.  
+Um Hub de Eventos aceita dados de evento como uma cadeia de caracteres simples. Você é que define o conteúdo dessa cadeia de caracteres. Para poder empacotar uma solicitação HTTP e enviá-la para os Hubs de Eventos, precisamos formatar a cadeia de caracteres com as informações da solicitação ou da resposta. Em situações como essa, se houver um formato existente que possamos reutilizar, talvez não seja necessário escrever nosso próprio código de análise. Inicialmente, considerei o uso do [HAR](http://www.softwareishard.com/blog/har-12-spec/) para enviar solicitações e respostas HTTP. No entanto, esse formato é otimizado para armazenar uma sequência de solicitações HTTP em um formato baseado em JSON. Ele continha vários elementos obrigatórios que adicionaram complexidade desnecessária ao cenário de transmitir a mensagem HTTP por cabo.
 
 Uma opção alternativa foi usar o tipo de mídia `application/http` , como descrito na [RFC 7230](https://tools.ietf.org/html/rfc7230)da especificação HTTP. Esse tipo de mídia usa o mesmo formato que é utilizado para enviar de fato mensagens HTTP por cabo, mas toda a mensagem pode ser colocada no corpo de outra solicitação HTTP. Em nosso caso, vamos usar o corpo como nossa mensagem para envio aos Hubs de Eventos. Para sua conveniência, há um analisador nas bibliotecas do [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) que pode analisar esse formato e convertê-lo nos objetos nativos `HttpRequestMessage` e `HttpResponseMessage`.
 
@@ -76,16 +76,16 @@ Para poder criar essa mensagem, precisamos aproveitar as [Expressões de políti
 ```
 
 ### <a name="policy-declaration"></a>Declaração de política
-Existem alguns itens específicos sobre essa expressão de política que vale a pena mencionar. A política log-to-eventhub tem um atributo chamado logger-id, que se refere ao nome do agente que foi criado no serviço Gerenciamento de API. Os detalhes de como configurar um agente do Hub de Eventos no serviço Gerenciamento de API podem ser encontrados no documento [Como registrar em log eventos nos Hubs de Eventos do Azure no Gerenciamento de API do Azure](api-management-howto-log-event-hubs.md). O segundo atributo é um parâmetro opcional que indica aos Hubs de Eventos em qual partição armazenar a mensagem. Os Hubs de Eventos usam partições para habilitar a escalabilidade e exigem no mínimo duas. A entrega ordenada das mensagens é garantida apenas dentro de uma partição. Se não indicarmos ao Hub de Eventos qual partição deve receber a mensagem, ele usará um algoritmo de round robin para distribuir a carga. No entanto, isso pode fazer com que algumas das nossas mensagens sejam processadas fora de ordem.  
+Existem alguns itens específicos sobre essa expressão de política que vale a pena mencionar. A política log-to-eventhub tem um atributo chamado logger-id, que se refere ao nome do agente que foi criado no serviço Gerenciamento de API. Os detalhes de como configurar um agente do Hub de Eventos no serviço Gerenciamento de API podem ser encontrados no documento [Como registrar em log eventos nos Hubs de Eventos do Azure no Gerenciamento de API do Azure](api-management-howto-log-event-hubs.md). O segundo atributo é um parâmetro opcional que indica aos Hubs de Eventos em qual partição armazenar a mensagem. Os Hubs de Eventos usam partições para habilitar a escalabilidade e exigem no mínimo duas. A entrega ordenada das mensagens é garantida apenas dentro de uma partição. Se não indicarmos ao Hub de Eventos qual partição deve receber a mensagem, ele usará um algoritmo de round robin para distribuir a carga. No entanto, isso pode fazer com que algumas das nossas mensagens sejam processadas fora de ordem.
 
 ### <a name="partitions"></a>Partições
 Para garantir que nossas mensagens sejam entregues aos consumidores em ordem e aproveitar o recurso de distribuição de carga das partições, optei por enviar mensagens de solicitação HTTP a uma partição e mensagens de resposta HTTP a uma segunda partição. Isso garante uma distribuição de carga uniforme e faz com que todas as solicitações e respostas sejam consumidas na ordem certa. É possível que uma resposta seja consumida antes da solicitação correspondente, mas isso não é um problema, pois temos um mecanismo diferente para correlacionar solicitações com respostas e sabemos que as solicitações sempre vêm antes das respostas.
 
 ### <a name="http-payloads"></a>Cargas HTTP
-Depois de criar `requestLine`, verificamos se o corpo da solicitação deve ser truncado. O corpo da solicitação é truncado a apenas 1024. Esse número poderá ser aumentado, embora as mensagens individuais do Hub de Eventos estejam limitadas a 256 KB, de modo que é provável que alguns corpos de mensagem HTTP não caibam em uma única mensagem. Ao registrar em log e analisar, uma quantidade significativa de informações só poderá ser derivada da linha e dos cabeçalhos da solicitação HTTP. Além disso, muitas solicitações de API retornam apenas corpos pequenos e, portanto, a perda do valor das informações ao truncar corpos grandes é razoavelmente mínima em comparação com a redução nos custos de transferir, processar e armazenar para manter todo o conteúdo do corpo. Uma observação final sobre o processamento do corpo é que precisamos passar `true` para o método As<string>(), pois estamos lendo o conteúdo do corpo, mas também queremos que a API de back-end seja capaz de ler o corpo. Ao passar true para esse método, fazemos com que o corpo seja armazenado em buffer, de modo que ele possa ser lido uma segunda vez. Será importante lembrar-se disso, caso você tenha uma API que carregue arquivos grandes ou use sondagens longas. Nesses casos, é melhor evitar a leitura do corpo.   
+Depois de criar `requestLine`, verificamos se o corpo da solicitação deve ser truncado. O corpo da solicitação é truncado a apenas 1024. Esse número poderá ser aumentado, embora as mensagens individuais do Hub de Eventos estejam limitadas a 256 KB, de modo que é provável que alguns corpos de mensagem HTTP não caibam em uma única mensagem. Ao registrar em log e analisar, uma quantidade significativa de informações só poderá ser derivada da linha e dos cabeçalhos da solicitação HTTP. Além disso, muitas solicitações de API retornam apenas corpos pequenos e, portanto, a perda do valor das informações ao truncar corpos grandes é razoavelmente mínima em comparação com a redução nos custos de transferir, processar e armazenar para manter todo o conteúdo do corpo. Uma observação final sobre o processamento do corpo é que precisamos passar `true`para o método`As<string>()`, pois estamos lendo o conteúdo do corpo, mas também queremos que a API de back-end seja capaz de ler o corpo. Ao passar true para esse método, fazemos com que o corpo seja armazenado em buffer, de modo que ele possa ser lido uma segunda vez. Será importante lembrar-se disso, caso você tenha uma API que carregue arquivos grandes ou use sondagens longas. Nesses casos, é melhor evitar a leitura do corpo.
 
 ### <a name="http-headers"></a>Cabeçalhos HTTP
-Os cabeçalhos HTTP podem ser transferidos para o formato da mensagem em um formato de pares simples de chave/valor. Optamos por retirar determinados campos sensíveis à segurança, a fim de evitar vazamento desnecessário das informações credenciais. É improvável que as chaves da API e outras credenciais sejam usadas para fins de análise. Se desejarmos analisar o usuário e o produto específico que ele está usando, poderemos obter isso no objeto `context` e adicionar à mensagem.     
+Os cabeçalhos HTTP podem ser transferidos para o formato da mensagem em um formato de pares simples de chave/valor. Optamos por retirar determinados campos sensíveis à segurança, a fim de evitar vazamento desnecessário das informações credenciais. É improvável que as chaves da API e outras credenciais sejam usadas para fins de análise. Se desejarmos analisar o usuário e o produto específico que ele está usando, poderemos obter isso no objeto `context` e adicionar à mensagem.
 
 ### <a name="message-metadata"></a>Metadados da mensagem
 Quando criamos a mensagem completa a ser enviada ao hub de eventos, a primeira linha não fará realmente parte da mensagem `application/http` . A primeira linha é composta de metadados adicionais que consistem em apontar se a mensagem é de solicitação ou de resposta e em uma ID de mensagem usada para correlacionar solicitações com as respostas. A ID da mensagem é criada usando outra política que se parece com esta:
@@ -156,13 +156,13 @@ A política para enviar a mensagem de resposta HTTP é semelhante à solicitaç�
 </policies>
 ```
 
-A política `set-variable` cria um valor que pode ser acessado pela política `log-to-eventhub` na seção `<inbound>` e na seção `<outbound>`.  
+A política `set-variable` cria um valor que pode ser acessado pela política `log-to-eventhub` na seção `<inbound>` e na seção `<outbound>`.
 
 ## <a name="receiving-events-from-event-hubs"></a>Recebendo eventos dos Hubs de Eventos
-Os eventos do Hub de Eventos do Azure são recebidos usando o [protocolo AMQP](https://www.amqp.org/). A equipe do Barramento de Serviço da Microsoft disponibilizou bibliotecas de cliente para facilitar o consumo de eventos. Duas abordagens diferentes são aceitas, uma é ser um *Consumidor Direto* e a outra é usar a classe `EventProcessorHost`. Exemplos dessas duas abordagens podem ser encontrados no [Guia de Programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md). A principal diferença é: o `Direct Consumer` dá a você controle total e o `EventProcessorHost` executa alguns trabalhos para você, mas faz determinadas suposições sobre como esses trabalhos são processados.  
+Os eventos do Hub de Eventos do Azure são recebidos usando o [protocolo AMQP](https://www.amqp.org/). A equipe do Barramento de Serviço da Microsoft disponibilizou bibliotecas de cliente para facilitar o consumo de eventos. Duas abordagens diferentes são aceitas, uma é ser um *Consumidor Direto* e a outra é usar a classe `EventProcessorHost`. Exemplos dessas duas abordagens podem ser encontrados no [Guia de Programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md). A principal diferença é: o `Direct Consumer` dá a você controle total e o `EventProcessorHost` executa alguns trabalhos para você, mas faz determinadas suposições sobre como esses trabalhos são processados.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-Neste exemplo, usamos o `EventProcessorHost` para simplificar, mas ele pode não ser a melhor opção para esse cenário específico. `EventProcessorHost` faz o trabalho difícil, para que você não precise se preocupar com problemas de threading em uma classe específica de processador de eventos. Entretanto, em nosso cenário, estamos simplesmente convertendo a mensagem em outro formato e passando-a para outro serviço usando um método assíncrono. Não há necessidade de atualizar o estado compartilhado e, portanto, nenhum risco de ter problemas de threading. Na maioria dos cenários, `EventProcessorHost` provavelmente é a melhor opção e, certamente, a mais fácil.     
+Neste exemplo, usamos o `EventProcessorHost` para simplificar, mas ele pode não ser a melhor opção para esse cenário específico. `EventProcessorHost` faz o trabalho difícil, para que você não precise se preocupar com problemas de threading em uma classe específica de processador de eventos. Entretanto, em nosso cenário, estamos simplesmente convertendo a mensagem em outro formato e passando-a para outro serviço usando um método assíncrono. Não há necessidade de atualizar o estado compartilhado e, portanto, nenhum risco de ter problemas de threading. Na maioria dos cenários, `EventProcessorHost` provavelmente é a melhor opção e, certamente, a mais fácil.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
 O conceito central ao usar `EventProcessorHost` é criar uma implementação da interface `IEventProcessor` que contenha o método `ProcessEventAsync`. A essência desse método é mostrada aqui:
@@ -171,20 +171,20 @@ O conceito central ao usar `EventProcessorHost` é criar uma implementação da 
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
-   foreach (EventData eventData in messages)
-   {
-       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+    foreach (EventData eventData in messages)
+    {
+        _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-       try
-       {
-           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-       }
-       catch (Exception ex)
-       {
-           _Logger.LogError(ex.Message);
-       }
-   }
+        try
+        {
+            var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+            await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+        }
+        catch (Exception ex)
+        {
+            _Logger.LogError(ex.Message);
+        }
+    }
     ... checkpointing code snipped ...
 }
 ```
@@ -197,10 +197,10 @@ A instância de `HttpMessage` contém três partes de dados:
 ```csharp
 public class HttpMessage
 {
-   public Guid MessageId { get; set; }
-   public bool IsRequest { get; set; }
-   public HttpRequestMessage HttpRequestMessage { get; set; }
-   public HttpResponseMessage HttpResponseMessage { get; set; }
+    public Guid MessageId { get; set; }
+    public bool IsRequest { get; set; }
+    public HttpRequestMessage HttpRequestMessage { get; set; }
+    public HttpResponseMessage HttpResponseMessage { get; set; }
 
 ... parsing code snipped ...
 
@@ -220,43 +220,43 @@ A implementação de `IHttpMessageProcessor` se parece com esta:
 ```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
-   private HttpClient _HttpClient;
-   private ILogger _Logger;
-   private string _BucketKey;
-   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-   {
-       _HttpClient = httpClient;
-       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-       _Logger = logger;
-   }
+    private HttpClient _HttpClient;
+    private ILogger _Logger;
+    private string _BucketKey;
+    public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+    {
+        _HttpClient = httpClient;
+        var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+        _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+        _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+        _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+        _Logger = logger;
+    }
 
-   public async Task ProcessHttpMessage(HttpMessage message)
-   {
-       var runscopeMessage = new RunscopeMessage()
-       {
-           UniqueIdentifier = message.MessageId
-       };
+    public async Task ProcessHttpMessage(HttpMessage message)
+    {
+        var runscopeMessage = new RunscopeMessage()
+        {
+            UniqueIdentifier = message.MessageId
+        };
 
-       if (message.IsRequest)
-       {
-           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-       }
-       else
-       {
-           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-       }
+        if (message.IsRequest)
+        {
+            _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+            runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
+        }
+        else
+        {
+            _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+            runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+        }
 
-       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-       messagesLink.BucketKey = _BucketKey;
-       messagesLink.RunscopeMessage = runscopeMessage;
-       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
-   }
+        var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+        messagesLink.BucketKey = _BucketKey;
+        messagesLink.RunscopeMessage = runscopeMessage;
+        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+        _Logger.LogDebug("Request sent to Runscope");
+    }
 }
 ```
 

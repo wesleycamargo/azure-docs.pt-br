@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32cd3b9eb60a6d12c71be047740fa96ffdd56310
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094149"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731930"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou de um VHD
 
@@ -43,7 +43,7 @@ Você precisará dos seguintes itens antes de criar uma imagem:
 Para uma versão simplificada deste artigo e para testar, avaliando ou aprendendo sobre VMs no Azure, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
 
 
-## <a name="step-1-deprovision-the-vm"></a>Etapa 1: desprovisionar a VM
+## <a name="step-1-deprovision-the-vm"></a>Etapa 1: Desprovisionar a VM
 Primeiro, você vai desprovisionar a VM usando o agente de VM do Azure para excluir dados e arquivos específicos do computador. Use o comando `waagent` com o `-deprovision+user` parâmetro em sua VM do Linux de origem. Para saber mais, confira o [Guia do usuário do agente Linux para o Azure](../extensions/agent-linux.md).
 
 1. Conecte-se à VM do Linux com um cliente SSH.
@@ -61,7 +61,7 @@ Primeiro, você vai desprovisionar a VM usando o agente de VM do Azure para excl
 ## <a name="step-2-create-vm-image"></a>Etapa 2: Criar a imagem de VM
 Use a CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myVnet* e *myVM*.
 
-1. Desaloque a VM desprovisionada com [az vm deallocate](/cli/azure/vm#deallocate). O exemplo a seguir desaloca a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*.
+1. Desaloque a VM desprovisionada com [az vm deallocate](/cli/azure/vm). O exemplo a seguir desaloca a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ Use a CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
       --name myVM
     ```
 
-2. Marque a VM como generalizada com [az vm generalize](/cli/azure/vm#generalize). O exemplo a seguir marca a VM denominada *myVM* no grupo de recursos chamado *myResourceGroup* como generalizada.
+2. Marque a VM como generalizada com [az vm generalize](/cli/azure/vm). O exemplo a seguir marca a VM denominada *myVM* no grupo de recursos chamado *myResourceGroup* como generalizada.
    
     ```azurecli
     az vm generalize \
@@ -90,8 +90,8 @@ Use a CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
    >
    > Se você quiser armazenar a imagem no armazenamento com resiliência de zona, será necessário criá-la em uma região que dê suporte para [zonas de disponibilidade](../../availability-zones/az-overview.md) e inclua o parâmetro `--zone-resilient true`.
 
-## <a name="step-3-create-a-vm-from-the-captured-image"></a>Etapa 3: criar uma VM com base na imagem capturada
-Criar uma VM usando a imagem criada com [criar vm az](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM denominada *myVMDeployed* da imagem denominada *myImage*.
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Etapa 3: Criar uma VM com base na imagem capturada
+Criar uma VM usando a imagem criada com [criar vm az](/cli/azure/vm). O exemplo a seguir cria uma VM denominada *myVMDeployed* da imagem denominada *myImage*.
 
 ```azurecli
 az vm create \
@@ -124,7 +124,7 @@ az vm create \
 ```
 
 
-## <a name="step-4-verify-the-deployment"></a>Etapa 4: verificar a implantação
+## <a name="step-4-verify-the-deployment"></a>Etapa 4: Verificar a implantação
 
 SSH para a máquina virtual que você criou para verificar a implantação e começar a usar a nova VM. Para se conectar via SSH, localize o endereço IP ou o FQDN da VM com [az vm show](/cli/azure/vm#az-vm-show).
 

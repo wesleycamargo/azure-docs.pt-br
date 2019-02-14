@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Este artigo contém informações sobre a entidade predefinida e idade em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 7644f2c4f4479ae234dc2d4b501be17455230bde
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a6aeffb40092252a4e48a200da640f22a149f089
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217842"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867300"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entidade de idade predefinida para um aplicativo LUIS
 A entidade de idade predefinida captura o valor de idade tanto numericamente quanto em termos de dias, semanas, meses e anos. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados contendo email às intenções do aplicativo. A entidade de idade é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 

@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712051"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701005"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 
@@ -30,7 +30,7 @@ Dentro de um trabalho do [Agendador do Azure](../scheduler/scheduler-intro.md), 
 
 * **Solicitar dados externos**: crie um trabalho que é executado a cada 15 minutos e recebe um novo relatório de previsão do tempo do NOAA.
 
-* **Processar imagens**: crie um trabalho de dia da semana que é executado fora dos horários de pico e usa a computação em nuvem para a compactação de imagens carregadas durante o dia.
+* **Processar imagens**: crie um trabalho de dia útil que é executado fora dos horários de pico e usa a computação em nuvem para a compactação de imagens carregadas durante o dia.
 
 Este artigo descreve trabalhos de exemplo que você pode criar usando o Agendador e a [API REST do Agendador do Azure](/rest/api/scheduler) e inclui a definição do JSON (JavaScript Object Notation) para cada agendamento. 
 
@@ -53,9 +53,9 @@ Mais tarde este artigo descreve esses cenários mais detalhadamente.
 
 Para criar um agendamento básico com a [API REST do Agendador do Azure](/rest/api/scheduler), siga estas etapas:
 
-1. Registre sua assinatura do Azure com um provedor de recursos usando a [Operação de registro – API REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). O nome do provedor do serviço do Agendador do Azure é **Microsoft.Scheduler**. 
+1. Registre sua assinatura do Azure com um provedor de recursos usando a [Operação de registro – API REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). O nome do provedor do serviço do Agendador do Azure é **Microsoft.Scheduler**. 
 
-1. Crie uma coleção de trabalhos usando a [Operação de criação ou atualização para coleções de trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) na API REST do Agendador. 
+1. Crie uma coleção de trabalhos usando a [Operação de criação ou atualização para coleções de trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobcollections) na API REST do Agendador. 
 
 1. Crie um trabalho usando a [Operação de criação ou atualização para trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
@@ -67,7 +67,7 @@ Esta tabela fornece uma visão geral de alto nível para os principais elementos
 |---------|----------|-------------|
 | **startTime** | Não  | Um valor de cadeia de caracteres de DateTime em [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho é iniciado em um cronograma básico. <p>Para agendas complexas, o trabalho não inicia antes do **startTime**. | 
 | **recurrence** | Não  | As regras de recorrência para quando o trabalho é executado. O objeto de **recorrência** tem suporte para estes elementos: **frequency**, **interval**, **schedule**, **count** e **endTime**. <p>Se você usar o elemento **recurrence**, também deverá usar o **frequency**, enquanto outros elementos **recurrence** são opcionais. |
-| **frequency** | Sim, quando você usa **recurrence** | A unidade de tempo entre ocorrências e a compatibilidade desses valores: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
+| **frequency** | Sim, quando você usa **recurrence** | A unidade de tempo entre ocorrências e a compatibilidade desses valores: “Minute”, “Hour”, “Day”, “Week”, “Month”, “Year” | 
 | **interval** | Não  | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base em **frequency**. <p>Por exemplo, se **interval** for 10 e **frequency** for "Week", o trabalho se repetirá a cada 10 semanas. <p>Aqui estão o maior número de intervalos para cada frequência: <p>– 18 meses <br>– 78 semanas <br>– 548 dias <br>– Para horas e minutos, o intervalo é 1 <= <*interval*> <= 1000. | 
 | **schedule** | Não  | Defina as alterações para a recorrência com base nas marcas de minuto, marcas de hora, dias da semana e dias do mês especificados | 
 | **count** | Não  | Um número inteiro positivo que especifica o número de vezes que o trabalho é executado antes de ser concluído. <p>Por exemplo, quando um trabalho diário tem **count** definido como 7 e a data de início é Monday, o trabalho conclui a execução em um domingo. Se a data de início já tiver passado, a primeira execução será calculada do momento da criação. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. | 

@@ -4,7 +4,7 @@ description: O Azure Media Indexer permite que você torne o conteúdo de seus a
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: b6e0b2027dd4edbf1688a6c71efe2dde37fbbf96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4bc11e4f622943cdb72253ecd758c27a026495fa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473360"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991151"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
 O Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.  

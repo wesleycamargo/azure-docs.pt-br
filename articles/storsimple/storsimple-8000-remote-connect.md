@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103948"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816485"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conectar remotamente ao seu dispositivo StorSimple série 8000
 
@@ -46,7 +46,7 @@ Conectar-se ao Windows PowerShell para StorSimple por meio de uma sessão HTTP o
 
 É possível usar o Portal do Azure ou o console serial para configurar o gerenciamento remoto. Escolha um dos seguintes procedimentos:
 
-* [Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTP
 * [Usar o console serial para habilitar o gerenciamento remoto via HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
 Depois de habilitar o gerenciamento remoto, use o procedimento a seguir para preparar o cliente para uma conexão remota.
@@ -124,7 +124,7 @@ A conexão ao Windows PowerShell para StorSimple por meio de uma sessão HTTPS �
 
 É possível usar o Portal do Azure ou o console serial para configurar o gerenciamento remoto. Escolha um dos seguintes procedimentos:
 
-* [Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTPS
 * [Usar o console serial para habilitar o gerenciamento remoto via HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
 Depois de habilitar o gerenciamento remoto, use os procedimentos a seguir para preparar o host para um gerenciamento remoto e conecte ao dispositivo a partir do host remoto.
@@ -203,7 +203,7 @@ Cada um dos procedimentos acima é descrito abaixo.
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para adicionar números de série do dispositivo ao host remoto
 1. Inicie o bloco de notas como administrador e abra o arquivo hosts localizado em \Windows\System32\Drivers\etc.
-2. Adicione as três entradas a seguir ao arquivo hosts: **endereço IP DATA 0**, **endereço IP fixo do controlador 0** e **endereço IP fixo do controlador 1**.
+2. Adicione as entradas a seguir ao arquivo de hosts: **Endereço IP do DATA 0**, **Endereço IP corrigido do Controlador 0** e **Endereço IP corrigido do Controlador 1**.
 3. Insira o número de série do dispositivo que você salvou anteriormente. Mapeie-o para o endereço IP conforme mostrado na imagem a seguir. Em controlador 0 e controlador 1, acrescente **Controller0** e **Controller1** no final do número de série (nome CN).
    
     ![Adicionando um Nome CN ao arquivo hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)

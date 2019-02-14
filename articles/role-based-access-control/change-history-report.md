@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541550"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692720"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Exibir logs de atividades para alterações de RBAC
 
@@ -53,24 +53,26 @@ Para saber mais sobre logs de atividades, confira [Exibir eventos no log de ativ
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Para exibir logs de atividade com o Azure PowerShell, use o comando [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog).
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+Para exibir logs de atividade com o Azure PowerShell, use o comando [Get-AzLog](/powershell/module/az.insights/get-azlog).
 
 Esse comando abaixo lista todas as alterações de atribuição de função em uma assinatura nos os últimos sete dias:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 Esse comando abaixo lista todas as definição de atribuição de função em um grupo de recursos nos os últimos sete dias:
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 Esse comando lista todas as alterações de atribuição de função e de definição de função em uma assinatura para os últimos sete dias e exibe os resultados em uma lista:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example

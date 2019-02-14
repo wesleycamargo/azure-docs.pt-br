@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184369"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812441"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
-Além das opções encontradas na Galeria de Aplicativos do Azure AD, você também tem a opção de adicionar um **aplicativo inexistente na galeria** quando o aplicativo desejado não estiver nela. Usando esse recurso, é possível adicionar qualquer aplicativo que já existe em sua organização ou qualquer aplicativo de terceiros que você usa e que é de um fornecedor que ainda não faz parte da [Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Além das opções encontradas na Galeria de Aplicativos do Azure AD, você também tem a opção de adicionar um **aplicativo inexistente na galeria** quando o aplicativo desejado não estiver nela. Usando esse recurso, é possível adicionar qualquer aplicativo que já existe em sua organização ou qualquer aplicativo de terceiros que você usa e que é de um fornecedor que ainda não faz parte da [Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 Após adicionar um aplicativo inexistente na galeria, você pode configurar o método de logon único usado por esse aplicativo selecionando o item de navegação **Logon único** em um aplicativo empresarial no [Portal do Azure](https://portal.azure.com/).
 
-Um dos métodos de logon único disponíveis para você é a opção [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Com a experiência de **adicionar um aplicativo inexistente na galeria**, você pode integrar qualquer aplicativo que renderiza um campo de entrada de nome de usuário e senha em HTML, mesmo que ele não esteja em nosso conjunto de aplicativos pré-integrados.
+Um dos métodos de logon único disponíveis para você é a opção [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Com a experiência de **adicionar um aplicativo inexistente na galeria**, você pode integrar qualquer aplicativo que renderiza um campo de entrada de nome de usuário e senha em HTML, mesmo que ele não esteja em nosso conjunto de aplicativos pré-integrados.
 
 Isso funciona com uma tecnologia de verificação de página que faz parte da extensão do Painel de Acesso e que permite a detecção automática de campos de entrada de usuário e senha, bem como seu armazenamento seguro para a instância do aplicativo específico. Em seguida, reproduza com segurança os nomes de usuário e senhas nesses campos quando um usuário navegar para o aplicativo no painel de acesso do aplicativo.
 
@@ -43,11 +43,11 @@ Trata-se de uma ótima maneira de começar a integrar rapidamente qualquer tipo 
 
 -   Permitir que um **membro do grupo de negócios** especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso de [Autoatendimento de Acesso ao Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Permitir que um **administrador** especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso Atualizar Credenciais ao [atribuir um usuário a um aplicativo](#_How_to_configure_1)
+-   Permitir que um **administrador** especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso Atualizar Credenciais ao atribuir um usuário a um aplicativo
 
 -   Permitir que um **administrador** especifique a senha ou nome de usuário compartilhado por um grupo de pessoas usando o recurso Atualizar Credenciais ao [atribuir um grupo a um aplicativo](#assign-an-application-to-a-group-directly)
 
-A seção a seguir descreve como você pode habilitar o [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) para qualquer aplicativo que você adicionar usando a experiência de **adicionar um aplicativo inexistente na galeria**.
+A seção a seguir descreve como você pode habilitar o [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) para qualquer aplicativo que você adicionar usando a experiência de **adicionar um aplicativo inexistente na galeria**.
 
 ## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
 
@@ -57,7 +57,7 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
--   [Atribuir o aplicativo a um usuário ou um grupo](#assign-the-application-to-a-user-or-a-group)
+-   Atribuir o aplicativo a um usuário ou um grupo
 
     -   [Atribuir um usuário diretamente a um aplicativo](#assign-a-user-to-an-application-directly)
 

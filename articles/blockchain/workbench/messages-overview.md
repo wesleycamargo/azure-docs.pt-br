@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2018
+ms.date: 02/01/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: mmercuri
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 34731bb96a83a901b3fc1a59ce1846083d69bfd7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103376"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662220"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
 
@@ -116,6 +116,7 @@ A solicitação exige os seguintes campos:
 | requestId            | GUID do cliente fornecido |
 | userChainIdentifier  | Endereço do usuário que foi criado na rede blockchain. No Ethereum, esse endereço é o endereço **do usuário na cadeia**. |
 | applicationName      | Nome do aplicativo |
+| version              | Versão do aplicativo. Necessário se você tiver várias versões do aplicativo habilitadas. Caso contrário, a versão é opcional. Para obter mais informações sobre o controle de versão do aplicativo, confira [Controle de versão do aplicativo do Azure Blockchain Workbench](version-app.md). |
 | workflowName         | Nome do fluxo de trabalho |
 | parâmetros           | Parâmetros de entrada para criação de contrato |
 | ConnectionId         | Identificador exclusivo para a conexão blockchain |
@@ -128,7 +129,8 @@ Exemplo:
 { 
     "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
-    "applicationName": "AssetTransfer", 
+    "applicationName": "AssetTransfer",
+    "version": "1.0",
     "workflowName": "AssetTransfer", 
     "parameters": [ 
         { 
@@ -218,6 +220,7 @@ A solicitação exige os seguintes campos:
 | requestId                | GUID do cliente fornecido |
 | userChainIdentifier      | Endereço do usuário que foi criado na rede blockchain. No Ethereum, esse endereço é o endereço **do usuário na cadeia**. |
 | contractLedgerIdentifier | Endereço do contrato no razão |
+| version                  | Versão do aplicativo. Necessário se você tiver várias versões do aplicativo habilitadas. Caso contrário, a versão é opcional. Para obter mais informações sobre o controle de versão do aplicativo, confira [Controle de versão do aplicativo do Azure Blockchain Workbench](version-app.md). |
 | WorkflowFunctionName     | Nome da função de fluxo de trabalho |
 | parâmetros               | Parâmetros de entrada para criação de contrato |
 | ConnectionId             | Identificador exclusivo para a conexão blockchain |
@@ -231,6 +234,7 @@ Exemplo:
     "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
     "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "version": "1.0",
     "workflowFunctionName": "modify",
     "parameters": [
         {

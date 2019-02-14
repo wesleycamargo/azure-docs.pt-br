@@ -4,21 +4,19 @@ description: Descreve a seção de parâmetros dos modelos do Azure Resource Man
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722135"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695615"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Seção de parâmetros dos modelos do Azure Resource Manager
 Na seção de parâmetros do modelo, você deve especificar os valores que você pode inserir ao implantar os recursos. Esses valores de parâmetro permitem personalizar a implantação fornecendo valores que são personalizados para um determinado ambiente (como desenvolvimento, teste e produção). Você não precisa fornecer parâmetros em seu modelo, mas sem parâmetros o modelo sempre implantaria os mesmos recursos com o mesmo nomes, locais e propriedades.
@@ -85,15 +83,15 @@ O exemplo anterior mostrou apenas algumas das propriedades que você pode usar n
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| parameterName |SIM |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| Tipo |SIM |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| parameterName |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
+| Tipo |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
 | defaultValue |Não  |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
 | allowedValues |Não  |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
 | minValue |Não  |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
 | maxValue |Não  |O valor máximo para parâmetros de tipo int, esse valor é inclusivo. |
 | minLength |Não  |O tamanho mínimo para parâmetros de tipo de matriz, cadeia de caracteres segura e cadeia de caracteres, esse valor é inclusivo. |
 | maxLength |Não  |O tamanho máximo para parâmetros de tipo de matriz, cadeia de caracteres segura e cadeia de caracteres, esse valor é inclusivo. |
-| Descrição |Não  |Descrição do parâmetro exibido aos usuários pelo portal. |
+| Descrição |Não  |Descrição do parâmetro exibido aos usuários pelo portal. Para obter mais informações, confira [Comentários em modelos](resource-group-authoring-templates.md#comments). |
 
 ## <a name="template-functions-with-parameters"></a>Funções com parâmetros de modelo
 

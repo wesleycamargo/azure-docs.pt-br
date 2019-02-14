@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903997"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743626"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -36,11 +36,11 @@ Para atualizar o escopo de uma reserva:
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione a reserva.
 4. Selecione **Configurações** > **Configuração**.
-5. Altere o escopo. 
+5. Altere o escopo.
 
 Se você alterar de compartilhado para escopo único, poderá selecionar apenas as assinaturas em que é o proprietário. Somente as assinaturas no mesmo contexto de cobrança que a reserva podem ser selecionadas.
 
-O escopo somente aplica-se à oferta Pagamento Conforme o Uso MS-AZR-0003P, oferta Enterprise MS-AZR-0017P ou tipos de assinatura CSP. No que concerne aos contratos Enterprise, as assinaturas de desenvolvimento/de teste não se qualificam para o desconto de reserva.
+O escopo somente aplica-se à oferta Pagamento Conforme o Uso MS-AZR-0003P ou MS-AZR-0023P, oferta Enterprise MS-AZR-0017P ou MS-AZR-0148P, ou tipos de assinatura CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os usuários que podem gerenciar uma reserva
 

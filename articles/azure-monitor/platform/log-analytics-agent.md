@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185963"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765664"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Colete dados de log com o agente do Log Analytics do Azure
 
-O agente do Azure Log Analytics (OMS), anteriormente conhecido como agente do Microsoft Monitoring Agent (MMA) ou OMS Linux, foi desenvolvido para gerenciamento abrangente em máquinas locais, computadores monitorados pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), e máquinas virtuais em qualquer nuvem. Os agentes do Windows e do Linux se conectam a um espaço de trabalho do Log Analytics para coletar dados de diferentes origens, bem como quaisquer logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. 
+O agente do Azure Log Analytics, anteriormente conhecido como agente do Microsoft Monitoring Agent (MMA) ou OMS Linux, foi desenvolvido para gerenciamento abrangente em máquinas locais, computadores monitorados pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), e máquinas virtuais em qualquer nuvem. Os agentes do Windows e do Linux se conectam a um espaço de trabalho do Log Analytics para coletar dados de diferentes origens, bem como quaisquer logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. 
 
 Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.   
 
@@ -41,7 +41,7 @@ O agente para Linux e Windows não serve apenas para conectar-se ao Log Analytic
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) ou posterior
+* Windows Server 2008 R2 ou posterior
 * Windows 7 SP1 e posterior.
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
@@ -78,10 +78,10 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 |Recurso de agente|Portas |Direção |Ignorar a inspeção de HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |Entrada e saída|SIM |  
-|*.oms.opinsights.azure.com |Porta 443 |Entrada e saída|SIM |  
-|*.blob.core.windows.net |Porta 443 |Entrada e saída|SIM |  
-|*.azure-automation.net |Porta 443 |Entrada e saída|SIM |  
+|*.ods.opinsights.azure.com |Porta 443 |Entrada e saída|Sim |  
+|*.oms.opinsights.azure.com |Porta 443 |Entrada e saída|Sim |  
+|*.blob.core.windows.net |Porta 443 |Entrada e saída|Sim |  
+|*.azure-automation.net |Porta 443 |Entrada e saída|Sim |  
 
 
 Se você planeja usar o Hybrid Runbook Worker da Automação do Azure para conectar e se registrar no serviço de automação para usar runbooks em seu ambiente, é necessário ter acesso ao número da porta e as URLs descritas em [Configurar sua rede para o Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 

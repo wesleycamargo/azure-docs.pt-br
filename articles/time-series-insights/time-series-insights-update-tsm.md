@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099893"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507801"
 ---
 # <a name="time-series-model"></a>Modelo do Time Series
 
@@ -152,9 +152,11 @@ No exemplo anterior, ID1 e ID4 são mostrados como parte da hierarquia H1 no exp
 
 As instâncias são a série temporal em si. Na maioria dos casos, o *deviceId* ou *assetId* é o identificador exclusivo do ativo no ambiente. As instâncias têm informações descritivas associadas a elas, chamadas propriedades de instância. As propriedades de instância incluem, no mínimo, informações de hierarquia. Elas também podem incluir dados úteis e descritivos, como fabricante, operador ou última data de serviço.
 
-As instâncias são definidas por *timeSeriesId*, *typeId*, *hierarchyId* e *instanceFields*. Cada instância é mapeada para apenas um *tipo* e para uma ou mais hierarquias. As instâncias herdam todas as propriedades das hierarquias, e mais *instanceFields* podem ser adicionados para definir propriedades de instância.
+As instâncias são definidas por *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds* e *instanceFields*. Cada instância é mapeada para apenas um *tipo* e para uma ou mais hierarquias. As instâncias herdam todas as propriedades das hierarquias, e mais *instanceFields* podem ser adicionados para definir propriedades de instância.
 
 *instanceFields* são propriedades de uma instância e todos os dados estáticos que definem uma instância. Elas definem os valores das propriedades hierárquicas e não hierárquicas e também dão suporte à indexação para executar operações de pesquisa.
+
+A propriedade *name* é opcional e diferencia maiúsculas de minúsculas. Se *name* não estiver disponível, o padrão será a ID do Time Series. Se um *nome* for fornecido, a ID do Time Series ainda estará disponível no espaço (a grade abaixo dos gráficos no Explorer). 
 
 ## <a name="time-series-model-instance-json-example"></a>Exemplo JSON de instância do modelo do Time Series
 
@@ -164,6 +166,7 @@ Exemplo:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

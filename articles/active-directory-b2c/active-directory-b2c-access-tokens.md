@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172979"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768313"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure Active Directory B2C: Solicitação do tokens de acesso
 
@@ -78,8 +78,15 @@ Ao solicitar um token de acesso, o aplicativo cliente precisa especificar as per
 > [!NOTE]
 > Atualmente, não há suporte para os domínios personalizados junto com os tokens de acesso. Você deve usar o seu domínio tenantName.onmicrosoft.com na URL de solicitação.
 
+Substitua esses valores no exemplo a seguir:
+
+- `<tenant-name>` – O nome de seu locatário do Azure AD B2C.
+- `<policy-name>` – O nome da sua política personalizada ou o fluxo de usuário.
+- `<application-ID>` – O identificador do aplicativo do aplicativo cliente que você registrou.
+- `<redirect-uri>` – O **URI de redirecionamento** que você inseriu ao registrar o aplicativo cliente.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Para adquirir várias permissões na mesma solicitação, você pode adicionar várias entradas separadas por espaços no único parâmetro **scope**. Por exemplo: 

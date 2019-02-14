@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171789"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822758"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
@@ -34,11 +34,11 @@ Há três principais maneiras que um usuário pode obter acesso a um aplicativo 
 
 -   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários também podem ter o acesso concedido através do **consentimento do administrador**. Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
 
-Para solucionar o problema, inicie com as [Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar](#general-problem-areas-with-application-access-to-consider). Para obter mais detalhes, leia o [Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Para solucionar o problema, inicie com as [Áreas com Problemas Gerais de Acesso do Aplicativo a serem consideradas](#general-problem-areas-with-application-access-to-consider) e depois leia o Passo a passo: Etapas que detalham a solução de problemas de acesso ao aplicativo Microsoft.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar
 
-A seguir, é apresentada uma lista das áreas com problemas gerais que você pode analisar se tiver uma ideia de onde iniciar, mas é recomendável que leia o passo a passo para começar rapidamente: [Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+A seguir, é apresentada uma lista das áreas com problemas gerais que você pode analisar se tiver uma ideia de onde iniciar, mas é recomendável que leia o passo a passo para começar rapidamente: Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft.
 
 -   [Problemas com a conta do usuário](#problems-with-the-users-account)
 
@@ -180,7 +180,7 @@ Para habilitar a redefinição de senhas por autoatendimento, execute as etapas 
 
 -   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o status da Autenticação Multifator de um usuário
 
@@ -204,7 +204,7 @@ Para verificar o status da Autenticação Multifator de um usuário, siga estas 
 
 9.  Selecione o usuário na lista de usuários e **Habilite**, **Desabilite** ou **Imponha** a autenticação multifator conforme o desejado.
 
-  * **Observação**: Se um usuário estiver em um estado Imposto, defina-o temporariamente como **Desabilitado** para deixá-lo entrar novamente na conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
+  * **Observação**: Se um usuário estiver em um estado **Imposto**, defina-o temporariamente como **Desabilitado** para deixá-lo entrar novamente na conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verificar as informações de contato de autenticação de um usuário
 

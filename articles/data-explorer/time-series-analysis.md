@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636665"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750555"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série temporal no Data Explorer do Azure
 
@@ -35,7 +35,7 @@ A tabela resultante contém uma coluna de timestamp, três colunas de dimensões
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | País |
+|   | TimeStamp | BrowserVer | OsVer | País/Região |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Reino Unido |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Reino Unido |
@@ -64,7 +64,7 @@ demo_make_series1
     - `byOsVer`: partição de sistema operacional
 - A estrutura de dados da série temporal real é uma matriz numérica do valor agregado para cada intervalo de tempo. Podemos usar `render timechart` para visualização.
 
-Na tabela acima, temos três partições. Podemos criar uma série temporal separada: Windows 10 (vermelho), 7 (azul) e 8.1 (verde) para cada versão do sistema operacional, como visto no gráfico:
+Na tabela acima, temos três partições. Podemos criar uma série de tempo separada: Windows 10 (vermelho), 7 (azul) e 8.1 (verde) para cada versão do SO, como visto no gráfico:
 
 ![Partição de série temporal](media/time-series-analysis/time-series-partition.png)
 
@@ -103,7 +103,7 @@ Exemplo de funções `series_fit_line()` e `series_fit_2lines()` em uma consulta
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
-| render linechart
+| render linechart with(xcolumn=x)
 ```
 
 ![Regressão de série de tempo](media/time-series-analysis/time-series-regression.png)
@@ -206,7 +206,7 @@ let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h)
-| render timechart 
+| render timechart with(ymin=0) 
 ```
 
 ![Série temporal em escala](media/time-series-analysis/time-series-at-scale.png)
@@ -217,7 +217,7 @@ Podemos criar quantas séries de tempo?
 
 ```kusto
 demo_many_series1
-| summarize by Loc, anonOp, DB
+| summarize by Loc, Op, DB
 | count
 ```
 
@@ -232,7 +232,7 @@ Agora, vamos criar um conjunto de 23115 séries temporais da métrica de contage
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
 | render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
@@ -246,17 +246,17 @@ Exiba as instâncias:
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc
-| project Loc, anonOp, DB, slope 
+| project Loc, Op, DB, slope 
 ```
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | anonOp | DB | slope |
-|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc | Op | DB | slope |
+|   | Loc 15 | 37 | 1151 | -102743.910227889 |
+|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
 Em menos de dois minutos, o ADX analisou mais de 20.000 séries temporais e detectou duas séries temporais anormais, nas quais a contagem de leitura caiu repentinamente.
 

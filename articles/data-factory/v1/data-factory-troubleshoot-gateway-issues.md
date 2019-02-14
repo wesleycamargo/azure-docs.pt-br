@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022531"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813833"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -138,7 +138,7 @@ A seguinte mensagem de erro poderá ser exibida.
 Esse erro ocorre quando o seu gateway está em um ambiente que requer um proxy HTTP para acessar recursos da Internet, ou quando a senha de autenticação do proxy é alterada, mas não é atualizada adequadamente em seu gateway.
 
 #### <a name="resolution"></a>Resolução
-Siga as instruções na seção [Considerações sobre o servidor proxy](#proxy-server-considerations) neste artigo e defina as configurações de proxy com o Gerenciador de Configuração de Gateway de Gerenciamento de Dados.
+Siga as instruções da seção Considerações sobre o servidor proxy deste artigo e defina as configurações de proxy com o Gerenciador de Configuração de Gateway de Gerenciamento de Dados.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>O gateway está online com funcionalidade limitada
 ### <a name="1-problem"></a>1. Problema
@@ -169,8 +169,8 @@ O gateway não pode se conectar ao serviço de nuvem por meio do Barramento de S
 Siga estas etapas para colocar o gateway novamente online:
 
 1. Permita as regras de saída do endereço IP no computador do gateway e no firewall corporativo. Você pode encontrar endereços IP no Log de Eventos do Windows (ID == 401): Houve uma tentativa de acessar um soquete de uma maneira proibida pelas permissões de acesso XX.XX.XX.XX:9350.
-* Defina as configurações de proxy no gateway. Consulte a seção [Considerações sobre servidor proxy](#proxy-server-considerations) para saber mais.
-* Habilite as portas de saída 5671 e 9350 a 9354 no Firewall do Windows, no computador do gateway e no firewall corporativo. Consulte a seção [Portas e firewall](#ports-and-firewall) para saber mais. Esta etapa é opcional, mas recomendada devido a considerações sobre desempenho.
+* Defina as configurações de proxy no gateway. Confira a seção Considerações sobre servidor proxy para saber mais.
+* Habilite as portas de saída 5671 e 9350 a 9354 no Firewall do Windows, no computador do gateway e no firewall corporativo. Confira a seção Portas e firewall para saber mais. Esta etapa é opcional, mas recomendada devido a considerações sobre desempenho.
 
 ### <a name="3-problem"></a>3. Problema
 Você obtém o erro a seguir.

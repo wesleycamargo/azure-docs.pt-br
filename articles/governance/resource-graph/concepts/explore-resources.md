@@ -4,17 +4,17 @@ description: Aprenda a usar a linguagem de consulta do Resource Graph para explo
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 090ea6fa38f07dda2f3769398c082e302edebe94
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6ce615e23ce71f22eff3c2c70b387267792fef9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095456"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768393"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explore seus recursos do Azure com o Gráfico de Recursos
 
@@ -40,8 +40,11 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
 ```
+
+> [!NOTE]
+> O cmdlet `Search-AzGraph` do Azure PowerShell retorna um **PSCustomObject** por padrão. Para que a saída tenha a mesma aparência do que é retornado pela CLI do Azure, o cmdlet `ConvertTo-Json` é usado. O valor padrão da **Profundidade** é _2_. Ao definir como _100_, ele deve converter todos os níveis retornados.
 
 Os resultados do JSON são estruturados de forma semelhante ao exemplo a seguir:
 

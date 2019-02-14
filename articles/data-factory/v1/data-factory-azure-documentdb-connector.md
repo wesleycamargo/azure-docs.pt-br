@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330379"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812643"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para o Azure Cosmos DB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,8 +59,8 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **DocumentDb** |SIM |
-| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB. |SIM |
+| Tipo |A propriedade type deve ser definida como: **DocumentDb** |Sim |
+| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB. |Sim |
 
 Exemplo:
 
@@ -83,7 +83,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| collectionName |Nome da coleção de documentos do Cosmos DB. |SIM |
+| collectionName |Nome da coleção de documentos do Cosmos DB. |Sim |
 
 Exemplo:
 
@@ -301,11 +301,11 @@ O pipeline a seguir copia dados da coleção Person no banco de dados no Azure C
 ## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exemplo: Copiar dados do Blob do Azure para o Azure Cosmos DB
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo [DocumentDB2}.
+1. Um serviço vinculado do tipo DocumentDB.
 2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-5. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo DocumentDbCollection.
+5. Um [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e DocumentDbCollectionSink.
 
 O exemplo copia dados do Blob do Azure para o Azure Cosmos DB. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 

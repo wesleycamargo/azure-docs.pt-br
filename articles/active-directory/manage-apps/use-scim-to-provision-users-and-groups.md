@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161759"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732576"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Usar o SCIM (Sistema de Gerenciamento de Identidades entre Domínios) para provisionar automaticamente usuários e grupos do Azure Active Directory para aplicativos
 
@@ -120,7 +120,7 @@ Para facilitar esse processo, serão fornecidos [exemplos de código](https://gi
 ### <a name="getting-started"></a>Introdução
 A maneira mais fácil de implementar um ponto de extremidade SCIM que possa aceitar solicitações de provisionamento do AD do Azure é criando e implantando o exemplo de código que gera os usuários provisionados em um arquivo CSV (valores separados por vírgula).
 
-**Para criar um exemplo de ponto de extremidade SCIM:**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Para criar um exemplo de ponto de extremidade SCIM
 
 1. Baixe o pacote de exemplo de código em [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Descompacte o pacote e coloque-o no seu computador com Windows em um local como C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -142,7 +142,7 @@ A maneira mais fácil de implementar um ponto de extremidade SCIM que possa acei
 8. No Windows, em **Configurações do Windows > Configurações de Rede e Internet**, selecione o **Firewall do Windows > Configurações Avançadas** e crie uma **Regra de Entrada** que permita acesso de entrada na porta 9000.
 9. Se o computador com Windows estiver atrás de um roteador, precisará ser configurado para executar a Network Access Translation entre sua porta 9000 exposta à Internet e a porta 9000 no computador com Windows. Essa configuração é necessária para que o Azure Active Directory esteja apto a acessar esse ponto de extremidade na nuvem.
 
-**Para registrar o exemplo de ponto de extremidade SCIM no AD do Azure:**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Para registrar o exemplo de ponto de extremidade SCIM no Azure AD
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 2. Navegue até **Azure Active Directory > Aplicativos** empresariais e selecione **Novo aplicativo > Todos > Aplicativo inexistente na galeria**.

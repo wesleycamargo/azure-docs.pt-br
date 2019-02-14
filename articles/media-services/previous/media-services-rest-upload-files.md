@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3b5c277f51b8ff1b2d3babf23329dcde829573a9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070408"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813952"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 > * Carregar um arquivo para o armazenamento de blob usando a URL de carregamento
 > * Criar um metadados no ativo para o arquivo de mídia carregado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
@@ -88,7 +88,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
     ```
 4. À esquerda da janela do **Postman**, clique em **1. Obtenha o token de autenticação do AAD** -> **Obter Token do Azure AD para Entidade de serviço**.
 
-    A parte da URL é preenchida com o ambiente **AzureADSTSEndpoint** variável (anteriormente no tutorial, você definiu os valores de [variáveis de ambiente](#configure-the-environment) que oferecem suporte a [coleção](#configure-the-collection)).
+    A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você definiu os valores de variáveis de ambiente que oferecem suporte à coleção).
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
 
@@ -96,7 +96,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 
     Você pode ver a resposta que contém "access_token". O script de "teste" usa esse valor e define a variável de ambiente do **AccessToken** (como descrito acima). Se você examinar suas variáveis de ambiente, você verá que essa variável agora contém o valor do token de acesso (token de portador) que é usado no restante das operações. 
 
-    Se o token expirar vá novamente para a etapa "Obter Token do Azure AD para Entidade de serviço". 
+    Se o token expirar vá novamente para a etapa "Obter Token do Azure AD para Entidade de serviço". 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Criar uma política de acesso com permissão de gravação
 
@@ -122,7 +122,7 @@ Antes de carregar todos os arquivos no armazenamento de blobs, defina os direito
 
 Um [ativo](https://docs.microsoft.com/rest/api/media/operations/asset) é um contêiner para vários tipos ou conjuntos de objetos nos Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
-Uma das propriedades que você pode adicionar ao criar um ativo é **Opções**. Você pode especificar uma das seguintes opções de criptografia: **Nenhuma** (padrão, nenhuma criptografia é usada), **CriptografiaDeArmazenamento** (para o conteúdo que foi previamente criptografado com criptografia de armazenamento no lado do cliente), **CriptografiaComumProtegida**, ou **CriptografiaEnvelopeProtegida**. Quando você tiver um ativo criptografado, você precisa configurar uma política de entrega. Para obter mais informações, confira a seção [Configurando as políticas de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
+Uma das propriedades que você pode adicionar ao criar um ativo é **Opções**. As opções de criptografia a seguir poderão ser especificadas: **Nenhuma** (padrão, nenhuma criptografia é usada), **CriptografiaDeArmazenamento** (para o conteúdo que foi previamente criptografado com criptografia de armazenamento no lado do cliente), **CriptografiaComumProtegida**, ou **CriptografiaEnvelopeProtegida**. Quando você tiver um ativo criptografado, você precisa configurar uma política de entrega. Para obter mais informações, confira a seção [Configurando as políticas de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
 Se seu ativo for criptografado, você deve criar um **ContentKey** e vinculá-lo a seu ativo, conforme descrito no seguinte artigo: [Como criar um ContentKey](media-services-rest-create-contentkey.md). Após carregar os arquivos no ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **Ativos**. Faça isso usando a solicitação HTTP **MERGE** . 
 
@@ -156,7 +156,7 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, seu valor de StartTime deve estar no seguinte formato de data e hora: AAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso.
 
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS.
@@ -188,7 +188,7 @@ Criar e configurar uma nova solicitação:
 1. Pressione **+** para criar uma nova guia de solicitação.
 2. Selecione **COLOCAR** operação e cole **{{UploadURL}}** na URL.
 2. Deixe a guia **Autorização** como está (não a defina como **Token de portador**).
-3. Na guia **Cabeçalhos**, especifique: **Chave**: "x-ms-tipo-de-blob" e **Valor**: "BlockBlob".
+3. Na guia **Cabeçalhos**, especifique: **Chave**: “x-ms-blob-type” e **Valor**: “BlockBlob”.
 2. Na guia **Corpo**, clique em **binário**.
 4. Escolha o arquivo com o nome que você especificou na variável de ambiente **NomeDoArquivoDeMídia**.
 5. Pressione **Enviar**.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444608"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493410"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
@@ -59,13 +59,13 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>O que é necessário para criar uma integração entre o gerenciamento de API e o gateway de aplicativo?
 
-* **Pool de servidor de back-end:** o endereço IP virtual interno do serviço de gerenciamento de API.
-* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são aplicadas a todos os servidores no pool.
-* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. Ao ser atingindo, o tráfego é redirecionado para um dos servidores de back-end.
+* **Pool de servidores de back-end:** o endereço IP virtual interno do serviço de Gerenciamento de API.
+* **Configurações do pool de servidores de back-end:** Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são aplicadas a todos os servidores no pool.
+* **Porta de front-end:** Essa é a porta pública aberta no gateway de aplicativo. Ao ser atingindo, o tráfego é redirecionado para um dos servidores de back-end.
 * **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
-* **Regra:** a regra vincula um ouvinte para um pool de servidor de back-end.
-* **Investigação de Integridade Personalizada:** o gateway de aplicativo, por padrão, usa investigações baseadas em endereço IP para entender quais servidores no BackendAddressPool estão ativos. O serviço de Gerenciamento de API responde apenas às solicitações que têm o cabeçalho de host correto, portanto, as investigações padrão falham. Uma investigação de integridade personalizada precisa ser definida para ajudar o gateway de aplicativo a determinar que o serviço está ativo e, assim, encaminhar as solicitações.
-* **Certificado de domínio personalizado:** para acessar o Gerenciamento de API da Internet, você precisa fazer um mapeamento do nome do host de CNAME para o nome DNS de front-end do Gateway de Aplicativo. Isso garante que o certificado e o cabeçalho do nome do host enviados ao Gateway de Aplicativo que são encaminhados ao Gerenciamento de API possam ser reconhecidos e validados pelo APIM. Neste exemplo, usaremos dois certificados – para o back-end e para o portal do desenvolvedor.  
+* **Regra:** a regra vincula um ouvinte a um pool de servidor de back-end.
+* **Investigação de integridade personalizada:** O Gateway de Aplicativo, por padrão, usa investigações baseadas em endereço IP para entender quais servidores no BackendAddressPool estão ativos. O serviço de Gerenciamento de API responde apenas às solicitações que têm o cabeçalho de host correto, portanto, as investigações padrão falham. Uma investigação de integridade personalizada precisa ser definida para ajudar o gateway de aplicativo a determinar que o serviço está ativo e, assim, encaminhar as solicitações.
+* **Certificados de domínio personalizados:** para acessar o Gerenciamento de API da Internet, você precisa fazer um mapeamento do nome do host de CNAME para o nome DNS de front-end do Gateway de Aplicativo. Isso garante que o certificado e o cabeçalho do nome do host enviados ao Gateway de Aplicativo que são encaminhados ao Gerenciamento de API possam ser reconhecidos e validados pelo APIM. Neste exemplo, usaremos dois certificados – para o back-end e para o portal do desenvolvedor.  
 
 ## <a name="overview-steps"> </a> Etapas necessárias para integrar o Gerenciamento de API e o Gateway de Aplicativo
 
@@ -82,7 +82,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 Neste guia, também irá expor o **portal do desenvolvedor** ao público externo por meio do Gateway de Aplicativo. Ele requer etapas adicionais para criar o ouvinte, teste, configurações e regras do portal do desenvolvedor. Todos os detalhes são fornecidos nas respectivas etapas.
 
 > [!WARNING]
-> Na configuração descrita do portal do desenvolvedor que está sendo acessado por meio do Gateway de Aplicativo, você pode enfrentar problemas com a autenticação de terceiros e do AAD.
+> Se você usa o Azure AD ou autenticação de terceiros, habilite o recurso [afinidade de sessão baseada em cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) no Gateway de Aplicativo.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
 

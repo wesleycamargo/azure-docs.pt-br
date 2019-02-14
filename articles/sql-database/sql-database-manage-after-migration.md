@@ -3,7 +3,7 @@ title: Gerenciar após a migração - Banco de Dados SQL do Azure | Microsoft Do
 description: Saiba como gerenciar o banco de dados após a migração para o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478467"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751932"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
 
@@ -108,7 +108,7 @@ Há várias técnicas à sua disposição que podem ser usadas para obter a orga
 
 Um firewall impede o acesso ao seu servidor de uma entidade externa, permitindo somente acesso de entidades específicas a seu servidor de Banco de Dados SQL. Por padrão, todas as conexões e bancos de dados dentro do servidor de Banco de Dados SQL são rejeitadas, exceto as conexões de outros serviços do Azure. Com uma regra de firewall, você pode abrir o acesso ao seu servidor somente para entidades (por exemplo, uma máquina de desenvolvedor) que você aprovar, concedendo permissão a esse endereço IP do computador por meio do firewall. Ele também permite que você especifique um intervalo de endereços IP para os quais deseja permitir o acesso ao servidor de Banco de Dados SQL. Por exemplo, endereços IP de computador de desenvolvedor na sua organização podem ser adicionados de uma só vez especificando-se um intervalo na página de configurações Firewall.
 
-Você pode criar regras de firewall no nível de servidor ou no nível de banco de dados. Regras de firewall no nível do servidor podem ser criadas usando o portal do Azure ou com o SSMS. Para saber mais sobre como configurar um servidor e a regra de firewall no nível de banco de dados, consulte: [Criar regras de firewall no Banco de Dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
+Você pode criar regras de firewall no nível de servidor ou no nível de banco de dados. Regras de firewall de IP no nível do servidor podem ser criadas usando o portal do Azure ou com o SSMS. Para saber mais sobre como configurar uma regra de firewall no nível de servidor e no nível de banco de dados, consulte: [Criar regras de firewall de IP no Banco de Dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 
@@ -132,9 +132,9 @@ Porta 1433. O Banco de Dados SQL se comunica por essa porta. Para se conectar de
 
 Com o Banco de Dados SQL, você pode ativar ON Auditing para controlar eventos de banco de dados. A [Auditoria do Banco de Dados SQL](sql-database-auditing.md) registra eventos de banco de dados e grava-os em um arquivo de log de auditoria em sua Conta de Armazenamento do Microsoft Azure. A auditoria é especialmente útil se você pretende ter uma noção de possíveis violações de segurança e política, manter a conformidade normativa etc. Ela permite definir e configurar certas categorias de eventos que você acha que precisa de auditoria e com base no que você pode obter relatórios pré-configurados e um painel para obter uma visão geral de eventos que ocorrem em seu banco de dados. Você pode aplicar essas políticas de auditoria no nível do banco de dados ou no nível do servidor. Um guia sobre como ativar a auditoria para o servidor/banco de dados, consulte: [Habilitar a Auditoria do Banco de Dados SQL](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Detecção de Ameaças
+#### <a name="threat-detection"></a>Detecção de ameaças
 
-Com a [detecção de ameaças](sql-database-threat-detection.md), você tem a capacidade de agir facilmente sobre violações de segurança ou política descobertas por auditoria. Não é preciso ser um especialista em segurança para tratar potenciais ameaças ou violações no seu sistema. A detecção de ameaças também tem alguns recursos internos, como detecção de SQL Injection. SQL Injection é uma tentativa de alterar ou comprometer os dados e uma maneira muito comum de ataque a um aplicativo de banco de dados em geral. A Detecção de Ameaças do Banco de Dados SQL é executada em vários conjuntos de algoritmos que detectam possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões de acesso anormais do banco de dados (como o acesso de um local fora do comum ou por uma entidade desconhecida). Os agentes de segurança ou outros administradores designados recebem uma notificação por email se uma ameaça é detectada no banco de dados. Cada notificação fornece detalhes da atividade suspeita e recomendações sobre como investigar e minimizar a ameaça. Para saber como ativar a Detecção de ameaças, consulte: [Habilitar a Detecção de Ameaças do Banco de Dados SQL](sql-database-security-tutorial.md#enable-security-features).
+Com a [detecção de ameaças](sql-database-threat-detection.md), você tem a capacidade de agir facilmente sobre violações de segurança ou política descobertas por auditoria. Não é preciso ser um especialista em segurança para tratar potenciais ameaças ou violações no seu sistema. A detecção de ameaças também tem alguns recursos internos, como detecção de SQL Injection. SQL Injection é uma tentativa de alterar ou comprometer os dados e uma maneira muito comum de ataque a um aplicativo de banco de dados em geral. A detecção de ameaças é executada em vários conjuntos de algoritmos que detectam possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões de acesso anormais do banco de dados (como o acesso de um local fora do comum ou por uma entidade desconhecida). Os agentes de segurança ou outros administradores designados recebem uma notificação por email se uma ameaça é detectada no banco de dados. Cada notificação fornece detalhes da atividade suspeita e recomendações sobre como investigar e minimizar a ameaça. Para saber como ativar a Detecção de ameaças, consulte: [Habilitar detecção de ameaças](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Como fazer para proteger meus dados em geral no Banco de Dados SQL?
 
@@ -220,7 +220,7 @@ Com a Análise de Desempenho de Consultas, é possível obter recomendações pe
 
 ### <a name="security-optimization"></a>Otimização de segurança
 
-O Banco de Dados SQL fornece recomendações viáveis de segurança para ajudá-lo a proteger os dados e detectar ameaças para identificar e investigar atividades suspeitas do banco de dados que podem representar um potencial thread para o banco de dados. A [Avaliação de Vulnerabilidade de SQL](sql-vulnerability-assessment.md) é um serviço de exame e relatório de banco de dados que permite monitorar o estado de segurança de seus bancos de dados em grande escala e identificar os riscos de segurança e o desvio de uma linha de base de segurança definida por você. Após cada verificação, uma lista personalizada de scripts de correção e etapas acionáveis são fornecidos, bem como um relatório de avaliação que pode ser usado para ajudar a alcançar os requisitos de conformidade.
+O Banco de Dados SQL fornece recomendações viáveis de segurança para ajudá-lo a proteger os dados e detectar ameaças para identificar e investigar atividades suspeitas do banco de dados que podem representar uma potencial ameaça para o banco de dados. A [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é um serviço de exame e relatório de banco de dados que permite monitorar o estado de segurança de seus bancos de dados em grande escala e identificar os riscos de segurança e o desvio de uma linha de base de segurança definida por você. Após cada verificação, uma lista personalizada de scripts de correção e etapas acionáveis são fornecidos, bem como um relatório de avaliação que pode ser usado para ajudar a alcançar os requisitos de conformidade.
 
 Com a Central de Segurança do Azure, você identifica as recomendações de segurança em todos os segmentos e as aplica com um único clique.
 

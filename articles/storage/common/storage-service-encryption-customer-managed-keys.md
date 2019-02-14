@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: c749a9dedef3970002c4f0672ffcc67aeaea422a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2990ce7a555fae54b8628f11cd90124860a5b983
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457421"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656729"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault
 
@@ -47,7 +47,7 @@ Se desejar habilitar programaticamente as chaves gerenciadas pelo cliente por SS
 Para usar chaves gerenciadas pelo cliente com SSE, atribua uma identidade de conta de armazenamento à conta de armazenamento. É possível definir a identidade executando o seguinte comando do PowerShell ou da CLI do Azure:
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName $resourceGroup -Name $accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -60,16 +60,14 @@ az storage account \
 Habilite a Exclusão reversível e Não limpar executando os seguintes comandos do PowerShell ou da CLI do Azure:
 
 ```powershell
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enableSoftDelete -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
 
 Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enablePurgeProtection -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enablePurgeProtection -Value 'True'
 
 Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
@@ -126,8 +124,16 @@ Você pode associar a chave acima a uma conta de armazenamento existente usando 
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
 $keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy `
+    -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+    -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVersion $key.Version `
+    -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Etapa 5: copiar dados para a conta de armazenamento

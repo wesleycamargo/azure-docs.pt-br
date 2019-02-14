@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157696"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664022"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
 O SSO (logon único) adiciona segurança e conveniência quando os usuários se conectam a aplicativos no Azure Active Directory. Este artigo descreve os métodos de logon único e ajuda você a escolher o método de SSO mais adequado ao configurar os seus aplicativos.
@@ -49,9 +49,7 @@ A tabela a seguir resume os métodos de logon único e os links para obter mais 
 | [Baseado em cabeçalho](#header-based-sso) | apenas local | Use o logon único baseado em cabeçalho quando o aplicativo usar cabeçalhos para autenticação. O logon único baseado em cabeçalho requer o PingAccess para o Azure AD. O Proxy de Aplicativo usa o Azure AD para autenticar o usuário e, em seguida, passa o tráfego pelo serviço de conector.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
-Com o OAuth e o OpenID Connect, você habilita uma experiência de logon único que simplifica o processo de adição de um aplicativo empresarial para o Azure AD. O administrador de aplicativos não precisa configurar o logon único. Em vez disso, o Azure AD adiciona o aplicativo quando o administrador [concede o consentimento do usuário](configure-user-consent.md). 
-
-Os [SDKs](../develop/reference-v2-libraries.md) para OpenID Connect e OAuth são fáceis de adotar e seu aplicativo estará pronto para usar o MS Graph. 
+Ao desenvolver novos aplicativos, use protocolos modernos, como OpenID Connect e OAuth, para obter a melhor experiência de logon único para seu aplicativo em várias plataformas de dispositivo. O OAuth permite que os usuários ou administradores [concedam o consentimento](configure-user-consent.md) para recursos protegidos, como [MS Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) de fácil adoção para seu aplicativo, deixando ele pronto para usar o [MS Graph](/graph/overview).
 
 Para obter mais informações, consulte:
 

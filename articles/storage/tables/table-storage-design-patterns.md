@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469185"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821347"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -73,7 +73,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 
 * [Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern)
 * [Padrão de chave composta](#compound-key-pattern)
-* [Transações do Grupo de Entidades](#entity-group-transactions)
+* Transações de Grupo de Entidades
 * [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>Padrão de índice secundário entre partições
@@ -128,7 +128,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 * [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
 * [Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern)  
 * [Padrão de chave composta](#compound-key-pattern)  
-* [Transações do Grupo de Entidades](#entity-group-transactions)  
+* Transações de Grupo de Entidades  
 * [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Padrão de transações eventualmente consistentes
@@ -172,7 +172,7 @@ Use esse padrão quando quiser garantir a consistência eventual entre entidades
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
-* [Transações do Grupo de Entidades](#entity-group-transactions)  
+* Transações de Grupo de Entidades  
 * [Mesclar ou substituir](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ A propriedade **EmployeeIDs** contém uma lista de IDs de funcionário para os f
 As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com ID 000152 e um sobrenome Jones no departamento de Vendas:  
 
 1. Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.  
-2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insira a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualize a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção [Transações de grupo de entidades](#entity-group-transactions).  
+2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insira a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualize a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção Transações de grupo de entidades.  
 3. Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.  
 
 Você pode usar uma abordagem semelhante à exclusão de um funcionário se usar a segunda opção. Alterar o sobrenome do funcionário é um pouco mais complexo, pois você precisará executar uma transação de grupo de entidades que atualiza as três entidades: a entidade funcionário, a entidade de índice para o sobrenome antigo e a entidade de índice para o novo sobrenome. Você deve recuperar cada entidade antes de fazer alterações para recuperar os valores de ETag que depois pode usar para executar as atualizações usando a simultaneidade otimista.  
@@ -251,7 +251,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 
 * [Padrão de chave composta](#compound-key-pattern)  
 * [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
-* [Transações do Grupo de Entidades](#entity-group-transactions)  
+* Transações de Grupo de Entidades  
 * [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Padrão de desnormalização
@@ -282,7 +282,7 @@ Use esse padrão quando precisar pesquisar informações relacionadas com frequ�
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
-* [Transações do Grupo de Entidades](#entity-group-transactions)  
+* Transações de Grupo de Entidades  
 * [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Padrão de chave composta
@@ -325,7 +325,7 @@ Use esse padrão quando precisar armazenar uma ou mais entidades relacionadas qu
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
-* [Transações do Grupo de Entidades](#entity-group-transactions)  
+* Transações de Grupo de Entidades  
 * [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
 * [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Use esse padrão quando tiver um alto volume de entidades que devem ser excluíd
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
-* [Transações do Grupo de Entidades](#entity-group-transactions)
+* Transações de Grupo de Entidades
 * [Modificando entidades](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Padrão de série de dados
@@ -454,7 +454,7 @@ Use esse padrão quando precisar armazenar entidades cujo tamanho ou número de 
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
-* [Transações do Grupo de Entidades](#entity-group-transactions)
+* Transações de Grupo de Entidades
 * [Mesclar ou substituir](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Padrão de entidades grandes
@@ -556,7 +556,7 @@ Considere os seguintes pontos ao decidir como armazenar dados de log:
 Esta seção discute algumas das considerações a serem lembradas ao implementar os padrões descritos nas seções anteriores. Grande parte dessa seção usa exemplos escritos em c# que usam a Biblioteca de Cliente de Armazenamento (versão 4.3.0 no momento da redação).  
 
 ## <a name="retrieving-entities"></a>Recuperando entidades
-Conforme discutido na seção [Design para consulta](#design-for-querying), a consulta mais eficiente é uma consulta de ponto. Entretanto, em alguns cenários talvez seja necessário recuperar várias entidades. Esta seção descreve algumas abordagens comuns para recuperar entidades usando a Biblioteca de Cliente de Armazenamento.  
+Conforme discutido na seção Design para consulta, a consulta mais eficiente é uma consulta de ponto. Entretanto, em alguns cenários talvez seja necessário recuperar várias entidades. Esta seção descreve algumas abordagens comuns para recuperar entidades usando a Biblioteca de Cliente de Armazenamento.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento
 A maneira mais fácil de executar uma consulta de ponto é usar a operação da tabela **Recuperar**, conforme mostrado no snippet de código de C# a seguir, que recupera uma entidade com uma **PartitionKey** de valor "Vendas" e uma **RowKey** de valor "212":  

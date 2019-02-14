@@ -6,26 +6,26 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: d8c0afa159bb8f932c42077868d5134e6486e8c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410920"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510469"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
 
 Quando você cria uma VM (máquina virtual), reinicia VMs paradas (desalocadas) ou redimensiona uma VM, o Microsoft Azure aloca recursos de computação para sua assinatura. Estamos continuamente investindo em infraestrutura e recursos adicionais para garantir que sempre tenhamos todos os tipos de VM disponíveis para dar suporte à demanda do cliente. No entanto, você pode enfrentar ocasionalmente falhas de alocação de recursos devido ao crescimento sem precedentes da demanda por serviços do Azure em regiões específicas. Esse problema pode ocorrer quando você tenta criar ou iniciar VMs em uma região, enquanto as VMs exibem o seguinte código de erro e a seguinte mensagem:
 
-**Código de erro**: AllocationFailed ou ZonalAllocationFailed
+**Erro de código**: AllocationFailed ou ZonalAllocationFailed
 
-**Mensagem de erro**: "Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a probabilidade de sucesso de alocação em http://aka.ms/allocation-guidance"
+**Mensagem de erro**: “Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a probabilidade de sucesso de alocação em http://aka.ms/allocation-guidance"
 
 Este artigo explica as causas de algumas das falhas de alocação mais comuns e sugere possíveis correções.
 
@@ -47,7 +47,7 @@ A solicitação de redimensionar ou adicionar uma VM a um conjunto de disponibil
 Quando a VM puder fazer parte de um conjunto de disponibilidade diferente, crie uma VM em um conjunto de disponibilidade diferente (na mesma região). Essa nova VM pode ser adicionada à mesma rede virtual.
 
 Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.
-Para parar: clique em Grupos de recursos > [seu grupo de recursos] > Recursos > [seu conjunto de disponibilidade] > Máquinas Virtuais > [sua máquina virtual] > Parar.
+Para parar: Clique em Grupos de recursos > [seu grupo de recursos] > Recursos > [seu conjunto de disponibilidade] > Máquinas Virtuais > [sua máquina virtual] > Parar.
 Depois de parar todas as VMs, selecione a primeira VM e clique em Iniciar.
 Essa etapa garante que uma nova tentativa de alocação seja executada e que um novo cluster com capacidade suficiente possa ser selecionado.
 
@@ -60,7 +60,7 @@ A desalocação parcial significa que você parou (desalocou) uma ou mais, mas n
 ### <a name="workaround"></a>Solução alternativa
 
 Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.
-Para parar: clique em Grupos de recursos > [seu grupo de recursos] > Recursos > [seu conjunto de disponibilidade] > Máquinas Virtuais > [sua máquina virtual] > Parar.
+Para parar: Clique em Grupos de recursos > [seu grupo de recursos] > Recursos > [seu conjunto de disponibilidade] > Máquinas Virtuais > [sua máquina virtual] > Parar.
 Depois de parar todas as VMs, selecione a primeira VM e clique em Iniciar.
 Isso garantirá que uma nova tentativa de alocação seja executada e que um novo cluster com capacidade suficiente possa ser selecionado.
 
@@ -81,7 +81,7 @@ Se sua solicitação de alocação for grande (mais de 500 núcleos), consulte o
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Falhas de alocação para tamanhos de VM mais antigos (Av1, Dv1, DSv1, D15v2, DS15v2 etc.)
 
-À medida que expandimos a infraestrutura do Azure, nós implantamos hardware de geração mais recente projetado para dar suporte aos tipos de máquina virtual mais recentes. Algumas das VMs de séries mais antigas não serão executadas em nossa infraestrutura de geração mais recente. Por esse motivo, os clientes podem ocasionalmente enfrentar falhas de alocação para essas SKUs herdadas. Para evitar esse problema, recomendamos que os clientes que estão usando máquinas virtuais de séries legadas considerem a migração para as VMs mais recentes equivalentes de acordo com as seguintes recomendações: essas VMs são otimizadas para o hardware mais recente e permitirão que você aproveite as vantagens de preços e desempenho melhores. 
+À medida que expandimos a infraestrutura do Azure, nós implantamos hardware de geração mais recente projetado para dar suporte aos tipos de máquina virtual mais recentes. Algumas das VMs de séries mais antigas não serão executadas em nossa infraestrutura de geração mais recente. Por esse motivo, os clientes podem ocasionalmente enfrentar falhas de alocação para essas SKUs herdadas. Para evitar esse problema, recomendamos que os clientes que estejam usando as máquinas virtuais de séries herdadas considerem a migração para as VMs equivalentes mais recentes, conforme recomendações a seguir: Essas VMs são otimizadas para o hardware mais recente, gerando preço e desempenho melhores. 
 
 |Série/tamanho de VM herdada|Série/tamanho recomendado de VM mais nova|Mais informações|
 |----------------------|----------------------------|--------------------|

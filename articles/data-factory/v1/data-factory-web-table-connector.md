@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022046"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814343"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,9 +73,9 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **Web** |SIM |
-| Url |URL para a origem da Web |SIM |
-| authenticationType |Anônima. |SIM |
+| Tipo |A propriedade type deve ser definida como: **Web** |Sim |
+| Url |URL para a origem da Web |Sim |
+| authenticationType |Anônima. |Sim |
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
 
@@ -101,9 +101,9 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |tipo do conjunto de dados. Deve ser definido como **WebTable** |SIM |
+| Tipo |tipo do conjunto de dados. Deve ser definido como **WebTable** |Sim |
 | caminho |Uma URL relativa para o recurso que contém a tabela. | Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |SIM |
+| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
 
 **Exemplo:**
 
@@ -236,7 +236,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: horas, interval
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **WebSource** e o tipo **sink** está definido como **BlobSink**.
 
-Confira [Propriedades do tipo WebSource](#copy-activity-type-properties) para obter a lista de propriedades com suporte da WebSource.
+Confira Propriedades do tipo WebSource para obter a lista de propriedades com suporte da WebSource.
 
 ```json
 {  

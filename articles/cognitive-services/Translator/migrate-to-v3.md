@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227770"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699917"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migração da API de Tradução de Texto V2 para V3
 
@@ -109,12 +109,12 @@ Global
 
 Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como tal, não pode ser utilizado com o Hub do Microsoft Translator. O Hub do Translator dá suporte somente para tradução automática de estatística herdada. A personalização para tradução neural agora está disponível usando o Tradutor Personalizado. [Saiba mais sobre como personalizar a tradução automática neural](custom-translator/overview.md)
 
-A tradução neural com a API de texto V3 não dá suporte para o uso de categorias padrão (SMT, fala, texto, generalnn).
+A tradução neural com a API de texto V3 não dá suporte ao uso de categorias padrão (SMT, fala, texto, generalnn).
 
 | |Ponto de extremidade|    Conformidade de processador do RGPD|  Usar o Hub do Tradutor| Usar o Tradutor Personalizado (Versão Prévia)|
 |:-----|:-----|:-----|:-----|:-----|
 |API de Tradução de Texto Versão 2| api.microsofttranslator.com|    Não   |Sim    |Não |
-|API de Tradução de Texto Versão 3| api.cognitive.microsofttranslator.com|  SIM|    Não | SIM|
+|API de Tradução de Texto Versão 3| api.cognitive.microsofttranslator.com|  Sim|    Não | Sim|
 
 **API de Tradução de Texto Versão 3**
 * Está geralmente disponível e tem suporte completo.

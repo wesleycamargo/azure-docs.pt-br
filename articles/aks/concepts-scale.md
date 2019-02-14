@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380433"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819103"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções dimensionamento para aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -23,7 +23,7 @@ Este artigo apresenta os principais conceitos que ajudam você a dimensionar apl
 - [Dimensionamento manual](#manually-scale-pods-or-nodes)
 - [HPA (dimensionador automático de pod horizontal)](#horizontal-pod-autoscaler)
 - [Dimensionador automático do cluster](#cluster-autoscaler)
-- [Integração de ACI (instância de contêiner do Azure) com AKS](#burst-to-azure-container-instance)
+- Integração de ACI (Instância de Contêiner do Azure) com AKS
 
 ## <a name="manually-scale-pods-or-nodes"></a>Dimensionar manualmente os pods ou os nós
 
@@ -65,7 +65,7 @@ Se um nó não tiver recursos de computação suficientes para executar um pod s
 
 Quando o dimensionador automático de cluster observa pods que não podem ser agendados devido a restrições de recursos do pool de nó, o número de nós no pool de nós é aumentado para fornecer recursos de computação adicionais. Quando esses nós adicionais foram implantados com sucesso e estão disponíveis para uso dentro do pool de nós, os pods são agendados para execução neles.
 
-Se o aplicativo precisar ser dimensionado rapidamente, alguns compartimentos poderão permanecer em um estado aguardando agendamento até que os nós adicionais implantados pelo dimensionador automático de cluster possam aceitar os pods agendados. Para aplicativos que têm altas demandas de intermitência, você pode [dimensionar com nós virtuais e Instâncias de Contêiner do Azure](#burst-to-azure-container-instance).
+Se o aplicativo precisar ser dimensionado rapidamente, alguns compartimentos poderão permanecer em um estado aguardando agendamento até que os nós adicionais implantados pelo dimensionador automático de cluster possam aceitar os pods agendados. Para aplicativos que têm altas demandas de intermitência, você pode dimensionar com nós virtuais e Instâncias de Contêiner do Azure.
 
 ### <a name="scale-down-events"></a>Reduzir eventos verticalmente
 

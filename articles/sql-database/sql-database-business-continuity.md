@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473418"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755162"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -107,7 +107,7 @@ As seções a seguir fornecem uma visão geral das etapas para recuperar usando 
 
 Independentemente do recurso de continuidade de negócios usados, você deve:
 
-- Identificar e preparar o servidor de destino, incluindo as regras de firewall no nível do servidor, logons e permissões de nível de banco de dados mestre.
+- Identificar e preparar o servidor de destino, incluindo as regras de firewall do IP no nível do servidor, logons e permissões de nível de banco de dados mestre.
 - Determinar como redirecionar os clientes e aplicativos de cliente para o novo servidor
 - Documentar outras dependências, como as configurações e alertas de auditoria
 
@@ -132,7 +132,7 @@ Se estiver usando backups automatizados com o armazenamento com redundância geo
 Após recuperar de um dos mecanismos de recuperação, você deverá executar as seguintes tarefas adicionais antes que os usuários e aplicativos entrem em funcionamento novamente:
 
 - Redirecionar clientes e aplicativos de cliente para o novo servidor e banco de dados restaurado
-- Verificar se as regras de firewall de nível de servidor apropriadas estão em vigor para que os usuários se conectem (ou use os [firewalls de nível de banco de dados](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Verificar se as regras de firewall de IP do nível de servidor apropriadas estão em vigor para que os usuários se conectem ou use os [firewalls de nível de banco de dados](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) para habilitar as regras apropriadas.
 - Verificar se os logons apropriados e as permissões nível de banco de dados mestre estão em vigor (ou usar os [usuários independentes](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configurar a auditoria, conforme apropriado
 - Configurar os alertas, conforme apropriado

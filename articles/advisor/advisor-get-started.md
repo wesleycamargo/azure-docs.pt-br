@@ -2,79 +2,78 @@
 title: Introdução ao Azure Advisor | Microsoft Docs
 description: Introdução ao Azure Advisor.
 services: advisor
-documentationcenter: NA
 author: kasparks
-manager: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 6e66fed21223701cd6c61bd1e903b4e7d7fbe0d0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aabb316cf564520e6ea5e8689f1c18c98b94ab3c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850084"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488468"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
 Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementar recomendações.
 
-## <a name="get-advisor-recommendations"></a>Obter recomendações do Advisor
+> [!NOTE]
+> O Assistente do Azure é executado automaticamente em segundo plano para encontrar recursos de localização recém-criados. Pode levar até 24 horas para serem fornecidas recomendações sobre esses recursos.
+
+## <a name="get-recommendations"></a>Obter recomendações
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. No painel esquerdo, clique em **Assistente**.  Se você não visualizar o Assistente no painel esquerdo, clique em **Todos os serviços**.  No painel do menu de serviço, em **Monitoramento e Gerenciamento**, clique em **Assistente**.
- O painel Assistente é exibido.
+1. No painel esquerdo, clique em **Assistente**.  Se você não visualizar o Assistente no painel esquerdo, clique em **Todos os serviços**.  No painel do menu de serviço, em **Monitoramento e Gerenciamento**, clique em **Assistente**. O painel Assistente é exibido.
 
    ![Acessar o Azure Advisor usando o Portal do Azure](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. O painel Assistente exibirá um resumo das suas recomendações para todas as assinaturas selecionadas.  Você pode escolher as assinaturas para as quais você deseja que as recomendações sejam exibidas usando a lista suspensa de filtro de assinatura.
+1. O painel Assistente exibirá um resumo das suas recomendações para todas as assinaturas selecionadas.  Você pode escolher as assinaturas para as quais você deseja que as recomendações sejam exibidas usando a lista suspensa de filtro de assinatura.
 
-5. Para obter recomendações para uma categoria específica, clique em uma das guias: **Alta disponibilidade**, **Segurança**, **Desempenho**, ou **Custo**. 
+1. Para obter recomendações para uma categoria específica, clique em uma das guias: **Alta disponibilidade**, **Segurança**, **Desempenho**, ou **Custo**. 
 
   ![Painel do Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-## <a name="get-advisor-recommendation-details-and-implement-a-solution"></a>Obter detalhes da recomendação do Assistente e implementar uma recomendação
+## <a name="get-recommendation-details-and-implement-a-solution"></a>Obter detalhes de recomendação e implementar uma solução
 
 Você pode selecionar uma recomendação do Assistente para exibir detalhes adicionais – como as ações de recomendação e os recursos afetados – e para implementar a solução para a recomendação.  
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
 
-2. Selecione uma categoria de recomendação para exibir a lista de recomendações nessa categoria ou selecione a guia **Todas** para exibir todas as suas recomendações.
+1. Selecione uma categoria de recomendação para exibir a lista de recomendações nessa categoria ou selecione a guia **Todas** para exibir todas as suas recomendações.
 
-3. Clique em uma recomendação que você deseja examinar com detalhes.
+1. Clique em uma recomendação que você deseja examinar com detalhes.
 
-4. Examine as informações sobre a recomendação e os recursos aos quais a recomendação se aplica.
+1. Examine as informações sobre a recomendação e os recursos aos quais a recomendação se aplica.
 
-5. Clique na **Ação Recomendada** para implementar a recomendação.
+1. Clique na **Ação Recomendada** para implementar a recomendação.
 
-## <a name="filter-advisor-recommendations"></a>Filtrar recomendações do Assistente
+## <a name="filter-recommendations"></a>Recomendações de filtro
 
 Você pode filtrar as recomendações para fazer drill down até que é mais importante para você.  Você pode filtrar por assinatura, por tipo de recurso ou por status de recomendação.  
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
 
-2.  Use listas suspensas no painel do Assistente para filtrar por assinatura, por tipo de recurso ou por status de recomendação.
+1. Use listas suspensas no painel do Assistente para filtrar por assinatura, por tipo de recurso ou por status de recomendação.
 
     ![Critérios do filtro de pesquisa do Assistente](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="postpone-or-dismiss-advisor-recommendations"></a>Adiar ou ignorar as recomendações do Assistente
+## <a name="postpone-or-dismiss-recommendations"></a>Adiar ou ignorar as recomendações
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
 
-2. Navegue até a recomendação que você deseja adiar ou ignorar.
+1. Navegue até a recomendação que você deseja adiar ou ignorar.
 
-3. Clique na recomendação.
+1. Clique na recomendação.
 
-4. Clique em **Adiar**. 
+1. Clique em **Adiar**. 
 
-5. Especifique um período de tempo de adiamento ou selecione **Nunca** para ignorar a recomendação.
+1. Especifique um período de tempo de adiamento ou selecione **Nunca** para ignorar a recomendação.
 
-## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Excluir assinaturas ou grupos de recursos do Assistente
+## <a name="exclude-subscriptions-or-resource-groups"></a>Excluir assinaturas ou grupos de recursos
 
 Você pode ter grupos de recursos ou assinaturas para os quais você não deseja receber recomendações do Assistente, assim como recursos de 'teste'.  Você pode configurar o Assistente para gerar recomendações apenas para grupos de recursos e assinaturas específicas.
 
@@ -83,15 +82,17 @@ Você pode ter grupos de recursos ou assinaturas para os quais você não deseja
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
 
-2. Clique em **Configurar** na barra de ações.
+1. Clique em **Configurar** na barra de ações.
 
-3. Desmarque quaisquer assinaturas ou grupos de recursos para os quais você não deseja receber recomendações do Assistente.
+1. Desmarque quaisquer assinaturas ou grupos de recursos para os quais você não deseja receber recomendações do Assistente.
 
     ![Exemplo de configuração de recursos do Assistente](./media/advisor-get-started/advisor-configure-resources.png)
 
-4. Clique no botão **Aplicar**.
+1. Clique no botão **Aplicar**.
 
-## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>Configurar a regra de média de utilização da CPU para a recomendação de máquina virtual de baixa utilização
+## <a name="configure-low-usage-vm-recommendation"></a>Configurar o baixo uso da recomendação de VM
+
+Este procedimento configura a regra média de utilização da CPU para a recomendação de máquina virtual de baixo uso.
 
 O Assistente monitora o uso da máquina virtual durante 14 dias e, depois, identifica as máquinas virtuais com baixa utilização. As máquinas virtuais cuja média de utilização da CPU é de 5% ou menos e cujo uso de rede é de 7 MB ou menos durante quatro ou mais dias são consideradas máquinas virtuais de baixa utilização.
 
@@ -102,33 +103,34 @@ Se você deseja ser mais agressivo na identificação de máquinas virtuais de b
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
 
-2. Clique em **Configurar** na barra de ações.
+1. Clique em **Configurar** na barra de ações.
 
-3. Clique na guia **Regras**.
+1. Clique na guia **Regras**.
 
-4. Selecione as assinaturas cuja regra de média de utilização da CPU você gostaria de ajustar e, em seguida, clique em **Editar**.
+1. Selecione as assinaturas cuja regra de média de utilização da CPU você gostaria de ajustar e, em seguida, clique em **Editar**.
 
-5. Selecione o valor da média de utilização da CPU desejado e, em seguida, clique em **Aplicar**.
+1. Selecione o valor da média de utilização da CPU desejado e, em seguida, clique em **Aplicar**.
 
-6. Clique em **Atualizar recomendações** para atualizar suas recomendações existentes para usar a nova regra de média de utilização da CPU. 
+1. Clique em **Atualizar recomendações** para atualizar suas recomendações existentes para usar a nova regra de média de utilização da CPU. 
 
    ![Exemplo de configuração de regras de recomendação do Assistente](./media/advisor-get-started/advisor-configure-rules.png)
 
-## <a name="download-your-advisor-recommendations"></a>Baixar as recomendações do Assistente
+## <a name="download-recommendations"></a>Baixar recomendações
 
 O Assistente permite que você baixe um resumo das suas recomendações.  Você pode baixar suas recomendações como um arquivo PDF ou um arquivo CSV.  Baixar suas recomendações permite que você compartilhe os dados de recomendação facilmente com seus colegas ou execute sua própria análise sobre eles.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
 
-2. Clique em **Baixar como CSV** ou **Baixar como PDF** na barra de ações.
+1. Clique em **Baixar como CSV** ou **Baixar como PDF** na barra de ações.
 
 A opção de download respeita eventuais filtros que você tenha aplicado no painel do Assistente.  Se você selecionar a opção de download ao exibir uma categoria de recomendação específica ou uma recomendação, o resumo baixado só incluirá informações para essa categoria ou recomendação. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Assistente, consulte:
-* [Introdução ao Azure Advisor](advisor-overview.md)
-* [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
-* [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
--  [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
-* [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
+
+- [Introdução ao Azure Advisor](advisor-overview.md)
+- [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
+- [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
+- [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
+- [Recomendações de custo do Advisor](advisor-performance-recommendations.md)

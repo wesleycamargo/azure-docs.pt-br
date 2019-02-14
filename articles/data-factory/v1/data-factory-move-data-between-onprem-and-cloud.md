@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015824"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822418"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 > [!NOTE]
@@ -170,9 +170,9 @@ Nesta etapa, crie dois serviços vinculados: **AzureStorageLinkedService** e **S
 
          ![Aplicativo do Gerenciador de credenciais](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
       4. Na caixa de diálogo **Definindo Credenciais**, especifique o tipo de autenticação, nome de usuário e senha, e clique em **OK**. Se a conexão for bem-sucedida, as credenciais criptografadas serão armazenadas no JSON e a caixa de diálogo é fechada.
-      5. Feche a guia vazia do navegador que iniciou a caixa de diálogo se ela não tiver sido fechada automaticamente e volte à guia com o Portal do Azure.
+      5. Feche a guia vazia do navegador que iniciou a caixa de diálogo se ela não tiver sido fechada automaticamente e volte à guia com o portal do Azure.
 
-         Na máquina de gateway, essas credenciais são **criptografadas** usando um certificado que o serviço Data Factory detém. Como alternativa, se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados, confira [Set credentials securely (Definir credenciais com segurança)](#set-credentials-and-security).    
+         Na máquina de gateway, essas credenciais são **criptografadas** usando um certificado que o serviço Data Factory detém. Como alternativa, se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados, confira Definir credenciais com segurança.    
    3. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado do SQL Server. Você deverá ver o serviço vinculado na exibição de árvore.
 
       ![Serviço vinculado do SQL Server na exibição de árvore](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
@@ -375,7 +375,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 **Parabéns!** Você criou um data factory do Azure, serviços vinculados, conjuntos de dados e uma pipeline e a pipeline agendada com êxito.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Exibir a data factory em um Modo de Exibição de Diagrama
-1. No **Portal do Azure**, clique no bloco **Diagrama** na página inicial do data factory **ADFTutorialOnPremDF**. :
+1. No **portal do Azure**, clique no bloco **Diagrama** na página inicial do data factory **ADFTutorialOnPremDF**. :
 
     ![Link do diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. Você deverá ver o diagrama semelhante à imagem abaixo:
@@ -385,7 +385,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
     É possível ampliar, reduzir, aplicar zoom de 100%, ajustar nível de zoom, posicionar pipelines e conjuntos de dados automaticamente, bem como mostrar informações de linhagem (realça itens upstream e downstream dos itens selecionados).  Você pode clicar duas vezes em um objeto (pipeline ou conjunto de dados de entrada/saída) para ver as propriedades dele.
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
-Nesta etapa, você utiliza o Portal do Azure para monitorar o que está acontecendo em um data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
+Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontecendo em um data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
 1. No diagrama, clique duas vezes em **EmpOnPremSQLTable**.  
 

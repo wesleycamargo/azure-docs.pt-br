@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105790"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999361"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -53,7 +53,7 @@ A estrutura básica de um arquivo de solução de gerenciamento é a mesma que u
 ## <a name="parameters"></a>parâmetros
 [Parâmetros](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) são valores que exige dos usuários quando eles instalam a solução de gerenciamento.  Eles são parâmetros padrão que todas as soluções terão; além disso, você pode adicionar parâmetros adicionais conforme necessário para sua solução específica.  O modo como os usuários fornecerão valores de parâmetro quando instalarem sua solução dependerá do parâmetro específico e do modo como a solução estiver sendo instalada.
 
-Quando um usuário instala a solução de gerenciamento por meio do [Azure Marketplace](solutions.md#install-a-management-solution) ou dos Modelos de Início Rápido do Azure, será solicitado que ele selecione uma Conta de automação e um [Workspace do Log Analytics](solutions.md#log-analytics-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente os valores dos parâmetros padrão, mas será solicitado que ele forneça valores para eventuais parâmetros adicionais.
+Quando um usuário instala a solução de gerenciamento por meio do [Azure Marketplace](solutions.md#install-a-monitoring-solution) ou dos Modelos de Início Rápido do Azure, será solicitado que ele selecione uma Conta de automação e um [Workspace do Log Analytics](solutions.md#log-analytics-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente os valores dos parâmetros padrão, mas será solicitado que ele forneça valores para eventuais parâmetros adicionais.
 
 
 Um parâmetro de exemplo é mostrado abaixo.  
@@ -83,7 +83,7 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 >
 >
 
-| Parâmetro | Tipo | DESCRIÇÃO |
+| Parâmetro | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | accountName |string |Nome da conta de Automação do Azure. |
 | pricingTier |string |Tipo de preço do workspace do Log Analytics e da conta de Automação do Azure. |

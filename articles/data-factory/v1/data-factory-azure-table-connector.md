@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812541"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados para e da Tabela do Azure | Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +137,7 @@ O exemplo a seguir mostra:
 1. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (usado para tabela e blob).
 2. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureTable](#dataset-properties).
 3. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa AzureTableSource e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -477,7 +477,7 @@ Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos 
 | --- | --- | --- |
 | Edm.Binary |byte[] |Uma matriz de bytes de até 64 KB. |
 | Edm.Boolean |bool |Um valor booliano. |
-| Edm.DateTime |Datetime |Um valor de 64 bits expressado como Tempo Universal Coordenado (UTC). O intervalo de data e hora com suporte começa à 00:00 de 1º de janeiro de 1601 D.C. (C.E.), UTC. O intervalo termina em 31 de dezembro de 9999. |
+| Edm.DateTime |DateTime |Um valor de 64 bits expressado como Tempo Universal Coordenado (UTC). O intervalo de data e hora com suporte começa à 00:00 de 1º de janeiro de 1601 D.C. (C.E.), UTC. O intervalo termina em 31 de dezembro de 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |Guid |Um identificador global exclusivo de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
@@ -533,7 +533,7 @@ Dado o mapeamento de tipo OData da Tabela do Azure para o tipo .NET, você defin
 
 **Esquema da tabela do Azure:**
 
-| Nome da coluna | Tipo |
+| Nome da coluna | Type |
 | --- | --- |
 | userid |Edm.Int64 |
 | Nome |Edm.String |

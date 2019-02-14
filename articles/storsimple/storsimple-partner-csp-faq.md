@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259931"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814275"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple do programa de provedor de soluções de nuvem: perguntas frequentes
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para Programa de Provedores de Soluções de Nuvem: Perguntas frequentes
 
 
 ## <a name="overview"></a>Visão geral
@@ -31,7 +31,7 @@ As perguntas e respostas são organizadas nas seguintes categorias:
 
  - [Modelo StorSimple e o programa de provedor de soluções de nuvem (CSP)](#storsimple-and-csp-model)
  - [Implantar e gerenciar a matriz virtual como um parceiro](#deploy-and-manage-storsimple-as-a-partner)
- - [Suporte para parceiros de StorSimple para CSP](#support-for-storsimple-partners)
+ - Suporte para parceiros de StorSimple para CSP
 
 ## <a name="storsimple-and-csp-model"></a>Modelo StorSimple e o CSP
 
@@ -50,7 +50,7 @@ Sim. O modelo é um modelo de desconto no atacado assim como outros serviços ba
 Os mesmos SKUs que estão disponíveis com os serviços de StorSimple autônomo. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Existe alguma diferença entre o StorSimple e StorSimple adquirido diretamente da Microsoft em EA como parte do CSP?
-Não. No CSP, os clientes também podem comprar outros serviços oferecidos pelo parceiro CSP juntamente com StorSimple Virtual Array (SVA) em uma fatura. Observe que para adquirir o dispositivo físico da série StorSimple 8000, os clientes ainda precisam percorrer a rota EA. 
+ Não. No CSP, os clientes também podem comprar outros serviços oferecidos pelo parceiro CSP juntamente com StorSimple Virtual Array (SVA) em uma fatura. Observe que para adquirir o dispositivo físico da série StorSimple 8000, os clientes ainda precisam percorrer a rota EA. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>Em qual mercados, está StorSimple disponível para CSP no lançamento?
 StorSimple Array Virtual para o CSP está disponível em todos os mercados de onde o StorSimple está disponível atualmente. Para saber mais, vá para a [lista de regiões em que o StorSimple está disponível](https://azure.microsoft.com/regions/services/).
@@ -75,7 +75,7 @@ Você pode adicionar assinaturas de matriz Virtual StorSimple a conta de seus cl
 Sim. StorSimple Array Virtual para CSP, a melhor maneira de parceiros acessar o portal do Azure deve ser por meio de [Partner Center](https://partnercenter.microsoft.com/) onde é possível gerenciar os clientes e assinaturas. Para gerenciar assinaturas de StorSimple, o parceiro ou cliente (dependendo das permissões concedidas) deve fazer logon portal do Azure. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>É o Microsoft envio um novo portal para StorSimple para CSP? 
-Não. Você será capaz de administrar StorSimple Array Virtual no CSP por meio do portal do Azure.
+ Não. Você será capaz de administrar StorSimple Array Virtual no CSP por meio do portal do Azure.
 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>Posso ter provisionado um assinatura de StorSimple para meu cliente autônomo. É necessário usar o portal do Azure para administrar o meu dispositivo? 
 Sim. 

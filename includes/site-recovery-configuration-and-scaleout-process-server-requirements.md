@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133510"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701209"
 ---
 **Configuração/Requisitos do servidor de processo**
 
@@ -32,17 +32,28 @@ Sistema operacional | Windows Server 2012 R2 <br> Windows Server 2016
 Localidade do sistema operacional | Inglês (en-us)
 Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V 
 Políticas de grupo | Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando. <br> - Impedir o acesso às ferramentas de edição do registro. <br> - Lógica de confiança para anexos de arquivo. <br> - Ativar a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Nenhum site da Web padrão já existente <br> - Nenhum aplicativo/site da Web pré-existente escutando na porta 443 <br>- Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+IIS | – Nenhum site da Web padrão já existente <br> - Nenhum aplicativo/site da Web pré-existente escutando na porta 443 <br>- Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
 | 
 **CONFIGURAÇÕES DE REDE** | 
 Tipo de endereço IP | estático 
-Acesso à Internet | O servidor precisa ter acesso a estas URLs (diretamente ou via proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> O OVF também precisa ter acesso às seguintes URLs: <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados) 
 Tipo de NIC | VMXNET3 (se o Servidor de Configuração for uma VM do VMware)
- | 
+ |
+**Acesso à Internet** (O servidor precisa ter acesso às seguintes URLs - diretamente ou via proxy):|
+\*.backup.windowsazure.com | Usado para transferência de dados replicados e coordenação
+\*.store.core.windows.net | Usado para transferência de dados replicados e coordenação
+\*.blob.core.windows.net | Usado para acessar a conta de armazenamento que armazena os dados replicados
+\*.hypervrecoverymanager.windowsazure.com | Usado para operações de gerenciamento de replicação e coordenação
+https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação 
+*.services.visualstudio.com | Usado para fins de telemetria (é opcional)
+time.nist.gov | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
+time.windows.com | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
+- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | A configuração de OVF precisa de acesso a estas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL
+|
 **SOFTWARE PARA INSTALAÇÃO** | 
 VMware vSphere PowerCLI 6.0 R3 | [PowerCLI versão 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalado se o servidor de configuração estiver em execução em uma VM do VMware.
-MySQL | MySQL deve ser instalado. Você pode instalar manualmente ou o Azure Site Recovery pode instalá-lo.
+MySQL | MySQL deve ser instalado. Você pode instalar manualmente ou o Azure Site Recovery pode instalá-lo. (Consulte [definir configurações](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) para obter mais informações)
 
 **Requisitos de dimensionamento do servidor de processo/configuração**
 

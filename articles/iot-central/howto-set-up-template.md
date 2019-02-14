@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158934"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657732"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -39,6 +39,8 @@ A partir desse modelo de dispositivo, um operador pode criar e conectar disposit
 
 > [!NOTE]
 > Somente construtores e administradores podem criar, editar e excluir modelos de dispositivo. Qualquer usuário pode criar dispositivos na página **Device Explorer** a partir de modelos de dispositivos existentes.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Crie um modelo de dispositivo
 
@@ -79,12 +81,12 @@ Depois de selecionar **Concluído**, a medida **Temperatura** será exibida na l
 
 
 > [!NOTE]
-  O tipo de dados da medida de telemetria é número de ponto flutuante.
+  O tipo de dados da medição de telemetria é um número de ponto flutuante.
 
 ### <a name="create-an-event-measurement"></a>Crie uma medição de evento
 Para adicionar uma nova medida de evento, selecione **Editar modelo** e, em seguida, clique no botão **+ Nova medida**. Selecione **Evento** como o tipo de medição e insira os detalhes no formulário **Criar Evento**.
 
-Forneça os detalhes **Nome para exibição**, **Nome do campo** e **Gravidade** para o evento. Você pode escolher entre os três níveis de gravidade disponíveis: **Erro**, **Aviso** e **Informação**.  
+Forneça os detalhes **Nome para exibição**, **Nome do campo** e **Gravidade** para o evento. Escolha um entre os três níveis de gravidade disponíveis: **Erro**, **Aviso** e **Informações**.  
 
 Por exemplo, você pode adicionar um novo evento **Fan Motor Error**.
 
@@ -126,7 +128,7 @@ Depois de selecionar **Gravar**, a medida do estado do **Fan Mode** será exibid
 Se o dispositivo enviar muitos pontos de dados em uma duração pequena, a medição do estado aparecerá com um visual diferente, conforme mostrado na captura de tela a seguir. Se você clicar no gráfico, todos os pontos de dados dentro desse período serão exibidos em ordem cronológica. Também é possível reduzir o intervalo de tempo para ver a medida plotada no gráfico.
 
 > [!NOTE]
-  O tipo de dados da medida de estado é cadeia de caracteres.
+  O tipo de dados da medida State é string.
 
 ## <a name="settings"></a>Configurações
 
@@ -136,7 +138,7 @@ As configurações podem estar em um dos três estados. O dispositivo informa es
 
 - **Sincronizado**: o dispositivo foi alterado para refletir o valor da configuração.
 
-- **Pendente**: o dispositivo está mudando para o valor de configuração.
+- **Pendente**: o dispositivo está sendo alterado para o valor de configuração.
 
 - **Erro**: o dispositivo retornou um erro.
 
@@ -234,9 +236,9 @@ Os comandos são usados para gerenciar remotamente um dispositivo. Eles permitem
 
 Como um comando é diferente de um cenário? 
 
-* **Configuração**: uma configuração é uma configuração que você deseja aplicar a um dispositivo e deseja que o dispositivo persista nessa configuração até que você a altere. Por exemplo, você deseja definir a temperatura do seu freezer e desejar essa configuração mesmo quando o freezer reiniciar. 
+* **Configuração**: trata-se de uma configuração que você deseja aplicar a um dispositivo para que ele a use até que você a altere. Por exemplo, você deseja definir a temperatura do seu freezer e desejar essa configuração mesmo quando o freezer reiniciar. 
 
-* **Comando**: Você usa comandos para executar instantaneamente um comando no dispositivo remotamente a partir do IoT Central. Se um dispositivo não estiver conectado, o comando atingirá o tempo limite e falhará. Por exemplo, você deseja reiniciar um dispositivo.  
+* **Comando**: use comandos para executar de forma instantânea um comando no dispositivo remotamente por meio do IoT Central. Se um dispositivo não estiver conectado, o comando atingirá o tempo limite e falhará. Por exemplo, você deseja reiniciar um dispositivo.  
 
 
 Por exemplo, é possível adicionar um novo comando **Eco** selecionando **Editando modelo** e, em seguida, clicando em **+ Novo comando** e inserindo o novo comando:

@@ -1,8 +1,21 @@
 ---
-Título: Suplemento do Excel para serviços Web – titleSuffix: Descrição do Azure Machine Learning Studio: Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 01/02/2018
+title: Suplemento do Excel para serviços Web
+titleSuffix: Azure Machine Learning Studio
+description: Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
+ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486887"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços Web do Azure Machine Learning Studio
 O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escrever nenhum código.

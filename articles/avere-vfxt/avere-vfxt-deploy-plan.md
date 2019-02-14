@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298918"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744649"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planejar seu sistema Avere vFXT
 
@@ -37,6 +37,9 @@ Siga estas diretrizes ao planejar a infraestrutura de rede do seu sistema do Ave
 * Localize seus sistemas de computação de cliente perto do cluster vFXT. O armazenamento de back-end pode ser mais remoto.  
 
 * Para manter a simplicidade, localize o cluster vFXT e a VM do controlador de cluster na mesma rede virtual (vnet) e no mesmo grupo de recursos. Também devem usar a mesma conta de armazenamento. (O controlador de cluster cria o cluster e também pode ser usado para gerenciamento de cluster de linha de comando.)  
+
+  > [!NOTE] 
+  > O modelo de criação de cluster pode criar um novo grupo de recursos e uma nova conta de armazenamento para o cluster. Você pode especificar um grupo de recursos, mas ele deve estar vazio.
 
 * O cluster deve estar localizado em sua própria sub-rede para evitar conflitos de endereço IP com clientes ou recursos de computação. 
 
@@ -83,7 +86,7 @@ Verifique se sua assinatura tem a capacidade para executar o cluster de do Avere
 
 ## <a name="back-end-data-storage"></a>Armazenamento de dados de back-end
 
-Em que local o cluster do Avere vFXT deve armazenar seus dados quando eles não estiverem em cache? Decida se seu conjunto de trabalho será armazenado no longo prazo em um novo contêiner de Blobs ou em um sistema de armazenamento de hardware ou de nuvem existente. 
+Em que local o cluster do Avere vFXT deve armazenar seus dados quando eles não estiverem em cache? Decida se seu conjunto de trabalho será armazenado a longo prazo em um novo contêiner de Blobs ou em um sistema de armazenamento de hardware ou de nuvem existente. 
 
 Se você quiser usar o Armazenamento de Blobs do Azure para o back-end, deverá criar um novo contêiner como parte da criação do cluster vFXT. Essa opção cria e configura o novo contêiner para que ele esteja pronto para uso assim que o cluster estiver pronto. 
 
@@ -117,7 +120,7 @@ Para obter detalhes sobre essas opções, leia a [Documentação da Rede Virtual
 
 Se você definir um endereço IP público no controlador de cluster, poderá usá-lo como um host de atalho para contatar o cluster do Avere vFXT de fora da sub-rede privada. No entanto, como o controlador tem privilégios de acesso para modificar nós de cluster, isso cria um pequeno risco de segurança.  
 
-Para maior segurança com um endereço IP público, use um grupo de segurança de rede para permitir acesso de entrada somente pela porta 22.
+Para maior segurança com um endereço IP público, use um grupo de segurança de rede para permitir acesso de entrada somente pela porta 22. Opcionalmente, você pode proteger ainda mais o sistema bloqueando o acesso a seu intervalo de endereços IP de origem, ou seja, permitir somente conexões de computadores que você pretende usar para acesso ao cluster.
 
 Ao criar o cluster, você pode escolher se deseja ou não criar um endereço IP público no controlador de cluster. 
 

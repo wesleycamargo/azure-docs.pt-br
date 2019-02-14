@@ -4,23 +4,23 @@ description: Este artigo fornece uma definição da coleção Postman para chama
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786375"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998443"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção Postman com operações do Live Streaming
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção Postman com operações do Live Streaming 
 
 Este artigo contém uma definição da coleção **Postman** que contém as solicitações HTTP agrupadas que chamam as APIs REST dos Serviços de Mídia **Live Streaming**. Para saber mais sobre como configurar o **Postman** para que possa ser usado para chamar APIs REST dos Serviços de Mídia, consulte o tutorial [Configurar o Postman para chamadas API REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223350"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733460"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obter o SDK de Dispositivos de Fala dos Serviços Cognitivos
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 Conclua as seguintes etapas para ingressar no Azure Active Directory com o endereço de email fornecido durante o registro. Esse processo concede a você acesso ao [site de download](https://shares.datatransfer.microsoft.com/) do SDK de Dispositivos de Fala.
 
-1. Na mensagem de email que você recebeu, selecione **Começar**. Se sua organização já for cliente do Office 365, você receberá uma solicitação para entrar e poderá pular para a etapa 8.
+1. Na mensagem de email que você recebeu, selecione **Começar**. Se sua organização já for cliente do Office 365, você receberá uma solicitação para entrar e poderá pular para a etapa 7.
 
 2. Na janela do navegador que abrir, selecione **Próximo**.
 

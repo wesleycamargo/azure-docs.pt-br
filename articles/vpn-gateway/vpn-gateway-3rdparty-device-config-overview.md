@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 901de2ac3d80b3ee529d89a22afae7e823437b9b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685201"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506865"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações de dispositivo VPN de parceiros
 Este artigo apresenta uma visão geral da configuração de dispositivos VPN locais para conexão com gateways de VPN do Azure. Um exemplo de rede virtual do Azure, e a configuração do gateway de VPN, serão usados para mostrar a você como se conectar a diferentes dispositivos VPN locais com os mesmos parâmetros.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251972"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810279"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -32,6 +32,8 @@ Mover um recurso só o move para um novo grupo de recursos. A operação move n�
 > * Para atualizar uma avaliação gratuita, consulte [Faça o upgrade da sua avaliação gratuita ou da assinatura do Microsoft Imagine Azure para o Pague conforme o uso](..//billing/billing-upgrade-azure-subscription.md).
 > * Para alterar uma conta de pagamento conforme o uso, consulte [Alterar sua assinatura do Azure Pay-As-You-Go para uma oferta diferente](../billing/billing-how-to-switch-azure-offer.md).
 > * Se você não conseguir converter a assinatura, [crie uma solicitação de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **Subscription Management** para o tipo de problema.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="when-to-call-azure-support"></a>Quando telefonar para o suporte do Azure
 
@@ -237,7 +239,7 @@ Ao mover recursos de um grupo de recursos para outro na mesma assinatura, as seg
 * Apenas uma conta de armazenamento (clássica) pode ser movida por vez.
 * Uma conta de armazenamento (clássica) não pode ser movida na mesma operação com uma máquina virtual ou um serviço de nuvem.
 
-Para mover recursos clássicos para um novo grupo de recursos dentro da mesma assinatura, use o [portal](#use-portal), o [Azure PowerShell](#use-powershell), a [CLI do Azure](#use-azure-cli) ou a [API REST](#use-rest-api). Use as mesmas operações como você usa para mover os recursos do Resource Manager.
+Para mover recursos clássicos para um novo grupo de recursos dentro da mesma assinatura, use o [portal](#use-portal), o Azure PowerShell, a CLI do Azure ou a API REST. Use as mesmas operações como você usa para mover os recursos do Resource Manager.
 
 #### <a name="new-subscription"></a>Nova assinatura
 

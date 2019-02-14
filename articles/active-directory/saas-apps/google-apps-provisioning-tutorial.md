@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203939"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821805"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para provisionamento automático de usuários
 
@@ -32,7 +32,7 @@ O objetivo desse tutorial é mostrar como provisionar e desprovisionar automatic
 
 Para configurar a integração do Microsoft Azure AD com o G Suite, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do G Suite
 - Uma assinatura do Google Apps ou uma assinatura do Google Cloud Platform.
 
@@ -127,7 +127,7 @@ Esta seção orienta sobre o processo de conexão do Azure AD à API de provisio
     e. Repita as etapas anteriores para os domínios adicionais que você pretende adicionar ao Google Apps.
      
      > [!WARNING]
-     > Se você alterar o domínio principal do locatário do G Suite e já tiver configurado o logon único com o Microsoft Azure Active Directory, será necessário repetir a etapa nº 3 em [ Etapa 2: Habilitar logon único](#step-two-enable-single-sign-on).
+     > Se você alterar o domínio principal do locatário do G Suite e já tiver configurado o logon único com o Azure AD, será necessário repetir a etapa nº 3 na Etapa 2: Habilitar logon único.
        
 1. No [Console de Administrador do Google Apps](https://admin.google.com/), selecione **Funções de Administrador**.
    

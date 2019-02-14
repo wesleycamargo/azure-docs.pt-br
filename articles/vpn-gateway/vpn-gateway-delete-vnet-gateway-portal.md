@@ -1,5 +1,5 @@
 ---
-title: 'Excluir um gateway de rede virtual: Portal do Azure: Resource Manager | Microsoft Docs'
+title: 'Excluir um gateway da rede virtual: Portal do Azure: Resource Manager | Microsoft Docs'
 description: Exclua um gateway de rede virtual usando o portal do Azure no modelo de implantação do Resource Manager.
 services: vpn-gateway
 documentationcenter: na
@@ -7,12 +7,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816247"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Exclua um gateway de rede virtual usando o portal
 
@@ -60,5 +60,5 @@ Nesse momento, o gateway de rede virtual é excluído. As próximas etapas ajuda
 Se você não estiver preocupado em manter nenhum de seus recursos no grupo de recursos e apenas desejar recomeçar, poderá excluir um grupo de recursos inteiro. Essa é uma maneira rápida de remover tudo. As próximas etapas se aplicam somente ao modelo de implantação do Resource Manager.
 
 1. Em **Todos os recursos**, localize o grupo de recursos e clique para abrir a folha.
-2. Clique em **Excluir**. Na folha Excluir, exiba os recursos afetados. Certifique-se de que deseja excluir todos esses recursos. Se não, use as etapas em [Excluir um Gateway de VPN](#deletegw) na parte superior deste artigo.
+2. Clique em **Excluir**. Na folha Excluir, exiba os recursos afetados. Certifique-se de que deseja excluir todos esses recursos. Se não, use as etapas em Excluir um Gateway de VPN na parte superior deste artigo.
 3. Para continuar, digite o nome do grupo de recursos que você deseja excluir e, em seguida, clique em **Excluir**.

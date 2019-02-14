@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336893"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753456"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas nas Funções Duráveis (Azure Functions)
 
 Um *hub de tarefas* nas [Funções Duráveis](durable-functions-overview.md) é um contêiner lógico dos recursos do Armazenamento do Azure usado para orquestrações. Funções de orquestrador e atividade só podem interagir entre si quando pertencem ao mesmo hub de tarefas.
 
-Cada aplicativo de funções tem um hub de tarefas separado. Se vários aplicativos de funções compartilham uma conta de armazenamento, ela conterá vários hubs de tarefas. O diagrama a seguir ilustra um hub de tarefas por aplicativo de funções em contas de armazenamento compartilhadas e dedicadas.
+Se vários aplicativos de funções compartilham uma conta de armazenamento, cada aplicativo de funções *deve* ser configurado com um nome de hub de tarefas separado. Uma conta de armazenamento pode conter vários hubs de tarefas. O diagrama a seguir ilustra um hub de tarefas por aplicativo de funções em contas de armazenamento compartilhadas e dedicadas.
 
 ![Diagrama mostrando contas de armazenamento compartilhadas e dedicadas.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ Os hubs de tarefas são identificados por um nome declarado no arquivo *host.jso
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ Os hubs de tarefas são identificados por um nome declarado no arquivo *host.jso
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ Os hubs de tarefas também podem ser configurados usando as configurações do a
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ Os hubs de tarefas também podem ser configurados usando as configurações do a
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ E abaixo está a configuração necessária para JavaScript. A propriedade do hu
 Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, o nome padrão será **DurableFunctionsHub**.
 
 > [!NOTE]
-> O nome é o que diferencia um hub de tarefas de outro quando há vários em uma conta de armazenamento compartilhada. Se você tiver vários aplicativos de funções compartilhando uma conta de armazenamento, será necessário configurar nomes diferentes para cada hub de tarefas nos arquivos *host.json*.
+> O nome é o que diferencia um hub de tarefas de outro quando há vários em uma conta de armazenamento compartilhada. Se você tiver vários aplicativos de funções compartilhando uma conta de armazenamento, será necessário configurar, explicitamente, nomes diferentes para cada hub de tarefas nos arquivos *host.json*. Caso contrário, vários aplicativos de funções competirão entre si pelas mensagens, o que pode resultar em comportamento indefinido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

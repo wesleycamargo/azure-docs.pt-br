@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Reconhecer fala, C# (.NET Core Windows) – Serviços de Fala'
+title: 'Início rápido: Reconhecer fala, C# (.NET Core Windows) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em C# no .NET Core no Windows usando o SDK do Serviço de Fala
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 4ff005c3d3955c0df7090fa70f0e116bd216eb91
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cf6ffdad9fbbf1705c0160e16de0e5ee3e5929a1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220579"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869935"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Reconhecimento de fala com o SDK de Fala para .NET Core
 

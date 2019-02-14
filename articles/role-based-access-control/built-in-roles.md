@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081221"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699254"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 O [controle de acesso baseado em função (RBAC)](overview.md) tem várias definições de função interna que você pode atribuir a usuários, grupos e entidades de serviço. Atribuições de função são a maneira de controlar o acesso aos recursos no Azure. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas](custom-roles.md).
 
-As funções internas estão sempre em evolução. Para obter as definições de função mais recentes, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list).
+As funções internas estão sempre em evolução. Para obter as definições de função mais recentes, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descrições de função interna
 A tabela a seguir fornece breves descrições das funções internas. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função.
@@ -43,15 +43,15 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [AcrQuarantineWriter](#acrquarantinewriter) | gravador de dados de quarentena acr |
 | [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) | Pode gerenciar o serviço e as APIs |
 | [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Pode gerenciar serviços, mas não as APIs |
-| [Função de leitor do Serviço de Gerenciamento de API](#api-management-service-reader-role) | Acesso somente leitura ao serviço e APIs |
+| [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Acesso somente leitura ao serviço e APIs |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights |
 | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). |
 | [Operador do Trabalho de Automação](#automation-job-operator) | Criar e gerenciar trabalhos usando runbooks de Automação. |
 | [Operador de automação](#automation-operator) | Os Operadores de Automação podem iniciar, interromper, suspender e retomar trabalhos |
-| [Operador de Runbook de Automação](#automation-runbook-operator) | Ler propriedades do Runbook - para poder criar Trabalhos do runbook. |
+| [Operador de runbook de Automação](#automation-runbook-operator) | Ler propriedades do Runbook - para poder criar Trabalhos do runbook. |
 | [Função de Administrador do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Liste a ação de credencial de administrador de cluster. |
 | [Função de Usuário do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Liste a ação de credencial de usuário de cluster. |
-| [Proprietário de registro do Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros do Azure Stack. |
+| [Proprietário de registro do Microsoft Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros do Microsoft Azure Stack. |
 | [Colaborador de Backup](#backup-contributor) | Permite que você gerencie o serviço de backup, mas não pode criar cofres e fornecer acesso a outras pessoas |
 | [Operador de Backup](#backup-operator) | Permite que você gerencie serviços de backup, exceto a remoção de backup, a criação de cofres e o fornecimento de acesso a outras pessoas |
 | [Leitor de Backup](#backup-reader) | Pode exibir serviços de backup, mas não pode fazer alterações |
@@ -149,8 +149,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Ações** |  |
 > | * | Criar e gerenciar recursos de todos os tipos |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
-> | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
+> | Microsoft.Authorization/*/Delete | Excluir funções e atribuições de função |
+> | Microsoft.Authorization/*/Write | Criar funções e atribuições de função |
 > | Microsoft.Authorization/elevateAccess/Action | Concede ao chamador acesso de administrador de acesso do usuário no escopo do locatário |
 > | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar qualquer artefato do blueprint |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Excluir quaisquer artefatos do Blueprint |
@@ -385,12 +385,12 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite que você gerencie registros do Azure Stack. |
+> | **Descrição** | Permite que você gerencie registros do Microsoft Azure Stack. |
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | **Ações** |  |
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Recupera detalhes estendidos de um produto do Marketplace do Azure Stack |
 > | Microsoft.AzureStack/registrations/products/read | Obtém as propriedades de um produto do Marketplace do Azure Stack |
-> | Microsoft.AzureStack/registrations/read | Obter as propriedades de um registro do Azure Stack |
+> | Microsoft.AzureStack/registrations/read | Obter as propriedades de um registro do Microsoft Azure Stack |
 
 ## <a name="backup-contributor"></a>Colaborador de Backup
 > [!div class="mx-tableFixed"]
@@ -634,7 +634,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-## <a name="cdn-profile-reader"></a>Leitor de perfis de CDN
+## <a name="cdn-profile-reader"></a>Leitor de perfil de CDN
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1096,7 +1096,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
 
-## <a name="logic-app-contributor"></a>Colaborador de Aplicativo Lógico
+## <a name="logic-app-contributor"></a>Colaborador de aplicativo lógico
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1124,7 +1124,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
 > | Microsoft.Web/sites/functions/listSecrets/action | Listar segredos de funções de aplicativos Web. |
 
-## <a name="logic-app-operator"></a>Operador de Aplicativo Lógico
+## <a name="logic-app-operator"></a>Operador de aplicativo lógico
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1424,7 +1424,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Security/* | Criar e gerenciar políticas e componentes de segurança |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-## <a name="security-reader"></a>Leitor de Segurança
+## <a name="security-reader"></a>Leitor de segurança
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1600,15 +1600,15 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Não é possível editar configurações de auditoria |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Editar políticas de auditoria |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Editar configurações de auditoria |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Não é possível editar políticas de conexão |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Não é possível editar políticas de mascaramento dos dados |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Editar políticas de conexão |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento dos dados |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Não é possível editar políticas de alerta de segurança |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Não é possível editar métricas de segurança |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Editar métricas de segurança |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Não é possível editar políticas de auditoria do servidor SQL |
-> | Microsoft.Sql/servers/auditingSettings/* | Não é possível editar configurações de auditoria do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Não é possível editar configurações de auditoria de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Não é possível ler registros de auditoria |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Não é possível editar políticas de conexão de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Não é possível editar políticas de mascaramento de banco de dados do servidor SQL |
+> | Microsoft.Sql/servers/auditingPolicies/* | Editar políticas de auditoria do servidor SQL |
+> | Microsoft.Sql/servers/auditingSettings/* | Editar configurações de auditoria do servidor SQL |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Editar políticas de auditoria de banco de dados do servidor SQL |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Editar configurações de auditoria de banco de dados do servidor SQL |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Ler registros de auditoria |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Editar políticas de conexão de banco de dados do servidor SQL |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento de banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Não é possível editar políticas de alerta de segurança de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Não é possível editar métricas de segurança de banco de dados do servidor SQL |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança de banco de dados do servidor SQL |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Editar métricas de segurança de banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Não é possível editar políticas de alerta de segurança de servidor SQL |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Editar políticas de alerta de segurança de servidor SQL |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Colaborador da Conta de Armazenamento
@@ -1722,7 +1722,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Storage/storageAccounts/listkeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerar as chaves de acesso da conta de armazenamento especificada. |
 
-## <a name="storage-blob-data-contributor-preview"></a>Colaborador de Dados do Blob de Armazenamento (Versão prévia)
+## <a name="storage-blob-data-contributor-preview"></a>Colaborador de dados de blob de armazenamento (pré-visualização)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

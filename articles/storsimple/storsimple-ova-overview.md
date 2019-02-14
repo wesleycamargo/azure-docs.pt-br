@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480947"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811182"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -52,7 +52,7 @@ A tabela a seguir resume os recursos importantes da Matriz Virtual do StorSimple
 | Mobilidade de dados |É possível restaurar para o mesmo dispositivo ou realizar recuperação em nível de item (servidor de arquivos) |
 | Camadas de armazenamento |Armazenamento local de hipervisor e nuvem |
 | Tamanho do compartilhamento |Camadas: até 20 TB; localmente fixados: até 2 TB |
-| Tamanho do volume |Em camadas: 500 GB a 5 TB; localmente fixados: 50 GB a 200 GB <br> A reserva local máxima para volumes em camadas é de 200 GB. |
+| Tamanho do volume |Em camadas: 500 GB a 5 TB; fixado localmente: 50 GB a 200 GB <br> A reserva local máxima para volumes em camadas é de 200 GB. |
 | Instantâneos |Com controle de falhas |
 | Recuperação em nível de item |Sim, os usuários podem fazer restauração de compartilhamentos |
 
@@ -76,8 +76,8 @@ Confira abaixo um resumo das cargas de trabalho com suporte do StorSimple.
 
 |Cenário     |Carga de trabalho     |Com suporte      |Restrições               |
 |-------------|-------------|---------------|---------------------------|
-|Escritórios remotos/filiais (ROBO)  |Compartilhamento de arquivos     |SIM      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
-|Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |SIM      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Escritórios remotos/filiais (ROBO)  |Compartilhamento de arquivos     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 
 A Matriz Virtual StorSimple é mais adequada para dados acessados com pouca frequência. Embora a matriz virtual tenha um cache local para melhorar o desempenho, os usuários devem supor que o dispositivo atende a arquivos no nível mais baixo de armazenamento (nuvem). Cada matriz virtual pode gravar e ler no armazenamento do Azure em aproximadamente 100 Mbps. Esse link é compartilhado entre todas as solicitações que chegam ao dispositivo e pode tornar-se um gargalo, conforme mostra o diagrama a seguir.
 
@@ -169,7 +169,7 @@ Além da matriz virtual e outros componentes, a solução StorSimple usa as tecn
 
 * [Camadas de armazenamento automático](#automatic-storage-tiering) 
 * [Volumes e compartilhamentos fixados localmente](#locally-pinned-shares-and-volumes)
-* [Eliminação de duplicação e compactação para dados em camadas ou em backup na nuvem](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Eliminação de duplicação e compactação para dados em camadas ou em backup na nuvem 
 * [Backups agendados e sob demanda](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Camadas de armazenamento automático

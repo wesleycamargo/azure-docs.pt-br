@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978608"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498192"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança da infraestrutura do Azure DevTest Labs – Integração e migração de aplicativos
 Depois que seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar sobre as perguntas a seguir:
@@ -58,14 +58,14 @@ No entanto, um fator adicional a observar é a frequência das alterações ao s
 Como posso configurar um processo facilmente repetível para trazer minhas imagens organizacionais personalizadas para um ambiente do DevTest Labs?
 
 ### <a name="answer"></a>Resposta
-Veja [este vídeo sobre o padrão fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Esse cenário é um cenário avançado e os scripts fornecidos são apenas scripts de exemplo. Caso alguma alteração seja necessária, você deve gerenciar e manter os scripts usados em seu ambiente.
+Confira [este vídeo sobre o padrão fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Esse cenário é um cenário avançado e os scripts fornecidos são apenas scripts de exemplo. Caso alguma alteração seja necessária, você deve gerenciar e manter os scripts usados em seu ambiente.
 
 Usando DevTest Labs para criar um pipeline de imagem personalizado em Azure Pipelines:
 
-- [Introdução: prepare as VMs em minutos configurando uma fábrica de imagem no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
+- [Introdução: Prepare as VMs em minutos configurando uma fábrica de imagem no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
 - [Fábrica de imagem – Parte 2! Configurar Pipelines do Azure e o laboratório de fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Fábrica de imagem – Parte 3: salvar imagens personalizadas e distribuí-las para vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Vídeo: fábrica de imagem personalizada com o Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [Fábrica de imagem – Parte 3: Salvar imagens personalizadas e distribuí-las para vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
+- [Vídeo: Fábrica de imagem personalizada com o Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Padrões para definir a configuração de rede
 
@@ -103,7 +103,7 @@ Quando devo usar um IP compartilhado, um IP público ou um IP privado?
 Se você usar uma VPN site a site ou Rota Expressa, considere o uso de IPs privados para que suas máquinas sejam acessíveis por meio de sua rede interna e inacessíveis pela internet pública.
 
 > [!NOTE]
-> Os proprietários de laboratórios podem alterar essa política de sub-rede para garantir que ninguém acidentalmente crie endereços IP públicos para suas máquinas virtuais. O proprietário da assinatura deve criar uma política de assinatura impedindo a criação de IPs públicos.
+> Os proprietários de laboratórios podem alterar essa política de sub-rede para garantir que ninguém acidentalmente crie endereços IP públicos para suas VMs. O proprietário da assinatura deve criar uma política de assinatura impedindo a criação de IPs públicos.
 
 Ao usar IPs públicos compartilhados, as máquinas virtuais em um laboratório compartilham um endereço IP público. Essa abordagem pode ser útil quando você precisa evitar que violem os limites em endereços IP públicos para uma determinada assinatura.
 

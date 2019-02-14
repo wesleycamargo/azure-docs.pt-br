@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818503"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496951"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivo do Hub IoT do Azure
 
@@ -34,12 +34,12 @@ Você pode conceder [permissões](#device-provisioning-service-permissions) das 
 
 * **Políticas de autorização de acesso compartilhado**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#device-provisioning-service-permissions). Você pode definir políticas no [Portal do Azure][lnk-management-portal] ou de forma programática usando as [APIs REST do Serviço de Provisionamento de Dispositivo][lnk-resource-provider-apis]. Um serviço de provisionamento recém-criado tem a seguinte política padrão:
 
-* **provisioningserviceowner**: política com todas as permissões.
+* **provisioningserviceowner**: Política com todas as permissões.
 
 > [!NOTE]
 > Para obter informações detalhadas, consulte [permissões](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 O Serviço de Provisionamento do Hub IoT do Azure concede acesso aos pontos de extremidade, verificando um token com base nas políticas de acesso compartilhado. As credenciais de segurança, como as chaves simétricas, nunca são enviadas pela conexão.
 
@@ -84,9 +84,9 @@ Veja os valores esperados:
 
 **Observação sobre o prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
 
-O seguinte trecho de Node.js mostra uma função chamada **generateSasToken** que calcula o token a partir das entradas `resourceUri, signingKey, policyName, expiresInMins`. As seções a seguir detalharão como inicializar as entradas diferentes para casos de uso com token diferentes.
+O seguinte snippet de Node.js mostra uma função chamada **generateSasToken** que calcula o token a partir das entradas `resourceUri, signingKey, policyName, expiresInMins`. As seções a seguir detalharão como inicializar as entradas diferentes para casos de uso com token diferentes.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Por exemplo, um serviço gerado usando uma política de acesso compartilhado cri
 
 ![Criar uma política de acesso compartilhado para a instância do serviço de Provisionamento de Dispositivos no portal][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

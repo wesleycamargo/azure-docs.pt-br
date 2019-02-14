@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164780"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745564"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -31,21 +31,24 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>e
-`and(arg1, arg2)`
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Verifica se os dois valores de parâmetro são verdadeiros.
+## <a name="and"></a>e
+`and(arg1, arg2, ...)`
+
+Verifica se todos os valores de parâmetros são verdadeiros.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |SIM |booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |SIM |booleano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
+| argumentos adicionais |Não  |booleano |Argumentos adicionais para verificar se são verdadeiros. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se os dois valores forem verdadeiros; caso contrário, **False**.
+Retorna **True** se todos os valores forem verdadeiros; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
@@ -90,7 +93,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="bool"></a>bool
@@ -100,9 +103,9 @@ Converte o parâmetro em um booliano.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |SIM |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
+| arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
 ### <a name="return-value"></a>Valor de retorno
 Um booliano do valor convertido.
@@ -155,7 +158,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
 ## <a name="if"></a>if
@@ -165,11 +168,11 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| condition |SIM |booleano |O valor para verificar se é verdadeiro. |
-| trueValue |SIM | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
-| falseValue |SIM | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
+| condition |Sim |booleano |O valor para verificar se é verdadeiro. |
+| trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
+| falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -265,7 +268,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>não
@@ -275,9 +278,9 @@ Converte o valor booliano em seu valor oposto.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |SIM |booleano |O valor a ser convertido. |
+| arg1 |Sim |booleano |O valor a ser convertido. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -326,7 +329,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa **not** com [equals](resource-group-template-functions-comparison.md#equals).
@@ -360,24 +363,25 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>ou o
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-Verifica se o valor do parâmetro é true.
+Verifica se qualquer valor do parâmetro é verdadeiro.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |SIM |booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |SIM |booleano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
+| argumentos adicionais |Não  |booleano |Argumentos adicionais para verificar se são verdadeiros. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se qualquer valor é verdadeiro; caso contrário, **False**.
+Retorna **True** se qualquer valor for verdadeiro; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
@@ -422,7 +426,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

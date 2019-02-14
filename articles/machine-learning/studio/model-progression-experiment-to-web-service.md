@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477974"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992260"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo do Machine Learning Studio progride de uma experiência para um serviço da Web operacionalizado
 O Azure Machine Learning Studio fornece uma tela interativa que permite a você desenvolver, executar, testar e iterar um ***teste*** representando um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
@@ -46,7 +46,7 @@ Estes são os estágios pelos quais passa uma solução típica quando você a d
 *Figura 1 - Estágios de um modelo típico de análise preditiva*
 
 ### <a name="the-training-experiment"></a>O teste de treinamento
-O ***teste de treinamento*** é a fase inicial do desenvolvimento de seu serviço Web no Machine Learning Studio. A finalidade do teste de treinamento é fornecer a você um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizado de máquina. Você pode até mesmo treinar vários modelos simultaneamente já que procura pela melhor solução, mas assim que terminar de testar, você selecionará um único modelo treinado e eliminará o restante do experimento. Para obter um exemplo de como desenvolver um teste de análise preditiva, veja [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+O ***teste de treinamento*** é a fase inicial do desenvolvimento de seu serviço Web no Machine Learning Studio. A finalidade do teste de treinamento é fornecer a você um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizado de máquina. Você pode até mesmo treinar vários modelos simultaneamente já que procura pela melhor solução, mas assim que terminar de testar, você selecionará um único modelo treinado e eliminará o restante do experimento. Para obter um exemplo de como desenvolver um teste de análise preditiva, veja [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>O teste preditivo
 Quando você já tiver um modelo treinado em seu teste de treinamento, clique em **Configurar Serviço Web** e selecione **Serviço Web Preditivo**no Machine Learning Studio para iniciar o processo de conversão de seu teste de treinamento em um ***teste preditivo***. A finalidade do experimento preditivo é usar o modelo treinado para pontuar novos dados, com o objetivo de se tornar posteriormente operacionalizado como um serviço Web do Azure.
@@ -114,5 +114,5 @@ Para obter mais detalhes sobre o processo de desenvolvimento e teste, veja os se
 Para obter exemplos do processo inteiro, consulte:
 
 * [Tutorial de aprendizado de máquina: Crie seu primeiro experimento no Azure Machine Learning Studio](create-experiment.md)
-* [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](tutorial-part1-credit-risk.md)
 

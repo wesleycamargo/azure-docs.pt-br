@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469389"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814105"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional do SQL Server com bancos de dados autônomos, em pool e em instâncias no Banco de Dados SQL do Azure
 
-A replicação transacional é um recurso do Banco de Dados SQL do Azure, Instância Gerenciada e SQL Server que permite que você replique dados de uma tabela no Banco de Dados SQL do Azure ou SQL Server para as tabelas localizadas em bancos de dados remotos. Esse recurso permite que você sincronize várias tabelas em bancos de dados diferentes.
+A replicação transacional é um recurso do Banco de Dados SQL do Azure e SQL Server que permite que você replique dados de uma tabela no Banco de Dados SQL do Azure ou un SQL Server para as tabelas localizadas em bancos de dados remotos. Esse recurso permite que você sincronize várias tabelas em bancos de dados diferentes.
 
 ## <a name="when-to-use-transactional-replication"></a>Quando usar replicação transacional
 
@@ -38,15 +38,15 @@ Os principais componentes na replicação transacional são mostrados na figura 
 ![replicação com um Banco de Dados SQL](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-O **publicador** é uma instância ou um servidor que publica as alterações feitas em algumas tabelas (artigos), enviando as atualizações para o distribuidor. A publicação de um Banco de Dados SQL do Azure de um SQL Server local é uma ação compatível com as seguintes versões do SQL Server:
+O **publicador** é uma instância ou um servidor que publica as alterações feitas em algumas tabelas (artigos), enviando as atualizações para o distribuidor. A publicação de um banco de dados SQL do Azure de um SQL Server local é uma ação compatível com as seguintes versões do SQL Server:
 
-    - SQL Server 2019 (versão prévia)
-    - SQL Server 2016 para SQL 2017
-    - SQL Server 2014 SP1 CU3 ou posterior (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 ou posterior (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Para outras versões do SQL Server que não dão suporte à publicação para objetos no Azure, é possível utilizar o método de [republicação de dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server. 
+   - SQL Server 2019 (versão prévia)
+   - SQL Server 2016 para SQL 2017
+   - SQL Server 2014 SP1 CU3 ou posterior (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 ou posterior (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Para outras versões do SQL Server que não dão suporte à publicação para objetos no Azure, é possível utilizar o método de [republicação de dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server. 
 
 O **distribuidor** é uma instância ou um servidor que coleta as alterações nos artigos de um publicador e as distribui aos assinantes. O distribuidor pode ser uma Instância Gerenciada do Banco de Dados SQL do Azure ou um SQL Server (qualquer versão, desde que seja igual ou maior do que a versão do publicador). 
 
@@ -54,10 +54,10 @@ O **assinante** é uma instância ou um servidor que está recebendo as alteraç
 
 | Função | Bancos de dados autônomos e em pool | Bancos de dados em instâncias |
 | :----| :------------- | :--------------- |
-| **Publicador** | Não  | SIM | 
-| **Distribuidor** | Não  | SIM|
-| **Assinante de pull** | Não  | SIM|
-| **Assinante push**| SIM | SIM|
+| **Publicador** | Não  | Sim | 
+| **Distribuidor** | Não  | Sim|
+| **Assinante de pull** | Não  | Sim|
+| **Assinante push**| Sim | Sim|
 | &nbsp; | &nbsp; | &nbsp; |
 
 Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
@@ -65,12 +65,12 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 
 | Replicação | Bancos de dados autônomos e em pool | Bancos de dados em instâncias|
 | :----| :------------- | :--------------- |
-| [**Transacional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | SIM | 
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | SIM|
+| [**Transacional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
+| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
 | [**Replicação de mesclagem**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não  | Não |
 | [**Entre pares**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não  | Não |
-| **Unidirecional** | SIM | SIM|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não  | SIM|
+| **Unidirecional** | Sim | Sim|
+| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não  | Sim|
 | [**Assinaturas atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não  | Não |
 | &nbsp; | &nbsp; | &nbsp; |
 

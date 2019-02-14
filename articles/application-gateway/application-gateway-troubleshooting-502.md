@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356028"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819436"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solução de problemas de erros de gateway incorreto no Application Gateway
 
@@ -28,11 +28,11 @@ Saiba como solucionar problemas de erros de gateway inválido (502) recebidos ao
 
 ## <a name="overview"></a>Visão geral
 
-Após a configuração de um Application Gateway, um dos erros que os usuários podem encontrar é "Erro de Servidor: 502 - o servidor Web recebeu uma resposta inválida ao atuar como gateway ou proxy de servidor". Este erro pode ocorrer pelos seguintes motivos principais:
+Depois de configurar um gateway de aplicativo, um dos erros que os usuários podem encontrar é "Erro de servidor: 502 - o servidor Web recebeu uma resposta inválida ao atuar como gateway ou servidor proxy". Este erro pode ocorrer pelos seguintes motivos principais:
 
 * O NSG, a UDR ou um DNS personalizado está bloqueando o acesso a membros do pool de back-end.
-* VMs de back-end ou instâncias do conjunto de dimensionamento de máquinas virtuais [não estão respondendo à investigação de integridade padrão](#problems-with-default-health-probe.md).
-* Configuração inválida ou incorreta [de investigações de integridade personalizadas](#problems-with-custom-health-probe.md).
+* VMs de back-end ou instâncias do conjunto de dimensionamento de máquinas virtuais não estão respondendo à investigação de integridade padrão.
+* Configuração inválida ou incorreta de investigações de integridade personalizadas.
 * O [pool de back-end do Gateway de Aplicativo do Azure não está configurado ou está vazio](#empty-backendaddresspool).
 * Nenhuma das VMs ou instâncias no [conjunto de dimensionamento de máquinas virtuais é íntegra](#unhealthy-instances-in-backendaddresspool).
 * [Tempo limite de solicitação ou problemas de conectividade](#request-time-out) com solicitações de usuário.

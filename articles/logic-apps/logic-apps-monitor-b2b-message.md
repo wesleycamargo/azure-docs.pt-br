@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534869"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818287"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorar mensagens B2B com o Log Analytics do Azure nos Aplicativos Lógicos do Azure
 
-Após você configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros poderão trocar mensagens uns com os outros. Para verificar se a comunicação funciona da forma esperada, você pode monitorar as mensagens de AS2, X12 e EDIFACT e configurar o log de diagnósticos da conta de integração com o [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Esse serviço monitora seus ambientes locais e na nuvem, ajudando a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Também é possível [usar esses dados com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure.
+Após você configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros poderão trocar mensagens uns com os outros. Para verificar se a comunicação funciona da forma esperada, você pode monitorar as mensagens de AS2, X12 e EDIFACT e configurar o log de diagnósticos da conta de integração com o [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Esse serviço monitora seus ambientes locais e na nuvem, ajudando a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Também é possível usar esses dados com outros serviços, como o Armazenamento do Azure e os Hubs de Eventos do Azure.
 
 > [!NOTE]
 > Esta página ainda pode ter referências ao OMS (Microsoft Operations Management Suite), que será [desativado em janeiro de 2019](../azure-monitor/platform/oms-portal-transition.md), mas substitui essas etapas pelo Log Analytics do Azure sempre que possível. 

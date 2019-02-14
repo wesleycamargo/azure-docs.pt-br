@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056260"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565189"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
@@ -155,9 +155,9 @@ O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure
 
 Outros padrões de provisionamento não mencionados nesse tutorial:
 
-**Provisionamento prévio de bancos de dados**: o padrão de pré-provisionamento explora o fato de que os bancos de dados de um pool elástico não adicionam custo extra. A cobrança é para o pool elástico, não os bancos de dados. Bancos de dados ociosos não consomem recursos. Com o pré-provisionamento de bancos de dados em um pool e a alocação quando necessário, você pode reduzir o tempo para adicionar os locatários. O número de bancos de dados pré-provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento esperada.
+**Pré-provisionamento de bancos de dados**: O padrão de pré-provisionamento explora o fato de que os bancos de dados de um pool elástico não adicionam custo extra. A cobrança é para o pool elástico, não os bancos de dados. Bancos de dados ociosos não consomem recursos. Com o pré-provisionamento de bancos de dados em um pool e a alocação quando necessário, você pode reduzir o tempo para adicionar os locatários. O número de bancos de dados pré-provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento esperada.
 
-**Provisionamento automático**: no padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme o necessário. Se desejar, você poderá incluir o provisionamento prévio de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como o tratamento de provisionamento em várias regiões geográficas e a configuração de replicação geográfica para recuperação de desastre. 
+**Provisionamento automático**: No padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme o necessário. Se desejar, você poderá incluir o provisionamento prévio de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como o tratamento de provisionamento em várias regiões geográficas e a configuração de replicação geográfica para recuperação de desastre. 
 
 Com o padrão de provisionamento automático, um script ou aplicativo cliente envia uma solicitação de provisionamento a uma fila para ser processada pelo serviço de provisionamento. Em seguida, ele sonda o serviço para determinar a conclusão. Se o provisionamento prévio for usado, as solicitações serão manipuladas rapidamente. O serviço provisiona um banco de dados de substituição em segundo plano.
 

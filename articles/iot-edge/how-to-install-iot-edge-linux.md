@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 298acb446516a4cdc5057cd6bdcf10422d992ff3
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 9d5d6fc436c48bd36e2da64d2b4c7c811e3ddc4f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900589"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993343"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (x64)
 
@@ -26,7 +26,7 @@ Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais co
 Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no dispositivo de borda do Linux x64 (Intel/AMD). Consulte o [suporte do Azure IoT Edge](support.md#operating-systems) para obter uma lista dos sistemas operacionais AMD64 que têm suporte atualmente.
 
 > [!NOTE]
-> Os pacotes nos repositórios de software do Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/ *package-name* ). Leia os termos da licença antes de usar o pacote. A instalação e o uso do pacote constitui a aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
+> Os pacotes nos repositórios de software do Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/ *package-name* ). Leia os termos da licença antes de usar o pacote. Sua instalação e uso do pacote constitui sua aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
 
 ## <a name="register-microsoft-key-and-software-repository-feed"></a>Registrar a chave da Microsoft e o feed do repositório de software
 
@@ -41,8 +41,8 @@ sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
-# Perform apt upgrade
-sudo apt-get upgrade
+# Perform apt update
+sudo apt-get update
 ```
 
 ## <a name="install-the-container-runtime"></a>Instalar o tempo de execução de contêiner

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092374"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813034"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -37,7 +37,7 @@ O cache pode ocorrer em vários níveis entre o servidor de origem e o usuário 
 
 - Servidor Web: usa um cache compartilhado (para vários usuários).
 - Rede de distribuição de conteúdo: usa um cache compartilhado (para vários usuários).
-- ISP (Provedor de Serviços de Internet): usa um cache compartilhado (para vários usuários).
+- Provedor de serviços de Internet (ISP): usa um cache compartilhado (para vários usuários).
 - Navegador da Web: usa um cache privado (para um usuário).
 
 Cada cache normalmente gerencia sua própria atualização de recurso e executa a validação quando um arquivo está obsoleto. Esse comportamento é definido na especificação de cache HTTP, [RFC 7234](https://tools.ietf.org/html/rfc7234).
@@ -124,12 +124,12 @@ Para **a CDN do Azure Standard da Microsoft** em cache para funcionar em um recu
 
 A tabela a seguir descreve o comportamento de cache padrão para os produtos da CDN do Azure e suas otimizações.
 
-|    | Microsoft: entrega web geral | Verizon: entrega web geral | Verizon: DSA | Akamai: entrega web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
+|    | Microsoft: Distribuição na Web geral | Verizon: Distribuição na Web geral | Verizon: DSA | Akamai: Distribuição na Web geral | Akamai: DSA | Akamai: Download de arquivos grandes | Akamai: streaming de mídia geral ou VoD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Aceitar a origem**        | SIM    | sim   | Não    | Sim    | Não    | sim   | SIM    |
+| **Aceitar a origem**        | Sim    | sim   | Não    | Sim    | Não    | sim   | Sim    |
 | **Duração do cache da CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
-**Aceitar a origem**: especifica se deve aceitar os [cabeçalhos de diretiva de cache com suporte](#http-cache-directive-headers), se eles existirem na resposta HTTP do servidor de origem.
+**Aceitar a origem**: especifica se deve aceitar os cabeçalhos de diretiva de cache com suporte, se eles existirem na resposta HTTP do servidor de origem.
 
 **Duração do cache da CDN**: especifica a quantidade de tempo para o qual um recurso é armazenado em cache na CDN do Azure. No entanto, se **Aceitar a origem** for Sim e a resposta HTTP do servidor de origem inclui o cabeçalho de diretiva de cache `Expires` ou `Cache-Control: max-age`, a CDN do Azure usa o valor de duração especificado pelo cabeçalho. 
 

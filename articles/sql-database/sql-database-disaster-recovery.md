@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474778"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749021"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL ou fazer failover para um secundário
 
@@ -38,7 +38,7 @@ Para saber mais sobre os cenários de continuidade dos negócios e os recursos c
 Para ter êxito com a recuperação para outra região de dados usando a replicação os grupos de failover ou os backups com redundância geográfica, você precisará preparar um servidor em outra interrupção de data center para que ele se torne o novo servidor primário, caso seja necessário, bem como definir as etapas documentadas e testadas para garantir uma recuperação simples. Essas etapas de preparação incluem:
 
 - Identificar o servidor de Banco de Dados SQL em outra região para que ele se torne o novo servidor primário. Para a restauração geográfica, geralmente será um servidor na [região emparelhada](../best-practices-availability-paired-regions.md) para a região na qual o banco de dados está localizado. Isso eliminará o custo de tráfego adicional durante as operações de restauração geográfica.
-- Identificar e, como alternativa, definir as regras de firewall no nível de servidor necessárias para que os usuários acessem o novo banco de dados primário.
+- Identificar e, como alternativa, definir as regras de IP do firewall no nível de servidor necessárias para que os usuários acessem o novo banco de dados primário.
 - Determinar como você pretende redirecionar os usuários para o novo servidor primário, como ao alterar as cadeias de conexão ou as entradas DNS.
 - Identificar e, como alternativa, criar os logons que devem estar presentes no banco de dados mestre no novo servidor primário e verificar se esses logons têm permissões apropriadas no banco de dados mestre, se houver. Para obter mais informações, confira [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
 - Identificar as regras de alerta que precisarão ser atualizadas para mapear para o novo banco de dados primário.

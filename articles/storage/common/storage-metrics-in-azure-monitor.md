@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467638"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811760"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -39,7 +39,7 @@ Para métricas com suporte para dimensões, você pode filtrar a métrica com va
 
 ### <a name="access-metrics-with-the-rest-api"></a>Acessar métricas com a API REST
 
-O Azure Monitor fornece [APIs REST](/rest/api/monitor/) para ler valores e definição de métricas. Esta seção mostra como ler as métricas de armazenamento. A ID do recurso é usada em todas as APIs REST. Para obter mais informações, leia [Noções básicas sobre o ID de recurso para serviços no Armazenamento](#understanding-resource-id-for-services-in-storage).
+O Azure Monitor fornece [APIs REST](/rest/api/monitor/) para ler valores e definição de métricas. Esta seção mostra como ler as métricas de armazenamento. A ID do recurso é usada em todas as APIs REST. Para obter mais informações, leia Noções básicas sobre a ID de recurso para serviços no Armazenamento.
 
 O exemplo a seguir mostra como usar [ArmClient](https://github.com/projectkudu/ARMClient) na linha de comando para simplificar o teste com a API REST.
 
@@ -136,7 +136,7 @@ A resposta a seguir contém os valores da métrica no formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Acessar métricas com o SDK do .Net
 
-O Azure Monitor fornece [SDK do .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler valores e definição de métricas. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como usar o SDK com parâmetros diferentes. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. A ID do recurso é usada no SDK do .Net. Para obter mais informações, leia [Noções básicas sobre o ID de recurso para serviços no Armazenamento](#understanding-resource-id-for-services-in-storage).
+O Azure Monitor fornece [SDK do .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler valores e definição de métricas. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como usar o SDK com parâmetros diferentes. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. A ID do recurso é usada no SDK do .Net. Para obter mais informações, leia Noções básicas sobre a ID de recurso para serviços no Armazenamento.
 
 O exemplo a seguir mostra como usar o SDK do .Net do Azure Monitor para ler a métrica de armazenamento.
 
@@ -391,8 +391,8 @@ O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas
 | BlobType | O tipo de blob somente para métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
 | ResponseType | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros do lado do servidor, exceto aqueles descritos </li> <li> ServerBusyError: Solicitação autenticada que retornou um código de status HTTP 503. </li> <li> ServerTimeoutError: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li> AuthorizationError: Solicitação autenticada que falhou devido a um acesso não autorizado de dados ou a uma falha de autorização. </li> <li> NetworkError: Solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente, exceto aqueles descritos. </li> <li> Sucesso: Solicitação bem-sucedida|
 | GeoType | Transação de cluster primário ou secundário. Os valores disponíveis incluem Primário e Secundário. Aplica-se ao acesso de leitura ao armazenamento com redundância geográfica (RA-GRS) ao ler objetos de um locatário secundário. |
-| ApiName | O nome da operação. Por exemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para saber todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Autenticação | Tipo de autenticação usado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso compartilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso OAuth.</li> <li>Anônima: A transação é solicitada anonimamente. Ele não inclui solicitações de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |
+| ApiName | O nome da operação. Por exemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para saber todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| Authentication | Tipo de autenticação usado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso compartilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso OAuth.</li> <li>Anônima: A transação é solicitada anonimamente. Ele não inclui solicitações de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |
 
 Para saber as dimensões de métricas com suporte, você precisa especificar o valor da dimensão para exibir os valores correspondentes das métricas. Por exemplo, se você pesquisar o valor de **Transações** para respostas com sucesso, você precisa filtrar a dimensão **ResponseType** por **Sucesso**. Ou se você pesquisar o valor de **BlobCount** para o Blob de Blocos, você precisa filtrar a dimensão **BlobType** por **BlockBlob**.
 
@@ -401,6 +401,10 @@ Para saber as dimensões de métricas com suporte, você precisa especificar o v
 As métricas herdadas estão disponíveis paralelamente às métricas gerenciadas do Azure Monitor. O suporte é o mesmo até que o Armazenamento do Azure conclua o serviço nas métricas herdados.
 
 ## <a name="faq"></a>Perguntas frequentes
+
+**As novas métricas dão suporte à conta de armazenamento clássica?**
+
+Não, as novas métricas do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. Se você quiser usar as métricas nas contas de armazenamento, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Armazenamento do Azure dá suporte a métricas para gerenciados discos ou discos não gerenciado?**
 

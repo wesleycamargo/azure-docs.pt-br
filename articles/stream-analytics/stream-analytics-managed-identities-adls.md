@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410448"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745768"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar o Stream Analytics no Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)
 
@@ -21,7 +21,7 @@ O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada 
 
 Acesse a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) para se inscrever para essa versão prévia e ler mais sobre os novos recursos.
 
-Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1 por meio do portal do Azure, da implantação de modelo do Azure Resource Manager e das ferramentas do Azure Stream Analytics para Visual Studio.
+Este artigo mostra três maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1 por meio do portal do Azure, da implantação de modelo do Azure Resource Manager e das ferramentas do Azure Stream Analytics para Visual Studio.
 
 ## <a name="azure-portal"></a>Portal do Azure
 

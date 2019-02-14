@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757614"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815873"
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
@@ -111,7 +111,7 @@ Explicação do parâmetro:
 
 Em vez de especificar o nó diretamente por seu nome, você pode especificá-lo por meio de uma chave de partição e pelo tipo de réplica.
 
-Para obter mais informações, consulte [PartitionSelector e ReplicaSelector](#partition_replica_selector).
+Para obter mais informações, consulte PartitionSelector e ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 038c273806188d04223f1e455c158249a3e17718
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 72b7bd722bc7634a707e10cbcd45768140ed527a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166018"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757618"
 ---
 | Recurso | Compartilhamentos de arquivos padrão | Compartilhamentos de arquivos Premium (versão prévia) |
 |----------|---------------|------------------------------------------|
@@ -22,3 +22,5 @@ ms.locfileid: "50166018"
 | Taxa de transferência de destino para compartilhamento de arquivo único | Até 60 MiB/segundo | Até 612 MiB/s (provisionado) |
 | Máximo de identificadores abertos por arquivo | 2.000 identificadores abertos | 2.000 identificadores abertos |
 | Número máximo de instantâneos de compartilhamento | 200 instantâneos de compartilhamento | 200 instantâneos de compartilhamento |
+| Tamanho máximo do nome do objeto (diretórios e arquivos) | 2048 caracteres | 2048 caracteres |
+| Componente de nome de caminho máximo (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |

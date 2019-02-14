@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085824"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730706"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implantar o OpenShift Container Platform no Azure
 
@@ -35,9 +35,9 @@ Certifique-se de que você tenha uma senha, uma ID do Pool e um Nome de usuário
 
 ## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>Implantar usando o modelo do Resource Manager de OpenShift Container Platform
 
-Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Para personalizar ainda mais a implantação, crie um fork do repositório do GitHub e altere os itens apropriados.
+Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, bifurque o repositório do GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem, mas não se limitam a:
+Algumas opções comuns de personalização incluem, mas não estão limitadas a:
 
 - Tamanho de VM de bastião (variável em azuredeploy.json)
 - Convenções de nomenclatura (variáveis em azuredeploy.json)
@@ -264,15 +264,15 @@ A maneira mais simples para implantar o OpenShift Container Platform no Azure é
 
 Essa opção é a mais simples, mas também tem recursos de personalização limitados. A oferta do Marketplace inclui as seguintes opções de configuração:
 
-- **Nós mestres**: tipo de instância de nós mestres três (3) com configurável.
-- **Nós mestres**: tipo de instância de nós mestres três (3) com configurável.
-- **Nós**: O número de nós é configurável (entre 2 e 9), bem como o tipo de instância.
-- **Tipo de Disco**: Discos gerenciados são usados.
+- **Nós mestres**: três (3) nós mestres com tipo de instância configurável.
+- **Nós de infraestrutura**: três (3) nós de infraestrutura com tipo de instância configurável.
+- **Nós**: o número de nós é configurável (entre 2 e 9), bem como o tipo de instância.
+- **Tipo de disco**: são usados os Managed Disks.
 - **Rede**: suporte para rede nova ou existente, bem como o intervalo CIDR personalizado.
-- **CNS**: CNS pode ser habilitado.
-- **Métricas**: as métricas podem ser habilitadas.
-- **Registro em log**: registro em log pode ser habilitado.
-- **O provedor de nuvem do Azure**: pode ser habilitado.
+- **CNS**: o CNS pode ser habilitado.
+- **Métrica**: as métricas podem ser habilitadas.
+- **Registro em log**: o registro em log pode ser habilitado.
+- **Azure Cloud Provider**: pode ser habilitado.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conectar-se ao cluster OpenShift
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 
 ```azurecli 
 az group delete --name openshiftrg

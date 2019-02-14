@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629840"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732338"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do Serviço de Provisionamento de Dispositivos do Azure
 Um *registro de dispositivo* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para seu serviço de provisionamento programaticamente usando os SDKs de Serviço de Provisionamento do Azure IoT.  Os SDKs do estão disponíveis no GitHub no mesmo repositório dos SDKs do Azure IoT.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha a cadeia de conexão da instância do Serviço de Provisionamento de Dispositivos.
 * Obter os artefatos de segurança do dispositivo para o [mecanismo de atestado](concepts-security.md#attestation-mechanism) usado:
     * [**TPM (Trusted Platform Module)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Registro individual: ID do Registro e Chave de Endosso de TPM de um dispositivo físico ou do Simulador de TPM.
         * O grupo de registros não é aplicável ao atestado de TPM.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * Registro individual: o [Certificado de folha](/azure/iot-dps/concepts-security#leaf-certificate) do dispositivo físico ou do Emulador SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
-        * Grupo de registros: o [certificado raiz/CA](/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](/azure/iot-dps/concepts-security#intermediate-certificate), usado para gerar o certificado do dispositivo em um dispositivo físico.  Ele também pode ser gerado no emulador SDK DICE.
+        * Registro individual: o [Certificado de folha](/azure/iot-dps/concepts-security) do dispositivo físico ou do Emulador SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
+        * Grupo de registro: o [certificado raiz/CA](/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](/azure/iot-dps/concepts-security#intermediate-certificate), usado para gerar o certificado do dispositivo em um dispositivo físico.  Ele também pode ser gerado no emulador SDK DICE.
 * Chamadas à API exatas podem ser diferentes devido a diferenças de linguagem. Examine os exemplos fornecidos no GitHub para obter detalhes:
    * [Exemplos de cliente de serviço de provisionamento do Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Exemplos de cliente de serviço de provisionamento do Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -48,7 +48,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     Você pode criar um registro individual com os SDKs seguindo este fluxo de trabalho:
     
     1. Escolha seu mecanismo ```attestation```, que pode ser TPM ou X.509.
-        1. **TPM**: usando a Chave de Endosso de um dispositivo físico ou do Simulador de TPM como a entrada, você pode chamar a API do SDK de Serviço ```TpmAttestation``` para criar o atestado para o registro. 
+        1. **TPM**: usando a Chave de Endosso de um dispositivo físico ou do Simulador de TPM como a entrada, você pode chamar a API do SDK de Serviço ```TpmAttestation``` para criar o atestado do registro. 
         2. **X.509**: usando o certificado de cliente como a entrada, você pode chamar a API do SDK de Serviço ```X509Attestation.createFromClientCertificate``` para criar o atestado para registro.
     2. Crie uma nova variável ```IndividualEnrollment``` usando o ```attestation``` criado e um ```registrationId``` exclusivo como entrada, que está em seu dispositivo ou gerado do Simulador de TPM.  Opcionalmente, você pode definir parâmetros como ```Device ID```, ```IoTHubHostName``` e ```ProvisioningStatus```.
     3. Chame a API do SDK de Serviço ```createOrUpdateIndividualEnrollment``` em seu aplicativo de back-end com ```IndividualEnrollment``` para criar um registro individual.

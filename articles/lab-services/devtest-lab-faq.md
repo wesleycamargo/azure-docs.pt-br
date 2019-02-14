@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262022"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699983"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -65,7 +65,7 @@ O acesso de segurança é determinado pelo [RBAC (controle de acesso baseado em 
 Dentro do escopo do DevTest Labs, há dois tipos de funções para definir permissões de usuário:
 
 * **Proprietário de laboratório**: um proprietário de laboratório tem acesso a qualquer recurso no laboratório. Um proprietário de laboratório pode modificar políticas, ler e gravar para quaisquer VMs, alterar a rede virtual e assim por diante.
-* **Usuário de laboratório**: um usuário de laboratório pode exibir todos os recursos de laboratório, tais como VMs, políticas e redes virtuais. Mas um usuário de laboratório não é capaz de modificar políticas nem nenhuma máquina virtual que tenha sido criada por outros usuários. 
+* **Usuário do laboratório**: um usuário de laboratório pode exibir todos os recursos de laboratório, como VMs, políticas e redes virtuais. Mas um usuário de laboratório não é capaz de modificar políticas nem nenhuma máquina virtual que tenha sido criada por outros usuários. 
 
 Você também pode criar funções personalizadas no DevTest Labs. Para saber como criar funções personalizadas no DevTest Labs, consulte [Conceder permissões de usuário para políticas específicas do laboratório](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -227,7 +227,7 @@ Uma das possibilidades é que o nome da rede virtual contém pontos. Nesse caso,
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Por que recebo um erro "Recurso pai não encontrado" ao provisionar uma VM do PowerShell?
 Quando um recurso é pai de outro recurso, o recurso pai deve existir antes de você criar o recurso filho. Se o recurso pai não existir, você verá uma mensagem **ParentResourceNotFound**. Se você não especificar uma dependência no recurso pai, o recurso filho poderá obter implantado antes do pai.
 
-As VMs são recursos filhos em um laboratório em um grupo de recursos. Quando você usa modelos do Resource Manager para implantar VMs pelo uso do PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [Solução de erros comuns de implantação do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+As VMs são recursos filhos em um laboratório em um grupo de recursos. Quando você usa modelos do Resource Manager para implantar VMs pelo uso do PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [Solução de erros comuns de implantação do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações sobre erros se há falha na implantação de uma VM?
 Os erros de implantação de VM são capturados nos logs de atividades. É possível encontrar os logs de atividades de VMs do laboratório em **Logs de auditoria** ou **Diagnóstico de máquina virtual** no menu de recursos da folha de VMs do laboratório (a folha é exibida após a seleção da VM na lista **Minhas máquinas virtuais**).

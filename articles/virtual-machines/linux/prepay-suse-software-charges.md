@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
-ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582180"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745972"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Pré-pagamento para planos de software SUSE das reservas do Azure
 
@@ -27,7 +27,7 @@ Pague antecipadamente seu uso do SUSE e economize dinheiro com seus custos de pa
 Você pode comprar planos de software do SUSE no portal do Azure. Comprar um plano:
 
 - Você deve estar em uma função de Proprietário em pelo menos uma assinatura Enterprise ou Pagamento Conforme o Uso.
-- Para as assinaturas Enterprise, as compras de reserva devem estar habilitadas no [portal EA](https://ea.azure.com).
+- Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
 - Para o programa Provedor de Solução de Nuvem (CSP), os agentes admin ou agentes de vendas podem comprar os planos do SUSE.
 
 ## <a name="buy-a-suse-software-plan"></a>Compre um plano de software do SUSE
@@ -39,8 +39,8 @@ Você pode comprar planos de software do SUSE no portal do Azure. Comprar um pla
     | Campo      | DESCRIÇÃO|
     |:------------|:--------------|
     |NOME        |O nome desta compra.|
-    |Assinatura|A assinatura usada para pagar por este plano. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um contrato enterprise (número de oferta: MS-AZR-0017P) ou de Pagamento Conforme o Uso (número da oferta: MS-AZR-0003P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|
-    |Escopo       |O escopo pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>Assinatura única - O desconto do plano é aplicado ao uso do SUSE Linux nesta assinatura. </li><li>Compartilhado - o desconto de plano é aplicado ao uso do SUSE Linux em qualquer assinatura dentro de seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas (exceto as assinaturas de desenvolvimento/teste) no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</li></ul>|
+    |Assinatura|A assinatura usada para pagar por este plano. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|
+    |Escopo       |O escopo pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>Assinatura única - O desconto do plano é aplicado ao uso do SUSE Linux nesta assinatura. </li><li>Compartilhado - o desconto de plano é aplicado ao uso do SUSE Linux em qualquer assinatura dentro de seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</li></ul>|
     |Plano de software     |Selecione o plano do SUSE Linux. Para obter ajuda sobre como identificar o que comprar, consulte [entender como o desconto de reserva de software do SUSE Linux Enterprise é aplicado](../../billing/billing-understand-suse-reservation-charges.md).|
     |Tamanho da VM     |O preço do SUSE Linux depende do número de vCPUs na VM. Selecione a opção que representa o número de vCPUs em suas VMs do SUSE Linux.|
     |Termo        |Um ano ou três anos.|
@@ -70,6 +70,6 @@ Para saber mais, consulte os seguintes artigos:
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../../billing/billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

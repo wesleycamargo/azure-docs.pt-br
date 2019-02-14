@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438908"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822435"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
 
@@ -66,7 +66,7 @@ Na caixa de pesquisa na parte superior do portal, digite *grupos de segurança d
 2. Selecione na lista o Grupo de Segurança de Rede cujos detalhes você deseja exibir. Em **CONFIGURAÇÕES**, é possível exibir as **Regras de segurança de entrada** e **Regras de segurança de saída**, os **Adaptadores de rede** e **Sub-redes** aos quais o Grupo de Segurança de Rede está associado. Você também pode habilitar ou desabilitar os **Logs de diagnóstico** e exibir as **Regras de segurança em vigor**. Para saber mais, consulte [Logs de diagnóstico](virtual-network-nsg-manage-log.md) e [Exibir as regras de segurança em vigor](diagnose-network-traffic-filter-problem.md).
 3. Para saber mais sobre as configurações comuns do Azure listadas, veja as seguintes informações:
     *   [Log de atividade](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Controle de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Controle de acesso (IAM)](../role-based-access-control/overview.md)
     *   [Marcas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -92,7 +92,7 @@ Para associar ou desassociar um Grupo de Segurança de Rede de um adaptador de r
 
 ### <a name="delete-a-network-security-group"></a>Excluir um Grupo de Segurança de Rede
 
-Se um Grupo de Segurança de Rede estiver associado a sub-redes ou adaptadores de rede, ele não poderá ser excluído. [Desassocie](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) um Grupo de Segurança de Rede de todas as sub-redes e adaptadores de rede antes de tentar excluí-lo.
+Se um Grupo de Segurança de Rede estiver associado a sub-redes ou adaptadores de rede, ele não poderá ser excluído. Desassocie um grupo de segurança de rede de todas as sub-redes e adaptadores de rede antes de tentar excluí-lo.
 
 1. Na caixa de pesquisa na parte superior do portal, digite *grupos de segurança de rede*. Quando **grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione esta opção.
 2. Selecione o Grupo de Segurança de Rede que você deseja excluir da lista.

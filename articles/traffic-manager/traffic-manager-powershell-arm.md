@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055125"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816196"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
@@ -66,7 +66,7 @@ A tabela a seguir lista os parâmetros:
 | MonitorPort |Especifica a porta TCP usada para monitorar a integridade do ponto de extremidade. |
 | MonitorPath |Especifica o caminho relativo ao nome de domínio de ponto de extremidade usado para testar a integridade do ponto de extremidade. |
 
-O cmdlet cria um perfil do Gerenciador de Tráfego no Azure e retorna um objeto de perfil correspondente ao PowerShell. Nesse momento, o perfil não contém pontos de extremidade. Para obter mais informações sobre como adicionar pontos de extremidade a um perfil do Gerenciador de Tráfego, consulte [Adicionando pontos de extremidade do Gerenciador de Tráfego](#adding-traffic-manager-endpoints).
+O cmdlet cria um perfil do Gerenciador de Tráfego no Azure e retorna um objeto de perfil correspondente ao PowerShell. Nesse momento, o perfil não contém pontos de extremidade. Para obter mais informações sobre como adicionar pontos de extremidade a um perfil do Gerenciador de Tráfego, confira Adicionar pontos de extremidade do Gerenciador de Tráfego.
 
 ## <a name="get-a-traffic-manager-profile"></a>Obter um perfil do Gerenciador de Tráfego
 

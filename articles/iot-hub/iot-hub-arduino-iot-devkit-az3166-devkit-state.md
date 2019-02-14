@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343138"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811045"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -61,7 +61,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...** - **cloud-deploy**.
 
-2. Aguarde o processo de upload do código do aplicativo de função ser concluído; a mensagem *implantações do aplicativo de funções: Concluídas* é exibida.
+2. Aguarde o processo de upload do código do aplicativo de função ser concluído; a mensagem *implantações do aplicativo de funções: Concluída* é exibida.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configurar a cadeia de conexão do dispositivo do Hub IoT no DevKit
 
@@ -83,7 +83,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 
 ## <a name="monitor-devkit-state-in-browser"></a>Monitorar estado do DevKit no navegador
 
-1. Em um navegador da Web, abra o arquivo `DevKitState\web\index.html`, que foi criado durante a etapa [O que você precisa](#whatyouneed).
+1. Em um navegador da Web, abra o arquivo `DevKitState\web\index.html`, que foi criado durante a etapa Do que você precisa.
 
 2. A página da Web a seguir é exibida:![Encontrar o nome do aplicativo de funções.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
@@ -106,7 +106,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 ![Exemplo de procedimento de teste](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Você pode ver os dados brutos de dispositivos gêmeos no portal do Azure: IoT Hub -\> dispositivos IoT -\> *\<seu dispositivo\>* -\>  Dispositivo gêmeo.
+> Você pode ver os dados brutos do dispositivo gêmeo no portal do Azure: Hub IoT –\> Dispositivos IoT –\> *\<seu dispositivo\>* -\> Dispositivo Gêmeo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

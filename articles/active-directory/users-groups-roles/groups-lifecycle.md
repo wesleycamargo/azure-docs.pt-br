@@ -1,5 +1,5 @@
 ---
-title: Expiração de grupos do Office 365 no Azure Active Directory | Microsoft Docs
+title: Definir a expiração de grupos do Office 365 – Azure Active Directory | Microsoft Docs
 description: Como configurar o vencimento de grupos do Office 365 no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166162"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658242"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração de grupos do Office 365
 
@@ -53,15 +53,16 @@ Para saber mais sobre permissões para restaurar um grupo excluído, confira [Re
   
   ![Folha Vencimento](./media/groups-lifecycle/expiration-settings.png)
 
-4. Na folha **Vencimento**, você pode:
+3. Na folha **Vencimento**, você pode:
 
   * Definir o tempo de vida do grupo em dias. Selecionar um dos valores predefinidos ou um valor personalizado (deve ser 31 dias ou mais). 
   * Especificar um email para o qual as notificações de vencimento e renovação devem ser enviadas quando um grupo não tem nenhum proprietário. 
   * Selecione quais grupos do Office 365 expirarão. Você pode habilitar a expiração para  **Todos os** grupos do Office 365, você pode optar por habilitar somente**Grupos Selecionados**do Office 365 ou selecionar ** Nenhum** para desabilite a expiração para todos os grupos.
   * Salve as configurações quando terminar selecionando **Salvar**.
 
+## <a name="email-notifications"></a>Notificações por email
 
-Os proprietários de grupos do Office 365 receberão emails como este 30 dias, 15 dias e 1 dia antes do vencimento do grupo.
+Os proprietários de grupos do Office 365 receberão emails como este 30 dias, 15 dias e 1 dia antes do vencimento do grupo. O idioma do email é determinado pelo idioma preferencial do proprietário de grupos ou pelo idioma de locatário. Se o proprietário do grupo tiver definido um idioma preferido ou se vários proprietários tiverem o mesmo idioma preferencial, esse idioma será usado. Para todos os outros casos, o idioma de locatário será usado.
 
 ![Notificação de email de vencimento](./media/groups-lifecycle/expiration-notification.png)
 

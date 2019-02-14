@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 01aacf8815ce4150eb1c243d4337f52c4e0b03e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728356"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697020"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Seção de recursos dos modelos do Azure Resource Manager
 
@@ -84,12 +84,12 @@ Você define recursos com a seguinte estrutura:
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | condition | Não  | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando for `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. |
-| apiVersion |SIM |Versão da API REST a ser usada para criar o recurso. |
-| Tipo |SIM |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
-| Nome |SIM |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. |
+| apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. |
+| Tipo |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
+| Nome |Sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. |
 | location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recurso exige um local, ao contrário de alguns deles (como uma atribuição de função). |
 | marcas |Não  |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
-| comentários |Não  |Suas anotações para documentar os recursos em seu modelo |
+| comentários |Não  |Suas anotações para documentar os recursos no modelo. Para obter mais informações, confira [Comentários em modelos](resource-group-authoring-templates.md#comments). |
 | cópia |Não  |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial quando você não deseja que todos os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não  |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, eles são implantados em paralelo. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Os recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como configurar as dependências, confira [Definir as dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md). |
 | propriedades |Não  |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Especifique também uma matriz de cópia para criar várias instâncias de uma propriedade. |
@@ -184,48 +184,60 @@ Para os tipos de recurso que você mais acessa por meio de um recurso diferente,
 ```
 
 ## <a name="location"></a>Local padrão
-Ao implantar um modelo, é necessário fornecer um local para cada recurso. Tipos de recursos diferentes têm suporte em locais diferentes. Para consultar uma lista de locais disponíveis para sua assinatura para um tipo de recurso específico, use o Microsoft Azure PowerShell ou a CLI do Azure. 
+Ao implantar um modelo, é necessário fornecer um local para cada recurso. Tipos de recursos diferentes têm suporte em locais diferentes. Para obter os locais com suporte para um tipo de recurso, consulte [provedores de recursos e tipos do Azure](resource-manager-supported-services.md).
 
-O exemplo a seguir usa o PowerShell para obter os locais para o tipo de recurso `Microsoft.Web\sites`:
+Use um parâmetro para especificar o local de recursos e defina o valor padrão para `resourceGroup().location`.
 
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-```
-
-O seguinte exemplo usa a CLI do Azure para obter os locais para o tipo de recurso `Microsoft.Web\sites`:
-
-```azurecli
-az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-```
-
-Após determinar os locais com suporte para seus recursos, defina esse local no modelo. A maneira mais fácil de definir esse valor é criar um grupo de recursos em um local que dê suporte aos tipos de recursos e defina cada local como `[resourceGroup().location]`. É possível reimplantar o modelo para grupos de recursos em diferentes locais e não alterar quaisquer valores no modelo ou nos parâmetros. 
-
-O exemplo a seguir mostra uma conta de armazenamento implantada no mesmo local que o grupo de recursos:
+O exemplo a seguir mostra uma conta de armazenamento implantada a um local especificado como um parâmetro:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
     },
-    "resources": [
-    {
-      "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "Dept": "Finance",
-        "Environment": "Production"
-      },
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": { }
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
-    ]
+  },
+  "variables": {
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
 }
 ```
 
@@ -323,6 +335,6 @@ Por exemplo:
 ## <a name="next-steps"></a>Próximas etapas
 * Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Para obter recomendações sobre como criar modelos, consulte [Melhores práticas para modelos do Azure Resource Manager](template-best-practices.md).
+* Para ver recomendações sobre como criar modelos, confira [Práticas recomendadas para modelos do Azure Resource Manager](template-best-practices.md).
 * Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Esse cenário é comum ao trabalhar com contas de armazenamento ou redes virtuais compartilhadas com vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions-resource.md#resourceid).
 * Para obter informações sobre restrições de nome de recurso, confira [Recursos recomendados de convenções de nomenclatura do Azure](../guidance/guidance-naming-conventions.md).

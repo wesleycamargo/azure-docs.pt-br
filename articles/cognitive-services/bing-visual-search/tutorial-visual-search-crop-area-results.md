@@ -3,18 +3,18 @@ title: 'Tutorial: Recortar uma imagem no SDK da Pesquisa Visual do Bing'
 description: Use o SDK da Pesquisa Visual do Bing para obter ideias de ares específicos em uma imagem.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 66012e22b4e3e512751711ea399b8add006fb717
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756386"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863016"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar uma imagem no SDK da Pesquisa Visual do Bing para C#
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51251995"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817811"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S
 
@@ -101,7 +101,7 @@ Use as seguintes etapas para configurar o cliente VPN do Windows nativo para aut
    ![Local do arquivo mobileconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Etapa opcional – se você quiser especificar um DNS personalizado, adicione as seguintes linhas para o arquivo **mobileconfig**:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -260,17 +260,17 @@ Use as etapas a seguir para configurar o cliente VPN nativo em um Mac para auten
 
 Para usar um tipo de autenticação diferente (por exemplo, OTP) ou usar um protocolo de autenticação diferente (como PEAP-MSCHAPv2 em vez de EAP-MSCHAPv2), é necessário criar seu próprio perfil de configuração do cliente VPN. Para criar o perfil, você precisa de informações como o endereço IP do gateway de rede virtual, tipo de túnel e rotas de túnel dividido. É possível obter essas informações usando as etapas a seguir:
 
-1. Use o cmdlet `Get-AzureRmVpnClientConfiguration` para gerar a configuração do cliente VPN para EapMSChapv2. Para obter instruções, confira [esta seção](#ccradius) do artigo.
+1. Use o cmdlet `Get-AzureRmVpnClientConfiguration` para gerar a configuração do cliente VPN para EapMSChapv2. Para obter instruções, confira esta seção do artigo.
 
-2. Descompacte o arquivo VpnClientConfiguration.zip e procure a pasta **GenenericDevice**. Ignore as pastas quem contêm os instaladores do Windows para arquiteturas de 64 bits e de 32 bits.
+2. Descompacte o arquivo VpnClientConfiguration.zip e procure a pasta **GenericDevice**. Ignore as pastas quem contêm os instaladores do Windows para arquiteturas de 64 bits e de 32 bits.
  
-3. A pasta **GenenericDevice** contém um arquivo XML chamado **VpnSettings**. Este arquivo contém todas as informações necessárias:
+3. A pasta **GenericDevice** contém um arquivo XML chamado **VpnSettings**. Este arquivo contém todas as informações necessárias:
 
    * **VpnServer**: FQDN do Gateway de VPN do Azure. Este é o endereço ao qual o cliente se conecta.
    * **VpnType**: tipo de túnel utilizado conectar-se.
    * **Rotas**: rotas que você precisa configurar no perfil para que somente o tráfego associado à rede virtual do Azure seja enviado via túnel P2S.
    
-   A pasta **GenenericDevice** também contém um arquivo .cer chamado **VpnServerRoot**. Este arquivo contém o certificado raiz necessário para validar o gateway de VPN do Azure durante a configuração da conexão P2S. Instale o certificado em todos os dispositivos que irão conectar-se à rede virtual do Azure.
+   A pasta **GenericDevice** também contém um arquivo .cer chamado **VpnServerRoot**. Este arquivo contém o certificado raiz necessário para validar o gateway de VPN do Azure durante a configuração da conexão P2S. Instale o certificado em todos os dispositivos que irão conectar-se à rede virtual do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

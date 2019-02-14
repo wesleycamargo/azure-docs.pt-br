@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: e4fe511228f6e80a17af8325ee74ae0927a760bd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628265"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754720"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva
 
-Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado nas [habilidades predefinidas](cognitive-search-predefined-skills.md) e também nas qualificações personalizadas que você criar e adicionar ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface, permitindo que ela seja incluída em um pipeline de pesquisa cognitiva. 
+Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado nas [habilidades predefinidas](cognitive-search-predefined-skills.md) e também nas [qualificações personalizadas](cognitive-search-custom-skill-web-api.md) que você criar e adicionar pessoalmente ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface, permitindo que ela seja incluída em um pipeline de pesquisa cognitiva. 
 
 Criar uma habilidade personalizada oferece a você uma maneira de adicionar transformações únicas ao seu conteúdo. Uma habilidade personalizada será executada de forma independente, aplicando qualquer etapa de enriquecimento que você precisar. Por exemplo, você poderá definir entidades personalizadas específicas por campo, compilar modelos de classificação personalizada para diferenciar contratos e documentos financeiros e corporativos, ou adicionar uma habilidade de reconhecimento de fala para ir ainda mais longe com arquios de áudio para conteúdos relevantes. Para obter um exemplo passo a passo, consulte [Exemplo: criando uma habilidade personalizada](cognitive-search-create-custom-skill-example.md).
 
@@ -27,7 +27,14 @@ Criar uma habilidade personalizada oferece a você uma maneira de adicionar tran
 
 ## <a name="web-api-custom-skill-interface"></a>Interface de habilidades personalizadas da API da Web
 
-Os pontos de extremidade de habilidades de WebAPI personalizados devem retornar uma resposta dentro de um intervalo de 5 minutos. O pipeline de indexação é síncrono, e a indexação produzirá um erro de tempo limite se a resposta não for recebida nesse intervalo.
+Personalize os pontos de extremidade da habilidade da API da Web por tempo limite padrão caso eles não retornem uma resposta dentro de uma janela de 30 segundos. O pipeline de indexação é síncrono, e a indexação produzirá um erro de tempo limite se a resposta não for recebida nesse intervalo.  É possível configurar o tempo limite para ser de até 90 segundos por meio da definição do seu parâmetro:
+
+```json
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "description": "This skill has a 90 second timeout",
+        "uri": "https://[your custom skill uri goes here]",
+        "timeout": "PT90S",
+```
 
 Atualmente, o único mecanismo para interagir com uma habilidade personalizada é por meio de uma interface da API da Web. A API da Web precisa atender aos requisitos descritos nesta seção.
 

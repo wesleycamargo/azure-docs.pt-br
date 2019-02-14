@@ -1,7 +1,7 @@
 ---
-title: Acesso a dados repositórios de dados para treinamento
+title: Acessar dados em armazenamentos de dados/blobs para treinamento
 titleSuffix: Azure Machine Learning service
-description: Saiba como usar os armazenamentos de dados o treinamento de armazenamento de dados com o Serviço do Azure Machine Learning
+description: Saiba como usar os armazenamentos de dados para acessar o armazenamento de dados de blobs durante o treinamento com o Serviço do Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252108"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769888"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Acesse os dados durante o treinamento de seus armazenamentos de dados
 Use um datastore para acessar e interagir com seus dados nos fluxos de trabalho do AML.
@@ -76,8 +76,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 Também é possível obter todos os repositórios de dados para um workspace:
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 

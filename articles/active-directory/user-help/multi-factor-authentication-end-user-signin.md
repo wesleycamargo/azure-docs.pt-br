@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156999"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810194"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de conexão com a Autenticação Multifator do Microsoft Azure
 > [!NOTE]
@@ -31,8 +31,8 @@ Sua experiência de conexão varia, dependendo do que você escolhe usar como o 
 | --- |
 | [Com uma chamada telefônica para meu telefone celular ou comercial](#signing-in-with-a-phone-call) |
 | [Com um texto para meu telefone celular](#signing-in-with-a-text-message)
-| [Com notificações do aplicativo Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Com códigos de verificação do aplicativo Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Com notificações do aplicativo Microsoft Authenticator |
+| Com códigos de verificação do aplicativo Microsoft Authenticator |
 | [Com um método alternativo, porque não consigo usar meu método preferido agora](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Conectando com uma chamada telefônica
@@ -87,4 +87,4 @@ Se você tiver problemas para entrar usando a verificação em duas etapas, cons
 
 Aprenda a [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).
 
-Descubra como [Começar a usar o aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para poder entrar usando notificações, em vez de textos e chamadas telefônicas.
+Descubra como [Começar a usar o aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) para poder entrar usando notificações, em vez de textos e chamadas telefônicas.

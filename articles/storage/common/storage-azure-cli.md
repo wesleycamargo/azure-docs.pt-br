@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464561"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816842"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Usando a CLI do Azure com o Armazenamento do Azure
 
@@ -38,7 +38,7 @@ Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do
 Baixe e instale a CLI do Azure seguindo as instruções descritas em [Instalar a CLI do Azure](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Se você tiver problemas com a instalação, confira a seção [Solucionando problemas de instalação](/cli/azure/install-az-cli2#installation-troubleshooting) do artigo e o guia [Solucionar Problemas de Instalação](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) no GitHub.
+> Se você tiver problemas com a instalação, confira a seção [Solucionando problemas de instalação](/cli/azure/install-az-cli2) do artigo e o guia [Solucionar Problemas de Instalação](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) no GitHub.
 >
 
 ## <a name="working-with-the-cli"></a>Trabalhando com a CLI
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Gerenciar contas de armazenamento
 
 ### <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
-Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento. Depois de configurar seu computador para se [conectar à sua assinatura](#connect-to-your-azure-subscription), você pode criar uma nova conta de Armazenamento do Azure.
+Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento. Depois de configurar seu computador para se conectar à sua assinatura, você pode criar uma nova conta de Armazenamento do Azure.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
-Liste os blobs em um contêiner com o comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Liste os blobs em um contêiner com o comando [az storage blob list](/cli/azure/storage/blob).
 
 ```azurecli
 az storage blob list \

@@ -1,6 +1,6 @@
 ---
-title: Custos do software do Windows das Reservas do Azure | Microsoft Docs
-description: Saiba quais medidores de software do Windows não estão incluídos nos custos de Instância de máquina virtual reservada.
+title: Custos do software de Reservas do Azure | Microsoft Docs
+description: Saiba quais medidores de software do Windows não estão incluídos nos custos de Instância de Máquina Virtual Reservada.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 63b1e850cbcea089a6a115f53ea1ef579a16886f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902647"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744973"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos do software do Windows não incluídos nas Instâncias de VM Reservadas do Azure
+# <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos do software do Windows não incluídos nas Instâncias de VM Reservadas do Azure
 
-Se você não tiver um Benefício de Uso Híbrido do Azure nas instâncias de máquina virtual reservada, será cobrado pelos medidores de software do Windows listados na seção a seguir.
+Se você não tiver um Benefício de Uso Híbrido do Azure nas instâncias de máquina virtual reservada, será cobrado pelos medidores de software listados na seção a seguir.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Medidores de software do Windows não está incluídos no custo de reserva
 
@@ -50,6 +50,22 @@ Se você não tiver um Benefício de Uso Híbrido do Azure nas instâncias de m�
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr (256 Núcleos) | Todas, exceto Série B |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 Núcleos) | Todas, exceto Série B |
 
+## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Medidores de software de serviços de nuvem não estão incluídos no custo de reserva
+
+| MeterId | MeterName no arquivo de utilização |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Licença de 1 vCPU dos Serviços de Nuvem|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|Licença de 2 vCPU dos Serviços de Nuvem|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|Licença de 4 vCPU dos Serviços de Nuvem|
+|13103090-ca72-4825-ab12-7f16c4931d95|Licença de 8 vCPU dos Serviços de Nuvem|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|Licença de 16 vCPU dos Serviços de Nuvem|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|Licença de 20 vCPU dos Serviços de Nuvem|
+|ca1af837-4b35-47f5-8d14-b1988149c4ca|Licença de 32 vCPU dos Serviços de Nuvem|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Licença de 64 vCPU dos Serviços de Nuvem|
+|7a803026-244c-4659-834c-11e6b2d6b76f|Licença de 80 vCPU dos Serviços de Nuvem|
+
+## <a name="rates-for-azure-meters"></a>Taxas para medidores do Azure
+
 Você pode obter o custo de cada um desses medidores por meio da API RateCard do Azure. Para obter informações sobre como obter as taxas de um medidor do Azure, consulte [Obter informações sobre preço e metadados para recursos usados em uma assinatura do Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -65,6 +81,3 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-
-

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064637"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727901"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -29,7 +29,7 @@ O [Registro de Contêiner do Azure](../container-registry/container-registry-int
 
 Em qualquer cenário de produção, o acesso a um registro de contêiner do Azure deve ser fornecido usando [entidades de serviço](../container-registry/container-registry-auth-service-principal.md). As entidades de serviço permitem que você forneça [controle de acesso baseado em função](../container-registry/container-registry-roles.md) às imagens de contêiner. Por exemplo, é possível configurar uma entidade de serviço com acesso somente pull para um registro.
 
-Nesta seção, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre.
+Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre. 
 
 ### <a name="create-key-vault"></a>Criar cofre chaves
 
@@ -134,9 +134,11 @@ Para obter detalhes sobre como referenciar segredos do Azure Key Vault em um mod
 
 ## <a name="deploy-with-azure-portal"></a>Implantar com o portal do Azure
 
-Se você mantiver as imagens de contêiner no Registro de Contêiner do Azure, você poderá facilmente criar um contêiner em Instâncias de Contêiner do Azure usando o Portal do Azure.
+Se você mantiver as imagens de contêiner no Registro de Contêiner do Azure, você poderá facilmente criar um contêiner em Instâncias de Contêiner do Azure usando o portal do Azure. Ao usar o portal para implantar uma instância de contêiner de um registro de contêiner, você deve habilitar a [conta de administrador](../container-registry/container-registry-authentication.md#admin-account) do registro. A conta do administrador destina-se para um único usuário acessar o registro, principalmente para fins de teste. 
 
 1. No Portal do Azure, navegue até o registro de contêiner.
+
+1. Para confirmar que a conta de administrador é habilitada, selecione **Chaves de acesso**e, em **Usuário administrador** selecione **Habilitar**.
 
 1. Selecione **Repositórios** e, em seguida, selecione o repositório do qual deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **Executar instância**.
 

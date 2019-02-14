@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242324"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734650"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar experimentos de aprendizado de máquina automatizado
 
@@ -174,7 +174,7 @@ Em seguida, determine onde o modelo será treinado. Um experimento de treinament
 
 Confira o [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) para obter exemplos de notebooks com destinos de computação locais e remotos.
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Configurar as definições do experimento
 
@@ -207,36 +207,48 @@ Alguns exemplos incluem:
         n_cross_validations=5)
     ```
 
-Esta tabela lista as configurações de parâmetro disponíveis para seu experimento e seus valores padrão.
+Há três valores de parâmetro `task` diferentes, os quais determinam a lista de algoritmos a serem aplicados.  Use os parâmetros `whitelist` ou `blacklist` para modificar ainda mais as iterações com os algoritmos disponíveis a serem incluídos ou excluídos.
+* classificação
+    * LogisticRegression
+    * SGD
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* Regressão
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* Previsão
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-Propriedade |  DESCRIÇÃO | Valor Padrão
---|--|--
-`task`  |Especifique o tipo de problema de aprendizado de máquina. Os valores permitidos são <li>classificação</li><li>Regressão</li><li>Previsão</li>    | Nenhum |
-`primary_metric` |Métrica que você quer otimizar ao criar um modelo. Por exemplo, se você especificar a precisão como primary_metric, o aprendizado de máquina automatizado localizará um modelo com máxima precisão. Só é possível especificar uma primary_metric por experimento. Os valores permitidos são <br/>**Classificação**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressão**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | Para Classificação: precisão <br/>Para Regressão: spearman_correlation <br/> |
-`experiment_exit_score` |   É possível definir uma meta de valor para primary_metric. Após encontrar um modelo que cumpra a meta primary_metric, o aprendizado de máquina automatizado interromperá a iteração e o experimento será encerrado. Se esse valor não for definido (padrão), o experimento do aprendizado de máquina automatizado continuará executando o número de iterações especificado. Aceita um valor duplo. Se a meta nunca for cumprida, o aprendizado de máquina automatizado continuará até alcançar o número de iterações especificadas.| Nenhum
-`iterations` |Número máximo de iterações. Cada iteração é igual a um trabalho de treinamento que resulta em um pipeline. O pipeline é o pré-processamento de dados e o modelo. Para obter um modelo de alta qualidade, use 250 ou mais    | 100
-`max_concurrent_iterations`|    Número máximo de iterações a ser executado em paralelo. Essa configuração funciona somente para computação remota.|   1
-`max_cores_per_iteration`   | Indica quantos núcleos seriam usados no destino de computação para treinar um único pipeline. Se o algoritmo puder aproveitar vários núcleos, isso aumentará o desempenho em um computador de vários núcleos. É possível defini-lo como -1 para usar todos os núcleos disponíveis no computador.|  1
-`iteration_timeout_minutes` |   Limita a quantidade de tempo (minutos) de duração de uma iteração específica. Se uma iteração exceder o valor especificado, ela será cancelada. Se não for definida, a iteração continuará sendo executada até ser encerrada. |   Nenhum
-`n_cross_validations`   |Número de divisões de validação cruzada| Nenhum
-`validation_size`   |Tamanho do conjunto de validação como percentual de toda a amostra de treinamento.|  Nenhum
-`preprocess` | Verdadeiro/Falso <br/>True habilita o experimento a executar o pré-processamento na entrada. Veja um subconjunto de pré-processamento<li>Dados ausentes: calcula os dados ausentes – numéricos com média, texto com maior ocorrência </li><li>Valores categóricos: se o tipo de dados for numérico e o número de valores exclusivos for menor que 5%, será convertido em codificação one-hot </li><li>Etc. Para ver a lista completa, confira [o repositório GitHub](https://aka.ms/aml-notebooks)</li><br/>Observação: se os dados forem esparsos, não será possível usar o pré-processamento = true |  Falso |
-`enable_cache`  | Verdadeiro/Falso <br/>Ao configurar como Verdadeiro, habilita o pré-processamento feito uma vez e reutiliza os mesmos dados pré-processados para todas as iterações. | True |
-`blacklist_models`  | O experimento de aprendizado de máquina automatizado testa vários algoritmos diferentes. Configure para excluir determinados algoritmos do experimento. Essa propriedade é útil se você está ciente de que os algoritmos não funcionam bem para seu conjunto de dados. Excluir algoritmos pode economizar recursos de computação e tempo de treinamento.<br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Nenhum
-`whitelist_models`  | O experimento de aprendizado de máquina automatizado testa vários algoritmos diferentes. Configure para incluir determinados algoritmos para o experimento. Essa propriedade é útil se você está ciente de que os algoritmos funcionam bem para seu conjunto de dados. <br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Nenhum
-`verbosity` |Controla o nível de log com INFO sendo o mais detalhado e CRITICAL sendo o mínimo. O nível de detalhes usa os mesmos valores que os definidos no pacote de registro em log do python. Valores permitidos são:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li>
-`X` | Todos os recursos a serem treinados com |  Nenhum
-`y` |   Rotular dados a serem treinados com. Para classificação, precisa ser uma matriz de inteiros.|  Nenhum
-`X_valid`|_Opcional_ Todos os recursos a serem validados com. Se não for especificado, X será dividido entre "treinar" e "validar" |   Nenhum
-`y_valid`   |_Opcional_ Os dados de rótulo a serem validados com. Se não for especificado, y será dividido entre "treinar" e "validar"    | Nenhum
-`sample_weight` |   _Opcional_ Um valor de peso para cada amostra. Use quando quiser atribuir pesos diferentes aos pontos de dados |   Nenhum
-`sample_weight_valid`   |   _Opcional_ Um valor de peso para cada amostra de validação. Se não for especificado, sample_weight será dividido entre "treinar" e "validar"   | Nenhum
-`run_configuration` |   Objeto RunConfiguration.  Usado para execuções remotas. |Nenhum
-`data_script`  |    Caminho para um arquivo que contém o método get_data.  Obrigatório para execuções remotas.   |Nenhum
-`model_explainability` | _Opcional_ True/False <br/>  True permite que o experimento execute a importância de recursos para cada iteração. Também é possível usar o método explain_model() em uma iteração específica para habilitar a importância de recursos sob demanda para essa iteração após a conclusão do experimento. | Falso
-`enable_ensembling`|Sinalizar para habilitar uma iteração de ensembling após a conclusão de todas as outras iterações.| True
-`ensemble_iterations`|Número de iterações durante as quais escolhemos um pipeline ajustado para fazer parte do ensemble final.| 15
-`experiment_timeout_minutes`| Limita a quantidade de tempo (minutos) que a execução do experimento inteiro pode levar | Nenhum
+Consulte a [classe AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para obter uma lista completa de parâmetros.  
 
 ## <a name="data-pre-processing-and-featurization"></a>Pré-processamento e personalização de dados
 

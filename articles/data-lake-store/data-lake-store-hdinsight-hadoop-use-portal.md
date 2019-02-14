@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817029"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Gen1 do Azure Data Lake Storage usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -55,10 +55,10 @@ Nesta seção, você cria um cluster do HDInsight com contas do Data Lake Storag
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-    - **Selecione a conta do Data Lake Store**: Selecione uma conta existente do Data Lake Storage Gen1. Uma conta existente do Data Lake armazenamento Gen1 é necessária.  Consulte [Pré-requisitos](#prerequisites).
-    - **Caminho raiz**: insira um caminho em que os arquivos específicos de cluster deverão ser armazenados. Na captura de tela, é __/clusters/myhdiadlcluster/__, em que a pasta __/clusters__ deve existir e o Portal cria a pasta *myhdicluster*.  O *myhdicluster* é o nome do cluster.
-    - **Acesso ao Data Lake Store**: Configure o acesso entre a conta do Data Lake Storage Gen1 e o cluster do HDInsight. Para obter instruções, consulte [Configurar o acesso do Data Lake Storage Gen1](#configure-data-lake-store-access).
-    - **Contas de armazenamento adicionais**: contas de armazenamento do Azure adicionar como contas de armazenamento adicionais para o cluster. Para adicionar outras contas do Data Lake Storage Gen1 é feito dando as permissões do cluster em dados em mais contas do Data Lake Storage Gen1 enquanto configura uma conta do Data Lake Storage Gen1 como o tipo de armazenamento primário. Ver [acesso de configurar o Data Lake armazenamento Gen1](#configure-data-lake-store-access).
+    - **Selecionar a conta do Data Lake Store**: selecione uma conta existente do Data Lake Storage Gen1. Uma conta existente do Data Lake armazenamento Gen1 é necessária.  Consulte [Pré-requisitos](#prerequisites).
+    - **Caminho raiz**: insira o caminho no qual os arquivos específicos de cluster deverão ser armazenados. Na captura de tela, é __/clusters/myhdiadlcluster/__, em que a pasta __/clusters__ deve existir e o Portal cria a pasta *myhdicluster*.  O *myhdicluster* é o nome do cluster.
+    - **Acesso ao Data Lake Store**: configure o acesso entre a conta do Data Lake Storage Gen1 e o cluster do HDInsight. Para obter instruções, consulte Configurar o acesso ao Data Lake Storage Gen1.
+    - **Contas de armazenamento adicionais**: adicionar contas de armazenamento do Azure como contas de armazenamento adicionais para o cluster. Para adicionar outras contas do Data Lake Storage Gen1 é feito dando as permissões do cluster em dados em mais contas do Data Lake Storage Gen1 enquanto configura uma conta do Data Lake Storage Gen1 como o tipo de armazenamento primário. Confira Configurar o acesso ao Data Lake Storage Gen1.
 
 4. Em **Acesso ao Data Lake Store**, clique em **Selecionar** e continue com a criação do cluster, conforme descrito em [Criar clusters Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -207,7 +207,7 @@ Você pode usar a conta Data Lake Storage Gen1 para gravar dados de uma topologi
 
 ## <a name="see-also"></a>Consulte também
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [PowerShell: crie um cluster do HDInsight para usar o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [PowerShell: criar um cluster HDInsight para usar o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

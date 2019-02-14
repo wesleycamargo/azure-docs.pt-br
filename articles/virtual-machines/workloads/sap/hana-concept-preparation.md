@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492797"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822537"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios da recuperação de desastres
 
@@ -48,7 +48,7 @@ Nos casos em que você usa a Replicação de sistema do HANA como funcionalidade
 
 
 >[!NOTE]
->A funcionalidade de replicação de armazenamento do SAP HANA nas Instâncias Grandes está espelhando e replicando os instantâneos de armazenamento. Se você não executar instantâneos de armazenamento como introduzidos na seção [Backup e restauração](#backup-and-restore) deste artigo, não poderá haver nenhuma replicação para o site de recuperação de desastre. A execução do instantâneo de armazenamento é um pré-requisito para a replicação de armazenamento para o local recuperação de desastres.
+>A funcionalidade de replicação de armazenamento do SAP HANA nas Instâncias Grandes está espelhando e replicando os instantâneos de armazenamento. Se você não executar instantâneos de armazenamento como introduzidos na seção Backup e restauração deste artigo, não poderá haver nenhuma replicação para o site de recuperação de desastre. A execução do instantâneo de armazenamento é um pré-requisito para a replicação de armazenamento para o local recuperação de desastres.
 
 
 
@@ -81,7 +81,7 @@ Em seguida, configure ou ajuste a agenda de backup do instantâneo de armazename
 - Para o volume de backup de log de transações (tipo de instantâneo **logs**), defina para replicar a cada 3 minutos para os destinos de volume de armazenamento equivalentes no site de recuperação de desastre.
 
 Para minimizar o objetivo de ponto de recuperação, configure o seguinte:
-- Execute um instantâneo de armazenamento do tipo **hana** (consulte a “Etapa 7 – Executar instantâneos”) a cada 30 minutos a 1 hora.
+- Execute um instantâneo de armazenamento do tipo **hana** (consulte "Etapa 7: Executar instantâneos") a cada 30 minutos a 1 hora.
 - Execute backups de log de transações do SAP HANA a cada 5 minutos.
 - Execute um instantâneo de armazenamento do tipo **logs** a cada 5-15 minutos. Com esse período de intervalo, você obtém um RPO de cerca de 15 a 25 minutos.
 

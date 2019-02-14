@@ -1,20 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault – Como usar a exclusão reversível com a CLI
 description: Usar exemplos de caso de exclusão reversível com trechos de código da CLI
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363632"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663937"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -72,7 +70,7 @@ Para verificar se um cofre de chaves tem exclusão reversível habilitada, execu
 az keyvault show --name ContosoVault
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Excluir um cofre de chaves protegido por exclusão reversível
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Fazer a exclusão reversível de um cofre de chaves protegido
 
 O comando para excluir um cofre de chaves muda de comportamento, dependendo se a exclusão suave está ativada.
 
@@ -89,7 +87,7 @@ Com a exclusão reversível habilitada:
 
 - Um cofre de chaves excluído é removido de seu grupo de recursos e colocado em um namespace reservado, associado ao local em que foi criado. 
 - Objetos excluídos, como chaves, segredos e certificados, ficam inacessíveis desde que o cofre da chave contida esteja no estado excluído. 
-- O nome DNS de um cofre de chaves excluído é reservado, evitando que um novo cofre de chaves com o mesmo nome seja criado.  
+- O nome DNS de um cofre de chaves excluído é reservado, evitando que um novo cofre de chaves com o mesmo nome seja criado.  
 
 Você pode exibir cofres de chave no estado excluído, associados à sua assinatura, usando o seguinte comando:
 
@@ -110,9 +108,9 @@ az keyvault recover --location westus --resource-group ContosoRG --name ContosoV
 
 Quando um cofre de chaves é recuperado, um novo recurso é criado com o ID do recurso original do cofre da chave. Se o grupo de recursos original for removido, será necessário criar um com o mesmo nome antes de tentar a recuperação.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Objetos do cofre de chaves e exclusão reversível
+## <a name="deleting-and-purging-key-vault-objects"></a>Exclusão e descarte de objetos de cofre de chaves
 
-Para uma chave, "ContosoFirstKey", em um cofre de chaves chamado "ContosoVault" com a exclusão reversível habilitada, essa chave seria excluída da seguinte maneira.
+O comando a seguir excluirá a chave “ContosoFirstKey” em um cofre de chaves chamado “ContosoVault”, que tem exclusão reversível habilitada:
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
@@ -192,17 +190,22 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
   az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
   ```
 
-## <a name="purging-and-key-vaults"></a>Limpeza e cofres de chave
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Limpar um cofre de chaves protegido com exclusão reversível
 
-### <a name="key-vault-objects"></a>Objetos do cofre de chaves
+> [!IMPORTANT]
+> Limpar um cofre de chaves ou um de seus objetos o apagará permanentemente, o que significa que não será possível recuperá-lo!
 
-Purgar uma chave, segredo ou certificado, causa exclusão permanente e não será recuperável. O cofre de chaves que continha o objeto excluído permanecerá intacto, assim como todos os outros objetos no cofre de chaves. 
+A função limpar é usada para excluir permanentemente um objeto de ou todo o cofre de chaves que tenha sofrido uma exclusão reversível. Conforme demonstrado na seção anterior, os objetos armazenados em um cofre de chaves com o recurso de exclusão reversível habilitado podem passar por vários estados:
 
-### <a name="key-vaults-as-containers"></a>Cofres de chave como contêineres
-Quando um cofre de chaves é removido, todo o seu conteúdo é excluído permanentemente, incluindo chaves, segredos e certificados. Para limpar um cofre de chaves, use o comando `az keyvault purge`. Você pode encontrar o local dos cofres de chave excluído de sua assinatura usando o comando `az keyvault list-deleted`.
+- **Ativo**: antes da exclusão.
+- **Exclusão reversível**: após a exclusão, podendo ser listado e retornado ao estado ativo.
+- **Excluído permanentemente**: após a limpeza, não pode ser recuperado.
 
->[!IMPORTANT]
->Purgar um cofre de chaves irá apagá-lo permanentemente, o que significa que não será recuperável!
+O mesmo vale para o cofre de chaves. Para excluir permanentemente um cofre de chaves com exclusão reversível e seu conteúdo, você deve limpar o próprio cofre de chaves.
+
+### <a name="purging-a-key-vault"></a>Como limpar um cofre de chaves
+
+Quando um cofre de chaves é removido, todo o seu conteúdo é excluído permanentemente, incluindo chaves, segredos e certificados. Para limpar um cofre de chaves com exclusão reversível, use o comando `az keyvault purge`. Você pode encontrar o local dos cofres de chave excluído de sua assinatura usando o comando `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault

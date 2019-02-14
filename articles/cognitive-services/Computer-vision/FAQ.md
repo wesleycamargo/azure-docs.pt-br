@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Obtenha respostas a perguntas frequentes sobre a API do Computer Vision nos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 8bcca60299cae01bed00a4730f78bf53809ab187
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1bc40f10547eb6c79a41cab8a3ac5fd2f500415
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178776"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874066"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Perguntas frequentes da API da Pesquisa Visual Computacional
 

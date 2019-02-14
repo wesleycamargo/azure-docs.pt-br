@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055298"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562888"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo de SaaS usando um banco de dados SQL multilocatário fragmentado do Azure
 
@@ -28,7 +28,7 @@ Este artigo tem duas partes principais:
 - [Discussão conceitual](#goto_2_conceptual) do provisionamento e da catalogação de novos locatários.
 
 - [Tutorial](#goto_1_tutorial) que destaca o código de script do PowerShell que realiza o provisionamento e a catalogação.
-    - O tutorial usa o aplicativo de SaaS de Wingtip Tickets, adaptado para o padrão de banco de dados fragmentado multilocatário.
+  - O tutorial usa o aplicativo de SaaS de Wingtip Tickets, adaptado para o padrão de banco de dados fragmentado multilocatário.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,12 +143,12 @@ Nesta seção, você verá uma lista das principais ações de provisionamento q
 
 A seguir, estão os principais elementos do fluxo de trabalho de provisionamento que você percorrerá:
 
-- **Calcular a nova chave do locatário**: uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
-- **Verificar se a chave do locatário já existe**: o catálogo é verificado para garantir que a chave ainda não foi registrada.
-- **Inicializar o locatário no banco de dados de locatário padrão**: o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.  
+- **Calcule a nova chave de locatário**: Uma função de hash é usada para criar a chave de locatário com base no nome do locatário.
+- **Verifique se a chave de locatário já existe**: O catálogo é verificado para garantir que a chave ainda não tenha sido registrada.
+- **Inicializar o locatário no banco de dados de locatário padrão**: O banco de dados de locatário é atualizado para adicionar as novas informações de locatário.  
 - **Registrar o locatário no catálogo**: o mapeamento entre a nova chave do locatário e o banco de dados tenants1 existente é adicionado ao catálogo. 
-- **Adicionar o nome do locatário em uma tabela de extensão de catálogo**: o nome do local é adicionado à tabela Locatários no catálogo.  Essa adição mostra como o banco de dados de catálogo pode ser estendido para permitir dados específicos do aplicativo adicionais.
-- **Abrir a página de eventos para o novo locatário**: a página de eventos *Bushwillow Blues* é aberta no navegador.
+- **Adicionar o nome do locatário a uma tabela de extensão de catálogo**: O nome do local é adicionado à tabela Locatários no catálogo.  Essa adição mostra como o banco de dados de catálogo pode ser estendido para permitir dados específicos do aplicativo adicionais.
+- **Abrir página Eventos para o novo locatário**: A página de eventos *Bushwillow Blues* é aberta no navegador.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ Para entender como o aplicativo Wingtip implementa o provisionamento do novo loc
    - **$VenueType** = **blues**, um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (letras minúsculas, sem espaços).
    - **$DemoScenario** = **1**, para provisionar um locatário em um banco de dados compartilhado com outros locatários.
 
-2. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 38, que contém: *New-Tenant `* e pressione **F9**.
+2. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 38, que diz: *New-Tenant '*, em seguida, pressione **F9**.
 
    ![ponto de interrupção](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,14 +181,14 @@ Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre c
 
 A seguir, estão os principais elementos do fluxo de trabalho que você percorrerá ao rastrear o script:
 
-- **Calcular a nova chave do locatário**: uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
-- **Verificar se a chave do locatário já existe**: o catálogo é verificado para garantir que a chave ainda não foi registrada.
-- **Criar um novo banco de dados de locatário**: o banco de dados é criado, copiando o banco de dados *basetenantdb* usando um modelo do Resource Manager.  O nome do novo banco de dados é baseado no nome do locatário.
-- **Adicionar banco de dados ao catálogo**: o novo banco de dados de locatário é registrado como um fragmento no catálogo.
-- **Inicializar o locatário no banco de dados de locatário padrão**: o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.  
-- **Registrar locatário em um catálogo**: o mapeamento entre a nova chave de locatário e o banco de dados *sequoiasoccer* é adicionado ao catálogo.
-- **O nome do locatário é adicionado ao catálogo**: o nome do local é adicionado à tabela de extensão Locatários no catálogo.
-- **Abrir página de eventos para o novo locatário**: a página de eventos *Sequoia Soccer* é aberta no navegador.
+- **Calcule a nova chave de locatário**: Uma função de hash é usada para criar a chave de locatário com base no nome do locatário.
+- **Verifique se a chave de locatário já existe**: O catálogo é verificado para garantir que a chave ainda não tenha sido registrada.
+- **Crie um novo banco de dados de locatário**: O banco de dados é criado copiando o banco de dados *basetenantdb* usando um modelo do Resource Manager.  O nome do novo banco de dados é baseado no nome do locatário.
+- **Adicione o banco de dados ao catálogo**: O novo banco de dados de locatário é registrado como um fragmento no catálogo.
+- **Inicializar o locatário no banco de dados de locatário padrão**: O banco de dados de locatário é atualizado para adicionar as novas informações de locatário.  
+- **Registrar o locatário no catálogo**: o mapeamento entre a nova chave do locatário e o banco de dados *sequoiasoccer* é adicionado ao catálogo.
+- **O nome do locatário é adicionado ao catálogo**: O nome do local é adicionado à tabela de extensão Locatários no catálogo.
+- **Abrir página Eventos para o novo locatário**: A página de eventos *Sequoia Soccer* é aberta no navegador.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

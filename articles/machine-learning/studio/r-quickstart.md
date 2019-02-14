@@ -1,8 +1,21 @@
 ---
-Título: Tutorial de início rápido para a linguagem R – titleSuffix: Descrição do Azure Machine Learning Studio: Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Azure Machine Learning para criar uma solução de previsão.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 06/01/2017
+title: Tutorial de início rápido para a linguagem R
+titleSuffix: Azure Machine Learning Studio
+description: Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Azure Machine Learning para criar uma solução de previsão.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/06/2017
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822367"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutorial de Início Rápido para a linguagem de programação R para o Azure Machine Learning Studio
 
@@ -732,7 +745,7 @@ A função `ts.detrend()` abaixo executa ambas essas operações. As duas linhas
 
 Muitas coisas estão acontecendo na função `ts.detrend()` . A maior parte do código verifica se há possíveis problemas com os argumentos ou lida com exceções, que ainda podem surgir durante os cálculos. Apenas algumas linhas desse código realmente fazem os cálculos.
 
-Já abordamos a um exemplo de programação defensiva em [Transformações de valor](#valuetransformations). Os dois blocos de computação estão encapsulados em `tryCatch()`. Para alguns erros, faz sentido retornar ao vetor original de entrada e, em outros casos, retornar a um vetor de zeros.  
+Já abordamos um exemplo de programação defensiva em Transformações de valor. Os dois blocos de computação estão encapsulados em `tryCatch()`. Para alguns erros, faz sentido retornar ao vetor original de entrada e, em outros casos, retornar a um vetor de zeros.  
 
 Observe que a regressão linear usada para a eliminação de tendência é uma regressão de uma série de tempo. A variável preditora é um objeto de série de tempo.  
 

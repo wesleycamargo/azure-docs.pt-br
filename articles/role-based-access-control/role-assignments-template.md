@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5e080614d4f0001a0bf1b44dd402f37db2463e03
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206540"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696890"
 ---
 # <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso usando modelos do Azure Resource Manager e RBAC
 
@@ -92,16 +92,18 @@ O exemplo a seguir mostra uma atribuição de função de Leitor a um usuário a
 
 ## <a name="deploy-template-using-azure-powershell"></a>Implantar o modelo usando o Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 Para implantar o modelo anterior usando o Azure PowerShell, siga estas etapas.
 
 1. Crie um novo arquivo chamado rbac-rg.json rbac e copie o modelo anterior.
 
 1. Entre no [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Obtenha o identificador exclusivo de um usuário, grupo ou aplicativo. Por exemplo, você pode usar o comando [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) para listar os usuários do Azure AD.
+1. Obtenha o identificador exclusivo de um usuário, grupo ou aplicativo. Por exemplo, você pode usar o comando [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para listar os usuários do Azure AD.
 
     ```azurepowershell
-    Get-AzureRmADUser
+    Get-AzADUser
     ```
 
 1. Use uma ferramenta de GUID para gerar um identificador exclusivo que será usado para a atribuição de função. O identificador tem o formato: `11111111-1111-1111-1111-111111111111`
@@ -109,21 +111,21 @@ Para implantar o modelo anterior usando o Azure PowerShell, siga estas etapas.
 1. Crie um grupo de recursos de exemplo.
 
     ```azurepowershell
-    New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. Use o comando [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) para iniciar a implantação.
+1. Use o comando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) para iniciar a implantação.
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
     Você é solicitado a especificar os parâmetros necessários. A seguir, é mostrado um exemplo da saída.
 
     ```Output
-    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
     (Type !? for Help.)
     principalId: 22222222-2222-2222-2222-222222222222

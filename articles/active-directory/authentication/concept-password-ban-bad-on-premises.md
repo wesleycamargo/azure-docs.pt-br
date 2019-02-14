@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 816c459ca6edd7204ccdcdf9d402f2d4499d9116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077823"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662516"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Visualização: Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
@@ -29,7 +29,7 @@ A proteção por senha do Azure AD é um novo recurso na visualização pública
 Há três componentes de software que formam a proteção por senha do Azure AD:
 
 * O serviço de proxy de proteção por senha do Azure AD é executado em qualquer computador ingressado no domínio na floresta atual do Active Directory. Ele encaminha solicitações de controladores de domínio para o Azure AD e retorna a resposta do Azure AD ao controlador de domínio.
-* O serviço do agente DC de proteção por senha do Azure AD recebe solicitações de validação de senha da dll do filtro de senha do agente DC, processa-as usando a política de senha atual disponível localmente e retorna o resultado (aprovado/reprovado). Esse serviço é responsável por chamar periodicamente (uma vez por hora) o serviço de proxy de proteção por senha do Azure AD para recuperar novas versões da política de senha. A comunicação para chamadas de e para o serviço de proxy de proteção por senha do Azure AD é tratada pela RPC (Chamada de Procedimento Remoto) sobre TCP. Após a recuperação, novas políticas serão armazenadas em uma pasta sysvol, onde poderão ser replicadas para outros controladores de domínio. O serviço do agente DC também monitora a pasta sysvol em busca de alterações caso outros controladores de domínio tenham criado novas políticas de senha, se uma política recente já estiver disponível, a verificação do serviço de proxy de proteção por senha do Azure AD será ignorada.
+* O serviço do agente DC de proteção por senha do Azure AD recebe solicitações de validação de senha da dll do filtro de senha do agente DC, processa-as usando a política de senha atual disponível localmente e retorna o resultado (aprovado/reprovado). Esse serviço é responsável por chamar periodicamente (uma vez por hora) o serviço de proxy de proteção por senha do Azure AD para recuperar novas versões da política de senha. A comunicação entre o serviço do agente DC de proteção de senha do Azure AD e o serviço de proxy de proteção de senha do Azure AD é tratada usando RPC (chamada de procedimento remoto) sobre TCP. Após a recuperação, novas políticas serão armazenadas em uma pasta sysvol, onde poderão ser replicadas para outros controladores de domínio. O serviço do agente DC também monitora a pasta sysvol em busca de alterações caso outros controladores de domínio tenham criado novas políticas de senha, se uma política recente já estiver disponível, então novas solicitações de download de política serão ignoradas.
 * A dll do filtro de senha do Agente DC recebe solicitações de validação de senha do sistema operacional e as encaminha para o serviço do agente DC de proteção por senha do Azure AD executado localmente no controlador de domínio.
 
 ![Como os componentes de proteção por senha do Azure AD trabalham em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -57,7 +57,7 @@ Há dois instaladores necessários para a proteção por senha do Azure AD que p
 * Não há requisitos mínimos de Domínio do Active Directory ou nível Funcional da Floresta (DFL\FFL).
 * O software não cria nem exige nenhuma conta nos domínios do Active Directory que ele protege.
 * A implantação incremental tem suporte com a compensação de que a política de senha somente é aplicada quando o agente do controlador de domínio é instalado.
-* É recomendável instalar o agente DC em todos os DCs para garantir a imposição de proteção de senha. 
+* É recomendável instalar o agente DC em todos os DCs para garantir a imposição de proteção de senha.
 * A proteção por senha do Azure AD não é um mecanismo de aplicativo de política em tempo real. Pode haver um atraso no tempo entre uma alteração na configuração da política de senha e o tempo que ela atinge e é imposta em todos os controladores de domínio.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Siga este guia para configurar contas de armazenamento e lote do Azure necessárias para trabalhar com acústica.
 services: cognitive-services
 author: ashtat
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 638ea3e707352a95cb1fb407add365a83d11faa7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b8735c0c5d05f2ee4bd17dc41fc90d1f5aa5128a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876684"
 ---
 # <a name="create-an-azure-batch-account"></a>Criar uma Conta de Lote do Azure
 Siga este guia para configurar contas de armazenamento e lote do Azure necessárias para trabalhar com acústica. Para obter informações sobre a plug-in do Unity desenvolvido como parte do projeto acústica, consulte [What ' s acústica](what-is-acoustics.md). Para obter informações sobre como incorporar acústica em seu projeto do Unity, consulte [Introdução ao](getting-started.md).  

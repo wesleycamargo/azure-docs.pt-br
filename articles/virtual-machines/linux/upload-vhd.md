@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821551"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar uma VM Linux usando um disco personalizado com a CLI do Azure
 
@@ -31,8 +31,8 @@ Este artigo mostra como carregar um disco rígido virtual (VHD) personalizado e 
 Para criar várias VMs usando seu disco personalizado, primeiro crie uma imagem da VM ou VHD. Para obter mais informações, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
 
 Você tem duas opções para criar um disco personalizado:
-* [Carregar um VHD](#option-1-upload-a-specialized-vhd)
-* [Copiar uma VM existente do Azure](#option-2-copy-an-existing-azure-vm)
+* Carregar um VHD
+* Copiar uma VM existente do Azure
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -73,7 +73,7 @@ O Azure dá suporte a várias distribuições do Linux (consulte [Distribuiçõe
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Outros: As distribuições não endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Outros: Distribuições não endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Confira também as [Observações de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas gerais sobre como preparar as imagens do Linux para o Azure.
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma conta de armazenamento para seu disco personalizado e VMs com [az storage account create](/cli/azure/storage/account#az-storageaccount-create). O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos criado anteriormente:
+Criar uma conta de armazenamento para seu disco personalizado e VMs com [az storage account create](/cli/azure/storage/account). O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos criado anteriormente:
 
 ```azurecli
 az storage account create \

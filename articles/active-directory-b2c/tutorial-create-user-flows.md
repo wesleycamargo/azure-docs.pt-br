@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar fluxos dos usuários no Azure Active Directory B2C | Microsoft Docs
+title: Tutorial – Criar fluxos dos usuários – Azure Active Directory B2C | Microsoft Docs
 description: Saiba como criar fluxos dos usuários para seus aplicativos no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845582"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750283"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos dos usuários no Azure Active Directory B2C
 
@@ -39,29 +39,30 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 O fluxo do usuário de inscrição e credenciais controla as experiências de inscrição e credenciais do consumidor com uma única configuração. Os usuários do aplicativo são conduzidos pelo caminho certo, de acordo com o contexto.
 
-1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
 
     ![Alternar para o diretório de assinatura](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-3. No menu da esquerda, selecione **Fluxos dos usuários** e, em seguida, selecione **Novo fluxo de usuário**.
+3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+4. No menu da esquerda, selecione **Fluxos dos usuários** e, em seguida, selecione **Novo fluxo de usuário**.
 
     ![Selecionar novo fluxo de usuário](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Selecione o fluxo do usuário **Inscrever-se e conectar-se** na guia Recomendado.
+5. Selecione o fluxo do usuário **Inscrever-se e conectar-se** na guia Recomendado.
 
     ![Selecionar o fluxo do usuário de inscrição e conexão](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Insira um **Nome** para o fluxo de usuário. Por exemplo, *signupsignin1*.
-6. Para **Provedores de identidade**, selecione **Inscrição por email**.
+6. Insira um **Nome** para o fluxo de usuário. Por exemplo, *signupsignin1*.
+7. Para **Provedores de identidade**, selecione **Inscrição por email**.
 
     ![Definir as propriedades do fluxo](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. Para **Atributos e declarações do usuário**, escolha as declarações e atributos que deseja coletar e enviar do usuário durante a inscrição. Por exemplo, selecione **Mostrar mais** e, depois, escolha **País/região**, **Nome de exibição** e **Código postal**. Clique em **OK**.
+8. Para **Atributos e declarações do usuário**, escolha as declarações e atributos que deseja coletar e enviar do usuário durante a inscrição. Por exemplo, selecione **Mostrar mais** e, depois, escolha **País/região**, **Nome de exibição** e **Código postal**. Clique em **OK**.
 
     ![Selecionar atributos e declarações](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
+9. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
@@ -123,4 +124,4 @@ Neste artigo, você aprendeu a:
 > * Criar um fluxo de usuário de redefinição de senha
 
 > [!div class="nextstepaction"]
-> [Personalize a interface do usuário dos aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C](tutorial-add-identity-providers.md)

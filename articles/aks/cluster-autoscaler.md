@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479093"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754633"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -63,6 +63,9 @@ Os dois dimensionadores automáticos podem trabalhar juntos e geralmente são im
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Criar um cluster do AKS e habilitar o dimensionador automático de cluster
 
 Caso precise criar um cluster do AKS, use o comando [az aks create][az-aks-create]. Especifique uma *--kubernetes-version* que atenda ao número de versão mínima necessário ou que exceda esse número, conforme descrito na seção anterior [Antes de começar](#before-you-begin). Para habilitar e configurar o dimensionador automático de cluster, use o parâmetro *--enable-cluster-autoscaler* e especifique um nó *--min-count* e *--max-count*.
+
+> [!IMPORTANT]
+> O dimensionamento automático do cluster é um componente de Kubernetes. Embora o cluster do AKS use um conjunto de dimensionamento de máquinas virtuais para os nós, não habilite ou edite manualmente as configurações de dimensionamento automático do conjunto de dimensionamento no portal do Azure ou usando a CLI do Azure. Permita que o dimensionador automático do cluster de Kubernetes gerencie as configurações de dimensionamento necessárias. Para obter mais informações, confira [Posso modificar os recursos do AKS no grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
 
 O seguinte exemplo cria um cluster do AKS com o conjunto de dimensionamento de máquinas virtuais habilitado e usa um mínimo de *1* e um máximo de *3* nós:
 

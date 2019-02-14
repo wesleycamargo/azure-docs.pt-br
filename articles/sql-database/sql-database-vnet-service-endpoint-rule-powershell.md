@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 10/23/2018
+ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945919"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566168"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: criar um ponto de extremidade de Serviço Virtual e uma regra VNet para SQL
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  criar um ponto de extremidade de Serviço Virtual e uma regra VNet para SQL
 
 O [Banco de Dados](sql-database-technical-overview.md) SQL do Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) do Azure suportam terminais de Serviço Virtual.
 
@@ -31,7 +31,7 @@ Este artigo fornece e explica um script do PowerShell que realiza as seguintes a
 1. Cria um *ponto de extremidade do Serviço virtual* do Microsoft Azure em sua sub-rede.
 2. Adiciona o ponto de extremidade ao firewall do seu servidor de Banco de dados SQL do Azure, para criar uma *regra de rede virtual*.
 
-Suas motivações para criar uma regra são explicadas em: [Pontos de extremidade de Serviço virtual para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
+Suas motivações para criar uma regra são explicadas em: [Pontos de extremidade de Serviço Virtual para o Banco de Dados SQL do Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Se tudo de que você precisa é avaliar ou adicionar o ponto de extremidade do Serviço virtual *nome do tipo* para o Banco de dados SQL do Microsoft Azure para sua sub-rede, passe adiante até nosso [script do PowerShell mais direto](#a-verify-subnet-is-endpoint-ps-100).
@@ -42,11 +42,11 @@ Este artigo enfatiza o **New-AzureRmSqlServerVirtualNetworkRule** que adiciona o
 
 A lista a seguir mostra a sequência de outros cmdlets *principais* que você deve executar para se preparar para a chamada para **New-AzureRmSqlServerVirtualNetworkRule**. Neste artigo, essas chamadas ocorrem no [script 3 "Regra de rede virtual"](#a-script-30):
 
-1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): cria um objeto de sub-rede.
+1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Cria um objeto de sub-rede.
 2. [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): cria sua rede virtual, fornecendo a ela a sub-rede.
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): atribui um ponto de extremidade do Serviço virtual à sua sub-rede.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): atribui um ponto de extremidade de Serviço Virtual à sua sub-rede.
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): persiste as atualizações feitas em sua rede virtual.
-5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): após sua sub-rede ser um ponto de extremidade, adicione sua sub-rede como uma regra de rede virtual, no ACL de seu servidor de banco de dados SQL do Azure.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): após sua sub-rede ser um ponto de extremidade, adicione sua sub-rede como uma regra de rede virtual, no ACL de seu servidor de Banco de Dados SQL do Azure.
    - Esse cmdlet oferece o parâmetro **-IgnoreMissingVNetServiceEndpoint**, iniciando no Módulo do PowerShell do Azure RM versão 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Pré-requisitos para execução do PowerShell
@@ -112,7 +112,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Script 2: pré-requisitos
+### <a name="script-2-prerequisites"></a>Script 2: Pré-requisitos
 
 Esse script prepara para o próximo script, no qual ocorre a ação de ponto de extremidade. Esse script cria para você os seguintes itens listados, mas apenas se eles ainda não existirem. Se você tiver certeza de que esses itens já existem, você poderá ignorar o script 2:
 
@@ -203,7 +203,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script de 3: criar um ponto de extremidade e uma regra
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Criar um ponto de extremidade e uma regra
 
 Esse script cria uma rede virtual com uma sub-rede. Em seguida, o script atribui o tipo de ponto de extremidade **Microsoft.Sql** à sua sub-rede. Por fim, o script adiciona sua sub-rede à lista de controle de acesso (ACL) do seu servidor de Banco de dados SQL do Microsoft Azure, criando assim uma regra.
 
@@ -289,7 +289,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>Script 4: limpar
+## <a name="script-4-clean-up"></a>Script 4: Limpar
 
 Esse script final exclui os recursos que os scripts anteriores criaram para a demonstração. No entanto, o script solicita a confirmação antes de excluir o seguinte:
 

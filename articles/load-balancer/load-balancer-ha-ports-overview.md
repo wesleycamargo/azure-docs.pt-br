@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809463"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
@@ -100,7 +100,7 @@ Você pode configurar *um* recurso de Load Balancer Standard público para os re
 
 - O recurso de portas de alta disponibilidade não está disponível para IPv6.
 
-- A simetria de fluxo (principalmente para cenários NVA) é compatível com a instância de back-end e uma única NIC (e uma configuração de IP única) somente quando usada conforme mostrado no [diagrama](#diagram) acima e usando regras de balanceamento de carga de portas de HA. Ela não é fornecida em nenhum outro cenário. Isso significa que dois ou mais recursos do Load Balancer e as respectivas regras tomam decisões independentes e nunca são coordenadas. Veja a descrição e o diagrama para [Soluções de virtualização de rede](#nva). Quando você usa vários NICs ou fazendo sandwiching do NVA entre um Load Balancer público e interno, a simetria de fluxo não está disponível.  Talvez seja possível solucionar isso fazendo a conversão de endereços de rede de origem do fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem ao mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no [diagrama](#diagram) acima.
+- A simetria de fluxo (principalmente para cenários NVA) é compatível com a instância de back-end e uma única NIC (e uma configuração de IP única) somente quando usada conforme mostrado no diagrama acima e usando regras de balanceamento de carga de portas de HA. Ela não é fornecida em nenhum outro cenário. Isso significa que dois ou mais recursos do Load Balancer e as respectivas regras tomam decisões independentes e nunca são coordenadas. Veja a descrição e o diagrama para [Soluções de virtualização de rede](#nva). Quando você usa vários NICs ou fazendo sandwiching do NVA entre um Load Balancer público e interno, a simetria de fluxo não está disponível.  Talvez seja possível solucionar isso fazendo a conversão de endereços de rede de origem do fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem ao mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
 
 
 ## <a name="next-steps"></a>Próximas etapas

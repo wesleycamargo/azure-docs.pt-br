@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723137"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663552"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Use as referências do Key Vault para o serviço de aplicativo e as funções do Azure (visualização)
 
@@ -37,7 +37,7 @@ Para ler os segredos do Key Vault, você precisa criar um vault e conceder permi
    > [!NOTE] 
    > No momento, as referências do Key Vault suportam apenas identidades gerenciadas atribuídas pelo sistema. Identidades atribuídas pelo usuário não podem ser usadas.
 
-1. Crie uma política de [acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade do aplicativo que você criou anteriormente. Ative a permissão secreta "Obter" nesta política.
+1. Crie uma política de [acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade do aplicativo que você criou anteriormente. Ative a permissão secreta "Obter" nesta política. Não defina o "aplicativo autorizado" ou as configurações `appliationId`, pois isso não é compatível com uma identidade gerenciada.
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba como as expressões podem ser alteradas antes das previsões no Reconhecimento vocal (LUIS)
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: c7495ba3f2dc453463038fd37147b4574536ca92
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215326"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859193"
 ---
 # <a name="convert-data-format-of-utterances"></a>Converter o formato de dados de declarações
 O LUIS usa o serviço de Fala dos Serviços Cognitivos para converter enunciados falados em enunciados de texto antes da previsão. 

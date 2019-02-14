@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104228"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820429"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -64,7 +64,7 @@ Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repi
 **Erro de código**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: O backup não tem permissões suficientes para o cofre de chaves para fazer backup de VMs criptografadas. <br>
 
-Para que a operação de backup tenha êxito em VMs criptografadas, é necessário ter permissões para acessar o cofre de chaves. Isso pode ser feito usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) ou por meio do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Para que a operação de backup tenha êxito em VMs criptografadas, é necessário ter permissões para acessar o cofre de chaves. Isso pode ser feito usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou por meio do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork – falha na operação de instantâneo por falta de conectividade à rede na máquina virtual
 
@@ -97,7 +97,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [O status do instantâneo não pode ser recuperado, ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 4: [A extensão de backup falha ao atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [O serviço de Backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Causa 5: O serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
 **Causa 6: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Atualmente, o Backup do Azure não suporta tamanhos de disco maiores que 1023 GB

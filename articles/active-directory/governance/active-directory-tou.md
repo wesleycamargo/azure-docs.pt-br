@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162762"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822503"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso.
@@ -257,10 +257,10 @@ Segue uma lista dos softwares e plataformas com suporte.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
-> | **Aplicativo nativo** | SIM | sim | SIM |  |
-> | **Microsoft Edge** | SIM | sim | SIM |  |
-> | **Internet Explorer** | SIM | sim | SIM |  |
-> | **Chrome (com extensão)** | SIM | sim | SIM |  |
+> | **Aplicativo nativo** | Sim | sim | Sim |  |
+> | **Microsoft Edge** | Sim | sim | Sim |  |
+> | **Internet Explorer** | Sim | sim | Sim |  |
+> | **Chrome (com extensão)** | Sim | sim | Sim |  |
 
 Os Termos de uso por dispositivo têm as seguintes restrições:
 
@@ -337,7 +337,7 @@ Termos de uso podem ser usados para diferentes aplicativos de nuvem, como Prote�
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Como fazer para ver quando/se um usuário aceitou os Termos de uso?**<br />
-R: Na folha de Termos de uso, clique no número em **Aceito**. Também é possível exibir ou pesquisar a atividade de aceitação nos logs de auditoria do Azure AD. Para obter mais informações, consulte [Exibir relatório de quem aceitou e recusou](#view-who-has-accepted-and-declined) e [Exibir logs de auditoria do Azure AD](#view-azure-ad-audit-logs).
+R: Na folha de Termos de uso, clique no número em **Aceito**. Também é possível exibir ou pesquisar a atividade de aceitação nos logs de auditoria do Azure AD. Para obter mais informações, confira Exibir relatório de quem aceitou e recusou e [Exibir logs de auditoria do Azure AD](#view-azure-ad-audit-logs).
 
 **P: Por quanto tempo as informações ficam armazenadas?**<br />
 R: As contagens de usuário no relatório de Termos de uso, incluindo quem aceitou/recusou, são armazenadas durante a vigência dos Termos de uso. Os logs de auditoria do Azure AD são armazenados por 30 dias.

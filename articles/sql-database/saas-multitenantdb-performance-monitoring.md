@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458118"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002367"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
 Neste tutorial, vários dos principais cenários de gerenciamento de desempenho usados em aplicativos SaaS são explorados. São demonstrados o uso de um gerador de carga para simular a atividade em bancos de dados multilocatário fragmentados, os recursos internos de monitoramento e os alertas do Banco de Dados SQL.
 
-O aplicativo de banco de dados multilocatário SaaS Wingtip Tickets usa um modelo de dados multilocatário fragmentado, em que os dados de local (locatário) são distribuídos por ID de locatário potencialmente em vários bancos de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para tirar vantagem desse padrão de uso típico de banco de dados, os bancos de dados podem ser escalados e reduzidos verticalmente para otimizar o custo de uma solução. Com esse tipo de padrão, é importante monitorar o uso de recursos de banco de dados para garantir que as cargas são razoavelmente balanceadas em potencialmente vários bancos de dados. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e não atinjam seus limites de [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
+O aplicativo de banco de dados multilocatário SaaS Wingtip Tickets usa um modelo de dados multilocatário fragmentado, em que os dados de local (locatário) são distribuídos por ID de locatário potencialmente em vários bancos de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para tirar vantagem desse padrão de uso típico de banco de dados, os bancos de dados podem ser escalados e reduzidos verticalmente para otimizar o custo de uma solução. Com esse tipo de padrão, é importante monitorar o uso de recursos de banco de dados para garantir que as cargas são razoavelmente balanceadas em potencialmente vários bancos de dados. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e não atinjam seus limites de [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
 
 Neste tutorial, você aprenderá a:
 

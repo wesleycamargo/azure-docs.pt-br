@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765629"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814309"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerenciar a expiração do armazenamento de Blobs do Azure na CDN do Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "33765629"
 
 O [Serviço de armazenamento de blobs](../storage/common/storage-introduction.md#blob-storage) no Armazenamento do Azure é uma das várias origens baseadas no Azure integradas à CDN (Rede de Distribuição de Conteúdo) do Azure. Qualquer conteúdo de blob publicamente acessível pode ser armazenado em cache no Azure CDN até que o tempo de vida (TTL) seja decorrido. A vida útil é determinada pelo cabeçalho `Cache-Control` na resposta HTTP do servidor de origem. Este artigo descreve várias maneiras que você pode definir o cabeçalho `Cache-Control` em um blob no Armazenamento do Azure.
 
-Também é possível controlar as configurações de cache do portal do Azure, definindo as [regras de cache da CDN](#setting-cache-control-headers-by-using-caching-rules). Se você criar uma regra de cache e definir o comportamento de cache para **Substituição** ou **Ignorar cache**, as configurações de cache fornecidas pela origem discutidas neste artigo serão ignoradas. Para obter informações sobre conceitos gerais de cache, consulte [Como funciona o cache](cdn-how-caching-works.md).
+Também é possível controlar as configurações de cache do portal do Azure definindo as regras de cache da CDN. Se você criar uma regra de cache e definir o comportamento de cache para **Substituição** ou **Ignorar cache**, as configurações de cache fornecidas pela origem discutidas neste artigo serão ignoradas. Para obter informações sobre conceitos gerais de cache, consulte [Como funciona o cache](cdn-how-caching-works.md).
 
 > [!TIP]
 > Você pode optar por não definir nenhuma vida útil em um blob. Nesse caso, a CDN do Azure aplica automaticamente um TTL padrão de sete dias, exceto se você tiver configurado as regras de cache no portal do Azure. Esse padrão TTL aplica-se somente para otimizações de entrega da web gerais. Para otimizações de arquivo grande, o TTL padrão é de um dia e para otimizações de streaming de mídia, o TTL padrão é um ano.

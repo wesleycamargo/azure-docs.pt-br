@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353185"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492922"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação e listas de exclusões de firewall do aplicativo Web
 
@@ -45,7 +45,7 @@ Os seguintes atributos podem ser adicionados a listas de exclusão:
    * XML
    * JSON
 
-Você pode especificar um cabeçalho de solicitação exato, um corpo, um cookie ou uma correspondência de atributo de cadeia de consulta ou, opcionalmente, pode especificar correspondências parciais.
+Você pode especificar um cabeçalho de solicitação exato, corpo, cookie ou uma correspondência de atributo de cadeia de consulta.  Outra opção é especificar correspondências parciais. A exclusão está sempre em um campo de cabeçalho, nunca em seu valor. Regras de exclusão são de escopo global e se aplicam a todas as páginas e todas as regras.
 
 A seguir estão os operadores de critérios de correspondência com suporte:
 

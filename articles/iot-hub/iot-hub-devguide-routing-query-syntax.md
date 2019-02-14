@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018529"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744834"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do roteamento de mensagens do Hub IoT
 
@@ -25,7 +25,7 @@ O roteamento de mensagens permite consultar as propriedades da mensagem e o corp
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de roteamento de mensagens com base nas propriedades da mensagem 
 
-O Hub IoT define um [formato comum](iot-hub-devguide-messages-construct.md) para todas as mensagens de dispositivo para nuvem para interoperabilidade entre protocolos. A mensagem do Hub IoT pressupõe a seguinte representação JSON da mensagem. As propriedades do sistema são adicionadas para todos os usuários e identificam o conteúdo da mensagem. Os usuários seletivamente podem adicionar propriedades do aplicativo para a mensagem. É recomendável usar nomes de propriedade exclusivos, já que as mensagens de dispositivo para nuvem do Hub IoT não diferenciam maiúsculas de minúsculas. Por exemplo, se você tiver várias propriedades com o mesmo nome, o Hub IoT somente enviará uma das propriedades.  
+O Hub IoT define um [formato comum](iot-hub-devguide-messages-construct.md) para todas as mensagens de dispositivo para nuvem que permite a interoperabilidade entre protocolos. A mensagem do Hub IoT pressupõe a seguinte representação JSON da mensagem. As propriedades do sistema são adicionadas para todos os usuários e identificam o conteúdo da mensagem. Os usuários seletivamente podem adicionar propriedades do aplicativo para a mensagem. É recomendável usar nomes de propriedade exclusivos, já que as mensagens de dispositivo para nuvem do Hub IoT não diferenciam maiúsculas de minúsculas. Por exemplo, se você tiver várias propriedades com o mesmo nome, o Hub IoT somente enviará uma das propriedades.  
 
 ```json
 { 
@@ -51,11 +51,11 @@ O Hub IoT define um [formato comum](iot-hub-devguide-messages-construct.md) para
 
 As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensagens. 
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | contentType | string | O usuário especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, esse valor deve ser definido como application/JSON. |
 | contentEncoding | string | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType for definido como application/JSON. |
-| connectionDeviceId | string | Esse valor é definido pelo Hub IoT e identifica a origem das mensagens. Isso poderia mensagens de telemetria de dispositivo, notificações de alteração de dispositivo gêmeo ou eventos de ciclo de vida do dispositivo. Isso não pode ser consultado. |
+| iothub-connection-device-id | string | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `enqueuedTime`. |
 
 Conforme descrito nas [Mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), há propriedades de sistema adicionais em uma mensagem. Além de **contentType**, **contentEncoding** e **enqueuedTime**, a **connectionDeviceId** e a  **connectionModuleId** também podem ser consultadas.

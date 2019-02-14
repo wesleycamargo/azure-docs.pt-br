@@ -1,29 +1,29 @@
 ---
-title: Replicação de dados no Armazenamento do Azure | Microsoft Docs
-description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura).
+title: Redundância de dados no Armazenamento do Azure | Microsoft Docs
+description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. As opções de redundância incluem armazenamento com redundância local (LRS), armazenamento com redundância de zona (ZRS), armazenamento com redundância geográfica (GRS) e armazenamento com redundância geográfica com acesso de leitura (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455500"
+ms.locfileid: "55506780"
 ---
-# <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
+# <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
-Os dados na sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade. A replicação de Armazenamento do Microsoft Azure copia os dados para que eles sejam protegidos contra eventos planejados e não planejados, que variam de falhas de hardware transitórias, interrupções de energia ou rede, desastres naturais de grandes proporções, e assim por diante. Você pode escolher replicar os dados no mesmo datacenter, em datacenters zonais na mesma região e até mesmo entre regiões.
+Os dados na sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade. A redundância do Armazenamento do Azure copia os dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas de hardware transitórias, interrupções de energia ou rede e desastres naturais de grandes proporções. Você pode escolher replicar os dados no mesmo datacenter, em datacenters zonais na mesma região ou entre regiões separadas geograficamente.
 
 A replicação garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas. Consulte o SLA para obter informações sobre as garantias do Armazenamento do Azure para disponibilidade e durabilidade.
 
-## <a name="choosing-a-replication-option"></a>Escolher uma opção de replicação
+## <a name="choosing-a-redundancy-option"></a>Escolher uma opção de redundância
 
-Ao criar uma conta de armazenamento, você deve selecionar uma das seguintes opções de replicação:
+Ao criar uma conta de armazenamento, você deve selecionar uma das seguintes opções de redundância:
 
 * [Armazenamento com redundância local (LRS)](storage-redundancy-lrs.md)
 * [Armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md)
@@ -34,10 +34,10 @@ A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e d
 
 | Cenário                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Indisponibilidade de nó dentro de um datacenter                                                                 | SIM                             | sim                              | sim                                  | SIM                                  |
-| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                               | sim                              | sim                                  | SIM                                  |
-| Uma interrupção em toda a região                                                                                     | Não                               | Não                                | sim                                  | SIM                                  |
-| Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região | Não                               | Não                               | Não                                    | SIM                                  |
+| Indisponibilidade de nó dentro de um datacenter                                                                 | Sim                             | sim                              | sim                                  | Sim                                  |
+| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                               | sim                              | sim                                  | Sim                                  |
+| Uma interrupção em toda a região                                                                                     | Não                               | Não                                | sim                                  | Sim                                  |
+| Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região | Não                               | Não                               | Não                                    | Sim                                  |
 | Projetado para fornecer \_\_ durabilidade de objetos em um determinado ano                                          | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
 | Tipos de conta de armazenamento suportados                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA de disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,99% (99,9% para a camada de acesso estática) |
@@ -63,7 +63,7 @@ Se você alterar de GRS para LRS, não haverá custo adicional, mas seus dados r
 
 ## <a name="see-also"></a>Consulte também
 
-- [LRS (Armazenamento com Redundância Local): Redundância de dados de baixo custo para o Armazenamento do Microsoft Azure](storage-redundancy-lrs.md)
+- [Armazenamento com redundância local (LRS): Redundância de dados de baixo custo para o Armazenamento do Microsoft Azure](storage-redundancy-lrs.md)
 - [ZRS (armazenamento com redundância de zona): Aplicativos de Armazenamento do Azure altamente disponíveis](storage-redundancy-zrs.md)
 - [Armazenamento com redundância geográfica (GRS): Replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy-grs.md)
 - [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)

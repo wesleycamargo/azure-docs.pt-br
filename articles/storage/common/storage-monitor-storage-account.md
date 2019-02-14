@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452636"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817267"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452636"
 
 1. Ao concluir a configuração de monitoramento, selecione **Salvar**.
 
-Um conjunto de métricas padrão é exibido em gráficos na folha da conta de armazenamento, bem como nas folhas de serviço individuais (blob, fila, tabela e arquivo). Depois que você habilita métricas para um serviço, pode levar até uma hora para que os dados apareçam nos gráficos. Você pode selecionar **Editar** em qualquer gráfico de métricas para [configurar quais métricas](#how-to-customize-metrics-charts) são exibidas no gráfico.
+Um conjunto de métricas padrão é exibido em gráficos na folha da conta de armazenamento, bem como nas folhas de serviço individuais (blob, fila, tabela e arquivo). Depois que você habilita métricas para um serviço, pode levar até uma hora para que os dados apareçam nos gráficos. Você pode selecionar **Editar** em qualquer gráfico de métricas para configurar quais métricas serão exibidas.
 
 Você pode desabilitar a coleta de métricas e o registro em log definindo **Status** como **Desativado**.
 
@@ -116,7 +116,7 @@ Você pode adicionar gráficos de métricas do Armazenamento do Azure para qualq
    ![Galeria de blocos no portal do Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Selecione **Personalização concluída** na parte superior do painel quando terminar a adição de gráficos.
 
-Depois de adicionar gráficos ao painel, você pode personalizá-los conforme descrito em [Personalizar gráficos de métricas](#how-to-customize-metrics-charts).
+Depois de adicionar gráficos ao painel, você pode personalizá-los conforme descrito em Personalizar gráficos de métricas.
 
 ## <a name="configure-logging"></a>Configurar o registro em log
 

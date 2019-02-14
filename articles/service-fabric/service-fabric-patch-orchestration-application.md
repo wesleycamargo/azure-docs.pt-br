@@ -3,7 +3,7 @@ title: Aplicativo de orquestração de patch do Azure Service Fabric | Microsoft
 description: Aplicativo para automatizar a aplicação de patch do sistema operacional em um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155299"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732304"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -131,7 +131,7 @@ Para habilitar o serviço do gerenciador de reparo:
     ],
     ```
 
-3. Atualize o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [crie um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualize a configuração do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Com o cluster em execução com o manifesto do cluster atualizado, agora você poderá ver o serviço do sistema do gerenciador de reparo em execução no seu cluster, que é chamado de `fabric:/System/RepairManagerService`, sob a seção de serviços do sistema no Service Fabric Explorer.
+3. Atualize o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [crie um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualize a configuração do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Com o cluster em execução com o manifesto do cluster atualizado, agora você poderá ver o serviço do sistema do gerenciador de reparo em execução no seu cluster, que é chamado de `fabric:/System/RepairManagerService`, sob a seção de serviços do sistema no Service Fabric Explorer.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Desabilite o Windows Update automático em todos os nós
 
@@ -154,9 +154,9 @@ O comportamento do aplicativo de orquestração de patch pode ser configurado pa
 |LogsDiskQuotaInMB   |long  <br> (Padrão: 1024)               |Tamanho máximo dos logs do aplicativo de orquestração de patch em MB, que pode ser mantido localmente no nó.
 | WUQuery               | string<br>(Padrão: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | BOOLEAN <br> (padrão: false)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
-| WUOperationTimeOutInMinutes | int <br>(Padrão: 90)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
-| WURescheduleCount     | int <br> (Padrão: 5)                  | O número máximo de vezes que o serviço reagendaria o Windows Update no caso de falha persistente na operação.          |
-| WURescheduleTimeInMinutes | int <br>(Padrão: 30) | O intervalo ao qual o serviço reagendaria o Windows Update no caso de persistência da falha. |
+| WUOperationTimeOutInMinutes | Int <br>(Padrão: 90)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
+| WURescheduleCount     | Int <br> (Padrão: 5)                  | O número máximo de vezes que o serviço reagendaria o Windows Update no caso de falha persistente na operação.          |
+| WURescheduleTimeInMinutes | Int <br>(Padrão: 30) | O intervalo ao qual o serviço reagendaria o Windows Update no caso de persistência da falha. |
 | WUFrequency           | Cadeia de caracteres separada por vírgula (Padrão: "Semanais, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. O formato e os valores possíveis são: <br>-   Mensal, DD, HH:MM:SS, por exemplo, Mensal, 5,12:22:32.<br>Os valores permitidos para o campo DD (dia) são números entre o intervalo de 1-28 e "last". <br> -   Semanal, DIA, HH:MM:SS, por exemplo, Semanal, terça-feira, 12:22:32.  <br> -   Diário, HH:MM:SS, por exemplo, Diário, 12:22:32.  <br> -  Nenhum indica que o Windows Update não deve ser executado.  <br><br> Observe que os horários estão em UTC.|
 | AcceptWindowsUpdateEula | BOOLEAN <br>(Padrão: true) | Ao definir esse sinalizador, o aplicativo aceita o Contrato de licença do usuário final para o Windows Update em nome do proprietário do computador.              |
 
@@ -413,3 +413,6 @@ Um administrador deve intervir e determinar por que o aplicativo ou cluster se t
 - Correção da regressão, em que o POA 1.3.0 não funcionará no Windows Server 2012 R2 ou anterior devido a uma falha ao desabilitar as atualizações automáticas. 
 - Correção de bug, em que a configuração InstallWindowsOSOnlyUpdates sempre é escolhida como True.
 - Alteração do valor padrão de InstallWindowsOSOnlyUpdates para False.
+
+### <a name="version-132"></a>Versão 1.3.2
+- Correção de um problema que efetuou o ciclo de vida de aplicação de patch em um nó caso haja nós com o nome que seja um subconjunto do nome do nó atual. Para esses nós, é possível que aplicação de patch seja ignorada ou a reinicialização fique pendente. 

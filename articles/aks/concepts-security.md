@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380434"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818984"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -24,11 +24,11 @@ Este artigo apresenta os conceitos básicos que protegem seus aplicativos no AKS
 - [Segurança do nó](#node-security)
 - [Atualizações do cluster](#cluster-upgrades)
 - [Segurança de rede](#network-security)
-- [Segredos do Kubernetes](#secrets)
+- Segredos do Kubernetes
 
 ## <a name="master-security"></a>Segurança mestre
 
-No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido da minha Microsoft. Cada cluster do AKS tem o próprio mestre de Kubernetes dedicado de locatário único para fornecer o Servidor de API, o Agendador etc. Esse mestre é gerenciado e mantido pela Microsoft
+No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster do AKS tem o próprio mestre de Kubernetes dedicado de locatário único para fornecer o Servidor de API, o Agendador etc. Esse mestre é gerenciado e mantido pela Microsoft
 
 Por padrão, o servidor de API do Kubernetes usa um endereço IP público e com o FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao Servidor de API usando os controles de acesso baseados em função do Kubernetes e do Azure Active Directory. Para obter mais informações, confira [Integração do Azure AD com o AKS][aks-aad].
 
@@ -41,6 +41,8 @@ A plataforma Azure aplica automaticamente patches de segurança do sistema opera
 Nós são implantados em uma sub-rede de rede virtual privada, sem nenhum endereço IP público atribuído. Para fins de solução de problemas e gerenciamento, o SSH é habilitado por padrão. Esse acesso SSH só está disponível usando o endereço IP interno. Regras de grupo de segurança de rede do Azure podem ser usadas para restringir o acesso de intervalo IP aos nós do AKS. Excluir a regra SSH do grupo de segurança de rede padrão e desabilitar o serviço SSH em nós impede que a plataforma do Azure execute tarefas de manutenção.
 
 Para fornecer armazenamento, os nós usam o Azure Managed Disks. Para a maioria dos tamanhos de nó VM, esses são discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos gerenciados são criptografados automaticamente em repouso na plataforma Azure. Para melhorar a redundância, esses discos também são replicados com segurança no datacenter do Azure.
+
+Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros atualmente para uso de vários locatários hostis. Recursos de segurança adicionais, como *Políticas de Segurança Pod* ou RBAC (controles de acesso baseado em função) mais refinado para nós dificultam as explorações. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados. Para obter mais informações sobre formas de isolar as cargas de trabalho, consulte [Melhores práticas para o isolamento de cluster no AKS][cluster-isolation].
 
 ## <a name="cluster-upgrades"></a>Atualizações do cluster
 
@@ -96,3 +98,4 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

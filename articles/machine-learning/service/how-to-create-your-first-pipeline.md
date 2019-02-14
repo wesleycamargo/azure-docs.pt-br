@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3d1e0f591e5ce9f56e79ffecf72599ed1d894dc9
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251649"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746193"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de aprendizado de máquina usando o SDK do Azure Machine Learning
 
@@ -104,6 +104,9 @@ output_data1 = PipelineData(
 
 No Azure Machine Learning, o termo __computação__ (ou __destino de computação__) refere-se a computadores ou clusters que executam as etapas computacionais no pipeline de aprendizado de máquina.   Veja [destinos de computação para treinamento do modelo](how-to-set-up-training-targets.md) para obter uma lista completa de destinos de computação e como criá-los e anexá-los ao seu workspace.  O processo para criar e/ou anexar um destino de computação é o mesmo, não importa se você está treinando um modelo ou executando uma etapa do pipeline. Depois de criar e anexar seu destino de computação, use o objeto `ComputeTarget` em na [etapa do pipeline](#steps).
 
+> [!IMPORTANT]
+> Não há suporte para operações de gerenciamento em destinos de computação de dentro de trabalhos remotos. Como os pipelines de aprendizado de máquina são enviados como um trabalho remoto, não use operações de gerenciamento em destinos de computação de dentro do pipeline.
+
 Abaixo estão exemplos de como criar e anexar destinos de computação para:
 
 * Computação do Azure Machine Learning
@@ -114,27 +117,27 @@ Abaixo estão exemplos de como criar e anexar destinos de computação para:
 
 Você pode criar uma computação do Azure Machine Learning para executar suas etapas.
 
-    ```python
-    compute_name = "aml-compute"
-     if compute_name in ws.compute_targets:
-        compute_target = ws.compute_targets[compute_name]
-        if compute_target and type(compute_target) is AmlCompute:
-            print('Found compute target: ' + compute_name)
-    else:
-        print('Creating a new compute target...')
-        provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                    min_nodes = 1, 
-                                                                    max_nodes = 4)
-         # create the compute target
-        compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-        
-        # Can poll for a minimum number of nodes and for a specific timeout. 
-        # If no min node count is provided it will use the scale settings for the cluster
-        compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-        
-         # For a more detailed view of current cluster status, use the 'status' property    
-        print(compute_target.status.serialize())
-    ```
+```python
+compute_name = "aml-compute"
+ if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('Found compute target: ' + compute_name)
+else:
+    print('Creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                min_nodes = 1, 
+                                                                max_nodes = 4)
+     # create the compute target
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # Can poll for a minimum number of nodes and for a specific timeout. 
+    # If no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current cluster status, use the 'status' property    
+    print(compute_target.status.serialize())
+```
 
 ### <a id="databricks"></a>Banco de Dados do Azure
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244752"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811657"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
@@ -162,7 +162,7 @@ O exemplo a seguir mostra como criar um contêiner com permissões de acesso de 
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Carregar um blob em um contêiner
-Conforme mencionado na seção [Conceitos do serviço de Blob](#blob-service-concepts) , o Armazenamento de Blob oferece três tipos diferentes de blobs: blobs de bloco, blobs de acréscimo e blobs de página. A biblioteca do iOS de armazenamento do Azure dá suporte a todos os três tipos de blobs. Na maioria dos casos, o blob de blocos é o tipo recomendado.
+Conforme mencionado na seção Conceitos do serviço de Blob, o Armazenamento de Blob oferece três tipos diferentes de blobs: blobs de bloco, blobs de acréscimo e blobs de página. A biblioteca do iOS de armazenamento do Azure dá suporte a todos os três tipos de blobs. Na maioria dos casos, o blob de blocos é o tipo recomendado.
 
 O exemplo a seguir mostra como carregar um blob de bloco de um NSString. Se um blob com o mesmo nome já existir no contêiner, o conteúdo desse blob será substituído.
 

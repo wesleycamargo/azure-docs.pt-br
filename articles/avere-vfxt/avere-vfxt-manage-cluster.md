@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300176"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745547"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerenciar cluster do Avere vFXT
 
@@ -202,7 +202,7 @@ Além de excluir os nós de cluster, considere remover estes componentes:
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Excluir grupo de recursos do cluster do portal do Azure
 
-Se você tiver criado um grupo de recursos especificamente para o cluster, poderá destruir todos os recursos relacionados ao cluster destruindo o grupo de recursos. 
+Se você tiver criado um grupo de recursos especificamente para hospedar o cluster, poderá destruir todos os recursos relacionados ao cluster destruindo o grupo de recursos. 
 
 > [!Caution] 
 > Somente destrua o grupo de recursos se tiver certeza de que nada do valor reside no grupo. Por exemplo, verifique se que você moveu todos os dados necessários de qualquer contêiner de armazenamento no grupo de recursos.  

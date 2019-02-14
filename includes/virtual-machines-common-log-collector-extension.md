@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226877"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736196"
 ---
 O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 
@@ -32,7 +32,7 @@ Há dois modos de coleta, dependendo dos tipos de arquivos a serem coletados.
 Em ambos os modos de coleta, é possível especificar pastas de coleta de dados adicionais usando uma coleta da seguinte estrutura:
 
 * **Nome**: o nome da coleta, usado como o nome da subpasta dentro do arquivo zip com os arquivos coletados.
-* **Local**: o caminho para a pasta na máquina virtual na qual os arquivos a serem coletados ficam localizados.
+* **Localização**: o caminho para a pasta na máquina virtual na qual os arquivos a serem coletados ficam localizados.
 * **SearchPattern**: o padrão dos nomes de arquivos a serem coletados. O padrão é "\*"
 * **Recursivo**: se os arquivos a serem coletados estiverem localizados recursivamente no local especificado.
 
@@ -174,14 +174,14 @@ param (
 )
 ```
 
-* **ServiceName**: o nome do serviço de nuvem.
-* **Roles**: uma lista de funções, como "FunçãoWeb1" ou "FunçãoDeTrabalho1".
-* **Instances**: uma lista de nomes de instâncias de função separados por vírgula -- use a cadeia de caracteres curinga ("*") para todas as instâncias de função.
+* **ServiceName**: nome do serviço de nuvem.
+* **Funções**: uma lista de funções, como “FunçãoWeb1” ou “FunçãoDeTrabalho1”.
+* **Instâncias**: uma lista de nomes de instâncias de função separados por vírgula, use a cadeia de caracteres curinga (“*2) para todas as instâncias de função.
 * **Slot**: nome do slot. “Produção” ou “Preparo”.
-* **Mode**: modo de coleta. "Completo" ou "GA".
+* **Modo**: Modo de coleta. "Completo" ou "GA".
 * **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
 * **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
-* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+* **AdditionalDataLocationList**: Uma lista da seguinte estrutura:
 
   ```powershell
   {
@@ -256,12 +256,12 @@ param (
 )
 ```
 
-* **ServiceName**: o nome do serviço de nuvem.
-* **VMName**: o nome da VM.
-* **Mode**: modo de coleta. "Completo" ou "GA".
+* **ServiceName**: nome do serviço de nuvem.
+* **VMName**: O nome da VM.
+* **Modo**: Modo de coleta. "Completo" ou "GA".
 * **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
 * **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
-* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+* **AdditionalDataLocationList**: Uma lista da seguinte estrutura:
 
   ```
   {
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

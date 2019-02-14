@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452439"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817318"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
@@ -50,8 +50,8 @@ Caso você precise de etapas e explicações mais detalhadas, continue lendo. Ve
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Maneiras de solucionar problemas com RDP
 Usando um dos seguintes métodos, você pode solucionar problemas de VMs criadas com o modelo de implantação do Resource Manager:
 
-* [Portal do Azure](#using-the-azure-portal) – excelente se você precisar redefinir rapidamente as credenciais de usuário ou configurações de RDP e não tiver as Ferramentas do Azure instaladas.
-* [Azure PowerShell](#using-azure-powershell) – caso você esteja familiarizado com um prompt do PowerShell, redefina rapidamente as credenciais de usuário ou configurações de RDP usando os cmdlets do Azure PowerShell.
+* Portal do Azure – excelente se você precisar redefinir rapidamente as credenciais de usuário ou configurações de RDP e não tiver as Ferramentas do Azure instaladas.
+* Azure PowerShell – caso você esteja familiarizado com um prompt do PowerShell, redefina rapidamente as credenciais de usuário ou configurações de RDP usando os cmdlets do Azure PowerShell.
 
 Você também pode encontrar etapas sobre como solucionar problemas de VMs criadas usando o [Modelo de implantação clássico](#troubleshoot-vms-created-using-the-classic-deployment-model).
 
@@ -236,7 +236,7 @@ Você pode encontrar uma mensagem de erro específica ao tentar se conectar à s
 * [A sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [A Área de Trabalho Remota não consegue localizar o "nome" do computador](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada](troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Erro de Segurança do Windows: suas credenciais não funcionaram](troubleshoot-specific-rdp-errors.md#wincred).
+* [Erro de segurança do Windows: suas credenciais não funcionaram](troubleshoot-specific-rdp-errors.md#wincred).
 * [Este computador não pode se conectar ao computador remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Recursos adicionais

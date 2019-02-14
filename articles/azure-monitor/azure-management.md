@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0ad6b212e328612d2934562e1292b5c36546478
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965098"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990241"
 ---
 # <a name="azure-management---monitoring"></a>Gerenciamento do Azure - monitoramento
 
@@ -52,13 +52,3 @@ Proteção refere-se à garantia de que seus aplicativos e dados estão sempre d
 ## <a name="migrate"></a>Migrar 
 Migração refere-se à transição de cargas de trabalho atualmente em execução localmente para a nuvem do Azure.  As [Migrações para Azure](../migrate/migrate-overview.md) são um serviço que ajuda a avaliar a adequação de migração, incluindo dimensionamento baseado em desempenho e estimativas de custo, de máquinas virtuais locais para o Azure.  O Azure Site Recovery pode ajudar você a executar a migração real de máquinas virtuais [do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  A [Migração de banco de dados do Azure](../dms/dms-overview.md) ajudará na migração de várias fontes de banco de dados para plataformas de dados do Azure.
 
-
-## <a name="operations-management-suite"></a>Operations Management Suite
-A documentação técnica anterior relacionada ao gerenciamento do Azure incluiu o Operations Management Suite (OMS), que é um agrupamento dos seguintes serviços de gerenciamento do Azure:
-
-- Automação do Azure
-- Serviço de Backup do Azure
-- Log Analytics
-- Site Recovery
-
-Estamos deixando de descrever esse agrupamento em nossa documentação técnica uma vez que o gerenciamento completo no Azure foi expandido para incluir outros serviços. Nenhum dos serviços que fazem parte do OMS mudou e todos eles ainda têm um papel fundamental no gerenciamento dos aplicativos e recursos do Azure. Seu foco deve estar nas tarefas de gerenciamento que você deve executar e nos serviços diferentes do Azure que funcionam em conjunto para cada tarefa.

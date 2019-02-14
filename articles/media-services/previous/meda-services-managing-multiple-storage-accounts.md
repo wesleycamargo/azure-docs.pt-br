@@ -1,27 +1,28 @@
 ---
-title: Gerenciando os Ativos dos Serviços de Mídia em Várias Contas de Armazenamento | Microsoft Docs
-description: Este artigo orienta sobre como gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento
+title: Gerenciar os ativos dos Serviços de Mídia em várias contas de armazenamento | Microsoft Docs
+description: Este artigo orienta sobre como gerenciar ativos de Serviços de Mídia por meio de várias contas de armazenamento.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886332"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565897"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento
-Começando com o Microsoft Azure Media Services 2.2, você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciar ativos de Serviços de Mídia por meio de várias contas de armazenamento
+
+Você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios:
 
 * Balanceamento de carga seus ativos entre diversas contas de armazenamento.
 * Dimensionamento dos Serviços de Mídia para grandes quantidades de processamento de conteúdo (já que, no momento, uma única conta de armazenamento tem um limite máximo de 500 TB). 
@@ -29,12 +30,13 @@ Começando com o Microsoft Azure Media Services 2.2, você pode anexar várias c
 Este artigo demonstra como anexar várias contas de armazenamento a uma conta de Serviços de Mídia usando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/azurerm.media). Ele também mostra como especificar diferentes contas de armazenamento ao criar ativos usando o SDK dos Serviços de Mídia. 
 
 ## <a name="considerations"></a>Considerações
+
 Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia, aplicam-se as seguintes considerações:
 
-* Todas as contas de armazenamento anexadas a uma conta dos Serviços de Mídia devem estar no mesmo data center que a conta de serviços de mídia.
-* No momento, depois que uma conta de armazenamento é anexada à conta de Serviços de Mídia especificada, ele não pode ser desanexado.
+* A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. É recomendável usar contas de armazenamento na mesma localização da conta dos Serviços de Mídia.
+* Assim que uma conta de armazenamento é anexada à conta de Serviços de Mídia especificada, ela não pode ser desanexada.
 * A conta de armazenamento principal é a indicado durante o tempo de criação de conta do Serviços de Mídia. No momento, não é possível alterar a conta de armazenamento padrão. 
-* Atualmente, se você desejar adicionar uma conta de armazenamento estático na conta AMS, a conta de armazenamento deverá ser um tipo de Blob e definida como não primária.
+* Se desejar adicionar uma conta de armazenamento estático na conta AMS, a conta de armazenamento deverá ser um tipo de Blob e definida como não primária.
 
 Outras considerações:
 

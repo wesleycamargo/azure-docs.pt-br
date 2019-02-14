@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: aa3cd0305c1ac2db269dcc46243ec3da1232e6f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079521"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734429"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
@@ -29,9 +29,15 @@ Para aplicar marcas a recursos, o usuário deve ter acesso de gravação a esse 
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+## <a name="policies"></a>Políticas
+
+Você pode usar o [Azure Policy](../governance/policy/overview.md) para impor a marcação de regras e convenções. Ao criar uma política, você deve evitar o cenário de recursos implantados em sua assinatura que não são compatíveis com as marcas esperadas para a sua organização. Em vez de aplicar as marcas ou procurar os recursos que não são compatíveis manualmente, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. A seção a seguir mostra as políticas de exemplo para marcas.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
+
 ## <a name="powershell"></a>PowerShell
 
-Os exemplos neste artigo exigem a versão 6.0 ou posterior do Azure PowerShell. Se você não tiver a versão 6.0 ou posterior, [atualize sua versão](/powershell/azure/install-az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
@@ -273,5 +279,4 @@ Para operações de API REST, confira [Referência da API REST de cobrança do A
 ## <a name="next-steps"></a>Próximas etapas
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
-* É possível aplicar restrições e convenções em sua assinatura usando políticas personalizadas. Uma política que você definir pode exigir que todos os recursos tenham uma valor para uma marcação específica. Para saber mais, veja [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).  

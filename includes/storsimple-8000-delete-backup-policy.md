@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fd24b702ce73e516f127dd56c8b8bda90ceff62
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b7a86963c657524fa91c4eb824ced1a495391f3f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166348"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888713"
 ---
-<!--author=alkohli last changed: 01/02/17-->
-
 #### <a name="to-delete-a-storsimple-backup-policy"></a>Para excluir uma política de backup do StorSimple
 
 1. Acesse seu dispositivo StorSimple e clique em **Política de backup**.

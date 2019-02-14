@@ -1,14 +1,30 @@
 ---
-Título: Serviço de Lote do Azure para trabalhos do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
-serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Capacidade dedicada para trabalhos de serviço de execução em lote – Azure Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
+title: Serviço de Lote do Azure para trabalhos do Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697493"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço de Lote do Azure para trabalhos do Azure Machine Learning Studio
 
 O processamento em Pool do Lote do Machine Learning fornece escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Azure Machine Learning. O processamento em lote clássico para o machine learning ocorre em um ambiente multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e no qual os trabalhos são enfileirados na ordem primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com exatidão quando seu trabalho será executado.
 
 O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes. Você controla o tamanho do pool e para qual pool o trabalho é enviado. O trabalho BES é executado em seu próprio espaço de processamento, proporcionando desempenho de processamento previsível e a capacidade de criar pools de recursos que correspondam à carga de processamento que você envia.
+
+> [!NOTE]
+> Você deve ter um novo Gerenciador de Recursos baseado em serviço Web do Machine Learning para criar um pool. Depois de criado, é possível executar qualquer serviço Web do BES, clássico e baseado no Novo Resource Manager, no pool.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Como usar o processamento Pool do Lote
 
@@ -23,7 +39,7 @@ Depois que sua conta for criada, use a URL de Serviço do Pool e a chave de auto
 
 ![Arquitetura do serviço do pool do lote.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Crie pools chamando a operação Criar Pool na URL de serviço do pool que o CSS forneceu a você. Ao criar um pool, especifique o número de VMs e a URL do swagger.json de um serviço Web do Machine Learning baseado no Novo Resource Manager. Esse serviço Web é fornecido para estabelecer a associação de cobrança. O serviço de Pool do Lote usa o swagger.json para associar o pool a um plano de cobrança. É possível executar qualquer serviço Web do BES, clássico e baseado no Novo Resource Manager, que você escolhe no pool.
+Crie pools chamando a operação Criar Pool na URL de serviço do pool que o CSS forneceu a você. Ao criar um pool, especifique o número de VMs e a URL do swagger.json de um serviço Web do Machine Learning baseado no Novo Resource Manager. Esse serviço Web é fornecido para estabelecer a associação de cobrança. O serviço de Pool do Lote usa o swagger.json para associar o pool a um plano de cobrança. É possível executar qualquer serviço Web do BES, clássico e baseado no Novo Resource Manager, no pool.
 
 Você pode usar qualquer serviço Web baseado no Novo Resource Manager, mas esteja ciente de que a cobrança pelos trabalhos é feita no plano de cobrança associado a esse serviço. Talvez você queira criar um serviço Web e o novo plano de cobrança especificamente para execução de trabalhos do Pool do Lote.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320788"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751966"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de habilidades em um pipeline de enriquecimento
 
@@ -142,11 +142,11 @@ A próxima parte do conjunto de habilidades é a matriz de habilidades. Você po
 
 ## <a name="add-predefined-skills"></a>Adicionar habilidades predefinidas
 
-Vamos examinar a primeira habilidade, que é a [habilidade de reconhecimento de entidade nomeada](cognitive-search-skill-named-entity-recognition.md) predefinida:
+Vamos examinar a primeira habilidade, que é a [habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) predefinida:
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Vamos examinar a primeira habilidade, que é a [habilidade de reconhecimento de 
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Lembre-se da estrutura do enriquecedor de Pesquisa de Entidade do Bing personali
     }
 ```
 
-Essa definição é uma habilidade personalizada que chama uma API Web como parte do processo de enriquecimento. Para cada organização identificada pelo reconhecimento de entidade nomeada, esta habilidade chama uma API Web para localizar a descrição da organização. A orquestração de quando chamar a API Web e como transmitir as informações recebidas é feita internamente pelo mecanismo de enriquecimento. No entanto, a inicialização necessária para chamar essa API personalizada deve ser fornecida no JSON (como URI, httpHeaders e as entradas esperadas). Para obter diretrizes sobre a criação de uma API Web personalizada para o pipeline de enriquecimento, confira [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
+Essa definição é uma [habilidade personalizada](cognitive-search-custom-skill-web-api.md) que chama uma API Web como parte do processo de enriquecimento. Para cada organização identificada pelo reconhecimento de entidade nomeada, esta habilidade chama uma API Web para localizar a descrição da organização. A orquestração de quando chamar a API Web e como transmitir as informações recebidas é feita internamente pelo mecanismo de enriquecimento. No entanto, a inicialização necessária para chamar essa API personalizada deve ser fornecida no JSON (como URI, httpHeaders e as entradas esperadas). Para obter diretrizes sobre a criação de uma API Web personalizada para o pipeline de enriquecimento, confira [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
 
 Observe que o campo "context" está definido como ```"/document/organizations/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada *para cada* organização em ```"/document/organizations"```. 
 

@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659500"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894040"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos ao Vivo e Saídas Dinâmicas
 
 O Azure Media Services permite entregar eventos ao vivo para seus clientes na nuvem do Azure. Para configurar os eventos de transmissão ao vivo nos Serviços de Mídia do Azure v3, é necessário entender os conceitos discutidos neste artigo:
 
 * [Eventos ao Vivo](#live-events)
-* [Tipos de eventos ao vivo](#live-vent-types)
-* [Comparação de tipos de Eventos ao Vivo](#live-event-types-comparison)
+* Tipos de eventos ao vivo
+* Comparação de tipos de Eventos ao Vivo
 * [Opções de criação de Evento ao vivo](#live-event-creation-options)
 * [URLs de ingestão de Evento ao vivo](#live-event-ingest-urls)
 * [URL de visualização do evento ao vivo](#live-event-preview-url)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822248"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
 
@@ -92,7 +92,7 @@ Ao usar as ferramentas ou APIs, conclua as seguintes etapas para criar um pipeli
 3. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na etapa anterior, você cria um conjunto de dados para especificar a tabela no Oracle Database que contém os dados de entrada. Você cria outro conjunto de dados para especificar o contêiner de blob e a pasta que contém os dados copiados do Oracle Database. Para propriedades de conjunto de dados específicas do Oracle, confira a seção [Propriedades do conjunto de dados](#dataset-properties).
 4. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo anterior, você usa **OracleSource** como fonte e **BlobSink** como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Armazenamento de Blobs do Azure para o Oracle Database, use **BlobSource** e **OracleSink** na atividade de cópia. Para propriedades da Atividade de Cópia específicas do Oracle Database, confira a seção [Propriedades da Atividade de Cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como fonte ou coletor, selecione o link para o armazenamento de dados na seção anterior.
 
-Ao usar o assistente, estas definições de JSON para essas entidades do Data Factory são automaticamente criadas para você: serviços vinculados, conjuntos de dados e o pipeline. Ao usar ferramentas ou APIs (exceto pela API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter exemplos com definições de JSON para entidades do Data Factory que você usa para copiar dados para ou do Oracle Database local, confira [exemplos de JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Ao usar o assistente, estas definições de JSON para essas entidades do Data Factory são automaticamente criadas para você: serviços vinculados, conjuntos de dados e o pipeline. Ao usar ferramentas ou APIs (exceto pela API .NET), você define essas entidades do Data Factory usando o formato JSON. Para ver amostras com definições de JSON para entidades do Data Factory que você usa para copiar dados para ou do banco de dados Oracle local, confira exemplos de JSON.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que você usa para definir entidades do Data Factory.
 
@@ -102,10 +102,10 @@ A tabela a seguir descreve elementos JSON que são específicos para o serviço 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade **type** deve ser definida como **OnPremisesOracle**. |SIM |
+| Tipo |A propriedade **type** deve ser definida como **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual driver a ser usado para copiar dados de ou para um Oracle Database. Os valores permitidos são **Microsoft** ou **ODP** (padrão). Confira [Versão e instalação com suporte](#supported-versions-and-installation) para obter detalhes do driver. | Não  |
-| connectionString | Especifique as informações necessárias para se conectar à instância do Oracle Database para a propriedade **connectionString**. | SIM |
-| gatewayName | O nome do gateway usado para conectar-se ao servidor Oracle local. |SIM |
+| connectionString | Especifique as informações necessárias para se conectar à instância do Oracle Database para a propriedade **connectionString**. | Sim |
+| gatewayName | O nome do gateway usado para conectar-se ao servidor Oracle local. |Sim |
 
 **Exemplo: Usando o driver da Microsoft**
 
@@ -601,7 +601,7 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e versões posteriores quando você usa um driver da Microsoft) |
 | CHAR |Cadeia de caracteres |
 | CLOB |Cadeia de caracteres |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | NVARCHAR2 |Cadeia de caracteres |
 | RAW |Byte[] |
 | ROWID |Cadeia de caracteres |
-| TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
-| TIMESTAMP WITH TIME ZONE |Datetime |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |Cadeia de caracteres |
 | XML |Cadeia de caracteres |

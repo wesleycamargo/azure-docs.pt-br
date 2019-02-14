@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: A API de Conversão de Fala em Texto transcreve fluxos de áudio em texto que o aplicativo pode exibir ou atuar como entrada. O serviço está disponível por meio do SDK e um ponto de extremidade RESTful.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4884756c50e181e5536ad93ae795543bf1edf8ba
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5012245a79295f1e05079f6c0a368ac832b8974a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220207"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978571"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a API de Conversão de Fala em Texto
 
@@ -44,17 +44,17 @@ Muitas das funcionalidades da API de **conversão de fala em texto**, principalm
 
 | Caso de uso | REST | SDKs |
 |-----|-----|-----|----|
-| Transcreve um enunciado curto, como um comando (comprimento <15 s); sem resultados provisórios | SIM | SIM |
-| Transcreve uma frase mais longa (> 15 s) | Não  | SIM |
-| Transcreve áudio de streaming com resultados provisórios opcionais | Não  | SIM |
-| Reconhece as intenções do falante via LUIS | Não\* | SIM |
-| Criar testes de precisão | SIM | Não  |
-| Carregar conjuntos de dados para adaptação de modelo | SIM | Não  |
-| Criar e gerenciar modelos de fala | SIM | Não  |
-| Criar e gerenciar implantações de modelo | SIM | Não  |
-| Gerenciar Assinaturas | SIM | Não  |
-| Criar e gerenciar implantações de modelo | SIM | Não  |
-| Criar e gerenciar implantações de modelo | SIM | Não  |
+| Transcreve um enunciado curto, como um comando (comprimento <15 s); sem resultados provisórios | Sim | Sim |
+| Transcreve uma frase mais longa (> 15 s) | Não  | Sim |
+| Transcreve áudio de streaming com resultados provisórios opcionais | Não  | Sim |
+| Reconhece as intenções do falante via LUIS | Não\* | Sim |
+| Criar testes de precisão | Sim | Não  |
+| Carregar conjuntos de dados para adaptação de modelo | Sim | Não  |
+| Criar e gerenciar modelos de fala | Sim | Não  |
+| Criar e gerenciar implantações de modelo | Sim | Não  |
+| Gerenciar Assinaturas | Sim | Não  |
+| Criar e gerenciar implantações de modelo | Sim | Não  |
+| Criar e gerenciar implantações de modelo | Sim | Não  |
 
 > [!NOTE]
 > A API REST implementa a limitação que limita as solicitações de API a 25 a cada cinco segundos. Cabeçalhos de mensagens informarão sobre os limites

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466822"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816638"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -325,7 +325,7 @@ Quando a série temporal é estática e fácil de prever, ambas abordagens aleat
 ### <a name="time-dependent-split"></a>Divisão dependente do tempo
 Esta seção descreve as práticas recomendadas para implementar a divisão dependente de tempo. Uma divisão bidirecional dependente de tempo entre o treinamento e conjuntos de teste está descrita abaixo.
 
-Suponha que tenhamos um fluxo de eventos com carimbo de data/hora, como medidas de vários sensores. Define os recursos e rótulos de treinamento e exemplos de teste sobre os períodos que contenham vários eventos. Por exemplo, para classificação binária, cria os recursos com base nos eventos passados e crie rótulos com base nos eventos futuros dentro das unidades “X” de tempo no futuro (veja as seções na [engenharia de recursos](#Feature-engineering) e [técnicas de modelagem](#Modeling-techniques-applied-to-PdM-use-cases)). Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos.
+Suponha que tenhamos um fluxo de eventos com carimbo de data/hora, como medidas de vários sensores. Define os recursos e rótulos de treinamento e exemplos de teste sobre os períodos que contenham vários eventos. Por exemplo, para classificação binária, cria os recursos com base nos eventos passados e cria rótulos com base em eventos dentro de “X” unidades de tempo no futuro (veja as seções em [engenharia de recursos](#Feature-engineering) e técnicas de modelagem). Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos.
 
 Para divisão dependente de tempo, escolhemos um _tempo de corte de treinamento T<sub>c</sub>_  em que treinar um modelo, com hiperparâmetros ajustados usando dados históricos T<sub>c</sub>. Para impedir o vazamento de rótulos futuros que são além de T<sub>c</sub> nos dados de treinamento, escolha a hora mais recente para rotular exemplos de treinamento como unidades X antes de T<sub>c</sub>. No exemplo mostrado na Figura 7, cada quadrado representa um registro no conjunto de dados onde os recursos e os rótulos são computados conforme descrito acima. A figura mostra os registros que deveriam ir para conjuntos de treinamento e testes para  X=2 e W=3:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c0bf4d1684ca5a0921173dc90f51fec9fb052efc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b10c0be91a4b12af72d48124b225dac777c4d936
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993255"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982651"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Reimplantar uma máquina virtual Windows em um novo nó do Azure
 Se você enfrentou dificuldades para solucionar problemas de conexão RDP (Área de Trabalho Remota) ou de acesso ao aplicativo em uma VM (máquina virtual) do Azure baseada em Windows, reimplantar a VM pode ajudar. Ao reimplantar uma VM, o Azure desligará a VM, moverá a VM para um novo nó na infraestrutura do Azure e, em seguida, a ligará novamente mantendo todas as opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando o Azure PowerShell ou o Portal do Azure.
@@ -34,7 +34,7 @@ Verifique se você tem o Azure PowerShell 1.x mais recente instalado em seu comp
 O seguinte exemplo implanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
 ```powershell
-Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]

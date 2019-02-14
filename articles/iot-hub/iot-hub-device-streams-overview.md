@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884955"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770781"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -82,8 +82,22 @@ Os lados do serviço e do dispositivo de um fluxo de dispositivo devem ser capaz
 Como alternativa, as informações de pontos de extremidade podem ser recuperadas usando a CLI do Azure na seção de propriedades do hub, especificamente, as chaves `property.hostname` e `property.deviceStreams`.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+A saída é um objeto JSON com todos os pontos de extremidade que seu dispositivo e serviço do hub possam precisar para se conectarem a fim de estabelecer um fluxo de dispositivo.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente [aqui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Pontos de extremidade de streaming do dispositivo da lista de permissões
 
@@ -92,9 +106,14 @@ Conforme mencionado [anteriormente](#Overview), o dispositivo cria uma conexão 
 O nome do host do ponto de extremidade de streaming do dispositivo pode ser encontrado no portal do Hub IoT do Azure, na guia Visão geral. ![Texto ALT](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Pontos de extremidade de fluxo de dispositivo")
 
 Como alternativa, você pode encontrar essas informações usando a CLI do Azure:
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente [aqui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Solucionar problemas por meio de logs de atividades de fluxos de dispositivos
 

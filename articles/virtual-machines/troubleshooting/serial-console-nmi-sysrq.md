@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884635"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697916"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
@@ -63,7 +63,7 @@ No Guia do Administrador do SysRq acima:
 |``h``  |   Exibirá a ajuda (qualquer outra chave diferente daquelas listadas aqui também exibirá a ajuda, mas ``h`` é fácil de lembrar :-)
 |``i``  |    Envie um SIGKILL para todos os processos, exceto para init.
 |``j``  |    Forçar "Apenas descongelá-lo" - sistemas de arquivos congelados por FIFREEZE ioctl.
-|``k``  |    A Chave de Acesso Seguro (SAK) encerra todos os programas no console do virtual atual. OBSERVAÇÃO: consulte os comentários importantes abaixo na seção SAK.
+|``k``  |    A Chave de Acesso Seguro (SAK) encerra todos os programas no console do virtual atual. OBSERVAÇÃO:  confira os comentários importantes a seguir, na seção SAK.
 |``l``  |    Mostra um backtrace de pilha para todas as CPUs ativas.
 |``m``  |    Despejará as informações da memória atual no console.
 |``n``  |    Usado para facilitar as tarefas de RT
@@ -112,7 +112,7 @@ Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de ker
 1. Reinicializar ou atualizar sysctl executando <br>
     `sysctl -p`
 
-Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consulte: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
+Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, confira: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

@@ -1,5 +1,5 @@
 ---
-title: 'O Backup do Azure: Criar cofres de serviços de recuperação usando a API REST'
+title: 'Serviço de Backup do Azure: Criar cofres de Serviços de recuperação usando a API REST'
 description: gerenciar operações de backup e restauração do Backup da VM do Azure usando a API REST
 services: backup
 author: pvrk
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289453"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734327"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar o Cofre de Serviços de Recuperação do Azure usando a API REST
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Criar uma solicitação
 
-Para criar a solicitação *PUT*, o parâmetro `{subscription-id}` é obrigatório. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Defina `{resourceGroupName}` e `{vaultName}` para seus recursos, junto com o parâmetro `api-version`. Este artigo usa `api-version=2016-06-01`.
+Para criar a solicitação *PUT*, o parâmetro `{subscription-id}` é obrigatório. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Defina `{resourceGroupName}` e `{vaultName}` para seus recursos, junto com o parâmetro `api-version`. Este artigo usa `api-version=2016-06-01`.
 
 Os cabeçalhos a seguir são necessários:
 
@@ -44,7 +44,7 @@ Para saber mais sobre como criar a solicitação, confira [Componentes de uma so
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-|NOME  |Obrigatório  |Tipo  |DESCRIÇÃO  |
+|NOME  |Obrigatório  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|---------|
 |eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
 |location     |  verdadeiro       |Cadeia de caracteres         |   Local do recurso      |
@@ -72,7 +72,7 @@ O corpo do exemplo a seguir é usado para criar um cofre no "Oeste dos EUA". Esp
 
 Há duas respostas bem-sucedidas para a operação para criar ou atualizar um cofre do Recovery Services:
 
-|NOME  |Tipo  |DESCRIÇÃO  |
+|NOME  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |   [Cofre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Criado     | [Cofre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Criado      |

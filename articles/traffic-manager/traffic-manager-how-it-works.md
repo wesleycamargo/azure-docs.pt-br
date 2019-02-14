@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229244"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567835"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
 
@@ -47,7 +47,7 @@ Para alcançar essa configuração, eles concluem as etapas a seguir:
 ![Configuração DNS do Gerenciador de Tráfego][1]
 
 > [!NOTE]
-> Ao usar um domínio personalizado com o Gerenciador de Tráfego do Azure, você deve usar um CNAME para indicar seu nome de domínio intuitivo para seu nome de domínio do Gerenciador de Tráfego. Os padrões do DNS não permitem que você crie um CNAME no “apex” (ou raiz) de um domínio. Portanto, não é possível criar um CNAME para “contoso.com” (às vezes chamado de domínio raiz). Você só pode criar um CNAME para um domínio em “contoso.com”, como “www.contoso.com”. Para solucionar esse problema, recomendamos o uso um redirecionamento HTTP simples para redirecionar as solicitações de “contoso.com” para um nome alternativo como “www.contoso.com”.
+> Ao usar um domínio personalizado com o Gerenciador de Tráfego do Azure, você deve usar um CNAME para indicar seu nome de domínio intuitivo para seu nome de domínio do Gerenciador de Tráfego. Os padrões do DNS não permitem que você crie um CNAME no “apex” (ou raiz) de um domínio. Portanto, não é possível criar um CNAME para “contoso.com” (às vezes chamado de domínio raiz). Você só pode criar um CNAME para um domínio em “contoso.com”, como “www.contoso.com”. Para contornar essa limitação, é recomendável hospedar o domínio DNS na [DNS do Azure](../dns/dns-overview.md) e o usar [Registros de alias](../dns/tutorial-alias-tm.md) para apontar para seu perfil do gerenciador de tráfego. Outra opção é usar um simples HTTP para redirecionar as solicitações diretas de “contoso.com” para um nome alternativo como "www.contoso.com".
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Como os clientes se conectam usando o Gerenciador de Tráfego
 

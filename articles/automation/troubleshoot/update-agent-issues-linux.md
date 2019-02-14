@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437481"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813102"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Entenda os resultados da verificação de agente no Gerenciamento de Atualizações do Azure
 
@@ -28,7 +28,7 @@ A lista a seguir é composta pelos três estados de preparação em que um compu
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
-Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página **Solucionar Problemas do Agente de Atualização** será iniciada. Para computadores não Azure, o link levará você para este artigo. Confira as [instruções offline](#offline) para solucionar problemas de um computador não Azure.
+Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página **Solucionar Problemas do Agente de Atualização** será iniciada. Para computadores não Azure, o link levará você para este artigo. Confira as instruções offline para solucionar problemas de um computador não Azure.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ Na página **Solucionar problemas do Agente de Atualização**, clique em **Exec
 
 ![Página Solucionar problemas](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Após a conclusão, os resultados são retornados na janela. As [seções de verificação](#pre-requisistes-checks) fornecem informações sobre o que cada verificação está procurando.
+Após a conclusão, os resultados são retornados na janela. As seções de verificação fornecem informações sobre o que cada verificação está procurando.
 
 ![Página Atualizar verificações de agente](../media/update-agent-issues-linux/update-agent-checks.png)
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187067"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745666"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (versão prévia)
 
@@ -27,6 +27,7 @@ Este artigo aborda os problemas conhecidos com o Azure Monitor para VMs, uma sol
 ## <a name="health"></a>Integridade 
 Os seguintes são problemas conhecidos com a versão atual do recurso de Integridade:
 
+- O painel de propriedades da VM exibe o sistema operacional do Windows Server 2019 como Windows Server 2016. Isso será corrigido em uma versão futura.
 - Se uma VM do Azure for removida ou excluída, ela será mostrada na exibição de lista da VM durante algum tempo. Além disso, ao clicar no estado de uma VM removida ou excluída, a exibição **Diagnóstico de Integridade** será aberta e, em seguida, um loop de carregamento será iniciado. A seleção do nome da VM excluída abre um painel com uma mensagem informando que a VM foi excluída.
 - As alterações de configuração, como a atualização de um limite, levam até 30 minutos, mesmo se o portal ou a API do Monitor da Carga de Trabalho atualizá-las imediatamente. 
 - A experiência de Diagnóstico de Integridade é atualizada mais rapidamente do que outras exibições. As informações podem ser atrasadas quando você alterna entre elas. 

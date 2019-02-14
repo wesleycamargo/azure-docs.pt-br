@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210668"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814836"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault gerenciados a conta de armazenamento – CLI
 
@@ -52,35 +52,48 @@ Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter 
 1. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter a ID de recurso da conta de armazenamento que você deseja gerenciar
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    Copie o campo da ID do resultado do comando acima
     
-2. Obter serviço da Azure Key Vault do ID aplicativo entidade de segurança 
+2. Execute o comando a seguir para obter a ID do objeto de serviço da entidade de serviço do Azure Key Vault
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    Após a conclusão bem-sucedida desse comando, localize a ID de objeto no resultado
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Atribuir função de operador da chave de armazenamento a identidade do Cofre de chave Azure
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Criar uma Conta de Armazenamento Gerenciado do cofre de chaves.     <br /><br />
-   Abaixo, estamos definindo um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves será regenerará 'key1' e trocará a chave ativa de 'key2' para 'key1'.
+   Abaixo, estamos definindo um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves será regenerará 'key1' e trocará a chave ativa de 'key2' para 'key1'. Agora ele marcará a Key1 como a chave ativa. 
    
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
     No caso do usuário não tiver criado a conta de armazenamento e não tem permissões para a conta de armazenamento, as etapas a seguir defina as permissões para sua conta garantir que você pode gerenciar todas as permissões de armazenamento no cofre de chaves.
+    
  > [!NOTE] 
-    No caso em que o usuário não tem permissões à conta de armazenamento, obtemos primeiro a Object-Id do usuário
+ > No caso em que o usuário não tem permissões à conta de armazenamento, obtemos primeiro a Object-Id do usuário
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Como acessar sua conta de armazenamento com tokens SAS
@@ -91,9 +104,9 @@ Na seção abaixo, demonstramos como buscar sua chave de conta de armazenamento 
 
 > [!NOTE] 
   Há três maneiras de se autenticar no Key Vault, como você pode ler nos [conceitos básicos](key-vault-whatis.md#basic-concepts)
-- Usando a Identidade de Serviço Gerenciada (altamente recomendado)
-- Usando a Entidade de serviço e o certificado 
-- Usando a Entidade de serviço e a senha (NÃO recomendado)
+> - Usando a Identidade de Serviço Gerenciada (altamente recomendado)
+> - Usando a Entidade de serviço e o certificado 
+> - Usando a Entidade de serviço e a senha (NÃO recomendado)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials

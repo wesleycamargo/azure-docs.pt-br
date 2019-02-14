@@ -2,18 +2,18 @@
 title: Gerenciar backups de máquina virtual implantados pelo Resource Manager
 description: Saiba como gerenciar e monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
-ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: sogup
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635758"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564129"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 
@@ -137,10 +137,12 @@ Para inicializar um backup sob demanda de uma máquina virtual:
 ## <a name="stop-protecting-virtual-machines"></a>Interromper a proteção de máquinas virtuais
 Se você optar por interromper a proteção de uma máquina virtual, será perguntado se deseja manter os pontos de recuperação. Há duas maneiras de interromper a proteção das máquinas virtuais:
 
-* parar todos os trabalhos de backup futuros e excluir todos os pontos de recuperação ou
-* parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação 
+* Parar todos os trabalhos de backup futuros e excluir todos os pontos de recuperação ou
+* Parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação
 
 Há um custo associado a deixar os pontos de recuperação no armazenamento. No entanto, a vantagem de deixar os pontos de recuperação é que você pode restaurar a máquina virtual mais tarde, se desejado. Para obter informações sobre o custo de deixar os pontos de recuperação, confira os [detalhes de preços](https://azure.microsoft.com/pricing/details/backup/). Se você optar por excluir todos os pontos de recuperação, não poderá restaurar a máquina virtual.
+
+Sempre que você Parar o Backup com retenção de dados, os pontos de recuperação expirarão de acordo com a política de retenção, mas o Backup do Azure sempre manterá um último ponto de recuperação até que você exclua explicitamente os dados de backup. Da mesma forma, se você excluir uma fonte de dados sem executar Parar Backup, os novos backups começarão a falhar e os pontos de recuperação antigos expirarão de acordo com a política de retenção. No entanto, um último ponto de recuperação sempre será retido até que você execute Parar Backup com exclusão de dados.
 
 Para interromper a proteção para uma máquina virtual:
 

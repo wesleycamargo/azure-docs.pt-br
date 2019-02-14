@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 4b58a95ed149886cb987d316b7738c4a2d778864
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540667"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699809"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para PostgreSQL
 O serviço do Banco de Dados do Azure para PostgreSQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
@@ -32,5 +32,5 @@ Semelhante ao modelo de alta disponibilidade, quando um Banco de Dados do Azure 
 Durante a operação de escala, ocorre uma interrupção nas conexões de banco de dados. Os aplicativos cliente são desconectados e as transações abertas não confirmadas são canceladas. Depois que o aplicativo cliente repetir a tentativa ou realizar uma nova conexão, o gateway direcionará a conexão para a instância recém-dimensionada. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para obter uma visão geral do serviço, consulte  [Visão geral do Banco de Dados do Azure para PostgreSQL](overview.md)
-- Para obter uma visão geral sobre a lógica de repetição, consulte [Tratamento de erros transitórios de conectividade para Banco de Dados do Azure para PostgreSQL](concepts-connectivity.md)
+- Saiba mais sobre [tratamento de erros de conectividade transitórios](concepts-connectivity.md)
+- Saiba como [replicar seus dados com réplicas de leitura](howto-read-replicas-portal.md)

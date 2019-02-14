@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992216"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822588"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar seu aplicativo IoT Central
 
@@ -141,15 +141,15 @@ Para concluir esse processo de autoatendimento, execute estas etapas:
 
 ## <a name="export-data"></a>Exportar dados
 
-Você pode habilitar a **Exportação contínua de dados** para exportar dados de medições, dispositivos e modelos de dispositivo para sua conta de armazenamento do Azure Blob. Saiba mais sobre [como exportar seus dados](#howto-export-data).
+Você pode habilitar a **Exportação contínua de dados** para exportar dados de medições, dispositivos e modelos de dispositivo para sua conta de armazenamento do Azure Blob. Saiba mais sobre como exportar seus dados.
 
 ## <a name="manage-device-connection"></a>Gerenciar conexão do dispositivo
 
-Conecte dispositivos em escala em seu aplicativo usando as chaves e os certificados aqui. Saiba mais sobre [conectar dispositivos](#concepts-connectivity).
+Conecte dispositivos em escala em seu aplicativo usando as chaves e os certificados aqui. Saiba mais sobre como conectar dispositivos.
 
 ## <a name="use-access-tokens"></a>Usar tokens de acesso
 
-Gere tokens de acesso para usá-los nas ferramentas do desenvolvedor. Atualmente, há uma ferramenta de desenvolvedor disponível, que é o explorer IoT Central para monitorar mensagens de dispositivos e alterações em propriedades e configurações. Saiba mais sobre o [Microsoft IoT Central explorer](#howto-use-iotc-explorer). 
+Gere tokens de acesso para usá-los nas ferramentas do desenvolvedor. Atualmente, há uma ferramenta de desenvolvedor disponível, que é o explorer IoT Central para monitorar mensagens de dispositivos e alterações em propriedades e configurações. Saiba mais sobre o Gerenciador IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Usar SDKs do Azure em operações do plano de controle
 

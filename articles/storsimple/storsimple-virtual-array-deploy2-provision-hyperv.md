@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111074"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810534"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implantar o StorSimple Virtual Array - Provisionar no Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -37,7 +37,7 @@ Aqui você encontrará os pré-requisitos para provisionar uma matriz virtual em
 Antes de começar, verifique se:
 
 * Você concluiu todas as etapas em [Preparar o portal para o StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Você baixou a imagem da matriz virtual para o Hyper-V no portal do Azure. Para obter mais informações, consulte **Etapa 3: baixar a imagem do dispositivo virtual** do [guia Preparar o portal da Matriz Virtual StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
+* Você baixou a imagem da matriz virtual para o Hyper-V no portal do Azure. Para obter mais informações, confira a **Etapa 3: Baixe a imagem do dispositivo virtual** do [Guia Preparar o portal da Matriz Virtual StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
   > O software em execução na matriz virtual StorSimple só pode ser usado com o serviço Gerenciador StorSimple.
@@ -94,7 +94,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. Na página **Antes de começar** do Assistente de Nova Máquina Virtual, clique em **Avançar**.
-5. Na página **Especificar nome e localização**, forneça um **Nome** para sua matriz virtual. Clique em **Avançar**.
+5. Na página **Especificar nome e localização**, forneça um **Nome** para sua matriz virtual. Clique em **Próximo**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
 6. Na página **Especificar geração**, escolha o tipo de imagem do dispositivo e clique em **Avançar**. Esta página não aparecerá se você estiver usando o Windows Server 2008 R2.
@@ -131,16 +131,16 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. Na página **Antes de começar** do Assistente de Novo Disco Rígido Virtual, clique em **Avançar**.
-16. Na página **Escolher Formato de Disco**, aceite a opção padrão de formato **VHDX**. Clique em **Avançar**. Esta tela não é apresentada se o Windows Server 2008 R2 está em execução.
+16. Na página **Escolher Formato de Disco**, aceite a opção padrão de formato **VHDX**. Clique em **Próximo**. Esta tela não é apresentada se o Windows Server 2008 R2 está em execução.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
-17. Na página **Escolher Tipo de Disco**, defina o tipo de disco rígido virtual como **Expansão dinâmica** (recomendado). Um disco de **Tamanho fixo** funcionaria, mas talvez você precise aguardar bastante. É recomendável que você não use a opção **Diferenciar** . Clique em **Avançar**. No Windows Server 2012 R2 e no Windows Server 2012, **Expandir dinamicamente** é a opção padrão; já no Windows Server 2008 R2, o padrão é **Tamanho fixo**.
+17. Na página **Escolher Tipo de Disco**, defina o tipo de disco rígido virtual como **Expansão dinâmica** (recomendado). Um disco de **Tamanho fixo** funcionaria, mas talvez você precise aguardar bastante. É recomendável que você não use a opção **Diferenciar** . Clique em **Próximo**. No Windows Server 2012 R2 e no Windows Server 2012, **Expandir dinamicamente** é a opção padrão; já no Windows Server 2008 R2, o padrão é **Tamanho fixo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
-18. Na página **Especificar Nome e Localização**, forneça um **nome** e também uma **localização** (é possível navegar até um) para o disco de dados. Clique em **Avançar**.
+18. Na página **Especificar Nome e Localização**, forneça um **nome** e também uma **localização** (é possível navegar até um) para o disco de dados. Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção sobre dimensionamento no [documento sobre melhores práticas](storsimple-ova-best-practices.md). Clique em **Avançar**.
+19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção sobre dimensionamento no [documento sobre melhores práticas](storsimple-ova-best-practices.md). Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Na página **Resumo**, examine os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Concluir** para criar o disco. O assistente é fechado e um disco rígido virtual é adicionado à sua máquina.
@@ -205,7 +205,7 @@ Execute as etapas a seguir para iniciar a matriz virtual e conectar-se a ela.
        >
        >
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá o erro a seguir no texto da faixa (mostrado abaixo). Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: verificar se o sistema de host atende aos requisitos mínimos da matriz virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá o erro a seguir no texto da faixa (mostrado abaixo). Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na Etapa 1: verificar se o sistema de host cumpre os requisitos mínimos da matriz virtual.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

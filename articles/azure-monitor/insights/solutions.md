@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299114"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816808"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Soluções de gerenciamento no Azure Monitor
 As soluções de gerenciamento aproveitam os serviços no Azure para fornecer informações adicionais sobre a operação de um aplicativo ou serviço específico. Este artigo fornece uma breve visão geral das soluções de gerenciamento no Azure e detalhes sobre como utilizá-las e instalá-las.
@@ -101,7 +101,7 @@ Você pode verificar o vínculo entre um workspace do Log Analytics e uma Conta 
 1. Se a configuração **Workspace** estiver habilitada, essa conta será vinculada a um workspace do Log Analytics. Você pode clicar no **Workspace** para exibir os detalhes do workspace.
 
 ## <a name="remove-a-management-solution"></a>Remover uma solução de gerenciamento
-Para remover uma solução instalada, localize-a na [lista de soluções instaladas](#list-installed-monitoring-solutions). Clique no nome da solução para abrir a página de resumo e, em seguida, clique em **Excluir**.
+Para remover uma solução instalada, localize-a na lista de soluções instaladas. Clique no nome da solução para abrir a página de resumo e, em seguida, clique em **Excluir**.
 
 
 

@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f847cfe4e0097cdb6f70e8831e15e602b5e9ac6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d6bad1ec584b28fee77bc654eba8a2d0c7b5df30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164413"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888504"
 ---
-<!--author=alkohli last changed: 01/20/17-->
-
-
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Para adicionar uma credencial de conta de armazenamento na mesma assinatura do Azure que o serviço StorSimple Device Manager
 
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na seção **Configuração**, clique em **Credenciais da conta de armazenamento**.

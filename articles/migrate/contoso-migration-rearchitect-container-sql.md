@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817224"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892177"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migração para Contoso: recriar a arquitetura de um aplicativo local para um contêiner do Azure e o Banco de Dados SQL do Azure
 
@@ -136,7 +136,7 @@ Veja como a Contoso executa a migração:
 > [!div class="checklist"]
 > * **Etapa 1: Provisionar uma instância do Banco de Dados SQL no Azure**: a Contoso provisiona uma instância do SQL no Azure. Após a VM da Web de front-end ser migrada para um contêiner do Azure, a instância do contêiner com o front-end da Web do aplicativo apontará para esse banco de dados.
 > * **Etapa 2: Criar um ACR (Registro de Contêiner do Azure)**: a Contoso provisiona um registro de contêiner empresarial para as imagens de contêiner do docker.
-> *  **Etapa 3: Provisionar o Azure Service Fabric**: provisiona um cluster do Service Fabric.
+> * **Etapa 3: Provisionar o Azure Service Fabric**: provisiona um cluster do Service Fabric.
 > * **Etapa 4: Gerenciar certificados do Service Fabric**: a Contoso configura os certificados para o acesso do Azure DevOps Services ao cluster.
 > * **Etapa 5: Migrar o banco de dados com o DMA**: migra o banco de dados do aplicativo com o Assistente de Migração do Banco de Dados.
 > * **Etapa 6: Configurar o Azure DevOps Services**: a Contoso configura um novo projeto no Azure DevOps Services e importa o código para o repositório Git.
@@ -317,7 +317,7 @@ Para se conectar ao Banco de Dados SQL do Azure, os administradores da Contoso c
 
 Precisa de mais ajuda?
 
-[Saiba mais sobre](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) como criar e gerenciar as regras de firewall para o Banco de Dados SQL do Azure.
+[Saiba mais sobre](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) como criar e gerenciar as regras de firewall para o Banco de Dados SQL do Azure.
 
 ### <a name="migrate"></a>Migrar
 

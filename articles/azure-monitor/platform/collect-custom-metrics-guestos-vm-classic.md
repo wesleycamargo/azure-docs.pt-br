@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: f4e0d1c16abda74e92cd0c5fa86191464cc4d131
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f6bf672905fe7752a6c3d07492861f43af43e1f5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476760"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893962"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
 
@@ -29,7 +29,7 @@ O processo descrito neste artigo funciona somente em máquinas virtuais clássic
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
 
-- Sua inscrição deve ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Sua inscrição deve ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisa ter o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalados.
 

@@ -1,6 +1,6 @@
 ---
-title: Visualização do Azure Data Lake Storage Gen2 Introdução
-description: Fornece uma visão geral da Visualização do Azure Data Lake Storage Gen2
+title: Introdução ao Azure Data Lake Storage Gen2
+description: Fornece uma visão geral do Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250105"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809429"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução ao Azure Data Lake Storage Gen2 Preview
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
-O Azure Data Lake Storage Gen2 Preview é um conjunto de recursos dedicados à análise de big data, criado sobre o [Armazenamento de Blobs do Azure](storage-blobs-introduction.md). O Data Lake Storage Gen2 é o resultado obtido ao convergir os recursos de nossos dois serviços de armazenamento existentes, o Armazenamento de Blobs do Azure e o Azure Data Lake Storage Gen1. Os recursos do [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivos, diretório e segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre do [Armazenamento de Blobs do Azure](storage-blobs-introduction.md).
+O Azure Data Lake Storage Gen2 é um conjunto de recursos dedicados à análise de Big Data, criado sobre o [Armazenamento de Blobs do Azure](storage-blobs-introduction.md). O Data Lake Storage Gen2 é o resultado obtido ao convergir os recursos de nossos dois serviços de armazenamento existentes, o Armazenamento de Blobs do Azure e o Azure Data Lake Storage Gen1. Os recursos do [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivos, diretório e segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre do [Armazenamento de Blobs do Azure](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Projetado para análise de big data da empresa
 

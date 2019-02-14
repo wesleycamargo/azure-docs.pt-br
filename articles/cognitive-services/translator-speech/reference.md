@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Documentação de referência para a API de Tradução de Fala.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466176"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874729"
 ---
 # <a name="translator-speech-api"></a>API de Tradução de Fala
 
@@ -30,7 +30,7 @@ A API de Tradução de Fala usa o protocolo WebSocket para fornecer um canal de 
 ## <a name="1-getting-started"></a>1. Introdução
 Para acessar a API de texto do tradutor, você precisará [se inscrever no Microsoft Azure](translator-speech-how-to-signup.md).
 
-## <a name="2-authentication"></a>2. Autenticação
+## <a name="2-authentication"></a>2. Authentication
 
 Use a chave de assinatura para autenticar-se. A API de Tradução de Fala dá suporte a dois modos de autenticação:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133463"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812269"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.
@@ -22,7 +22,7 @@ Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, voc�
 
 ## <a name="azure-account"></a>Conta do Azure
 * Uma conta válida e ativa do Microsoft Azure. Esta conta é necessária para configurar o circuito do ExpressRoute. Os circuitos do ExpressRoute são recursos das assinaturas do Azure. Uma assinatura do Azure será um requisito mesmo se a conectividade estiver limitada a serviços de nuvem da Microsoft que não sejam do Azure, como os serviços do Office 365 e o Dynamics 365.
-* Uma assinatura ativa do Office 365 (se estiver usando os serviços do Office 365). Para mais informações, consulte a seção [Requisitos específicos do Office 365](#office-365-specific-requirements) deste artigo.
+* Uma assinatura ativa do Office 365 (se estiver usando os serviços do Office 365). Para mais informações, confira a seção Requisitos específicos do Office 365 deste artigo.
 
 ## <a name="connectivity-provider"></a>Provedor de conectividade
 

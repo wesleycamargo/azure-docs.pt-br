@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102729"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697600"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planejar sua implementação de ingresso no Azure AD
 
@@ -126,6 +126,8 @@ Ingresso no Azure AD:
 - Só é aplicável a dispositivos Windows 10. 
 
 - Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se você tiver dispositivos Windows 7/8.1, você deve atualizar para o Windows 10 para implantar o ingresso no Azure Active Directory.
+
+- Não há suporte em dispositivos com o TPM no modo FIPS.
  
 **Recomendação:** Sempre use a última versão do Windows 10 para aproveitar os recursos atualizados.
 
@@ -234,8 +236,8 @@ Aqui está uma comparação dessas três abordagens
  
 ||Instalação do autoatendimento|Windows Autopilot|Registro em massa|
 |---|---|---|---|
-|Requer interação do usuário para configurar|SIM|sim|Não |
-|Requer trabalho de TI|Não |sim|SIM|
+|Requer interação do usuário para configurar|Sim|sim|Não |
+|Requer trabalho de TI|Não |sim|Sim|
 |Fluxos aplicáveis|OOBE e Configurações|OOBE somente|OOBE somente|
 |Direitos de administrador local para o usuário primário|Sim, por padrão|Configurável|Não |
 |Precisar de suporte do OEM|Não |Sim|Não |

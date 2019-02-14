@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002046"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892551"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
@@ -349,7 +349,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genéricas, Xamarin  |
 | **Atributos**              | N/D  |
-| **Referências**              | [Gerenciar configurações e recursos em dispositivos com as políticas do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **Referências**              | [Gerenciar configurações e recursos em dispositivos com as políticas do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Etapas** | <p>Se o aplicativo gravar informações confidenciais, como informações de identificação pessoal do usuário (email, número de telefone, nome, sobrenome, preferências etc.), no sistema de arquivos do dispositivo móvel, ele precisará ser criptografado antes de gravar dados no sistema de arquivos local. Se o aplicativo for um aplicativo empresarial, verifique a possibilidade de publicá-lo usando o Windows Intune.</p>|
 
 ### <a name="example"></a>Exemplo

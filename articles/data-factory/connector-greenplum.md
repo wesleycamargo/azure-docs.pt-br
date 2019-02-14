@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: fe9153958fa46f4be6aaa346713c002905316902
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cdd1810ec1120e9918974e0978880aa894ff62e0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024681"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660316"
 ---
-# <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar dados do Greenplum utilizando o Azure Data Factory 
+# <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar dados do Greenplum utilizando o Azure Data Factory
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do Greenplum. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -41,8 +41,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Greenplum:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Greenplum** | SIM |
-| connectionString | Uma cadeia de conexão ODBC para se conectar ao Greenplum. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| Tipo | A propriedade type deve ser definida como: **Greenplum** | Sim |
+| connectionString | Uma cadeia de conexão ODBC para se conectar ao Greenplum. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e efetuar pull da configuração `pwd` da cadeia de conexão. Consulte os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -54,8 +54,37 @@ As propriedades a seguir têm suporte para o serviço vinculado do Greenplum:
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a senha no Azure Key Vault**
+
+```json
+{
+    "name": "GreenplumLinkedService",
+    "properties": {
+        "type": "Greenplum",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
+                 "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -74,7 +103,7 @@ Para copiar dados do Greenplum, defina a propriedade type do conjunto de dados c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **GreenplumTable** | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **GreenplumTable** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -103,7 +132,7 @@ Para copiar dados do Greenplum, defina o tipo de fonte na atividade de cópia co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da origem da atividade de cópia deve ser definida como: **GreenplumSource** | SIM |
+| Tipo | A propriedade type da origem da atividade de cópia deve ser definida como: **GreenplumSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
