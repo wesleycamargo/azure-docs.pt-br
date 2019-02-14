@@ -15,12 +15,13 @@ ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: b6ef0f46bae454a4656694496d411a5a4cff0da5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178385"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171189"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
@@ -49,9 +50,9 @@ Quem recebe esses emails para as funções do Azure AD depende da função, do e
 
 | Usuário | Ativação de função está pendente de aprovação | A solicitação de ativação de função está concluída | O PIM está habilitado |
 | --- | --- | --- | --- |
-| Administrador de função com privilégios</br>(Ativado/Qualificado) | SIM</br>(somente se nenhum aprovador explícito for especificado) | Sim* | SIM |
-| Administrador de segurança</br>(Ativado/Qualificado) | Não  | Sim* | SIM |
-| Administrador global</br>(Ativado/Qualificado) | Não  | Sim* | SIM |
+| Administrador de função com privilégios</br>(Ativado/Qualificado) | Sim</br>(somente se nenhum aprovador explícito for especificado) | Sim* | Sim |
+| Administrador de segurança</br>(Ativado/Qualificado) | Não  | Sim* | Sim |
+| Administrador global</br>(Ativado/Qualificado) | Não  | Sim* | Sim |
 
 \*Se as [**configurações de** Notificações](pim-how-to-change-default-settings.md#notifications) estiver definida como **Habilitar**.
 

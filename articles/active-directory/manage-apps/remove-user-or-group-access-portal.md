@@ -3,9 +3,8 @@ title: Remover uma atribuição de usuário ou grupo de um aplicativo empresaria
 description: Como remover a atribuição de acesso de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/14/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 709489a1e96691a677261bfb2c7b5c29158e62c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162440"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182163"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 É fácil impedir que um usuário ou grupo receba acesso a um de seus aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.

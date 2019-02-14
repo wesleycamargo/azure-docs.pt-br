@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415959"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979710"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensão do Agente Linux de Stackify Retrace
 
@@ -147,7 +147,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O comando `Set-AzureRmVMExtension` pode ser usado para implantar a extensão da máquina virtual do agente Linux do Stackify Retrace para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell.
+O comando `Set-AzVMExtension` pode ser usado para implantar a extensão da máquina virtual do agente Linux do Stackify Retrace para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell.
 
 A extensão requer `environment` e `activationKey`.
 
@@ -155,7 +155,7 @@ A extensão requer `environment` e `activationKey`.
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `

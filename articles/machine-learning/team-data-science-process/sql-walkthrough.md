@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453639"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114732"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -624,7 +624,7 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 ### <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
 •   [Dados de Viagem de Táxi de FOILing NYC, de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

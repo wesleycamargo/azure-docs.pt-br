@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: ca355eecc8185a9f5ae0a67a3d43516dbd7b25ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7f6f3b2e388c15cfc2fae2c44e1e8e1daacf3ced
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151559"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Tutorial: Integração do Azure Active Directory com o Kindling
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do AD do Azure ao Kindling, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Kindling
 
 > [!NOTE]

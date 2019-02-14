@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755179"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118387"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
@@ -88,6 +88,7 @@ exit
 A VM de origem agora é personalizada com o servidor Web Nginx instalado. Vamos criar a imagem de VM personalizada para usar com um conjunto de dimensionamento.
 
 Para criar uma imagem, a VM precisará ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm). Depois, defina o estado da VM como generalizado usando [az vm generalize](/cli//azure/vm) para que a plataforma do Azure saiba que a VM está pronta para usar uma imagem personalizada. Você só pode criar uma imagem por meio de uma VM generalizada:
+
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM

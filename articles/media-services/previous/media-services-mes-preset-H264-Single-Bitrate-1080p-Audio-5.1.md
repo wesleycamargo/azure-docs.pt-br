@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6daee42c34e7551a13c5b3b75631881963f01a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 470cca94ef3b0f48b8037be81c1afbb2df577bc7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247905"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004728"
 ---
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264 Taxa de Bits Única 1080p Audio 5.1
+
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Este tópico mostra a predefinição `H264 Single Bitrate 1080p Audio 5.1` no formato XML e JSON.  

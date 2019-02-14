@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197544"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991269"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Criar destaques com base em vídeos existentes
 
@@ -27,17 +27,14 @@ Este tópico mostra como criar e publicar insights de vídeo com base em algum o
     A página mostra os insights resumidos do vídeo. 
 
     ![Insights](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. Pressione o botão **Editar**.
 
     Esta página mostra a análise completa de um vídeo. A análise é dividida em blocos. Os blocos estão aqui para tornar mais fácil percorrer os dados. Por exemplo, o bloco pode ser dividido com base em quando os locutores mudam ou quando há uma longa pausa. É possível criar sua própria playlist que contém apenas as linhas desejadas. Para mostrar apenas partes específicas do vídeo de origem, é possível filtrar por topics/keywords (tópicos/palavras-chave), sentiments (sentimentos), people (pessoas), speakers (locutores). É possível optar por exibir apenas a transcrição ou o OCR do vídeo.    
 
     ![Insights](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. Crie sua playlist.
 
     Para adicionar ou remover linhas à/da sua playlist, pressione **+**/**-**.
-
 5. Visualize sua playlist.
 
     Depois de terminar de criar a playlist, pressione **Visualizar**.

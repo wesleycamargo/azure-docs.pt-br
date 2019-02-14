@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ebc32f59539e4e4e94f7f68d5d164cf2b04cc4c2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 17f832947e289933fb7cde9513bc6e091aec30ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488519"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206371"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração padrão
 O objetivo deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5eab595c12fda25768a3bf8a04650870e1c4f57e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153531"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com o xMatters OnDemand
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o xMatters OnDemand, são necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do xMatters OnDemand habilitada para logon único
 
 > [!NOTE]

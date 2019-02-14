@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2d910c5f031329e952f4892431877ec690c2a5a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809574"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991185"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET 
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET  
+
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. 
 
 Este artigo mostra como usar o .NET para codificar seus ativos com o MES (Media Encoder Standard). O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).

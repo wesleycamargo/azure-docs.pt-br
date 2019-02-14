@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6d9e7a2c067cde3522031c96a067e8be9b081b38
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825979"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory ao YouEarnedIt
 
@@ -129,7 +130,7 @@ Para configurar o logon único do Azure AD com o YouEarnedIt, execute as seguint
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -155,7 +156,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

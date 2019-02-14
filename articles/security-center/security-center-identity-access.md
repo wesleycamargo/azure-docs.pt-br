@@ -4,7 +4,7 @@ description: Aprenda a usar os recursos de identidade e acesso na Central de Seg
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012064"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105545"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitore a identidade e o acesso na Central de Segurança do Azure (Visualizar)
 Este artigo ajuda você a usar a Central de Segurança do Azure para monitorar a identidade e a atividade de acesso do usuário.
@@ -119,7 +119,7 @@ Use a tabela abaixo como referência para ajudá-lo a entender as recomendaçõe
 |Assinatura|5|Remover contas preteridas da sua assinatura|Remova contas preteridas de suas assinaturas para habilitar o acesso a apenas usuários atuais. |
 |Assinatura|5|Designe mais de um proprietário na sua assinatura|Designe mais de um proprietário da assinatura para poder ter redundância de acesso de administrador.|
 |Assinatura|5|Designe até três proprietários em sua assinatura|Designe menos de três proprietários de assinaturas para reduzir o potencial de violação por um proprietário comprometido.|
-|Cofre de chaves|5|Habilitar logs de diagnóstico no Key Vault|Habilite os logs e retenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
+|Cofre de chaves|5|Habilitar logs de diagnóstico no Key Vault|Habilite os logs e retenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |Assinatura|15|Remova contas externas com permissões de leitura da sua assinatura|Remova contas externas com privilégios de leitura da sua assinatura para impedir o acesso não monitorado.|
 |Assinatura|1|Fornecer detalhes de contato de segurança|Forneça informações de contato de segurança para cada uma das suas assinaturas. Informações de contato são um número de telefone e um endereço de email. As informações serão usadas para contatá-lo se nossa equipe de segurança acreditar que os recursos estão comprometidos|
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846329"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895849"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -96,7 +96,7 @@ Um token SAS é válido para todos os recursos prefixados com o `<resourceURI>` 
 
 É recomendável que você regenere periodicamente as chaves usadas no objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . Os encaixes de chaves primárias e secundárias existem para que você possa usar as chaves gradualmente. Se seu aplicativo geralmente usa a chave primária, você pode copiar a chave primária para o encaixe de chave secundária e somente então regenerar a chave primária. O novo valor de chave primária pode então ser configurado para os aplicativos de cliente, que têm acesso contínuo usando a antiga chave primária no encaixe secundário. Depois que todos os clientes são atualizados, você pode regenerar a chave secundária para desativar finalmente a antiga chave primária.
 
-Se você souber ou suspeitar de uma chave comprometida e se você precisar revogar as chaves, será possível gerar novamente a [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e a [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituindo-as por novas chaves. Este procedimento invalida todos os tokens assinados com as chaves antigas.
+Se você souber ou suspeitar de uma chave comprometida e se você precisar revogar as chaves, será possível gerar novamente a [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e a [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituindo-as por novas chaves. Este procedimento invalida todos os tokens assinados com as chaves antigas.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço
 

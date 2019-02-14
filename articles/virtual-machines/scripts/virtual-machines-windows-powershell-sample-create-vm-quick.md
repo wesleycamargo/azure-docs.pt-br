@@ -16,20 +16,20 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd8d009608d1e263657c1cf3e87d446552dfc29b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: f2008a795addb035cf3f19606170dbac5ffd1a5b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928409"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993377"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Criar uma máquina virtual com o PowerShell
 
 Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016. Após a execução do script, é possível acessar a máquina virtual por RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,7 +40,7 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
@@ -49,9 +49,9 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 | Comando | Observações |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Cria a máquina virtual e a conecta à placa de rede, a rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também abre a porta 80 e define as credenciais administrativas. |
-|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Remove um grupo de recursos e todos os recursos contidos nele. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Cria a máquina virtual e a conecta à placa de rede, a rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também abre a porta 80 e define as credenciais administrativas. |
+|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos nele. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

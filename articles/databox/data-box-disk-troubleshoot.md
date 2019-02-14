@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f7b3cc638e28e4f28694f668660a28ffe6e9fa51
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24af2150438d3db13323aaecdfd89302b8152fa9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817989"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879115"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solucionar problemas no Azure Data Box Disk
 
@@ -98,7 +98,7 @@ Isso pode ser devido a um sistema de arquivos não limpo.
 
 Remontar uma unidade como leitura e gravação não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando: 
 
-    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
 Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
 

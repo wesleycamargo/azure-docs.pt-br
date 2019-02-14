@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c542ba1c105d2fcdb74d5f8b1af1ecddade65a20
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488722"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196342"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure Active Directory
 A conta de serviço usada pelo Azure AD Connector deve ter serviço gratuito. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um Administrador Global tiver redefinido a senha por engano na conta de serviço usando o PowerShell.

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 272f4b6b3a54a006947b6a4ef6480a9168e047c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169647"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Azure Active Directory com Zscaler Three
 
@@ -38,7 +39,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com o Zscaler Three, são necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Zscaler Three habilitada para logon único
 
 > [!NOTE]

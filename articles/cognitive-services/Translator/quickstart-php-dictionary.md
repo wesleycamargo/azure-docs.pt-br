@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com PHP.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f45bcb02f1c3002cffff8b72a4f182f0bfa9497
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d58a85ac8160d3e7c413f58bb0095ede8ffb30b3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215482"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981495"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Início Rápido: Procure palavras com o dicionário bilíngue PHP
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Início rápido: Procure palavras com o dicionário bilíngue PHP
 
 Neste início rápido, você encontrar detalhes de traduções alternativas possíveis para um termo, e também exemplos de uso dessas traduções alternativas usando a API de Tradução de Texto.
 

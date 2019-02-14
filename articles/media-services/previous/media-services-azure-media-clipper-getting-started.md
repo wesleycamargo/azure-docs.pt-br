@@ -6,15 +6,15 @@ keywords: clipe;subclipe;codificação;mídia
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/10/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 27a330fa4d4f242a58d15ab3f08b70cef8b66d11
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 772865f42dfef8734fb23022039f02910958af61
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810730"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992459"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar clipes com o Azure Media Clipper
 Esta seção mostra as etapas básicas de como começar a usar o Azure Media Clipper. As próximas seções fornecem informações específicas sobre como configurar o Azure Media Clipper.

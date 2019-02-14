@@ -4,7 +4,7 @@ description: Saiba como usar a funcionalidade de mapa de alerta de segurança e 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 85930ef8d0753c28cf4bfa2eb2eb487e419ed5f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092066"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111740"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência contra ameaças e mapa de alertas de segurança
 Este artigo ajuda você a usar o mapa de alertas da Central de Segurança do Azure e o mapa de inteligência de ameaças baseada em eventos de segurança para solucionar problemas relacionados à segurança.

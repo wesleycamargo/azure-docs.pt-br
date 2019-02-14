@@ -4,21 +4,21 @@ description: O Azure Media Indexer permite que você torne o conteúdo de seus a
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785675"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000908"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a Preview do Azure Media Indexer 2
 ## <a name="overview"></a>Visão geral
@@ -87,7 +87,7 @@ A Preview do Azure Media Indexer 2 dá suporte à conversão de fala em texto pa
 * Japonês [JaJp]
 * Russo [RuRu]
 * Inglês britânico [EnGb]
-* Espanhol do México [EsMx] 
+* Espanhol do México [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipos de arquivo com suporte
 

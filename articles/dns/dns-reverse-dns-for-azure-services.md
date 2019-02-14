@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: cbd1a7a3a797cc20be92583bbb5ac163333729fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a9a1b5599468df6bc85cc1d535b577c508dd0a9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969794"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995639"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar DNS reverso para serviços hospedados no Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este artigo explica como configurar pesquisas inversas de DNS para serviços hospedados no Azure.
 
@@ -62,22 +64,22 @@ O Azure atualmente oferece suporte a DNS reverso somente para recursos PublicIpA
 Para adicionar o DNS reverso ao PublicIpAddress existente:
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
 Para adicionar o DNS reverso a um PublicIpAddress existente que ainda não tenha um nome DNS, também deverá especificar um nome DNS:
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings = New-Object -TypeName "Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings"
 $pip.DnsSettings.DomainNameLabel = "contosoapp1"
 $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-classic-cli"></a>CLI Clássica do Azure
+#### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
 Para adicionar o DNS reverso ao PublicIpAddress existente:
 
@@ -112,10 +114,10 @@ Para criar um novo PublicIpAddress com a propriedade DNS reversa já especificad
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
+New-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
-#### <a name="azure-classic-cli"></a>CLI Clássica do Azure
+#### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
@@ -134,10 +136,10 @@ Para exibir o valor configurado para um PublicIpAddress existente:
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### <a name="azure-classic-cli"></a>CLI Clássica do Azure
+#### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
@@ -156,12 +158,12 @@ Para remover uma propriedade de DNS reverso de um PublicIpAddress existente:
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings.ReverseFqdn = ""
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-classic-cli"></a>CLI Clássica do Azure
+#### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
@@ -222,7 +224,7 @@ Sim. Depois de definir a propriedade de DNS reverso para seu Serviço do Azure, 
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Os registros DNS reversos padrão serão criados para meus serviços do Azure?
 
-Não. O DNS reverso é um recurso opcional. Nenhum registro DNS reverso padrão é criado se você optar por não configurar um.
+ Não. O DNS reverso é um recurso opcional. Nenhum registro DNS reverso padrão é criado se você optar por não configurar um.
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>Qual é o formato do FQDN (nome de domínio totalmente qualificado)?
 
@@ -234,15 +236,15 @@ Quando a verificação de validação de DNS reverso falhar, a operação para c
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Posso configurar o DNS reverso para o Serviço de Aplicativo do Azure?
 
-Não. O DNS reverso não é suportado para o Serviço de Aplicativo do Azure.
+ Não. O DNS reverso não é suportado para o Serviço de Aplicativo do Azure.
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Posso configurar vários registros DNS reversos para meu serviço do Azure?
 
-Não. O Azure dá suporte a um único registro DNS reverso por Serviço de Nuvem do Azure ou PublicIpAddress.
+ Não. O Azure dá suporte a um único registro DNS reverso por Serviço de Nuvem do Azure ou PublicIpAddress.
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Posso configurar o DNS reverso para recursos de PublicIpAddress do IPv6?
 
-Não. O Azure atualmente oferece suporte a DNS reverso somente para recursos PublicIpAddress de IPv4 e Serviços de Nuvem.
+ Não. O Azure atualmente oferece suporte a DNS reverso somente para recursos PublicIpAddress de IPv4 e Serviços de Nuvem.
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Posso enviar emails a domínios externos de meus Serviços de Computação do Azure?
 

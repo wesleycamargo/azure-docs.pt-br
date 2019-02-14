@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 51ae45b313cbe6b3cb61777a1571a75047632ca9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 43153edc3e10f15e0fd17e35fd98a7ddd11bdf6f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818448"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
 
@@ -127,7 +128,7 @@ Para configurar o logon único do Azure AD com o Absorb LMS, execute as seguinte
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -191,7 +192,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

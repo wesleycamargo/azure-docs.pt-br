@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e2c499619df938bd6f4b05757ba607a9edf244
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 14cd7bea6707e6f724829a28b57604553e7405c0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183349"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Tutorial: Integração do Azure Active Directory ao MyWorkDrive
 
@@ -38,7 +39,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Microsoft Azure AD ao MyWorkDrive, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura com logon único do MyWorkDrive habilitado
 
 > [!NOTE]

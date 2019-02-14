@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Node.js.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 71af575273b7299979679fa149c4960143b2b221
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: eb852f0449a7f59ba0235ffc8ad7c8aff6f3babc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208339"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892740"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte com Node.js
 
 Neste início rápido, você aprenderá a fazer uma solicitação GET que retorna uma lista dos idiomas com suporte usando o Node.js e a API REST de Tradução de Texto.
-
-Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
 * [Node 8.12.x ou posterior](https://nodejs.org/en/)
-* Uma chave de assinatura do Azure para a Tradução de Texto
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
@@ -43,25 +40,6 @@ const uuidv4 = require('uuid/v4');
 > Se você nunca usou esses módulos, você precisará instalá-los antes de executar o programa. Para instalar esses pacotes, execute: `npm install request uuidv4`.
 
 Esses módulos são necessários para construir a solicitação HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
-
-## <a name="set-the-subscription-key"></a>Definir a chave de assinatura
-
-Esse código tentará ler a chave da sua assinatura de Tradução de Texto da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se você não estiver familiarizado com as variáveis de ambiente,poderá definir `subscriptionKey` como uma cadeia de caracteres e comentar a instrução condicional.
-
-Copie este código em seu projeto:
-
-```javascript
-/* Checks to see if the subscription key is available
-as an environment variable. If you are setting your subscription key as a
-string, then comment these lines out.
-
-If you want to set your subscription key as a string, replace the value for
-the Ocp-Apim-Subscription-Key header as a string. */
-const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
-```
 
 ## <a name="configure-the-request"></a>Configurar a solicitação
 
@@ -79,17 +57,12 @@ let options = {
       'api-version': '3.0',
     },
     headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
     json: true,
 };
 ```
-
-### <a name="authentication"></a>Autenticação
-
-A maneira mais fácil de autenticar uma solicitação é transmitir sua chave de assinatura como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que usamos neste exemplo. Como alternativa, você pode trocar sua chave de assinatura por um token de acesso e passar o token de acesso como um cabeçalho `Authorization` para validar sua solicitação. Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Fazer a solicitação e imprimir a resposta
 

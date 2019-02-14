@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765188"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982668"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamento de saída de blob personalizado do Azure Stream Analytics
 
@@ -67,8 +67,6 @@ Observe que cada registro no blob tem uma coluna **client_id** correspondendo ao
 ## <a name="custom-datetime-path-patterns"></a>Padrões de caminho de DateTime personalizados
 
 Padrões de caminho de DateTime personalizados permitem que você especifique um formato de saída que se alinhe com as convenções de Streaming de Hive, possibilitando ao Azure Stream Analytics enviar dados para o Azure HDInsight e o Azure Databricks para processamento downstream. Padrões de caminho de DateTime personalizados são implementados facilmente usando a palavra-chave `datetime` no campo de Prefixo do caminho de sua saída de blob, juntamente com o especificador de formato. Por exemplo, `{datetime:yyyy}`.
-
-Use este link para o [Portal do Azure](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) para alternar o sinalizador de recurso que habilita os padrões de caminho de DateTime personalizados para a versão prévia da saída do Armazenamento de Blobs. Este recurso será habilitado em breve no portal principal.
 
 ### <a name="supported-tokens"></a>Tokens com suporte
 

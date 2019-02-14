@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 8838cb2479078a8b6b4f031128501f09284b6bdd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fb6e130b772afabe939516ffa37ae292e2db5859
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159258"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178934"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: integração do Active Directory do Azure com o DocuSign
 
@@ -38,7 +39,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD ao DocuSign, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do DocuSign
 
 > [!NOTE]

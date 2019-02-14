@@ -4,7 +4,7 @@ description: Este documento o ajuda a compreender como a Central de Segurança d
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 5ec77d7bcc3715946c4574bca17f280a9f483b45
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9ff111bb70716e4ca218dce81dd1754181cdd93b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340940"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113321"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Central de Segurança do Azure e Máquinas Virtuais do Azure com Linux
 A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.

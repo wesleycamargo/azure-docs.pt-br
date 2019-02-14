@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2c80f988583571f3394a29747a6f452951cea878
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700801"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978027"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux usando uma imagem personalizada (versão prévia)
 
@@ -93,7 +93,7 @@ cd MyFunctionProj
 
 Examine o _Dockerfile_ na pasta raiz do projeto. Este arquivo descreve o ambiente necessário para executar o aplicativo de funções no Linux. O exemplo a seguir é um Dockerfile que cria um contêiner que executa um aplicativo de funções no tempo de execução do trabalho em JavaScript (Node.js): 
 
-```docker
+```Dockerfile
 FROM mcr.microsoft.com/azure-functions/node:2.0
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
@@ -232,7 +232,7 @@ A função precisa da cadeia de conexão para se conectar à conta de armazename
 Nesse caso, `<storage_account>` é o nome da conta de armazenamento criada. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account). Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
+$storageConnectionString=$(az storage account show-connection-string \
 --resource-group myResourceGroup --name <storage_account> \
 --query connectionString --output tsv)
 

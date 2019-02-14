@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486802"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104985"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. implantação clássica: compreenda os modelos de implantação e o estado de seus recursos
 
@@ -48,6 +48,9 @@ Em 2014, o Azure introduziu o Resource Manager, que adicionou o conceito de um g
 Quando o Gerenciador de Recursos foi adicionado, todos os recursos foram adicionados retroativamente aos grupos de recursos padrão. Se você criar um recurso por meio da implantação clássica agora, ele será criado automaticamente em um grupo de recursos padrão para esse serviço, mesmo que você não tenha especificado esse grupo de recursos na implantação. No entanto, existir apenas em um grupo de recursos não significa que o recurso tenha sido convertido no modelo do Gerenciador de Recursos.
 
 ## <a name="understand-support-for-the-models"></a>Noções básicas do suporte aos modelos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Há três cenários a serem considerados:
 
 1. Os Serviços de Nuvem não dão suporte ao modelo de implantação do Resource Manager.

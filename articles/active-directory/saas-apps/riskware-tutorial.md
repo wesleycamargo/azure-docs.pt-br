@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163238"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory ao Riskware
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com Riskware, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Riskware
 
 > [!NOTE]

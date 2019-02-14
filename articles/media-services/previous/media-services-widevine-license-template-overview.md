@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 065845bb2abd02f02fe2050780bc0613cbd2f12c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035995"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989844"
 ---
-# <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine
+# <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine 
 Você pode usar os Serviços de Mídia do Azure para configurar e solicitar licenças do Google Widevine. Quando o player tentar reproduzir o conteúdo protegido do Widevine, uma solicitação será enviada ao serviço de entrega de licença para a obtenção de uma licença. Se o serviço de licença aprovar a solicitação, o serviço emitirá a licença. Ela é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 
 A solicitação de licença do Widevine é formatada como uma mensagem JSON.  

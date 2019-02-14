@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a94ecbaf75472a3352f62a3681ca6a8ff9b41684
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21fa86d6cc480102005f59aa064c3ee5045d6481
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827067"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Azure Active Directory ao Cherwell
 
@@ -117,7 +118,7 @@ Para configurar o logon único do Azure AD com o Cherwell, execute as seguintes 
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -146,7 +147,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

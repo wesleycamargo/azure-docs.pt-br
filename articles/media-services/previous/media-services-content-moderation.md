@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783425"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995111"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico 
 
 ## <a name="overview"></a>Visão geral
 O processador de mídia (MP) do **Azure Media Content Moderator** possibilita usar a moderação auxiliada por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas.
@@ -31,7 +31,7 @@ O MP do **Azure Media Content Moderator** está atualmente em fase de Visualiza�
 Este artigo fornece detalhes sobre o **Azure Media Content Moderator** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
 
 ## <a name="content-moderator-input-files"></a>Arquivos de entrada do Content Moderator
-Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
+Arquivos de vídeo. Atualmente, há suporte para os formatos a seguir: MP4, MOV e WMV.
 
 ## <a name="content-moderator-output-files"></a>Arquivos de saída do Content Moderator
 O resultado moderado no formato JSON inclui quadros-chave e capturas detectados automaticamente. Os quadros-chave são retornados com pontuações de confiança para o possível conteúdo adulto ou erótico. Também incluem um sinalizador booliano que indica se uma revisão é recomendada. O sinalizador de recomendação de revisão recebe valores com base nos limites internos para pontuações de conteúdo adulto ou erótico.
@@ -72,7 +72,7 @@ O JSON de saída contém os seguintes elementos:
 | adultScore | Pontuação de confiança para o possível conteúdo adulto, em uma escala de 0,00 a 0,99. |
 | racyScore | Pontuação de confiança para o possível conteúdo erótico, em uma escala de 0,00 a 0,99. |
 | índice | Índice do quadro em uma escala desde o primeiro quadro do índice até o último quadro do índice. |
-| timestamp | O local do quadro, em "tiques". |
+|  timestamp | O local do quadro, em "tiques". |
 | shotIndex | O índice da captura pai. |
 
 

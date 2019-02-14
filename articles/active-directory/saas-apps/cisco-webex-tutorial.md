@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: e718d37bc1d34bccf1ea8d0ce2607ff83fc355d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7629d602362b9a76691dbf79a0a8ecd874d750a9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integração do Azure Active Directory ao Cisco Webex
 
@@ -179,7 +180,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex, execute as seguint
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -211,7 +212,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

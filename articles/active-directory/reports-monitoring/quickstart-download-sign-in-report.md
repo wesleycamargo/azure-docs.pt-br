@@ -16,14 +16,15 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 74602a64820d277de2222e29e5d9b59354d709f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197374"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168810"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início rápido: Baixar um relatório de entrada usando o portal do Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: Baixar um relatório de entrada usando o portal do Azure
 
 Neste início rápido, você aprenderá a baixar os dados de entrada para seu locatário nas últimas 24 horas. É possível baixar até 5000 registros do portal do Azure. Os registros são classificados por mais recentes; por padrão, você obterá 5000 registros mais recentes. 
 

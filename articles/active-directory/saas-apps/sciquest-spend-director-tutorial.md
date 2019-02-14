@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 2100e2fcc085efc50a72e0f9d339621800563bb3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 75c8f4111ec5679dd04ec23c3e8fb3b2b8634825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153276"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: integração do Active Directory do Azure ao SciQuest Spend Director
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o SciQuest Spend Director, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do SciQuest Spend Director com o logon único habilitado
 
 > [!NOTE]

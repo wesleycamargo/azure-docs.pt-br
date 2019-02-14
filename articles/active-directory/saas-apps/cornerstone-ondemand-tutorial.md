@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f2276cfb6019c15b28eeab92ecf63c788858b7f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c1c378cb4b6538805e26db60062d145ee8e0af45
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825588"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Tutorial: Integração do Azure Active Directory ao Cornerstone OnDemand
 
@@ -120,7 +121,7 @@ Para configurar o logon único do Azure AD com o Cornerstone OnDemand, execute a
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -146,7 +147,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

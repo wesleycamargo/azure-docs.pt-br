@@ -1,19 +1,19 @@
 ---
 title: Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 description: Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados.
-author: rafats
-ms.author: rafats
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 95fd5b753d2018ebf422c4d9c88c2e3f6aba7bd8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452253"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244429"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed de alterações no Azure Cosmos DB – visão geral
 
@@ -35,10 +35,10 @@ No momento, o recurso é compatível com os seguintes SDKs do cliente e APIs do 
 
 | **Drivers do cliente** | **CLI do Azure** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | SIM | Não | Não  | Sim | Não  |
-|Java|ND|SIM|Não|Não |Sim|Não |
-|Python|ND|SIM|Não|Não |Sim|Não |
-|Nó/JS|ND|SIM|Não|Não |Sim|Não |
+| .NET | ND | Sim | Não | Não  | Sim | Não  |
+|Java|ND|Sim|Não|Não |Sim|Não |
+|Python|ND|Sim|Não|Não |Sim|Não |
+|Nó/JS|ND|Sim|Não|Não |Sim|Não |
 
 ## <a name="change-feed-and-different-operations"></a>Feed de alterações e operações diferentes
 

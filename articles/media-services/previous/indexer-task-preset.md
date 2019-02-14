@@ -4,23 +4,23 @@ description: Este tópico apresenta uma visão geral das tarefas predefinidas pa
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 02/08/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8790a5dd596a98409db9a3470b17461359882a38
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463076"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994346"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Predefinição de tarefa para o Azure Media Indexer
+# <a name="task-preset-for-azure-media-indexer"></a>Predefinição de tarefa para o Azure Media Indexer 
 
 Azure Media Indexer é um Processador de Mídia que você usa para executar as seguintes tarefas: tornar arquivos de mídia e conteúdo pesquisáveis, gerar palavras-chave e faixas de legenda oculta, indexar arquivos de ativo que fazem parte do seu ativo.
 

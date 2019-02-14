@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a125ea70a891d8db0ec652844a99153f19253bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c8859c0363a738c744f5c9b496cf77f5aaf1ba61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150284"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integração do Azure Active Directory com Ivanti Service Manager (ISM)
 
@@ -38,7 +39,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com o Ivanti Service Manager (ISM), são necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Ivanti Service Manager (ISM)
 
 > [!NOTE]

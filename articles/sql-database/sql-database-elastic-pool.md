@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464340"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963838"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -34,6 +34,9 @@ Os pools elásticos resolvem esse problema, garantindo que os bancos de dados re
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> Não há cobrança por banco de dados para pools elásticos. Você é cobrado por cada hora de existência de um pool no vCores ou eDTU mais elevado, independentemente do uso ou se o pool estava ativo por menos de uma hora.
 
 Os pools elásticos permitem que o desenvolvedor compre recursos para um pool compartilhado por vários bancos de dados para acomodar períodos imprevisíveis de uso por bancos de dados individuais. Você pode configurar recursos para o pool com base no [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). O requisito de recurso para um pool é determinado pela utilização agregada dos bancos de dados. A quantidade de recursos disponíveis para o pool é controlada pelo orçamento do desenvolvedor. O desenvolvedor simplesmente adiciona bancos de dados ao pool, define os recursos mínimo e máximo para os bancos de dados (DTUs ou vCores mínimo e máximo, dependendo da opção de modelo de recurso) e define os recursos do pool com base no orçamento. Um desenvolvedor pode usar pools para aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
 

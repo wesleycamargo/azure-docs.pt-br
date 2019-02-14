@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bbe26b19f9467034a4612ac1b40124122bee7f0c
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291647"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004530"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar os minutos exatos nos vídeos
 
@@ -26,7 +26,6 @@ Este tópico mostra as opções de pesquisa que permitem que você localize os m
     No exemplo a seguir, pesquisamos todos os vídeos criados pelo Channel9 com Scott Hanselman.
 
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
-    
 3. Pesquise os insights resumidos do vídeo.
 
     Em seguida, é possível pesquisar dentro de um vídeo clicando em **Reproduzir** no vídeo. Em seguida, é possível pesquisar no vídeo selecionando a guia **Pesquisar**. Por exemplo, procuramos todos os locais em que o texto "proteção de identidade" é usado. 
@@ -34,8 +33,6 @@ Este tópico mostra as opções de pesquisa que permitem que você localize os m
     ![Search](./media/video-indexer-search/video-indexer-search02.png)
 
     Se você clicar em um dos resultados, o player direcionará você até esse momento no vídeo. É possível obter a exibição do player/insights e a sincronização no seu aplicativo. Para obter mais informações, consulte [Embed Video Indexer widgets into your application](video-indexer-embed-widgets.md) (Inserir widgets do Video Indexer em seu aplicativo). 
-
-    
 4. Pesquise a análise detalhada do vídeo.
 
     Se desejar criar sua própria análise com base no vídeo encontrado, pressione o botão **Editar**. Esta página mostra a análise completa de um vídeo. É possível pesquisar na análise para mostrar apenas as linhas nas quais você está interessado. Para obter mais informações, consulte [Exibir e editar insights do Video Indexer](video-indexer-view-edit.md).

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 26445017553435454e929d9852dfd9fc173c3b2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460090"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098861"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Gerenciamento da referência de API para Instâncias Gerenciadas do Banco de Dados SQL do Azure
 
@@ -93,5 +93,5 @@ Para criar e gerenciar Instâncias Gerenciadas, use estas solicitações de API 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
 - Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-database-features.md).

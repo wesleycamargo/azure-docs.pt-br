@@ -4,21 +4,21 @@ titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de códigos para ajudar você a começar a usar a API de Detecção de Emoções com JavaScript.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3c6e5b0d759aeb8aa0b06e359f1f48eaf6c44520
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 96388bb3cf2b73000fe871bc9e08720038c5c5a3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208935"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234685"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início rápido: Criar um aplicativo para reconhecer emoções em rostos em uma imagem.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar um aplicativo para reconhecer emoções em rostos em uma imagem.
 
 > [!IMPORTANT]
 > A API de Detecção de Emoções será preterida em 15 de fevereiro de 2019. A funcionalidade de Detecção de Emoções agora está disponível como parte da [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/). 

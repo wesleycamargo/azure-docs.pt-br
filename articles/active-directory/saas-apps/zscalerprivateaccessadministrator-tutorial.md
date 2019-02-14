@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 6eca534f933742e4797ca164637e7d536d194ba3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181496"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Zscaler Private Access Administrator
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Administrador do Zscaler Private Access, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Administrador do Zscaler Private Access
 
 > [!NOTE]

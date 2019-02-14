@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c87e331bc1e92bff9f18bf8169766b7815c9ce0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 400e73478210a9394ad4476265bf4867ff1eb821
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813858"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Tutorial: Integração do Microsoft Azure Active Directory com o ARES for Enterprise
 
@@ -132,7 +133,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

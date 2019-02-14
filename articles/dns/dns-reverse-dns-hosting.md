@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: e45b3bde0d5077a5d18369236e81bcd467527940
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990137"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999208"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hospedar zonas de pesquisa de DNS reverso no DNS do Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este artigo explica como hospedar as zonas de pesquisa inversas do DNS para seus intervalos de IP atribuídos no DNS do Azure. Os intervalos de IP representados pela zona de pesquisa inversa devem ser atribuídos à sua organização, normalmente por seu ISP.
 
@@ -60,7 +62,7 @@ Os exemplos a seguir mostram como concluir essa tarefa usando o Azure PowerShell
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
@@ -91,7 +93,7 @@ Os exemplos a seguir mostram como concluir essa tarefa usando o Azure PowerShell
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
@@ -136,7 +138,7 @@ Os exemplos a seguir mostram como concluir essa tarefa usando o Azure PowerShell
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc1.contoso.com")
+New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc1.contoso.com")
 ```
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
@@ -172,7 +174,7 @@ Os exemplos a seguir mostram como concluir essa tarefa usando o Azure PowerShell
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
+New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
@@ -202,7 +204,7 @@ Os exemplos a seguir mostram como exibir os registros PTR usando o PowerShell ou
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
@@ -228,7 +230,7 @@ Os exemplos a seguir mostram como exibir os registros usando o PowerShell ou a C
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure

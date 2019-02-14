@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: fd1975239feb6d17d68e7932094a9a161a29f735
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5add648da98af6329e454e92f6e8db3b74d211b8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826506"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deskradar"></a>Tutorial: Integração do Azure Active Directory ao Deskradar
 
@@ -156,7 +157,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 

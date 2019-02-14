@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: d578794a258faa9ad0222207f73e108e11f3281f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 65983a5c9273b0eb88dbb7f2e3a8779b326352b3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770445"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205385"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Usuários, grupos, licenciamento e funções para organizações de grandes porte
 
@@ -58,7 +59,7 @@ Novas funções de administrador do Azure AD estão sendo adicionadas. Verifique
 
 ## <a name="assign-app-access"></a>Atribuir acesso de aplicativo
 
-Você pode usar o Azure AD para atribuir acesso de grupo para [aplicativos empresariais implantados em seu locatário do Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context). Se você combinar grupos dinâmicos com a atribuição de grupo a aplicativos, poderá automatizar as atribuições de acesso de aplicativo do usuário conforme sua organização crescer. Você precisará de uma licença do Azure Active Directory Premium P1 ou P2 para atribuir acesso a aplicativos empresariais.
+Você pode usar o Azure AD para atribuir acesso de grupo para [aplicativos empresariais implantados em seu locatário do Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Se você combinar grupos dinâmicos com a atribuição de grupo a aplicativos, poderá automatizar as atribuições de acesso de aplicativo do usuário conforme sua organização crescer. Você precisará de uma licença do Azure Active Directory Premium P1 ou P2 para atribuir acesso a aplicativos empresariais.
 
 O Azure AD também fornece controle granular dos dados que fluem entre o aplicativo e os grupos aos quais você atribui acesso. Em [Aplicativos Empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps), abra um aplicativo e selecione **Provisionamento** para:
 
@@ -72,4 +73,4 @@ O Azure AD também fornece controle granular dos dados que fluem entre o aplicat
 
 Se você for um administrador do Azure AD, obtenha as noções básicas nos [Fundamentos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
 
-Ou você pode começar a [criar grupos](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [atribuir licenças](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [atribuir acesso do aplicativo](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context) ou [atribuir funções de administrador](directory-assign-admin-roles.md).
+Ou você pode começar a [criar grupos](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [atribuir licenças](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [atribuir acesso do aplicativo](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) ou [atribuir funções de administrador](directory-assign-admin-roles.md).

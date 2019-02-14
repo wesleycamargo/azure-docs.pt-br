@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c48ffd92362fa19fc0abfb7ddc36eac378283938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a43e84e97499010f36e3cd39c13bf61d281b66c7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156319"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193128"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solucionando erros durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do AD DS (Active Directory do Windows Server) para o Azure AD (Azure Active Directory). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que causam esses erros e possíveis maneiras de corrigi-los. Este artigo inclui os tipos de erro comuns e talvez não abranja todos os erros possíveis.

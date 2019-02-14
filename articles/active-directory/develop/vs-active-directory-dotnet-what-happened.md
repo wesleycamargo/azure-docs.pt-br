@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: cc14f170a748f91289bbc644d5a9bef10697ce34
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427340"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196205"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
 
@@ -33,7 +34,7 @@ Para obter informações sobre como trabalhar com o serviço conectado, consulte
 
 Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referências de NuGet).
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -48,7 +49,7 @@ Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referên
 
 Referências adicionais se você selecionou a opção **Ler dados do diretório**:
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (somente Visual Studio 2015) |
@@ -62,7 +63,7 @@ Referências adicionais se você selecionou a opção **Ler dados do diretório*
 
 As seguintes referências são removidas (somente projetos ASP.NET 4, como no Visual Studio 2015):
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

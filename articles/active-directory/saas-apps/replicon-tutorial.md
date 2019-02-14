@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 118cdf11b08b1cd964bfae7ae2b3c5600b27fb7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192138"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Azure Active Directory ao Replicon
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Microsoft Azure AD ao Replicon, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Replicon
 
 > [!NOTE]

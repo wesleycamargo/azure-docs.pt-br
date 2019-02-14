@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b2d4acb3a717f51d0ff15868dea917806b5b604
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 70adbcd8c25b3acb4408447070d3b0397d258847
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181955"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Active Directory com Veritas Enterprise Vault.cloud SSO
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Veritas Enterprise Vault.cloud SSO, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Veritas Enterprise Vault.cloud SSO habilitada para logon único
 
 > [!NOTE]
@@ -210,11 +211,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-1. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-1. Clique no botão **Atribuir** na caixa de diálogo **Adicionar atribuição**.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
