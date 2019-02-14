@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 1dd6be61aab91bb15cc42939689e3c7399bee3db
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661081"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236519"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -106,7 +106,7 @@ A seguir estão os escopos disponíveis para as Coleções de Workspaces do Powe
 
 Você pode fornecer vários escopos usando um espaço entre os escopos semelhante ao que segue.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 

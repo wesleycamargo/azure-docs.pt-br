@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Código-fonte para tutorial mostrando como usar a API de Verificação Ortográfica do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 80eed4872e0c5d0f19ed2e2ef7e2a56df51fad51
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186511"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869221"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 

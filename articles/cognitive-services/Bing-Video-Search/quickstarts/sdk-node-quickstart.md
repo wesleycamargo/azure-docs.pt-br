@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Pesquisar vídeos usando o SDK de Pesquisa de Vídeo do Bing para Node.js'
+title: 'Início Rápido: Pesquisar vídeos usando o SDK de Pesquisa de Vídeo do Bing para Node.js'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo usando o SDK de Pesquisa de Vídeo do Bing para Node.js
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ffb04634b41d14e151c5a14d052d0d9f70b34d70
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ffd03a900ec304a930dfc64e7860e28e0374da55
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569029"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863748"
 ---
-# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-nodejs"></a>Início Rápido: Executar uma pesquisa de vídeo com o SDK de Pesquisa de Vídeo do Bing para Node.js
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-nodejs"></a>Início rápido: Executar uma pesquisa de vídeo com o SDK de Pesquisa de Vídeo do Bing para Node.js
 
 Use este início rápido para começar a pesquisar notícias com o SDK de Pesquisa de Vídeo do Bing para Node.js. Embora a Pesquisa de Vídeo do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Ele contém mais recursos e anotações.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 749a599936825f5f69ae18affad0fa89a4f1118f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 95b5bbb6c227b5001865a751abddddc4924e7b2d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259624"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981070"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Instalar e usar o Apache Solr em clusters HDInsight baseados no Windows
 
@@ -46,17 +46,12 @@ O <a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache 
 
     ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Usar Ação de Script para personalizar um cluster")
 
-    <table border='1'>
-        <tr><th>Propriedade</th><th>Valor</th></tr>
-        <tr><td>NOME</td>
-            <td>Especifique um nome para a ação de script. Por exemplo, <b>Instalar o Solr</b>.</td></tr>
-        <tr><td>URI do script</td>
-            <td>Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>Tipo de nó</td>
-            <td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós do cabeçalho</b> ou <b>Somente nós de trabalho</b>.
-        <tr><td>parâmetros</td>
-            <td>Especifique os parâmetros, se exigido pelo script. O script para instalar o Solr não requer nenhum parâmetro, portanto você pode deixá-los em branco.</td></tr>
-    </table>
+    |Propriedade|Valor|
+    |---|---|
+    |NOME|Especifique um nome para a ação de script. Por exemplo, **Instalar o Solr**.|
+    |URI do script|Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, *https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
+    |Tipo de nó|Especifique os nós em que o script de personalização deve ser executado. Você pode escolher **Todos os nós**, **Somente nós do cabeçalho** ou **Somente nós de trabalho**.
+    |parâmetros|Especifique os parâmetros, se exigido pelo script. O script para instalar o Solr não requer nenhum parâmetro, portanto você pode deixá-los em branco.|
 
     Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para começar a criar o cluster.
 

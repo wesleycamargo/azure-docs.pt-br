@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Detectar rostos em uma imagem usando a API REST e JavaScript'
+title: 'Início rápido: Detectar rostos em uma imagem usando a API REST e JavaScript'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces de uma imagem usando a API de Detecção Facial com JavaScript nos Serviços Cognitivos.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 02066ac7425b5b4843ae8a74c37a928242f2a092
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 07868fd70c1b2601fa676f7069f2508468e2be0e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225441"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866943"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: Detectar rostos em uma imagem usando a API REST e JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e JavaScript
 
 Neste início rápido, você detectará faces humanas em uma imagem usando a API de Detecção Facial.
 

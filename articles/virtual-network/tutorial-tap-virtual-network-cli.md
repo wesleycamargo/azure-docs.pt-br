@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700835"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100050"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Trabalhar com um TAP de rede virtual usando a CLI do Azure
 
@@ -110,7 +110,7 @@ Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes d
 1. Recuperar a ID de um recurso de TAP de rede virtual existente. O exemplo a seguir recupera um TAP de rede virtual TAP nomeado *myTap* em um grupo de recursos nomeado *myResourceGroup*:
 
    ```azurecli-interactive
-   tapId=$(az network tap show show \
+   tapId=$(az network vnet tap show \
    --name myTap \
    --resource-group myResourceGroup \
    --query id \
@@ -144,7 +144,7 @@ Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes d
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \
-   --tap-configuration-name myTapConfig \
+   --name myTapConfig \
    --subscription subscriptionId
    ```
 

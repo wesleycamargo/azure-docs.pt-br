@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190708"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003101"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura 
+# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura  
 
 Você pode usar o Media Encoder Standard para gerar um sprite de miniatura, que é um arquivo JPEG que contém várias miniaturas de resolução pequena reunidas em uma única imagem (grande), junto com um arquivo VTT. Esse arquivo VTT especifica o intervalo de tempo no vídeo de entrada que representa cada miniatura, junto com o tamanho e as coordenadas da miniatura dentro do arquivo JPEG grande. Players de vídeo usam o arquivo VTT e a imagem de sprite para mostrar uma barra de pesquisa “visual”, fornecendo um visualizador com feedback visual ao arrastar a linha do tempo do vídeo para frente e para trás.
 

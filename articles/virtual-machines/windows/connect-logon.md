@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296878"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978913"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e entrar em uma máquina virtual do Azure executando o Windows
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual então faça logon.
@@ -56,18 +56,18 @@ Para conectar-se a uma VM do Windows por meio de um Mac, será necessário insta
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>Conecte-se à máquina virtual usando o PowerShell
 
-Se você estiver usando o PowerShell e tiver instalado o módulo do AzureRM, você também pode se conectar usando o `Get-AzureRmRemoteDesktopFile` cmdlet, conforme mostrado abaixo.
+Se você estiver usando o PowerShell e tiver instalado o módulo do AzureRM, você também pode se conectar usando o `Get-AzRemoteDesktopFile` cmdlet, conforme mostrado abaixo.
 
 Este exemplo iniciará imediatamente a conexão de RDP, levando você por meio de prompts semelhantes conforme acima.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 Você também pode salvar o arquivo RDP para uso futuro.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
