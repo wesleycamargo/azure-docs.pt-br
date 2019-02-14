@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 9c6cf70721169dfc35e49ec253d7aeb5deace794
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f78e978e80e27babcf8d2a2736eec06f35aa5e05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185299"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integração do Azure Active Directory ao Namely
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do AD do Azure ao Namely, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Namely
 
 > [!NOTE]

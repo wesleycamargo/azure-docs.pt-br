@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244174"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243528"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar a rotatividade de clientes usando o Azure Machine Learning Studio
 ## <a name="overview"></a>Visão geral
@@ -25,7 +25,7 @@ Este artigo apresenta uma implementação de referência de um projeto de análi
 Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Microsoft Azure Machine Learning. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
-> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de rotatividade, confira: [Modelo de rotatividade de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
+> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de rotatividade, confira: [Modelo de rotatividade de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) na [Galeria de IA do Azure](http://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
  
 
 > Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira esse experimento de exemplo na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Rotatividade de clientes de empresas de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira esse experimento de exemplo na [Galeria de IA do Azure](http://gallery.azure.ai/): [Rotatividade de clientes de empresas de telecomunicações](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok. 
 > 
@@ -219,7 +219,7 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) 
+[5] [Modelo de variação de telecomunicações](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) na [Galeria de IA do Azure](http://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Apêndice

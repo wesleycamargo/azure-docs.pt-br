@@ -11,15 +11,15 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/12/2019
+ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815533"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236729"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início Rápido: Usar os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure (versão prévia)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início rápido: Usar os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure (versão prévia)
 
 Este artigo explica como você pode usar a versão prévia pública dos [Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure](sql-database-machine-learning-services-overview.md). Ele explica as noções básicas da movimentação de dados entre um banco de dados SQL e R. Também explica como encapsular o código R bem formado no procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) a fim de criar, treinar e usar modelos de machine learning em um banco de dados SQL.
 

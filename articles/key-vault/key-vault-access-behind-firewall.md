@@ -4,7 +4,7 @@ description: Saiba como acessar o Azure Key Vault de um aplicativo por trás de 
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd5ecf60c76ec3db0bc0d867a8a807016eeea863
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073717"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108629"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acessar o Cofre de Chaves do Azure por trás de um firewall
 
@@ -36,7 +36,7 @@ Dependendo do ambiente e configuração, há algumas variações.
 
 Todo o tráfego para o cofre de chaves de todas as três funções (autenticação, gerenciamento e acesso ao plano de dados) passa por HTTPS: porta 443. No entanto, ocasionalmente, haverá tráfego HTTP (porta 80) para CRL. Os clientes que dão suporte a OCSP não devem chegar a CRL, mas ocasionalmente podem chegar a [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Os aplicativos cliente do cofre de chaves precisarão acessar os pontos de extremidade do Azure Active Directory para autenticação. O ponto de extremidade usado depende da configuração de locatário do Azure AD, o tipo de entidade (UPN ou entidade de serviço) e o tipo de conta (por exemplo, uma conta da Microsoft ou uma conta corporativa ou de estudante).  
 

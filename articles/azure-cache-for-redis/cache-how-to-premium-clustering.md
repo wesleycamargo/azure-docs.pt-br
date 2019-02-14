@@ -1,25 +1,25 @@
 ---
 title: Como configurar o clustering do Redis para um Cache do Azure Premium para Redis | Microsoft Docs
 description: Saiba como criar e gerenciar o clustering do Redis para as instâncias de camada Premium do Cache do Azure para Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: wesmc
-ms.openlocfilehash: 44b25263dbeb0d787120ae3a86076b2f888ed46f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107473"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235709"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o clustering do Redis para um Cache do Azure Premium para Redis
 O Cache do Azure para Redis apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do cache e recursos, incluindo recursos da camada Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em uma instância premium do Cache do Azure para Redis.

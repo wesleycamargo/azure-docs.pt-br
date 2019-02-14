@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b59efe3faa00a172e5948f18b06337eedd2a1f6b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 286af8b927f488acaf2877e753f6e4689c4b000f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184794"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory com o QPrism
 
@@ -38,7 +39,7 @@ Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD
 
 Para configurar a integração do Azure AD com o QPrism, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do QPrism
 
 Para testar as etapas neste tutorial, siga estas recomendações:

@@ -6,17 +6,18 @@ keywords: clipe;subclipe;codificação;mídia
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821440"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002132"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Enviar trabalhos de recorte do Azure Media Clipper
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Enviar trabalhos de recorte do Azure Media Clipper 
+
 O Azure Media Clipper exige que um método **submitSubclipCallback** seja implementado para manipular o envio de trabalhos de recorte. Essa função serve para implementar um HTTP POST da saída do Clipper para um serviço Web. Esse serviço Web é o local em que você pode enviar o trabalho de codificação. A saída do Clipper é uma predefinição de codificação do Media Encoder Standard dos trabalhos renderizados ou o conteúdo da API REST para chamadas de filtro de manifesto dinâmico. Esse modelo de passagem é necessário porque as credenciais da conta dos serviços de mídia não são seguras no navegador do cliente.
 
 O seguinte diagrama de sequência ilustra o fluxo de trabalho entre o cliente do navegador, o seu serviço Web e os Serviços de Mídia do Azure: ![Diagrama de sequência do Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

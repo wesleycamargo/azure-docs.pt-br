@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277464"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109887"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo do Azure Resource Manager
 
 ## <a name="overview"></a>Visão geral
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Ambientes do Serviço de Aplicativo do Azure (ASEs) podem ser criados com um ponto de extremidade acessível pela Internet ou um ponto de extremidade em um endereço interno na rede virtual (VNet) do Azure. Quando criado com um ponto de extremidade interno, esse ponto de extremidade é fornecido por um componente do Azure chamado ILB (balanceador de carga interno). O ASE em um endereço IP interno é chamado de um ASE ILB. O ASE com um ponto de extremidade público é chamado de um ASE externo. 
 
 Um ASE pode ser criado usando o portal do Azure ou um modelo do Azure Resource Manager. Este artigo explica as etapas e a sintaxe que você precisa para criar um ASE Externo ou um ASE ILB com modelos do Resource Manager. Para saber como criar uma ASE no portal do Azure, consulte [Fazer um ASE externo][MakeExternalASE] ou [Fazer um ASE ILB][MakeILBASE].
@@ -60,7 +63,7 @@ Após o arquivo *azuredeploy.parameters.json* ser preenchido, crie o ASE usando 
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Leva aproximadamente uma hora para o ASE ser criado. Em seguida, o ASE aparece no portal na lista de ASEs para a assinatura que disparou a implantação.
@@ -104,10 +107,10 @@ Depois que o certificado SSL for gerado com êxito e convertido em uma cadeia de
 
 Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 
-* *appServiceEnvironmentName*: O nome do ASE ILB que está sendo configurado.
-* *existingAseLocation*: Cadeia de caracteres de texto que contém a região do Azure em que o ASE ILB foi implantado.  Por exemplo:  "Centro-Sul dos EUA".
+* *appServiceEnvironmentName*: o nome do ASE ILB que está sendo configurado.
+* *existingAseLocation*: cadeia de caracteres de texto que contém a região do Azure em que o ASE ILB foi implantado.  Por exemplo:  "Centro-Sul dos EUA".
 * *pfxBlobString*: A representação de cadeia de caracteres codificada em base 64 do arquivo .pfx. Use o snippet de código mostrado anteriormente e copie a cadeia de caracteres contida em "exportedcert.pfx.b64". Cole-o como o valor de atributo *pfxBlobString*.
-* *password*: A senha usada para proteger o arquivo .pfx.
+* *password*: a senha usada para proteger o arquivo .pfx.
 * *certificateThumbprint*: A impressão digital do certificado. Se você recuperar esse valor do PowerShell (por exemplo, *$certificate.Thumbprint* do snippet de código anterior), poderá usar o valor como estiver. Se você copiar o valor da caixa de diálogo Certificado Windows, lembre-se de retirar os espaços estranhos. O *certificateThumbprint* deve ser semelhante a: AF3143EB61D43F6727842115BB7F17BBCECAECAE.
 * *certificateName*: Um identificador de cadeia de caracteres amigável de sua escolha usado para identificar o certificado. O nome é usado como parte do identificador exclusivo do Resource Manager para a entidade *Microsoft.Web/certificates* que representa o certificado SSL. O nome *deve* terminar com o seguinte sufixo: \_seuNomeASEAqui_InternalLoadBalancingASE. O portal do Azure usa esse sufixo como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
 
@@ -146,7 +149,7 @@ Após o arquivo *azuredeploy.parameters.json* ser preenchido, configure o certif
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Leva cerca de 40 minutos por front-end ASE para aplicar a alteração. Por exemplo, para um ASE padrão dimensionado que usa dois front-ends, o modelo leva aproximadamente uma hora e 20 minutos para concluir. Enquanto o modelo estiver em execução, o ASE não pode ser dimensionado.  

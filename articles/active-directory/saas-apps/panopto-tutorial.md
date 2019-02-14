@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 703b8a7c5a39ee38d5f365474f9338d490b7b980
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ed15b8532e73b3e3c081172b3f74ab62098b5753
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179524"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Azure Active Directory com o Panopto
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Panopto, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Panopto habilitada para logon único
 
 > [!NOTE]

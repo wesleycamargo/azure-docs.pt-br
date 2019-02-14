@@ -1,25 +1,25 @@
 ---
 title: Armazenar em cache o Provedor de Estado de Sessão do ASP.NET | Microsoft Docs
 description: Saiba como armazenar o estado de sessão ASP.NET usando o Cache do Azure para Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: wesmc
-ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 3b10a471aafc4799fde8cb2e42b7c21c8d1eb9c4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105280"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232059"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provedor de Estado de Sessão ASP.NET para o Cache do Azure para Redis
 O Cache do Azure para Redis fornece um provedor de estado de sessão que você pode usar para armazenar o estado de sessão na memória com o Cache do Azure para Redis em vez de um banco de dados do SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cache e, em seguida, configure o aplicativo ASP.NET para o cache usando o pacote NuGet de Estado de Sessão do Cache do Azure para Redis.

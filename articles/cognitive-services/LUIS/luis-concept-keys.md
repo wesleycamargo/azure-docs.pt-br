@@ -1,22 +1,22 @@
 ---
 title: Chaves de assinatura
-titleSuffix: Language Understadning - Azure Cognitive Services
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: O LUIS usa duas chaves, a chave de criação gratuita para criar seu modelo e a chave de ponto de extremidade monitorado para consultar o ponto de extremidade de previsão com declarações de usuário.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 81744e2af75410da911ee17f2c4acd05d5a57051
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222586"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097450"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chaves de ponto de extremidade de previsão de consulta e criação no LUIS
 O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](#endpoint-key). A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando estiver pronto para publicar seu aplicativo LUIS, será necessário [criar a chave do ponto de extremidade](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) ao seu aplicativo LUIS e [usá-la com a consulta de ponto de extremidade](#use-endpoint-key-in-query). 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 4b4fa05164db402122efc745302dffe8c130b97b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2d1f5cc4883ce17da76eea815b42833b84031549
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048061"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231817"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics usando o Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -22,6 +22,8 @@ ms.locfileid: "43048061"
 Saiba como usar o Azure PowerShell para criar contas do Azure Data Lake Analytics e, em seguida, enviar e executar trabalhos do U-SQL. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Antes de começar este tutorial, você deve ter as seguintes informações:
 
@@ -35,13 +37,13 @@ Este tutorial pressupõe que você já esteja familiarizado com o uso do Azure P
 Para fazer logon com um nome de assinatura:
 
 ```
-Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Em vez do nome da assinatura, você também pode usar uma id de assinatura para fazer logon:
 
 ```
-Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 Se for bem-sucedido, a saída desse comando se parece com o seguinte texto:
@@ -57,7 +59,7 @@ CurrentStorageAccount :
 
 ## <a name="preparing-for-the-tutorial"></a>Preparando-se para o tutorial
 
-Os trechos do PowerShell neste tutorial usam essas variáveis para armazenar estas informações:
+Os snippets do PowerShell neste tutorial usam essas variáveis para armazenar estas informações:
 
 ```
 $rg = "<ResourceGroupName>"

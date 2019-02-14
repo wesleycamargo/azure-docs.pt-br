@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e786a2af8f86b69116b612c266dd40bbe7580e30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161844"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210689"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solução de erros do pacote de conteúdo dos Logs de atividades do Azure Active Directory 
 
@@ -34,7 +35,7 @@ Ao trabalhar com o Pacote de Conteúdo do Power BI para Azure AD (Azure Active D
 
 - [Falha na atualização](troubleshoot-content-pack.md#refresh-failed) 
 - [Falha ao atualizar as credenciais de fonte de dados](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Importação de dados muito demorada](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+- [Importação de dados muito demorada](#data-import-is-too-slow) 
 
 Este artigo fornece informações sobre as possíveis causas e como corrigir esses erros.
  

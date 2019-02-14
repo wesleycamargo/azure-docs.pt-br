@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef167866cb682cec71b618e972d3d402c8e050c9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771853"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180818"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Solucionar problemas de um atributo que não está sincronizando no Azure AD Connect
 
@@ -42,7 +43,7 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 
 * Importar do AAD: Objetos do Azure Active Directory são trazidos para o AAD CS.
 
-* Sincronização: **Regras de Sincronização de Entrada** e **Regras de Sincronização de Saída** são executadas na ordem de número de precedência da menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
+* Sincronização: **Regras de Sincronização de Entrada** e Regras de Sincronização de Saída são executadas na ordem de número de precedência da menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
 
 * Exportar para o AD: depois de executar a sincronização, os objetos são exportados do AD CS para o **Active Directory**.
 

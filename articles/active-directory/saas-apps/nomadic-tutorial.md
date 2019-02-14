@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: b379fdcfeb90e347629359983e6e861cea8e18d8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8c8858821d1f5b8dc770b5099b32b5ea76234446
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191679"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Tutorial: Integração do Azure Active Directory com o Nomadic
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Nomadic, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Nomadic habilitada para logon único
 
 > [!NOTE]
