@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492820"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244291"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Usar o PowerShell para criar modelos do Studio e pontos de extremidade de serviço Web por meio de um teste
 
@@ -35,7 +35,7 @@ A boa notícia é que você pode fazer isso usando a [API de readaptação do Az
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurar o teste de treinamento
-Use o exemplo [teste de treinamento](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Abra esse teste em seu workspace do [Azure Machine Learning Studio](https://studio.azureml.net).
+Use o exemplo [teste de treinamento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) na [Cortana Intelligence Gallery](http://gallery.azure.ai). Abra esse teste em seu workspace do [Azure Machine Learning Studio](https://studio.azureml.net).
 
 > [!NOTE]
 > Para acompanhar este exemplo, talvez você queira usar um workspace padrão em vez de um workspace gratuito. Você cria um ponto de extremidade para cada cliente, para um total de 10 pontos de extremidade, e isso exige um workspace padrão, pois um workspace gratuito é limitado a três pontos de extremidade. Se você tiver apenas um workspace gratuito, basta modificar os scripts para permitir apenas x locais.
@@ -63,7 +63,7 @@ Agora, você precisa implantar o serviço Web de pontuação.
 Para fazer isso, clique em **Configurar Serviço Web** abaixo das telas e selecione **Serviço Web Preditivo**. Isso criará um teste de pontuação.
 Será necessário fazer alguns pequenos ajustes para que isso funcione como um serviço Web. Remova a coluna do rótulo "cnt" dos dados de entrada e limite a saída apenas para a ID da instância e para o valor previsto correspondente.
 
-Para poupar você desse trabalho, abra o [teste preditivo](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) que já foi preparado na Galeria.
+Para poupar você desse trabalho, abra o [teste preditivo](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) que já foi preparado na Galeria.
 
 Para implantar o serviço Web, execute o teste preditivo e clique no botão **Implantar Serviço Web** abaixo da tela. Nomeie o serviço Web de pontuação “Pontuação do Aluguel de Bicicletas”.
 

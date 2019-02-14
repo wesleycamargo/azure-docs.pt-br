@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 70f6f8a7837b9e87b2720a866f14983356d23691
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0bc53edb00ea13fdfcab3cfc398e122e6ecd7632
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487669"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106317"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Exibir logs de atividade para auditar ações em recursos
 
@@ -73,6 +73,8 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
     ![Mostrar filtro no painel](./media/resource-group-audit/show-dashboard.png)
 
 ## <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Para recuperar as entradas de log, execute o comando **Get-AzLog**. Forneça parâmetros adicionais para filtrar a lista de entradas. Se você não especificar uma hora de início e de término, as entradas dos últimos sete dias serão retornadas.
 

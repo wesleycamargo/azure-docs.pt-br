@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116612"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565948"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
-No [Portal do Azure](https://portal.azure.com), você pode configurar o monitoramento de desempenho de dos seus aplicativos Web, back-end móveis e aplicativos de API no [Serviço de Aplicativo do Azure](../../app-service/overview.md). O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) equipa seu aplicativo para enviar a telemetria sobre suas atividades para o serviço Application Insights, onde ela é armazenada e analisada. Lá, os gráficos de métricas e as ferramentas de pesquisa podem ser usados para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar o uso.
+No [portal do Azure](https://portal.azure.com), você pode configurar o monitoramento de desempenho dos aplicativos Web, dos back-ends móveis e dos aplicativos de API no [Serviço de Aplicativo do Azure](../../app-service/overview.md). O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) equipa seu aplicativo para enviar a telemetria sobre suas atividades para o serviço Application Insights, onde ela é armazenada e analisada. Lá, os gráficos de métricas e as ferramentas de pesquisa podem ser usados para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar o uso.
 
 ## <a name="run-time-or-build-time"></a>Tempo de execução ou tempo de compilação
 Você pode configurar o monitoramento por meio da instrumentação do aplicativo de duas maneiras:
@@ -42,14 +42,27 @@ Se você já está executando um serviço de aplicativo no Azure, já está rece
 
     ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource.png)
 
-2. Depois de especificar qual recurso usar, você pode escolher como deseja que o Application Insights colete dados por plataforma para seu aplicativo.
+2. Depois de especificar qual recurso deve ser usado, você pode escolher como deseja que o Application Insights colete dados por plataforma para seu aplicativo. (O monitoramento de aplicativo do ASP.NET está ativado por padrão com dois níveis diferentes de coleção.)
 
-    ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options.png)
+    ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new.png)
+
+    * O nível **Coleção básica** do .NET oferece recursos essenciais de APM de instância única.
+    
+    * O nível **Coleção recomendada** do .NET:
+        * Adiciona as tendências de uso de CPU, memória e E/S.
+        * Correlaciona microsserviços entre limites de solicitação/dependência.
+        * Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações.
+        * Coleta as exceções não tratadas pelo processo de host.
+        * Aumenta a precisão de métricas de APM com carga quando a amostragem é usada.
+    
+    O .NET core oferece **Coleção recomendada** ou Desabilitada para .NET Core 2.0 e 2.1.
 
 3. **Instrumente seu serviço de aplicativo** após a instalação do Application Insights.
 
    **Habilite o monitoramento do lado do cliente** para telemetria de usuário e exibição de página.
 
+    (Isso está habilitado por padrão em aplicativos .NET Core com **Coleção recomendada**, independentemente de a configuração do aplicativo 'APPINSIGHTS_JAVASCRIPT_ENABLED' estar presente. O suporte granular baseado em interface do usuário para desabilitar o monitoramento do lado do cliente não está disponível atualmente para o .NET Core.)
+    
    * Selecione Configurações > Configurações do Aplicativo
    * Em configurações do aplicativo, adicione um novo par de chave/valor:
 
@@ -57,6 +70,7 @@ Se você já está executando um serviço de aplicativo no Azure, já está rece
 
     Valor: `true`
    * **Salve** as configurações e **Reinicie** seu aplicativo.
+
 4. Explore os dados de monitoramento de seu aplicativo selecionando **Configurações** >  **Insights de aplicativos** > **Veja mais em Insights de aplicativos**.
 
 Posteriormente, você poderá compilar o aplicativo com o Application Insights, se desejar.
@@ -92,20 +106,25 @@ O Application Insights pode fornecer dados de telemetria mais detalhados instala
 * [Carregar dados da página da Web](../../azure-monitor/app/javascript.md)
 * [Telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
 
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
-
 ## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED gera resposta HTML incompleta em aplicativos Web NET CORE.
 
 Habilitar o Javascript por meio de Serviços de Aplicativos pode fazer respostas html serem cortadas.
 
-- Solução alternativa 1: definir a Configuração de Aplicativo APPINSIGHTS_JAVASCRIPT_ENABLED como false ou removê-la completamente e reiniciar
-- Solução alternativa 2: adicionar o sdk por meio de código e remover a extensão (o Depurador de Instantâneos e o Profiler não funcionam com essa configuração)
+* Solução alternativa 1: definir a Configuração de Aplicativo APPINSIGHTS_JAVASCRIPT_ENABLED como false ou removê-la completamente e reiniciar
+* Solução alternativa 2: adicionar o sdk por meio de código e remover a extensão (o Depurador de Instantâneos e o Profiler não funcionam com essa configuração)
 
 Estamos acompanhando esse problema [aqui](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+Os itens abaixo **não têm suporte** para .NET Core atualmente:
+
+* Implantação autossuficiente.
+* Aplicativos destinados ao .NET Framework.
+* Aplicativos .NET Core 2.2.
+
+> [!NOTE]
+> Há suporte para .NET Core 2.0 e .NET Core 2.1. Este artigo será atualizado quando o suporte do .NET Core 2.2 for adicionado.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](../../azure-monitor/app/profiler.md).

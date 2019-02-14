@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 02/05/2019
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232117"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768555"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Recursos de visualização do Azure Stream Analytics
 
@@ -23,13 +23,13 @@ Este artigo resume todos os recursos atualmente em visualização do Azure Strea
 
 Os seguintes recursos estão em pré-visualização pública. Você pode aproveitar esses recursos hoje, mas não os use em seu ambiente de produção.
 
+### <a name="sql-database-reference-data"></a>Dados de referência de Banco de Dados SQL
+
+O Azure Stream Analytics oferece suporte ao Banco de Dados SQL do Azure como uma fonte de entrada para dados de referência. É possível usar o Banco de Dados SQL como dados de referência para o trabalho do Stream Analytics no portal do Azure e no Visual Studio com as ferramentas do Stream Analytics. Para obter mais informações, visite [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
+
 ### <a name="integration-with-azure-machine-learning"></a>Integração com o Azure Machine Learning
 
 Você pode dimensionar os trabalhos do Stream Analytics com as funções de Aprendizado de Máquina (ML). Para saber mais sobre como usar as funções do ML em seu trabalho do Stream Analytics, visite [Dimensionar seu trabalho do Stream Analytics com as funções do Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com [Realizando análise de sentimentos usando o Azure Stream Analytics e o Aprendizado de Máquina do Azure](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="blob-output-partitioning-by-custom-time"></a>Saída de blob, o particionamento por meio de tempo personalizado
-
-O Azure Stream Analytics pode gerar saída para o armazenamento do Blob com base em atributos de horário personalizados. Para obter mais informações, visite [Padrões de caminho personalizados de DateTime para a saída de armazenamento de blobs do Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>Agregado definido pelo usuário de JavaScript
 
@@ -45,7 +45,7 @@ Com as funções definidas pelo usuário padrão do .NET, você pode executar o 
 
 ## <a name="private-previews"></a>Versões prévias privadas
 
-Os seguintes recursos estão em versão prévia privada. Para acessar essas visualizações, visite a página de [inscrição particular](https://aka.ms/ASApreview1) da visualização do Azure Stream Analytics
+Os seguintes recursos estão em versão prévia privada.
 
 ### <a name="anomaly-detection"></a>Detecção de anomalias
 
@@ -55,16 +55,16 @@ O Azure Stream Analytics apresenta novos modelos de aprendizado de máquina com 
 
 Os desenvolvedores agora podem implementar deserializadores personalizados em C# para desserializar os eventos recebidos pelo Azure Stream Analytics. Exemplos de formatos que podem ser desserializados incluem Parquet, Protobuf, XML ou qualquer formato binário.
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>O particionamento por meio do atributo personalizado de saída de blob
-
-Agora é possível particionar sua saída do Azure Stream Analytics para armazenamento de Blob com base em qualquer coluna em sua consulta.
-
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Identidades gerenciadas para autenticação de recursos do Azure no Armazenamento do Data Lake do Azure
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Identidades gerenciadas para autenticação de recursos do Azure Data Lake Storage
 
 Agora você pode operacionalizar seus pipelines em tempo real com identidades gerenciadas para autenticação baseada em recursos do Azure enquanto grava no Azure Data Lake Storage Gen1, permitindo que você crie tarefas programaticamente. Para obter mais informações, visite [Use as identidades gerenciadas dos recursos do Azure para autenticar as tarefas do Azure Stream Analytics para a saída Gen1 do armazenamento do Lake Data do Azure](stream-analytics-managed-identities-adls.md).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para Azure Stream Analytics
+
+Os trabalhos do Azure Stream Analytics podem ser criados no Visual Studio Code.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
 
-* [4 novos recursos agora disponíveis no Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)
+* [Quatro novos recursos agora disponíveis no Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

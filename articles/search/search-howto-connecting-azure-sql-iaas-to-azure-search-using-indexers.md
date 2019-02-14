@@ -6,28 +6,32 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312011"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751371"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure
 Conforme observado em [Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), é possível criar indexadores no **SQL Server em VMs do Azure** (ou **VMs do SQL Azure**) usando o Azure Search, mas há alguns pré-requisitos relacionados à segurança que precisam ser verificados primeiro. 
 
-**Duração da tarefa:** Cerca de 30 minutos, supondo que você já tenha instalado um certificado na VM.
+Conexões do Azure Search ao SQL Server em uma máquina virtual é uma conexão de Internet pública. Todas as medidas de segurança que você normalmente seguiria para essas conexões se aplicam aqui também:
+
++ Obter um certificado de um [provedor de Autoridade de Certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio totalmente qualificado da instância do SQL Server na VM do Azure.
++ Instalar o certificado na VM e, em seguida, habilitar e configurar conexões criptografadas na VM usando as instruções neste artigo.
 
 ## <a name="enable-encrypted-connections"></a>Habilitar conexões criptografadas
 O Azure Search requer um canal criptografado para todas as solicitações de indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer isso funcionar.
 
 1. Verifique as propriedades do certificado para verificar se o nome da entidade é o nome de domínio totalmente qualificado (FQDN) da VM do Azure. Você pode usar uma ferramenta como CertUtils ou o snap-in de certificados para exibir as propriedades. Você pode obter o FQDN na seção Essentials da folha de serviço da VM, no campo **rótulo de nome de DNS/endereço IP público** , no [portal do Azure](https://portal.azure.com/).
    
-   * Para VMs criadas usando o mais recente modelo do **Resource Manager**, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Para VMs antigas criadas como uma VM **clássica**, o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`. 
+   * Para VMs criadas usando o mais recente modelo do **Resource Manager**, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`
+   * Para VMs antigas criadas como uma VM **clássica**, o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`.
+
 2. Configure o SQL Server para usar o certificado usando o Editor do Registro (regedit). 
    
     Embora o SQL Server Configuration Manager seja geralmente usado para essa tarefa, você não pode usá-lo para esse cenário. Ele não localizará o certificado importado porque o FQDN da VM no Azure não corresponde ao FQDN conforme determinado pela VM (ele identifica o domínio como o computador local ou domínio de rede ao qual ele está associado). Quando os nomes não corresponderem, use regedit para especificar o certificado.
@@ -38,9 +42,11 @@ O Azure Search requer um canal criptografado para todas as solicitações de ind
    * Defina o valor da chave do **Certificado** para a **impressão digital** do certificado SSL que você importou para a VM.
      
      Há várias maneiras de obter a impressão digital, algumas melhores do que outras. Se você copiá-la a partir do snap-in de **certificados** do MMC, você provavelmente selecionará um caractere à esquerda invisível [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta em um erro quando tentar uma conexão. Existem várias soluções alternativas para corrigir esse problema. A maneira mais fácil é a apagar e digitar novamente o primeiro caractere da impressão digital para remover o caractere à esquerda no campo de valor de chave no regedit. Como alternativa, você pode usar outra ferramenta para copiar a impressão digital.
+
 3. Conceder permissões à conta de serviço. 
    
     Verifique se a conta de serviço do SQL Server recebeu permissão apropriada na chave privada do certificado SSL. Se você ignorar essa etapa, o SQL Server não será iniciado. Você pode usar o snap-in **Certificados** ou o **CertUtils** para essa tarefa.
+    
 4. Reinicie o serviço SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade do SQL Server na VM

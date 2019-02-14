@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490916"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112556"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)
 
@@ -63,6 +63,8 @@ Quando a função de Proprietário é atribuída com êxito no escopo da conta d
 ```
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Use [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) para dar a outro usuário acesso de Proprietário na sua conta do registro.
 

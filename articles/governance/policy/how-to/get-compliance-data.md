@@ -4,17 +4,17 @@ description: Efeitos e avaliações do Azure Policy determinam a conformidade. S
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853622"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766395"
 ---
 # <a name="getting-compliance-data"></a>Obtendo dados de conformidade
 
@@ -45,6 +45,8 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 - Um recurso é implantado em um escopo com uma atribuição por meio do Gerenciador de Recursos, REST, CLI do Azure ou do Azure PowerShell. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
 
 - Ciclo de avaliação de conformidade padrão. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma política ou iniciativa de muitos recursos pode demorar, portanto, não há uma expectativa predefinida de conclusão do ciclo de avaliação. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
+
+- O provedor de recursos [Configuração de Convidado](../concepts/guest-configuration.md) é atualizado com detalhes de conformidade por um recurso gerenciado.
 
 - Exame sob demanda
 
@@ -139,6 +141,26 @@ Os eventos (acrescentar, auditar, negar, implantar) disparados pela solicitaçã
 Clique com o botão direito na linha do evento para obter mais detalhes e selecione **Mostrar logs de atividade**. A página de registro de atividade é aberta e pré-filtrada na pesquisa, mostrando detalhes da atribuição e dos eventos. O log de atividades fornece um contexto adicional e informações sobre esses eventos.
 
 ![Log de atividades de conformidade de política](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>Alterar histórico (Versão prévia)
+
+Como parte de uma nova **versão prévia pública**, os últimos quatorze dias do histórico de alterações ficarão disponíveis para um recurso não compatível. O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _comparação visual_ para cada alteração. A detecção de alteração é disparada quando as propriedades do Resource Manager de um recurso fora de conformidade são adicionadas, removidas ou alteradas.
+
+1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+
+1. Na página **Visão Geral** ou **Conformidade**, escolha uma política que seja _Não compatível_.
+
+1. Na guia **Conformidade do recurso** da página **Conformidade com a política**, escolha um recurso que seja _Não compatível_.
+
+1. Escolha a guia **Histórico de Alterações (versão prévia)** na página **Conformidade do Recurso**. Se houver uma lista de alterações detectadas, ela será exibida.
+
+   ![Histórico de alterações de política - Guia](../media/getting-compliance-data/change-history-tab.png)
+
+1. Escolha uma das alterações detectadas. A _comparação visual_ para o recurso não compatível é apresentada na página **Histórico de alterações**.
+
+   ![Histórico de alterações de política - Comparação visual](../media/getting-compliance-data/change-history-visual-diff.png)
+
+A _comparação visual_ ajuda a identificar alterações em um recurso. As alterações detectadas podem não estar relacionadas com o que causou a não conformidade do recurso em relação à política escolhida.
 
 ## <a name="command-line"></a>Linha de comando
 

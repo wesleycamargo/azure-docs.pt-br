@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462011"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728395"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do Banco de Dados SQL do Azure
 
@@ -40,14 +40,14 @@ Os [pontos de extremidade de serviço de rede virtual](../virtual-network/virtua
 As [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) permitem que o Banco de Dados SQL do Azure aceite apenas comunicações enviadas de sub-redes selecionadas dentro de uma rede virtual.
 
 > [!NOTE]
-> Controlando o acesso com regras de firewall faz *não* se aplicam ao **Instância Gerenciada do Banco de Dados SQL do Azure**. Para saber mais sobre a configuração de rede necessária, confira [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) (conectando-se a uma Instância Gerenciada)
+> O controle do acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Para saber mais sobre a configuração de rede necessária, confira [conectar-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>gerenciamento de acesso
 
 > [!IMPORTANT]
 > O gerenciamento de bancos de dados e de servidores de banco de dados no Azure é controlado por atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A autenticação é o processo de provar que o usuário é quem diz ser. O Banco de Dados SQL do Azure dá suporte a dois tipos de autenticação:
 
@@ -55,7 +55,7 @@ A autenticação é o processo de provar que o usuário é quem diz ser. O Banco
 
     A autenticação do banco de dados SQL refere-se à autenticação de um usuário ao se conectar ao [Banco de Dados SQL do Azure](sql-database-technical-overview.md) usando nome de usuário e senha. Durante a criação do servidor de banco de dados do banco de dados, o logon “Administrador do servidor” com um nome de usuário e senha deve ser especificado. Usando essas credenciais, um “administrador do servidor” pode autenticar-se em qualquer banco de dados nesse servidor de banco de dados como o proprietário do banco de dados. Depois disso, os usuários e logons do SQL adicionais podem ser criados pelo administrador do servidor, que permite que os usuários se conectem usando nome de usuário e senha.
 
-- **Autenticação do Active Directory do Azure**:
+- **Autenticação do Azure Active Directory**:
 
     A autenticação do Azure Active Directory é um mecanismo de conexão com o [Banco de Dados SQL](sql-database-technical-overview.md) do Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD (Azure Active Directory). A autenticação do Azure AD permite que os administradores gerenciem centralmente as identidades e permissões de usuários de banco de dados juntamente com outros serviços da Microsoft em uma única localização central. Isso inclui a minimização do armazenamento de senha e habilita políticas centralizadas de rotação de senha.
 
@@ -64,7 +64,7 @@ A autenticação é o processo de provar que o usuário é quem diz ser. O Banco
     Mais opções de autenticação do Azure AD disponíveis são conexões de [Autenticação Universal do Active Directory para SQL Server Management Studio](sql-database-ssms-mfa-authentication.md), incluindo [Autenticação Multifator](../active-directory/authentication/concept-mfa-howitworks.md) e [Acesso Condicional](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> O gerenciamento de bancos de dados e servidores no Azure é controlado pelas atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md). Controlando o acesso com regras de firewall faz *não* se aplicam ao **Instância Gerenciada do Banco de Dados SQL do Azure**. Consulte o seguinte artigo sobre [Conectar-se a uma Instância Gerenciada](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
+> O gerenciamento de bancos de dados e servidores no Azure é controlado pelas atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md). O controle do acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Para obter mais informações sobre a configuração de rede necessária, confira o seguinte artigo sobre [conectar-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md).
 
 A autorização refere-se às permissões atribuídas a um usuário em um Banco de Dados SQL do Azure e determina o que o usuário tem permissão para fazer. As permissões são controladas pela adição de contas de usuário a [funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles) que definem permissões de nível de banco de dados ou concessão ao usuário de determinadas [permissões de nível de objeto](/sql/relational-databases/security/permissions-database-engine). Para saber mais, confira [Logins and users](sql-database-manage-logins.md) (Logons e usuários)
 
@@ -88,9 +88,9 @@ O Banco de Dados SQL protege os dados do cliente fornecendo funcionalidades de a
 
 A Auditoria do Banco de Dados SQL rastreia as atividades do banco de dados e ajuda a manter a conformidade com os padrões de segurança registrando eventos de banco de dados em um log de auditoria em uma conta de Armazenamento do Azure de propriedade do cliente. A auditoria permite que os usuários monitorem as atividades do banco de dados em andamento, além de analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira Introdução à [Auditoria do Banco de Dados SQL](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>Detecção de ameaças do SQL
+### <a name="threat-detection"></a>Detecção de ameaças
 
-A Detecção de Ameaças aprimora a auditoria analisando logs de auditoria para ver se há comportamento incomum e tentativas potencialmente prejudiciais de acessar ou explorar bancos de dados. Os alertas são criados para atividades suspeitas ou padrões de acesso anormais como ataques de injeção de SQL, potencial infiltração de dados e ataques de senha de força bruta. Os alertas da Detecção de Ameaças são exibidos na [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/), em que são fornecidos detalhes de atividades suspeitas e recomendações para investigação adicional junto com ações para atenuar a ameaça. A Detecção de Ameaças custa US$ 15/servidor/mês. É gratuito nos primeiros 60 dias. Para obter mais informações, confira [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
+A detecção de ameaças aprimora a auditoria analisando logs de auditoria para ver se há comportamento incomum e tentativas potencialmente prejudiciais de acessar ou explorar bancos de dados. Os alertas são criados para atividades suspeitas ou padrões de acesso anormais como ataques de injeção de SQL, potencial infiltração de dados e ataques de senha de força bruta. Os alertas da detecção de ameaças são exibidos na [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/), em que são fornecidos detalhes de atividades suspeitas e recomendações para investigação adicional junto com ações para atenuar a ameaça. A detecção de ameaças custa US$ 15/servidor/mês. É gratuito nos primeiros 60 dias. Para obter mais informações, confira [Introdução à detecção de ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,19 +137,19 @@ O [mascaramento de dados estáticos](/sql/relational-databases/security/static-d
 
 ## <a name="security-management"></a>Gerenciamento de segurança
 
-### <a name="sql-vulnerability-assessment"></a>Avaliação de vulnerabilidade do SQL
+### <a name="vulnerability-assessment"></a>Avaliação de vulnerabilidade
 
-A [Avaliação de Vulnerabilidade do SQL](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudar a corrigir vulnerabilidades potenciais do banco de dados com o objetivo de melhorar de maneira proativa a segurança geral do banco de dados. A VA (Avaliação de Vulnerabilidade) faz parte da oferta da ADS (Segurança de Dados Avançada) do SQL, um pacote unificado para funcionalidades avançadas de segurança do SQL. A Avaliação de Vulnerabilidade pode ser acessada e gerenciada por meio do portal central da ADS do SQL.
+A [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudar a corrigir vulnerabilidades potenciais do banco de dados com o objetivo de melhorar de maneira proativa a segurança geral do banco de dados. A avaliação de vulnerabilidade (VA) faz parte da oferta de segurança de dados avançada (ADS), um pacote unificado para funcionalidades avançadas de segurança do SQL. A avaliação de vulnerabilidade pode ser acessada e gerenciada por meio do portal central da ADS do SQL.
 
-### <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
+### <a name="data-discovery--classification"></a>Descoberta de dados e classificação
 
-A Descoberta e Classificação de Dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
+A descoberta e classificação de dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
 
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlando o acesso e fortalecendo a segurança de bancos de dados que contêm dados altamente confidenciais.
 - Ajudar a cumprir os padrões de privacidade de dados e os requisitos de conformidade a normas.
 
-Para obter mais informações, consulte [Introdução à Descoberta e Classificação de Dados do BD SQL](sql-database-data-discovery-and-classification.md).
+Para obter mais informações, confira [Introdução à descoberta e classificação de dados](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Conformidade
 

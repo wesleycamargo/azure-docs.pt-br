@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100165"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746414"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar a sua implementação do ingresso do Azure Active Directory híbrido
 
@@ -111,7 +111,7 @@ Se a sua organização exigir acesso à Internet por meio de um proxy de saída 
 
 A associação híbrida do Azure AD é um processo para registrar automaticamente seus dispositivos associados ao domínio local com o Azure AD. Há casos em que você não quer que todos os seus dispositivos se registrem automaticamente. Se isso for verdade para você, consulte [Como controlar a associação híbrida do Azure AD aos seus dispositivos](hybrid-azuread-join-control.md).
 
-Se os dispositivos incluídos no domínio do Windows 10 já estiverem [registrados pelo Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) no seu locatário, você deverá considerar a remoção desse estado antes de habilitar o ingresso do Azure Active Directory. O dispositivo não pode apresentar o estado duplo de ingresso do Azure Active Directory híbrido e registrado pelo Azure Active Directory. No Windows 10 versão 1809, as seguintes alterações foram feitas para evitar esse estado duplo: 
+Se os dispositivos incluídos no domínio do Windows 10 já estiverem [registrados pelo Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) em seu locatário, recomendamos remover esse estado antes de habilitar o ingresso no Azure AD Híbrido. No Windows 10 versão 1809, as seguintes alterações foram feitas para evitar esse estado duplo: 
  - Qualquer estado existente registrado pelo Azure Active Directory será automaticamente removido depois que os dispositivos forem incluídos no Azure Active Directory Híbrido. 
  - Você pode impedir que o seu dispositivo incluído no domínio seja registrado pelo Azure Active Directory adicionando esta chave do Registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
@@ -145,20 +145,20 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
 - [Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados](hybrid-azuread-join-managed-domains.md)
 
 
- Se a instalação da versão necessária do Azure AD Connect não for uma opção, consulte [como configurar manualmente o registro do dispositivo](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ Se a instalação da versão necessária do Azure AD Connect não for uma opção, consulte [como configurar manualmente o registro do dispositivo](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte à ID de logon alternativa no ingresso do Azure Active Directory Híbrido
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Suporte ao UPN do AD local no ingresso no Azure AD Híbrido
 
-O ingresso do Azure Active Directory Híbrido no Windows 10 fornece suporte limitado para [IDs de logon alternativas](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de logon alternativa, no [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de IDs de logon alternativas que podem existir em seu ambiente:
+Às vezes, seus UPNs do AD local podem ser diferentes dos UPNs do Azure AD. Nesses casos, o ingresso no Azure AD Híbrido do Windows 10 dá suporte limitado aos UPNs do AD local com base no [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de UPNs do AD local que podem existir em seu ambiente:
 
- - ID de logon alternativa roteável: uma ID de logon alternativa roteável tem um domínio verificado válido, que é catalogado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário, contoso.org e contoso.co.uk são domínios válidos de propriedade Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - UPN roteável: um nome UPN roteável tem um domínio verificado válido, que é registrado em um registrador de domínios. Por exemplo, se contoso.com é o domínio primário do Azure AD, contoso.org é o domínio primário no AD local pertencente à Contoso e [verificado no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - ID de logon alternativa não roteável: uma ID de logon alternativa não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com for o domínio primário, contoso. local não será um domínio verificável na Internet, mas será usado na rede da Contoso.
+ - UPN não roteável: um UPN não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio primário no Azure AD, contoso.local é o domínio primário no AD local, mas não é um domínio verificável na Internet e é usado apenas na rede da Contoso.
  
-A tabela a seguir apresenta detalhes sobre o suporte para qualquer uma dessas IDs de logon alternativas no ingresso do Azure Active Directory no Windows 10
+A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no ingresso no Azure AD Híbrido do Windows 10
 
-|Tipo de ID de logon alternativa|Tipo de domínio|Versão do Windows 10|DESCRIÇÃO|
+|Tipo de UPN do AD local|Tipo de domínio|Versão do Windows 10|DESCRIÇÃO|
 |-----|-----|-----|-----|
 |Roteável|Federado |Da versão 1703|Disponível para o público geral|
 |Roteável|Gerenciada|Da versão 1709|Atualmente em versão prévia privada. Não há suporte para SSPR do Azure AD |

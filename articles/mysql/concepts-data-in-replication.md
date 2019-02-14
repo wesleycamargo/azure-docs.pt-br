@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
-ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544219"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691515"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
 
-A Replicação nos dados permite sincronizar dados de um Servidor MySQL em execução local, em máquinas virtuais ou em serviços de banco de dados hospedados por outros provedores de nuvem com o serviço do Banco de Dados do Azure para MySQL. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+A Replicação de Dados permite sincronizar os dados de um servidor MySQL externo no serviço Banco de Dados do Azure para MySQL. O servidor externo pode ser local, em máquinas virtuais ou um serviço de banco de dados hospedado por outros provedores de nuvem. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>Quando usar a replicação nos dados
 Os cenários principais nos quais considerar o uso da replicação nos dados são:
@@ -36,8 +36,9 @@ O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en
 - O usuário deve ter permissões para configurar o log binário e criar novos usuários no servidor mestre.
 
 ### <a name="other"></a>Outros
-- A replicação de dados é suportada apenas em camadas de preços de uso geral e de otimização de memória
+- A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.
 - O GTID (identificadores de transação globais) não são compatíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar a replicação nos dados](howto-data-in-replication.md)
+- Saiba mais sobre [replicar no Azure com réplicas de leitura](concepts-read-replicas.md)

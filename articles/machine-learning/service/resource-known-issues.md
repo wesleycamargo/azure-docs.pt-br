@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238604"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746483"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e solução de problemas do serviço Azure Machine Learning
 
@@ -27,6 +27,7 @@ Este artigo ajuda a localizar e corrigir os erros ou as falhas encontrados ao us
 **Mensagem de erro: não é possível desinstalar 'PyYAML'**
 
 SDK do Azure Machine Learning para Python: O PyYAML é um projeto de distutils instalado. Portanto, não é possível determinar com precisão quais arquivos pertencem a ele no caso de uma desinstalação parcial. Para continuar a instalação do SDK ignorando esse erro, use:
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ Falha na criação da imagem ao implantar o serviço Web. Uma solução alternat
 
 ## <a name="deployment-failure"></a>Falha na implantação
 
-Se você observar o erro 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' foi desativado com <Signals.SIGKILL: 9>, altere o SKU das VMs usadas na implantação para outras que tenham memória superior.
+Caso veja `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, altere o SKU das VMs usadas na implantação para uma que tenha mais memória.
 
 ## <a name="fpgas"></a>FPGAs
 Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
@@ -50,7 +51,7 @@ Não será possível implantar modelos em FPGAs até que você tenha solicitado 
 
 Problemas do Databricks e do Azure Machine Learning.
 
-1. O SDK do AML falha na instalação no Databricks quando mais pacotes são instalados.
+1. Falhas de instalação do SDK do Azure Machine Learning no Databricks quando mais pacotes são instalados.
 
    Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão lib. Esse problema está relacionado ao Databricks, e não ao SDK de Serviço do Azure Machine Learning. Você pode enfrentá-lo com outras bibliotecas também. Exemplo:
    ```python
@@ -60,7 +61,7 @@ Problemas do Databricks e do Azure Machine Learning.
 
 2. Ao usar o Machine Learning Automatizado no Databricks, se você quiser cancelar uma execução e iniciar um novo teste em execução, reinicie o seu cluster do Azure Databricks.
 
-3. Nas configurações de ML automatizado, quando você tiver mais de dez iterações, defina show_output como False ao enviar sua execução.
+3. Nas configurações de ML automatizada, se você tiver mais de 10 iterações, defina `show_output` para `False` ao enviar a execução.
 
 
 ## <a name="azure-portal"></a>Portal do Azure
@@ -73,6 +74,20 @@ Este é o local em que ficam os arquivos de log:
 ## <a name="resource-quotas"></a>Cotas de recursos
 
 Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode encontrar ao trabalhar com o Azure Machine Learning.
+
+## <a name="authentication-errors"></a>Erros de autenticação
+
+Se executar uma operação de gerenciamento em um destino de computação de um trabalho remoto, você receberá um dos seguintes erros:
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um Pipeline de ML que é enviado para execução remota.
 
 ## <a name="get-more-support"></a>Obter mais suporte
 

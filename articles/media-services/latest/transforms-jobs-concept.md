@@ -9,20 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 95079813cf3ade41d17393168116e4767ca26e99
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742772"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743728"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Trabalhos
  
-Use [Transformações](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada **Transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar os arquivos de áudio ou vídeos. 
+Use [Transformações](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada **Transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar os arquivos de áudio ou vídeos. Uma única transformação pode aplicar mais de uma regra. Por exemplo, uma transformação poderia especificar que cada vídeo seja codificado em um arquivo MP4 em uma determinada taxa de bits, e que uma imagem em miniatura gerada desde o primeiro quadro do vídeo. Você precisaria adicionar uma entrada de TransformOutput para cada regra que você deseja incluir em sua Transformação. Você pode criar Transformações em sua conta dos Serviços de Mídia usando a API v3 dos Serviços de Mídia ou um dos SDKs publicados. A API é controlada pelo Azure Resource Manager v3, portanto, você também pode usar modelos do Azure Resource Manager para criar Transformações na sua conta dos Serviços de Mídia do Microsoft Azure. O controle de acesso baseado em função pode ser usado para bloquear o acesso a transformações.
 
-Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os serviços de mídia do Azure para aplicar a **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **Trabalho** especifica informações como o local do vídeo de entrada e o local para a saída. É possível especificar a localização do vídeo de entrada usando: URLs HTTPS, URLs SAS, ou [Ativos dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/assets).  
+A operação de atualização na entidade [Transformação](https://docs.microsoft.com/rest/api/media/transforms) serve para fazer alterações na descrição ou nas prioridades do TransformOutputs subjacente. É recomendável que essas atualizações sejam realizadas depois que todos os trabalhos em andamento forem concluídos. Se você pretende reescrever a receita, precisa criar uma nova transformação.
+
+Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os serviços de mídia do Azure para aplicar a **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Quando a Transformação for criada, você poderá enviar trabalhos usando as APIs dos Serviços de Mídia ou um dos SDKs publicados. O **Trabalho** especifica informações como o local do vídeo de entrada e o local para a saída. É possível especificar a localização do vídeo de entrada usando: URLs HTTPS, URLs SAS ou [Ativos](https://docs.microsoft.com/rest/api/media/assets). O progresso e o estado de trabalhos podem ser obtidos pelo monitoramento de eventos com a Grade de Eventos do Azure. Para obter mais informações, consulte [Monitorar eventos usando EventGrid](job-state-events-cli-how-to.md).
+
+A operação de atualização na entidade [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) pode ser usada para modificar as propriedades *description* e *priority* depois que o trabalho é enviado. Uma alteração na propriedade *priority* só será eficaz se o trabalho ainda estiver na fila. Se o trabalho tiver iniciado o processamento ou tiver sido concluído, a alteração da prioridade não terá qualquer efeito.
+
+> [!NOTE]
+> Propriedades de **Transformação** e **Trabalho** que são do tipo Datetime estão sempre em formato UTC.
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 
@@ -30,6 +37,8 @@ Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação
 2. Enviar Trabalhos sob essa Transformação 
 3. Listar Transformações 
 4. Exclua uma transformação, se você não planeja usá-la no futuro. 
+
+### <a name="example"></a>Exemplo
 
 Suponha que você deseja extrair o primeiro quadro de todos os seus vídeos como uma imagem em miniatura. Estas são as etapas necessárias: 
 
@@ -40,100 +49,10 @@ Suponha que você deseja extrair o primeiro quadro de todos os seus vídeos como
 
 Uma **Transformação** ajuda você a criar uma vez a receita (Etapa 1) e enviar trabalhos usando essa receita (Etapa 2).
 
-## <a name="transforms"></a>Transformações
+## <a name="paging"></a>Paginamento
 
-Você pode criar transformações em sua conta de Serviços de Mídia do Microsoft Azure usando a API v3 diretamente ou usando qualquer uma das SDKs publicados. A API é controlada pelo Azure Resource Manager v3, portanto, você também pode usar modelos do Azure Resource Manager para criar Transformações na sua conta dos Serviços de Mídia do Microsoft Azure. O controle de acesso baseado em função pode ser usado para bloquear o acesso a transformações.
-
-### <a name="transform-definition"></a>Definição de transformação
-
-A tabela a seguir mostra as propriedades da transformação e fornece suas definições.
-
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|ID de recurso totalmente qualificada para o recurso.|
-|Nome|O nome do recurso.|
-|properties.created |A data e hora UTC quando a transformação foi criada no formato “AAAA-MM-DDThh:mm:ssZ”.|
-|properties.description |Uma descrição detalhada opcional da transformação.|
-|properties.lastModified |A data e hora UTC quando a transformação foi atualizada no formato “AAAA-MM-DDThh:mm:ssZ”.|
-|properties.outputs |Uma matriz de um ou mais TransformOutputs que a Transformação deve gerar.|
-|Tipo|Tipo do recurso.|
-
-Para a definição completa, consulte [Transformações](https://docs.microsoft.com/rest/api/media/transforms).
-
-Conforme explicado acima, uma transformação ajuda a criar uma receita ou a regra para processar seus vídeos. Uma única transformação pode aplicar mais de uma regra. Por exemplo, uma transformação poderia especificar que cada vídeo seja codificado em um arquivo MP4 em uma determinada taxa de bits, e que uma imagem em miniatura gerada desde o primeiro quadro do vídeo. Você precisaria adicionar uma entrada de TransformOutput para cada regra que você deseja incluir em sua Transformação.
-
-> [!NOTE]
-> Enquanto a definição de Transformações dá suporte a uma operação de atualização, você deve ter cuidado para garantir que todos os trabalhos em andamento concluir antes de fazer uma modificação. Normalmente, você atualizaria uma transformação existente para alterar a descrição ou modificar as prioridades do TransformOutputs subjacente. Se você quisesse reescrever a receita, em seguida, você criaria uma nova transformação.
-
-## <a name="jobs"></a>Trabalhos
-
-Quando uma transformação tiver sido criada, você pode enviar trabalhos usando as APIs de Serviços de Mídia do Microsoft Azure ou qualquer uma das SDKs publicadas. O progresso e o estado de trabalhos podem ser obtidos pelo monitoramento de eventos com a Grade de Eventos do Azure. Para obter mais informações, consulte [Monitorar eventos usando EventGrid](job-state-events-cli-how-to.md ).
-
-### <a name="jobs-definition"></a>Definição de trabalho
-
-A tabela a seguir mostra as propriedades de trabalhos e fornece suas definições.
-
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|ID de recurso totalmente qualificada para o recurso.|
-|Nome   |O nome do recurso.|
-|properties.correlationData |O Cliente forneceu os dados de correlação (imutáveis) que são retornados como parte das notificações de alteração de estado Job e JobOutput. Para obter mais informações, consulte [Esquemas de evento](media-services-event-schemas.md)<br/><br/>A propriedade também pode ser usada para uso com vários locatários dos Serviços de Mídia do Microsoft Azure. Você pode colocar IDs de locatário nos trabalhos. |
-|properties.created |A data e hora UTC quando a transformação foi criada no formato “AAAA-MM-DDThh:mm:ssZ”.|
-|properties.description |Descrição opcional fornecida para o cliente do trabalho.|
-|properties.input|As entradas para o trabalho.|
-|properties.lastModified    |A data e hora UTC quando o trabalho foi atualizado no formato “AAAA-MM-DDThh:mm:ssZ”.|
-|properties.outputs|As saídas para o trabalho.|
-|properties.priority    |Prioridade com que o trabalho deve ser processado. Trabalhos com prioridade mais alta são processados antes dos trabalhos de prioridade mais baixa. Se não for definido, o padrão é normal.|
-|properties.state   |Estado atual do trabalho.|
-|Tipo   |Tipo do recurso.|
-
-Para a definição completa, consulte [Trabalhos](https://docs.microsoft.com/rest/api/media/jobs).
-
-> [!NOTE]
-> Enquanto a definição de trabalhos dá suporte a uma operação de atualização, as únicas propriedades que podem ser modificadas depois que o trabalho é enviado são a descrição e a prioridade. Além disso, uma alteração para a prioridade é eficaz somente se o trabalho ainda estiver em um estado na fila. Se o trabalho tiver iniciado o processamento ou tiver sido concluído, a alteração da prioridade não tem nenhum efeito.
-
-### <a name="pagination"></a>Paginação
-
-A paginação de trabalhos é compatível com os Serviços de Mídia do Microsoft Azure v3.
-
-> [!TIP]
-> Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
-
-Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. 
-
-Se Trabalhos são criados ou excluídos durante a paginação por meio da coleção, as alterações são refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi possível fazer o download.) 
-
-O exemplo de C# a seguir mostra como enumerar todos os trabalhos na conta.
-
-```csharp            
-List<string> jobsToDelete = new List<string>();
-var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
-
-bool exit;
-do
-{
-    foreach (Job j in pageOfJobs)
-    {
-        jobsToDelete.Add(j.Name);
-    }
-
-    if (pageOfJobs.NextPageLink != null)
-    {
-        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
-        exit = false;
-    }
-    else
-    {
-        exit = true;
-    }
-}
-while (!exit);
-
-```
-
-Para obter exemplos REST, consulte [Trabalhos - Lista](https://docs.microsoft.com/rest/api/media/jobs/list)
-
+Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Transmitir arquivos de vídeo](stream-files-dotnet-quickstart.md)
+[Carregar, codificar e transmitir arquivos de vídeo](stream-files-tutorial-with-api.md)

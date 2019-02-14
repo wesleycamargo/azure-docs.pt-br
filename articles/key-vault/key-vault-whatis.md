@@ -4,7 +4,7 @@ description: O Azure Key Vault protege chaves criptográficas e segredos usados 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: f8826f0c0cb63068313a570b050531511126dbc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cf45aeb88d9638dd2f0c93bbae0b8ff79b293435
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422916"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108102"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -82,5 +82,8 @@ Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de AP
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [proteger seu cofre](key-vault-secure-your-key-vault.md)
-<!--Image references--> [1]: ./media/key-vault-what is / Azure Key Vault overview.png O Cofre de Chaves do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
+Saiba como [proteger o Key Vault](key-vault-secure-your-key-vault.md)
+
+<!--Image references-->
+[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
+O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).

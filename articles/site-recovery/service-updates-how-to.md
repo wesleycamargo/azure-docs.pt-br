@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229292"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746958"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery
 Como uma organização, você precisa descobrir como pretende manter seus dados seguros e os aplicativos/as cargas de trabalho em execução durante interrupções planejadas e não planejadas. O Azure Site Recovery contribui para sua estratégia de BCDR mantendo seus aplicativos em execução nas VMs e nos servidores físicos disponíveis caso um site fique inativo. O Site Recovery replica as cargas de trabalho em execução em VMs e servidores físicos para que eles permaneçam disponíveis em um local secundário se o site primário não estiver disponível. Ele recupera as cargas de trabalho para o site primário quando ele está ativo e em execução novamente.
@@ -97,10 +97,13 @@ Caso tenha escolhido gerenciar as atualizações manualmente, siga estas etapas:
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>Entre um site físico ou do VMware local para o Azure
 
-1. Instale a atualização primeiro no servidor de gerenciamento local. Esse é o servidor que tem as funções de servidor de Configuração e servidor de Processo. 
-2. Caso tenha servidores de processo de expansão, atualize-os em seguida.
-3. Acesse o portal do Azure e, em seguida, acesse a página **Itens Protegidos** > **Itens Replicados**.
-Selecione uma VM nessa página. Selecione o botão **Atualizar Agente** exibido na parte inferior da página de cada VM. Isso atualizará o Agente do Serviço de Mobilidade em todas as VMs protegidas.
+Antes de prosseguir com as atualizações, consulte [Instrução de suporte do Site Recovery](#support-statement-for-azure-site-recovery) para entender o caminho de atualização.
+
+1. Com base em sua instrução de suporte e a versão atual fornecida acima, instale a atualização primeiro em seu servidor de gerenciamento local, seguindo as diretrizes fornecidas [aqui](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). Esse é o servidor que tem as funções de servidor de Configuração e servidor de Processo.
+2. Caso tenha servidores de processo de expansão, atualize-os em seguida conforme as diretrizes fornecidas [aqui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Em seguida, para atualizar o agente de mobilidade em cada item protegido, vá até o portal do Azure e, em seguida, vá até a página **Itens protegidos** > **Itens replicados**. Selecione uma VM nessa página. Selecione o botão **Atualizar Agente** exibido na parte inferior da página de cada VM. Isso atualizará o Agente do Serviço de Mobilidade em todas as VMs protegidas.
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>Reinicialização do computador de origem após a atualização do agente de mobilidade
 
 Uma reinicialização é recomendada após cada atualização do agente de Mobilidade para garantir que todas as últimas alterações sejam carregadas no computador de origem. No entanto, ela **não é obrigatória**. Se a diferença entre a versão do agente durante a última reinicialização e a versão atual for maior que 4, uma reinicialização será obrigatória. Consulte a tabela a seguir para obter uma explicação detalhada.
 
@@ -111,14 +114,12 @@ Uma reinicialização é recomendada após cada atualização do agente de Mobil
 | 9.16 | 9.20 | Não obrigatório
  | 9.16 | 9.21 | Sim, primeiro atualize para 9.20 e, em seguida, reinicialize o computador antes de atualizar para 9.21, pois a diferença entre as versões (9.16, em que a última reinicialização foi executada e a versão de destino é 9.21) é > 4.
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>Links para pacotes cumulativos de atualizações atualmente compatíveis
-
 
 |Pacote cumulativo de atualizações  |Provedor  |Instalação unificada| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[Pacote cumulativo de atualizações 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[Pacote cumulativo de atualizações 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[Pacote cumulativo de atualizações 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Pacote cumulativo de atualizações 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Pacote cumulativo de atualizações 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

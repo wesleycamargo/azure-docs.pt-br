@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828172"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745377"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisando os arquivos de áudio e vídeos
 
@@ -33,7 +33,7 @@ O Serviços de Mídia do Microsoft Azure atualmente suporta as seguintes predefi
 
 |**Nome da predefinição**|**Cenário**|**Detalhes**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em AI, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio. É possível especificar o idioma o conteúdo de áudio na entrada usando o formato BCP-47 de 'marca de idioma-região'. Os idiomas com suporte são inglês ('en-US' e 'en-GB'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-DE'), árabe ('ar-EG'), russo ('ru-RU'), Hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a detecção automática de idioma será empregada. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. O recurso de detecção automática de idioma funciona melhor com gravações de áudio com fala claramente discernível. Se a detecção automática de idioma não conseguir encontrar o idioma, a transcrição será revertida para inglês.|
+|**AudioAnalyzerPreset**|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio que contenha fala em um único idioma. É possível especificar o idioma o conteúdo de áudio na entrada usando o formato BCP-47 de 'marca de idioma-região'. Os idiomas com suporte são inglês ('en-US' e 'en-GB'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-DE'), árabe ('ar-EG'), russo ('ru-RU'), Hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a detecção automática de idioma escolherá o primeiro idioma detectado e processará com o idioma selecionado para a duração do arquivo. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não suporta no momento alternar dinamicamente entre os idiomas depois que o primeiro idioma for detectado. O recurso de detecção automática de idioma funciona melhor com gravações de áudio com fala claramente discernível. Se a detecção automática de idioma não conseguir encontrar o idioma, a transcrição será revertida para inglês.|
 |**VideoAnalyzerPreset**|Analisar áudio e vídeo|Extraia insights (metadados avançados) de áudio e vídeo e gere um arquivo no formato JSON. É possível especificar se deseja extrair apenas insights de áudio ao processar um arquivo de vídeo. Para obter mais informações, consulte [Analisar vídeo](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

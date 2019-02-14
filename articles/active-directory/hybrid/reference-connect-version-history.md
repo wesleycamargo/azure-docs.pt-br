@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196269"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813238"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,9 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
 
 Download | [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="12700"></a>1.2.70.0
 

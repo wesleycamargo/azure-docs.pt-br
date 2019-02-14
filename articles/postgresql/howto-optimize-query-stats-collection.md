@@ -1,40 +1,42 @@
 ---
-title: Otimizar a coleção de estatísticas de consulta na coleção de estatísticas de consulta do servidor do Banco de Dados do Azure para PostgreSQL
+title: Otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve como é possível otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: df54693aee9a9a23b8202c90a6c23008ff7a7cb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548707"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814360"
 ---
-# <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>Otimizar a coleção de estatísticas de consulta no servidor do Banco de Dados do Azure para PostgreSQL 
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Otimizar a coleção de estatísticas de consulta no servidor do Banco de Dados do Azure para PostgreSQL 
 Este artigo descreve como otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL.
 
-## <a name="using-pgstatsstatements"></a>Usando pg_stats_statements
-**Pg_stat_statements** é uma extensão do PostgreSQL habilitada por padrão no Banco de Dados do Azure para PostgreSQL. A extensão fornece um modo para rastrear as estatísticas de execução de todas as instruções SQL executadas por um servidor. No entanto, esse módulo está associado a cada execução de consulta e é fornecido com um custo de desempenho não trivial. Habilitar **pg_stat_statements** força as gravações de texto de consulta em arquivos no disco.
+## <a name="use-pgstatsstatements"></a>Usar pg_stats_statements
+**Pg_stat_statements** é uma extensão do PostgreSQL habilitada por padrão no Banco de Dados do Azure para PostgreSQL. A extensão fornece um modo para rastrear as estatísticas de execução de todas as instruções SQL executadas por um servidor. Esse módulo é acoplado a cada execução de consulta e é fornecido com um custo de desempenho não trivial. Habilitar **pg_stat_statements** força as gravações de texto de consulta em arquivos no disco.
 
-Para clientes que tenham consultas exclusivas com texto de consulta longo ou que não estejam monitorando **pg_stat_statements** ativamente, é recomendável desabilitar **pg_stat_statements** para obter um melhor desempenho definindo `pg_stat_statements.track = NONE`.
+Se você tiver consultas exclusivas com texto de consulta longo ou não monitorar ativamente **pg_stat_statements**, desabilite **pg_stat_statements** para melhorar o desempenho. Para fazer isso, altere a configuração para `pg_stat_statements.track = NONE`.
 
-Em algumas cargas de trabalho de clientes, observamos uma melhoria de desempenho de até 50% desabilitando **pg_stat_statements**. No entanto, a desvantagem de desabilitar pg_stat_statements, é a impossibilidade de solucionar problemas de desempenho.
+Algumas cargas de trabalho de clientes têm um aumento de desempenho de até 50% quando **pg_stat_statements** é desabilitado. Em compensação, quando você desabilita pg_stat_statements, perde a capacidade de solucionar problemas de desempenho.
 
 Para definir `pg_stat_statements.track = NONE`:
 
-- No portal do Azure, navegue até a [página de gerenciamento de recursos do PostgreSQL e selecione a folha de parâmetros do servidor](howto-configure-server-parameters-using-portal.md).
+- No portal do Azure, vá para a [página de gerenciamento de recursos do PostgreSQL e escolha a folha de parâmetros do servidor](howto-configure-server-parameters-using-portal.md).
 
-![Folha de parâmetros do servidor PostgreSQL](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
+  ![Folha de parâmetros do servidor PostgreSQL](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
-- Use a [CLI do Azure](howto-configure-server-parameters-using-cli.md), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
+- Use configuração de servidor az postgres da [CLI do Azure](howto-configure-server-parameters-using-cli.md) definida como `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
-## <a name="using-query-store"></a>Usar o Repositório de Consultas 
-O recurso [Repositório de Consultas](concepts-query-store.md) no Banco de Dados do Azure para PostgreSQL fornece um método com melhor desempenho para rastrear estatísticas de consulta e é recomendado como uma alternativa ao uso de *pg_stats_statements*. 
+## <a name="use-the-query-store"></a>Usar o Repositório de Consultas 
+O recurso [Repositório de Consultas](concepts-query-store.md) no Banco de Dados do Azure para PostgreSQL fornece um método mais eficaz para rastrear as estatísticas da consulta. Recomendamos esse recurso como uma alternativa ao uso de *pg_stats_statements*. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Considere configurar `pg_stat_statements.track = NONE` no [Portal do Azure](howto-configure-server-parameters-using-portal.md) ou usar a [CLI do Azure](howto-configure-server-parameters-using-cli.md).
+Considere configurar `pg_stat_statements.track = NONE` no [portal do Azure](howto-configure-server-parameters-using-portal.md) ou usar a [CLI do Azure](howto-configure-server-parameters-using-cli.md).
 
-Consulte os [Cenários de uso do Repositório de Consultas](concepts-query-store-scenarios.md) e as [Melhores práticas do Repositório de Consultas](concepts-query-store-best-practices.md) para obter mais informações. 
+Para obter mais informações, consulte: 
+- [Cenários de uso do Repositório de Consultas](concepts-query-store-scenarios.md) 
+- [Práticas recomendadas para o Repositório de Consultas](concepts-query-store-best-practices.md) 

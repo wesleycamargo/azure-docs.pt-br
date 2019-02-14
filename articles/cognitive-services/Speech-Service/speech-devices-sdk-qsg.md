@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Pré-requisitos e instruções para começar a trabalhar com o SDK de Dispositivos de Fala.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213252"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872536"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introdução ao SDK de Dispositivos de Fala
 
@@ -46,12 +46,14 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
     Você pode [criar um modelo simples de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) ou usar o modelo LUIS, LUIS-example.json. O exemplo de modelo LUIS está disponível na [site de download do SDK de Dispositivos de Fala](https://shares.datatransfer.microsoft.com/). Para carregar o arquivo JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione **Importar novo aplicativo**e, em seguida, selecione o arquivo JSON.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
-
-1. Conectar o kit de desenvolvimento para um PC ou adaptador de energia usando um cabo USB mini. Quando o kit é conectado, um indicador de energia verde acende no painel superior.
-
-1. Conecte o kit de desenvolvimento a um computador usando um segundo cabo USB mini.
+    
+1. O kit de desenvolvimento tem dois conectores micro USB. O conector à esquerda serve para alimentar o kit de desenvolvimento e está realçado como Ligar/Desligar na imagem abaixo. O da direita serve para controlá-lo e está marcado como Depurar na imagem.
 
     ![Conectar o kit de desenvolvimento](media/speech-devices-sdk/qsg-1.png)
+       
+1. Ligue o kit de desenvolvimento usando um cabo micro USB para conectar a porta de energia a um PC ou adaptador de energia. Um indicador de energia verde acenderá sob o quadro superior.
+
+1. Para controlar o kit de desenvolvimento, conecte a porta de depuração a um computador usando um segundo cabo micro USB. É essencial usar um cabo de alta qualidade para garantir comunicações confiáveis.
 
 1. Oriente seu kit de desenvolvimento para configuração circular ou linear.
 
@@ -75,6 +77,8 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 
     > [!NOTE]
     > Esses comandos usam a ponte de depuração do Android, `adb.exe`, que faz parte da instalação do Android Studio. Essa ferramenta está localizada em C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. Você pode adicionar esse diretório para o caminho para que seja mais conveniente para invocar `adb`. Caso contrário, você deve especificar o caminho completo para a instalação do adb.exe em cada comando que invoca `adb`.
+    >
+    > Se você vir um erro `no devices/emulators found`, verifique se o cabo USB está conectado e se é um cabo de alta qualidade. Você pode usar `adb devices` para verificar se o computador pode se comunicar com o kit de desenvolvimento, já que ele retornará uma lista de dispositivos.
 
     > [!TIP]
     > Coloque o microfone e alto-falante no mudo para certificar-se de que você está trabalhando com microfones do kit de desenvolvimento de seu PC. Dessa forma, você não dispara acidentalmente o dispositivo com o áudio do PC.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c9a9b6f0127bba4efda6e691a2b7126935d81c0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d6141c3184c8915c36f22d010db39aef2460dd1c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817692"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233533"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauração no Banco de Dados do Azure para MariaDB
 
@@ -52,7 +52,7 @@ Há dois tipos de restauração disponíveis:
 O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
 > [!IMPORTANT]
-> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, contra exclusão acidental ou alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, contra exclusão acidental ou alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Restauração pontual
 

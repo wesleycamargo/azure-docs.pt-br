@@ -9,101 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f12632b20d516c81e21a50cfdda7e40d4163afc1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d9e86c45d535862e0c3d02b3f331bc40ebb7f6c7
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742211"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745114"
 ---
 # <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
 
-É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
+Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
 
-Nos Serviços de Mídia do Azure v3, uma [Política de Chave de Conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) permite que você especifique como a chave de conteúdo será entregue aos clientes finais por meio do componente Entrega de Chave dos Serviços de Mídia. Para obter mais informações, consulte [visão geral da proteção de conteúdo](content-protection-overview.md).
+Para especificar opções de criptografia em seu fluxo, você precisará criar a [Política de Chave de Conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) e associá-la ao **Localizador de Streaming**. A **Política de Chave de Conteúdo** configura como a chave de conteúdo é entregue aos clientes finais por meio do componente Distribuição de Chave dos Serviços de Mídia. Você pode permitir que os Serviços de Mídia gerem automaticamente a chave de conteúdo. Normalmente, você usaria uma chave de vida útil longa e verificaria a existência de políticas com Get. Para ter acesso à chave, você precisa chamar um método de ação separado para obter segredos ou as credenciais. Confira o exemplo a seguir.
 
-Recomenda-se reutilizar a mesma ContentKeyPolicy para todos os Ativos. ContentKeyPolicies são atualizáveis, portanto, se você quiser fazer uma rotação de chaves, poderá adicionar um novo ContentKeyPolicyOption à ContentKeyPolicy existente com uma restrição de token com as novas chaves. Ou você pode atualizar a chave de verificação principal e a lista de chaves de verificação alternativas na política e na opção existentes. Pode levar até 15 minutos para que os caches de entrega de Chaves atualizem e selecionem a política atualizada.
+As **Políticas de Chave de Conteúdo** podem ser atualizadas. Por exemplo, você poderá querer atualizar a política se precisar fazer uma rotação de chaves. Você pode atualizar a chave de verificação principal e a lista de chaves de verificação alternativas na política existente. Pode levar até 15 minutos para que os caches de entrega de Chaves atualizem e selecionem a política atualizada. 
 
-## <a name="contentkeypolicy-definition"></a>Definição ContentKeyPolicy
+> [!IMPORTANT]
+> * As propriedades de **Políticas de Conteúdo de Chave** que são do tipo Datetime estão sempre no formato UTC.
+> * Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-lo para os Localizadores de Streaming sempre que as mesmas opções forem necessárias. 
 
-A tabela a seguir mostra as propriedades do ContentKeyPolicy e fornece suas definições.
+## <a name="example"></a>Exemplo
 
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|ID de recurso totalmente qualificada para o recurso.|
-|Nome|O nome do recurso.|
-|properties.created |A data de criação da política|
-|properties.description |Uma descrição para a política.|
-|properties.lastModified|A data da última modificação da política|
-|Properties.Options |As principais opções de política.|
-|properties.policyId|A ID de política herdada.|
-|Tipo|Tipo do recurso.|
+Para obter a chave, use **GetPolicyPropertiesWithSecretsAsync**, conforme mostrado no exemplo a seguir.
 
-A definição completa, consulte [políticas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 
-O Media Services suporta as seguintes opções de consulta OData para ContentKeyPolicies: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skipToken 
-
-Descrição do operador:
-
-* Eq = igual a
-* Ne = não é igual a
-* Ge = maior que ou igual a
-* Le = menor ou igual a
-* Gt = maior que
-* Lt = menor que
-
-### <a name="filteringordering"></a>Filtragem/pedidos
-
-A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades ContentKeyPolicies: 
-
-|NOME|Filter|Classificar|
-|---|---|---|
-|ID|||
-|Nome|Eq, ne, ge, le, gt, lt|Em ordem crescente e decrescente|
-|properties.created |Eq, ne, ge, le,  gt, lt|Em ordem crescente e decrescente|
-|properties.description |Eq, ne, ge, le, gt, lt||
-|properties.lastModified|Eq, ne, ge, le, gt, lt|Em ordem crescente e decrescente|
-|Properties.Options |||
-|properties.policyId|Eq, ne||
-|Tipo|||
-
-### <a name="pagination"></a>Paginação
-
-A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 10.
-
-> [!TIP]
-> Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
-
-Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. 
-
-Se ContentKeyPolicies forem criados ou excluídos durante a paginação da coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada). 
-
-O seguinte exemplo C# mostra como enumerar todos os ContentKeyPolicies na conta.
-
-```csharp
-var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Para exemplos de REST, consulte [Políticas de Chave de Conteúdo - Lista](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Usar criptografia dinâmica AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
-
-[Use criptografia dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)
+* [Usar criptografia dinâmica AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
+* [Use criptografia dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)
+* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

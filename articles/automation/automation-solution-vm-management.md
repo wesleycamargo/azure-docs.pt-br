@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476389"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658379"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial na Automação do Azure
 
@@ -136,7 +136,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Direcionar a ação de início e parada por lista de VMs
 
-1. Adicione as tags **sequencestart** e **sequencestop** com um valor inteiro positivo às VMs que você planeja adicionar à variável **VMList**. 
+1. Adicione as marcas **sequencestart** e **sequencestop** com um valor inteiro positivo às VMs que você planeja adicionar ao parâmetro **VMList**.
 1. Execute o runbook **SequencedStartStop_Parent** com o parâmetro ACTION definido como **iniciar**, adicione uma lista de VMs separadas por vírgula no parâmetro *VMList* e defina o parâmetro WHATIF como **True**. Visualize as alterações.
 1. Configure o parâmetro **External_ExcludeVMNames** com uma lista de VMs separadas por vírgula (VM1, VM2, VM3).
 1. Esse cenário não segue as variáveis **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupnames**. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agendamento de runbooks na Automação do Azure](../automation/automation-schedules.md).
@@ -319,13 +319,29 @@ A seguir está um email de exemplo que é enviado quando a solução desliga as 
 
 ![Página da solução Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>Adicionar/excluir VMs
+
+A solução fornece a capacidade de adicionar VMs para o destino da solução ou excluir máquinas específicas da solução.
+
+### <a name="add-a-vm"></a>Adicionar uma VM
+
+Há algumas opções que você pode usar para ter certeza de que uma VM está incluída na solução Iniciar/Parar quando ela é executada.
+
+* Cada [runbook](#runbooks) pai da solução tem um parâmetro **VMList**. Você pode passar uma lista separada por vírgulas de nomes de VM para esse parâmetro quando fizer o agendamento do runbook pai apropriado para sua situação, e essas VMs serão incluídas quando a solução for executada.
+
+* Para selecionar várias VMs, defina **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** com os nomes de grupo de recursos que contêm as VMs que você deseja iniciar ou parar. Você também pode definir esse valor como `*` para fazer a solução ser executada em relação a todos os grupos de recursos na assinatura.
+
+### <a name="exclude-a-vm"></a>Excluir uma VM
+
+Para excluir uma VM da solução, você pode adicioná-la à variável **External_ExcludeVMNames**. Essa variável é uma lista separada por vírgulas de VMs específicas a serem excluídas da solução Iniciar/Parar.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificar as agendas de inicialização e desligamento
 
-O gerenciamento das agendas de inicialização e desligamento nesta solução segue as mesmas etapas descritas em [Agendando um runbook na Automação do Azure](automation-schedules.md).
+O gerenciamento das agendas de inicialização e desligamento nesta solução segue as mesmas etapas descritas em [Agendando um runbook na Automação do Azure](automation-schedules.md). É necessário haver um agendamento separado para iniciar e parar VMs.
 
-Há suporte para configurar a solução para simplesmente parar as VMs em um determinado momento. Para fazer isso, você precisa:
+Há suporte para configurar a solução para simplesmente parar as VMs em um determinado momento. Neste cenário, você acabou de criar um agendamento **Parar** e nenhum agendamento **Iniciar** correspondente. Para fazer isso, você precisa:
 
-1. Certifique-se de que você tenha adicionado os grupos de recursos das VMs para desligar na variável **External_Start_ResourceGroupNames**.
+1. Não deixe de adicionar os grupos de recursos das VMs que serão desligadas na variável **External_Stop_ResourceGroupNames**.
 2. Crie sua própria agenda para a hora em que você deseja desligar as máquinas virtuais.
 3. Navegue até o runbook **ScheduledStartStop_Parent** e clique em **Agenda**. Isso permite que você selecione a agenda que criou na etapa anterior.
 4. Selecione **Parâmetros e configurações de execução** e defina o parâmetro ACTION como "Stop".

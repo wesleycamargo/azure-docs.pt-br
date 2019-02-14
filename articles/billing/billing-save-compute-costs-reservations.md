@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 02/06/2019
 ms.author: banders
-ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a93bfd8f71c515bdd5112170f27336a0df62c6e5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902050"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818848"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -38,19 +38,23 @@ Se você tem máquinas virtuais, bancos de dados SQL ou do Azure Cosmos DB execu
 
 - Instância de Máquina Virtual Reservada: Uma reserva cobre apenas os custos de computação da máquina virtual. Não cobre encargos adicionais de software, rede e armazenamento.
 - vCore reservado do Banco de Dados SQL: Apenas os custos de computação são incluídos em uma reserva. A licença é cobrada separadamente.
-- Capacidade reservada do Azure Cosmos DB: Uma reserva cobre taxa de transferência provisionada para seus recursos, mas não cobre encargos de rede e armazenamento. 
+- Capacidade reservada do Azure Cosmos DB: Uma reserva cobre a produtividade provisionada para seus recursos, mas não cobre encargos de rede e armazenamento.
 
 Para as máquinas virtuais do Windows e banco de Dados SQL, você pode cobrir os custos de licenciamento com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Quem é elegível para comprar uma reserva?
 
-Os clientes do Azure com esses tipos de assinatura podem comprar uma reserva:
+Os clientes do Azure com os seguintes tipos de assinatura podem comprar uma reserva:
 
-- Tipo de oferta de assinatura de Contrato Enterprise (MS-AZR-0017P).
-- Tipo de oferta de assinatura [paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Você deve ter a função "Proprietário" na assinatura para comprar uma reserva.
-- Os parceiros de CSP (Provedor de Soluções na Nuvem) podem usar o portal do Azure ou o [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) para comprar Reservas do Azure.
+- Tipo de oferta de assinatura de Contrato Enterprise (MS-AZR-0017P ou MS-AZR-0148P).
+- Tipo de oferta de assinatura paga conforme o uso (MS-AZR-003P ou MS-AZR-0023P).
+- Os parceiros do Provedor de Soluções na Nuvem (CSP) podem usar o portal do Azure ou o [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) para comprar Reservas do Azure.
 
 Um desconto de reserva aplica-se apenas aos recursos associados aos tipos de assinatura Enterprise, Pagamento Conforme o Uso ou CSP.
+
+ Comprar um plano:
+
+- Você deve estar em uma função de Proprietário em pelo menos uma assinatura Enterprise ou Pagamento Conforme o Uso.
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada?
 
@@ -60,11 +64,11 @@ A reserva é cobrada no método de pagamento associado à assinatura. Se você t
 
 O desconto de reserva se aplica para o uso de recursos que correspondem aos atributos que você seleciona ao comprar a reserva. Os atributos incluem o escopo em que as VMs, os banco de dados SQL, o Azure Cosmos DB ou outros recursos correspondentes são executados. Por exemplo, caso deseje obter um desconto de reserva para quatro máquinas virtuais Standard D2 na região Oeste dos EUA, selecione a assinatura na qual as VMs estão em execução. Se as máquinas virtuais são executadas em diferentes assinaturas em sua conta ou registro, então, selecione o escopo como compartilhado. O escopo compartilhado permite que o desconto de reserva seja aplicado entre assinaturas. Você pode alterar o escopo depois de comprar uma reserva. Para obter mais informações, consulte [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md).
 
-Um desconto de reserva aplica-se apenas aos recursos associados aos tipos de assinatura Enterprise, Pagamento Conforme o Uso ou CSP. Os recursos executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva. Para registros do Enterprise, as assinaturas de Desenvolvimento/Teste do Enterprise não são qualificadas para os benefícios de reserva.
+Um desconto de reserva aplica-se apenas aos recursos associados aos tipos de assinatura Enterprise, Pagamento Conforme o Uso ou CSP. Os recursos executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
 
 Para compreender melhor como as reservas afetam a cobrança, consulte os tópicos a seguir:
 
--  [Compreender o desconto de Instâncias de VM Reservadas do Azure](billing-understand-vm-reservation-charges.md)
+- [Compreender o desconto de Instâncias de VM Reservadas do Azure](billing-understand-vm-reservation-charges.md)
 - [Compreender o desconto de reserva do Azure](billing-understand-vm-reservation-charges.md)
 - [Entender o desconto de reserva do Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md)
 - [Entender o desconto de reserva do Azure e o uso do SUSE](billing-understand-suse-reservation-charges.md)
@@ -82,18 +86,16 @@ Quando você compra uma reserva, o desconto pode ser aplicado a outras instânci
 - Capacidade reservada do Banco de Dados SQL: A cobertura de desconto depende do nível de desempenho escolhido. Para obter mais informações, confira [Entender como um desconto de reserva do Azure é aplicado](billing-understand-reservation-charges.md).
 - Capacidade reservada do Azure Cosmos DB: A cobertura de desconto depende da taxa de transferência provisionada. Para obter mais informações, confira [Entender como um desconto de reserva do Azure Cosmos DB é aplicado](billing-understand-cosmosdb-reservation-charges.md).
 
-## <a name="next-steps"></a>Próximas etapas
-
-Comece a economizar em suas máquinas virtuais comprando uma [Instância de VM Reservada](../virtual-machines/windows/prepay-reserved-vm-instances.md), uma [capacidade reservada do Banco de Dados SQL](../sql-database/sql-database-reserved-capacity.md) ou uma [capacidade reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md).
-
-Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
-
-- [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
-- [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
-- [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
-- [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
-- [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
-
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Comece a economizar em suas máquinas virtuais comprando uma [Instância de VM Reservada](../virtual-machines/windows/prepay-reserved-vm-instances.md), uma [capacidade reservada do Banco de Dados SQL](../sql-database/sql-database-reserved-capacity.md) ou uma [capacidade reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md).
+- Saiba mais sobre as Reservas do Azure com os seguintes artigos:
+    - [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
+    - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
+    - [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
+    - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
+    - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)

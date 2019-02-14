@@ -1,26 +1,21 @@
 ---
-title: Recomendações de desempenho do Azure Advisor | Microsoft Docs
+title: Melhorar o desempenho de aplicativos do Azure com o Assistente do Azure | Microsoft Docs
 description: Use o Assistente para otimizar o desempenho das implantações do Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266738"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491564"
 ---
-# <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Advisor
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure com o Assistente do Azure
 
 As recomendações de desempenho do Assistente do Azure ajudam a melhorar a velocidade e a capacidade de resposta dos aplicativos críticos para os negócios. Você pode obter recomendações de desempenho do Assistente na guia **Desempenho** do painel do Assistente.
 
@@ -49,7 +44,7 @@ Para saber mais sobre recomendações de Serviços de Aplicativos, veja [Prátic
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Usar o Managed Disks para evitar a limitação de E/S do disco
 
-O Assistente identificará as máquinas virtuais que pertencem a uma conta de armazenamento que está atingindo sua meta de escalabilidade. Isso a torna suscetível à limitação de E/S. O Assistente recomendará que essas máquinas virtuais usem Managed Disks para evitar a degradação do desempenho.
+O Assistente identificará as máquinas virtuais que pertencem a uma conta de armazenamento que está atingindo sua meta de escalabilidade. Essa condição torna essas VMs suscetíveis à limitação de E/S. O Assistente recomendará que elas usem o Managed Disks para evitar a degradação do desempenho.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Melhorar o desempenho e a confiabilidade dos discos da máquina virtual usando o Armazenamento Premium
 
@@ -67,7 +62,7 @@ O assistente identifica tabelas que não têm atualizadas [estatísticas da tabe
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Escalar verticalmente para otimizar a utilização do cache na tabelas do SQL Data Warehouse a fim de aumentar o desempenho de consultas
 
-O Assistente do Azure detecta se o SQL Data Warehouse tem um percentual alto de cache usado e uma baixa porcentagem de acessos. Isso indica que a alta remoção de cache pode afetar o desempenho do seu SQL Data Warehouse. O Assistente sugere escalar verticalmente o SQL Data Warehouse para garantir a alocação de capacidade de cache suficiente para sua carga de trabalho.
+O Assistente do Azure detecta se o SQL Data Warehouse tem um percentual alto de cache usado e uma baixa porcentagem de acessos. Essa condição indica alta remoção de cache o que pode afetar o desempenho do SQL Data Warehouse. O Assistente sugere escalar verticalmente o SQL Data Warehouse para garantir a alocação de capacidade de cache suficiente para sua carga de trabalho.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Converter tabelas do SQL Data Warehouse em tabelas replicadas para aumentar o desempenho de consultas
 
@@ -75,10 +70,10 @@ O Assistente identifica tabelas que não são replicadas, mas que se beneficiari
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migre sua Conta de Armazenamento para o Azure Resource Manager para obter todos os recursos mais recentes do Azure
 
-Migre seu modelo de implantação da Conta de Armazenamento para o ARM (Azure Resource Manager) e usufrua das implantações de modelo, mais opções de segurança e a capacidade de atualizar para uma conta GPv2 para a utilização dos recursos mais recentes do Armazenamento do Microsoft Azure. O Assistente identificará quaisquer contas de armazenamento autônomo que estão usando o modelo de implantação clássico e recomenda a migração para o modelo de implantação do ARM.
+Migre seu modelo de implantação da Conta de Armazenamento para o Azure Resource Manager (Resource Manager) e usufrua das implantações de modelo, de mais opções de segurança e da capacidade de atualizar para uma conta GPv2 a fim de poder usar os recursos mais recentes do Armazenamento do Azure. O Assistente identificará quaisquer contas de armazenamento autônomo que estão usando o modelo de implantação clássico e recomenda a migração para o modelo de implantação do Resource Manager.
 
 > [!NOTE]
-> Foi anunciada a desativação dos alertas clássicos do Azure Monitor em junho de 2019. É recomendável que você atualize sua conta de armazenamento clássica para o ARM para manter a funcionalidade de alertas com a nova plataforma. Para saber mais, confira [Desativação dos alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Os alertas clássicos no Azure Monitor estão programados para desativação em junho de 2019. Recomendamos que você atualize sua conta de armazenamento clássica para usar o Resource Manager e manter a funcionalidade de alerta com a nova plataforma. Para saber mais, confira [Desativação dos alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

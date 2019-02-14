@@ -1,23 +1,26 @@
 ---
-title: Como criar um blob no Armazenamento do Azure usando o SDK de Armazenamento do Java v7 | Microsoft Docs
+title: Como criar um blob no Armazenamento do Azure usando a biblioteca de clientes para Java v7 | Microsoft Docs
 description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca cliente do Armazenamento do Azure para o Java v7 para carregar um blob no Armazenamento do Microsoft Azure, fazer o download de um blob e listar os blobs em um contêiner.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469637"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753207"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Como carregar, baixar e listar blobs usando o SDK do Java v7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, baixar e listar blobs usando a biblioteca de clientes para Java v7
 
-Neste guia de instruções, você aprenderá como usar Java para carregar, baixar e listar blobs de bloco em um contêiner no Armazenamento de Blobs do Azure.
+Neste guia de instruções, você aprenderá como usar a biblioteca de clientes para Java v7 para carregar, baixar e listar blobs de bloco em um contêiner no Armazenamento de Blobs do Azure.
+
+> [!TIP]
+> A versão mais recente da biblioteca de clientes do Armazenamento do Azure para Java é a v10. A Microsoft recomenda que você use a versão mais recente da biblioteca de clientes, quando possível. Para começar a usar a v10, confira [Início rápido: carregar, baixar e listar blobs usando o SDK de Armazenamento de Java V10](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -130,7 +133,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
 
-Para carregar um arquivo a um blob de blocos, obtenha a referência ao blob no contêiner de destino. Após obter a referência de blob, você pode carregar dados nele usando [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Essa operação cria o blob, se ele ainda não existir, ou o substitui, se ele já existir.
+Para carregar um arquivo a um blob de blocos, obtenha a referência ao blob no contêiner de destino. Após obter a referência de blob, você pode carregar dados nele usando [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Essa operação cria o blob, se ele ainda não existir, ou o substitui, se ele já existir.
 
 O código de exemplo cria um arquivo local a ser usado para o upload e para o download, armazenando o arquivo a ser carregado como **origem** e o nome do blob no **blob**. O exemplo a seguir carrega o arquivo no seu contêiner chamado **quickstartcontainer**.
 
@@ -156,7 +159,7 @@ Blobs de bloco podem ser qualquer tipo de arquivo binário ou de texto. Os blobs
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
-Você pode obter uma lista de arquivos no contêiner usando [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs). O código a seguir recupera a lista de blobs e a percorre, mostrando os URIs dos blobs encontrados. Você pode copiar o URI da janela de comando e colá-lo em um navegador para exibir o arquivo.
+Você pode obter uma lista de arquivos no contêiner usando [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs). O código a seguir recupera a lista de blobs e a percorre, mostrando os URIs dos blobs encontrados. Você pode copiar o URI da janela de comando e colá-lo em um navegador para exibir o arquivo.
 
 ```java
 //Listing contents of container
@@ -182,7 +185,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais dos blobs carregados, você poderá excluir o contêiner inteiro usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Esse método também exclui os arquivos no contêiner.
+Se você não precisar mais dos blobs carregados, você poderá excluir o contêiner inteiro usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Esse método também exclui os arquivos no contêiner.
 
 ```java
 try {
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 Neste artigo, você aprendeu a transferir arquivos entre um disco local e o Armazenamento de Blobs do Azure usando Java. Para saber mais sobre como trabalhar com Java, prossiga para o nosso repositório de código de origem do GitHub.
 
 > [!div class="nextstepaction"]
-> [SDK do Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java) 
-> [Referência da API](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+> [SDK v10 do Armazenamento do Microsoft Azure para Java](https://github.com/azure/azure-storage-java) 
+> [Referência da API de Java](https://docs.microsoft.com/java/azure/)
 > [Exemplos de código para Java](../common/storage-samples-java.md)
-
-* Para obter mais informações sobre o Gerenciador de Armazenamento e os Blobs, consulte [Gerenciar os recursos de Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

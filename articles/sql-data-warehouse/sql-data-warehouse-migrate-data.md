@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770645"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118115"
 ---
 # <a name="migrate-your-data"></a>Migrar seus dados
 Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas.  A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
@@ -29,7 +29,7 @@ Se seus dados começarem em arquivos simples, você precisará transferi-los par
 
 O PolyBase também fornece uma opção de desempenho alto para carregamento dos dados. No entanto, isso significa usar duas ferramentas em vez de uma. Se precisar de melhor desempenho, use o PolyBase. Se deseja uma experiência de ferramenta única (e os dados não forem pesados), o ADF é a melhor opção.
 
-Siga [este tutorial]( /articles/data-factory/load-azure-sql-data-warehouse.md) para aprender a usar o ADF para carregar dados em seu data warehouse.
+Siga [este tutorial](../data-factory/load-azure-sql-data-warehouse.md) para aprender a usar o ADF para carregar dados em seu data warehouse.
 
 ## <a name="integration-services"></a>Serviços de integração
 O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, Transformação e Carregamento) avançada e flexível que oferece suporte a fluxos de trabalho complexos, transformação de dados e várias opções de carregamento de dados. Use o SSIS para simplificar a transferência de dados para o Azure ou como parte de uma migração mais ampla.

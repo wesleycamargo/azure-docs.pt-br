@@ -6,83 +6,57 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7473f89b711e804dbe96d299bc6f47adaceb6859
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465207"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820344"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 
-Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
+Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure. Este artigo se aplica a todos os modelos de implantação do Banco de Dados SQL do Azure (banco de dados individual, pools elásticos, instância gerenciada).
 
 > [!TIP]
-> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started-portal.md).
+> Examine os guias de introdução de [Banco de dados individual](sql-database-single-database-quickstart-guide.md) e [Instância gerenciada](sql-database-managed-instance-quickstart-guide.md) se precisar configurar o Banco de Dados SQL do Azure.
 >
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
-Há exemplos de código disponíveis para uma variedade de plataformas e linguagens de programação. Você pode encontrar links de exemplos de código em:
 
-Mais informações: [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
+Você pode usar várias [plataformas e linguagens de programação](sql-database-connect-query.md) para se conectar ao Banco de Dados SQL e consultá-lo. Você pode encontrar [aplicativos de exemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que pode usar para se conectar ao Banco de Dados SQL do Azure.
 
-## <a name="tools"></a>Ferramentas
+Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Você também pode usar o portal do Azure, o PowerShell e APIs REST para obter maior produtividade.
 
-Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Você também pode usar o Portal de Gerenciamento do Azure, o PowerShell e a API REST lhe ajudará a ganhar produtividade adicional.
+## <a name="authentication"></a>Authentication
 
-## <a name="resource-limitations"></a>Limitações de recursos
+O acesso ao Banco de Dados SQL é protegido por logons e firewalls. O Banco de Dados SQL do Azure dá suporte a usuários e logons da [autenticação do AAD (Azure Active Directory)](sql-database-aad-authentication.md) e do SQL Server. Os logons do AAD estão disponíveis apenas na Instância Gerenciada. 
 
-O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: Governança de recursos e imposição de limites. Para obter mais informações, consulte:
+Saiba mais sobre [como gerenciar o acesso e o logon em banco de dados](sql-database-manage-logins.md).
 
-- [Limites de modelo de recursos baseado em DTU – Banco de Dados Individual](sql-database-dtu-resource-limits-single-databases.md)
-- [Limites de modelo de recursos baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md)
-- [Limites de recursos baseados em vCore – Bancos de Dados Individuais](sql-database-vcore-resource-limits-single-databases.md)
-- [Limites de recurso baseados em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
+## <a name="connections"></a>conexões
 
-## <a name="security"></a>Segurança
+Em sua lógica de conexão de cliente, substitua o tempo limite padrão para ser 30 segundos. O padrão de 15 segundos é muito curto para conexões que dependem da Internet.
 
-O Banco de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os dados e monitorar atividades em um Banco de Dados SQL.
+Se você estiver usando um [pool de conexões](https://msdn.microsoft.com/library/8xx3tyca.aspx), feche a conexão no instante em que o programa não a estiver utilizando ativamente e não estiver se preparando para reutilizá-la.
 
-* Mais informações: [Protegendo o Banco de Dados SQL](sql-database-security-overview.md).
-
-## <a name="authentication"></a>Autenticação
-
-- O Banco de Dados SQL do Azure permite logons e usuários da autenticação do SQL Server, bem como usuários e logons da [autenticação do Azure Active Directory](sql-database-aad-authentication.md) .
-- Você precisa especificar um determinado banco de dados, em vez de padronizar para o banco de dados *mestre* .
-- Não é possível usar a instrução **USE myDatabaseName;** do Transact-SQL no Banco de Dados SQL para alternar para outro banco de dados.
-- Mais informações: [Segurança do Banco de Dados SQL: Gerenciar a segurança de acesso e de logon de banco de dados](sql-database-manage-logins.md).
+Evite transações de longa execução, pois qualquer falha de infraestrutura ou conexão pode reverter a transação. Se possível, divida a transação em várias transações menores e use [envio em lote para melhorar o desempenho](sql-database-use-batching-to-improve-performance.md).
 
 ## <a name="resiliency"></a>Resiliência
 
-Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá repetir a chamada.  Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo.
-
-- Exemplos de código:  Para obter exemplos de código que ilustram a lógica de repetição, consulte os exemplos para a linguagem de sua preferência em: [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
-- Mais informações: [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
-
-## <a name="managing-connections"></a>Gerenciando conexões
-
-- Em sua lógica de conexão de cliente, substitua o tempo limite padrão para ser 30 segundos.  O padrão de 15 segundos é muito curto para conexões que dependem da Internet.
-- Se você estiver usando um [pool de conexões](https://msdn.microsoft.com/library/8xx3tyca.aspx), feche a conexão no instante em que o programa não a estiver utilizando ativamente e não estiver se preparando para reutilizá-la.
+O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem.
+Embora o Banco de Dados SQL seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
 
 ## <a name="network-considerations"></a>Considerações sobre rede
 
 - No computador que hospeda o programa cliente, certifique-se de que o firewall permite comunicação TCP de saída na porta 1433.  Mais informações: [Configurar um firewall do Banco de Dados SQL do Azure](sql-database-configure-firewall-settings.md).
 - Se o programa cliente se conectar ao Banco de Dados SQL enquanto seu cliente estiver em execução em uma VM (máquina virtual) do Azure, será necessário abrir determinados intervalos de porta na VM. Mais informações: [Portas acima da 1433 para o ADO.NET 4.5 e o Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Para obter mais informações, [Arquitetura de conectividade de Banco de Dados SQL do Azure](sql-database-connectivity-architecture.md) e [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-
-## <a name="data-sharding-with-elastic-scale"></a>Fragmentação de dados com escala elástica
-
-A escala elástica simplifica o processo de escalar horizontalmente (e de reduzir horizontalmente). 
-
-- [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-- [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
-- [Introdução à versão prévia da escala elástica do Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

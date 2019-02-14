@@ -4,17 +4,17 @@ description: A definição do Azure Policy tem vários efeitos que determinam co
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912502"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562293"
 ---
 # <a name="understand-policy-effects"></a>Compreender os efeitos da Política
 
@@ -50,7 +50,7 @@ O efeito acrescentar é usado para adicionar outros campos ao recurso solicitado
 
 ### <a name="append-evaluation"></a>Avaliação de acréscimo
 
-Append é avaliado antes que a solicitação seja processada por um provedor de recursos durante a criação ou a atualização de um recurso. O efeito append adiciona o campos ao recurso quando a condição **if** da regra de política for atendida. Se o efeito append substituir um valor na solicitação original por um valor diferente, ele atuará como um efeito Negar e rejeitará a solicitação.
+Append é avaliado antes que a solicitação seja processada por um provedor de recursos durante a criação ou a atualização de um recurso. O efeito append adiciona o campos ao recurso quando a condição **if** da regra de política for atendida. Se o efeito append substituir um valor na solicitação original por um valor diferente, ele atuará como um efeito Negar e rejeitará a solicitação. Para acrescentar um novo valor a uma matriz existente, use a versão **[\*]** do alias.
 
 Quando uma definição de política usando o efeito append é executada como parte de um ciclo de avaliação, ela não faz alterações em recursos já existentes. Em vez disso, ela marca qualquer recurso que atende a condição **se** como não conforme.
 
@@ -89,7 +89,8 @@ Exemplo 2: dois pares **campo/valor** para acrescentar um conjunto de marcas.
 }
 ```
 
-Exemplo 3: par **campo/valor** exclusivo usando um [alias](definition-structure.md#aliases) com uma matriz **value** para definir as regras de IP em uma conta de armazenamento.
+Exemplo 3: Par **campo/valor** exclusivo usando um [alias](definition-structure.md#aliases) não **[\*]**
+ com uma matriz **value** para definir as regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
 
 ```json
 "then": {
@@ -100,6 +101,21 @@ Exemplo 3: par **campo/valor** exclusivo usando um [alias](definition-structure.
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Exemplo 4: Par **campo/valor** exclusivo usando um [alias](definition-structure.md#aliases) **[\*]** com uma matriz **value** para definir as regras de IP em uma conta de armazenamento. Ao usar o alias **[\*]**, o efeito acrescenta o **valor** a uma matriz potencialmente já existente. Se a matriz ainda não existir, ela será criada.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -259,7 +275,7 @@ A propriedade **detalhes** dos efeitos DeployIfNotExists tem todas as subproprie
   - Essa propriedade deve incluir uma matriz de cadeias de caracteres que correspondem à ID de controle de acesso baseado em função que pode ser acessada pela assinatura. Para obter mais informações, confira [correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (opcional)
   - Os valores permitidos são _Assinatura_ e _ResourceGroup_.
-  - Define o tipo de implantação que deve ser executada. _Assinatura_ indica uma [implantação no nível de assinatura](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica uma implantação em um grupo de recursos.
+  - Define o tipo de implantação a ser disparada. _Assinatura_ indica uma [implantação no nível de assinatura](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica uma implantação em um grupo de recursos.
   - Uma propriedade _localização_ deverá ser especificada na _Implantação_ quando usar implantações no nível de assinatura.
   - O padrão é _ResourceGroup_.
 - **Implantação** [obrigatória]

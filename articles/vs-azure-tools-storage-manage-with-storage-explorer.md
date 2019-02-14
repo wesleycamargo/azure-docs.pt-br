@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422721"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756811"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -84,12 +84,12 @@ O Gerenciador de Armazenamento fornece várias maneiras de se conectar às conta
 
 Além disso, você pode trabalhar com contas nacionais e internacionais de armazenamento no Azure:
 
-* [Como conectar-se a uma assinatura do Azure](#connect-to-an-azure-subscription) - gerencie os recursos de armazenamento que pertencem à sua assinatura do Azure.
-* [Como trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage) - gerencie o armazenamento local usando o Emulador de armazenamento do Azure.
-* [Como anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account) - Gerencie os recursos de armazenamento que pertencem a outra assinatura do Azure ou que estão sob nuvens nacionais do Azure usando o nome de conta de armazenamento, a chave e os pontos de extremidade.
-* [Como anexar uma conta de armazenamento usando uma SAS](#attach-storage-account-using-sas): gerencie recursos de armazenamento que pertencem a outra assinatura do Azure usando uma assinatura de acesso compartilhado (SAS).
-* [Como anexar um serviço usando uma SAS](#attach-service-using-sas): gerenciar um serviço de armazenamento específico (contêiner de blobs, fila ou tabela) que pertence a outra assinatura do Azure usando uma SAS.
-* [Conectar-se a uma conta do Azure Cosmos DB usando uma cadeia de conexão](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Gerencie a conta do Cosmos DB usando uma cadeia de conexão.
+* [Conectar-se a uma assinatura do Azure](#connect-to-an-azure-subscription): gerencie os recursos de armazenamento que pertencem à sua assinatura do Azure.
+* [Trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage): gerencie o armazenamento local usando o Emulador do Armazenamento do Azure.
+* [Anexar a um armazenamento externo](#attach-or-detach-an-external-storage-account): gerencie os recursos de armazenamento que pertencem a outra assinatura do Azure ou que estão sob nuvens nacionais do Azure usando o nome de conta de armazenamento, a chave e os pontos de extremidade.
+* [Anexar uma conta de armazenamento usando uma SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): gerencie recursos de armazenamento que pertencem a outra assinatura do Azure usando uma assinatura de acesso compartilhado (SAS).
+* [Anexar um serviço usando uma SAS](#attach-a-service-by-using-a-shared-access-signature-sas): gerencie um serviço de armazenamento específico (contêiner de blobs, fila ou tabela) que pertence a outra assinatura do Azure usando uma SAS.
+* [Conectar-se a uma conta do Azure Cosmos DB usando uma cadeia de conexão](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): gerencie a conta do Cosmos DB usando uma cadeia de conexão.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 
@@ -295,7 +295,7 @@ Além de gerenciar contas do Azure Cosmos DB por meio de uma assinatura do Azure
 
     ![conectar-se ao Azure Cosmos DB por uma cadeia de conexão][21]
 
-2. Escolha a API do Azure Cosmos DB, cole a **Cadeia de Conexão** e, em seguida, clique em **OK** para se conectar à conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Escolha a API do Azure Cosmos DB, cole a **Cadeia de Conexão** e, em seguida, clique em **OK** para se conectar à conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

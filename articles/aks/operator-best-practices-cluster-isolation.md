@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430221"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494996"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -43,6 +43,8 @@ Com o isolamento lógico, um único cluster AKS pode ser usado para várias carg
 ![Isolamento lógico de um cluster do Kubernetes em AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 A separação lógica de aglomerados geralmente fornece uma densidade de vagem mais alta do que aglomerados isolados fisicamente. Há menos capacidade de computação em excesso que fica inativa no cluster. Quando combinado com o auto escalador de cluster do Kubernetes, você pode dimensionar o número de nós para cima ou para baixo para atender às demandas. Essa abordagem de melhor prática para o escalonamento automático permite que você execute apenas o número de nós necessários e minimize os custos.
+
+Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros para uso de vários locatário hostis. Recursos de segurança adicionais, como *Política de Segurança Pod* e controles de acesso baseado em função (RBAC) mais refinados para nós dificultam as explorações. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados.
 
 ## <a name="physically-isolate-clusters"></a>Isolar fisicamente clusters
 

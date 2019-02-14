@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285734"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736057"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Discos Gerenciados SSD Ultra (versão prévia) para cargas de trabalho de Máquina Virtual do Azure
 
@@ -21,11 +21,11 @@ O SSD Ultra do Azure (versão prévia) proporciona alta taxa de transferência, 
 
 ## <a name="ultra-ssd-features"></a>Recursos do SSD Ultra
 
-**Discos Gerenciados**: os SSDs Ultra estão disponíveis somente como Discos Gerenciados. Os SSDs Ultra não podem ser implantados como um Disco não gerenciado ou um Blob de páginas. Durante a criação de um Disco Gerenciado, você especificará o tipo de SKU do disco como UltraSSD_LRS e indicará o tamanho do disco, o IOPS e a taxa de transferência que você precisa e o Azure criará e gerenciará o disco para você.  
+**Managed Disks**: os SSDs Ultra estão disponíveis somente como Managed Disks. Os SSDs Ultra não podem ser implantados como um Disco não gerenciado ou um Blob de páginas. Durante a criação de um Disco Gerenciado, você especificará o tipo de SKU do disco como UltraSSD_LRS e indicará o tamanho do disco, o IOPS e a taxa de transferência que você precisa e o Azure criará e gerenciará o disco para você.  
 
-**Máquinas Virtuais**: os SSDs Ultra são projetados para funcionar com todas as SKUs de máquinas virtuais do Azure habilitadas para SSD Premium, no entanto, como está atualmente em versão prévia, as VMs são dimensionadas como ES/DS v3.
+**Máquinas Virtuais**: os SSDs Ultra são projetados para funcionar com todas os SKUs de máquinas virtuais do Azure habilitadas para SSD Premium, no entanto, como está atualmente em versão prévia, as VMs são dimensionadas como ES/DS v3.
 
-**Configuração dinâmica de desempenho**: os SSDs Ultra permitem que você altere dinamicamente o desempenho (IOPS e taxa de transferência) do disco, juntamente com suas necessidades de carga de trabalho, sem precisar reiniciar as máquinas virtuais.
+**Configuração de desempenho dinâmico**: os SSDs Ultra permitem que você altere dinamicamente o desempenho (IOPS e taxa de transferência) do disco, juntamente com suas necessidades de carga de trabalho, sem precisar reiniciar as máquinas virtuais.
 
 ## <a name="scalability-and-performance-targets"></a>Escalabilidade e metas de desempenho
 
@@ -34,8 +34,8 @@ Ao provisionar um SSD Ultra, você terá a opção de configurar a capacidade e 
 Alguns recursos importantes do SSD Ultra são:
 
 - Capacidade do disco: o SSD Ultra oferece uma variedade de tamanhos de disco diferentes, de 4 GiB até 64 TiB.
-- IOPS de disco: os SSDs Ultra são compatíveis com limites de IOPS de 300 IOPS/GiB, até um máximo de 160 mil IOPS por disco. Para alcançar o IOPS que você provisionou, certifique-se de que o IOPS do disco selecionado seja menor que o IOPS da VM. O IOPS de disco mínimo é de 100 IOPS.
-- Taxa de transferência de disco: com os SSDs Ultra, o limite de taxa de transferência de um único disco é de 256 KiB/s para cada IOPS provisionado, até um máximo de 2.000 MBps por disco (em que MBps = 10^6 Bytes por segundo). A taxa de transferência mínima de disco é de 1 MiB.
+- IOPS do disco: os SSDs Ultra são compatíveis com limites de IOPS de 300 IOPS/GiB, até um máximo de 160 mil IOPS por disco. Para alcançar o IOPS que você provisionou, certifique-se de que o IOPS do disco selecionado seja menor que o IOPS da VM. O IOPS de disco mínimo é de 100 IOPS.
+- Taxa de transferência do disco: com os SSDs Ultra, o limite de taxa de transferência de um único disco é de 256 KiB/s para cada IOPS provisionado, até um máximo de 2000 MBps por disco (em que MBps = 10^6 Bytes por segundo). A taxa de transferência mínima de disco é de 1 MiB.
 
 A tabela a seguir resume as diferentes configurações compatíveis com os diferentes tamanhos de disco:  
 
@@ -64,7 +64,7 @@ Ao usar os SSDs Ultra, as seguintes considerações de faturamento serão aplica
 
 ### <a name="managed-disk-size"></a>Tamanho do Disco Gerenciado
 
-Os discos gerenciados são cobrados nos tamanhos de VM que você escolhe ao provisionar uma nova VM do Azure. O Azure mapeia o tamanho provisionado (arredondado) para a opção de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima. Cada disco é mapeado para um tamanho de disco provisionado com suporte e será cobrado de acordo com uma hora por hora. Por exemplo, se você provisionasse um Disco SSD Ultra de 200 GiB e o excluísse após 20 horas, ele seria mapeado para a oferta de tamanho de disco de 256 GiB e você seria cobrado pelos 256 GiB por 20 horas. Essa cobrança foi baseada no consumo de horas de computação, independentemente do volume de dados realmente gravado no disco.
+Os discos gerenciados são cobrados conforme os tamanhos de VM que você escolhe ao provisionar uma nova VM do Azure. O Azure mapeia o tamanho provisionado (arredondado) para a opção de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima. Cada disco é mapeado para um tamanho de disco provisionado com suporte e será cobrado de acordo com uma hora por hora. Por exemplo, se você provisionasse um Disco SSD Ultra de 200 GiB e o excluísse após 20 horas, ele seria mapeado para a oferta de tamanho de disco de 256 GiB e você seria cobrado pelos 256 GiB por 20 horas. Essa cobrança foi baseada no consumo de horas de computação, independentemente do volume de dados realmente gravado no disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>IOPS do Disco Gerenciado provisionado
 
@@ -74,7 +74,7 @@ IOPS é o número de solicitações que o aplicativo está enviando aos discos p
 
 A Taxa de Transferência é o volume de dados que o aplicativo está enviando aos discos em um intervalo especificado, medida em bytes/segundo. Se o aplicativo estiver executando grandes operações de entrada/saída, ele exigirá taxa de transferência alta.  
 
-Há uma relação entre a Taxa de transferência e o IOPS, conforme mostrado na seguinte fórmula: IOPS x tamanho de E/S = Taxa de transferência
+Há uma relação entre a Taxa de Transferência e IOPS, como mostrado na fórmula a seguir:  IOPS x Tamanho E/S = Taxa de Transferência
 
 Portanto, é importante determinar os valores ideais de Taxa de Transferência e IOPS que o aplicativo exige. Ao tentar otimizar um deles, o outro também é afetado. É recomendável iniciar com uma taxa de transferência correspondente ao tamanho de E/S de 16 KiB, ajustando se houver necessidade de mais taxa de transferência.
 

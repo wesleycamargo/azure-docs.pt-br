@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296148"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700376"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
 **P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo nas informações do meu usuário no portal do Azure? Ou, por que o proprietário do dispositivo está marcado como N/D para dispositivos ingressados no Azure Active Directory (Azure AD) híbrido?**
 
 **R:** Dispositivos do Windows 10 que são ingressados no Azure AD híbrido não aparecem nos **dispositivos do usuário**.
-Use o modo de exibição **Todos os dispositivos** no portal do Azure. Você também pode usar um cmdlet [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) do PowerShell.
+Use o modo de exibição **Todos os dispositivos** no portal do Azure. Você também pode usar um cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) do PowerShell.
 
 Apenas os dispositivos a seguir estão listados sob os **dispositivos do usuário**:
 
@@ -176,7 +176,7 @@ Esse comportamento não é aplicável a nenhum outro usuário que se conecte a e
 
 **P: Por que vejo a caixa de diálogo *Ocorreu um erro!* quando tento fazer o Azure AD ingressar no meu computador?**
 
-**R:** Esse erro ocorre quando o registro do Azure Active Directory é configurado com o Intune. Certifique-se de que o usuário que tenta fazer o ingresso do Azure AD tenha a licença correta do Intune atribuída. Para obter mais informações, confira [Configurar registro para dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
+**R:** Esse erro ocorre quando o registro do Azure Active Directory é configurado com o Intune. Certifique-se de que o usuário que tenta fazer o ingresso do Azure AD tenha a licença correta do Intune atribuída. Para obter mais informações, confira [Configurar registro para dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 
@@ -221,6 +221,12 @@ O ingresso do Azure AD híbrido tem precedência sobre o estado de registrado pe
 **P: Por que meus usuários têm problemas em dispositivos ingressados no Azure AD híbrido do Windows 10 depois de alterarem o UPN?**
 
 **R:** No momento, as alterações de UPN não têm suporte total em dispositivos ingressados no Azure AD híbrido. Embora os usuários possam entrar dispositivo e acessar seus aplicativos locais, a autenticação com o Azure AD falhará após a alteração de um UPN. Como resultado, os usuários têm problemas de SSO e Acesso Condicional em seus dispositivos. Neste momento, você precisa cancelar o ingresso do dispositivo no Azure AD (execute "dsregcmd /leave" com privilégios elevados) e ingressar novamente (ocorre automaticamente) para resolver o problema. Estamos trabalhando para solucionar esse problema. No entanto, os usuários que entram no Windows Hello para Empresas não enfrentam esse problema. 
+
+---
+
+**P: Os dispositivos ingressados no Azure AD Híbrido do Windows 10 exigem linha de visão com o controlador de domínio para obter acesso a recursos de nuvem?**
+
+**R:**  Não. Após a conclusão do ingresso no Azure AD Híbrido do Windows 10, quando o usuário tiver se conectado pelo menos uma vez, o dispositivo não exigirá linha de visão com o controlador de domínio para acessar os recursos de nuvem. O Windows 10 pode ter logon único para aplicativos do Azure AD em qualquer lugar onde haja uma conexão com a Internet, exceto em caso de alteração de senha. Se uma senha for alterada fora da rede corporativa (por exemplo, usando o Azure AD SSPR), o usuário precisará ter linha de visão com o controlador de domínio antes de poder se conectar ao dispositivo com a nova senha. Caso contrário, ele só poderá entrar com a senha antiga, que é invalidada pelo Azure AD e impede o logon único. No entanto, esse problema não ocorre quando você usa o Windows Hello para Empresas. Os usuários que entram com o Windows Hello para Empresas continuam a ter logon único para aplicativos do Azure AD após uma alteração de senha, mesmo se não tiverem linha de visão com o controlador de domínio. 
 
 ---
 

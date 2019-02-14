@@ -13,12 +13,13 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770713"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165613"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.

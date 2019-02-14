@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167556"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567155"
 ---
 # <a name="object-detection"></a>Detecção de objetos
 
@@ -87,6 +87,15 @@ A resposta JSON a seguir ilustra o que a Pesquisa Visual Computacional retorna a
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="limitations"></a>Limitações
 
-Aprenda conceitos sobre [categorizar imagens](concept-categorizing-images.md) e [descrevendo imagens](concept-describing-images.md).
+É importante observar as limitações do recurso de detecção de objeto para que você possa evitar ou reduzir os efeitos de falsos negativos (objetos ausentes) e limitação de detalhes.
+* Os objetos geralmente não são detectados quando são muito pequenos (menos de 5% da imagem).
+* Os objetos geralmente não são detectados se estão dispostos com muita proximidade (uma pilha de pratos, por exemplo).
+* Os objetos não são diferenciados por marca ou nome do produto (tipos diferentes de refrigerante na prateleira de uma loja, por exemplo). No entanto, você pode obter informações sobre a marca de uma imagem usando o recurso [Detecção de marca](concept-brand-detection.md).
+
+## <a name="use-the-api"></a>Usar a API
+O recurso de detecção de objeto faz parte da API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Quando você receber a resposta JSON completa, basta analisar a cadeia de caracteres para o conteúdo da seção `"objects"`.
+
+* [Início Rápido: Analisar uma imagem (SDK do .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Início Rápido: Analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: da1fa2b182888e623f8df734c9119e208433e2bd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 0de7979edd741a7e4a1dc3354a8dc895929a9532
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012702"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811674"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado em uma conta de armazenamento
 
@@ -40,7 +40,7 @@ Install-Module AzureRM.Compute
 Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overview) (Controle de versão do Azure PowerShell).
 
 
-## <a name="option-1-upload-a-specialized-vhd"></a>Opção 1: Carregar um VHD especializado
+## <a name="option-1-upload-a-specialized-vhd"></a>Opção 1: carregar um VHD especializado
 
 Você pode carregar o VHD de uma VM especializada criado com uma ferramenta de virtualização local, como o Hyper-V, ou em uma VM exportada de outra nuvem.
 
@@ -61,7 +61,7 @@ Para exibir as contas de armazenamento disponíveis, digite:
 Get-AzureRmStorageAccount
 ```
 
-Se você quiser usar uma conta de armazenamento existente, vá para a seção [Carregar a imagem da VM](#upload-the-vm-vhd-to-your-storage-account).
+Se você quiser usar uma conta de armazenamento existente, vá para a seção Carregar a imagem da VM.
 
 Se você precisa criar uma conta de armazenamento, siga estas etapas:
 
@@ -109,10 +109,10 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
+Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando poderá demorar um pouco para concluir.
 
 
-## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Opção 2: Copie o VHD de uma VM existente do Azure
+## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Opção 2: copie o VHD de uma VM existente do Azure
 
 Você pode copiar um VHD para outra conta de armazenamento para usar ao criar uma VM nova, duplicada.
 
@@ -126,7 +126,7 @@ Lembre-se de:
 Desaloque a VM para liberar o VHD a ser copiado. 
 
 * **Portal**: clique em **Máquinas virtuais** > **myVM** > Parar
-* **PowerShell**: Use [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) para parar (desalocar) a VM chamada **myVM** no grupo de recursos **myResourceGroup**.
+* **PowerShell**: use [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) para parar (desalocar) a VM chamada **myVM** no grupo de recursos **myResourceGroup**.
 
 ```powershell
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
@@ -139,8 +139,8 @@ Você precisará das URLs das contas de armazenamento de origem e de destino. As
 
 Você pode usar o Portal do Azure ou o Azure PowerShell para obter a URL:
 
-* **Portal**: Clique em **>** para **Todos os serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Blobs** e seu arquivo VHD de origem provavelmente estará no contêiner **vhds**. Clique em **Propriedades** do contêiner e copie o texto rotulado como **URL**. Você precisará das URLs dos contêineres de origem e de destino. 
-* **PowerShell**: Use [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) para obter as informações da VM chamada **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, examine a seção **Perfil de armazenamento** para o **URI do VHD**. A primeira parte do URI é a URL do contêiner e a última parte é o nome do VHD do sistema operacional da VM.
+* **Portal**: clique em **>** para **Todos os serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Blobs** e seu arquivo VHD de origem provavelmente estará no contêiner **vhds**. Clique em **Propriedades** do contêiner e copie o texto rotulado como **URL**. Você precisará das URLs dos contêineres de origem e de destino. 
+* **PowerShell**: use [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) para obter as informações da VM chamada **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, examine a seção **Perfil de armazenamento** para o **URI do VHD**. A primeira parte do URI é a URL do contêiner e a última parte é o nome do VHD do sistema operacional da VM.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -149,8 +149,8 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Obter as chaves de acesso de armazenamento
 Localize as chaves de acesso para as contas de armazenamento de origem e destino. Para obter mais informações sobre as chaves de acesso, consulte [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: Clique em **Todos os serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Chaves de acesso**. Copie a chave rotulada como **key1**.
-* **PowerShell**: Use [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave rotulada como **key1**.
+* **Portal**: clique em **Todos os serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Chaves de acesso**. Copie a chave rotulada como **key1**.
+* **PowerShell**: use [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave rotulada como **key1**.
 
 ```powershell
 Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup

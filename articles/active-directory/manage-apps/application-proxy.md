@@ -2,21 +2,22 @@
 title: Acesso remoto a aplicativos locais – Proxy de Aplicativo do Azure Active Directory | Microsoft Docx
 description: O Proxy de Aplicativo do Azure Active Directory fornece acesso remoto seguro aos aplicativos Web locais. Após um logon único para o Azure AD, os usuários podem acessar aplicativos locais e de nuvem por meio de uma URL externa ou um portal interno do aplicativo. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Teams, o Tableau, o Qlik e aplicativos LOB (linha de negócios).
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692691"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174751"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure Active Directory 
 

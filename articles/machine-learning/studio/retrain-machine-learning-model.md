@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509568"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236253"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Treinar novamente um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de aprendizado de máquina no Azure Machine Learning, um modelo deve ser treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis. 
@@ -53,8 +53,6 @@ Readapte o serviço Web:
 * Implantar o serviço Web de readaptação
 * Usar o código Serviço de Execução em Lotes para readaptar o modelo
 
-Para ver uma passo a passo das etapas anteriores, confira [Readaptar os modelos do Machine Learning de forma programática](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md). 
 
@@ -63,8 +61,6 @@ Se você implantou um Serviço Web Clássico:
 * Criar um novo ponto de extremidade no serviço Web Preditivo
 * Obter a URL de PATCH e o código
 * Usar a URL de PATCH para apontar o novo ponto de extremidade no modele readaptado 
-
-Para ver um passo a passo das etapas anteriores, confira [Readaptar um serviço Web Clássico](retrain-a-classic-web-service.md).
 
 Se estiver enfrentando dificuldades ao readaptar um serviço Web Clássico, confira [Solução de problemas de readaptação de um serviço Web Clássico do Machine Learning do Azure](troubleshooting-retraining-models.md).
 
@@ -76,8 +72,6 @@ Se você tiver implantado um Novo serviço Web:
 * Atualizar a referência para o blob `ilearner` no JSON
 * Importar o JSON para uma Definição do Serviço Web
 * Atualizar o serviço Web com a nova Definição do Serviço Web
-
-Para ver um passo a passo das etapas anteriores, confira [Readaptar um Novo serviço Web usando os cmdlets do PowerShell de Gerenciamento do Machine Learning](retrain-new-web-service-using-powershell.md).
 
 O processo para configurar a readaptação de um serviço Web Clássico envolve as seguintes etapas:
 
