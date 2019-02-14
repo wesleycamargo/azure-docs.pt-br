@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412862"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694050"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -230,7 +230,7 @@ Sim. Saiba mais sobre como usar:
 O emparelhamento VNet (ou emparelhamento de rede virtual) permite que você conecte redes virtuais. Uma conexão de emparelhamento VNet entre redes virtuais permite rotear o tráfego entre elas de modo privado por meio de endereços IPv4. As máquinas virtuais nas VNets emparelhadas podem se comunicar entre si, como se elas estivessem na mesma rede. Essas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecido como Emparelhamento VNet Global). As conexões de emparelhamento VNet também podem ser criadas entre assinaturas do Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>É possível criar uma conexão de emparelhamento para uma VNet em uma região diferente?
-Sim. O emparelhamento VNet global permite emparelhar VNets em diferentes regiões. O emparelhamento VNet global está disponível em todas as regiões públicas do Azure. Não é possível emparelhar globalmente das regiões públicas do Azure para nuvens nacionais. O emparelhamento global não está atualmente disponível nas nuvens nacionais.
+Sim. O emparelhamento VNet global permite emparelhar VNets em diferentes regiões. O emparelhamento VNet global está disponível em todas as regiões públicas do Azure e regiões de nuvem da China. Não é possível emparelhar globalmente das regiões públicas do Azure para regiões de nuvens nacionais. Atualmente, o emparelhamento global não está disponível na nuvem governamental.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>É possível habilitar emparelhamento VNet se as redes virtuais pertencerem a assinaturas em diferentes locatários do Azure Active Directory?
 Sim. É possível estabelecer Emparelhamento de VNet (local ou global) se as assinaturas pertencerem a diferentes locatários do Azure Active Directory. Você pode fazer isso via PowerShell ou CLI. Ainda não há suporte para o portal.
@@ -329,7 +329,7 @@ Por padrão, os recursos do serviço do Azure garantidos para redes virtuais nã
 Para proteger os serviços do Azure em várias sub-redes em uma rede virtual ou em várias redes virtuais, habilite os pontos de extremidade de serviço da rede em cada uma das sub-redes independentemente e proteja os recursos do serviço do Azure em todas elas configurando as ACLs da VNet corretas no serviço do Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Como filtrar o tráfego de saída de uma rede virtual dos serviços do Azure e ainda usar os pontos de extremidade de serviço?
-Se deseja verificar ou filtrar o tráfego destinado a um serviço do Azure por meio de uma rede virtual, implante um dispositivo de rede virtual na rede virtual. Em seguida, você poderá aplicar os pontos de extremidade de serviço à sub-rede em que o dispositivo de rede virtual está implantado e proteger os recursos do serviço do Azure apenas nessa sub-rede por meio das ACLs da VNet. Esse cenário pode ser útil se você deseja restringir o acesso do serviço do Azure da sua rede virtual somente a recursos específicos do Azure usando a filtragem por dispositivo de rede virtual. Para obter mais informações, consulte [Saída com dispositivos de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se deseja verificar ou filtrar o tráfego destinado a um serviço do Azure por meio de uma rede virtual, implante um dispositivo de rede virtual na rede virtual. Em seguida, você poderá aplicar os pontos de extremidade de serviço à sub-rede em que o dispositivo de rede virtual está implantado e proteger os recursos do serviço do Azure apenas nessa sub-rede por meio das ACLs da VNet. Esse cenário pode ser útil se você deseja restringir o acesso do serviço do Azure da sua rede virtual somente a recursos específicos do Azure usando a filtragem por dispositivo de rede virtual. Para obter mais informações, consulte [Saída com dispositivos de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando você acessa uma conta de serviço do Azure que tem a ACL (lista de controle de acesso) de rede virtual habilitada fora da VNet?
 Os erros HTTP 403 e HTTP 404 serão retornados.

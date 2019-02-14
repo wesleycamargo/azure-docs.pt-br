@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331802"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493577"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 - Não recomendamos certificados SAN (nome alternativo da entidade) porque apenas o último item de SAN será usado; todos os outros serão ignorados devido às limitações atuais. Por exemplo, se você tiver um certificado SAN cujos SANs são **node1.domain.contoso.com** e **node2.domain.contoso.com**, só poderá usar esse certificado no computador cujo FQDN é **node2.domain.contoso.com**.
 - O certificado dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
 - Não há suporte a certificados que usam chaves CNG.  
+
+> [!NOTE]
+> Esse certificado é usado para criptografar as portas no nó do IR auto-hospedado, usado para **comunicação de nó para nó** (para sincronização de estado) e ao **usar o cmdlet do PowerShell para a configuração da credencial do serviço vinculado** dentro da rede local. Sugerimos usar este certificado se o seu ambiente de rede privada não é seguro ou se você gostaria de proteger a comunicação entre os nós na sua rede privada também. A movimentação de dados em trânsito do IR auto-hospedado para outros armazenamentos de dados sempre ocorre por meio de um canal criptografado, independentemente desse certificado estar definido ou não. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Compartilhar o tempo de execução da integração auto-hospedada com vários data factories
 

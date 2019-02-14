@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 47977281a55f3a106facb5dc57a7d849f1e07ade
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188177"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56195355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Azure Active Directory ao Lessonly.com
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Lessonly.com, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Lessonly.com habilitada para logon único
 
 > [!NOTE]
@@ -90,7 +91,7 @@ Para configurar e testar o logon único do Azure AD com o Lessonly.com, você pr
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criação de um usuário de teste do Lessonly.com](#creating-a-lessonly-test-user)** – para ter um equivalente de Brenda Fernandes no Lessonly.com que esteja vinculado à representação do usuário no Azure AD.
+1. **Criação de um usuário de teste do Lessonly.com** - para ter um equivalente de Brenda Fernandes no Lessonly.com que esteja vinculado à representação do usuário no Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913590"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820956"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho
 
@@ -207,7 +207,7 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 | **Idade** |Número inteiro |
 | **EmailAddress** |Cadeia de caracteres |
 
-A seção anterior, [Visão geral do serviço Tabela do Azure](#overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. A sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+A seção anterior, Visão geral do serviço Tabela do Azure, descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. A sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Uma ***Consulta de Ponto*** é a pesquisa mais eficiente a ser usada e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
 * A segunda melhor opção é uma ***Consulta de Intervalo***, que usa **PartitionKey** e filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor de **PartitionKey** identifica uma partição específica e os valores de **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
@@ -276,7 +276,7 @@ Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-pa
 * [Padrão de exclusão de alto volume](#high-volume-delete-pattern) - Habilite a exclusão de um alto volume de entidades armazenando todas as entidades para exclusão simultânea em suas próprias tabelas separadas; exclua as entidades por meio da exclusão da tabela.  
 * [Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.  
 * [Padrão de entidades longas](#wide-entities-pattern) - Use várias entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.  
-* [Padrão de grandes entidades](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.  
+* [Padrão de entidades grandes](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.  
 
 ### <a name="ensuring-consistency-in-your-stored-entities"></a>Garantindo a consistência nas suas entidades armazenadas
 Outro fator-chave que influencia sua escolha de chaves para otimizar as modificações de dados é como garantir a consistência usando transações atômicas. Você só pode usar uma EGT para operar em entidades armazenadas na mesma partição.  
@@ -847,7 +847,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 * [Transações do Grupo de Entidades](#entity-group-transactions)
 * [Mesclar ou substituir](#merge-or-replace)
 
-### <a name="large-entities-pattern"></a>Padrão de grandes entidades
+### <a name="large-entities-pattern"></a>Padrão de entidades grandes
 Use armazenamento de blobs para armazenar grandes valores de propriedade.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
@@ -903,7 +903,7 @@ Evite o antipadrão prefixar/acrescentar quando o volume de transações tiver a
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
-* [Padrão de rastro do log](#log-tail-pattern)  
+* [Padrão de final do log](#log-tail-pattern)  
 * [Modificando entidades](#modifying-entities)  
 
 ### <a name="log-data-anti-pattern"></a>Antipadrão de dados de log
@@ -1294,7 +1294,7 @@ Cada entidade deve ter ainda os valores de **PartitionKey**, **RowKey** e **Time
 
 A primeira opção, prefixar o tipo de entidade a **RowKey**, é útil quando há uma possibilidade de que duas entidades de tipos diferentes possam ter o mesmo valor de chave. Ela também agrupa entidades do mesmo tipo juntas na partição.  
 
-As técnicas discutidas nesta seção são importantes principalmente para a discussão sobre [Relações de herança](#inheritance-relationships), anteriormente neste guia, na seção [Relações de modelagem](#modelling-relationships).  
+As técnicas discutidas nesta seção são importantes principalmente para a discussão sobre [Relações de herança](#inheritance-relationships), anteriormente neste guia, na seção Relações de modelagem.  
 
 > [!NOTE]
 > Você deve considerar a inclusão do número de versão no valor do tipo de entidade para habilitar aplicativos clientes a desenvolverem objetos POCO e trabalhem com diferentes versões.  

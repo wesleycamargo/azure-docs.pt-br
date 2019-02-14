@@ -11,17 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191244"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205589"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
@@ -42,7 +43,7 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | Importar Conector |Não use. |
 | Atualizar Conector |Não use. |
 | Atualizar Esquema |Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualiza as regras de sincronização. |
-| [Pesquisar Espaço do Conector](#search-connector-space) |Usado para encontrar objetos e [Seguir um objeto e seus dados por meio do sistema](#follow-an-object-and-its-data-through-the-system). |
+| [Pesquisar Espaço do Conector](#search-connector-space) |Usado para encontrar objetos e Seguir um objeto e seus dados por meio do sistema. |
 
 ### <a name="delete"></a>Excluir
 A ação de exclusão é usada com duas finalidades diferentes.  

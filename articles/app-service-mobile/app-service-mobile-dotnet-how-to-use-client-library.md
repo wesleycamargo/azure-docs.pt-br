@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 01294ec8aa65a8405bc99be215008dad66a73d8d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157321"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960736"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 * [Pesquisar um registro por ID](#lookingup)
 * [Lidando com consultas sem tipo](#untypedqueries)
 * [Inserindo dados](#inserting)
-* [Atualizando dados](#updating)
+* Atualizar dados
 * [Excluindo dados](#deleting)
 * [Resolução de Conflitos e Simultaneidade Otimista](#optimisticconcurrency)
 * [Associação a uma Interface de Usuário do Windows](#binding)
@@ -609,7 +609,7 @@ Uma API personalizada permite que você defina pontos de extremidade personaliza
 
 Você pode chamar uma API personalizada chamando um dos métodos [InvokeApiAsync] no cliente. Por exemplo, a seguinte linha de código envia uma solicitação POST à API **completeAll** no back-end:
 
-```
+```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 Se estiver enviando por push para o WNS, você PRECISARÁ [obter um SID de pacote da Microsoft Store](#package-sid).  Para saber mais sobre os aplicativos do Windows, inclusive como se registrar para obter registros de modelo, confira [Adicionar notificações por push ao aplicativo].
 
 A solicitação de marcas do cliente não tem suporte.  As solicitações de marca são descartadas silenciosamente do registro.
-Se você deseja registrar seu dispositivo com marcas, crie uma API personalizada que usa a API de Hubs de Notificação para realizar o registro em seu nome.  [Chame a API Personalizada](#customapi) em vez do método `RegisterNativeAsync()`.
+Se você deseja registrar seu dispositivo com marcas, crie uma API personalizada que usa a API de Hubs de Notificação para realizar o registro em seu nome.  Chame a API Personalizada em vez do método `RegisterNativeAsync()`.
 
 ### <a name="package-sid"></a>Como: Obter um SID do pacote da Microsoft Store
 Um SID de pacote é necessário para habilitar notificações por push em aplicativos da Microsoft Store.  Para receber um SID de pacote, registre seu aplicativo na Microsoft Store.

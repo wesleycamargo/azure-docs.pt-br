@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358976"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767330"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -86,7 +86,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Posso alterar uma VM para usar minha própria licença do SQL Server se ela foi criada com base em uma das imagens pré-pagas da galeria?**
 
-   Sim. Você pode mover facilmente mover entre os dois modelos de licenciamento, independentemente da imagem que foi implantado originalmente. Para saber mais, confira [Como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md).
+   Sim. Você pode alterar facilmente entre os dois modelos de licenciamento, se você iniciou originalmente com uma imagem da galeria de pago conforme o uso. No entanto, você não poderá alternar sua licença para PAYG, se você começou originalmente com uma imagem BYOL. Para obter mais informações, confira [Como alterar o modelo de licenciamento para uma VM do SQL Server](virtual-machines-windows-sql-ahb.md).
 
 1. **Deve usar as imagens BYOL ou RP de VM do SQL para criar a nova VM do SQL?**
 
@@ -94,11 +94,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Modelos de licenciamento de comutação exigirá nenhum tempo de inatividade para o SQL Server?**
 
-    Não. [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) não requer tempo de inatividade para o SQL Server, pois a alteração entrará em vigor imediatamente e não exige a reinicialização da VM. 
+    Não. [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) não requer tempo de inatividade para o SQL Server, pois a alteração entrará em vigor imediatamente e não exige a reinicialização da VM. No entanto, para registrar sua VM do SQL Server com o provedor de recursos da VM do SQL, a [extensão IaaS do SQL](virtual-machines-windows-sql-server-agent-extension.md) é um pré-requisito e a instalação da extensão IaaS do SQL reinicia o serviço do SQL Server. Portanto, se a extensão IaaS do SQL precisa ser instalada, isso deve ser feito durante uma janela de manutenção. 
 
 1. **Assinaturas de CSP podem ativar o benefício híbrido do Azure?**
 
-   Sim. [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) está disponível para assinaturas do CSP. 
+   Sim, o Benefício Híbrido do Azure está disponível para assinaturas de CSP. Os clientes do CSP devem primeiro implantar uma imagem de pago conforme o uso e, em seguida, [alterar o modelo de licenciamento](virtual-machines-windows-sql-ahb.md) para traga sua própria licença (BYOL).  
 
 1. **Registrar minha VM com o novo provedor de recursos de VM do SQL trará custos adicionais?**
 

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b7b8b157b890bcdda8c06a0dd1b208a82f7f9058
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164802"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Azure Active Directory com Serviços de Gerenciamento de Participação
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Microsoft Azure AD com os Serviços de Gerenciamento de Participação, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único dos Serviços de Gerenciamento de Participação
 
 > [!NOTE]
@@ -86,7 +87,7 @@ Para configurar e testar o logon único do Microsoft Azure AD com os Serviços d
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste dos Serviços de Gerenciamento de Participação](#create-an-attendance-management-service-test-user)** – para ter um equivalente de Brenda Fernandes nos Serviços de Gerenciamento de Participação que esteja vinculado à representação do usuário no Microsoft Azure AD.
+1. **Criar um usuário de teste dos Serviços de Gerenciamento de Participação** – para ter um equivalente de Brenda Fernandes nos Serviços de Gerenciamento de Participação que esteja vinculado à representação do usuário no Azure AD.
 1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 

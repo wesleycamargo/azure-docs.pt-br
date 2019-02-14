@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 67ace84ae3c919fdb3ed54d92e63e203d66102c1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167658"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Tutorial: Integração do Azure Active Directory ao ChronicX®
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao ChronicX®, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do ChronicX®
 
 > [!NOTE]
@@ -86,7 +87,7 @@ Para configurar e testar o logon único do Azure AD com o ChronicX®, você prec
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do ChronicX®](#create-a-chronicx®-test-user)** – para ter um equivalente de Brenda Fernandes no ChronicX® que esteja vinculado à representação de usuário no Azure AD.
+1. **Criar um usuário de teste do ChronicX®** - para ter um equivalente de Brenda Fernandes no ChronicX® que esteja vinculado à representação de usuário no Azure AD.
 1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 

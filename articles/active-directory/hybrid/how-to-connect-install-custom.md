@@ -11,23 +11,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 49f1b953784aca0776357cc4071efbbff6064660
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155325"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197225"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
 
 Antes de iniciar a instalação do Azure AD Connect, [baixe o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e conclua as etapas de pré-requisito em [Azure AD Connect: hardware e pré-requisitos](how-to-connect-install-prerequisites.md). Também verifique se você tem as contas necessárias disponíveis, conforme descrito em [Contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md).
 
-Se as configurações personalizadas não corresponderem à sua topologia, por exemplo, para atualizar o DirSync, confira a [documentação relacionada](#related-documentation) para outros cenários.
+Se as configurações personalizadas não corresponderem à sua topologia, por exemplo, para atualizar o DirSync, confira a documentação relacionada para outros cenários.
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Instalação de configurações personalizadas do Azure AD Connect
 ### <a name="express-settings"></a>Configurações Expressas

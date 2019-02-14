@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d9237a2e4da682347245a3b74c916bbeea39166c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197986"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Azure Active Directory com o Learning Seat LMS
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD ao Learning Seat LMS, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura com logon único habilitado do Learning Seat LMS
 
 > [!NOTE]
@@ -89,7 +90,7 @@ Para configurar e testar o logon único do Azure AD com o Learning Seat LMS, voc
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criação de um usuário de teste do Learning Seat LMS](#creating-a-learnconnect-test-user)**: para ter um equivalente de Brenda Fernandes no Learning Seat LMS que esteja vinculado à representação do usuário no Azure AD.
+1. **Criação de um usuário de teste do Learning Seat LMS** - para ter um equivalente de Brenda Fernandes no Learning Seat LMS que esteja vinculado à representação do usuário no Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 

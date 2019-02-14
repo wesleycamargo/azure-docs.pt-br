@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 55668b8ef8019e1ee808bc0cba9d98c0db53c584
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296589"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198733"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
@@ -143,7 +144,7 @@ A página de visualização é usada para sincronizar um único objeto. Isso ser
 A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha hash](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propriedades do objeto do metaverso
-Em geral, é melhor começar a pesquisa no [espaço conector](#connector-space) de origem do Active Directory. Mas também é possível começar a pesquisa no metaverso.
+Em geral, é melhor começar a pesquisa no espaço conector de origem do Active Directory. Mas também é possível começar a pesquisa no metaverso.
 
 ### <a name="search-for-an-object-in-the-mv"></a>Pesquisar um objeto no MV
 No **Synchronization Service Manager**, clique em **Pesquisa de Metaverso**. Crie uma consulta que você sabe que encontrará o usuário. É possível pesquisar atributos comuns, como accountName (sAMAccountName) e userPrincipalName. Para obter mais informações, consulte [Pesquisa de metaverso](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -195,6 +196,5 @@ Se você não tiver o conector do Azure AD, leia [Atributos do MV](#mv-attribute
 Essa guia também permite navegar até o [objeto do espaço conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
-
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+- [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
+- [O que é a identidade híbrida?](whatis-hybrid-identity.md).

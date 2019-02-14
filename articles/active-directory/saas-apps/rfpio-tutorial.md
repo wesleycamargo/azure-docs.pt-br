@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197340"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integração do Azure Active Directory com o RFPIO
 
@@ -88,11 +89,11 @@ No RFPIO, atribua o valor do **nome de usuário** no Azure AD como o valor do **
 
 Para configurar e testar o logon único do Azure AD com o RFPIO, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure AD](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do RFPIO](#creating-a-rfpio-test-user)** – para ter um equivalente de Brenda Fernandes no RFPIO que esteja vinculado à representação do usuário no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Testar o logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+1. **Configurar o logon único do Azure AD** – para habilitar o uso desse recurso pelos seus usuários.
+1. **Criar um usuário de teste do Azure AD** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **Criar um usuário de teste do RFPIO** – para ter um equivalente de Brenda Fernandes no RFPIO que esteja vinculado à representação do usuário no Azure AD.
+1. **Atribuir o usuário de teste do Azure AD** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **Testar o logon único** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 

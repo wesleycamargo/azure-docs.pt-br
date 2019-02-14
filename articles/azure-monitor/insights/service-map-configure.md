@@ -11,14 +11,14 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381662"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822690"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -72,6 +72,7 @@ A seção a seguir lista os sistemas operacionais com suporte para o agente de d
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -87,6 +88,7 @@ A seção a seguir lista os sistemas operacionais com suporte para o agente de d
 | 6.7 | 2.6.32-573 |
 | 6,8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -132,9 +134,9 @@ O Mapa do Serviço obtém seus dados do Microsoft Dependency Agent. O agente de 
 
 | Fonte conectada | Suportado | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | SIM | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows. <br><br>Além do [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Agentes do Linux | SIM | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux. <br><br>Além do [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | SIM | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) conectado. <br><br>Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. |
+| Agentes do Windows | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows. <br><br>Além do [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os sistemas operacionais com suporte para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Linux | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux. <br><br>Além do [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os sistemas operacionais com suporte para obter uma lista completa das versões de sistema operacional. |
+| Grupo de gerenciamento do System Center Operations Manager | Sim | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) conectado. <br><br>Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. |
 | Conta de Armazenamento do Azure | Não  | O Mapa do Serviço coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 No Windows, o MMA (Microsoft Monitoring Agent) é usado pelo System Center Operations Manager e pelo Log Analytics para coletar e enviar dados de monitoramento. (esse agente é chamado de agente do System Center Operations Manager, agente do Log Analytics, MMA ou agente direto, dependendo do contexto.) O System Center Operations Manager e o Log Analytics fornecem versões do MMA diferentes prontas para uso. Essas versões podem relatar para o System Center Operations Manager, para o Log Analytics ou para ambos.  
@@ -383,11 +385,11 @@ Se a instalação do Agente de Dependência for bem-sucedida, mas você não vir
 **Windows**: procure o serviço denominado "Microsoft Dependency Agent".<br>
 **Linux**: procure o processo em execução "microsoft-dependency-agent".
 
-* Você está no [tipo de preço Gratuito do Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? O plano Gratuito permite até cinco servidores de Mapa do Serviço exclusivos. Quaisquer servidores subsequentes serão exibidos no Mapa do Serviço, mesmo que os cinco anteriores não estejam enviando dados.
+* Você está no [tipo de preço Gratuito do Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? O plano Gratuito permite até cinco servidores de Mapa do Serviço exclusivos. Quaisquer servidores subsequentes serão exibidos no Mapa do Serviço, mesmo que os cinco anteriores não estejam enviando dados.
 
 * O servidor está enviando dados de log e desempenho para o Log Analytics? Acesse a Pesquisa de Logs e execute a consulta a seguir para seu computador: 
 
-    Uso | em que Computador == "admdemo-appsvr" | resumir sum(Quantity), any(QuantityUnit) por DataType
+    Uso | where Computer == "nome-do-computador" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Se sim, o Agente do Log Analytics está operando corretamente e se comunicando com o Log Analytics. Caso contrário, verifique o agente em seu servidor: [Solução de problemas do agente do Log Analytics para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [Solução de problemas do agente do Log Analytics para Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

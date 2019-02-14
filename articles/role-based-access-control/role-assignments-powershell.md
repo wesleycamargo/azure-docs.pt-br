@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700665"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106164"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Gerenciar o acesso usando RBAC e Azure PowerShell
 
@@ -221,7 +221,7 @@ No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 Para atribuir uma função, você precisa identificar o objeto (usuário, grupo ou aplicativo) e o escopo.
 
-Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure ou usar [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure ou usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 Para obter a ID de objeto para um grupo do Azure AD, use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 

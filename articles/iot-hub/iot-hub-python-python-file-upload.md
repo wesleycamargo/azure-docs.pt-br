@@ -7,25 +7,25 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 193bc3a4eafcdff5d5f28d916afa4600b20c0d86
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 295f96258b2f5d6612ae7c5f86c9f360232111f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507834"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial descreve como usar os [recursos de carregamento de arquivos do Hub IoT](iot-hub-devguide-file-upload.md) para carregar um arquivo para [armazenamento de blobs do Azure](../storage/index.yml). Este tutorial mostra como:
+Este artigo mostra como usar os [recursos de carregamento de arquivos do Hub IoT](iot-hub-devguide-file-upload.md) para carregar um arquivo para [armazenamento de blobs do Azure](../storage/index.yml). Este tutorial mostra como:
 
 - Fornece um contêiner de armazenamento com segurança para carregar um arquivo.
 - Use o cliente do Python para carregar um arquivo por meio de seu Hub IoT.
 
-O tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
+O início rápido [Enviar telemetria ao Hub IoT](quickstart-send-telemetry-python.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
 
 > [!NOTE]
 > SDK de Python de Hub IoT atualmente suporta apenas carregar arquivos baseados em caracteres, como arquivos **.txt**.
@@ -41,19 +41,8 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * [Python 2.x or 3.x][lnk-python-download]. Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python à variável de ambiente específica da plataforma. Se você estiver usando o Python 2. x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python][lnk-install-pip].
 * Se você estiver usando o sistema operacional Windows, então o [Pacote redistribuível do Visual C++][lnk-visual-c-redist] permite o uso de DLLs nativas do Python.
-* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
-
-## <a name="create-an-iot-hub"></a>Crie um hub IoT
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Um Hub IoT em sua conta do Azure, com uma identidade do dispositivo para testar o recurso de upload de arquivo. 
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -68,9 +57,14 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     pip install azure-iothub-device-client
     ```
 
+1. Usando um editor de texto, crie um arquivo de teste que você carregará no armazenamento de blobs. 
+
+    > [!NOTE]
+    > SDK de Python de Hub IoT atualmente suporta apenas carregar arquivos baseados em caracteres, como arquivos **.txt**.
+
 1. Usando um editor de texto, crie um arquivo **FileUpload.py** em sua pasta de trabalho.
 
-1. Adicione as instruções `import` e variáveis a seguir ao início do arquivo **FileUpload.py**. Substitua `deviceConnectionString` pela cadeia de conexão do dispositivo do Hub IoT:
+1. Adicione as instruções `import` e variáveis a seguir ao início do arquivo **FileUpload.py**. 
 
     ```python
     import time
@@ -83,8 +77,10 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     PROTOCOL = IoTHubTransportProvider.HTTP
 
     PATHTOFILE = "[Full path to file]"
-    FILENAME = "[File name on storage after upload]"
+    FILENAME = "[File name for storage]"
     ```
+
+1. Substitua `[Device Connection String]` pela cadeia de conexão do dispositivo do Hub IoT no seu arquivo. Substitua `[Full path to file]` pelo caminho para o arquivo de teste que você criou, ou qualquer arquivo em seu dispositivo que você deseja carregar. Substitua `[File name for storage]` pelo nome que você deseja dar ao seu arquivo depois que ele for carregado no armazenamento de blobs. 
 
 1. Criar um retorno de chamada para a função **upload_blob**:
 
@@ -133,11 +129,6 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     ```
 
 1. Salve e feche o arquivo **UploadFile.py**.
-
-1. Copiar um arquivo de texto de exemplo para a pasta de trabalho e renomeie-o `sample.txt`.
-
-    > [!NOTE]
-    > SDK de Python de Hub IoT atualmente suporta apenas carregar arquivos baseados em caracteres, como arquivos **.txt**.
 
 
 ## <a name="run-the-application"></a>Executar o aplicativo

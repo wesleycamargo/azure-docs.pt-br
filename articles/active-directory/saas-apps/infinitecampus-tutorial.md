@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 53eb0c4ad5c0a21f46985062ef8202a87dc0d5e6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151797"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory ao Infinite Campus
 
@@ -38,7 +39,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Microsoft Azure Active Directory ao Infinite Campus, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único no Infinite Campus
 
 > [!NOTE]
@@ -111,7 +112,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Configurar o logon único](common/editconfigure.png)
 
-5. Na seção **Configuração básica do SAML**, se você tiver o **arquivo de metadados do Provedor de Serviços** (pule para a etapa **11.c**), execute as seguintes etapas:
+4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, complete as etapas 4.a até 4.d e depois pule para a etapa 11.c. Se você não tiver um arquivo de metadados do provedor de serviços, vá para a etapa 5.
 
      a. Clique em **Carregar arquivo de metadados**.
 
@@ -127,10 +128,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     d. Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão (o domínio variará com o modelo de hospedagem): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > Você obtém o arquivo de metadados **Service Provider** na página Configuração do Provedor de Serviços do SSO do Campus Infinito, explicada posteriormente no tutorial. Se você estiver começando com uma nova configuração do Provedor de Serviços do SAML no Infinite Campus, pule para a **etapa 11** para concluir a exportação do arquivo de metadados do Provedor de Serviços.
-
-6. Se você não tiver o **arquivo de metadados do Provedor de Serviços**, execute as seguintes etapas (observe que o domínio variará com o Modelo de Hospedagem):
+5. Se você não tiver o **arquivo de metadados do provedor de serviços**, execute as etapas a seguir (observe que o domínio variará conforme o modelo de hospedagem):
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

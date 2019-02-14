@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26578866"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822299"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar volumes (Atualização 3 e posterior)
 
@@ -34,7 +34,7 @@ O serviço Gerenciador de Dispositivos StorSimple é uma extensão do portal do 
 Os volumes do StorSimple podem ser:
 
 * **Volumes fixados localmente**: os dados desses volumes permanecem no dispositivo StorSimple local em todos os momentos.
-* **Volumes hierárquicos**: os dados desses volumes podem transbordar para a nuvem.
+* **Volumes em camadas**: os dados nesses volumes podem transbordar para a nuvem.
 
 Um volume de arquivamento é um tipo de volume em camadas. O maior tamanho de bloco de eliminação de duplicação usado para volumes de arquivamento permite que o dispositivo transfira mais segmentos de dados para a nuvem.
 
@@ -50,7 +50,7 @@ Quando você cria um volume afixado localmente, o espaço disponível para cria�
 
 ### <a name="tiered-volumes"></a>Volumes hierárquicos
 
-Volumes em camadas são volumes escassamente provisionados no qual os dados acessados com frequência permanecem locais no dispositivo e os menos usados são colocados automaticamente em camadas na nuvem. Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica de armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas de mudança.
+Volumes em camadas são volumes escassamente provisionados no qual os dados acessados com frequência permanecem locais no dispositivo e os menos usados são colocados automaticamente em camadas na nuvem. Provisionamento dinâmico é uma tecnologia de virtualização no qual o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica de armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas de mudança.
 
 Se estiver usando o volume em camadas para dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** para alterar o tamanho da parte de eliminação de duplicação do volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivo grandes para a nuvem.
 
@@ -120,9 +120,9 @@ Você [criou um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-crea
       
        Se você provisionar um volume fixado localmente de 8.5 TB (tamanho máximo permitido) em seu dispositivo 8100, você esgotará todo o espaço local disponível no dispositivo. Você não pode criar um volume em camadas desse ponto em diante, pois não há espaço local no dispositivo para hospedar o conjunto de trabalho do volume em camadas. Os volumes existentes em camadas também afetam o espaço disponível. Por exemplo, se você tiver um dispositivo 8100 que já tem volumes em camadas de 106 TB, somente 4 TB de espaço estarão disponíveis para volumes fixados localmente.
 
-    6. No campo **Hosts conectados**, clique na seta. Na folha **Hosts conectados**, escolha um ACR existente ou adicione um novo ACR. Se você escolher um novo ACR, forneça um **Nome** para o ACR, o **IQN** (Nome Qualificado do iSCSI) do host do Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host). Clique em **Criar**. Será criado um volume com as configurações especificadas.
+    6. No campo **Hosts conectados**, clique na seta. Na folha **Hosts conectados**, escolha um ACR existente ou adicione um novo ACR. Se você escolher um novo ACR, forneça um **Nome** para o ACR, o **IQN** (Nome Qualificado do iSCSI) do host do Windows. Se você não tiver o IQN, confira Obter o IQN de um host do Windows Server. Clique em **Criar**. Será criado um volume com as configurações especificadas.
 
-        ![Clicar em Criar](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Clique em Criar. ](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
 O seu novo volume agora está pronto para uso.
 
@@ -173,7 +173,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    
    1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
    4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]
@@ -303,7 +303,7 @@ Conclua as seguintes etapas para excluir um volume.
    > [!NOTE]
    > Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O Serviço do Gerenciador de Dispositivos do StorSimple atualiza o espaço local disponível periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar criar o novo volume.
    >
-   > Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
+   >  Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
 
 ## <a name="monitor-a-volume"></a>Monitorar um volume
 

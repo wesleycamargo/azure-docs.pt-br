@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/25/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075458"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751507"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -43,6 +43,9 @@ Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud up
 
 ## <a name="news-updates"></a>Notícias atualizadas
 
+###### <a name="february-5-2019"></a>**5 de fevereiro de 2019**
+O SO convidado de janeiro foi lançado.
+
 ###### <a name="january-24-2019"></a>**24 de janeiro de 2019**
 O SO convidado Family 6 (Windows Server 2019) foi lançado.
 
@@ -64,9 +67,6 @@ O sistema operacional convidado de agosto foi lançado.
 ###### <a name="august-3-2018"></a>**3 de agosto de 2018**
 O SO convidado de julho foi lançado.
 
-###### <a name="july-3-2018"></a>**3 de julho de 2018**
-O SO convidado de junho foi lançado.
-
 ## <a name="releases"></a>Lançamentos
 
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
@@ -80,8 +80,9 @@ O SO convidado de junho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-6.3_201901-01 |5 de fevereiro de 2019 |Post 6.5 |
 | WA-GUEST-OS-6.2_201812-01 |24 de janeiro de 2019 |Post 6.4 |
-| WA-GUEST-OS-6.1_201811-01 |24 de janeiro de 2019 |Post 6.3 |
+|~~WA-GUEST-OS-6.1_201811-01~~ |24 de janeiro de 2019 |5 de fevereiro de 2019 |
 
 ## <a name="family-5-releases"></a>Versões da Família 5
 **Windows Server 2016**
@@ -94,13 +95,13 @@ O SO convidado de junho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-5.27_201901-01 |5 de fevereiro de 2019 |Post 5.29 |
 | WA-GUEST-OS-5.26_201812-01 |7 de janeiro de 2019 |Post 5.28 |
-| WA-GUEST-OS-5.25_201811-01 |14 de dezembro de 2018 |Pós 5.27 |
+|~~WA-GUEST-OS-5.25_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
-|~~WA-GUEST-OS-5.20_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
@@ -109,13 +110,13 @@ O SO convidado de junho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-4.62_201901-01 |5 de fevereiro de 2019 |Post 4.64 |
 | WA-GUEST-OS-4.61_201812-01 |7 de janeiro de 2019 |Post 4.63 |
-| WA-GUEST-OS-4.60_201811-01 |14 de dezembro de 2018 |Pós 4.62 |
+|~~WA-GUEST-OS-4.60_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
-|~~WA-GUEST-OS-4.55_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
@@ -124,13 +125,13 @@ O SO convidado de junho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-3.69_201901-01 |5 de fevereiro de 2019 |Post 3.71 |
 | WA-GUEST-OS-3.68_201812-01 |7 de janeiro de 2019 |Post 3.70 |
-| WA-GUEST-OS-3.67_201811-01 |14 de dezembro de 2018 |Pós 3.69 |
+|~~WA-GUEST-OS-3.67_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
-|~~WA-GUEST-OS-3.62_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
@@ -139,10 +140,11 @@ O SO convidado de junho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-2.82_201901-01 |5 de fevereiro de 2019 |Post 2.84 |
 | WA-GUEST-OS-2.81_201812-01 |7 de janeiro de 2019 |Post 2.83 |
-| WA-GUEST-OS-2.80_201811-01 |14 de dezembro de 2018 |Pós 2.82 |
+|~~WA-GUEST-OS-2.80_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
-|~~WA-GUEST-OS-2.78_201809-01~~|12 de outubro de 2018 |14 de dezembro de 2018 |
+|~~WA-GUEST-OS-2.78_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
@@ -172,10 +174,10 @@ Quando a data de **validade** vence, qualquer Serviço de nuvem que ainda esteja
 ## <a name="guest-os-family-version-explanation"></a>Família do SO convidado – explicação de versão
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os Serviços de Nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
 
-* **Família de SO convidado**  
+* **Guest OS family**  
    Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 * **Versão do SO Convidado**  
-  Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova família de SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
+  Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
 
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 * **Versão do SO convidado**  
@@ -190,7 +192,7 @@ No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 A cadeia de caracteres de configuração para um SO convidado tem inseridas nela essas mesmas informações, junto com uma data mostrando quais patches MSRC foram considerados para esse lançamento. Neste exemplo, os patches do MSRC gerados para Windows Server 2008 R2 até (e incluindo) agosto de 2012 foram considerados para inclusão. Apenas os patches que se aplicam especificamente a essa versão do Windows Server são incluídos. Por exemplo, se um patch de MSRC se aplica ao Microsoft Office, ele não será incluído porque esse produto não faz parte da imagem base do Windows Server.
 
 ## <a name="guest-os-system-update-process"></a>Processo de atualização de sistema do SO convidado
-Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Geralmente, os lançamentos do sistema operacional do convidado ocorrem de 2 a 3 semanas após o lançamento da atualização do MSRC, que ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SO convidado.
+Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Geralmente, os lançamentos do sistema operacional do convidado ocorrem de 2 a 3 semanas após o lançamento da atualização do MSRC, que ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SOs convidados.
 
 O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Estamos trabalhando em um plano para limitar ou programar as reinicializações.
 

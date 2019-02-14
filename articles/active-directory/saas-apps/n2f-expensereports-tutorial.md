@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao N2F - Expense reports - Relatórios de Despesas | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao N2F – Relatórios de despesas | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o N2F - Expense reports.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3166a4e19bc137d57b97dbb516e7037228e1c020
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006984"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188810"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: integração do Azure Active Directory ao N2F - Expense reports
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: integração do Azure Active Directory ao N2F – Relatórios de despesas
 
 Neste tutorial, você aprende a integrar o N2F - Expense reports ao Microsoft Azure Active Directory.
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Microsoft Azure Active Directory ao N2F - Expense reports, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do N2F - Expense reports
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando N2F - Expense reports a partir da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -87,7 +88,7 @@ Para configurar e testar o logon único do Microsoft Azure Active Directory com 
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do N2F - Expense reports](#create-a-n2f---expense-reports-test-use)** – para ter um equivalente de Brenda Fernandes no N2F - Expense reports vinculado à representação do usuário no Microsoft Azure Active Directory.
+3. **Criar um usuário de teste do N2F – Relatórios de despesas** para ter um equivalente de Brenda Fernandes no N2F – Relatórios de despesas vinculado à representação do usuário no Azure AD.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
@@ -149,7 +150,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure Active Directory
 
     ![Configuração do N2F - Expense reports](./media/n2f-expensereports-tutorial/configure5.png)
 
-    a. Na caixa de texto **Entity ID**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
+     a. Na caixa de texto **Entity ID**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do portal do Azure.
 
@@ -211,7 +212,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
     ![Configuração do N2F - Expense reports](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -259,7 +260,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco N2F - Expense reports na peça do Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo N2F - Expense reports.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

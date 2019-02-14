@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149247"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory ao HR2day by Merces
 
@@ -88,11 +89,11 @@ No HR2day by Merces, atribua o **nome de usuário** no Azure AD ao **Nome de usu
 
 Para configurar e testar o logon único do AD do Azure com o HR2day by Merces, você precisará concluir os seguintes blocos de construção:
 
-1. [Configurar o logon único do Azure AD](#configuring-azure-ad-single-sign-on): permite que seus usuários usem esse recurso.
-1. [Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user): testa o logon único do Azure AD com Brenda Fernandes.
-1. [Criar um usuário de teste do HR2day by Merces](#creating-an-hr2day-by-merces-test-user): cria um equivalente de Brenda Fernandes no HR2day by Merces que esteja vinculado à representação do usuário no Azure AD.
-1. [Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user): habilita Brenda Fernandes para usar o logon único do Azure AD.
-1. [Testar o logon único](#testing-single-sign-on): verifica se a configuração funciona.
+1. Configurar logon único do Azure AD: permite que seus usuários usem esse recurso.
+1. Criar um usuário de teste do Azure AD: testa o logon único do Azure AD com Brenda Fernandes.
+1. Criar um usuário de teste do HR2day by Merces: cria um equivalente de Brenda Fernandes no HR2day by Merces que esteja vinculado à representação do usuário no Azure AD.
+1. Atribuir o usuário de teste do Azure AD: habilita Brenda Fernandes para usar o logon único do Azure AD.
+1. Testar o logon único: verifica se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 

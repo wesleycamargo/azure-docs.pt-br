@@ -11,16 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193804"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171818"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Noções básicas sobre o provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
@@ -37,7 +38,7 @@ O pipeline tem vários módulos diferentes. Cada um é responsável por um conce
 * Origem, objeto de origem
 * [Escopo](#scope)localiza todas as regras de sincronização que estão no escopo
 * [Ingressar](#join)determina a relação entre o metaverso e o espaço do conector
-* [Transformar](#transform)calcula como os atributos devem ser transformados e fluir
+* Transformar calcula como os atributos devem ser transformados e fluir
 * [Precedência](#precedence)resolve conflitos de contribuições de atributo
 * Destino, objeto de destino
 

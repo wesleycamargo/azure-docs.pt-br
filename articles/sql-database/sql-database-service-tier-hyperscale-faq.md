@@ -3,7 +3,7 @@ title: Em hiper escala do banco de dados SQL do Azure perguntas Frequentes | Mic
 description: Respostas para perguntas comuns que os clientes fazem sobre um banco de dados SQL do Azure na camada de serviço Hyperscale - comumente chamado de banco de dados Hyperscale.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478331"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099762"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Perguntas frequentes sobre bancos de dados do Azure SQL Hyperscale
 
@@ -198,7 +198,7 @@ Não
 
 ### <a name="is-database-compression-supported"></a>A compactação de banco de dados é suportada
 
-SIM
+Sim
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Se eu tiver uma tabela enorme, os dados da minha tabela serão espalhados por vários arquivos de dados
 
@@ -222,7 +222,7 @@ Sim. Alguns dos recursos do Banco de Dados SQL do Azure não são suportados na 
 
 Sim. Você pode usar todas as tecnologias de migração existentes para migrar para a Hiper escala, incluindo BACPAC, replicação transacional, carregamento de dados lógicos. Consulte também o [Serviço de Migração de Banco de Dados do Azure](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Qual é o meu centro durante a migração de um ambiente de máquina local ou virtual para a Hiper escala e como posso minimizá-lo?
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Qual é o meu tempo de inatividade durante a migração de um ambiente de máquina local ou virtual para o Hiperscale e como posso minimizá-lo
 
 O tempo de inatividade é o mesmo que o tempo de inatividade quando você migra seus bancos de dados para um único banco de dados no Banco de Dados SQL do Azure. Você pode usar [replicação transacional](replication-to-sql-database.md#data-migration-scenario
 ) para minimizar a migração do tempo de inatividade para bancos de dados com até poucos TB de tamanho. Para bancos de dados muito grandes (10+ TB), você pode migrar dados usando ADF, Spark ou outras tecnologias de movimentação de dados.
@@ -243,7 +243,7 @@ A recuperação simples ou o modelo de log em massa não é suportada no Hypersc
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Qual é a versão mais antiga do SQL Server? A migração do suporte do SQL Database Hyperscale
 
-SQL Server 2005. Para obter mais informações, consulte [Migrar para um único banco de dados ou um banco de dados em pool](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Para problemas de compatibilidade, consulte [Resolvendo problemas de compatibilidade de migração do banco de dados](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Para obter mais informações, consulte [Migrar para um único banco de dados ou um banco de dados em pool](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Para problemas de compatibilidade, consulte [Resolvendo problemas de compatibilidade de migração do banco de dados](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>O SQL Database Hyperscale oferece suporte à migração de outras fontes de dados, como Aurora, MySQL, Oracle, DB2 e outras plataformas de banco de dados?
 
@@ -257,7 +257,7 @@ Em geral, um SLA não é fornecido durante a pré-visualização pública. No en
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Os backups de banco de dados são gerenciados para mim pelo serviço Banco de Dados SQL do Azure
 
-SIM
+Sim
 
 ### <a name="how-often-are-the-database-backups-taken"></a>A frequência com que os backups de banco de dados são feitos
 
@@ -265,7 +265,7 @@ Não há backups tradicionais completos, diferenciais e de log para bancos de da
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>O suporte do SQL Database Hyperscale é uma restauração pontual?
 
-SIM
+Sim
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>O que é o objetivo de ponto de recuperação (RPO)/objetivo de tempo de recuperação (RTO) com backup/restauração no banco de dados SQL Hyperscale
 

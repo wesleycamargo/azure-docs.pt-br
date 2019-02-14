@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444531"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766309"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usar o Jenkins para criar e implantar seus aplicativos do Linux
 Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Veja como criar e implantar o aplicativo do Service Fabric do Azure usando o Jenkins.
@@ -218,7 +218,7 @@ As etapas nesta seção mostram como configurar um trabalho do Jenkins para resp
 1. Na guia **Gerenciamento de Código-Fonte**, selecione **Git**. Especifique a URL do repositório que hospeda o aplicativo Java do Service Fabric que você deseja integrar ao fluxo CI/CD do Jenkins (por exemplo, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). Você também pode especificar qual ramificação criar (por exemplo, `/master`).
 1. Configure o repositório *GitHub* para falar com o Jenkins:
 
-   a. Na página repositório GitHub, vá para **Configurações** > **Integrações e Serviços**.
+    a. Na página repositório GitHub, vá para **Configurações** > **Integrações e Serviços**.
 
    b. Selecione **Adicionar Serviço**, digite **Jenkins** e selecione o **plug-in Jenkins-Github**.
 
@@ -229,11 +229,11 @@ As etapas nesta seção mostram como configurar um trabalho do Jenkins para resp
 1. Na guia **Build Triggers** do Jenkins, selecione a opção de compilação desejada. Neste exemplo, você deseja disparar uma build sempre que ocorrer um envio por push para o repositório; para isso, selecione **Gatilho de gancho GitHub para sondagem GITScm**. (Anteriormente, essa opção se chamava **Compilar quando uma alteração for enviada ao GitHub**.)
 1. Na guia **Criar**, siga um destes procedimentos, dependendo de estar criando um aplicativo Java ou um aplicativo .NET Core:
 
-   * **Para aplicativos do Java:** na lista suspensa **Adicionar etapa de compilação**, selecione **Invocar Script Gradle**. Clique em **Avançado**. No menu avançado, especifique o caminho do **script de compilação da raiz** para o aplicativo. Ele obtém o build.gradle no caminho especificado e funciona de maneira correspondente. Para o [aplicativo ActorCounter](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), é: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
+   * **Para aplicativos Java:** na lista suspensa **Adicionar etapa de compilação**, selecione **Invocar script Gradle**. Clique em **Avançado**. No menu avançado, especifique o caminho do **script de compilação da raiz** para o aplicativo. Ele obtém o build.gradle no caminho especificado e funciona de maneira correspondente. Para o [aplicativo ActorCounter](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), é: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Ação Compilar do Jenkins no Service Fabric][build-step]
 
-   * **Para aplicativos do .NET Core:** na lista suspensa **Adicionar etapa de compilação**, selecione **Executar Shell**. Na caixa de comando exibida, o diretório precisa primeiro ser alterado para o caminho em que o arquivo build.sh está localizado. Quando o diretório for alterado, o script build.sh poderá ser executado e criará o aplicativo.
+   * **Para aplicativos .NET Core:** na lista suspensa **Adicionar etapa de compilação**, selecione **Executar Shell**. Na caixa de comando exibida, o diretório precisa primeiro ser alterado para o caminho em que o arquivo build.sh está localizado. Quando o diretório for alterado, o script build.sh poderá ser executado e criará o aplicativo.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -246,13 +246,13 @@ As etapas nesta seção mostram como configurar um trabalho do Jenkins para resp
 
 1. Para configurar o Jenkins para implantar seu aplicativo em um cluster do Service Fabric nas ações pós-compilação, é necessário saber o local do certificado do cluster em seu contêiner do Jenkins. Escolha um dos seguintes, dependendo de o contêiner Jenkins estar em execução dentro ou fora do seu cluster e de acordo com o local do certificado de cluster:
 
-   * **Para o Jenkins em execução no cluster:** o caminho para o certificado pode ser encontrado ecoando o valor da variável de ambiente *Certificates_JenkinsOnSF_Code_MyCert_PEM* de dentro do contêiner.
+   * **Para o Jenkins em execução dentro de seu cluster:** O caminho para o certificado pode ser encontrado fazendo-se o eco do valor da variável de ambiente *Certificates_JenkinsOnSF_Code_MyCert_PEM* de dentro do contêiner.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-   * **Para o Jenkins em execução fora do cluster:** siga estas etapas para copiar o certificado de cluster para o contêiner:
+   * **Para o Jenkins em execução fora de seu cluster:** siga estas etapas para copiar o certificado de cluster para o contêiner:
       1. O certificado deve estar no formato PEM. Se você não tiver um arquivo PEM, poderá criar um do arquivo PFX de certificado. Se o arquivo PFX não estiver protegido por senha, execute o seguinte comando no seu host:
 
          ```sh
@@ -298,10 +298,10 @@ Para ambientes de desenvolvimento e teste, você pode configurar as credenciais 
 
 1. Para criar uma entidade de serviço do Azure Active Directory e atribuir a ela permissões em sua assinatura do Azure, siga as etapas em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atenção ao seguinte:
 
-   * Ao seguir as etapas no tópico, não deixe de copiar e salvar os seguintes valores: *ID do aplicativo*, *Chave de aplicativo*, *ID do diretório (ID do locatário)* e *ID da assinatura*. Necessário para configurar as credenciais do Azure no Jenkins.
+   * Ao seguir as etapas no tópico, certifique-se de copiar e salvar os valores a seguir: *ID do aplicativo*, *Chave do aplicativo*, *ID do diretório (ID do locatário)* e *ID da assinatura*. Necessário para configurar as credenciais do Azure no Jenkins.
    * Se você não tiver as [permissões necessárias](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) em seu diretório, precisará pedir ao administrador para conceder as permissões ou criar a entidade de serviço, ou precisará configurar o ponto de extremidade de gerenciamento para o cluster nas **Ações de Pós-Compilação** relativo ao seu trabalho no Jenkins.
    * Na seção [Criar um aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application), você pode inserir qualquer URL adequada em **URL de logon**.
-   * Na seção [Atribuir aplicativo a uma Função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role), você pode atribuir ao aplicativo a função de *Leitor* no grupo de recursos para o cluster.
+   * Na seção [Atribuir aplicativo a uma Função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal), você pode atribuir ao aplicativo a função de *Leitor* no grupo de recursos para o cluster.
 
 1. De volta ao trabalho do Jenkins, clique na guia **Ações de Pós-compilação**.
 1. No menu suspenso **Ações Pós-Compilação**, selecione **Implantar Projeto do Service Fabric**. 
@@ -310,8 +310,8 @@ Para ambientes de desenvolvimento e teste, você pode configurar as credenciais 
 1. Use os valores que você salvou ao definir a entidade de serviço na etapa 1 para definir os seguintes campos:
 
    * **ID do cliente**: *ID do aplicativo*
-   * **Segredo do cliente**: *chave do aplicativo*
-   * **ID do locatário**: *ID do diretório*
+   * **Segredo do cliente**: *Chave do aplicativo*
+   * **ID do locatário**: *ID do Diretório*
    * **ID da assinatura**: *ID da assinatura*
 1. Insira uma **ID** descritiva, que será usada para selecionar a credencial do Jenkins, e uma breve **Descrição**. Em seguida, clique em **Verificar entidade de serviço**. Se a verificação for bem-sucedida, clique em **Adicionar**.
 

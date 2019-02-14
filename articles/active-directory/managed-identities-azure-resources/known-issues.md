@@ -15,12 +15,13 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dbd8ff1e8574b9465d4acc366bf0b64bbfd11e20
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189452"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179715"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -154,8 +155,8 @@ Como uma solução alternativa depois que a assinatura tiver sido movida, você 
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conhecidos com identidades gerenciadas atribuída pelo usuário
 
-- Criando uma identidade atribuída pelo usuário gerenciada com caracteres especiais (isto é, sublinhado) no nome, não há suporte.
-- Nomes de identidade atribuída pelo usuário são restritos a 24 caracteres. Se o nome for mais de 24 caracteres, a identidade não ser atribuídos a um recurso (ou seja, Máquina Virtual.)
+- Os nomes de identidades atribuídas pelo usuário são restritos a um mínimo de 3 e um máximo de 128 caracteres. Se o nome tiver mais de 128 caracteres, a identidade não será atribuída a um recurso (ou seja, a máquina virtual).
+- Os nomes de identidades atribuídas pelo usuário podem conter os seguintes caracteres: a-z A-Z, -, \_, 0 a 9. Não há suporte para a criação de uma identidade gerenciada atribuída pelo usuário com o nome apresentando caracteres especiais diferentes dos presentes nesse conjunto de caracteres (ou seja, asterisco).
 - Se estiver usando a extensão da máquina virtual de identidade gerenciada (com planejamento de ser preterida em janeiro de 2019), o limite com suporte será 32 identidades gerenciadas atribuídas pelo usuário. Sem a extensão da máquina virtual de identidade gerenciada, o limite permitido é de 512.  
 - Movendo uma identidade gerenciada atribuída pelo usuário para outro grupo de recursos fará com que a identidade dividir. Como resultado, não será capaz de solicitar tokens para essa identidade. 
 - Transferindo uma assinatura para outro diretório interromperá identidades gerenciadas atribuída pelo usuário existentes. 

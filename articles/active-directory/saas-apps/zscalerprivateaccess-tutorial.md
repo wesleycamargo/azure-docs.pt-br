@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2b6471b6bd634c7fe3053fc7748eb925c049c17c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192818"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integração do Azure Active Directory com o ZPA (Zscaler Private Access)
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 
 Para configurar a integração do Azure AD ao ZPA (Zscaler Private Access), você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura com logon único do ZPA (Zscaler Private Access) habilitado
 
 
@@ -95,7 +96,7 @@ Para configurar e testar o logon único do Azure AD com o ZPA (Zscaler Private A
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criando um usuário de teste do ZPA (Zscaler Private Access)](#creating-a-zscaler-private-access-(zpa)-test-user)** – para ter um equivalente de Brenda Fernandes no ZPA (Zscaler Private Access) que esteja vinculado à representação dela no Azure AD.
+1. **Criando um usuário de teste do ZPA (Zscaler Private Access)** – para ter um equivalente de Brenda Fernandes no ZPA (Zscaler Private Access) que esteja vinculado à representação dela no Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fb6fb443440ce9af26a3152f7dcc536c4e881cd9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183213"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao software Cezanne HR
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Cezanne HR Software, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Cezanne HR Software habilitada para logon único
 
 > [!NOTE]
@@ -88,7 +89,7 @@ Para configurar e testar o logon único do Azure AD com o Cezanne HR Software, v
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do Cezanne HR Software](#create-a-cezannehrsoftware-test-user)** – para ter um equivalente de Brenda Fernandes no Cezanne HR Software que esteja vinculado à sua representação no Azure Active Directory.
+1. **Criar um usuário de teste do Cezanne HR Software** – para ter um equivalente de Brenda Fernandes no Cezanne HR Software que esteja vinculado à sua representação no Azure AD.
 1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633020"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752885"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conecte-se ao conteúdo do Banco de Dados SQL do Azure e indexe-o usando indexadores do Azure Search
 
@@ -209,6 +209,9 @@ Para usar essa política, crie ou atualize a fonte de dados da seguinte maneira:
     }
 
 Ao usar a política de controle integrado de alterações do SQL, não especifique uma política separada de detecção de exclusão de dados, pois essa política tem suporte interno para identificação de linhas excluídas. No entanto, para que as exclusões sejam detectadas “de forma mágica”, a chave de documento no índice de pesquisa deve ser o mesmo da chave primária na tabela SQL. 
+
+> [!NOTE]  
+> Ao usar [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) para remover um grande número de linhas de uma tabela SQL, o indexador precisa ser [redefinido](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) para também redefinir o estado de acompanhamento de alterações para coletar exclusões de linhas.
 
 <a name="HighWaterMarkPolicy"></a>
 

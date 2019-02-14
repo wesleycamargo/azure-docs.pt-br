@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331632"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812082"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 
@@ -176,7 +176,7 @@ Pontos a serem observados:
 >
 >
 
-Para usar melhor essas duas propriedades e para melhorar a taxa de transferência de movimentação de dados, consulte os [casos de uso de exemplo](#case-study-use-parallel-copy). Você não precisa configurar **parallelCopies** para aproveitar o comportamento padrão. Se você configurar e **parallelCopies** for muito pequeno, várias DMUs de nuvem poderão não ser totalmente utilizadas.
+Para usar melhor essas duas propriedades e para melhorar a taxa de transferência de movimentação de dados, consulte os casos de uso de exemplo. Você não precisa configurar **parallelCopies** para aproveitar o comportamento padrão. Se você configurar e **parallelCopies** for muito pequeno, várias DMUs de nuvem poderão não ser totalmente utilizadas.
 
 ### <a name="billing-impact"></a>Impacto de cobrança
 É **importante** lembrar que você é cobrado com base no tempo total da operação de cópia. Se um trabalho de cópia costumava levar uma hora com a unidade de nuvem e agora leva 15 minutos com quatro unidades de nuvem, a fatura geral fica quase igual. Por exemplo, você usa quatro unidades de nuvem. A primeira unidade de nuvem gasta 10 minutos, a segunda, 10 minutos, a terceira, 5 minutos e a quarta, 5 minutos, tudo em uma execução da Atividade de Cópia. Você é cobrado pelo tempo de cópia total (movimentação de dados), que é de 10 + 10 + 5 + 5 = 30 minutos. Usar **parallelCopies** não afeta a cobrança.
@@ -297,7 +297,7 @@ Se você copiar os dados do armazenamento de Blobs para o SQL Data Warehouse, co
 
 * **Padrão de dados**: O esquema da tabela afeta a taxa de transferência da cópia. Um tamanho de linha grande oferece um desempenho melhor do que o tamanho de linha pequeno para copiar a mesma quantidade de dados. O motivo é que o banco de dados pode recuperar de forma eficiente menos lotes de dados que contêm menos linhas.
 * **Consulta ou procedimento armazenado**: otimize a lógica da consulta ou do procedimento armazenado especificado na origem da Atividade de Cópia para buscar os dados com mais eficiência.
-* Para os **bancos de dados relacionais locais**, como o SQL Server e Oracle, que exigem o uso do **Gateway de Gerenciamento de Dados**, consulte a seção [Considerações do Gateway de Gerenciamento de Dados](#considerations-on-data-management-gateway).
+* Para os **bancos de dados relacionais locais**, como o SQL Server e Oracle, que exigem o uso do **Gateway de Gerenciamento de Dados**, consulte a seção Considerações do Gateway de Gerenciamento de Dados.
 
 ## <a name="considerations-for-the-sink"></a>Considerações do coletor
 ### <a name="general"></a>Geral

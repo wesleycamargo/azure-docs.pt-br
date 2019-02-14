@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330408"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811470"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados de e para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ Um serviço vinculado do SQL do Azure vincula um banco de dados SQL do Azure ao 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **AzureSqlDatabase** |SIM |
-| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |SIM |
+| Tipo |A propriedade type deve ser definida como: **AzureSqlDatabase** |Sim |
+| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |Sim |
 
 > [!IMPORTANT]
 > Configure o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) do servidor de banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando os dados para o Banco de Dados SQL do Azure de fora do Azure, inclusive a partir das fontes de dados locais com o gateway do data factory, configure o devido intervalo de endereços IP do computador que está enviando os dados para o Banco de Dados SQL do Azure.
@@ -80,7 +80,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. |SIM |
+| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -186,7 +186,7 @@ O mesmo define as entidades do Data Factory a seguir:
 
 O exemplo copia os dados da série temporal (por hora, dia etc.) de uma tabela no banco de dados SQL do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-**Serviço vinculado do Banco de Dados SQL do Azure:**
+**Serviço vinculado para o Banco de Dados SQL do Azure:**
 
 ```JSON
 {
@@ -199,7 +199,7 @@ O exemplo copia os dados da série temporal (por hora, dia etc.) de uma tabela n
   }
 }
 ```
-Consulte a seção [Serviço vinculado do SQL Azure](#linked-service) para obter a lista de propriedades com o suporte deste serviço vinculado.
+Consulte a seção Serviço vinculado do SQL Azure para obter a lista de propriedades com o suporte deste serviço vinculado.
 
 **Serviço vinculado do armazenamento de Blob do Azure:**
 
@@ -248,7 +248,7 @@ A configuração "external": "true" informa ao serviço Azure Data Factory que o
 }
 ```
 
-Consulte a seção [Propriedades do tipo de conjunto de dados do SQL Azure](#dataset) para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
+Consulte a seção Propriedades do tipo de conjunto de dados do SQL Azure para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
 
 **Conjunto de dados de saída de Blob do Azure:**
 
@@ -391,7 +391,7 @@ O exemplo copia os dados da série temporal (por hora, dia etc.) de um blob do A
   }
 }
 ```
-Consulte a seção [Serviço vinculado do SQL Azure](#linked-service) para obter a lista de propriedades com o suporte deste serviço vinculado.
+Consulte a seção Serviço vinculado do SQL Azure para obter a lista de propriedades com o suporte deste serviço vinculado.
 
 **Serviço vinculado do armazenamento de Blob do Azure:**
 
@@ -499,9 +499,9 @@ O exemplo copia dados para uma tabela chamada "MyTable" no SQL Azure. Crie a tab
   }
 }
 ```
-Consulte a seção [Propriedades do tipo de conjunto de dados do SQL Azure](#dataset) para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
+Consulte a seção Propriedades do tipo de conjunto de dados do SQL Azure para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
 
-**Uma atividade de cópia em um pipeline com origem Blob e coletor SQL:**
+**Uma atividade de cópia em um pipeline com origem de Blob e coletor SQL:**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **BlobSource** e o tipo de **coletor** está definido como **SqlSink**.
 
@@ -641,13 +641,13 @@ Ao mover dados bidirecionalmente no Banco de Dados SQL do Azure, os mapeamentos 
 | binário |Byte[] |
 | bit |BOOLEAN |
 | char |String, Char[] |
-| data |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| data |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Float |Duplo |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
@@ -657,12 +657,12 @@ Ao mover dados bidirecionalmente no Banco de Dados SQL do Azure, os mapeamentos 
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objeto * |
 | text |String, Char[] |
-| tempo real |timespan |
+| tempo real |TimeSpan |
 |  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |

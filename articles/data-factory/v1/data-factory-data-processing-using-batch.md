@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021570"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822741"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021570"
 
 Este artigo descreve uma arquitetura de um exemplo de solução que move e processa os conjuntos de dados em larga escala de maneira automática e agendada. Ele também fornece um passo a passo completo para implementar a solução usando o Data Factory e o Lote do Azure.
 
-Este artigo é maior que um artigo típico porque contém um passo a passo de uma solução de exemplo inteira. Se estiver conhecendo o Lote e o Data Factory agora, saiba mais sobre esses serviços e como eles funcionam juntos. Se você conhece algo sobre os serviços e está criando/projetando uma solução, concentre-se na [seção sobre a arquitetura](#architecture-of-sample-solution) do artigo. Se estiver desenvolvendo um protótipo ou uma solução, talvez você deseje testar as instruções passo a passo do [passo a passo](#implementation-of-sample-solution). Seus comentários sobre esse conteúdo e como usá-lo são bem-vindos.
+Este artigo é maior que um artigo típico porque contém um passo a passo de uma solução de exemplo inteira. Se estiver conhecendo o Lote e o Data Factory agora, saiba mais sobre esses serviços e como eles funcionam juntos. Se você conhece algo sobre os serviços e está criando/projetando uma solução, concentre-se na seção sobre arquitetura do artigo. Se estiver desenvolvendo um protótipo ou uma solução, você pode usar as instruções passo a passo. Seus comentários sobre esse conteúdo e como usá-lo são bem-vindos.
 
 Primeiro, vamos observar como os serviços Data Factory e Lote podem ajudá-lo a processar conjuntos de dados grandes na nuvem.     
 

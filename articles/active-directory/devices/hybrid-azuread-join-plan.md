@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746414"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234095"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar a sua implementação do ingresso do Azure Active Directory híbrido
 
@@ -145,7 +146,7 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
 - [Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados](hybrid-azuread-join-managed-domains.md)
 
 
- Se a instalação da versão necessária do Azure AD Connect não for uma opção, consulte [como configurar manualmente o registro do dispositivo](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
+ Se a instalação da versão necessária do Azure AD Connect não for uma opção, consulte [como configurar manualmente o registro do dispositivo](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Suporte ao UPN do AD local no ingresso no Azure AD Híbrido

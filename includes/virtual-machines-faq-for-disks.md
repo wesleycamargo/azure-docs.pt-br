@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841388"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648574"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -223,7 +223,7 @@ Sim. Atualmente, a proteção do Azure Site Recovery de Azure para Azure para VM
 
 **Posso migrar VMs com discos não gerenciados localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
-SIM
+Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e Criptografia de Serviço de Armazenamento
 
@@ -260,7 +260,7 @@ Sim. Todos os instantâneos e imagens criados após 9 de junho de 2017 são crip
 
 **Posso converter máquinas virtuais com discos não gerenciados que estão localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
-SIM
+Sim
 
 **Um VHD exportado de um disco gerenciado ou instantâneo também será criptografado?**
 
@@ -347,7 +347,7 @@ Para obter a taxa de transferência dos tamanhos de disco grandes do SSD Standar
 
 **Quais regiões são os tamanhos de disco gerenciado maiores do que o suporte para 4 TiB no?**
 
-No momento na versão prévia, os tamanhos de disco gerenciados têm suporte no Centro dos EUA, apenas.
+No momento na versão prévia, os tamanhos de disco gerenciado têm suporte no Centro-oeste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA 2, Leste dos EUA 2, Leste dos EUA.
 
 **Oferecemos suporte a habilitação do cache de Host sobre os tamanhos de disco mais recentes?**
 

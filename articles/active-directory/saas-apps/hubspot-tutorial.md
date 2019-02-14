@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: bf3302f4f7323307163ec540accb4cc652512463
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178793"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Azure Active Directory ao HubSpot
 
@@ -87,7 +88,7 @@ Para configurar e testar o logon único do Azure AD com o HubSpot, você precisa
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do HubSpot](#creating-a-hubspot-saml-test-user)**: para ter um equivalente de Brenda Fernandes no HubSpot que esteja vinculado à representação do usuário no Azure AD.
+3. **Criação de um usuário de teste do HubSpot** - para ter um equivalente de Brenda Fernandes no HubSpot que esteja vinculado à representação do usuário no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
