@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 483c2dc1c90ac5193784f5badb8a89892bcacc11
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857056"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242066"
 ---
 # <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>SKUs permitidas para contas de armazenamento e máquinas virtuais
 
@@ -33,7 +33,7 @@ Essa política requer que contas de armazenamento e máquinas virtuais usem SKUs
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json"

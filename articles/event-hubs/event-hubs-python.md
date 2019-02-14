@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 4a0e2cd7e0c768512e1aafc042fe55338fdc206e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084967"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818611"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Como usar Hubs de Eventos de um aplicativo Python
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter mais informações, consulte [Introdução aos Hubs de Eventos do Azure](event-hubs-what-is-event-hubs.md). 
@@ -29,7 +29,7 @@ Este artigo fornece links para artigos que mostram como realizar as seguintes ta
 
 - [Enviar eventos para um Hub de Eventos](#send-events-to-event-hubs)
 - [Receber eventos do hub de eventos](#receive-events-from-event-hubs)
-- [A leitura capturou dados de evento de um Armazenamento do Azure](#capture-event-hubs-data). 
+- A leitura capturou dados de evento de um armazenamento do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Crie um hub de eventos, seguindo um destes inícios rápidos: [Portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md). 

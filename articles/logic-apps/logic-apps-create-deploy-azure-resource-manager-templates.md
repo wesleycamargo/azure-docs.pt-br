@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062886"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242920"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Criar e implantar aplicativos lógicos com modelos do Azure Resource Manager
 
@@ -93,7 +93,7 @@ Para criar e implantar automaticamente um aplicativo lógico para o Azure, escol
 
 [![Implantar no Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Essa ação conectará você ao Portal do Azure, onde você poderá fornecer os detalhes do seu aplicativo lógico e fazer alterações no modelo ou nos parâmetros. Por exemplo, o Portal do Azure solicitará estes detalhes:
+Essa ação conectará você ao portal do Azure, onde você poderá fornecer os detalhes do seu aplicativo lógico e fazer alterações no modelo ou nos parâmetros. Por exemplo, o portal do Azure solicitará estes detalhes:
 
 * Nome da assinatura do Azure
 * Grupo de recursos que você deseja usar
@@ -108,8 +108,10 @@ Essa ação conectará você ao Portal do Azure, onde você poderá fornecer os 
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
 ### <a name="azure-cli"></a>CLI do Azure

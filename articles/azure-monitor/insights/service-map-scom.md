@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818746"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração do Mapa do Serviço com o System Center Operations Manager
-  > [!NOTE]
-  > Esse recurso está em uma versão prévia.
-  > 
-  
+
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. O Mapa do Serviço permite que você exiba seus servidores da maneira desejada, como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra as conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP, sem nenhuma configuração necessária além da instalação de um agente. Para obter mais informações, consulte a [documentação do Mapa do Serviço]( service-map.md).
 
 Com essa integração entre o Mapa do Serviço e o System Center Operations Manager, você pode criar automaticamente diagramas de aplicativos distribuídos no Operations Manager com base em mapas de dependência dinâmica no Mapa do Serviço.
@@ -43,7 +40,7 @@ A integração entre o Operations Manager e o Mapa do Serviço é habilitada pel
 * Mapa do Serviço do Microsoft System Center
 
 ## <a name="configure-the-service-map-integration"></a>Configurar a integração do Mapa do Serviço
-Depois de instalar o pacote de gerenciamento do Mapa do Serviço, um novo nó, **Mapa do Serviço**, é exibido em **Operations Management Suite** no painel **Administração**. 
+Depois de instalar o pacote de gerenciamento do Mapa do Serviço, um novo nó, **Mapa do Serviço**, é exibido em **Operations Management Suite** no painel **Administração**.
 
 >[!NOTE]
 >[Operations Management Suite foi uma coleção de serviços](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) que incluiu o Log Analytics, que agora faz parte do [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -54,7 +51,7 @@ Para configurar a integração do Mapa do Serviço, faça o seguinte:
 
     ![Painel Visão Geral do Mapa do Serviço](media/service-map-scom/scom-configuration.png)
 
-2. Na janela **Configuração da Conexão**, insira o nome ou a ID do locatário, a ID do aplicativo (também conhecida como o nome de usuário ou a clientID) e a senha da entidade de serviço e, em seguida, clique em **Avançar**. Para obter mais informações, acesse [Criar uma entidade de serviço](#creating-a-service-principal).
+2. Na janela **Configuração da Conexão**, insira o nome ou a ID do locatário, a ID do aplicativo (também conhecida como o nome de usuário ou a clientID) e a senha da entidade de serviço e, em seguida, clique em **Avançar**. Para obter mais informações, acesse Criar uma entidade de serviço.
 
     ![A janela Configuração da Conexão](media/service-map-scom/scom-config-spn.png)
 
@@ -63,11 +60,11 @@ Para configurar a integração do Mapa do Serviço, faça o seguinte:
     ![O workspace de configuração do Operations Manager](media/service-map-scom/scom-config-workspace.png)
 
 4. No **seleção de grupo do computador** janela, que você escolha quais grupos de máquina do mapa de serviço que deseja sincronizar com o Operations Manager. Clique em **adicionar ou remover grupos de computadores**, escolha grupos na lista de **grupos de computadores disponíveis**e clique em **adicionar**.  Quando você terminar de selecionar os grupos, clique em **OK** para concluir.
-    
+
     ![Os grupos de computadores de configuração do Operations Manager](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. Na janela **Seleção de Servidor**, você configura o Grupo de Servidores do Mapa do Serviço com os servidores que você deseja sincronizar entre o Operations Manager e o Mapa do Serviço. Clique em **Adicionar/Remover Servidores**.   
-    
+
     Para que a integração crie um diagrama de aplicativo distribuído para um servidor, o servidor deve ser/estar:
 
     * Gerenciado pelo Operations Manager
@@ -91,7 +88,7 @@ Depois que o workspace do Log Analytics estiver conectado, uma nova pasta, Mapa 
 ![O painel Monitoramento do Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 A pasta do Mapa do Serviço tem quatro nós:
-* **Alertas Ativos**: Lista todos os alertas ativos sobre a comunicação entre o Operations Manager e o Mapa do Serviço.  Observe que esses alertas não estão que sendo sincronizados para o Operations Manager de alertas do Log Analytics. 
+* **Alertas Ativos**: Lista todos os alertas ativos sobre a comunicação entre o Operations Manager e o Mapa do Serviço.  Observe que esses alertas não estão que sendo sincronizados para o Operations Manager de alertas do Log Analytics.
 
 * **Servidores**: Lista os servidores monitorados configurados para sincronização por meio do Mapa do Serviço.
 
@@ -120,9 +117,9 @@ Uma regra, _Microsoft.SystemCenter.ServiceMapImport.Rule_, é criada para buscar
 
 ![A janela de propriedades Substituições do Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: Habilite ou desabilite as atualizações automáticas. 
+* **Enabled**: Habilite ou desabilite as atualizações automáticas.
 * **IntervalMinutes**: Redefine o tempo entre as atualizações. O intervalo padrão é uma hora. Se você desejar sincronizar os mapas do servidor com mais frequência, poderá alterar o valor.
-* **TimeoutSeconds**: Redefina a duração de tempo antes que a solicitação atinja o tempo limite. 
+* **TimeoutSeconds**: Redefina a duração de tempo antes que a solicitação atinja o tempo limite.
 * **TimeWindowMinutes**: Redefina a janela de tempo para consulta dos dados. O padrão é uma janela de 60 minutos. O valor máximo permitido pelo Mapa do Serviço é 60 minutos.
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos

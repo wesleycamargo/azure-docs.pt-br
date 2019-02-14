@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Criar uma primeira instância de Pesquisa Personalizada do Bing | Microsoft Docs'
+title: 'Início Rápido: Criar uma primeira instância de Pesquisa Personalizada do Bing | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
 description: Use este artigo para criar uma instância personalizada do Bing que pode pesquisar os domínios e as páginas da Web que você definir.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2017
+ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 360860813e4901a3346eec1fd2a970f0d1e86c46
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177875"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231902"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Início Rápido: Criar a primeira instância da Pesquisa Personalizada do Bing
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Início rápido: Criar a primeira instância da Pesquisa Personalizada do Bing
 
 Para usar a Pesquisa Personalizada do Bing, você precisa criar uma instância de pesquisa personalizada que defina o modo de exibição ou a fatia da web. Essa instância conterá os domínios públicos, os sites e as páginas da Web que você deseja pesquisar, juntamente com os ajustes de classificação que possa querer. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045722"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736265"
 ---
 Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a opção **-debug** com a CLI e a opção **-Debug** com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
@@ -67,7 +67,7 @@ Verifique se o estado de provisionamento da imagem gerenciada de origem é **Êx
 Use a tabela a seguir para ver se a região de origem pretendida tem suporte:
 <br>
 
-| Criar galeria no ou "região de origem"   | Replicar versão ou "região de destino" |
+| Criar galeria no ou "região de origem"   | Replicar a versão ou "região de destino" |
 |----------------------------------------|-------------------------------------------|
 | Centro-Oeste dos EUA                        | Todas as regiões de Nuvem Pública do Azure            |
 | Centro-Sul dos Estados Unidos                       |                                           |

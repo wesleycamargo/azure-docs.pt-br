@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186796"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817370"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para blocos do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
@@ -36,7 +36,7 @@ Os blocos do Designer de Modos de Exibição disponíveis são descritos na tabe
 | [Número](#number-tile) |A contagem de registros de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registros de duas consultas diferentes. |
 | [Rosca](#donut-tile) | Um gráfico que se baseia em uma consulta com um valor de resumo no centro. |
-| [Gráfico de linhas e balão](#line-chart-amp-callout-tile) | Um gráfico de linhas com base em uma consulta e um balão com um valor de resumo. |
+| Gráfico de linhas e balão | Um gráfico de linhas com base em uma consulta e um balão com um valor de resumo. |
 | [Gráfico de linhas](#line-chart-tile) |Um gráfico de linhas com base em uma consulta. |
 | [Duas linhas do tempo](#two-timelines-tile) | Um gráfico de colunas com duas séries, cada uma com base em uma consulta separada. |
 

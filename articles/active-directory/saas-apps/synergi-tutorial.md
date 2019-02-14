@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 416c5669424e7052459d94a6c487ea81aee5532d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 35e5142d691b1da39d66be43144cc1b048608524
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156047"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Tutorial: Integração do Azure Active Directory com o Synergi
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Synergi, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Synergi habilitada para logon único
 
 > [!NOTE]

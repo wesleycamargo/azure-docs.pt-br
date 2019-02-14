@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103302"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814455"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o Console Serial para acessar GRUB e Modo de Usuário Único
 GRUB é o GRand Unified Bootloader, que provavelmente será a primeira informação que você verá ao inicializar uma VM. Como é exibido antes do sistema operacional ser iniciado, ele não é acessível via SSH. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -44,7 +44,7 @@ Reiniciar a VM também pode ser feito com um comando SysRq `'b'`, se [SysRq](./s
 ![Reiniciar Console Serial do Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Acesso geral ao modo de usuário único
-O acesso manual ao modo de usuário único poderá ser necessário quando você não configurar uma conta com autenticação de senha. Você precisará modificar a configuração do GRUB para inserir manualmente o modo de usuário único. Depois que fizer isso, confira [Usar o modo de usuário único para redefinir ou adicionar uma senha](#-Use-Single-User-Mode-to-reset-or-add-a-password) para obter mais instruções.
+O acesso manual ao modo de usuário único poderá ser necessário quando você não configurar uma conta com autenticação de senha. Você precisará modificar a configuração do GRUB para inserir manualmente o modo de usuário único. Depois que fizer isso, confira Usar o modo de usuário único para redefinir ou adicionar uma senha para obter mais instruções.
 
 Quando a VM não puder ser reinicializada, geralmente as distribuições escolherão automaticamente o modo de usuário único ou o modo de emergência. Outras, no entanto, exigirão uma configuração adicional antes de escolher automaticamente o modo de usuário único ou o modo de emergência (como a configuração de uma senha raiz).
 

@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321374"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699237"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -126,5 +126,5 @@ Para as informações mais recentes sobre preços, consulte a [página de preço
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um servidor MySQL no portal](howto-create-manage-server-portal.md).
-- Saiba como [monitorar e dimensionar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](scripts/sample-scale-server.md).
-- Saiba mais sobre as [limitações de serviço](concepts-limits.md).
+- Conheça os [limites de serviço](concepts-limits.md).
+- Saiba como [dimensionar as réplicas de leitura](howto-read-replicas-portal.md).

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Use o algoritmo de Detecção de Emoções baseado em nuvem para compilar aplicativos mais personalizados.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: overview
 ms.date: 02/06/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 555b03be679b0d1ea61371d22ec9865e0e72b558
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ceeea8c143792e9a46b4b8a9892cad07770c5fbf
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215785"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236440"
 ---
 # <a name="what-is-the-emotion-api"></a>O que é a API de Detecção de Emoções?
 

@@ -3,19 +3,19 @@ title: 'Início rápido: Reconhecer emoções em rostos em uma imagem – API de
 description: Obtenha informações e um exemplo de código para ajudar você a começar a usar a API de Detecção de Emoções com Java para Android.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: a3250771c51495890c54060dc46b8bd88a8f54af
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9755507aa858289daff7f297c4013b27f8258b61
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228671"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233516"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar um aplicativo para reconhecer emoções em rostos em uma imagem.
 

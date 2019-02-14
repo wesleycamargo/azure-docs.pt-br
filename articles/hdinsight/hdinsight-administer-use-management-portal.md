@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632003"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811691"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop baseados no Windows no HDInsight usando o portal do Azure
 
@@ -203,7 +203,7 @@ Há várias maneiras de programar o processo:
 Para saber mais sobre preços, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para excluir um cluster do Portal, veja [Excluir clusters](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Alterar nome de usuário do cluster
-Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight é criada durante o processo de criação. Você também pode criar uma conta de usuário RDP para acessar o cluster via RDP. Consulte [Habilitar área de trabalho remota](#connect-to-hdinsight-clusters-by-using-rdp).
+Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight é criada durante o processo de criação. Você também pode criar uma conta de usuário RDP para acessar o cluster via RDP. Confira Habilitar a área de trabalho remota.
 
 **Para alterar o nome de usuário e a senha do cluster HDInsight**
 
@@ -345,7 +345,7 @@ Na captura de tela anterior, o nome da pasta tem o número de versão do Hadoop 
     cd %hcatalog_home%
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e como abrir a ferramenta de linha de comando Apache Hadoop. Para saber mais, confira os seguintes artigos:
+Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e como abrir a ferramenta de linha de comando Apache Hadoop. Para saber mais, consulte os seguintes artigos:
 
 * [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 * [Administrar o HDInsight usando a CLI Clássica do Azure](hdinsight-administer-use-command-line.md)

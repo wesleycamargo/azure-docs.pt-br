@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429627"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819783"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de roteamento da máquina virtual
 
@@ -116,7 +116,7 @@ Resolver problemas de roteamento normalmente consiste em:
 - Garantir que a tabela de rotas que contém quaisquer rotas personalizadas definidas esteja associada à sub-rede na qual o adaptador de rede está. Saiba como [associar uma tabela de rotas a uma sub-rede](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Garantir que dispositivos como o gateway de VPN do Azure ou os dispositivos virtuais de rede que você implantou estejam operacionais. Use a funcionalidade [Diagnóstico do VPN](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede para determinar qualquer problema com um gateway de VPN do Azure.
 
-Se ainda houver problemas de comunicação, consulte [Considerações](#considerations) e [Diagnóstico adicional](#additional-dignosis).
+Se ainda houver problemas de comunicação, confira [Considerações](#considerations) e Diagnóstico adicional.
 
 ## <a name="considerations"></a>Considerações
 

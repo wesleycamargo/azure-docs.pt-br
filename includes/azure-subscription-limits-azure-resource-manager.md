@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458817"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246705"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458817"
 
 <sup>2</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
 
-<sup>3</sup>Você pode aplicar um número ilimitado de marcas por assinatura. O número de marcas por recurso ou grupo de recursos é limitado a 15. O Gerenciador de Recursos só retorna uma [lista de valores e nomes de marca exclusivos](/rest/api/resources/tags#Tags_List) na assinatura quando o número de marcas é menor ou igual a 10.000. No entanto, ainda é possível encontrar um recurso por marca quando o número excede 10.000.  
+<sup>3</sup>Você pode aplicar um número ilimitado de marcas por assinatura. O número de marcas por recurso ou grupo de recursos é limitado a 15. O Gerenciador de Recursos só retorna uma [lista de valores e nomes de marca exclusivos](/rest/api/resources/tags) na assinatura quando o número de marcas é menor ou igual a 10.000. No entanto, ainda é possível encontrar um recurso por marca quando o número excede 10.000.  
 
 <sup>4</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Azure Resource Manager.
 

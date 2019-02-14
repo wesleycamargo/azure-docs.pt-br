@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754210"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237843"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
@@ -134,7 +134,7 @@ O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, com
 
 6. Crie uma pasta chamada *Livros* e adicione nela um arquivo chamado *server.js*, que contém a configuração do servidor Web.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -159,7 +159,7 @@ O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e
 
 2. Na pasta *Livros*, crie uma pasta chamada *aplicativos* e adicione um arquivo chamado *routes.js* com as rotas expressas definidas.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -201,7 +201,7 @@ O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e
 
 3. Na pasta *aplicativos*, crie uma pasta chamada *modelos* e adicione um arquivo chamado *book.js* com a configuração de modelo de livro definida.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -223,7 +223,7 @@ O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exi
 
 1. Altere o diretório de backup para *Livros* (`cd ../..`) e, em seguida, crie uma pasta chamada *pública* e adicione um arquivo chamado *script.js* com a configuração do controlador definida.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

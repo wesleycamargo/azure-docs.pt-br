@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: Reconhecer emoções em rostos em uma imagem – API de Detecção de Emoções, PHP'
+title: 'Início Rápido: Reconhecer emoções em rostos em uma imagem – API de Detecção de Emoções, PHP'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de códigos para ajudar você a começar a usar a API de Detecção de Emoções com PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3acf47ee26974ddff4f6063eef95bb29be61fce3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 618f0fbee3bfcc3b3e207bdeede1609685e0c5a1
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215479"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237392"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar um aplicativo para reconhecer emoções em rostos em uma imagem.
 

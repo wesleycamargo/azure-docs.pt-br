@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821857"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
 
@@ -181,7 +181,7 @@ Depois de criar a regra, a porta 80 é permitida de entrada da internet, como a 
 
 Quando o tráfego de entrada de processos do Azure, ele processa as regras no NSG associado à sub-rede (se houver um NSG associado) e, em seguida, ele processa as regras no NSG associado à interface de rede. Se houver um NSG associado para a interface de rede e a sub-rede, a porta deve estar aberta em ambos os NSGs, para o tráfego para chegar à VM. Para facilitar os problemas de administração e comunicação, recomendamos que você associe um NSG a uma sub-rede, em vez de interfaces de rede individuais. Se precisam de VMs em uma sub-rede diferentes regras de segurança, você pode fazer a rede membros de interfaces de um grupo de segurança do aplicativo (ASG) e especifique um ASG como origem e destino de uma regra de segurança. Saiba mais sobre [ grupos de segurança de aplicativos ](security-overview.md#application-security-groups).
 
-Se ainda houver problemas de comunicação, consulte [Considerações](#considerations) e [Diagnóstico adicional](#additional-dignosis).
+Se ainda houver problemas de comunicação, confira [Considerações](#considerations) e Diagnóstico adicional.
 
 ## <a name="considerations"></a>Considerações
 

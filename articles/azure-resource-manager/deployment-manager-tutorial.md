@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5c88bf00ed1f68e4ddab6175e86a46560c802744
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820922"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238208"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager (versão prévia privada)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Saiba como usar [Gerenciador de Implantação do Azure](./deployment-manager-overview.md) para implantar seus aplicativos em várias regiões. Para usar o Gerenciador de Implantação, você precisa criar dois modelos:
 
@@ -274,7 +276,7 @@ Você cria um arquivo de parâmetros usado com o modelo de distribuição.
 2. Preencha os valores de parâmetro:
 
     - **namePrefix**: Insira uma cadeia de caracteres com 4 a 5 caracteres. Esse prefixo é usado para criar nomes exclusivos de recursos do Azure.
-    - **azureResourceLocation**: Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em **EUA Central** ou **Leste dos EUA 2**.
+    - **azureResourceLocation**: Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em EUA Central ou **Leste dos EUA 2**.
     - **artifactSourceSASLocation**: Insira o URI de SAS do diretório raiz (o contêiner de Blob) em que os arquivos de parâmetros e de modelo de unidade de serviço são armazenados para implantação.  Ver [Preparar os artefatos](#prepare-the-artifacts).
     - **binaryArtifactRoot**: A menos que você altere a estrutura de pasta dos artefatos, use **binaries/1.0.0.0** neste tutorial.
     - **managedIdentityID**: Insira a identidade gerenciada atribuída pelo usuário. Veja [Criar identidade gerenciada atribuída pelo usuário](#create-the-user-assigned-managed-identity). A sintaxe do é:
@@ -293,17 +295,15 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 1. Execute o script para implantar a topologia de serviço.
 
     ```azurepowershell-interactive
-    $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -319,8 +319,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
     ```azurepowershell-interactive
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"

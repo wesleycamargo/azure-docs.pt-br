@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716124"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246702"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ O [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) dos 
 Consulte os seguintes snippets de código para cenários de reconhecimento de intenção que usam o SDK de Fala. Substitua os valores no exemplo por sua chave de assinatura (chave de ponto de extremidade) do LUIS, a [região da assinatura](~/articles/cognitive-services/speech-service/regions.md#intent-recognition) e a **AppId** do modelo de intenção.
 
 > [!NOTE]
-> Em contraste com outros serviços compatíveis com o SDK de Fala, o reconhecimento de intenção requer uma chave de assinatura específica (ponto de extremidade do LUIS). Para obter informações sobre a tecnologia de reconhecimento de intenção, consulte o [site do LUIS](https://www.luis.ai). Para obter informações sobre como adquirir a **chave do ponto de extremidade**, consulte [Criar uma chave de ponto de extremidade do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> Em contraste com outros serviços compatíveis com o SDK de Fala, o reconhecimento de intenção requer uma chave de assinatura específica (ponto de extremidade do LUIS). Para obter informações sobre a tecnologia de reconhecimento de intenção, consulte o [site do LUIS](https://www.luis.ai). Para obter informações sobre como adquirir a **chave do ponto de extremidade**, consulte [Criar uma chave de ponto de extremidade do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription).

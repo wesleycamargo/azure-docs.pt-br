@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: anzaman
-ms.openlocfilehash: 7df709adbd8e45712c112b52fc76920f8b67fe91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282952"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815465"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalizar um modelo de marcas no Video Indexer
 
@@ -30,7 +30,7 @@ No [2º dia da apresentação do Microsoft Build 2017](https://www.videoindexer.
 
 Falar sobre janelas no contexto de construção, em inglês, não detectará a palavra "Windows" como uma marca. O mesmo vale para Box, Apple, Fox, etc., com base em algoritmos avançados do Machine Learning que sabem como diferenciar de acordo com o contexto. A detecção de marca funciona para todos os idiomas compatíveis. Clique aqui para obter [vídeo e índice da palestra do 2º dia do Microsoft Build 2017](http://www.videoindexer.ai/media/ed6ede78ad/).
 
-Para trazer suas próprias marcas, confira [Próximas etapas](#next-stpes).
+Para trazer suas próprias marcas, confira Próximas etapas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

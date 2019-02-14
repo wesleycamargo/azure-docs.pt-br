@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168610"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815397"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único com senha para um aplicativo da Galeria do Azure AD
 
-Quando adiciona um aplicativo da [Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), você tem a opção de como deseja que os usuários façam logon nesse aplicativo. É possível configurar essa opção a qualquer momento, selecionando o item de navegação **Logon Único** em um Aplicativo Empresarial no [Portal do Azure](https://portal.azure.com/).
+Quando adiciona um aplicativo da [Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), você tem a opção de como deseja que os usuários façam logon nesse aplicativo. É possível configurar essa opção a qualquer momento, selecionando o item de navegação **Logon Único** em um Aplicativo Empresarial no [Portal do Azure](https://portal.azure.com/).
 
-Um dos métodos de logon único disponíveis para você é a opção [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Trata-se de uma ótima maneira de começar a integrar rapidamente aplicativos no Azure AD, e que lhe permite:
+Um dos métodos de logon único disponíveis para você é a opção [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Trata-se de uma ótima maneira de começar a integrar rapidamente aplicativos no Azure AD, e que lhe permite:
 
 -   Habilitar o **logon único para os usuários** armazenando de forma segura e reproduzindo os nomes de usuário e senhas do aplicativo integrado ao Azure AD
 
@@ -41,7 +41,7 @@ Um dos métodos de logon único disponíveis para você é a opção [Logon úni
 
 -   Permitir que um **administrador** especifique a senha ou nome de usuário compartilhado por um grupo de pessoas usando o recurso Atualizar Credenciais ao [atribuir um grupo a um aplicativo](#assign-an-application-to-a-group-directly)
 
-A seção a seguir descreve como habilitar o [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) para um aplicativo que já está na [Galeria de Aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+A seção a seguir descreve como habilitar o [Logon único baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) para um aplicativo que já está na [Galeria de Aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
 Para configurar um aplicativo da galeria do Azure AD, será necessário:
@@ -50,7 +50,7 @@ Para configurar um aplicativo da galeria do Azure AD, será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
--   [Atribuir o aplicativo a um usuário ou um grupo](#assign-the-application-to-a-user-or-a-group)
+-   Atribuir o aplicativo a um usuário ou a um grupo
 
     -   [Atribuir um usuário diretamente a um aplicativo](#assign-a-user-to-an-application-directly)
 

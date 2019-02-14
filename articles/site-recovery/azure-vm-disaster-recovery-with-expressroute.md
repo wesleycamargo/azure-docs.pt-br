@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228280"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821942"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -190,7 +190,7 @@ Para uma topologia simples que usa um único circuito da Rota Expressa, com o me
 ### <a name="example-steps"></a>Etapas de exemplo
 Para automatizar a recuperação neste exemplo, veja o que você precisa fazer:
 
-1. Siga as etapas a seguir [configurar a replicação](#azure-vm-replication-steps).
+1. Siga as etapas a seguir para configurar a replicação.
 2. [Falha nas VMs do Azure](azure-to-azure-tutorial-failover-failback.md), com essas etapas adicionais durante ou após o failover.
 
     a. Crie o Gateway do ExpressRoute do Azure no hub da região de destino VNet. Isso é necessário para conectar o hub de destino vNet ao circuito da Rota Expressa.

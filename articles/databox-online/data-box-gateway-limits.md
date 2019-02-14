@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388415"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815635"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limites do Azure Data Box Gateway (versão prévia)
 
@@ -26,7 +26,7 @@ Considere esses limites ao implantar e operar sua solução do Microsoft Azure D
 
 ## <a name="data-box-gateway-service-limits"></a>Limites do serviço do Data Box Gateway
 
-- Nesta versão, o serviço está disponível somente em determinadas regiões nos EUA, Europa e Pacífico Asiático. Para saber mais, acesse [Disponibilidade por região](#data-box-gateway-overview#region-availability). A conta de armazenamento deve estar fisicamente próxima à região em que o dispositivo foi implantado (pode ser diferente da área geográfica do serviço).
+- Nesta versão, o serviço está disponível somente em determinadas regiões nos EUA, Europa e Pacífico Asiático. Para saber mais, acesse a disponibilidade por região. A conta de armazenamento deve estar fisicamente próxima à região em que o dispositivo foi implantado (pode ser diferente da área geográfica do serviço).
 - Não há suporte para mover um recurso do Data Box Gateway para um grupo de recursos ou assinatura diferente. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Limites de dispositivo do Data Box Gateway

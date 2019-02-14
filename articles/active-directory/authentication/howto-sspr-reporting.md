@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 891ab7ce0218e3532b8e503bc9b06da04a13d2c4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d3d88c29025c1a7a40a6248d3be841a33d1b6761
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074540"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694356"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -85,7 +85,7 @@ Os tipos de atividade a seguir aparecem na categoria de evento de auditoria **Ge
 * [Redefinir senha (pelo administrador)](#activity-type-reset-password-by-admin): Indica que um administrador executou uma redefinição de senha em nome de um usuário no portal do Azure.
 * [Redefinir senha (autoatendimento)](#activity-type-reset-password-self-service): Indica que um usuário redefiniu sua senha com êxito no [portal de redefinição de senha do Azure AD](https://passwordreset.microsoftonline.com).
 * [Progresso da atividade de fluxo de redefinição de senha self-service](#activity-type-self-serve-password-reset-flow-activity-progress): Indica cada etapa específica executada por um usuário, como um portão de autenticação de redefinição de senha específico, como parte do processo de redefinição de senha.
-* [Desbloquear conta de usuário (autoatendimento)](#activity-type-unlock-user-account-self-service): Indica que um usuário desbloqueou sua conta do Active Directory com êxito sem redefinir a senha no [portal de redefinição de senha do Azure AD](https://passwordreset.microsoftonline.com) usando o recurso do Active Directory de desbloqueio de conta sem redefinição.
+* [Desbloquear conta de usuário (autoatendimento)](#activity-type-unlock-a-user-account-self-service): Indica que um usuário desbloqueou sua conta do Active Directory com êxito sem redefinir a senha no [portal de redefinição de senha do Azure AD](https://passwordreset.microsoftonline.com) usando o recurso do Active Directory de desbloqueio de conta sem redefinição.
 * [Usuário registrado para redefinição de senha self-service](#activity-type-user-registered-for-self-service-password-reset): Indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: Impedido de executar a redefinição de senha de autoatendimento
@@ -109,7 +109,7 @@ A seguinte lista explica essa atividade em detalhes:
 * **Status de atividade**:
   * _Êxito_: Indica que um usuário alterou sua senha com êxito.
   * _Falha_: Indica que um usuário não pôde alterar sua senha. Você pode selecionar a linha para ver a categoria **Motivo do status de atividade** para saber mais sobre o motivo da falha.
-* **Motivo da falha do status de atividade**: 
+* **Motivo da falha do status de atividade**:
   * _FuzzyPolicyViolationInvalidPassword_: O usuário selecionou uma senha que foi banida automaticamente porque as funcionalidades de Detecção de Senha Banida da Microsoft a consideraram muito comum ou particularmente fraca.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Tipo de atividade: Redefinir senha (pelo administrador)
@@ -133,7 +133,7 @@ A seguinte lista explica essa atividade em detalhes:
 * **Status de atividade**:
   * _Êxito_: Indica que um usuário redefiniu sua própria senha com êxito.
   * _Falha_: Indica que um usuário não pôde redefinir sua própria senha. Você pode selecionar a linha para ver a categoria **Motivo do status de atividade** para saber mais sobre o motivo da falha.
-* **Motivo da falha do status de atividade**: 
+* **Motivo da falha do status de atividade**:
   * _FuzzyPolicyViolationInvalidPassword_: O administrador selecionou uma senha que foi banida automaticamente porque as funcionalidades de Detecção de Senha Banida da Microsoft a consideraram muito comum ou particularmente fraca.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo de atividade: Progresso da atividade de fluxo de redefinição de senha self-service
@@ -146,7 +146,7 @@ A seguinte lista explica essa atividade em detalhes:
 * **Status de atividade**:
   * _Êxito_: Indica que um usuário concluiu com êxito uma etapa específica do fluxo de redefinição de senha.
   * _Falha_: Indica a falha de uma etapa específica do fluxo de redefinição de senha. Você pode selecionar a linha para ver a categoria **Motivo do status de atividade** para saber mais sobre o motivo da falha.
-* **Razões do status de atividade**:   Confira a tabela a seguir para obter [todas as razões do status de atividade de redefinição permitidos](#allowed-values-for-details-column).
+* **Razões do status de atividade**:   Confira a tabela a seguir para obter [todas as razões do status de atividade de redefinição permitidos](#description-of-the-report-columns-in-the-azure-portal).
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>Tipo de atividade: Desbloquear uma conta de usuário (autoatendimento)
 
@@ -168,10 +168,10 @@ A seguinte lista explica essa atividade em detalhes:
 * **Destino da atividade**: O usuário que se registrou para a redefinição de senha. O usuário pode ser um usuário final ou um administrador.
 * **Status de atividade permitidos**:
   * _Êxito_: Indica que um usuário se registrou com êxito para a redefinição de senha de acordo com a política atual. 
-  * _Falha_: Indica que um usuário não pôde se registrar para a redefinição de senha. Você pode selecionar a linha para ver a categoria **Motivo do status de atividade** para saber mais sobre o motivo da falha. 
+  * _Falha_: Indica que um usuário não pôde se registrar para a redefinição de senha. Você pode selecionar a linha para ver a categoria **Motivo do status de atividade** para saber mais sobre o motivo da falha.
 
      >[!NOTE]
-     >Falha não significa que um usuário não pode redefinir sua senha. Isso significa que ele não concluiu o processo de registro. Se houver dados não verificados na conta que estejam corretos (como um número de telefone que não foi validado), mesmo que eles não tenham verificado esse número de telefone, ainda poderão usá-lo para redefinir a senha. Para obter mais informações, confira [O que acontece quando um usuário é registrado?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
+     >Falha não significa que um usuário não pode redefinir sua senha. Isso significa que ele não concluiu o processo de registro. Se houver dados não verificados na conta que estejam corretos (como um número de telefone que não foi validado), mesmo que eles não tenham verificado esse número de telefone, ainda poderão usá-lo para redefinir a senha.
      >
 
 ## <a name="next-steps"></a>Próximas etapas

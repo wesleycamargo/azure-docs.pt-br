@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Adicionar usuários convidados no portal do Azure'
+title: 'Início Rápido: Adicionar usuários convidados no portal do Azure'
 description: Use este guia de início rápido para saber como os administradores do Azure AD podem adicionar usuários convidados B2B no portal do Azure e veja um passo a passo do fluxo de trabalho de convite B2B.
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,15 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: e13abc6753c1fe9febcabfd8c19d59c97ca8a12f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8916711ab7d5278f34a3d4ad101a0aabb883f84c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079538"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182690"
 ---
-# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início Rápido: adicionar usuários convidados ao diretório no portal do Azure
+# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início rápido: adicionar usuários convidados ao diretório no portal do Azure
 
 É possível convidar qualquer pessoa para colaborar com sua organização. Basta adicioná-la ao seu diretório como usuário convidado. Em seguida, você pode enviar um email de convite que contém um link de resgate ou enviar um link direto para um aplicativo que você deseja compartilhar. Os usuários convidados podem entrar com as próprias identidades empresariais, estudantis ou sociais.
 

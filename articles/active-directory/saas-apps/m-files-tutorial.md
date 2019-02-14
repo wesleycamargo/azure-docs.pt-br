@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 41c31a987e766551682b2c90c00473ea44215dd5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4c169f8d84ca5654af29f359bf8af20f2b8b58b5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150166"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Integração do Azure Active Directory com o M-Files
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o M-Files, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do M-Files
 
 > [!NOTE]

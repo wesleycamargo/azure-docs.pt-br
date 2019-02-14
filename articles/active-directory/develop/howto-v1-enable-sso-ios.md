@@ -15,12 +15,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6c68070a9b94cf867f8c1c930874a5f02a685294
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096731"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190221"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Habilitar o SSO entre aplicativos no iOS usando o ADAL
 
@@ -43,7 +44,7 @@ Estas instruções se aplicam a:
 
 Estas instruções pressupõem que você sabe como:
 
-* Provisionar seu aplicativo usando o portal herdado para o Azure AD. Para saber mais, confira [Registrar um aplicativo com o ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md)
+* Provisionar seu aplicativo usando o portal herdado para o Azure AD. Para obter mais informações, veja [Registrar um aplicativo com o ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md)
 * Integrar seu aplicativo com o [SDK do Azure AD para iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Conceitos de logon único
@@ -109,7 +110,7 @@ Se um agente compatível for instalado no dispositivo, como o aplicativo Microso
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Como podemos garantir que o aplicativo é válido
 
-A necessidade de garantir a identidade de uma chamada de aplicativo para o agente é fundamental para a segurança fornecida em logons assistidos por agente. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no tempo de execução, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. O modo como os desenvolvedores devem criar esse URI de redirecionamento será abordado com detalhes logo abaixo. Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
+A necessidade de garantir a identidade de uma chamada de aplicativo para o agente é fundamental para a segurança fornecida em logons assistidos por agente. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no tempo de execução, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo. Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
 
 **O desenvolvedor tem a opção de definir se o SDK chama o agente ou usa o fluxo não assistido por agente.** No entanto, se o desenvolvedor optar por não usar o fluxo assistido por agente, perderá o benefício de usar as credenciais de SSO que o usuário já pode ter adicionado ao dispositivo e isso impedirá que o aplicativo seja usado com recursos empresariais fornecidos pela Microsoft aos seus clientes, como o Acesso Condicional, funcionalidades de gerenciamento do Intune e autenticação baseada em certificado.
 

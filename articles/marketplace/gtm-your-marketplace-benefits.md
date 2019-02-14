@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354951"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747516"
 ---
 # <a name="your-marketplace-benefits"></a>Seus benefícios do Marketplace
 
@@ -61,7 +61,7 @@ Seu suporte ao GTM inclui modelos, conteúdo da Web, treinamento e ferramentas p
 Para acessar esses benefícios, você precisará:
 
 1. Publicar uma oferta no Azure Marketplace ou no AppSource.
-2. Verifique se você inseriu um contato de marketing na parte **informações de contato** de sua oferta. Isso deve ser um recurso de marketing dedicado, em vez de um alias de catch-all. (ou seja, evite usar "suporte@", "informações@", "marketing@", etc.)
+2. Verifique se você inseriu um contato de marketing na parte **informações de contato** de sua oferta. Isso deve ser um recurso de marketing dedicado, em vez de um alias de catch-all. (ou seja, evite usar "suporte\@", "informações\@", "marketing\@”, etc.)
 
 Com base no status da sua solução, você receberá um email com recursos de autoajuda ou um convite para uma chamada de consultoria com um gerenciador de engajamento dedicado. Você não precisará fazer nada para iniciar a chamada — a equipe de integração do Marketplace entrará em contato com você, com base nas informações que você fornecer no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264675"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818525"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de listagem  
 Os requisitos de conteúdo técnico e de marketing variam de acordo com a vitrine, com o tipo de oferta e com o tipo de listagem. Analise as especificações a seguir para verificar sua conformidade.  
@@ -64,10 +64,10 @@ O tipo de listagem de Lista inclui os tipos de oferta a seguir nas vitrines do M
 
 | Tipo de oferta | Vitrine | Detalhes |  
 |:---        |:---        |:---     |  
-| Serviços de Consultoria | AppSource | [Requisitos: AppSource: Lista: Serviços de consultoria](#requirements-appsource-list-consulting-services) |  
-| Serviços de Consultoria | Azure Marketplace | [Requisitos: Azure Marketplace: Lista: Serviços de consultoria](#requirements-azure-marketplace-list-consulting-services) |  
+| Serviços de Consultoria | AppSource | Requisitos: AppSource: Lista: Serviços de Consultoria |  
+| Serviços de Consultoria | Azure Marketplace | Requisitos: Azure Marketplace: Lista: Serviços de Consultoria |  
 | Entre em contato comigo | AppSource | [](#) |  
-| Entre em contato comigo | Azure Marketplace | [Requisitos: AppSource: Lista: Entre em contato comigo](#requirements-azure-marketplace-list-contact-me) |  
+| Entre em contato comigo | Azure Marketplace | Requisitos: AppSource: Lista: Entre em contato comigo |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requisitos: AppSource: Lista: Serviço de consultoria  
 
@@ -91,11 +91,11 @@ O tipo de listagem de Lista inclui os tipos de oferta a seguir nas vitrines do M
 
 | Tipo de oferta | Vitrine | Detalhes |  
 |:---        |:---        |:---     |  
-| Avaliação gratuita/SaaS | AppSource | [Requisitos por tipo de listagem: Versão de avaliação](#listing-type-requirements-trial) |  
-| Avaliação gratuita/SaaS | Azure Marketplace | [Requisitos: Azure Marketplace: Versão de avaliação: Avaliação gratuita/avaliação de SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Demonstração interativa | AppSource | [Requisitos por tipo de listagem: Versão de avaliação](#listing-type-requirements-trial) |  
+| Avaliação gratuita/SaaS | AppSource | Requisitos por tipo de listagem: Avaliação |  
+| Avaliação gratuita/SaaS | Azure Marketplace | Requisitos: Azure Marketplace: Versão de avaliação: Avaliação gratuita/avaliação de SaaS |  
+| Demonstração interativa | AppSource | Requisitos por tipo de listagem: Avaliação |  
 | Demonstração interativa | Azure Marketplace | [Requisitos: Azure Marketplace: Versão de avaliação: Demonstração interativa](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Requisitos por tipo de listagem: Versão de avaliação](#listing-type-requirements-trial) |  
+| Test drive | AppSource | Requisitos por tipo de listagem: Avaliação |  
 | Test drive | Azure Marketplace | [Requisitos: Azure Marketplace: Versão de avaliação: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requisitos: Azure Marketplace: Avaliação  
@@ -133,8 +133,8 @@ O tipo de listagem de Lista inclui os tipos de oferta a seguir nas vitrines do M
 
 | Tipo de oferta | Vitrine | Detalhes |   
 |:---        |:---        | :--- |  
-| Aplicativos do Azure: Aplicativo gerenciado | Azure Marketplace | [Requisitos: Azure Marketplace: Transação: Aplicativos do Azure: Aplicativo gerenciado](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Aplicativos do Azure: Modelo de solução | Azure Marketplace | [Requisitos: Azure Marketplace: Transação: Aplicativos do Azure: Modelo de solução](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Aplicativos do Azure: Aplicativo gerenciado | Azure Marketplace | Requisitos: Azure Marketplace: Transação: Aplicativos do Azure: Aplicativo gerenciado |  
+| Aplicativos do Azure: Modelo de solução | Azure Marketplace | Requisitos: Azure Marketplace: Transação: Aplicativos do Azure: Modelo de solução |  
 | Contêineres | Azure Marketplace | [Requisitos: Azure Marketplace: Transação: Contêiner](#requirements-azure-marketplace-transact-container) |  
 | Aplicativo SaaS  | Azure Marketplace | [Requisitos: Azure Marketplace: Transação: Aplicativo SaaS](#requirements-azure-marketplace-transact-saas-app) |  
 | Máquina virtual | Azure Marketplace | [Requisitos: Azure Marketplace: Transação: Máquina virtual](#requirements-azure-marketplace-transact-virtual-machine) |  

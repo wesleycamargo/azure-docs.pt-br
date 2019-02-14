@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751082"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -447,7 +448,7 @@ Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve faz
 
  * Na seção **Provisionamento**, a subseção **Mapeamentos** mostrará uma mensagem "Carregando..." e nunca exibirá os mapeamentos de atributo. O único fluxo de trabalho de provisionamento compatível hoje é a importação de funções do AWS no Azure AD para seleção durante a atribuição de usuário/grupo. Os mapeamentos de atributo para isso são predeterminados e não configuráveis.
  
- * A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são gravadas na propriedade appRoles do [objeto servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) do Azure AD para o locatário do AWS. Vários locatários do AWS (representados por servicePrincipals) podem ser adicionados ao Azure AD da galeria para provisionamento; no entanto, há um problema conhecido por não ser possível gravar automaticamente todas as funções importadas de várias servicePrincipals do AWS usadas para provisionar na única servicePrincipal usada para logon único. Como alternativa, a [API do Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pode ser usada para extrair todas as appRoles importadas para cada servicePrincipal do AWS em que o provisionamento foi configurado. Essas cadeias de caracteres de função podem ser adicionadas posteriormente à servicePrincipal do AWS na qual o logon único está configurado.
+ * A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são gravadas na propriedade appRoles do [objeto servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) do Azure AD para o locatário do AWS. Vários locatários do AWS (representados por servicePrincipals) podem ser adicionados ao Azure AD da galeria para provisionamento; no entanto, há um problema conhecido por não ser possível gravar automaticamente todas as funções importadas de várias servicePrincipals do AWS usadas para provisionar na única servicePrincipal usada para logon único. Como alternativa, a [API do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) pode ser usada para extrair todas as appRoles importadas para cada servicePrincipal do AWS em que o provisionamento foi configurado. Essas cadeias de caracteres de função podem ser adicionadas posteriormente à servicePrincipal do AWS na qual o logon único está configurado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

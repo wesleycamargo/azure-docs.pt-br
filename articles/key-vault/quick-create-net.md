@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node – Azure Key Vault | Microsoft Docs'
+title: 'Início rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node – Azure Key Vault | Microsoft Docs'
 description: Neste início rápido, você define e recupera um segredo do Azure Key Vault usando um aplicativo Web do .NET
 services: key-vault
 author: prashanthyv
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565540"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238276"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET
 
@@ -176,7 +176,7 @@ Agora, ao executar o aplicativo, você verá o valor do segredo recuperado. No c
 ## <a name="clean-up-resources"></a>Limpar recursos
 Exclua o grupo de recursos, a máquina virtual e todos os recursos relacionados quando não precisar mais deles. Para fazer isso, selecione o grupo de recursos da VM e selecione **Excluir**.
 
-Exclua o cofre de chaves usando o comando [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+Exclua o cofre de chaves usando o comando [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 
 ```azurecli
 az keyvault delete --name

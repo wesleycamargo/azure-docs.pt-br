@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 6466dc1ec0dcaae6045fadfae7f3a552345be2e8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267276"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812031"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
 
@@ -44,8 +44,8 @@ Antes de configurar e de instalar a Matriz Virtual StorSimple, verifique se:
 Use as instruções passo a passo a seguir para preparar e configurar sua Matriz Virtual StorSimple:
 
 * [Etapa 1: Concluir a configuração da IU da Web local e registrar seu dispositivo](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [Etapa 2: Concluir a configuração obrigatória do dispositivo](#step-2-complete-the-required-device-setup)
-* [ Etapa 3: Adicionar um volume](#step-3-add-a-volume)
+* Etapa 2: Concluir a configuração obrigatória do dispositivo
+* [Etapa 3: Adicionar um volume](#step-3-add-a-volume)
 * [Etapa 4: Montar, inicializar e formatar um volume](#step-4-mount-initialize-and-format-a-volume)
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Etapa 1: Concluir a configuração da IU da Web local e registrar seu dispositivo

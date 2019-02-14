@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437785"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814871"
 ---
 # <a name="test-your-app-in-azure"></a>Teste seu aplicativo no Azure 
 Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, você usa o Visual Studio 2017 para implantar seu aplicativo no compartilhamento de arquivos para que possa executar o aplicativo na VM no laboratório.  
@@ -57,7 +57,7 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
     ![Selecione a VM do laboratório](media/test-app-in-azure/select-lab-vm.png)
 2. Selecione **Conectar** na barra de ferramentas para conectar-se à VM. 
 3. [Instale o Azure PowerShell](https://azure.microsoft.com/downloads/) usando o link **Instalar Windows** na seção **Ferramentas de linha de comando**. Para outras maneiras de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
-4. Siga as instruções na seção [Montar o compartilhamento de arquivos](#mount-the-file-share). 
+4. Siga as instruções na seção Montar o compartilhamento de arquivos. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publique seu aplicativo do Visual Studio
 Nesta seção, você publica seu aplicativo do Visual Studio para uma VM de teste na nuvem.
