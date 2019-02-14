@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973121"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694261"
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral de segurança do Armazenamento do Azure
 
@@ -47,7 +47,7 @@ Saiba mais:
 
 ## <a name="delegated-access-to-storage-objects"></a>Acesso delegado aos objetos de armazenamento
 
-Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta. 
+Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
 
 A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa fornecer a SAS ao construtor apropriado ou ao método apropriado.
 
@@ -73,7 +73,7 @@ Saiba mais sobre a criptografia do cliente:
 
 Para muitas organizações, a [criptografia de dados em repouso](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão em repouso:
 
-* [Criptografia do Serviço de Armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
+* A [Criptografia do Serviço de Armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) está sempre habilitada e criptografa automaticamente os dados de serviço de armazenamento ao gravá-los no Armazenamento do Azure.
 * [Criptografia do cliente](../storage/common/storage-security-guide.md#client-side-encryption) também fornece o recurso de criptografia em repouso.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 
@@ -114,9 +114,9 @@ Saiba mais:
 
 ## <a name="advanced-threat-protection"></a>Proteção Avançada contra Ameaças
 
-O Armazenamento do Azure fornece Proteção Avançada contra Ameaças para uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar sua conta de armazenamento. A Proteção Avançada contra Ameaças monitora os logs de diagnóstico do Armazenamento do Azure para solicitações suspeitas de leitura, gravação ou exclusão no armazenamento do Blob. 
+O Armazenamento do Azure fornece Proteção Avançada contra Ameaças para uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar sua conta de armazenamento. A Proteção Avançada contra Ameaças monitora os logs de diagnóstico do Armazenamento do Azure para solicitações suspeitas de leitura, gravação ou exclusão no armazenamento do Blob.
 
-Os alertas da Proteção Avançada contra Ameaças podem ser visualizados no [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/). A Central de Segurança do Azure fornece detalhes sobre qualquer atividade suspeita detectada e recomenda ações para investigar e remediar a ameaça em potencial. 
+Os alertas da Proteção Avançada contra Ameaças podem ser visualizados no [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/). A Central de Segurança do Azure fornece detalhes sobre qualquer atividade suspeita detectada e recomenda ações para investigar e remediar a ameaça em potencial.
 
 Saiba mais:
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493041"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -86,6 +86,7 @@ Os usuários no servidor mestre são replicados para as réplicas de leitura. Vo
 - A criação de uma réplica de uma réplica não é suportada.
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.
 - Ajustar o parâmetro [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) em um servidor mestre depois de criar um servidor de réplica pode fazer com que a réplica fique fora de sincronia. O servidor de réplica não está ciente dos diferentes espaços de tabela.
+- Verifique se as tabelas de servidor mestre contêm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 - Analise a lista completa das limitações de replicação do MySQL no [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 

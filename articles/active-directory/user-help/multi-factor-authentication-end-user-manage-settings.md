@@ -13,12 +13,13 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: 2129b1f70ea19bdb2144f0f2a9ca4a6dbac0acbd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766802"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210502"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerenciar as configurações de verificação em duas etapas
 Este artigo responde a perguntas sobre como atualizar as configurações de autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas ao se conectar à sua conta, confira [Tendo problemas com a verificacão em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para a resolução de problemas.

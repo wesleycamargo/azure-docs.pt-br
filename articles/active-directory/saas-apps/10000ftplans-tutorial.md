@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: a9cb621598c198780916929681ab76b199e6ebb3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bb6f0645f1a12566f05b5f44688e4f86ab1b9725
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170735"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Azure Active Directory com o 10,000ft Plans
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o 10,000ft Plans, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do 10,000ft Plans habilitada para logon único
 
 > [!NOTE]

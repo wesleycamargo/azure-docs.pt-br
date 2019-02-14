@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123165"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817743"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos de extremidade REST com conector HTTP + Swagger nos Aplicativos Lógicos do Azure
 
@@ -40,7 +40,7 @@ Veja um exemplo de como usar a operação HTTP + Swagger como uma ação em um f
 4. Digite a URL para um documento do Swagger:
    
    * Para trabalhar do Designer de Aplicativo Lógico, a URL deverá ser um ponto de extremidade HTTPS e ter CORS habilitado.
-   * Se o documento do swagger não atender a este requisito, você poderá usar [o Armazenamento do Azure com CORS habilitado](#hosting-swagger-from-storage) para armazenar o documento.
+   * Se o documento do Swagger não atender a este requisito, você poderá usar o Armazenamento do Azure com CORS habilitado para armazenar o documento.
 5. Clique em **Avançar** para leitura e renderização do documento do Swagger.
 6. Adicione todos os parâmetros necessários para a chamada HTTP.
    
@@ -98,7 +98,7 @@ Um asterisco (*) significa um campo obrigatório.
 | URI* |uri |URI da solicitação HTTP. |
 | Cabeçalhos |headers |Um objeto JSON de cabeçalhos HTTP a serem incluídos. |
 | Corpo |body |O corpo da solicitação HTTP. |
-| Autenticação |Autenticação |A autenticação a ser usada para solicitação. Para obter mais informações, consulte [Conector HTTP](connectors-native-http.md#authentication). |
+| Authentication |Autenticação |A autenticação a ser usada para solicitação. Para obter mais informações, consulte [Conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 

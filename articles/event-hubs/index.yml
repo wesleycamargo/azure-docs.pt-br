@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 84bac57a763bf7089ac7e6af22247bc981eb7e43
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f44dc587c2fb092986d8422fe06739192100b8e9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161195"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231612"
 documentType: LandingData
 title: Documentação dos Hubs de Eventos do Azure
 metadata:
@@ -188,8 +188,8 @@ sections:
     className: cardsD
     items:
     - title: Linha de comando
-      html: <p><a href="/powershell/module/azurerm.eventhub/">PowerShell do Azure</a></p><p><a href="/cli/azure/eventhubs">CLI do Azure</a></p>
-    - title: Linguagens
+      html: <p><a href="/powershell/module/az.eventhub/">PowerShell do Azure</a></p><p><a href="/cli/azure/eventhubs">CLI do Azure</a></p>
+    - title: Languages
       html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET Standard</a></p><p><a href="/java/api/overview/azure/eventhub">Java</a></p>
     - title: REST
       html: <p><a href="/rest/api/eventhub/">referência da API REST (a página pode estar em inglês)</a></p>

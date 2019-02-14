@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815839"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -164,7 +164,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 2. Selecione uma conta de armazenamento existente na qual armazenar os logs de fluxo. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
 3. Defina a **Retenção** para o número de dias que você deseja armazenar os dados.
 4. Selecione *Ativado* para **Status de Análise de Tráfego**.
-5. Selecione um workspace do Log Analytics existente ou selecione **Criar novo workspace** para criar um novo. Um workspace do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#traffic-analytics-supported-regions) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecione um workspace do Log Analytics existente ou selecione **Criar novo workspace** para criar um novo. Um workspace do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das regiões com suporte e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     O workspace do log analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
 6. Clique em **Salvar**.

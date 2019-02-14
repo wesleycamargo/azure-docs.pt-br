@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ffd10504d496d0a46b373451a0d0400fc16c2e8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186190"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813493"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -63,7 +63,7 @@ Quando você tem várias florestas, todas elas devem ser acessíveis por um úni
 
 O assistente de instalação do Azure AD Connect oferece várias opções para consolidar os usuários representados em várias florestas. O objetivo é que um usuário seja representado somente uma vez no Azure AD. Há algumas topologias comuns que você pode configurar o caminho de instalação personalizada do assistente de instalação. Na página **Identificando exclusivamente seus usuários**, selecione a opção correspondente que representa sua topologia. A consolidação está configurada somente para os usuários. Grupos duplicados não são consolidados com a configuração padrão.
 
-As topologias comuns são discutidas nas seções sobre: [separar topologias](#multiple-forests-separate-topologies), [malha completa](#multiple-forests-full-mesh-with-optional-galsync) e [a topologia de recurso da conta](#multiple-forests-account-resource-forest).
+As topologias comuns são discutidas nas seções sobre: separar topologias, [malha completa](#multiple-forests-full-mesh-with-optional-galsync) e [topologia de recurso da conta](#multiple-forests-account-resource-forest).
 
 A configuração padrão do Azure AD Connect sync supõe:
 

@@ -11,17 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b3ee256072e5c0b5b92daac07eae5b41b194ae8a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475951"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961339"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
 Este artigo descreve como escalar os recursos de computação e armazenamento disponíveis para um banco de dados individual no Banco de Dados SQL do Azure.
+
+> [!IMPORTANT]
+> Você será cobrado pelas horas em que um banco de dados existir usando a camada de serviço mais alta mais o tamanho de computação aplicado durante essas horas, independentemente do uso ou se o banco de dados ficou ativo por menos de uma hora. Por exemplo, se você criar um banco de dados individual e o excluir depois de cinco minutos, sua fatura apresentará uma cobrança referente a uma hora de banco de dados.
 
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>Modelo de compra baseado em vCore: Alterar o tamanho de armazenamento
 

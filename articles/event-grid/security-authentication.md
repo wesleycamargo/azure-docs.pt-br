@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382913"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730927"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -29,7 +29,7 @@ Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos
 
 Como muitos outros serviços que dão suporte a webhooks, a Grade de Eventos do Azure exige que você comprovar a "propriedade" de seu ponto de extremidade do Webhook antes de começar a entrega de eventos para esse ponto de extremidade. Esse requisito impede que um usuário mal-intencionado inunde seu ponto de extremidade com eventos. Quando você usa qualquer um dos três serviços do Azure listado abaixo, a infraestrutura do Azure trata automaticamente essa validação:
 
-* Aplicativos Lógicos do Azure com [Conector da Grade de Eventos](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Aplicativos Lógicos do Azure com [Conector da Grade de Eventos](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Automação do Azure por meio de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure Functions com [Gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md)
 
@@ -50,7 +50,7 @@ Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma fu
 * O corpo do evento tem o mesmo esquema que outros eventos da Grade de Eventos.
 * A propriedade eventType do evento é `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * Os dados de propriedade do evento incluem uma propriedade `validationCode` com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13…".
-* Se você estiver usando a versão da API 2018-05-01-preview, os dados do evento também incluirão uma propriedade `validationUrl` com uma URL para validar manualmente a assinatura.
+* Os dados do evento também incluem uma propriedade `validationUrl` com uma URL para validar manualmente a assinatura.
 * A matriz contém apenas o evento de validação. Outros eventos serão enviados em uma solicitação separada, após retornar o código de validação.
 * Os SDKs do plano de dados EventGrid têm classes correspondentes para os dados de evento de validação de assinatura e a resposta de validação de assinatura.
 

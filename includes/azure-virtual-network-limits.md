@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597575"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513966"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Servidores DNS por rede virtual |20 |
 | Endereços IP privados por rede virtual |65536 |
 | Endereços IP privados por interface de rede |256 |
+| Endereços IP privados por máquina virtual |256 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500K |
 | NIC (Interfaces de rede) |65536 |
 | Grupos de segurança de rede (NSG) |5.000 |
@@ -69,6 +70,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Endereços IP públicos - dinâmicos |(Básico) 1000 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Básico) 200 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Standard) 200 |entrar em contato com o suporte |
+| Tamanho de prefixo de IP público (visualização) | / 28 | / 28 |
 
 #### <a name="load-balancer"></a>Limites do Load Balancer
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir o uso de recursos atual em relação aos limites de assinatura](../articles/networking/check-usage-against-limits.md)

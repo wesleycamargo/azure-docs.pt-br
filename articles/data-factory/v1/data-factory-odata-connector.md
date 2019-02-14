@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cb2d3bc128a3508f85ac349242d9a33f2a88424e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 73cba950a159bd1f70fc231f0923e55332af0199
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022743"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108799"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Mover dados De uma origem de OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.locfileid: "54022743"
 
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de uma origem OData. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de uma origem OData para qualquer repositório de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas para a movimentação de dados de uma origem OData para outros repositórios de dados, mas não para a movimentação de dados de outros repositórios de dados para uma origem OData. 
+Você pode copiar dados de uma origem OData para qualquer repositório de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas para a movimentação de dados de uma origem OData para outros repositórios de dados, mas não para a movimentação de dados de outros repositórios de dados para uma origem OData.
 
 ## <a name="supported-versions-and-authentication-types"></a>Versões com suporte e tipos de autenticação
 Esse conector OData dá suporte a OData versões 3.0 e 4.0 e você pode copiar dados de OData da nuvem e de fontes OData locais. Para o último, você precisa instalar o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados.
@@ -46,15 +46,15 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados de uma o
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
-Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor: 
+Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
 1. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory.
-2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. 
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
+2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia.
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com as definições de JSON para entidades do Data Factory que são usadas para copiar dados de uma fonte OData, confira a seção [Exemplo de JSON: copiar dados da fonte OData para o Azure Blob](#json-example-copy-data-from-odata-source-to-azure-blob) neste artigo. 
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com as definições de JSON para entidades do Data Factory que são usadas para copiar dados de uma fonte OData, confira a seção [Exemplo de JSON: copiar dados da fonte OData para o Azure Blob](#json-example-copy-data-from-odata-source-to-azure-blob) neste artigo.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas a uma origem OData:
 
@@ -63,9 +63,9 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **OData** |SIM |
-| url |URL do serviço OData. |SIM |
-| authenticationType |Tipo de autenticação usada para se conectar ao armazenamento de dados OData. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônimo, Básico e OAuth (observe que o Azure Data Factory dá suporte no momento apenas a OAuth baseado no Azure Active Directory). <br/><br/> Para OData local, os valores possíveis são Anonymous, Basic e Windows. |SIM |
+| Tipo |A propriedade type deve ser definida como: **OData** |Sim |
+| url |URL do serviço OData. |Sim |
+| authenticationType |Tipo de autenticação usada para se conectar ao armazenamento de dados OData. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônimo, Básico e OAuth (observe que o Azure Data Factory dá suporte no momento apenas a OAuth baseado no Azure Active Directory). <br/><br/> Para OData local, os valores possíveis são Anonymous, Basic e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Sim (apenas se você estiver usando a autenticação Básica) |
 | Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Sim (apenas se você estiver usando a autenticação Básica) |
 | authorizedCredential |Se você estiver usando OAuth, clique no botão **Autorizar** no Editor ou Assistente de Cópia do Data Factory e digite suas credenciais. O valor dessa propriedade será gerado automaticamente. |Sim (apenas se você estiver usando a autenticação OAuth) |
@@ -78,7 +78,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
     "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
@@ -93,7 +93,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 ```json
 {
     "name": "ODataLinkedService",
-        "properties":
+    "properties":
     {
         "type": "OData",
         "typeProperties":
@@ -112,7 +112,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
     "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
             "authenticationType": "Windows",
@@ -174,17 +174,17 @@ Ao mover dados do OData, os seguintes mapeamentos serão usados dos tipos do ODa
 | Edm.Binary |Byte[] |
 | Edm.Boolean |Bool |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |Datetime |
+| Edm.DateTime |DateTime |
 | Edm.Decimal |Decimal |
-| Edm.Double |Duplo |
+| Edm.Double |Double |
 | Edm.Single |Single |
 | Edm.Guid |Guid |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |Cadeia de caracteres |
-| Edm.Time |timespan |
+| Edm.String |String |
+| Edm.Time |TimeSpan |
 | Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
@@ -206,15 +206,15 @@ O exemplo copia dados de consulta em relação a uma fonte OData para um blob do
 ```json
 {
     "name": "ODataLinkedService",
-        "properties":
+    "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
-            }
         }
+    }
 }
 ```
 
@@ -222,13 +222,13 @@ O exemplo copia dados de consulta em relação a uma fonte OData para um blob do
 
 ```json
 {
-        "name": "AzureStorageLinkedService",
+    "name": "AzureStorageLinkedService",
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
-        }
+    }
 }
 ```
 
@@ -244,7 +244,7 @@ Configurar “external”: “true” informa ao serviço Data Factory que o con
         "type": "ODataResource",
         "typeProperties":
         {
-                "path": "Products"
+            "path": "Products"
         },
         "linkedServiceName": "ODataLinkedService",
         "structure": [],
@@ -256,7 +256,7 @@ Configurar “external”: “true” informa ao serviço Data Factory que o con
         "policy": {
             "retryInterval": "00:01:00",
             "retryTimeout": "00:10:00",
-            "maximumRetry": 3                
+            "maximumRetry": 3
         }
     }
 }
@@ -324,7 +324,6 @@ Os dados são gravados em um novo blob a cada hora (frequência: horas, interval
 }
 ```
 
-
 **Atividade de cópia em um pipeline com origem OData e coletor Blob:**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **consulta** seleciona os dados mais recentes (mais novos) da fonte de OData.
@@ -376,7 +375,6 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 ```
 
 A especificação da **consulta** na definição do pipeline é opcional. A **URL** usada pelo serviço Data Factory para recuperar dados é a URL especificada no serviço vinculado (obrigatória) + caminho especificado no conjunto de dados (opcional) + consulta no pipeline (opcional).
-
 
 ### <a name="type-mapping-for-odata"></a>Mapeamento de tipos para OData
 Como mencionado no artigo sobre as [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) , a atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas:

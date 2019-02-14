@@ -1,7 +1,21 @@
 ---
-Título: Criar um modelo de análise de sentimento titleSuffix: Descrição do Azure Machine Learning Studio: Como criar modelos de análise de texto no Azure Machine Learning Studio usando módulos para pré-processamento de texto, N-gramas ou hash de recursos serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2018
+title: Criar um modelo de análise de sentimento
+titleSuffix: Azure Machine Learning Studio
+description: Como criar modelos de análise de texto no Azure Machine Learning Studio usando módulos de pré-processamento de texto, N-gramas ou hash de recursos
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/14/2018
+ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511353"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Criar um modelo de análise de sentimento no Azure Machine Learning Studio
 

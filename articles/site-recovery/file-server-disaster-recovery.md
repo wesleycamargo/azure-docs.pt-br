@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794083"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508361"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -65,10 +65,10 @@ O diagrama a seguir o ajudará a determinar qual estratégia deve ser usada para
 Como a replicação do Site Recovery é independente do aplicativo, estas recomendações devem servir também para os cenários a seguir.
 | Fonte    |Para um site secundário    |Para o Azure
 |---------|---------|---------|
-|Azure| -|SIM|
-|Hyper-V|   SIM |SIM
-|VMware |SIM|   SIM
-|Servidor físico|   SIM |SIM
+|Azure| -|Sim|
+|Hyper-V|   Sim |Sim
+|VMware |Sim|   Sim
+|Servidor físico|   Sim |Sim
  
 
 > [!IMPORTANT]
@@ -94,7 +94,7 @@ Os Arquivos do Azure podem ser usados para substituir completamente ou complemen
 
 As etapas a seguir descrevem brevemente como usar a Sincronização de Arquivos:
 
-1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você tiver escolhido armazenamento com redundância geográfica com acesso de leitura para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastres. Para obter mais informações, consulte as [Estratégias de recuperação de desastre do compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você tiver escolhido armazenamento com redundância geográfica com acesso de leitura para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastres. Para obter mais informações, confira [Recuperação de desastre e failover forçado (versão prévia) no Armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie um compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Inicie a sincronização de arquivos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no servidor de arquivos do Azure.
 4. Criar um grupo de sincronização. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Um grupo de sincronização deve conter pelo menos um ponto de extremidade de nuvem, que representa um compartilhamento de arquivos do Azure. Um grupo de sincronização também deve conter um ponto de extremidade de servidor, que representa um caminho em um servidor Windows.
@@ -143,7 +143,7 @@ Para integrar a Sincronização de Arquivos com o Site Recovery:
 
 Siga estas etapas para usar a Sincronização de Arquivos:
 
-1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você escolheu armazenamento com redundância geográfica com acesso de leitura (recomendado) para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastre. Para obter mais informações, consulte as [Estratégias de recuperação de desastre do compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você escolheu armazenamento com redundância geográfica com acesso de leitura (recomendado) para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastre. Para obter mais informações, confira [Recuperação de desastre e failover forçado (versão prévia) no Armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie um compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implantar a Sincronização de Arquivos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no seu servidor de arquivos local.
 4. Criar um grupo de sincronização. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Um grupo de sincronização deve conter pelo menos um ponto de extremidade de nuvem, que representa um compartilhamento de arquivos do Azure. O grupo de sincronização também deve conter um ponto de extremidade de servidor, que representa um caminho em um servidor Windows no local.

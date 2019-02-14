@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404997"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508327"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Exibir os valores do arquivo de configuração de rede
 
-Quando você cria uma rede virtual no portal do Azure, o nome completo que o Azure usa não fica visível no portal do Azure. Por exemplo, uma VNet que pareça se chamar "ClassicVNet" no portal do Azure pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com "Grupo ClassicRG ClassicVNet". Nestas etapas, você baixa o arquivo de configuração de rede e exibe os valores.
+Quando você cria uma rede virtual no portal do Azure, o nome completo que o Azure usa não fica visível no portal do Azure. Por exemplo, uma VNet que pareça se chamar "ClassicVNet" no portal do Azure pode ter um nome muito mais longo no arquivo de configuração de rede. O nome poderia ser semelhante ao seguinte: ‘Group ClassicRG ClassicVNet’. Nestas etapas, você baixa o arquivo de configuração de rede e exibe os valores.
 
 Crie um diretório em seu computador e exporte o arquivo de configuração de rede para o diretório. Neste exemplo, o arquivo de configuração de rede é exportado para C:\AzureNet.
 

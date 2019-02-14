@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3d6464f3e69868b4903d999e52a37b0520018c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635688"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659449"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
 
@@ -108,7 +108,7 @@ Em nosso exemplo, tanto a Fábrica Y quanto o Técnico Z interagem com o Widget 
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-Esse é um bom ponto para analisar o valor do método de AC X.509.  Em vez de gerar previamente e transmitir os certificados para cada Widget inteligente X na cadeia de fornecimento, a Empresa X assina a Fábrica-Y apenas uma vez.  Em vez de precisar controlar todos os dispositivos em todo o ciclo de vida de dispositivos, a Empresa X não precisa controlar e gerenciar dispositivos por meio de grupos que naturalmente surgem do processo de cadeia de fornecimento, por exemplo, dispositivos instalados pelo Técnico Z depois de julho de algum ano.
+Esse é um bom ponto para analisar o valor do método de AC X.509.  Em vez de pré-gerar e transmitir os certificados para cada Widget Smart X na cadeia de fornecimento, a Empresa X só precisou assinar a Fábrica Y uma vez.  Em vez de precisar controlar todos os dispositivos em todo o ciclo de vida de dispositivos, agora a Empresa X precisa controlar e gerenciar dispositivos por meio de grupos que naturalmente surgem do processo de cadeia de fornecimento, por exemplo, dispositivos instalados pelo Técnico Z depois de julho de algum ano.
 
 Por último, mas não menos importante, o método de AC de autenticação introduz a responsabilidade segura sobre a cadeia de fornecimento de fabricação do dispositivo. Por causa do processo de cadeia de certificados, as ações de cada membro da cadeia são registradas criptograficamente e podem ser verificadas.
 

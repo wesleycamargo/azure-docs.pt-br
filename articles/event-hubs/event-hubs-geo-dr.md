@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091339"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562174"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
@@ -102,12 +102,12 @@ Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
 4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto.
 
-## <a name="availability-zones-preview"></a>Zonas de Disponibilidade (versão prévia)
+## <a name="availability-zones"></a>Zonas de Disponibilidades 
 
-O SKU Standard dos Hubs de Eventos também oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
+O SKU Standard dos Hubs de Eventos oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> A versão prévia das Zonas de Disponibilidade tem suporte apenas nas regiões **Centro dos EUA**, **Leste dos EUA 2** e **França Central**.
+> O suporte a Zonas de Disponibilidade para o Standard do Hubs de Eventos do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) em que existem zonas de disponibilidade.
 
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. Os Hubs de Eventos não dão suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 

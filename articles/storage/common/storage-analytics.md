@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239767"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745649"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -28,7 +28,7 @@ A Análise de Armazenamento tem um limite de 20 TB na quantidade de dados armaze
 
 Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="about-storage-analytics-logging"></a>Sobre o registro em log da Análise de Armazenamento
+## <a name="about-storage-analytics-logging"></a>Sobre o registro em log da análise de armazenamento
 A análise de armazenamento registra informações detalhadas sobre solicitações bem-sucedidas e com falha para um serviço de armazenamento. Essas informações podem ser usadas para monitorar solicitações individuais e diagnosticar problemas com um serviço de armazenamento. As solicitações são registradas em uma base de melhor esforço.
 
 As entradas de log são criadas somente se houver atividade de serviço de armazenamento. Por exemplo, se uma conta de armazenamento tiver atividade em seu serviço Blob, mas não em seus serviços de fila ou tabela, somente os logs referentes ao serviço Blob serão criados.
@@ -43,7 +43,7 @@ Os seguintes tipos de solicitações autenticadas são registrados:
 * Solicitações que usam uma SAS (Assinatura de Acesso Compartilhado), incluindo solicitações bem-sucedidas e com falha.
 * Solicitações para dados de análise.
 
-As solicitações feitas pela própria análise de armazenamento, como criação de log ou exclusão, não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) (Mensagens de operações e status registradas do Storage Analytics) e [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) (Formato do log do Storage Analytics).
+As solicitações feitas pela própria análise de armazenamento, como criação de log ou exclusão, não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Mensagens de operações e status registradas do Storage Analytics) e [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato do log do Storage Analytics).
 
 ### <a name="logging-anonymous-requests"></a>Registro em log de solicitações anônimas
 Os seguintes tipos de solicitações anônimas são registrados:
@@ -53,7 +53,7 @@ Os seguintes tipos de solicitações anônimas são registrados:
 * Erros de tempo limite para o cliente e servidor.
 * Solicitações GET com falha com o código de erro 304 (não modificado).
 
-Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) (Mensagens de operações e status registradas do Storage Analytics) e [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) (Formato do log do Storage Analytics).
+Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Mensagens de operações e status registradas do Storage Analytics) e [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato do log do Storage Analytics).
 
 ### <a name="how-logs-are-stored"></a>Como os logs são armazenados
 Todos os logs são armazenados em blobs de bloco em um contêiner denominado $logs, que é criado automaticamente quando a análise de armazenamento é habilitada para uma conta de armazenamento. O contêiner $logs está localizado no namespace de blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contêiner não pode ser excluído quando a análise de armazenamento tiver sido habilitada, embora seu conteúdo possa ser excluído.
@@ -61,8 +61,8 @@ Todos os logs são armazenados em blobs de bloco em um contêiner denominado $lo
 > [!NOTE]
 > O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) . Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) para acessar os blobs no contêiner `$logs`.
 > Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
-> 
-> 
+>
+>
 
 Podem existir registros duplicados para os logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando **RequestId** e o número da **Operação**.
 
@@ -129,9 +129,9 @@ As métricas de transações são registradas para solicitações de usuários e
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 > [!NOTE]
-> Atualmente, as métricas de capacidade somente estão disponíveis para o serviço Blob. As métricas de capacidade para os serviços de tabela e fila estarão disponíveis em versões futuras da análise de armazenamento.
-> 
-> 
+> Atualmente, as métricas de capacidade somente estão disponíveis para o serviço Blob.
+>
+>
 
 Os dados de capacidade são gravados diariamente para o serviço Blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados de usuário e a outra fornece estatísticas sobre o contêiner de blob `$logs` usado pela análise de armazenamento. A tabela `$MetricsCapacityBlob` inclui as seguintes estatísticas:
 
@@ -139,7 +139,7 @@ Os dados de capacidade são gravados diariamente para o serviço Blob de uma con
 * **ContainerCount**: O número de contêineres de blob no serviço Blob da conta de armazenamento.
 * **ObjectCount**: o número de blobs de páginas ou de blocos confirmados e não confirmados no serviço Blob da conta de armazenamento.
 
-Para saber mais sobre as métricas de capacidade, consulte [Esquema da tabela de métricas da Análise de Armazenamento](https://msdn.microsoft.com/library/hh343264.aspx).
+Para saber mais sobre as métricas de capacidade, consulte [Esquema da tabela de métricas da Análise de Armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Como as métricas são armazenadas
 Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados em três tabelas reservadas para esse serviço: uma tabela para informações de transação, uma tabela de informações de transações de minutos e outra tabela para informações de capacidade. Informações de transações de transação de minuto consistem em dados de solicitação e resposta, e informações de capacidade consistem em dados de uso de armazenamento. A métrica de horas, a métrica de minutos e a capacidade de um serviço Blob da conta de armazenamento podem ser acessadas nas tabelas que são nomeadas conforme descrito na tabela a seguir.
@@ -163,7 +163,7 @@ Todos os dados de métricas são gravados pelos serviços de uma conta de armaze
 
 As seguintes ações executadas pela análise de armazenamento são faturáveis:
 
-* Solicitações para criar blobs para registro em log. 
+* Solicitações para criar blobs para registro em log.
 * Solicitações para criar entidades de tabela para métricas.
 
 Se você configurou uma política de retenção de dados, você não é cobrado para excluir transações quando a análise de armazenamento exclui dados antigos de log e métricas. No entanto, excluir as transações de um cliente são faturáveis. Para saber mais sobre as políticas de retenção, consulte [Definindo uma política de retenção de dados de análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343263.aspx).
@@ -171,20 +171,9 @@ Se você configurou uma política de retenção de dados, você não é cobrado 
 ### <a name="understanding-billable-requests"></a>Noções básicas sobre solicitações faturáveis
 Todas as solicitações feitas ao serviço de armazenamento da conta são faturáveis ou então não faturáveis. A análise de armazenamento registra cada solicitação individual feita a um serviço, incluindo uma mensagem de status que indica como a solicitação foi processada. Da mesma forma, a análise de armazenamento armazena métricas para um serviço e as operações de API desse serviço, incluindo os percentuais e a contagem de determinadas mensagens de status. Juntos, esses recursos podem ajudá-lo a analisar suas solicitações faturáveis, fazer melhorias em seu aplicativo e diagnosticar problemas com solicitações de serviços. Para saber mais sobre a cobrança, confira [Noções básicas sobre cobrança no armazenamento do Azure – largura de banda, transações e capacidade](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no tópico [Mensagens de operações e status registradas da análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343260.aspx) para determinar quais solicitações são faturáveis. Em seguida, você pode comparar seus logs e dados de métricas para as mensagens de status para ver se houve cobrança por uma determinada solicitação. Você também pode usar as tabelas no tópico anterior para investigar a disponibilidade de um serviço de armazenamento ou operação de API individual.
+Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no tópico [Mensagens de operações e status registradas da análise de armazenamento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar quais solicitações são faturáveis. Em seguida, você pode comparar seus logs e dados de métricas para as mensagens de status para ver se houve cobrança por uma determinada solicitação. Você também pode usar as tabelas no tópico anterior para investigar a disponibilidade de um serviço de armazenamento ou operação de API individual.
 
 ## <a name="next-steps"></a>Próximas etapas
-### <a name="setting-up-storage-analytics"></a>Configurando a análise de armazenamento
 * [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md)
-* [Habilitar e configurar a análise de armazenamento](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>Registro em log da Análise de Armazenamento
-* [Sobre o registro em log da análise de armazenamento](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Formato de Log de análise de armazenamento](https://msdn.microsoft.com/library/hh343259.aspx)
-* [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>Métricas da Análise de Armazenamento
-* [Sobre as métricas de análise de armazenamento](https://msdn.microsoft.com/library/hh343258.aspx)
-* [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
-* [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
-
+* [Registro em log da Análise de Armazenamento](https://msdn.microsoft.com/library/hh343262.aspx)
+* [Métricas da Análise de Armazenamento](https://msdn.microsoft.com/library/hh343258.aspx)

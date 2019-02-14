@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: c80b3bfb51785c3bc0b606d579a7367c6013b73e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b8ec902050469d3a8b6045ae950bcb7e89de1605
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078229"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507049"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure
 
@@ -29,6 +29,7 @@ RADIUS é um protocolo padrão para aceitar solicitações de autenticação e p
 ![Autenticação Radius](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>Adicionar um cliente RADIUS
+
 Para configurar a autenticação RADIUS, instale o Servidor de Autenticação Multifator do Azure em um servidor Windows. Se você tiver um ambiente do Active Directory, o servidor deve ser associado ao domínio dentro da rede. Use o procedimento a seguir para configurar o Servidor de Autenticação Multifator do Azure:
 
 1. No Servidor de Autenticação Multifator do Azure, clique no ícone de Autenticação RADIUS no menu esquerdo.
@@ -50,19 +51,17 @@ Repita as etapas 4 à 8 para adicionar tantos clientes RADIUS quanto necessário
 ## <a name="configure-your-radius-client"></a>Configurar o cliente RADIUS
 
 1. Clique na guia **Destino**.
-2. Se o Servidor de MFA do Azure estiver instalado em um servidor ingressado em domínio em um ambiente do Active Directory, selecione o domínio do Windows.
-3. Se os usuários devem ser autenticados em um diretório LDAP, selecione **Associação LDAP**.
+   * Se o Servidor de MFA do Azure estiver instalado em um servidor ingressado em domínio em um ambiente do Active Directory, selecione o **domínio do Windows**.
+   * Se os usuários devem ser autenticados em um diretório LDAP, selecione **Associação LDAP**.
+      Selecione o ícone Integração de Diretórios e edite a configuração de LDAP na guia Configurações para que o servidor possa se associar ao diretório. As instruções para configurar o LDAP podem ser encontradas no [guia de configuração de Proxy LDAP](howto-mfaserver-dir-ldap.md).
+   * Se os usuários forem autenticados em outro servidor RADIUS, selecione **servidores RADIUS**.
+1. Clique em **Adicionar** para configurar o servidor para o qual o Servidor de MFA do Azure fará proxy das solicitações de RADIUS.
+1. Na caixa de diálogo Adicionar Servidor RADIUS, digite o endereço IP do servidor RADIUS e um segredo compartilhado.
 
-  Selecione o ícone Integração de Diretórios e edite a configuração de LDAP na guia Configurações para que o servidor possa se associar ao diretório. As instruções para configurar o LDAP podem ser encontradas no [guia de configuração de Proxy LDAP](howto-mfaserver-dir-ldap.md).
+   O segredo compartilhado deve ser o mesmo no Servidor de Autenticação Multifator do Azure e no servidor RADIUS. Altere a porta de autenticação e a porta de contabilização se forem usadas portas diferentes pelo servidor RADIUS.
 
-4. Se os usuários forem autenticados em outro servidor RADIUS, selecione servidores RADIUS.
-5. Clique em **Adicionar** para configurar o servidor para o qual o Servidor de MFA do Azure fará proxy das solicitações de RADIUS.
-6. Na caixa de diálogo Adicionar Servidor RADIUS, digite o endereço IP do servidor RADIUS e um segredo compartilhado.
-
-  O segredo compartilhado deve ser o mesmo no Servidor de Autenticação Multifator do Azure e no servidor RADIUS. Altere a porta de autenticação e a porta de contabilização se forem usadas portas diferentes pelo servidor RADIUS.
-
-7. Clique em **OK**.
-8. Adicione o Servidor de MFA do Azure como um cliente RADIUS no outro servidor RADIUS para que ele possa processar as solicitações de acesso enviadas do Servidor de MFA do Azure. Use o mesmo segredo compartilhado configurado no Servidor de Autenticação Multifator do Azure.
+1. Clique em **OK**.
+1. Adicione o Servidor de MFA do Azure como um cliente RADIUS no outro servidor RADIUS para que ele possa processar as solicitações de acesso enviadas do Servidor de MFA do Azure. Use o mesmo segredo compartilhado configurado no Servidor de Autenticação Multifator do Azure.
 
 Repita essas etapas para adicionar outros servidores RADIUS. Configure a ordem na qual o Servidor MFA do Azure deve chamá-las com os botões **Mover para Cima** e **Mover para Baixo**.
 

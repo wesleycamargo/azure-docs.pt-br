@@ -4,7 +4,7 @@ description: Como solucionar problemas de compatibilidade de protocolo comuns en
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: daveba
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: 48328a3ee379fc76fa6e70ea082395b37751d235
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181105"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190510"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -36,10 +37,10 @@ Este artigo descreve os problemas atuais e anteriores com a aderência ao servi�
 
 | **Problemas de conformidade SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
 |---|---|---|
-| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | SIM  |  18 de dezembro de 2018 | 
-| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  SIM  | 18 de dezembro de 2018  | 
-|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | SIM  |  18 de dezembro de 2018  | 
-|  As solicitações de criação de grupo contêm um URI de esquema inválido | SIM  |  18 de dezembro de 2018  |  
+| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
+| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | 
+|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | 
+|  As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>As correções de serviços foram aplicadas automaticamente ao meu aplicativo SCIM já existente?
 
@@ -59,7 +60,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
 1. Entre no portal do Azure em: https://portal.azure.com.
 2. Na seção **Azure Active Directory > Aplicativos Enterprise** do portal do Azure, localize e selecione o seu aplicativo de SCIM.
 3.  Na seção **Propriedades** do seu aplicativo existente do SCIM, copie a **ID de objeto**.
-4.  Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/en-us/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
+4.  Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
 5. No Explorador do Graph, execute o comando a seguir para localizar a ID do seu trabalho de provisionamento. Substitua "[object-id]" pelo serviço de ID da entidade (ID de objeto) copiado da terceira etapa.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +100,7 @@ Sim. Se você tivesse codificado um aplicativo para o comportamento antigo que e
 1.  Entre no portal do Azure em: https://portal.azure.com.
 2. a seção **Azure Active Directory > aplicativos empresariais > Criar aplicativo** do portal do Azure, crie um novo aplicativo **inexistente na galeria**.
 3.  Na seção **propriedades** do seu novo aplicativo personalizado, copie a **ID de objeto**.
-4.  Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/en-us/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
+4.  Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
 5. No Graph Explorer, execute o comando a seguir para inicializar a configuração de provisionamento para seu aplicativo.
 Substitua "[object-id]" pelo serviço de ID da entidade (ID de objeto) copiado da terceira etapa.
 

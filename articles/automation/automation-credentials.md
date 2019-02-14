@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439180"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498158"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
 
@@ -73,10 +73,9 @@ A função na tabela a seguir é usada para acessar credenciais em um runbook em
 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Para criar um novo ativo de credencial com o portal do Azure
 
-1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
-2. Clique na parte **Credenciais** para abrir a folha **Credenciais**.
-3. Clique em **Adicionar uma credencial** na parte superior da folha.
-4. Preencha o formulário e clique em **Criar** para salvar a nova credencial.
+1. Na sua conta de automação, selecione **Credenciais** em **Recursos Compartilhados**.
+1. Clique em **+ Adicionar uma credencial**.
+1. Preencha o formulário e clique em **Criar** para salvar a nova credencial.
 
 > [!NOTE]
 > As contas de usuário que usam autenticação multifator não têm suporte para uso na Automação do Azure.

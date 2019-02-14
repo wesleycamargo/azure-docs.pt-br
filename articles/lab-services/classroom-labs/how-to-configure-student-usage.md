@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388297"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490440"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar políticas e configurações de uso
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -71,6 +71,9 @@ Defina cotas por usuário usando as seguintes etapas:
 5. Agora você verá o número de horas na barra de ferramentas: **Cota por usuário: &lt;número de horas&gt;**. 
 
     ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> O [tempo de execução agendado de VMs](how-to-create-schedules.md) não conta com a cota alocada a um usuário. A cota é para o tempo fora dos horários agendados que um aluno passa em VMs. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar usuários ao carregar um arquivo CSV
 Você também pode adicionar usuários ao carregar um arquivo CSV com endereços de email dos usuários.

@@ -4,17 +4,17 @@ description: Saiba mais sobre o ciclo de vida de um blueprint e os detalhes de c
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309799"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563704"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
@@ -33,8 +33,7 @@ Para entender completamente um blueprint e os estágios, vamos abordar um ciclo 
 
 ## <a name="creating-and-editing-a-blueprint"></a>Criação e edição de um blueprint
 
-Ao criar um blueprint, adicione artefatos, salve-o em um grupo de gerenciamento e forneça um nome e uma versão exclusivos. O blueprint agora está no modo **Rascunho** e ainda não pode ser atribuído.
-Enquanto no modo **Rascunho**, ele pode continuar a ser atualizado e alterado.
+Ao criar um blueprint, adicione artefatos, salve em um grupo de gerenciamento ou assinatura e forneça um nome e uma versão exclusivos. O blueprint agora está no modo **Rascunho** e ainda não pode ser atribuído. Enquanto no modo **Rascunho**, ele pode continuar a ser atualizado e alterado.
 
 Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. A **Última versão** também é exibida como **Rascunho** para esses esquemas nunca publicados.
 

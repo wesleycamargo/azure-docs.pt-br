@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473156"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811521"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
 > [!NOTE]
@@ -101,7 +101,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 Atributos:
 
-|Atributo  |Tipo   |Obrigatório| Padrão | DESCRIÇÃO|  
+|Atributo  |Type   |Obrigatório| Padrão | DESCRIÇÃO|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica o intervalo no qual o monitor de diagnóstico sonda em busca de alterações de configuração de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se você fornecer um valor, ele não deverá exceder esse valor |A quantidade total de armazenamento de sistema de arquivos alocado para todos os buffers de registro em log.|  
@@ -109,11 +109,11 @@ Atributos:
 ## <a name="diagnosticinfrastructurelogs-element"></a>Elemento DiagnosticInfrastructureLogs  
 Define a configuração de buffer para os logs gerados pela infraestrutura de diagnóstico subjacente.
 
-Elemento pai: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+Elemento pai: Elemento DiagnosticMonitorConfiguration.  
 
 Atributos:
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
@@ -122,11 +122,11 @@ Atributos:
 ## <a name="logs-element"></a>Elemento Logs  
  Define a configuração de buffer para logs básicos do Azure.
 
- Elemento pai: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+ Elemento pai: Elemento DiagnosticMonitorConfiguration.  
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
@@ -135,12 +135,12 @@ Atributos:
 ## <a name="directories-element"></a>Elemento Directories  
 Define a configuração de buffer para logs baseados em arquivo que você pode definir.
 
-Elemento pai: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
+Elemento pai: Elemento DiagnosticMonitorConfiguration.  
 
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
@@ -148,11 +148,11 @@ Atributos:
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Define o diretório de despejos de falha.
 
- Elemento pai: [Elemento Directories](#Directories).  
+ Elemento pai: Elemento Directories.  
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -160,11 +160,11 @@ Atributos:
 ## <a name="failedrequestlogs-element"></a>Elemento FailedRequestLogs  
  Define o diretório de log de solicitação com falha.
 
- Elemento pai [elemento Directories](#Directories).  
+ Elemento pai Elemento Directories.  
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -172,11 +172,11 @@ Atributos:
 ##  <a name="iislogs-element"></a>Elemento IISLogs  
  Define o diretório de log do IIS.
 
- Elemento pai [elemento Directories](#Directories).  
+ Elemento pai Elemento Directories.  
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -184,16 +184,16 @@ Atributos:
 ## <a name="datasources-element"></a>Elemento DataSources  
  Define zero ou mais diretórios de log adicionais.
 
- Elemento pai: [Elemento Directories](#Directories).
+ Elemento pai: Elemento Directories.
 
 ## <a name="directoryconfiguration-element"></a>Elemento DirectoryConfiguration  
  Define o diretório de arquivos de log a ser monitorado.
 
- Elemento pai: [Elemento DataSources](#DataSources).
+ Elemento pai: Elemento DataSources.
 
 Atributos:
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -201,11 +201,11 @@ Atributos:
 ## <a name="absolute-element"></a>Elemento Absolute  
  Define um caminho absoluto do diretório a ser monitorado com opção de expansão de ambiente.
 
- Elemento pai: [Elemento DirectoryConfiguration](#DirectoryConfiguration).  
+ Elemento pai: Elemento DirectoryConfiguration.  
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**path**|string|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
 |**expandEnvironment**|booleano|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
@@ -213,11 +213,11 @@ Atributos:
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Define um caminho relativo para um recurso local indicado na definição do serviço.
 
- Elemento pai: [Elemento DirectoryConfiguration](#DirectoryConfiguration).  
+ Elemento pai: Elemento DirectoryConfiguration.  
 
 Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**name**|string|Obrigatório. O nome do recurso local que contém o diretório a ser monitorado.|  
 |**relativePath**|string|Obrigatório. O caminho relativo a um recurso local a ser monitorado.|  
@@ -225,12 +225,12 @@ Atributos:
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  Define o caminho para coleta do contador de desempenho.
 
- Elemento pai: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
+ Elemento pai: Elemento DiagnosticMonitorConfiguration.
 
 
  Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
@@ -238,11 +238,11 @@ Atributos:
 ## <a name="performancecounterconfiguration-element"></a>Elemento PerformanceCounterConfiguration  
  Define o contador de desempenho a ser coletado.
 
- Elemento pai: [Elemento PerformanceCounters](#PerformanceCounters).  
+ Elemento pai: Elemento PerformanceCounters.  
 
  Atributos:  
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Obrigatório. O caminho para coleta do contador de desempenho.|  
 |**sampleRate**|duration|Obrigatório. A taxa de coleta do contador de desempenho.|  
@@ -250,11 +250,11 @@ Atributos:
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  Define os logs de eventos a serem monitorados.
 
- Elemento pai: [Elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
+ Elemento pai: Elemento DiagnosticMonitorConfiguration.
 
   Atributos:
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
@@ -263,11 +263,11 @@ Atributos:
 ## <a name="datasource-element"></a>Elemento DataSource  
  Define o log de eventos a ser monitorado.
 
- Elemento pai: [Elemento WindowsEventLog](#windowsEventLog).  
+ Elemento pai: Elemento WindowsEventLog.  
 
  Atributos:
 
-|Atributo|Tipo|DESCRIÇÃO|  
+|Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**name**|string|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  
 

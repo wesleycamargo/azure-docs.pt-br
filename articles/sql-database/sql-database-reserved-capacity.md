@@ -3,7 +3,7 @@ title: Pré-pagamento para banco de dados SQL do Azure vCores para economizar di
 description: Aprenda a comprar a capacidade reservada do Banco de Dados SQL do Azure para economizar nos custos de seu computador.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8f8884f903108deae673d030f8fd2ee1d0d9f982
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455738"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745445"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pré-pagamento para recursos de computação do Banco de Dados SQL com capacidade reservada do Banco de Dados SQL do Azure
 
@@ -26,9 +26,10 @@ Economize dinheiro com o Banco de Dados SQL do Azure pré-pagando pelos recursos
 Você não precisa atribuir a reserva às instâncias do Banco de Dados SQL. As instâncias de banco de dados SQL correspondentes, que já estão em execução ou recém-implantadas, receberão automaticamente o benefício. Ao comprar uma reserva, você está pagando antecipadamente os custos de computação das instâncias do Banco de Dados SQL por um período de um ou três anos. Assim que você compra uma reserva, as cobranças de computação do Banco de Dados SQL que correspondem aos atributos de reserva não são mais cobradas nas taxas de pagamento conforme o uso. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância do banco de dados SQL. No final do período de reserva, o benefício de cobrança expira e os Bancos de Dados SQL são cobrados pelo preço de pré-pagamento. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Você pode comprar capacidade reservada do Azure SQL Database na [portal do Azure](https://portal.azure.com). Capacidade reservada comprar o banco de dados SQL:
+
 - Você deve ser na função de proprietário para pelo menos uma Enterprise ou assinatura paga conforme o uso.
-- Para assinaturas Enterprise, as compras de reserva do Azure devem ser ativadas no [portal EA](https://ea.azure.com).
--  Para o programa Provedor de Solução de Nuvem (CSP), apenas os agentes admin ou agentes de vendas podem adquirir a capacidade reservada do Banco de Dados SQL.
+- Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
+- Para o programa Provedor de Solução de Nuvem (CSP), apenas os agentes admin ou agentes de vendas podem adquirir a capacidade reservada do Banco de Dados SQL.
 
 Para saber detalhes sobre como clientes empresariais e clientes do método de pagamento conforme o uso são cobrados para compras de reserva, confira [Understand Azure reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md) (Entenda o uso de reserva do Azure para sua inscrição na empresa) e [Understand Azure reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md) (Entenda o uso de reserva do Azure para sua assinatura Paga Conforme o Uso).
 
@@ -50,8 +51,8 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, o poo
     | Campo      | DESCRIÇÃO|
     |:------------|:--------------|
     |NOME        |O nome dessa reserva.| 
-    |Assinatura|A assinatura usada para pagar pela reserva de capacidade reservada do Banco de Dados SQL. O método de pagamento na assinatura é cobrado pelos custos iniciais da reserva de capacidade reservada do Banco de Dados SQL. O tipo de assinatura deve ser um contrato empresarial (número da oferta: MS-AZR-0017P) ou Pagamento Conforme o Uso (número da oferta: MS-AZR-0003P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|    
-    |Escopo       |O escopo da reserva vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>Assinatura única - O desconto de reserva vCore é aplicado às instâncias do Banco de Dados SQL nessa assinatura. </li><li>Compartilhado - o desconto de reserva de vCore é aplicado às instâncias de banco de dados SQL em execução em todas as assinaturas dentro de seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas (exceto as assinaturas de desenvolvimento/teste) no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</li></ul>|
+    |Assinatura|A assinatura usada para pagar pela reserva de capacidade reservada do Banco de Dados SQL. O método de pagamento na assinatura é cobrado pelos custos iniciais da reserva de capacidade reservada do Banco de Dados SQL. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|    
+    |Escopo       |O escopo da reserva vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>Assinatura única - O desconto de reserva vCore é aplicado às instâncias do Banco de Dados SQL nessa assinatura. </li><li>Compartilhado - o desconto de reserva de vCore é aplicado às instâncias de banco de dados SQL em execução em todas as assinaturas dentro de seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</li></ul>|
     |Região      |A região do Azure abrangida pela reserva de capacidade reservada do Banco de Dados SQL.|    
     |Tipo de implantação|O tipo de recurso de SQL para o qual você deseja comprar a reserva.|
     |Nível de desempenho|A camada de serviço para as instâncias do Banco de Dados SQL.

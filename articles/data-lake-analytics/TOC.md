@@ -69,7 +69,7 @@
 ### [SDK do U-SQL](data-lake-analytics-u-sql-sdk.md)
 
 # Referência
-## [PowerShell do Azure](/powershell/module/azurerm.datalakeanalytics)
+## [PowerShell do Azure](/powershell/module/az.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)

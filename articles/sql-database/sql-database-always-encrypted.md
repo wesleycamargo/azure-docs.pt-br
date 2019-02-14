@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Banco de Dados SQL do Azure - armazenamento de certificados do Windows | Microsoft Docs'
+title: 'Always Encrypted: Banco de Dados SQL do Azure – Armazenamento de certificados do Windows | Microsoft Docs'
 description: Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de banco de dados usando o Assistente Always Encrypted no SQL Server Management Studio (SSMS). Ele mostra como armazenar suas chaves de criptografia no repositório de certificados do Windows.
 keywords: criptografar dados, criptografia do sql, criptografia de banco de dados, dados confidenciais, sempre criptografados
 services: sql-database
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231712"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754857"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteger dados confidenciais e armazenar suas chaves de criptografia no repositório de certificados do Windows
 
@@ -47,7 +47,7 @@ Para este tutorial, será necessário:
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso** > **Dados + Armazenamento** > **Banco de Dados SQL**.
-3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
+3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-single-database-get-started.md).
    
     ![Criar um banco de dados vazio](./media/sql-database-always-encrypted/create-database.png)
 
@@ -98,7 +98,7 @@ O SSMS fornece um assistente para configurar facilmente o Always Encrypted defin
    
     ![Criptografar Colunas](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, CMK (**Configuração da Chave Mestra**), **Validação** e **Resumo**.
+O assistente Always Encrypted inclui as seções a seguir: **Seleção de Coluna**, **Configuração da Chave Mestra** (CMK), **Validação** e **Resumo**.
 
 ### <a name="column-selection"></a>Seleção de coluna
 Clique em **Avançar** na página **Introdução** para abrir a página **Seleção de Coluna**. Nessa página, você escolherá as colunas que quer criptografar, [o tipo de criptografia e quais CEK (Chave de Criptografia da Coluna)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) usar.

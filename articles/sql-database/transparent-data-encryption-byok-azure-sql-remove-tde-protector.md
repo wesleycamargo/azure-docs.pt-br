@@ -11,21 +11,24 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 08/07/2017
-ms.openlocfilehash: 6675a68222e09be9a092ad21ee318a53a0a39ca5
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 10/12/2018
+ms.openlocfilehash: 8ffda7fd1b987e34dc0e8157b535ccef65571247
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311296"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567886"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de TDE (Transparent Data Encryption) usando PowerShell
+
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - É necessário ter uma assinatura do Azure e ser um administrador nessa assinatura
 - É necessário ter o Azure PowerShell versão 4.2.0 ou mais recente instalado e em execução. 
 - Este guia de instruções assume que você já esteja usando uma chave do Azure Key Vault como protetor de TDE para um Data Warehouse ou Banco de Dados SQL do Azure. Consulte [Transparent Data Encryption com suporte de BYOK](transparent-data-encryption-byok-azure-sql.md) para saber mais.
 
 ## <a name="overview"></a>Visão geral
+
 Este guia de instruções descreve como responder a um protetor de TDE potencialmente comprometido para um Data Warehouse ou Banco de Dados SQL do Azure que esteja usando o TDE com suporte BYOKY (Bring Your Own Key). Para saber mais sobre o suporte BYOK para TDE, consulte a [página de visão geral](transparent-data-encryption-byok-azure-sql.md). 
 
 Os procedimentos a seguir devem ser feitos apenas em casos extremos ou em ambientes de teste. Revise cuidadosamente o guia de instruções, pois a exclusão de protetores de TDE ativamente usados do Azure Key Vault pode resultar na **perda de dados**. 
@@ -35,10 +38,12 @@ Se houver a suspeita de que uma chave está comprometida, de modo que um serviç
 Lembre-se de que, depois que o protetor de TDE for excluído no Key Vault, **todas as conexões com os bancos de dados criptografados no servidor serão bloqueadas e esses bancos de dados ficarão offline e serão removidos em 24 horas**. Backups antigos criptografados com a chave comprometida não serão mais acessíveis.
 
 Este guia de instruções abrange duas abordagens, dependendo do resultado desejado após a resposta ao incidente:
+
 - Para manter os bancos de dados SQL/Data Warehouses do Azure **acessíveis**
 - Para tornar os bancos de dados SQL/Data Warehouses do Azure **inacessíveis**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para manter os recursos criptografados acessíveis
+
 1. Crie uma [nova chave no Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Certifique-se de que essa nova chave seja criada em um cofre de chaves separado do protetor de TDE potencialmente comprometido, já que o controle de acesso é provisionado em um nível de segurança. 
 2. Adicione a nova chave ao servidor usando os cmdlets [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) e [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) e atualize-o como o novo protetor de TDE do servidor.
 
@@ -48,7 +53,7 @@ Este guia de instruções abrange duas abordagens, dependendo do resultado desej
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
-   
+
    # Set the key as the TDE protector for all resources under the server
    Set-AzureRmSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
@@ -60,7 +65,6 @@ Este guia de instruções abrange duas abordagens, dependendo do resultado desej
 
    >[!NOTE]
    > Pode demorar alguns minutos para o novo protetor de TDE se propagar em todos os bancos de dados e bancos de dados secundários no servidor.
-   >
 
    ```powershell
    Get-AzureRmSqlServerTransparentDataEncryptionProtector `
@@ -78,7 +82,7 @@ Este guia de instruções abrange duas abordagens, dependendo do resultado desej
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
- 
+
 5. Exclua a chave comprometida do Key Vault usando o cmdlet [Remove-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey). 
 
    ```powershell
@@ -86,22 +90,23 @@ Este guia de instruções abrange duas abordagens, dependendo do resultado desej
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName>
    ```
- 
+
 6. Para restaurar uma chave no Key Vault futuramente usando o cmdlet [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey):
    ```powershell
    Restore-AzureKeyVaultKey `
    -VaultName <KeyVaultName> `
    -InputFile <BackupFilePath>
    ```
- 
+
 ## <a name="to-make-the-encrypted-resources-inaccessible"></a>Para tornar os recursos criptografados inacessíveis
+
 1. Remova os bancos de dados que estão sendo criptografados pela chave potencialmente comprometida.
-O backup do banco de dados e dos arquivos de log é feito automaticamente, portanto, uma recuperação pontual do banco de dados poderá ser realizada a qualquer momento (contanto que você forneça a chave). Os bancos de dados deverão ser removidos antes da exclusão de um protetor de TDE ativo para evitar uma possível perda de dados de até 10 minutos das transações mais recentes. 
+
+   O backup do banco de dados e dos arquivos de log é feito automaticamente, portanto, uma recuperação pontual do banco de dados poderá ser realizada a qualquer momento (contanto que você forneça a chave). Os bancos de dados deverão ser removidos antes da exclusão de um protetor de TDE ativo para evitar uma possível perda de dados de até 10 minutos das transações mais recentes. 
 2. Faça backup do material da chave do protetor de TDE no Key Vault.
 3. Remover a chave potencialmente comprometida do Key Vault
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como girar o protetor de TDE de um servidor para atender aos requisitos de segurança: [Girar o Protetor de TDE usando PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
-
-- Introdução ao suporte Bring Your Own Key para TDE: [Ativar o TDE com sua própria chave do Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Saiba como girar o protetor de TDE de um servidor para atender aos requisitos de segurança: [Girar o protetor de Transparent Data Encryption usando o PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- Introdução ao suporte do Bring Your Own Key para TDE: [Ativar o TDE usando sua própria chave do Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

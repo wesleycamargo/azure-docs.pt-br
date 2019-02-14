@@ -1,6 +1,6 @@
 ---
 title: Como bloquear autenticação herdada para Azure AD (Azure Active Directory) com acesso condicional | Microsoft Docs
-description: Saiba como configurar uma política de acesso condicional no Azure AD (Azure Active Directory) para tentativas de acesso de redes não confiáveis.
+description: Saiba como melhorar sua postura de segurança bloqueando a autenticação herdada usando o acesso condicional do Azure AD.
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076836"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562973"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear autenticação herdada para Azure AD com acesso condicional   
 
 Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (Azure Active Directory) dá suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação herdada. No entanto, protocolos herdados não dão suporte para MFA (autenticação multifator). Em muitos ambientes, a MFA é um requisito comum para lidar com roubo de identidade. 
+
 
 Se o ambiente estiver pronto para bloquear a autenticação herdada para melhorar a proteção do locatário, você poderá atingir essa meta com acesso condicional. Este artigo explica como é possível configurar políticas de acesso condicional que bloqueiam autenticação herdada para locatário.
 
@@ -119,8 +120,7 @@ Pode levar até 24 horas para que a política entre em vigor.
 
 É possível selecionar todos os controles de concessão disponíveis para a condição de outros clientes, no entanto, a experiência do usuário final será sempre a mesma - acesso bloqueado.
 
-Você pode configurar todas as outras condições ao lado da condição de outros clientes.
-Por exemplo, se você quiser bloquear apenas a autenticação herdada para dispositivos móveis, defina a condição **plataformas de dispositivo** selecionando:
+Se você bloquear a autenticação herdada usando a condição de outros clientes, também poderá definir a plataforma do dispositivo e a condição da localização. Por exemplo, se você quiser bloquear apenas a autenticação herdada para dispositivos móveis, defina a condição **plataformas de dispositivo** selecionando:
 
 - Android
 

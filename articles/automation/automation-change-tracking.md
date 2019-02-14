@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301434"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487227"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -111,7 +111,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 A recursão permite que você especifique caracteres curinga para simplificar o acompanhamento em diretórios, e variáveis para que você possa acompanhar arquivos em ambientes com vários nomes de unidade ou nomes de unidade dinâmicos. A seguir está uma lista que mostra informações comuns que você deve saber ao configurar a recursão:
 
 * Caracteres curinga são necessários para acompanhar vários arquivos
-* Ao usar caracteres curinga, eles só podem ser usados no último segmento de um caminho. (por exemplo, C:\pasta\\**arquivo** ou /etc/*.conf)
+* Ao usar caracteres curinga, eles só podem ser usados no último segmento de um caminho. (como `c:\folder\*file*` ou `/etc/*.conf`)
 * Se uma variável de ambiente tiver um caminho inválido, a validação terá êxito, mas esse caminho falhará quando o inventário for executado.
 * Evite caminhos gerais como `c:\*.*` ao definir o caminho, pois isso resultaria em muitas pastas sendo percorridas.
 
@@ -132,9 +132,9 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
-|Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
-|Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Chave de Registro do Windows   | O caminho para verificar o arquivo. Por exemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nome do Item     | Nome amigável da chave de registro a ser rastreada.        |
+|Agrupar     | Um nome de grupo para agrupar chaves de registro logicamente.        |
+|Chave de Registro do Windows   | O caminho para verificar a chave de registro. Por exemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitações
 
@@ -278,13 +278,13 @@ No exemplo a seguir, a captura de tela mostra que o arquivo `C:\windows\system32
 
 ![Um gráfico mostrando os hosts de alteração de arquivo](./media/automation-change-tracking/changes.png)
 
-Para analisar ainda mais essa alteração, vá para a Pesquisa de logs clicando em **Log Analytics**. Quando estiver na Pesquisa de logs, pesquise alterações de conteúdo ao arquivo Hosts com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura as alterações incluindo uma alteração do conteúdo de arquivos cujo caminho totalmente qualificado contém a palavra "hosts". Você também pode pedir para um arquivo específico alterando a parte do caminho para seu formulário totalmente qualificado (como `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Para analisar ainda mais essa alteração, vá para a Pesquisa de logs clicando em **Log Analytics**. Quando estiver na Pesquisa de logs, pesquise alterações de conteúdo ao arquivo Hosts com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura as alterações incluindo uma alteração do conteúdo de arquivos cujo caminho totalmente qualificado contém a palavra "hosts". Você também pode pedir para um arquivo específico alterando a parte do caminho para seu formulário totalmente qualificado (como `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Depois que a consulta retornar os resultados desejados, clique no botão **Nova regra de alerta** na experiência de Pesquisa de logs para abrir a página de criação de alerta. Você também pode navegar para essa experiência por meio do **Azure Monitor** no portal do Azure. Na experiência de criação de alerta, confira nossa consulta novamente e modifique a lógica de alerta. Nesse caso, você desejará que o alerta seja disparado se for detectada até mesmo uma alteração entre todos os computadores no ambiente.
 
 ![Uma imagem que mostra a consulta de alteração para o controle de alterações para o arquivo de hosts](./media/automation-change-tracking/change-query.png)
 
-Após definir a lógica da condição, atribua grupos de ação para executar ações em resposta ao alerta que está sendo disparado. Nesse caso, eu configurei emails para serem enviados e um tíquete ITSM para ser criado.  Muitas outras ações úteis também podem ser executadas, como disparar uma Função do Azure, um Runbook de automação, um Webhook ou um aplicativo lógico.
+Após definir a lógica da condição, atribua grupos de ação para executar ações em resposta ao alerta que está sendo disparado. Nesse caso, eu configurei emails para serem enviados e um tíquete ITSM para ser criado.  Muitas outras ações úteis também podem ser executadas, como disparar uma Função do Azure, um Runbook de automação, um webhook ou um aplicativo lógico.
 
 ![Uma imagem configurando um grupo de ações para alertar sobre a alteração](./media/automation-change-tracking/action-groups.png)
 

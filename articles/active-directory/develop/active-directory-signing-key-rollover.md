@@ -16,12 +16,13 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e5597937ff0bc44b55deb43ccc45b618a1bb8fec
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815329"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186090"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
 Este artigo aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.

@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Como fazer o download, instalar e executar contêineres para o Face neste tutorial passo a passo.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: diberry
-ms.openlocfilehash: d738f089ff7af59c340a2ea9f67918c1298f9e47
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769786"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099081"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contêineres
 
@@ -68,8 +68,8 @@ Imagens de contêiner para a API de Detecção Facial estão disponíveis.
 
 ### <a name="docker-pull-for-the-face-container"></a>Docker pull para o contêiner de Detecção Facial
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Como usar o contêiner
@@ -132,18 +132,7 @@ Se você executar o contêiner com uma [montagem](./face-resource-container-conf
 
 Os contêineres de API de Detecção Facial enviam informações de cobrança para Azure, usando um recurso _API de Detecção Facial_ na conta do Azure. 
 
-Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres dos Serviços Cognitivos não enviam dados do cliente para a Microsoft. 
-
-O comando `docker run` usa os seguintes argumentos para fins de cobrança:
-
-| Opção | DESCRIÇÃO |
-|--------|-------------|
-| `ApiKey` | A chave de API do recurso de _API de Detecção Facial_ usado para rastrear informações de cobrança. |
-| `Billing` | O ponto de extremidade do recurso de _API de Detecção Facial_ usado para rastrear informações de cobrança.|
-| `Eula` | Indica que você aceitou a licença para o contêiner.<br/>O valor dessa opção deve ser definido como `accept`. |
-
-> [!IMPORTANT]
-> Todas as três opções devem ser especificadas com valores válidos ou o contêiner não será iniciado.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre essas opções, consulte [Configurar contêineres](./face-resource-container-config.md).
 

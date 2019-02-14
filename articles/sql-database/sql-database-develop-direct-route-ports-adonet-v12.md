@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260016"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560882"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
+
 Este tópico descreve o comportamento de conexão do Banco de Dados SQL do Azure para clientes que usam ADO.NET 4.5 ou uma versão mais recente. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ Este tópico descreve o comportamento de conexão do Banco de Dados SQL do Azure
 >
 
 ## <a name="outside-vs-inside"></a>Fora versus dentro
+
 Para conexões com o Banco de Dados SQL do Azure, devemos perguntar primeiro se o programa cliente é executado *fora* ou *dentro* do limite de nuvem do Azure. As subseções discutem dois cenários comuns.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fora:* o cliente é executado em seu computador desktop
+#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Externo:* O cliente é executado em seu computador desktop
+
 A porta 1433 é a única porta que deve estar aberta no computador desktop que hospeda o aplicativo cliente do Banco de Dados SQL.
 
-#### <a name="inside-client-runs-on-azure"></a>*Dentro:* o cliente é executado no Azure
+#### <a name="inside-client-runs-on-azure"></a>*Interno:* O cliente é executado no Azure
+
 Quando o cliente é executado dentro do limite de nuvem do Azure, ele usa o que podemos chamar de *rota direta* para interagir com o servidor de Banco de Dados SQL. Após o estabelecimento de uma conexão, as próximas interações entre o cliente e o banco de dados não envolvem nenhum Gateway de Banco de Dados SQL do Azure.
 
 Esta é a sequência:
@@ -76,6 +80,6 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 * [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
-* [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
+* [Como: definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
 

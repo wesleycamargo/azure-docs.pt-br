@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f4caf0cde7225e2c93723f412c53259a5f5646a4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102027"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663274"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -45,7 +45,7 @@ ms.locfileid: "55102027"
 
 - Para o SSO de senha, certifique-se de que seu aplicativo dê suporte à autenticação de formulário para que o cofre para senhas possa ser feito para que o logon único funcione conforme o esperado.
 
-- Para solicitações de provisionamento automático de usuários, o aplicativo deve ser listado na galeria com o recurso de logon único habilitado usando qualquer um dos protocolos de federação descritos acima. Você pode solicitar o fornecimento de SSO e Usuário juntos no portal, se ele ainda não estiver listado.
+- Para solicitações de provisionamento automático de usuários, o aplicativo deve ser listado na galeria com o recurso de logon único habilitado usando SAML 2.0/WS-Fed. Você pode solicitar o fornecimento de SSO e Usuário juntos no portal, se ele ainda não estiver listado.
 
 ## <a name="submit-the-request-in-the-portal"></a>Enviar a solicitação no portal
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1861dfb23d105fa6b403095b5fc36d1f2a894fe9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8f1b14fb88d72e1cb816498dbccf7b0e595f1637
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152547"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Azure Active Directory ao FreshGrade
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do AD do Azure ao FreshGrade, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do FreshGrade
 
 > [!NOTE]
@@ -88,7 +89,7 @@ No FreshGrade, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do AD do Azure com o FreshGrade, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 1. **[Criando um usuário de teste do FreshGrade](#creating-a-freshgrade-test-user)** – para ter um equivalente de Brenda Fernandes no FreshGrade que esteja vinculado à representação de usuário do Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.

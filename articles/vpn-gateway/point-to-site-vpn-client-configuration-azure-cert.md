@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 0a9c5b5f0fd47f2fcf0c9df02789abae5f07f023
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412058"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564979"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
@@ -79,7 +79,7 @@ Use as seguintes etapas para configurar o cliente VPN do Windows nativo para aut
 
 Use as seguintes etapas para configurar o cliente VPN nativo do Mac para autenticação de certificado. Você precisa concluir estas etapas em cada Mac que se conecta ao Azure:
 
-1. Importe o certificado raiz **VpnServerRoot** para seu Mac. Isso pode ser feito, copiando o arquivo para o seu Mac e clicando duas vezes nele.  
+1. Importe o certificado raiz **VpnServerRoot** para seu Mac. Isso pode ser feito copiando o arquivo para o seu Mac e clicando duas vezes nele.
 Clique em **Adicionar** para importar.
 
   ![adicionar certificado](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -113,10 +113,13 @@ Clique em **Adicionar** para importar.
 
 ## <a name="linuxgui"></a>Linux (GUI strongSwan)
 
-### <a name="extract-the-key-and-certificate"></a>Extrair a chave e o certificado
+### <a name="1-generate-the-key-and-certificate"></a>1: Gerar a chave e o certificado
 
 Para strongSwan, é necessário extrair a chave e o certificado do certificado do cliente (arquivo .pfx) e salvá-los em arquivos .pem individuais.
-Siga as etapas abaixo:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
+
+### <a name="2-extract-the-key"></a>2: Extraia a chave
 
 1. Baixe e instale o OpenSSL do [OpenSSL](https://www.openssl.org/source/).
 2. Abra uma janela de linha de comando e vá para o diretório em que o OpenSSL está instalado, por exemplo, 'c:\OpenSLL-Win64\bin\'.
@@ -125,13 +128,13 @@ Siga as etapas abaixo:
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
   ```
-4.  Agora, execute o comando a seguir para extrair o certificado público e salvá-lo em um novo arquivo:
-
+4.  Execute o comando a seguir para extrair o certificado público e salvá-lo em um novo arquivo:
+ 
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### <a name="install"></a>Instalar e configurar
+### <a name="install"></a>3: Instalar e configurar
 
 As instruções a seguir foram criadas por meio do forteSwan 5.5.1 no Ubuntu 17.0.4. O Ubuntu 16.0.10 não dá suporte para GUI do StrongSwan. Se você quiser usar o Ubuntu 16.0.10, será necessário usar a [linha de comando](#linuxinstallcli). Os exemplos abaixo podem não corresponder às telas que você vê, dependendo da sua versão do Linux e do strongSwan.
 
@@ -160,14 +163,13 @@ As instruções a seguir foram criadas por meio do forteSwan 5.5.1 no Ubuntu 17.
 
 ## <a name="linuxinstallcli"></a>Linux (CLI do strongSwan)
 
-### <a name="install-strongswan"></a>Instalar o strongSwan
+### <a name="1-generate-the-key-and-certificate"></a>1: Gerar a chave e o certificado
 
 Para instalar o strongSwan, você pode usar os seguintes comandos da CLI ou usar as etapas do strongSwan na [GUI](#install).
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>Instalar e configurar
+### <a name="2-install-and-configure"></a>2: Instalar e configurar
 
 1. Baixe o pacote de VPNClient do portal do Azure.
 2. Extraia o arquivo.

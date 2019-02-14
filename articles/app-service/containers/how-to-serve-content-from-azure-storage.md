@@ -6,15 +6,15 @@ manager: jeconnoc
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 2/04/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250902"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732933"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servir conteúdo do Armazenamento do Microsoft Azure no Serviço de Aplicativo no Linux
 
@@ -49,7 +49,7 @@ Para fazer upload de um diretório local para a conta de armazenamento, use o co
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
-## <a name="link-storage-to-your-web-app"></a>Armazenamento de link para seu aplicativo web
+## <a name="link-storage-to-your-web-app-preview"></a>Armazenamento de link para seu aplicativo Web (versão prévia)
 
 > [!CAUTION]
 > Vincular um diretório existente em um aplicativo da Web a uma conta de armazenamento excluirá o conteúdo do diretório. Se você estiver migrando arquivos para um aplicativo existente, faça um backup do seu aplicativo e de seu conteúdo antes de começar.

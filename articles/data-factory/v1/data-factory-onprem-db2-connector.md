@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015127"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816723"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar conjuntos de dados para representar dados de entrada e saída para a operação de cópia. 
 3. Criar um pipeline com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
 
-Ao usar o Assistente de Cópia, as definições de JSON para os serviços vinculados, conjuntos de dados e entidades de pipeline do Data Factory são criadas automaticamente para você. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. [Exemplo JSON: Copiar dados do DB2 para o armazenamento de Blobs do Azure](#json-example-copy-data-from-db2-to-azure-blob) mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados DB2 local.
+Ao usar o Assistente de Cópia, as definições de JSON para os serviços vinculados, conjuntos de dados e entidades de pipeline do Data Factory são criadas automaticamente para você. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. Exemplo JSON: Copiar dados do DB2 para o armazenamento de Blobs do Azure mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados DB2 local.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas a um armazenamento de dados DB2.
 
@@ -81,14 +81,14 @@ A tabela a seguir lista as propriedades JSON que são específicas a um serviço
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |SIM |
-| **server** |O nome do servidor DB2. |SIM |
-| **database** |O nome do banco de dados DB2. |SIM |
+| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |Sim |
+| **server** |O nome do servidor DB2. |Sim |
+| **database** |O nome do banco de dados DB2. |Sim |
 | **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não  |
-| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |SIM |
+| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |Sim |
 | **username** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não  |
 | **password** |A senha para a conta de usuário. |Não  |
-| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |SIM |
+| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como **structure**, **availability** e **policy** de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, armazenamento de Blobs do Azure, armazenamento de Tabelas do Azure, entre outros).
@@ -312,13 +312,13 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Single |
-| Duplo |Duplo |
-| Float |Duplo |
+| Double |Double |
+| Float |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |Datetime |
-| Hora |timespan |
+| Data |DateTime |
+| Hora |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |Cadeia de caracteres |
@@ -338,13 +338,13 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Single |
-| Duplo |Duplo |
-| Float |Duplo |
+| Double |Double |
+| Float |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |Datetime |
-| Hora |timespan |
+| Data |DateTime |
+| Hora |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |Cadeia de caracteres |

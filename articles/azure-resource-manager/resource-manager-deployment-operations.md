@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103852"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770207"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Exibir operações de implantação com o Azure Resource Manager
 
@@ -26,7 +26,10 @@ Você pode exibir as operações para uma implantação por meio do portal do Az
 
 É possível solucionar problemas da implantação examinando os logs de auditoria ou as operações de implantação. Este artigo mostra os dois métodos. Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="portal"></a>Portal
+
 Para ver as operações de implantação, use as etapas a seguir:
 
 1. Para o grupo de recursos envolvido na implantação, observe o status da última implantação. Selecione esse status para obter mais detalhes.
@@ -53,28 +56,28 @@ Para ver as operações de implantação, use as etapas a seguir:
     ![consultar eventos](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. Para obter o status geral de uma implantação, use e comando **Get-AzureRmResourceGroupDeployment** . 
+1. Para obter o status geral de uma implantação, use o comando **Get-AzResourceGroupDeployment**. 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    Ou você pode filtrar os resultados para mostrar somente as implantações que falharam.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. Para obter a ID de correlação, use:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Cada implantação inclui várias operações. Cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Cada implantação inclui várias operações. Cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     Que retorna várias operações com cada uma no seguinte formato:
@@ -92,7 +95,7 @@ Para ver as operações de implantação, use as etapas a seguir:
 1. Para obter mais detalhes sobre as operações com falha, recupere as propriedades das operações com o estado **Falha** .
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     Retorna todas as operações com falha com cada uma no seguinte formato:
@@ -115,7 +118,7 @@ Para ver as operações de implantação, use as etapas a seguir:
 1. Para obter a mensagem de status de uma determinada operação com falha, use o seguinte comando:
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     Que retorna:
@@ -130,9 +133,9 @@ Para ver as operações de implantação, use as etapas a seguir:
   Você obtém informações do log e salva-as localmente usando os seguintes comandos do PowerShell:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## <a name="azure-cli"></a>CLI do Azure
@@ -157,7 +160,7 @@ Para ver as operações de implantação, use as etapas a seguir:
 
 ## <a name="rest"></a>REST
 
-1. Obtenha informações sobre uma implantação com a operação [Obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
+1. Obtenha informações sobre uma implantação com a operação [Obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments).
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -180,7 +183,7 @@ Para ver as operações de implantação, use as etapas a seguir:
   }
   ```
 
-2. Obtenha informações sobre implantação com [Listar todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Obtenha informações sobre implantação com [Listar todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

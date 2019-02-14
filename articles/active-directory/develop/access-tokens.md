@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080558"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811555"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -239,6 +239,8 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 > Um logon "não baseado em senha" é um logon em que o usuário não digita uma senha para entrar. Por exemplo, usando seu rosto no Windows Hello, uma chave FIDO ou um PIN. 
 >
 > Existe um problema conhecido com o Token de atualização primário do Windows. Se o PRT for obtido por meio de uma senha e, em seguida, o usuário fizer logon usando o Hello, isso não alterará a origem do PRT e será revogado se o usuário alterar sua senha.
+>
+> Tokens de atualização não são invalidados ou revogados quando usados para buscar um novo token de acesso e token de atualização.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

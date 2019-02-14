@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185186"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692691"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure Active Directory 
 
@@ -28,7 +28,7 @@ O Proxy de Aplicativo do Azure AD é:
 
 - **Seguro**. Os aplicativos locais podem usar os controles de autorização e análise de segurança do Azure. Por exemplo, os aplicativos de locais podem usar o acesso condicional e a verificação em duas etapas. O Proxy de Aplicativo não exige que você abra conexões de entrada através do firewall.
  
-- **Econômico**. As soluções locais geralmente exigem que você configure e mantenha DMVs (zonas desmilitarizadas), servidores de borda ou outras infraestruturas complexas. O Proxy de Aplicativo é executado na nuvem, o que o torna fácil de usar. Para usar o Proxy de Aplicativo, você não precisa alterar a infraestrutura de rede ou instalar dispositivos adicionais no seu ambiente local.
+- **Econômico**. As soluções locais geralmente exigem que você configure e mantenha redes de perímetro, servidores de borda ou outras infraestruturas complexas. O Proxy de Aplicativo é executado na nuvem, o que o torna fácil de usar. Para usar o Proxy de Aplicativo, você não precisa alterar a infraestrutura de rede ou instalar dispositivos adicionais no seu ambiente local.
 
 ## <a name="what-is-application-proxy"></a>O que é o Proxy de Aplicativo?
 O Proxy de Aplicativo é um recurso do Azure AD que permite que os usuários acessem aplicativos Web locais de um cliente remoto. O Proxy de Aplicativo inclui o serviço de Proxy de Aplicativo que é executado na nuvem e o conector de Proxy de Aplicativo que é executado em um servidor local. O Azure AD, o serviço de Proxy de Aplicativo e o conector de Proxy de Aplicativo trabalham em conjunto para transmitir o token de logon do usuário do Azure AD para o aplicativo Web de forma segura.

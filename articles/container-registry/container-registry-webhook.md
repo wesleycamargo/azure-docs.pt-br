@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854073"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770594"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Como usar webhooks do Registro de Contêiner do Azure
 
@@ -74,7 +74,7 @@ Para testar um webhook ACR com a CLI do Azure, use o comando [az acr webhook pin
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Para ver os resultados, use o comando [az acr webhook list-events](/cli/azure/acr/webhook#list-events).
+Para ver os resultados, use o comando [az acr webhook list-events](/cli/azure/acr/webhook).
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -104,4 +104,4 @@ Para obter detalhes sobre o formato e propriedades das cargas do evento JSON emi
 
 Além dos eventos do webhook do registro nativo discutidos neste artigo, o Registro de Contêiner do Azure pode emitir eventos para a Grade de Eventos:
 
-[Início Rápido: enviar eventos de registro de contêiner para a Grade de Eventos](container-registry-event-grid-quickstart.md)
+[Início Rápido: Enviar eventos de registro de contêiner para a Grade de Eventos](container-registry-event-grid-quickstart.md)

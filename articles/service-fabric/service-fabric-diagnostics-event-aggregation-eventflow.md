@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9b851b2d75cf78a02dd223788085ac9a0963376e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 829d1ffd1ef75d18f0d87a127c43666703e8a756
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211347"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497359"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
 
@@ -79,7 +79,7 @@ Aqui está um *eventFlowConfig.json* de exemplo com base nos pacotes NuGet menci
 }
 ```
 
-O nome da ServiceEventSource do serviço é o valor da propriedade Nome do `EventSourceAttribute` aplicado à classe ServiceEventSource. Isso é especificado no arquivo `ServiceEventSource.cs`, que faz parte do código do serviço. Por exemplo, no trecho de código a seguir, o nome do ServiceEventSource é *MyCompany-Application1-Stateless1*:
+O nome da ServiceEventSource do serviço é o valor da propriedade Nome do `EventSourceAttribute` aplicado à classe ServiceEventSource. Isso é especificado no arquivo `ServiceEventSource.cs`, que faz parte do código do serviço. Por exemplo, no snippet de código a seguir, o nome do ServiceEventSource é *MyCompany-Application1-Stateless1*:
 
 ```csharp
 [EventSource(Name = "MyCompany-Application1-Stateless1")]
@@ -142,7 +142,7 @@ O nome passado como o parâmetro do método `CreatePipeline` do `ServiceFabricDi
 
 ### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>Usar configurações do Service Fabric e parâmetros de aplicativo em eventFlowConfig
 
-O EventFlow dá suporte ao uso de configurações do Service Fabric e parâmetros de aplicativo para definir configurações de EventFlow. Você pode se referir aos parâmetros de configuração do Service Fabric usando essa sintaxe especial para valores:
+O EventFlow dá suporte ao uso de configurações do Service Fabric e parâmetros de aplicativo para a definição de suas configurações. Você pode se referir aos parâmetros de configuração do Service Fabric usando essa sintaxe especial para valores:
 
 ```json
 servicefabric:/<section-name>/<setting-name>

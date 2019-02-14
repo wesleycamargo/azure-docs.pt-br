@@ -1,6 +1,6 @@
 ---
 title: Recursos e extensões de máquina virtual do Microsoft Azure| Microsoft Docs
-description: Saiba quais são as extensões das Máquinas Virtuais do Azure e como usá-las com as máquinas virtuais do Azure
+description: Saiba o que são as extensões Azure VM e como usá-las com as máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 38f885cc230df6e0edb1e5b5254faf0cd519847a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d092f03013d98106138f35734d960567121a5bf
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451436"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692694"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões e recursos da máquina virtual do Azure
 Extensões de máquina virtual do Azure (VM) são pequenos aplicativos que fornecem as tarefas de configuração e automação de pós-implantação em VMs do Azure, você pode usar imagens existentes e personalizá-las como parte de suas implantações, você saindo da empresa de criação de imagem personalizada.

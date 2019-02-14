@@ -4,15 +4,15 @@ description: Aprenda a comprar a capacidade reservada do Azure Cosmos DB para ec
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b37aa2eb24fe79d322839b4fb5c3c3a8b1296033
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454089"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745938"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade reservada no Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Capacidade reservada do Azure Cosmos DB cobre a taxa de transferência provision
 Você pode comprar a capacidade reservada do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). Para comprar uma capacidade reservada:
 
 * Você deve ser na função de proprietário para pelo menos uma Enterprise ou assinatura paga conforme o uso.  
-* Para assinaturas Enterprise, as compras de reserva do Azure devem ser ativadas no [portal EA](https://ea.azure.com/).  
+* Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
 * Para o programa CSP (Provedor de Solução de Nuvem), apenas os agentes admin ou agentes de vendas podem comprar a capacidade reservada do Azure Cosmos DB.
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determinar a taxa de transferência necessária antes da compra
@@ -53,8 +53,8 @@ O tamanho da reserva deve ser baseado na quantidade total de taxa de transferên
    |Campo  |DESCRIÇÃO  |
    |---------|---------|
    |NOME   |    Nome da reserva. Este campo é preenchido automaticamente com o `CosmosDB_Reservation_<timeStamp>`. Você pode fornecer um nome diferente durante a criação da reserva. Ou você pode renomeá-la depois que a reserva tiver sido criada.      |
-   |Assinatura  |   Assinatura usada para pagar pela capacidade reservada do Azure Cosmos DB. O método de pagamento na assinatura selecionada é usado na cobrança dos custos iniciais. O tipo de assinatura deve ser um dos a seguir: <br/><br/>  [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (número da oferta: MS-AZR-0017P): Para uma assinatura Enterprise, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como excedente. <br/><br/> [Pagamento Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (número da oferta: MS-AZR-0003P): Para uma assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.    |
-   |Escopo   |   Opção que controla quantas assinaturas podem usar o benefício de cobrança associado com a reserva. Também controla como a reserva será aplicada a assinaturas específicas.   <br/><br/>  Se você selecionar **Assinatura única**, o desconto de reserva será aplicado a instâncias do Azure Cosmos DB na assinatura selecionada. <br/><br/>  Se você selecionar **Compartilhado**, o desconto de reserva será aplicado às instâncias do Azure Cosmos DB em execução em qualquer assinatura dentro do seu contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas (exceto as assinaturas de desenvolvimento/teste) no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.  <br/><br/> Você pode alterar o escopo de reserva após comprar a capacidade reservada.  |
+   |Assinatura  |   Assinatura usada para pagar pela capacidade reservada do Azure Cosmos DB. O método de pagamento na assinatura selecionada é usado na cobrança dos custos iniciais. O tipo de assinatura deve ser um dos a seguir: <br/><br/>  Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR-0148P): Para uma assinatura Enterprise, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como excedente. <br/><br/> Pagamento Conforme o Uso (números da oferta): MS-AZR-0003P ou MS-AZR-0023P): Para uma assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.    |
+   |Escopo   |   Opção que controla quantas assinaturas podem usar o benefício de cobrança associado com a reserva. Também controla como a reserva será aplicada a assinaturas específicas.   <br/><br/>  Se você selecionar **Assinatura única**, o desconto de reserva será aplicado a instâncias do Azure Cosmos DB na assinatura selecionada. <br/><br/>  Se você selecionar **Compartilhado**, o desconto de reserva será aplicado às instâncias do Azure Cosmos DB em execução em qualquer assinatura dentro do seu contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.  <br/><br/> Você pode alterar o escopo de reserva após comprar a capacidade reservada.  |
    |Tipo de capacidade reservada   |  Taxa de transferência provisionada como unidades de solicitação.|
    |Unidades de capacidade reservada  |      Quantidade de taxa de transferência que você deseja reservar. Você pode calcular esse valor determinando a taxa de transferência necessária para todos os seus recursos do Cosmos DB (por exemplo, bancos de dados ou contêineres) por região. Em seguida, multiplique pelo número de regiões que você associará com seu banco de dados do Cosmos DB.  <br/><br/> Por exemplo:  se você tiver cinco regiões com 1 milhão de RU/s em todas as regiões, selecione 5 milhões de RU/s para compra de capacidade de reserva.    |
    |Termo  |   Um ano ou três anos.   |

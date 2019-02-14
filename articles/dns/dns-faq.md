@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352913"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511965"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -34,7 +34,7 @@ Para saber mais, veja a [página de preços do DNS do Azure](https://azure.micro
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>O que é o SLA para DNS do Azure?
 
-O Azure garante que as solicitações válidas de DNS recebam uma resposta de pelo menos um servidor de nomes DNS do Azure pelo menos 99,99% do tempo.
+O Azure garante que as solicitações válidas de DNS recebam uma resposta de pelo menos um servidor de nomes DNS do Azure 100% do tempo.
 
 Para saber mais, confira a [página de SLA do DNS do Azure](https://azure.microsoft.com/support/legal/sla/dns).
 

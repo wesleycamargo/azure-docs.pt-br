@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913080"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821348"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Usar o cluster HDInsight Spark para analisar dados no Data Lake Storage
 
@@ -30,7 +30,7 @@ Neste tutorial, você usa o [Jupyter Notebook](https://jupyter.org/) disponível
 ## <a name="prepare-the-data"></a>Preparar os dados
 
 > [!NOTE]  
-> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Storage como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Storage especificada durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Storage como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Storage especificada durante a criação do cluster. Vá para a seção Usar o cluster HDInsight Spark com o Data Lake Storage.
 
 Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adicional e o Azure Storage Blob como armazenamento padrão, copie primeiro alguns dados de exemplo para a conta do Data Lake Storage. Use os dados de exemplo do Blob de Armazenamento do Azure associado ao cluster HDInsight. Você pode usar a [ferramenta ADLCopy](https://aka.ms/downloadadlcopy) para fazer isso. Baixe e instale a ferramenta a partir do link.
 

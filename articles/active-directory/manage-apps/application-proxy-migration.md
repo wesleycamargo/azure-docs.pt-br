@@ -15,12 +15,12 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d0a28dc1eee1536a0cabe454cd899d9111edff88
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d38fa458ae87ce29110b2423e832ff5c6262a01
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197731"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817573"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
@@ -33,21 +33,21 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 
 | Recurso | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Autenticação de certificado | SIM | SIM | - | - |
-| Publicar seletivamente os aplicativos de navegador | SIM | sim | sim | SIM |
-| Pré-autenticação e logon único | SIM | sim | sim | SIM | 
-| Firewall de Camada 2/3 | SIM | SIM | - | - |
-| Recursos de proxy de encaminhamento | SIM | - | - | - |
-| Funcionalidades de VPN | SIM | SIM | - | - |
-| Suporte avançado a protocolo | - | SIM | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
-| Atua como um servidor proxy do ADFS | - | SIM | SIM | - |
-| Um portal para acesso de aplicativo | - | SIM | - | SIM |
-| Conversão de link de corpo de resposta | SIM | sim | - | SIM | 
-| Autenticação com cabeçalhos | - | SIM | - | Sim, com PingAccess | 
-| Segurança em escala de nuvem | - | - | - | SIM | 
-| Acesso condicional | - | SIM | - | SIM |
-| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | SIM |
-| Nenhuma conexão de entrada | - | - | - | SIM |
+| Autenticação de certificado | Sim | Sim | - | - |
+| Publicar seletivamente os aplicativos de navegador | Sim | sim | sim | Sim |
+| Pré-autenticação e logon único | Sim | sim | sim | Sim | 
+| Firewall de Camada 2/3 | Sim | Sim | - | - |
+| Recursos de proxy de encaminhamento | Sim | - | - | - |
+| Funcionalidades de VPN | Sim | Sim | - | - |
+| Suporte avançado a protocolo | - | Sim | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
+| Atua como um servidor proxy do ADFS | - | Sim | Sim | - |
+| Um portal para acesso de aplicativo | - | Sim | - | Sim |
+| Conversão de link de corpo de resposta | Sim | sim | - | Sim | 
+| Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
+| Segurança em escala de nuvem | - | - | - | Sim | 
+| Acesso condicional | - | Sim | - | Sim |
+| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
+| Nenhuma conexão de entrada | - | - | - | Sim |
 
 Para a maioria dos cenários, é recomendável usar o Aplicativo do Azure AD como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
 

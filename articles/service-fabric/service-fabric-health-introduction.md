@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194280"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193757"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
 
 Os componentes do Service Fabric usam esse modelo de integridade avançado para reportar o respectivo estado atual. É possível usar o mesmo mecanismo para reportar a integridade de seus aplicativos. Se investir em relatórios de integridade de alta qualidade que capturam suas condições personalizadas, você poderá detectar e corrigir problemas do seu aplicativo em execução com muito mais facilidade.
-
-O vídeo da Microsoft Virtual Academy a seguir também descreve o modelo de integridade do Service Fabric e como é utilizado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece aplicativos monitorados e atualizações de cluster que garantem a disponibilidade completa, sem tempo de inatividade e mínima ou nenhuma intervenção do usuário. Para atingir essas metas, a atualização verifica a integridade com base nas políticas de atualização configuradas. Uma atualização pode continuar somente quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).

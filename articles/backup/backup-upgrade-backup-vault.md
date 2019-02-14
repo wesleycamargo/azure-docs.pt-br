@@ -2,18 +2,18 @@
 title: Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação do Backup do Azure
 description: Atualize o cofre de Backup para o cofre dos Serviços de Recuperação para obter novos recursos como backup de VMs do Resource Manager, segurança aprimorada, backup de VMs do VMware e backup do estado do sistema para servidores Windows
 services: backup
-author: trinadhk
-manager: vijayts
+author: raynew
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/10/2017
-ms.author: trinadhk
-ms.openlocfilehash: 01aacaecba8c5a4adf1dab5483a2f921df9314c0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: raynew
+ms.openlocfilehash: b7671271e569802311884861265a7825404c9c75
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252523"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490338"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Atualização de cofre de Backup para cofre dos Serviços de Recuperação
 Este artigo fornece uma visão geral do que é oferecido pelo sofre dos Serviços de Recuperação, perguntas frequentes sobre a atualização do cofre de Backup existente para o cofre dos Serviços de Recuperação e as etapas pós-atualização. Um cofre dos Serviços de Recuperação é o equivalente do Azure Resource Manager a um cofre de Backup que contém seus dados de backup. Os dados normalmente são cópias de dados ou informações de configuração de VMs (máquinas virtuais), cargas de trabalho, servidores ou estações de trabalho, sejam esses dados locais ou no Azure.
@@ -24,22 +24,22 @@ Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparação de cofres de Serviços de Recuperação e cofres de Backup
 Cofres de Serviços de Recuperação são baseados no modelo do Azure Resource Manager, enquanto os cofres de Backup são baseados no modelo do Azure Service Manager. Quando você atualiza um cofre de Backup para um cofre de Serviços de Recuperação, os dados de backup permanecem intactos durante e após o processo de atualização. Cofres de Serviços de Recuperação fornecem recursos não disponíveis a cofres de Backup, como:
 
-- **Recursos aprimorados para ajudar a proteger dados de backup**: com os cofres de Serviços de Recuperação, o Backup do Azure fornece recursos de segurança para proteger backups em nuvem. Esses recursos de segurança asseguram que você possa proteger seus backups e recuperar com segurança dados de backups em nuvem, mesmo que os servidores de produção e de backup sejam comprometidos. [Saiba mais](backup-azure-security-feature.md)
+- **Recursos aprimorados para ajudar a proteger dados de backup**: Com os cofres de Serviços de Recuperação, o Backup do Azure fornece recursos de segurança para proteger backups em nuvem. Esses recursos de segurança asseguram que você possa proteger seus backups e recuperar com segurança dados de backups em nuvem, mesmo que os servidores de produção e de backup sejam comprometidos. [Saiba mais](backup-azure-security-feature.md)
 
-- **Monitoramento central para seu ambiente de TI híbrida**: com os cofres de Serviços de Recuperação, você pode monitorar não apenas suas [VMs da IaaS do Azure](backup-azure-manage-vms.md), como também seus [ativos locais](backup-azure-manage-windows-server.md#manage-backup-items) de um portal central. [Saiba mais](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Monitoramento central para seu ambiente de TI híbrido**: Com os cofres de Serviços de Recuperação, você pode monitorar não apenas suas [VMs da IaaS do Azure](backup-azure-manage-vms.md), como também seus [ativos locais](backup-azure-manage-windows-server.md#manage-backup-items) de um portal central. [Saiba mais](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **RBAC (Controle de Acesso Baseado em Função)**: o RBAC oferece controle de gerenciamento de acesso detalhado no Azure. [O Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o Backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Cofres de Serviços de Recuperação são compatíveis com RBAC, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
+- **RBAC (Controle de Acesso Baseado em Função)**: O RBAC oferece controle de gerenciamento de acesso detalhado no Azure. [O Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o Backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Cofres de Serviços de Recuperação são compatíveis com RBAC, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
 
-- **Proteger todas as configurações de Máquinas Virtuais do Azure**: cofres de Serviços de Recuperação protegem VMs com base no Resource Manager, incluindo Premium Disks, Managed Disks e VMs Criptografadas. Atualizar um cofre de Backup para um cofre de Serviços de Recuperação possibilita atualizar as VMs baseadas no Service Manager para VMs baseadas no Resource Manager. Ao atualizar o cofre, você pode manter os seus pontos de recuperação de VM baseada no Service Manager e configurar a proteção para VMs atualizadas (habilitadas para Resource Manager). [Saiba mais](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Proteger todas as configurações das Máquinas Virtuais do Azure**: Cofres de Serviços de Recuperação protegem VMs com base no Resource Manager, incluindo Premium Disks, Managed Disks e VMs Criptografadas. Atualizar um cofre de Backup para um cofre de Serviços de Recuperação possibilita atualizar as VMs baseadas no Service Manager para VMs baseadas no Resource Manager. Ao atualizar o cofre, você pode manter os seus pontos de recuperação de VM baseada no Service Manager e configurar a proteção para VMs atualizadas (habilitadas para Resource Manager). [Saiba mais](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Restauração instantânea para VMs da IaaS**: usando os cofres de Serviços de Recuperação, você pode restaurar arquivos e pastas em uma VM IaaS sem restaurar toda a VM, o que permite tempos de restauração mais rápidos. Restauração instantânea para VMs da IaaS está disponível para VMs Linux e Windows. [Saiba mais](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Restauração instantânea para VMs IaaS**: Usando os cofres de Serviços de Recuperação, você pode restaurar arquivos e pastas em uma VM IaaS sem restaurar toda a VM, o que permite tempos de restauração mais rápidos. Restauração instantânea para VMs da IaaS está disponível para VMs Linux e Windows. [Saiba mais](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 > [!NOTE]
 > Se tiver itens registrados em um cofre de Backup com o agente de MARS anteriores ao 2.0.9083.0, [baixe a versão mais recente do agente MARS]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) para tirar proveito dos benefícios de todos os recursos do cofre dos Serviços de Recuperação. 
 > 
 
 ## <a name="managing-your-recovery-services-vaults"></a>Gerenciando seus cofres dos Serviços de Recuperação
-As telas a seguir mostram um novo cofre de Serviços de Recuperação, atualizado do cofre de Backup, no portal do Azure. O cofre atualizado estará presente em um grupo de recursos padrão chamado "Default-RecoveryServices-ResourceGroup-geo". Exemplo: se seu cofre de Backup ficava localizado no Oeste dos EUA, ele será colocado em um grupo de recursos padrão denominado Default-RecoveryServices-ResourceGroup-westus.
+As telas a seguir mostram um novo cofre de Serviços de Recuperação, atualizado do cofre de Backup, no portal do Azure. O cofre atualizado estará presente em um grupo de recursos padrão chamado "Default-RecoveryServices-ResourceGroup-geo". Exemplo: Se seu cofre de Backup estava localizado no Oeste dos EUA, ele será colocado em um grupo de recursos padrão denominado Default-RecoveryServices-ResourceGroup-westus.
 > [!NOTE]
 > Para clientes do CPS padrão, o grupo de recursos não será alterado após a atualização do cofre e permanecerá o mesmo que era antes da atualização.
 
@@ -62,16 +62,16 @@ Depois de atualizar para um cofre dos Serviços de Recuperação, configure rela
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **O plano de atualização afeta meus backups em andamento?**</br>
-Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
+ Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
 
 **O que esta atualização significa para as minhas ferramentas existentes?**</br>
 Você precisa atualizar suas ferramentas ou automação existente para o modelo de implantação do Resource Manager para garantir que continuem funcionando após a atualização. Consulte as referências de cmdlets do PowerShell para o [Modelo de implantação do Resource Manager](backup-client-automation.md).
 
 **Posso reverter após a atualização?**</br>
-Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
+ Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
 **Posso exibir meu cofre clássico após a atualização?**</br>
-Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
+ Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
 
 **Por que não consigo ver servidores protegidos pelo agente de MARS em meu cofre atualizado?**</br>
 Você precisa instalar o agente de MARS mais recente para ver todos os servidores protegidos pelo agente de MARS em seu cofre. Você pode baixar a versão mais recente do agente [aqui]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).

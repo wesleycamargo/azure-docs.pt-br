@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817810"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566137"
 ---
 # <a name="registration-management"></a>Gerenciamento de registros
 
@@ -33,7 +33,7 @@ O registro de dispositivos com um Hub de Notificação é realizado usando um **
 
 ### <a name="registrations"></a>Registros
 
-Um registro associa o identificador PNS (Serviço de Notificação de Plataforma) de um dispositivo com marcas e, possivelmente, um modelo. O identificador PNS pode ser um ChannelURI, um token do dispositivo ou uma ID de registro de GCM. As marcas são usadas para direcionar notificações para o conjunto correto de identificadores de dispositivos. Para saber mais, veja [Expressões de marca e de roteamento](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar transformações por registro. Para saber mais, veja [Modelos](notification-hubs-templates-cross-platform-push-messages.md).
+Um registro associa o identificador PNS (Serviço de Notificação de Plataforma) de um dispositivo com marcas e, possivelmente, um modelo. O identificador PNS pode ser um ChannelURI, um token do dispositivo ou uma ID de registro de FCM. As marcas são usadas para direcionar notificações para o conjunto correto de identificadores de dispositivos. Para saber mais, veja [Expressões de marca e de roteamento](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar transformações por registro. Para saber mais, veja [Modelos](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Os Hubs de notificação do Azure dão suporte a um máximo de 60 marcas por registro.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

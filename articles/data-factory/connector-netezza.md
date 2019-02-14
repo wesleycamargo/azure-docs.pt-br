@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9bf90c9d3ce593ba5bf6339cd9cec31bb49f14f1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025636"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658514"
 ---
-# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza usando o Azure Data Factory 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza usando o Azure Data Factory
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do Netezza. O artigo baseia-se em [Atividade de Cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da Atividade de Cópia.
 
@@ -41,8 +41,8 @@ As seguintes propriedades são suportadas para o serviço vinculado do Netezza:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** propriedade deve ser definida como **Netezza**. | SIM |
-| connectionString | Uma cadeia de conexão ODBC para conectar-se ao Netezza. Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
+| Tipo | O **tipo** propriedade deve ser definida como **Netezza**. | Sim |
+| connectionString | Uma cadeia de conexão ODBC para conectar-se ao Netezza. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que oferece mais detalhes. | Sim |
 | connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode escolher um Runtime de Integração auto-hospedado ou o Tempo de Execução de Integração do Azure (se o seu armazenamento de dados estiver acessível publicamente). Se não especificado, o Tempo de Execução de Integração do Azure padrão será usado. |Não  |
 
 Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. A tabela a seguir descreve as propriedades mais que você pode definir:
@@ -61,8 +61,37 @@ Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<databas
         "type": "Netezza",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a senha no Azure Key Vault**
+
+```json
+{
+    "name": "NetezzaLinkedService",
+    "properties": {
+        "type": "Netezza",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -77,13 +106,13 @@ Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<databas
 
 Esta seção fornece uma lista de propriedades que o conjunto de dados do Netezza suporta.
 
-Para obter uma lista completa de seções e propriedades que estão disponíveis para definir conjuntos de dados, consulte [Conjuntos de Dados](concepts-datasets-linked-services.md). 
+Para obter uma lista completa de seções e propriedades que estão disponíveis para definir conjuntos de dados, consulte [Conjuntos de Dados](concepts-datasets-linked-services.md).
 
 Para copiar dados do Netezza, defina as **tipo** propriedade do conjunto de dados como **NetezzaTable**. Há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **NetezzaTable** | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **NetezzaTable** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -106,7 +135,7 @@ Para copiar dados do Netezza, defina as **tipo** propriedade do conjunto de dado
 
 Esta seção fornece uma lista de propriedades que a fonte do Netezza suporta.
 
-Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
+Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md).
 
 ### <a name="netezza-as-source"></a>Netezza como fonte
 
@@ -114,7 +143,7 @@ Para copiar dados do Netezza, defina as **fonte** tipo de atividade de cópia pa
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **NetezzaSource**. | SIM |
+| Tipo | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **NetezzaSource**. | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

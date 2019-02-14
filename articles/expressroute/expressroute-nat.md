@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4aa1b170b0c0c515faa67118772ad14d34c7276b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278246"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496518"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo. 
@@ -41,6 +41,11 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
 ![Roteamento assimétrico com o ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisitos de NAT para o emparelhamento público do Azure
+
+> [!NOTE]
+> Não está disponível para novos circuitos do emparelhamento público do Azure.
+> 
+
 O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. 
 
 > [!IMPORTANT]

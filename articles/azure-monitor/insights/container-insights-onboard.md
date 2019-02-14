@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 7f70ab407e38797aae24530ea8fa5193e4fffda1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260900"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567291"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Como carregar o Azure Monitor para contêineres  
 Este artigo descreve como configurar o Azure Monitor para contêineres para monitorar o desempenho das cargas de trabalho implantadas em ambientes do Kubernetes e hospedadas no [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/).
@@ -79,7 +79,7 @@ Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minut
 É possível habilitar o monitoramento de um cluster do AKS que já tenha sido implantado usando a CLI do Azure, a partir do portal ou com o modelo do Azure Resource Manager fornecido, usando o cmdlet `New-AzureRmResourceGroupDeployment` do PowerShell. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Habilitar o monitoramento usando a CLI do Azure
-A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar ou especificar um workspace existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O workspace padrão criado é semelhante ao formato do *DefaultWorkspace-<GUID>-<Region>*.  
+A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar ou especificar um workspace existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O workspace padrão criado é semelhante ao formato do *DefaultWorkspace-\<GUID>-\<Region>*.  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  

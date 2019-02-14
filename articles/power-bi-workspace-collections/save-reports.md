@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047949"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233363"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Salvar relatórios nas Coleções de Workspaces do Power BI
 
@@ -47,9 +47,10 @@ Digamos que você deseja inserir um relatório em modo de edição dentro de seu
 
 Por exemplo, no JavaScript:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ Por exemplo, no JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Agora, um relatório é inserido em seu aplicativo no modo de edição.
@@ -83,7 +85,7 @@ Agora, um relatório é inserido em seu aplicativo no modo de edição.
 
 Depois de inserir o relatório no modo de edição com o token e permissões certos, você pode salvar o relatório do menu Arquivo ou do JavaScript:
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -93,7 +95,7 @@ Depois de inserir o relatório no modo de edição com o token e permissões cer
 
 ## <a name="save-as"></a>Salvar como
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +112,9 @@ Depois de inserir o relatório no modo de edição com o token e permissões cer
 
 Em seguida, você precisará carregar o novo relatório após um *salvar como*. O carregamento do novo relatório é semelhante à inserção de qualquer relatório.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,6 +126,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="see-also"></a>Consulte também
@@ -131,7 +134,7 @@ var embedConfiguration = {
 [Introdução a exemplos](get-started-sample.md)  
 [Inserir um relatório](embed-report.md)  
 [Criar um novo relatório de um conjunto de dados](create-report-from-dataset.md)  
-[Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  
+[Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 

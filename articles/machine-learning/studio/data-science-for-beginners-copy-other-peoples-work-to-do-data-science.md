@@ -1,8 +1,21 @@
 ---
-Título: Copiar exemplos de ciência de dados de outras pessoas – titleSuffix: Descrição do Azure Machine Learning Studio: “Segredo comercial da ciência de dados: Obtenha outras pessoas para fazer seu trabalho por você. Obtenha exemplos de aprendizado de máquina da Galeria de IA do Azure.”
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
+title: Copiar exemplos de ciência de dados de outras pessoas
+titleSuffix: Azure Machine Learning Studio
+description: 'Segredo comercial da ciência de dados: Obtenha outras pessoas para fazer seu trabalho por você. Obtenha exemplos de aprendizado de máquina da Galeria de IA do Azure.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/05/2018
+ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492990"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer a ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Série Ciência de dados para iniciantes

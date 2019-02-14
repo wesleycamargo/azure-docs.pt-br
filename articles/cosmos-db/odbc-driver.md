@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816621"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 
@@ -71,8 +71,8 @@ Vamos começar com o driver ODBC.
     - **Número de tentativas**: Insira o número de vezes para tentar novamente uma operação se a solicitação inicial não for concluída devido à limitação de taxa de serviço.
     - **Arquivo de esquema**: Você tem várias opções aqui.
         - Por padrão, ao deixar essa entrada como está (vazia), o driver examina os dados da primeira página de todas as coleções para determinar o esquema de cada coleção. Isso é conhecido como Mapeamento de Coleção. Sem um arquivo de esquema definido, o driver deve executar o exame para cada sessão de driver e pode resultar em um tempo de inicialização mais alto de um aplicativo usando o DSN. É recomendável sempre associar um arquivo de esquema para um DSN.
-        - Se você já tiver um arquivo de esquema (possivelmente um criado usando o [Editor de Esquema](#schema-editor)), poderá clicar em **Procurar**, navegar até o arquivo, clicar em **Salvar** e clicar em **OK**.
-        - Se você desejar criar um novo esquema, clique em **OK** e clique em **Editor de Esquema** na janela principal. Em seguida, vá para as informações do [Editor de Esquema](#schema-editor). Ao criar o novo arquivo de esquema, não se esqueça de voltar para a janela **Opções Avançadas** para incluir o arquivo de esquema recém-criado.
+        - Se você já tiver um arquivo de esquema (possivelmente criado com o Editor de Esquema), poderá clicar em **Procurar**, navegar até o arquivo, clicar em **Salvar** e clicar em **OK**.
+        - Se você desejar criar um novo esquema, clique em **OK** e clique em **Editor de Esquema** na janela principal. Em seguida, vá para as informações do Editor de Esquema. Ao criar o novo arquivo de esquema, não se esqueça de voltar para a janela **Opções Avançadas** para incluir o arquivo de esquema recém-criado.
 
 1. Depois de concluir e fechar a janela **Instalação de DSN do Driver ODBC do Azure Cosmos DB**, o novo DSN de Usuário é adicionado à guia DSN de Usuário.
 

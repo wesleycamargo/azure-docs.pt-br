@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477584"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812830"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -91,7 +91,7 @@ A ID do locatário identifica o locatário do Azure AD que fornece serviços de 
 
 Para autenticar com a autenticação integrada, você precisa conceder as permissões do aplicativo para se conectar à API do serviço do Lote. Esta etapa permite que o aplicativo autentique chamadas à API do serviço do Lote no Azure AD.
 
-Depois de [registrar o aplicativo](#register-your-application-with-an-azure-ad-tenant), siga estas etapas no portal do Azure para conceder a ele o acesso ao serviço do Lote:
+Depois de registrar o aplicativo, siga estas etapas no portal do Azure para conceder a ele o acesso ao serviço do Lote:
 
 1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Clique em **Registros do Aplicativo**.
 2. Pesquise pelo nome do seu aplicativo na lista de registros do aplicativo:

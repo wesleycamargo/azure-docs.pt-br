@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884938"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509899"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md).
@@ -19,7 +19,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| DomainServices | SIM | 
+| DomainServices | Sim | 
 | DomainServices/oucontainer | Não  | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -68,13 +68,13 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| servers | SIM | 
+| servers | Sim | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | reportFeedback | Não  | 
-| propriedade serviço | SIM | 
+| propriedade serviço | Sim | 
 | validateServiceName | Não  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -100,10 +100,10 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| automationaccounts | SIM | 
-| automationAccounts/configurations | SIM | 
+| automationaccounts | Sim | 
+| automationAccounts/configurations | Sim | 
 | automationAccounts/runbooks | Não  | 
-| automationAccounts/runbooks | SIM | 
+| automationAccounts/runbooks | Sim | 
 | automationAccounts/configurations | Não  | 
 | automationAccounts/runbooks | Não  | 
 
@@ -118,19 +118,19 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| b2cDirectories | SIM | 
+| b2cDirectories | Sim | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| registrations | SIM | 
+| registrations | Sim | 
 | registrations/customerSubscriptions | Não  | 
 | registrations/products | Não  | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| batchAccounts | SIM | 
+| batchAccounts | Sim | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | Tipo de recurso | Suporte de Tags |
@@ -189,13 +189,13 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| mapApis | SIM | 
+| mapApis | Sim | 
 | updateCommunicationPreference | Não  | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| BizTalk | SIM | 
+| BizTalk | Sim | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo de recurso | Suporte de Tags |
@@ -211,14 +211,14 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| botServices | SIM | 
+| botServices | Sim | 
 | botServices/channels | Não  | 
 | botServices/connections | Não  | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| Redis | SIM | 
+| Redis | Sim | 
 | RedisConfigDefinition | Não  | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -244,8 +244,8 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | edgenodes | Não  | 
-| perfis | SIM | 
-| profiles/endpoints | SIM | 
+| perfis | Sim | 
+| profiles/endpoints | Sim | 
 | profiles/endpoints/origins | Não  | 
 | profiles/endpoints/origins | Não  | 
 | validateProbe | Não  | 
@@ -253,7 +253,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| certificateOrders | SIM | 
+| certificateOrders | Sim | 
 | certificateOrders/certificates | Não  | 
 | validateCertificateRegistrationInformation | Não  | 
 
@@ -314,7 +314,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Tipo de recurso | Suporte de Tags |
@@ -325,18 +325,18 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| availabilitySets | SIM | 
-| disks | SIM | 
-| images | SIM | 
-| restorePointCollections | SIM | 
+| availabilitySets | Sim | 
+| disks | Sim | 
+| images | Sim | 
+| restorePointCollections | Sim | 
 | restorePointCollections/restorePoints | Não  | 
-| sharedVMImages | SIM | 
-| sharedVMImages/versions | SIM | 
-| snapshots | SIM | 
-| virtualMachines | SIM | 
+| sharedVMImages | Sim | 
+| sharedVMImages/versions | Sim | 
+| snapshots | Sim | 
+| virtualMachines | Sim | 
 | virtualMachines/diagnosticSettings | Não  | 
-| virtualMachines/extensions | SIM | 
-| virtualMachineScaleSets | SIM | 
+| virtualMachines/extensions | Sim | 
+| virtualMachineScaleSets | Sim | 
 | virtualMachines/extensions | Não  | 
 | virtualMachineScaleSets/networkInterfaces | Não  | 
 | virtualMachineScaleSets/publicIPAddresses | Não  | 
@@ -369,17 +369,17 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| containerGroups | SIM | 
+| containerGroups | Sim | 
 | serviceAssociationLinks | Não  | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| registries | SIM | 
+| registries | Sim | 
 | registries/builds | Não  | 
 | registries/builds/cancel | Não  | 
 | registries/builds/getLogLink | Não  | 
-| registries/buildTasks | SIM | 
+| registries/buildTasks | Sim | 
 | registries/buildTasks/steps | Não  | 
 | registries/eventGridFilters | Não  | 
 | registries/getBuildSourceUploadUrl | Não  | 
@@ -388,39 +388,39 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | registries/queueBuild | Não  | 
 | registries/regenerateCredential | Não  | 
 | registries/regenerateCredentials | Não  | 
-| registries/replications | SIM | 
+| registries/replications | Sim | 
 | registries/runs | Não  | 
 | registries/runs/cancel | Não  | 
 | registries/scheduleRun | Não  | 
-| registries/tasks | SIM | 
+| registries/tasks | Sim | 
 | registries/updatePolicies | Não  | 
-| registries/webhooks | SIM | 
+| registries/webhooks | Sim | 
 | registries/webhooks/getCallbackConfig | Não  | 
 | registries/webhooks/ping | Não  | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| containerServices | SIM | 
-| managedClusters | SIM | 
+| containerServices | Sim | 
+| managedClusters | Sim | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| de dimensionamento da Web | SIM | 
+| de dimensionamento da Web | Sim | 
 | updateCommunicationPreference | Não  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | Alertas | Não  | 
 | BillingAccounts | Não  | 
-| Conectores | SIM | 
+| Conectores | Sim | 
 | Departments | Não  | 
 | Dimensões | Não  | 
 | EnrollmentAccounts | Não  | 
@@ -432,7 +432,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| hubs | SIM | 
+| hubs | Sim | 
 | hubs/authorizationPolicies | Não  | 
 | hubs/connectors | Não  | 
 | hubs/connectors/mappings | Não  | 
@@ -449,42 +449,42 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| jobs | SIM | 
+| jobs | Sim | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | SIM | 
+| DataBoxEdgeDevices | Sim | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| workspaces | SIM | 
+| workspaces | Sim | 
 | workspaces/virtualNetworkPeerings | Não  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| catalogs | SIM | 
+| catalogs | Sim | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| connectionManagers | SIM | 
+| connectionManagers | Sim | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| dataFactories | SIM | 
+| dataFactories | Sim | 
 | dataFactories/diagnosticSettings | Não  | 
 | dataFactorySchema | Não  | 
-| factories | SIM | 
+| factories | Sim | 
 | factories/integrationRuntimes | Não  | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 | accounts/dataLakeStoreAccounts | Não  | 
 | accounts/storageAccounts | Não  | 
 | accounts/storageAccounts/containers | Não  | 
@@ -492,34 +492,34 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 | accounts/eventGridFilters | Não  | 
 | accounts/firewallRules | Não  | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| services | SIM | 
-| services/projects | SIM | 
+| services | Sim | 
+| services/projects | Sim | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| servers | SIM | 
+| servers | Sim | 
 | servers/recoverableServers | Não  | 
 | servers/virtualNetworkRules | Não  | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| servers | SIM | 
+| servers | Sim | 
 | servers/recoverableServers | Não  | 
 | servers/virtualNetworkRules | Não  | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| servers | SIM | 
+| servers | Sim | 
 | servers/advisors | Não  | 
 | servers/queryTexts | Não  | 
 | servers/recoverableServers | Não  | 
@@ -530,34 +530,34 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| IotHubs | SIM | 
+| IotHubs | Sim | 
 | IotHubs/eventGridFilters | Não  | 
-| ProvisioningServices | SIM | 
+| ProvisioningServices | Sim | 
 | usages | Não  | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| controladores | SIM | 
+| controladores | Sim | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| labs | SIM | 
-| labs/serviceRunners | SIM | 
-| labs/virtualMachines | SIM | 
-| schedules | SIM | 
+| labs | Sim | 
+| labs/serviceRunners | Sim | 
+| labs/virtualMachines | Sim | 
+| schedules | Sim | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | databaseAccounts | Não  | 
-| databaseAccounts | SIM | 
+| databaseAccounts | Sim | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| domains | SIM | 
+| domains | Sim | 
 | domains/domainOwnershipIdentifiers | Não  | 
 | generateSsoRequest | Não  | 
 | topLevelDomains | Não  | 
@@ -573,18 +573,18 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| domains | SIM | 
+| domains | Sim | 
 | domains/topics | Não  | 
 | eventSubscriptions | Não  | 
 | extensionTopics | Não  | 
-| topics | SIM | 
+| topics | Sim | 
 | topicTypes | Não  | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| clusters | SIM | 
-| namespaces | SIM | 
+| clusters | Sim | 
+| namespaces | Sim | 
 | namespaces/authorizationrules | Não  | 
 | namespaces/disasterrecoveryconfigs | Não  | 
 | namespaces/eventhubs | Não  | 
@@ -622,18 +622,18 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| hanaInstances | SIM | 
+| hanaInstances | Sim | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| clusters | SIM | 
+| clusters | Sim | 
 | clusters/applications | Não  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| jobs | SIM | 
+| jobs | Sim | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Tipo de recurso | Suporte de Tags |
@@ -647,14 +647,14 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| actiongroups | SIM | 
-| activityLogAlerts | SIM | 
-| alertrules | SIM | 
+| actiongroups | Sim | 
+| activityLogAlerts | Sim | 
+| alertrules | Sim | 
 | automatedExportSettings | Não  | 
-| autoscalesettings | SIM | 
+| autoscalesettings | Sim | 
 | baseline | Não  | 
 | calculatebaseline | Não  | 
-| components | SIM | 
+| components | Sim | 
 | components/metrics | Não  | 
 | components/pricingPlans | Não  | 
 | components/query | Não  | 
@@ -666,14 +666,15 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | logDefinitions | Não  | 
 | logprofiles | Não  | 
 | logs | Não  | 
+| metricAlerts | Sim |
 | migrateToNewPricingModel | Não  | 
 | myWorkbooks | Não  | 
 | consultas | Não  | 
 | rollbackToLegacyPricingModel | Não  | 
-| scheduledqueryrules | SIM | 
+| scheduledqueryrules | Sim | 
 | vmInsightsOnboardingStatuses | Não  | 
-| webtests | SIM | 
-| workbooks | SIM | 
+| webtests | Sim | 
+| workbooks | Sim | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Tipo de recurso | Suporte de Tags |
@@ -684,25 +685,25 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| IoTApps | SIM | 
+| IoTApps | Sim | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| Grafo | SIM | 
+| Grafo | Sim | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | deletedVaults | Não  | 
-| vaults | SIM | 
+| vaults | Sim | 
 | vaults/accessPolicies | Não  | 
 | vaults/secrets | Não  | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| clusters | SIM | 
+| clusters | Sim | 
 | clusters/databases | Não  | 
 | clusters/databases/dataconnections | Não  | 
 | clusters/databases/eventhubconnections | Não  | 
@@ -710,18 +711,18 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| labaccounts | SIM | 
+| labaccounts | Sim | 
 | users | Não  | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo de recurso | Suporte de Tags |
@@ -731,42 +732,42 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| integrationAccounts | SIM | 
-| workflows | SIM | 
+| integrationAccounts | Sim | 
+| workflows | Sim | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| commitmentPlans | SIM | 
-| webServices | SIM | 
-| Workspaces | SIM | 
+| commitmentPlans | Sim | 
+| webServices | Sim | 
+| Workspaces | Sim | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
-| accounts/workspaces | SIM | 
-| accounts/workspaces/projects | SIM | 
-| teamAccounts | SIM | 
-| teamAccounts/workspaces | SIM | 
-| teamAccounts/workspaces/projects | SIM | 
+| accounts | Sim | 
+| accounts/workspaces | Sim | 
+| accounts/workspaces/projects | Sim | 
+| teamAccounts | Sim | 
+| teamAccounts/workspaces | Sim | 
+| teamAccounts/workspaces/projects | Sim | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| workspaces | SIM | 
+| workspaces | Sim | 
 | workspaces/computes | Não  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | Identidades | Não  | 
-| userAssignedIdentities | SIM | 
+| userAssignedIdentities | Sim | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | Tipo de recurso | Suporte de Tags |
@@ -780,7 +781,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 | accounts/eventGridFilters | Não  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -800,7 +801,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| classicDevServices | SIM | 
+| classicDevServices | Sim | 
 | updateCommunicationPreference | Não  | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -812,18 +813,18 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| mediaservices | SIM | 
+| mediaservices | Sim | 
 | mediaservices/accountFilters | Não  | 
 | mediaservices/assets | Não  | 
 | mediaservices/assets/assetFilters | Não  | 
 | mediaservices/contentKeyPolicies | Não  | 
 | mediaservices/eventGridFilters | Não  | 
 | mediaservices/liveEvents | Não  | 
-| mediaservices/liveEvents | SIM | 
+| mediaservices/liveEvents | Sim | 
 | mediaservices/liveEvents/liveOutputs | Não  | 
 | mediaservices/liveEvents | Não  | 
 | mediaservices/streamingEndpoints | Não  | 
-| mediaservices/streamingEndpoints | SIM | 
+| mediaservices/streamingEndpoints | Sim | 
 | mediaservices/streamingLocators | Não  | 
 | mediaservices/streamingLocators | Não  | 
 | mediaservices/transforms | Não  | 
@@ -832,21 +833,21 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| projects | SIM | 
+| projects | Sim | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| applicationGateways | SIM | 
-| applicationSecurityGroups | SIM | 
+| applicationGateways | Sim | 
+| applicationSecurityGroups | Sim | 
 | azureFirewallFqdnTags | Não  | 
-| azureFirewalls | SIM | 
+| azureFirewalls | Sim | 
 | bgpServiceCommunities | Não  | 
-| connections | SIM | 
-| ddosCustomPolicies | SIM | 
-| ddosProtectionPlans | SIM | 
+| connections | Sim | 
+| ddosCustomPolicies | Sim | 
+| ddosProtectionPlans | Sim | 
 | dnsOperationStatuses | Não  | 
-| dnszones | SIM | 
+| dnszones | Sim | 
 | dnszones/A | Não  | 
 | dnszones/AAAA | Não  | 
 | dnszones/all | Não  | 
@@ -859,47 +860,47 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | dnszones/SOA | Não  | 
 | dnszones/SRV | Não  | 
 | dnszones/TXT | Não  | 
-| expressRouteCircuits | SIM | 
+| expressRouteCircuits | Sim | 
 | expressRouteServiceProviders | Não  | 
-| frontdoors | SIM | 
-| frontdoorWebApplicationFirewallPolicies | SIM | 
+| frontdoors | Sim | 
+| frontdoorWebApplicationFirewallPolicies | Sim | 
 | getDnsResourceReference | Não  | 
-| interfaceEndpoints | SIM | 
+| interfaceEndpoints | Sim | 
 | internalNotify | Não  | 
-| loadBalancers | SIM | 
-| virtualNetworkGateways | SIM | 
-| natGateways | SIM | 
-| networkIntentPolicies | SIM | 
-| networkInterfaces | SIM | 
-| networkProfiles | SIM | 
-| networkSecurityGroups | SIM | 
-| networkWatchers | SIM | 
-| networkWatchers/connectionMonitors | SIM | 
-| networkWatchers/lenses | SIM | 
-| networkWatchers/lenses | SIM | 
-| privateLinkServices | SIM | 
-| publicIPAddresses | SIM | 
-| publicIPPrefixes | SIM | 
-| routeFilters | SIM | 
-| routeTables | SIM | 
-| serviceEndpointPolicies | SIM | 
+| loadBalancers | Sim | 
+| virtualNetworkGateways | Sim | 
+| natGateways | Sim | 
+| networkIntentPolicies | Sim | 
+| networkInterfaces | Sim | 
+| networkProfiles | Sim | 
+| networkSecurityGroups | Sim | 
+| networkWatchers | Sim | 
+| networkWatchers/connectionMonitors | Sim | 
+| networkWatchers/lenses | Sim | 
+| networkWatchers/lenses | Sim | 
+| privateLinkServices | Sim | 
+| publicIPAddresses | Sim | 
+| publicIPPrefixes | Sim | 
+| routeFilters | Sim | 
+| routeTables | Sim | 
+| serviceEndpointPolicies | Sim | 
 | trafficManagerGeographicHierarchies | Não  | 
-| trafficmanagerprofiles | SIM | 
+| trafficmanagerprofiles | Sim | 
 | trafficmanagerprofiles/heatMaps | Não  | 
-| virtualWans | SIM | 
-| virtualNetworkGateways | SIM | 
-| virtualNetworks | SIM | 
-| virtualNetworkTaps | SIM | 
-| virtualWans | SIM | 
-| vpnGateways | SIM | 
-| vpnSites | SIM | 
-| frontdoorWebApplicationFirewallPolicies | SIM | 
+| virtualWans | Sim | 
+| virtualNetworkGateways | Sim | 
+| virtualNetworks | Sim | 
+| virtualNetworkTaps | Sim | 
+| virtualWans | Sim | 
+| vpnGateways | Sim | 
+| vpnSites | Sim | 
+| frontdoorWebApplicationFirewallPolicies | Sim | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| namespaces | SIM | 
-| namespaces/notificationHubs | SIM | 
+| namespaces | Sim | 
+| namespaces/notificationHubs | Sim | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Suporte de Tags |
@@ -907,7 +908,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | dispositivos | Não  | 
 | linkTargets | Não  | 
 | storageInsightConfigs | Não  | 
-| workspaces | SIM | 
+| workspaces | Sim | 
 | workspaces/dataSources | Não  | 
 | workspaces/linkedServices | Não  | 
 | workspaces/query | Não  | 
@@ -916,9 +917,9 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | managementassociations | Não  | 
-| managementconfigurations | SIM | 
-| solutions | SIM | 
-| Modos de exibição | SIM | 
+| managementconfigurations | Sim | 
+| solutions | Sim | 
+| Modos de exibição | Sim | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo de recurso | Suporte de Tags |
@@ -932,34 +933,34 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | consoles | Não  | 
-| dashboards | SIM | 
+| dashboards | Sim | 
 | userSettings | Não  | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| workspaceCollections | SIM | 
+| workspaceCollections | Sim | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| capacities | SIM | 
+| capacities | Sim | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| accounts | SIM | 
+| accounts | Sim | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | backupProtectedItems | Não  | 
-| vaults | SIM | 
+| vaults | Sim | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| namespaces | SIM | 
+| namespaces | Sim | 
 | namespaces/authorizationrules | Não  | 
 | namespaces/hybridconnections | Não  | 
 | namespaces/hybridconnections/authorizationrules | Não  | 
@@ -1004,20 +1005,20 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| de dimensionamento da Web | SIM | 
+| de dimensionamento da Web | Sim | 
 | saasresources | Não  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| flows | SIM | 
-| jobcollections | SIM | 
+| flows | Sim | 
+| jobcollections | Sim | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | resourceHealthMetadata | Não  | 
-| searchServices | SIM | 
+| searchServices | Sim | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo de recurso | Suporte de Tags |
@@ -1063,7 +1064,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| namespaces | SIM | 
+| namespaces | Sim | 
 | namespaces/authorizationrules | Não  | 
 | namespaces/disasterrecoveryconfigs | Não  | 
 | namespaces/eventgridfilters | Não  | 
@@ -1078,37 +1079,37 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| clusters | SIM | 
+| clusters | Sim | 
 | clusters/applications | Não  | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| de dimensionamento da Web | SIM | 
-| gateways | SIM | 
-| networks | SIM | 
-| segredos | SIM | 
-| volumes | SIM | 
+| de dimensionamento da Web | Sim | 
+| gateways | Sim | 
+| networks | Sim | 
+| segredos | Sim | 
+| volumes | Sim | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| SignalR | SIM | 
+| SignalR | Sim | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| applianceDefinitions | SIM | 
-| appliances | SIM | 
-| applicationDefinitions | SIM | 
-| de dimensionamento da Web | SIM | 
-| jitRequests | SIM | 
+| applianceDefinitions | Sim | 
+| appliances | Sim | 
+| applicationDefinitions | Sim | 
+| de dimensionamento da Web | Sim | 
+| jitRequests | Sim | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| managedInstances | SIM |
-| managedInstances/databases | SIM |
+| managedInstances | Sim |
+| managedInstances/databases | Sim (veja a observação a seguir) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Não  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Não  |
 | managedInstances/databases/vulnerabilityAssessments | Não  |
@@ -1117,27 +1118,31 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | managedInstances/keys | Não  |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Não  |
 | managedInstances/vulnerabilityAssessments | Não  |
-| servers | SIM | 
+| servers | Sim | 
 | servers/administrators | Não  | 
 | servers/communicationLinks | Não  | 
-| servers/databases | SIM | 
+| servers/databases | Sim (veja a observação a seguir) | 
 | servers/encryptionProtector | Não  | 
 | servers/keys | Não  | 
 | servers/restorableDroppedDatabases | Não  | 
 | servers/serviceobjectives | Não  | 
 | servers/tdeCertificates | Não  | 
 
+> [!NOTE]
+> O banco de dados mestre não oferece suporte a marcas, mas outros bancos de dados dão.
+
+
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | SIM | 
+| SqlVirtualMachineGroups | Sim | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Não  | 
-| SqlVirtualMachines | SIM | 
+| SqlVirtualMachines | Sim | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| storageAccounts | SIM | 
+| storageAccounts | Sim | 
 | storageAccounts/blobServices | Não  | 
 | storageAccounts/blobServices | Não  | 
 | storageAccounts/blobServices | Não  | 
@@ -1148,7 +1153,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| storageSyncServices | SIM | 
+| storageSyncServices | Sim | 
 | storageSyncServices/registeredServers | Não  | 
 | storageSyncServices/syncGroups | Não  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Não  | 
@@ -1158,13 +1163,16 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| managers | SIM | 
+| managers | Sim | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| streamingjobs | SIM | 
+| streamingjobs | Sim (veja a observação a seguir) | 
 | streamingjobs/diagnosticSettings | Não  | 
+
+> [!NOTE]
+> Você não pode adicionar uma marca quando streamingjobs estiver em execução. Pare o recurso para adicionar uma marca.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Tipo de recurso | Suporte de Tags |
@@ -1181,23 +1189,23 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| providerRegistrations | SIM | 
-| recursos | SIM | 
+| providerRegistrations | Sim | 
+| recursos | Sim | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| environments | SIM | 
+| environments | Sim | 
 | environments/accessPolicies | Não  | 
-| environments/eventsources | SIM | 
-| environments/referenceDataSets | SIM | 
+| environments/eventsources | Sim | 
+| environments/referenceDataSets | Sim | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| conta | SIM | 
-| account/extension | SIM | 
-| account/project | SIM | 
+| conta | Sim | 
+| account/extension | Sim | 
+| account/project | Sim | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Suporte de Tags |
@@ -1213,13 +1221,13 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | apiManagementAccounts/connectionAcls | Não  | 
 | apiManagementAccounts/connections | Não  | 
 | billingMeters | Não  | 
-| certificates | SIM | 
-| connectionGateways | SIM | 
-| connections | SIM | 
-| customApis | SIM | 
+| certificates | Sim | 
+| connectionGateways | Sim | 
+| connections | Sim | 
+| customApis | Sim | 
 | deletedSites | Não  | 
 | funções | Não  | 
-| hostingEnvironments | SIM | 
+| hostingEnvironments | Sim | 
 | hostingEnvironments/multiRolePools | Não  | 
 | hostingEnvironments/multiRolePools/instances | Não  | 
 | hostingEnvironments/multiRolePools | Não  | 
@@ -1228,17 +1236,17 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 | filmes | Não  | 
 | resourceHealthMetadata | Não  | 
 | runtimes | Não  | 
-| serverFarms | SIM | 
+| serverFarms | Sim | 
 | serverFarms/workers | Não  | 
-| sites | SIM | 
+| sites | Sim | 
 | sites/domainOwnershipIdentifiers | Não  | 
 | sites/hostNameBindings | Não  | 
 | sites/instances | Não  | 
 | sites/instances/extensions | Não  | 
-| sites/premieraddons | SIM | 
+| sites/premieraddons | Sim | 
 | sites/recommendations | Não  | 
 | sites/resourceHealthMetadata | Não  | 
-| sites/slots | SIM | 
+| sites/slots | Sim | 
 | sites/hostNameBindings | Não  | 
 | sites/instances | Não  | 
 | sites/instances/extensions | Não  | 
@@ -1255,7 +1263,7 @@ Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| DeviceServices | SIM | 
+| DeviceServices | Sim | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | Tipo de recurso | Suporte de Tags |

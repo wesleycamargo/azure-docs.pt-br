@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888984"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663954"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -40,17 +40,12 @@ A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão ins
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão de DSC Linux dá suporte a todas as [extensão de suporte para SO](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs), exceto:
+A extensão DSC Linux dá suporte a todas as [distribuições do Linux endossadas no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) exceto:
 
 | Distribuição | Versão |
 |---|---|
-| CentOS Linux | 6.5 e superior |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6.5 e superior  |
-| openSUSE| 13.1 e superior  |
-| SUSE Linux Enterprise Server| 11 SP3 e superior  |
-
-  
+| Debian | todas as versões |
+| Ubuntu| 18.04 |
  
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 

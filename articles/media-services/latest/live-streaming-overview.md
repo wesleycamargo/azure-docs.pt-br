@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: a3e4821d9deb7ceee815d804f58d0b1ba14925b4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103557"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656322"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -47,8 +47,8 @@ Para entender o fluxo de trabalho da transmissão ao vivo nos Serviços de Mídi
 
 Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
 
-1. Navegue para sua conta dos Serviços de Mídia e verifique se o **Ponto de Extremidade de Streaming** está em execução. 
-2. Crie um **evento ao vivo**. <br/>Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. Isso significa que a cobrança é iniciada assim que o Evento ao Vivo começa a ser executado. É necessário chamar explicitamente Parar no recurso Evento ao Vivo para interromper a cobrança adicional. Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
+1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
+2. Crie um [evento ao vivo](live-events-outputs-concept.md). <br/>Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. A cobrança começa assim que o Evento ao vivo começa a ser transmitido. É necessário chamar explicitamente o recurso Parar no Evento ao vivo para parar a cobrança adicional. Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
 3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL no envio do feed de contribuição.<br/>Confira [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md).
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 5. Crie um novo objeto de **ativo**.

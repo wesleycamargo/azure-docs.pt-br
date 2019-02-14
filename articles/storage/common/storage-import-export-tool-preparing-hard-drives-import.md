@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454395"
+ms.locfileid: "55510129"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparação de discos rígidos para um trabalho de importação
 
@@ -81,7 +81,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BasePath | **[Obrigatório]**<br/>O valor desse parâmetro representa a origem em que os dados a serem importados estão localizados. A ferramenta copiará recursivamente todos os dados localizados nesse caminho.<br><br/>**Valores Permitidos**: deve ser um caminho válido no computador local ou um caminho de compartilhamento válido e deve estar acessível para o usuário. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo). Se o caminho termina com "\\", ele representa um diretório. Caso contrário, um caminho que termina sem "\\" representa um arquivo.<br/>Nenhuma regex é permitido neste campo. Se o caminho contiver espaços, coloque-os entre "".<br><br/>**Exemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Obrigatório]**<br/> O caminho até o diretório virtual de destino em sua conta de armazenamento do Windows Azure. O diretório virtual pode ou não existir. Se não existir, o serviço de Importação/Exportação criará um.<br/><br/>Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para conhecer as regras de nomenclatura de contêineres, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Se apenas a raiz for especificada, a estrutura do diretório de origem será replicada no contêiner de blob de destino. Caso deseje a uma estrutura de diretório diferente no código-fonte, várias linhas de mapeamento no CSV<br/><br/>Você pode especificar um contêiner ou um prefixo de blob como music/70s/. O diretório de destino deve começar com o nome do contêiner, seguido por uma barra "/" e, opcionalmente, pode incluir um diretório virtual de blob que termina com "/".<br/><br/>Quando o contêiner de destino for o contêiner raiz, especifique explicitamente o contêiner raiz, incluindo a barra, como $root/. Como os blobs no contêiner raiz não podem incluir "/" em seus nomes, quaisquer subdiretórios no diretório de origem não serão copiados quando o diretório de destino for o contêiner raiz.<br/><br/>**Exemplo**<br/>Se o caminho de blob de destino for https://mystorageaccount.blob.core.windows.net/video, o valor desse campo poderá ser video /  |
 | BlobType | **[Opcional]** block &#124; page<br/>Atualmente, o serviço de Importação/Exportação oferece suporte dois tipos de Blobs. Blobs de página e Blobs de bloco. Por padrão, todos os arquivos serão importados como Blobs de blocos. E \*.vhd e \*.vhdx serão importados como Blobs de página. Há um limite para o tamanho permitido para o blob de bloco e o blob de página. Confira [Metas de escalabilidade do armazenamento](storage-scalability-targets.md) para saber mais.  |
-| Disposition | **[Opcional]** rename &#124; no-overwrite &#124; overwrite <br/> Este campo especifica o comportamento de cópia durante a importação, ou seja Quando os dados estão sendo carregados do disco para a conta de armazenamento. As opções disponíveis são: renomear&#124;substituir&#124;não-substituir. O padrão é "renomear" se nada é especificado. <br/><br/>**Renomear**: se um objeto com o mesmo nome estiver presente, isso criará uma cópia no destino.<br/>Overwrite: substitui o arquivo por um arquivo mais recente. O arquivo com a última modificação vence.<br/>**No-overwrite**: ignora a substituição do arquivo se ele já estiver presente.|
+| Disposition | **[Opcional]** rename &#124; no-overwrite &#124; overwrite <br/> Este campo especifica o comportamento de cópia durante a importação, ou seja Quando os dados estão sendo carregados do disco para a conta de armazenamento. As opções disponíveis são: rename&#124;overwrite&#124;no-overwrite.Se nada for especificado, o padrão é "rename". <br/><br/>**Renomear**: se um objeto com o mesmo nome estiver presente, isso criará uma cópia no destino.<br/>Overwrite: substitui o arquivo por um arquivo mais recente. O arquivo com a última modificação vence.<br/>**No-overwrite**: ignora a substituição do arquivo se ele já estiver presente.|
 | MetadataFile | **[Opcional]** <br/>O valor para esse campo é o arquivo de metadados, que pode ser fornecido se for necessário preservar os metadados dos objetos ou fornecer metadados personalizados. Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais |
 | PropertiesFile | **[Opcional]** <br/>Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais. |
 
@@ -319,7 +319,7 @@ No entanto, a mesma sessão de cópia não pode ser usado para importar dados em
 
 Quando o nome de sessão de cópia for o mesmo entre várias execuções da ferramenta, o arquivo de log (/logdir) e a chave da conta de armazenamento (/sk) também deverá ser igual.
 
-A SessionId pode conter letras, 0 a 9, sublinhado (\_), hífen (-) ou hash (#), e seu comprimento deve ser de 3 a 30.
+A SessionId pode conter letras, 0 a 9, sublinhado (\_), hífen (-) ou hash (#); e seu comprimento deve ser de 3 a 30.
 
 Por exemplo, sessão-1 ou sessão#1 ou sessão\_1
 

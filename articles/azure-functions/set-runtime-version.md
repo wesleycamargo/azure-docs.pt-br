@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498388"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734463"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar para versões de tempo de execução do Azure Functions
 
@@ -49,7 +49,7 @@ Também é possível exibir e definir o `FUNCTIONS_EXTENSION_VERSION` da CLI do 
 >[!NOTE]
 >Como outras configurações podem ser afetadas pela versão de tempo de execução, você deverá alterar a versão no portal. Quando você altera as versões de tempo de execução, o portal automaticamente executa outras atualizações necessárias como a versão do Node.js e a pilha de tempo de execução.  
 
-Usando a CLI do Azure, exiba a versão de tempo de execução atual com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Usando a CLI do Azure, exiba a versão de tempo de execução atual com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ Você verá `FUNCTIONS_EXTENSION_VERSION` na seguinte saída, que foi truncada p
 ]
 ```
 
-É possível atualizar a configuração `FUNCTIONS_EXTENSION_VERSION` o aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+É possível atualizar a configuração `FUNCTIONS_EXTENSION_VERSION` o aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

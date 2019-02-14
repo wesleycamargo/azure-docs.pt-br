@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477498"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756454"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a uma VM Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ Aqui, *sdc* é o disco que queremos.
 ### <a name="partition-a-new-disk"></a>Particionar um novo disco
 Se você estiver usando um disco existente que contenha dados, pule para montar o disco. Se você estiver anexando um novo disco, precisará particionar o disco.
 
-Use `fdisk` para particionar o disco, torne-o um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo `fdisk` em */dev/sdc*:
+Particione o disco com `parted`, se o tamanho do disco for de 2 tebibytes (TiB) ou maior, você deverá usar o particionamento GPT, mas se ele for menor que 2 TiB, você poderá usar o particionamento MBR ou GPT. Torne-o um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo `parted` em */dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Use o `n` comando para adicionar uma nova partição. Neste exemplo, podemos também escolher `p` para um principal de partição e aceite o restante dos valores padrão. A saída será semelhante ao exemplo seguinte:

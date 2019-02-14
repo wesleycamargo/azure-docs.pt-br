@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165717"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736117"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50165717"
 11. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão, e você precisará alterá-la agora. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter três das seguintes opções: caracteres com letras minúsculas e maiúsculas, numéricos e especiais.
     
     <br/>![Dispositivo de registro do StorSimple 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. A etapa final do assistente de configuração registra seu dispositivo no serviço StorSimple Device Manager. Para isso, será necessária a chave de registro do serviço obtida na [Etapa 2: Obter a chave de registro](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
+12. A etapa final do assistente de configuração registra seu dispositivo no serviço StorSimple Device Manager. Para isso, será necessária a chave de registro do serviço obtida na [Etapa 2: obter a chave de registro do serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
     
     > [!NOTE]
     > Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.

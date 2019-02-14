@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d8cfcb2b42c21218d30e708217074d63e42bdcf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ebad54fa93379cc3c445de660df4e86b997014c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204041"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: Integração do Azure Active Directory ao Fuze
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 
 Para configurar a integração do Azure AD com o Fuze, são necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Fuze habilitada para logon único
 
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542825"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813901"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
@@ -66,7 +66,7 @@ O nível de elevação da conta de usuário indica se uma tarefa é executada co
 
 Por padrão, as tarefas são executadas no Lote em uma conta de usuário automático, como um usuário padrão sem acesso elevado e com escopo de tarefa. Quando a especificação de usuário automático é configurada para o escopo de tarefa, o serviço de Lote cria uma conta de usuário automático apenas para essa tarefa.
 
-A alternativa ao escopo de tarefa é o escopo de pool. Quando a especificação de usuário automático para uma tarefa é configurada para o escopo de pool, a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para saber mais sobre escopo de pool, confira a seção [Executar uma tarefa como o usuário automático com escopo de pool](#run-a-task-as-the-autouser-with-pool-scope).   
+A alternativa ao escopo de tarefa é o escopo de pool. Quando a especificação de usuário automático para uma tarefa é configurada para o escopo de pool, a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para saber mais sobre o escopo de pool, confira a seção Executar uma tarefa como o usuário automático com escopo de pool.   
 
 O escopo padrão é diferente em nós do Windows e Linux:
 

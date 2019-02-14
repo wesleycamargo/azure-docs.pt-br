@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969568"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745989"
 ---
 # <a name="assets"></a>Ativos
 
@@ -27,25 +27,8 @@ Um ativo é mapeado para um contêiner de blob na [conta de Armazenamento do Mic
 
 A camada de armazenamento de **Arquivamento** só é recomendada para arquivos de origem muito grandes que já tenham sido codificados e a saída do trabalho de codificação foi colocada em um contêiner de blobs de saída. Os blobs no contêiner de saída que você deseja associar a um ativo e usar para transmitir ou analisar seu conteúdo, deve existir em uma camada de armazenamento de **frequente** ou **esporádico**.
 
-## <a name="asset-definition"></a>Definição do ativo
-
-A tabela a seguir mostra as propriedades do Ativo e retorna suas definições.
-
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|ID de recurso totalmente qualificada para o recurso.|
-|Nome|O nome do recurso.|
-|properties.alternateId |A ID alternativa do Ativo.|
-|properties.alternateId |A ID do ativo.|
-|properties.container |O nome do contêiner de blob do ativo.|
-|properties.created |A data de criação do ativo.<br/> Data e hora sempre estão no formato UTC.|
-|properties.description|A descrição do ativo.|
-|properties.lastModified |A data da última modificação do Ativo. <br/> Data e hora sempre estão no formato UTC.|
-|properties.storageAccountName |O nome da conta de armazenamento.|
-|properties.storageEncryptionFormat |O formato de criptografia do Ativo. Um de Nenhum ou MediaStorageEncryption.|
-|Tipo|Tipo do recurso.|
-
-Para uma definição completa, consulte [Ativos](https://docs.microsoft.com/rest/api/media/assets).
+> [!NOTE]
+> As propriedades de ativos do tipo Datetime estão sempre no formato UTC.
 
 ## <a name="upload-digital-files-into-assets"></a>Carregar os arquivos digitais em Ativos
 
@@ -104,113 +87,7 @@ Para obter um exemplo completo, consulte [Criar uma entrada de trabalho de um ar
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 
-Os Serviços de Mídia do Microsoft Azure suportam as seguintes opções de consulta OData para ativos: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skipToken 
-
-Descrição do operador:
-
-* Eq = igual a
-* Ne = não é igual a
-* Ge = maior que ou igual a
-* Le = menor ou igual a
-* Gt = maior que
-* Lt = menor que
-
-### <a name="filteringordering"></a>Filtragem/pedidos
-
-A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades do Ativo: 
-
-|NOME|Filter|Classificar|
-|---|---|---|
-|ID|||
-|Nome|Suporta: Eq, Gt, Lt|Suporta: Ordem crescente e decrescente|
-|properties.alternateId |Suporta: Eq||
-|properties.alternateId |Suporta: Eq||
-|properties.container |||
-|properties.created|Suporta: Eq, Gt, Lt| Suporta: Ordem crescente e decrescente|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|Tipo|||
-
-O exemplo C# a seguir filtra a data da criação:
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>Paginação
-
-A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 1000.
-
-> [!TIP]
-> Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
-
-Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. 
-
-Se Ativos são criados ou excluídos durante a paginação por meio da coleção, as alterações são refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada). 
-
-#### <a name="c-example"></a>Exemplo de C#
-
-O exemplo de C# a seguir mostra como enumerar todos os ativos na conta.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>Exemplo REST
-
-Considere o seguinte exemplo de onde $skiptoken é usado. Certifique-se de substituir *amstestaccount* pelo seu nome de conta e defina o valor *api-version* valor para a versão mais recente.
-
-Se você solicitar uma lista de ativos como esta:
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-Você deve ver uma resposta semelhante a essa:
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-Em seguida, você pode solicitar a próxima página, enviando uma solicitação get para:
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-Para obter exemplos REST, consulte [Ativos - Lista](https://docs.microsoft.com/rest/api/media/assets/list)
+Veja [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="storage-side-encryption"></a>Criptografia do armazenamento
 
@@ -228,6 +105,6 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
-
-[Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-from-v2-to-v3.md)
+* [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
+* [Usar um DVR de nuvem](live-event-cloud-dvr.md)
+* [Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-from-v2-to-v3.md)

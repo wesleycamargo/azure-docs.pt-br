@@ -2,18 +2,18 @@
 title: Fazer backup de cargas de trabalho do SQL Server no Azure Stack
 description: Usar o Servidor de Backup do Azure para proteger uma carga de trabalho do SQL Server no Azure Stack.
 services: backup
-author: pvrk
-manager: Shivamg
+author: adigan
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: adigan
+ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751790"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493496"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Fazer backup do SQL Server no Stack
 Use este artigo para configurar o MABS (Servidor de Backup do Microsoft Azure) para proteger bancos de dados do SQL Server no Azure Stack.
@@ -68,7 +68,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de backup inicial exige a transferência de toda a fonte de dados (banco de dados do SQL Server) do servidor de produção (computador do SQL Server) para o Servidor de Backup do Azure. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, é possível optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
+    A cópia de backup inicial exige a transferência de toda a fonte de dados (banco de dados do SQL Server) do servidor de produção (computador do SQL Server) para o Servidor de Backup do Azure. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, você pode optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
 
     Quando o backup inicial for concluído, os backups restantes serão backups incrementais na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 

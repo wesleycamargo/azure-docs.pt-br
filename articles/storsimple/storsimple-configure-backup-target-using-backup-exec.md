@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248721"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747587"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
 
@@ -376,7 +376,7 @@ A tabela a seguir mostra como configurar backups para execução no local e disc
 A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo GFS: agendamento de rotação GFS semanal, mensal e anual
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemplo de agenda do GFS: Agenda semanal, mensal e anual da rotação do GFS
 
 | Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
@@ -430,7 +430,7 @@ A seção a seguir descreve como criar um script curto para iniciar e excluir in
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Iniciar e excluir instantâneos de nuvem usando um script
 
 > [!NOTE]
-> Avalie cuidadosamente as repercussões de conformidade e de retenção de dados antes de excluir um instantâneo do StorSimple. Para saber mais sobre como executar um script pós-backup, consulte a [documentação do Backup Exec](https://www.veritas.com/support/en_US/15047.html).
+> Avalie cuidadosamente as repercussões de conformidade e de retenção de dados antes de excluir um instantâneo do StorSimple. Para saber mais sobre como executar um script pós-backup, consulte a [documentação do Backup Exec](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### <a name="backup-lifecycle"></a>Ciclo de vida de backup
 
@@ -480,7 +480,7 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 Os documentos a seguir foram mencionados neste artigo:
 
 - [Configuração de Multipath I/O de StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: provisionamento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 

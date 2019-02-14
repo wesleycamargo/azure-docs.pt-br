@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855977"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563874"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
@@ -77,7 +77,7 @@ Usando cmdlets do PowerShell, os usuários não podem criar arquivos na unidade 
 
 ### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos GUI
 
-Se o usuário executar um comando que cria uma caixa de diálogo do Windows, como `Connect-AzureAD` ou `Connect-AzureRmAccount`, vê-se uma mensagem de erro como a seguinte: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se o usuário executar um comando que cria uma caixa de diálogo do Windows, como `Connect-AzureAD`, `Connect-AzureRmAccount` ou `Connect-AzAccount`, será exibida uma mensagem de erro como a seguinte: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-crashes-psreadline"></a>O preenchimento com Tab trava o PSReadline
 

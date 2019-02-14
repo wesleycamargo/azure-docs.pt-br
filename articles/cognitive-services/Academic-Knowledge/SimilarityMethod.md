@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183332"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490117"
 ---
 # <a name="similarity-method"></a>Método de Similaridade
 
@@ -30,9 +30,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Parâmetros de solicitação
 Parâmetro        |Tipo de Dados      |Obrigatório | DESCRIÇÃO
 ----------|----------|----------|------------
-**s1**        |Cadeia de caracteres   |SIM  |Cadeia de caracteres * a ser comparada
-**s2**        |Cadeia de caracteres   |SIM  |Cadeia de caracteres * a ser comparada
-<sub> *As cadeia de caracteres a serem comparadas têm um comprimento máximo de 1MB.</sub>
+**s1**        |Cadeia de caracteres   |Sim  |Cadeia de caracteres * a ser comparada
+**s2**        |Cadeia de caracteres   |Sim  |Cadeia de caracteres * a ser comparada
+<sub> *As cadeias de caracteres a serem comparadas têm um comprimento máximo de 1 MB. </sub>
 <br>
 ## <a name="response"></a>Response
 NOME | DESCRIÇÃO

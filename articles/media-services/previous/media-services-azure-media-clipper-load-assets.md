@@ -6,17 +6,18 @@ keywords: clipe;subclipe;codificação;mídia
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 016238305e12435b740da45da4ad600152cf04ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806872"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003832"
 ---
-# <a name="loading-assets-into-azure-media-clipper"></a>Carregando ativos no Azure Media Clipper
+# <a name="loading-assets-into-azure-media-clipper"></a>Carregando ativos no Azure Media Clipper  
+
 Os ativos podem ser carregados no Azure Media Clipper por dois métodos:
 1. Passando estaticamente uma biblioteca de ativos
 2. Gerando uma lista de ativos dinamicamente por meio da API

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165638"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750317"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -38,7 +38,7 @@ As recomendações neste documento estão alinhadas com a [Classificação de Se
 
 ![Classificação de segurança de identidade](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: proteja contas com privilégios com MFA
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: Proteja contas com privilégios com MFA
 
 Antes de iniciar esta lista de verificação, certifique-se de que não seja comprometido enquanto lê essa lista. Você precisa primeiro proteger suas contas com privilégios.
 
@@ -99,7 +99,7 @@ Os aplicativos que usam seus próprios métodos herdados para realizar a autenti
 
 1. Bloquear a [autenticação herdada se você usar o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurar o [SharePoint Online e o Exchange Online para usar a autenticação moderna](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Usar [Políticas de acesso condicional para bloquear a autenticação herdada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Usar [Políticas de acesso condicional para bloquear a autenticação herdada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear pontos de entrada de autenticação inválidos
 

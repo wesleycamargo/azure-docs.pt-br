@@ -4,7 +4,7 @@ description: Saiba como usar os Serviços de Mídia do Azure para criar um aplic
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828308"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992136"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store  
 
 O SDK do Smooth Streaming Client para Windows 8 permite que os desenvolvedores criem aplicativos da Windows Store que podem reproduzir conteúdo de Smooth Streaming sob demanda e ao vivo. Além da reprodução básica de conteúdo do Smooth Streaming, o SDK também fornece recursos avançados, como proteção do Microsoft PlayReady, restrição de nível de qualidade, Live DVR, alternância de fluxo de áudio, escuta de atualizações de status (como alterações no nível da qualidade), eventos de erros e assim por diante. Para obter mais informações sobre os recursos suportados, consulte as [notas da versão (a página pode estar em inglês)](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para obter mais informações, consulte [Player Framework para Windows 8](http://playerframework.codeplex.com/). 
 

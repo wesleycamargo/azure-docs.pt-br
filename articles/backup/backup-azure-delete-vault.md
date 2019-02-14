@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873092"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492276"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 
-Este artigo explica como remover todos os itens de um cofre dos Serviços de Recuperação e, em seguida, excluí-lo. Você não poderá excluir um cofre dos Serviços de Recuperação se ele estiver registrado em um servidor e armazenar dados de backup. Se você tentar excluir um cofre, mas não for possível, o cofre ainda estará configurado para receber dados de backup.
+Este artigo descreve como remover todos os itens de um cofre dos Serviços de Recuperação e, em seguida, excluí-lo. Você não poderá excluir um cofre dos Serviços de Recuperação se ele estiver registrado em um servidor e armazenar dados de backup. Se você tentar excluir um cofre, mas não for possível, o cofre ainda estará configurado para receber dados de backup.
 
 Para saber como excluir um cofre, confira a seção [Excluir um cofre do portal do Azure](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Se você não quiser reter os dados no cofre dos Serviços de Recuperação e quiser excluir o cofre, confira a seção [Excluir o cofre à força](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Se você não tiver certeza do que está no cofre e você precisar se certificar de que pode excluir o cofre, confira a seção [Remover dependências do cofre e excluir o cofre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559035"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698201"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL
 
@@ -49,6 +49,6 @@ A outra opção é usar a restauração geográfica do Banco de Dados do Azure p
 > A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você deseja alternar entre backups redundantes localmente e redundantes para um servidor existente, você deve fazer um dump usando o pg_dump do seu servidor existente e restaurá-lo para um novo criado configurado com backups geo-redundantes.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para saber mais sobre backups automáticos, consulte [Backups no Banco de Dados do Azure para PostgreSQL](concepts-backup.md). 
-- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, confira  [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](howto-restore-server-portal.md).
-- Para restaurar para um ponto no tempo usando a CLI do Azure, confira [Restaurar um banco de dados para um ponto no tempo usando a CLI](howto-restore-server-cli.md).
+- Para saber mais sobre backups automáticos, confira [Backups automáticos no Banco de Dados do Azure para PostgreSQL](concepts-backup.md). 
+- Saiba como restaurar usando o [portal do Azure](howto-restore-server-portal.md) ou a [CLI do Azure](howto-restore-server-cli.md).
+- Saiba mais sobre [réplicas de leitura no Banco de Dados do Azure para PostgreSQL](concepts-read-replicas.md).

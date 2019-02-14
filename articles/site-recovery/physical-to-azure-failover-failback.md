@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848622"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813664"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
@@ -36,7 +36,7 @@ Confira as propriedades do servidor e verifique se ele está em conformidade com
 1. Em **Itens Protegidos**, clique em **Itens Replicados** e selecione o computador.
 
 2. No painel **Item Replicado**, há um resumo das informações do computador, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
-3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as [configurações de disco gerenciado](#managed-disk-considerations)
+3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado
 4. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
 5. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados do computador.
 

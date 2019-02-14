@@ -3,23 +3,24 @@ title: Usar o Azure Key Vault com Aplicativos Gerenciados | Microsoft Docs
 description: Mostra como usar segredos de acesso no Azure Key Vault ao implantar Aplicativos Gerenciados
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725005"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492667"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acessar segredo do Azure Key Vault durante a implantação de Aplicativos Gerenciados do Azure
 
-Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Para acessar o Key Vault ao implantar os Aplicativos Gerenciados, você precisa permitir acesso à entidade de serviço **Provedor de Recursos do Dispositivo**. Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativos Gerenciados.
+Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Para acessar o Key Vault ao implantar os Aplicativos Gerenciados, você precisa permitir acesso à entidade de serviço **Provedor de Recursos do Dispositivo**. O serviço de aplicativos gerenciados usa essa identidade para executar operações. Durante a implantação, a entidade de serviço deve ser capaz de acessar o Key Vault para recuperar um valor dele com êxito.
+
+Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativos Gerenciados.
 
 ## <a name="enable-template-deployment"></a>Habilitar a implantação de modelo
 

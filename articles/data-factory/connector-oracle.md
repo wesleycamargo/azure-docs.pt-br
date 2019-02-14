@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016899"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658022"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,8 +57,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Oracle.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Oracle**. | SIM |
-| connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo de conexão compatível**: você pode usar **Oracle SID** ou **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | SIM |
+| Tipo | A propriedade type deve ser definida como: **Oracle**. | Sim |
+| connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `password` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que oferece mais detalhes. <br><br>**Tipo de conexão compatível**: você pode usar **Oracle SID** ou **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 >[!TIP]
@@ -126,6 +126,34 @@ As propriedades a seguir têm suporte para o serviço vinculado do Oracle.
 }
 ```
 
+**Exemplo: armazenar a senha no Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Oracle.
@@ -134,8 +162,8 @@ Para copiar dados do e para o Oracle, defina a propriedade type do conjunto de d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como **OracleTable**. | SIM |
-| tableName |O nome da tabela no banco de dados Oracle à qual o serviço vinculado se refere. | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como **OracleTable**. | Sim |
+| tableName |O nome da tabela no banco de dados Oracle à qual o serviço vinculado se refere. | Sim |
 
 **Exemplo:**
 
@@ -166,7 +194,7 @@ Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **OracleSource**. | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **OracleSource**. | Sim |
 | oracleReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não  |
 
 Se você não especificar "oracleReaderQuery", as colunas definidas na seção "structure" do conjunto de dados serão usadas para criar uma consulta (`select column1, column2 from mytable`) para ser executada no banco de dados Oracle. Se a definição de conjunto de dados não tiver seção "structure", todas as colunas serão selecionadas da tabela.
@@ -209,7 +237,7 @@ Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como **OracleSink**. | SIM |
+| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como **OracleSink**. | Sim |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são período. Um exemplo é 00:30:00 (30 minutos). | Não  |
 | preCopyScript | Especifique uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no Oracle em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não  |
@@ -255,7 +283,7 @@ Ao copiar dados do e para o Oracle, os seguintes mapeamentos são usados de tipo
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e superior) |
 | CHAR |Cadeia de caracteres |
 | CLOB |Cadeia de caracteres |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
 | LONG |Cadeia de caracteres |
@@ -266,7 +294,7 @@ Ao copiar dados do e para o Oracle, os seguintes mapeamentos são usados de tipo
 | NVARCHAR2 |Cadeia de caracteres |
 | RAW |Byte[] |
 | ROWID |Cadeia de caracteres |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |Cadeia de caracteres |
 | TIMESTAMP WITH TIME ZONE |Cadeia de caracteres |
 | UNSIGNED INTEGER |NUMBER |

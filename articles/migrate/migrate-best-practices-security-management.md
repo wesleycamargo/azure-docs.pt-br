@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827492"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700070"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Melhores práticas para proteger e gerenciar cargas de trabalho migradas para o Azure
 
@@ -400,8 +400,7 @@ As VMs do Azure são armazenadas como blobs de páginas no Armazenamento do Azur
 - [Saiba](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) como criar um instantâneo de blob.
 - [Reveja um cenário de exemplo](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) para o backup de armazenamento de blobs.
 - [Leia sobre](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) exclusão reversível.
-- [Reveja](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o que fazer se ocorrer interrupção no Armazenamento do Microsoft Azure?
-
+- [Recuperação de desastre e failover forçado (versão prévia) no Armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>Backup de terceiros
 
@@ -517,7 +516,7 @@ Você pode usar grupos de failover e replicação geográfica ativa para fornece
 - [Leia](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Noções básicas de Banco de Dados SQL do Azure para recuperação de desastre.
 - [Obtenha uma visão geral](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) dos grupos de failover e da replicação geográfica ativa.
 - [Saiba mais sobre](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) como projetar levando em conta a recuperação de desastre.
-- [Obtenha as melhores práticas](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) para grupos de failover.
+- [Obtenha as melhores práticas](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para grupos de failover.
 - [Obtenha as melhores práticas](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) de segurança após uma restauração geográfica ou um failover.
 - [Saiba mais sobre](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) redundância de zona
 - [Saiba como](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) executar uma simulação de recuperação de desastre para o banco de dados SQL.

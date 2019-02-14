@@ -1,5 +1,5 @@
 ---
-title: 'Conectar um computador a uma rede virtual do Azure usando autenticação de certificado Ponto a site e nativa do Azure: Portal do Azure | Microsoft Docs'
+title: 'Conectar um computador a uma rede virtual do Azure usando autenticação ponto a site e autenticação de certificado nativa do Azure: Portal do Azure | Microsoft Docs'
 description: Conecte clientes Windows, Linux e Mac OS X com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por autoridade de certificação. Este artigo usa o portal do Azure.
 services: vpn-gateway
 author: cherylmc
@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026357"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700529"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: Portal do Azure
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Para isso, configure uma conexão ponto a site em uma VNet usando a autenticação de certificado nativa do Azure: Portal do Azure
 
 Este artigo ajuda você a conectar clientes individuais que executem Windows, Linux ou Mac OS X a uma VNet do Azure com segurança. As conexões VPN Ponto a Site são úteis quando você deseja se conectar à rede virtual de um local remoto, como ao trabalhar de casa ou em uma conferência. Também é possível usar P2S em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma VNet. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público. A P2S cria a conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKEv2. Para obter mais informações sobre conexões VPN Ponto a Site, consulte [Sobre VPN Ponto a Site](point-to-site-about.md).
 
@@ -38,17 +38,17 @@ Você pode usar os seguintes valores para criar um ambiente de teste ou fazer re
 * **Nome da VNet:** VNet1
 * **Espaço de endereço:** 192.168.0.0/16<br>Neste exemplo, usamos apenas um espaço de endereço. Você pode ter mais de um espaço de endereço para sua rede virtual.
 * **Nome da sub-rede:** FrontEnd
-* **Intervalo de endereços da sub-rede:** 192.168.1.0/24
-* **Assinatura:** verifique se você tem mais de uma assinatura, verifique se está usando a correta.
-* **Grupo de Recursos:** TestRG
-* **Local:** Leste dos EUA
+* **Intervalo de endereços da sub-rede:**  192.168.1.0/24
+* **Assinatura:** Se você tem mais de uma assinatura, verifique se está usando a correta.
+* **Grupo de recursos:** TestRG
+* **Localização:** Leste dos EUA
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **Servidor DNS:** (opcional) endereço IP do servidor DNS que você deseja usar para a resolução de nome.
 * **Nome do gateway de rede virtual:** VNet1GW
 * **Tipo de gateway:** VPN
-* **Tipo de VPN:** baseada em rota
-* **Endereço IP público:** VNet1GWpip
-* **Tipo de conexão:** ponto a site
+* **Tipo de VPN:** Baseado em rotas
+* **Nome do endereço IP público:** VNet1GWpip
+* **Tipo de conexão**: Point-to-site
 * **Pool de endereços do cliente:** 172.16.201.0/24<br>Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP do pool de endereços do cliente.
 
 ## <a name="createvnet"></a>1. Criar uma rede virtual
@@ -239,6 +239,6 @@ Você pode revogar um certificado de cliente adicionando a impressão digital à
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
 
 Para obter informações sobre solução de problemas de P2S, consulte [Solução de problemas de conexões de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

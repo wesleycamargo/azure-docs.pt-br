@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110104"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496781"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonar de um backup da Matriz Virtual StorSimple
 
@@ -38,7 +38,7 @@ Este artigo descreve passo a passo como clonar um conjunto de backup de seus vol
    ![Clonar um backup](./media/storsimple-virtual-array-clone/cloneshare1.png)
 2. Na folha **Clonar**, clique em **Backup > Selecionar** e faça o seguinte: 
    
-   a.    Filtre um backup neste dispositivo com base no intervalo de tempo. Você pode escolher entre **Últimos 7 dias**, **Últimos 30 dias** e **Ano passado**.
+    a.    Filtre um backup neste dispositivo com base no intervalo de tempo. Você pode escolher entre **Últimos 7 dias**, **Últimos 30 dias** e **Ano passado**.
    
    b.    Na lista de backups filtrados exibida, selecione um backup a ser clonado.
    
@@ -47,7 +47,7 @@ Este artigo descreve passo a passo como clonar um conjunto de backup de seus vol
    ![Clonar um backup](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. Na folha **Clonar**, clique em **Configurações de destino** e faça o seguinte:
    
-   a.    Forneça um nome do compartilhamento. O nome do compartilhamento deve conter entre 3 e 127 caracteres.
+    a.    Forneça um nome do compartilhamento. O nome do compartilhamento deve conter entre 3 e 127 caracteres.
    
    b.    Opcionalmente, forneça uma descrição para o compartilhamento clonado.
    
@@ -78,7 +78,7 @@ Para clonar um backup, você precisa executar etapas semelhantes às da clonagem
    ![Clonar um volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. Na folha **Clonar**, clique em **Backup** e faça o seguinte: 
    
-   a.    Filtre um backup neste dispositivo com base no intervalo de tempo. Você pode escolher entre **Últimos 7 dias**, **Últimos 30 dias** e **Ano passado**. 
+    a.    Filtre um backup neste dispositivo com base no intervalo de tempo. Você pode escolher entre **Últimos 7 dias**, **Últimos 30 dias** e **Ano passado**. 
    
    b.    Na lista de backups filtrados exibida, selecione um backup a ser clonado.
    
@@ -87,7 +87,7 @@ Para clonar um backup, você precisa executar etapas semelhantes às da clonagem
    ![Clonar um backup](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. Na folha **Clonar**, clique em **Configurações do volume de destino** e faça o seguinte:
    
-   a. O nome do dispositivo é preenchido automaticamente.
+    a. O nome do dispositivo é preenchido automaticamente.
    
    b. Forneça um nome de volume para o **volume clonado**. O nome do volume deve conter entre 3 e 127 caracteres.
    

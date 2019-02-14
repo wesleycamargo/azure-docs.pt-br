@@ -1,24 +1,24 @@
 ---
-title: Exemplos do PowerShell e do Microsoft Graph para licenciamento baseado em grupo no Azure AD | Microsoft Docs
+title: Exemplos do PowerShell e do Graph para licenciamento baseado em grupo - Azure Active Directory | Microsoft Docs
 description: Cenários do PowerShell para licenciamento baseado em grupo do Azure Active Directory
 services: active-directory
 keywords: Licenciamento do AD do Azure
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.openlocfilehash: 635bfd2a28c8ccd7f6e0b64d862141c73c5308db
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.openlocfilehash: 4d84ff6a07c6536215a43a83cb614e0662c8cfb3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193192"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508260"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell para licenciamento baseado em grupo no Azure AD
 

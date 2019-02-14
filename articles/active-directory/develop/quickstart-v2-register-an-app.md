@@ -17,14 +17,15 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b0e2980b48a5d9b1f2e9d75e59a27bfceb0d1180
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093216"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56195576"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início Rápido: Registrar um aplicativo com o ponto de extremidade v2.0 do Azure Active Directory
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início rápido: Registrar um aplicativo com o ponto de extremidade v2.0 do Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 

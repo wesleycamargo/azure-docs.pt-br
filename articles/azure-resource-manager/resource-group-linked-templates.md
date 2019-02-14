@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139054"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490423"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -30,6 +30,8 @@ Para pequenas e médias soluções, um único modelo é mais fácil de entender 
 Ao usar modelos vinculados, você cria um modelo principal que recebe os valores de parâmetros durante a implantação. O modelo principal contém todos os modelos vinculados e passa valores para esses modelos, conforme necessário.
 
 Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./resource-manager-tutorial-create-linked-templates.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="link-or-nest-a-template"></a>Vincular ou aninhar um modelo
 
@@ -408,7 +410,7 @@ $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
     $name = 'linkedTemplate' + $i;
-    $deployment = Get-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+    $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
     Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
 }
 ```
@@ -461,13 +463,13 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 }
 ```
 
-No PowerShell, você obtém um token para o contêiner e implanta os modelos com os comandos a seguir. Observe que o parâmetro **containerSasToken** está definido no modelo. Não é um parâmetro no comando **New-AzureRmResourceGroupDeployment**.
+No PowerShell, você obtém um token para o contêiner e implanta os modelos com os comandos a seguir. Observe que o parâmetro **containerSasToken** está definido no modelo. Não é um parâmetro no comando **New-AzResourceGroupDeployment**.
 
 ```azurepowershell-interactive
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
 Para a CLI do Azure em um shell Bash, você obtém um token para o contêiner e implanta os modelos com o seguinte código:

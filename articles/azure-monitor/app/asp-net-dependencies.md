@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119978"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812439"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependência
 Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](../../azure-monitor/app/app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
@@ -52,7 +52,7 @@ As informações de dependência parciais são coletadas automaticamente pelo [S
 * O [Mapa do Aplicativo](#application-map) visualiza as dependências entre seu aplicativo e os componentes de vizinhança.
 * As [folhas de desempenho, de navegador e de falha](#performance-and-blades) mostram dados de dependência de servidor.
 * A [folha de navegadores](#ajax-calls) mostra chamadas AJAX de navegadores dos usuários.
-* [Clickthrough de solicitações com falha ou lentas](#diagnose-slow-requests) para verificar a dependência de chamadas.
+* Clique pelas solicitações com falha ou lentas para verificar a dependência de chamadas.
 * O [Analytics](#analytics) pode ser usado para consultar dados de dependência.
 
 ## <a name="application-map"></a>Mapa de aplicativo

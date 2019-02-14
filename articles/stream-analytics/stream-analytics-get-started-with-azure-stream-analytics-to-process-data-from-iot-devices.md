@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103159"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563483"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT
 Neste tutorial, você aprenderá a criar a lógica de processamento de fluxo para reunir dados dos dispositivos da Internet das Coisas (IoT). Usaremos um caso de uso real da Internet das coisas (IoT) para demonstrar como compilar uma solução rápida e econômica.
@@ -103,7 +103,7 @@ Vamos tornar nossa consulta mais detalhada. Para cada tipo de sensor, se você d
 Agora, você pode ver os resultados que contêm apenas 245 linhas e nomes dos sensores nos quais a temperatura média é superior a 100. Esta consulta agrupa o fluxo de eventos por **dspl**, que é o nome de sensor, sobre uma **Janela em Cascata** de 30 segundos. Consultas temporais devem declarar como queremos que o tempo progrida. Usando a cláusula **TIMESTAMP BY**, especificamos a coluna **OUTPUTTIME** para associar tempos a todos os cálculos temporais. Para obter informações detalhadas, leia os artigos do MSDN sobre [Gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Funções de janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### <a name="query-detect-absence-of-events"></a>Consulta: Detectar ausência de eventos
-Como podemos escrever uma consulta para localizar a falta de eventos de entrada? Vamos descobrir a última vez que um sensor enviou dados e, depois, não enviou mais eventos nos cinco segundos seguintes. A consulta está no arquivo AbsenseOfEvent.txt.
+Como podemos escrever uma consulta para localizar a falta de eventos de entrada? Vamos descobrir a última vez que um sensor enviou dados e, depois, não enviou mais eventos nos cinco segundos seguintes. A consulta está no arquivo AbsenceOfEvent.txt.
 
 ![Detectar ausência de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

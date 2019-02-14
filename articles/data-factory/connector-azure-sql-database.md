@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ab637ef7dc39fcd2fd32cec2be52a18aaf6706a9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884224"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663020"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -54,8 +54,8 @@ Essas propriedades são suportadas por um serviço vinculado ao Banco de Dados S
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade  **tipo** deve ser definida como **AzureSqlDatabase**. | SIM |
-| connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade **connectionString**. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
+| Tipo | A propriedade  **tipo** deve ser definida como **AzureSqlDatabase**. | Sim |
+| connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade **connectionString**. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha/chave da entidade de serviço no Azure Key Vault e se sua autenticação do SQL efetua pull da configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que fornece mais detalhes. | Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
@@ -83,6 +83,35 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Senha no Azure Key Vault:** 
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -208,7 +237,7 @@ Para copiar dados de ou para o Banco de Dados SQL do Azure, defina a propriedade
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como **AzureSqlTable**. | SIM |
+| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como **AzureSqlTable**. | Sim |
 | tableName | O nome da tabela ou exibição na instância do Banco de Dados SQL do Azure à qual o serviço vinculado se refere. | Não para fonte, Sim para o coletor |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
@@ -240,7 +269,7 @@ Para copiar dados do Banco de Dados SQL do Azure, defina a propriedade **tipo** 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** da origem da Atividade de Cópia deve ser definida como **SqlSource**. | SIM |
+| Tipo | A propriedade **tipo** da origem da Atividade de Cópia deve ser definida como **SqlSource**. | Sim |
 | SqlReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não  |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. | Não  |
 | storedProcedureParameters | Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não  |
@@ -343,7 +372,7 @@ Para copiar dados para o banco de dados do SQL Azure, defina o **tipo** do colet
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** do coletor de atividade de cópia deve ser definida como **SqlSink**. | SIM |
+| Tipo | O **tipo** do coletor de atividade de cópia deve ser definida como **SqlSink**. | Sim |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** .<br/> O valor permitido é **inteiro** (número de linhas). |  Não. O padrão é 10000. |
 | writeBatchTimeout | O tempo de espera para o lote inserir operação seja concluída antes de expirar.<br/> O valor permitido é **timespan**. Exemplo: “00:30:00” (30 minutos). | Não  |
 | preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Banco de Dados SQL do Azure. É invocado apenas uma vez por cópia. Use essa propriedade para limpar os dados pré-carregados. | Não  |

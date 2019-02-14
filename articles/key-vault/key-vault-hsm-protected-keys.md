@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079197"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693877"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -68,7 +68,7 @@ Você usará as cinco etapas a seguir para gerar e transferir a sua chave para u
 
 * [Etapa 1: Preparar sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation)
 * [Etapa 2: Preparar sua estação de trabalho desconectada](#step-2-prepare-your-disconnected-workstation)
-* [ Etapa 3: Gerar sua chave](#step-3-generate-your-key)
+* [Etapa 3: Gerar sua chave](#step-3-generate-your-key)
 * [Etapa 4: Preparar sua chave para transferência](#step-4-prepare-your-key-for-transfer)
 * [Etapa 5: Transferir sua chave para o Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
@@ -260,6 +260,9 @@ Inicie um prompt de comando e execute o programa do novo universo da Thales.
    ```
 
 Este programa cria um arquivo **Universo de Segurança** em %NFAST_KMDATA%\local\world, que corresponde à pasta C:\ProgramData\nCipher\Key Management Data\local. É possível usar valores diferentes para o quorum, mas, no nosso exemplo, você será solicitado a inserir três cartões em branco e pins para cada um deles. Em seguida, os dois cartões darão acesso completo ao universo de segurança. Esses cartões se tornam o **Conjunto de Cartões do Administrador** para o novo universo de segurança.
+
+> [!NOTE]
+> Se o seu HSM dá suporte ao conjunto de codificação mais recente DLf3072s256mRijndael, você pode substituir --cipher-suite=DLf1024s160mRijndael por --cipher-suite=DLf3072s256mRijndael
 
 Faremos o seguinte:
 

@@ -3,7 +3,7 @@ title: Protegendo os Serviços de Aplicativos na Central de Segurança do Azure 
 description: Este artigo ajuda você a começar a proteger seus Serviços de Aplicativos na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343863"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491936"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteja o serviço de aplicativos com a Central de Segurança do Azure
 Este artigo ajuda você a usar a Central de Segurança do Azure para monitorar e proteger seus aplicativos executados em cima do Serviço de Aplicativo.
@@ -65,6 +65,7 @@ Neste artigo, você aprendeu como usar os recursos de monitoramento na Central d
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): Saiba como configurar as configurações de segurança na Central de Segurança do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerenciar e responder aos alertas de segurança.
+* [Serviços de aplicativos](security-center-virtual-machine-protection.md#app-services):  Exiba uma lista de seus ambientes de serviços de aplicativo com resumos de integridade.
 * [Monitorando as soluções de parceiros na Central de Segurança do Azure](security-center-partner-solutions.md): Saiba como monitorar o status da integridade das soluções dos parceiros.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md): Encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): Encontre postagens no blog sobre a conformidade e segurança do Azure.

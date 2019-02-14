@@ -1,8 +1,21 @@
 ---
-Título: Treinar novamente um modelo de Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
+title: Treinar novamente um modelo de Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509568"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Treinar novamente um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de aprendizado de máquina no Azure Machine Learning, um modelo deve ser treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis. 

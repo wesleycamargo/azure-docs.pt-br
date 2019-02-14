@@ -1,8 +1,21 @@
 ---
-Título: Gerenciar iterações de experimento no Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como gerenciar iterações de teste no Azure Machine Learning Studio. Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
+title: Gerenciar iterações de teste no Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Como gerenciar iterações de teste no Azure Machine Learning Studio. Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488417"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gerenciar iterações de teste no Machine Learning Studio do Microsoft Azure
 Desenvolver um modelo de análise de previsão é um processo iterativo - como modificar as várias funções e parâmetros de seu teste, seus resultados convergem até você ficar satisfeito com um modelo treinado e eficiente. A chave para esse processo está em acompanhar várias iterações dos parâmetros e configurações do seu teste.

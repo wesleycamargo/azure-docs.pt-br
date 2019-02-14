@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812898"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -27,7 +27,7 @@ Os únicos requisitos para o ambiente de desenvolvimento são o Python 3, Conda 
 
 Este artigo concentra-se nos ambientes e ferramentas a seguir:
 
-* [Azure Notebooks](#aznotebooks): Um serviço Jupyter Notebooks hospedado na nuvem do Azure. Essa é a maneira mais fácil de começar, porque o SDK do Azure Machine Learning já está instalado.
+* Azure Notebooks: Um serviço Jupyter Notebooks hospedado na nuvem do Azure. Essa é a maneira mais fácil de começar, porque o SDK do Azure Machine Learning já está instalado.
 
 * [DSVM (Máquina Virtual de Ciência de Dados)](#dsvm): Um ambiente de desenvolvimento ou experimentação pré-configurado na nuvem do Azure, projetado para o trabalho de ciência de dados e que pode ser implantado em instâncias de VM somente da CPU ou em instâncias baseadas em GPU. O Python 3, o Conda, o Jupyter Notebooks e o SDK do Azure Machine Learning já estão instalados. A VM é fornecida com estruturas de aprendizado profundo e aprendizado de máquina populares, ferramentas e editores para o desenvolvimento de soluções de aprendizado de máquina. É provavelmente o ambiente de desenvolvimento mais completo para aprendizado de máquina na plataforma do Azure.
 

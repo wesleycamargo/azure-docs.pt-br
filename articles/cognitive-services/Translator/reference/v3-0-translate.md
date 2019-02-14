@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 800c6d3441e75f428f58fe76ea653f04353064bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470868"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699713"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: Translate
 
@@ -54,7 +54,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>categoria</td>
-    <td>*Parâmetro opcional*.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com [Tradutor Personalizado](../customization.md). O valor padrão é: `general`.</td>
+    <td>*Parâmetro opcional*.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com [Tradutor Personalizado](../customization.md). Adicione a ID da categoria do seu projeto de Tradutor Personalizado a esse parâmetro para usar o sistema personalizado implantado. O valor padrão é: `general`.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -126,7 +126,7 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 
 As seguintes limitações se aplicam:
 
-* A matriz pode ter no máximo 25 elementos.
+* A matriz pode ter no máximo 100 elementos.
 * Todo o texto incluído na solicitação não pode exceder 5.000 caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
@@ -224,6 +224,8 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
     <td>Servidor temporariamente não disponível. Tente novamente a solicitação. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns que podem ser encontrados na [página de referência da API de Tradução de Texto v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemplos
 

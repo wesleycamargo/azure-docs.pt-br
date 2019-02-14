@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857900"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810075"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o Console Serial para acessar GRUB e Modo de Usuário Único
 O GRUB é o GRand Unified Bootloader. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -39,7 +39,7 @@ Você desejará garantir que o GRUB esteja habilitado na sua VM para que seja po
 A reinicialização da VM com a folha do console serial aberta poderá ser feita com um comando SysRq `'b'` se [SysRq](./serial-console-nmi-sysrq.md) estiver habilitado ou clicando no botão Reiniciar na folha Visão geral (abra a VM em uma nova guia do navegador para reinicializar sem fechar a folha do console serial). Siga as instruções específicas da distribuição abaixo para saber o que esperar do GRUB ao reinicializar.
 
 ## <a name="general-single-user-mode-access"></a>Acesso geral ao modo de usuário único
-O acesso manual ao modo de usuário único poderá ser necessário quando você não configurar uma conta com autenticação de senha. Você precisará modificar a configuração do GRUB para inserir manualmente o modo de usuário único. Depois que fizer isso, confira [Usar o modo de usuário único para redefinir ou adicionar uma senha](#-Use-Single-User-Mode-to-reset-or-add-a-password) para obter mais instruções.
+O acesso manual ao modo de usuário único poderá ser necessário quando você não configurar uma conta com autenticação de senha. Você precisará modificar a configuração do GRUB para inserir manualmente o modo de usuário único. Depois que fizer isso, confira Usar o modo de usuário único para redefinir ou adicionar uma senha para obter mais instruções.
 
 Quando a VM não puder ser reinicializada, geralmente as distribuições escolherão automaticamente o modo de usuário único ou o modo de emergência. Outras, no entanto, exigirão uma configuração adicional antes de escolher automaticamente o modo de usuário único ou o modo de emergência (como a configuração de uma senha raiz).
 
@@ -55,7 +55,7 @@ O RHEL alternará para o modo de usuário único automaticamente se ele não con
 ### <a name="grub-access-in-rhel"></a>Acesso ao GRUB no RHEL
 O RHEL vem com o GRUB habilitado pronto para uso. Para acessar o GRUB, reinicialize a VM com `sudo reboot` e pressione qualquer tecla. Você verá a tela GRUB aparecer.
 
-> Observação: a Red Hat também fornece documentação para inicializar em Modo de Resgate, Modo de Emergência, Modo de Depuração e redefinir a senha raiz. [Clique aqui para acessá-la](https://aka.ms/rhel7grubterminal).
+> Observação: Red Hat também fornece documentação para inicializar no Modo de Recuperação, Modo de Emergência, Modo de Depuração e redefinindo a senha raiz. [Clique aqui para acessá-la](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurar o acesso à raiz para o modo de usuário único no RHEL
 O modo de usuário único no RHEL requer que o usuário raiz seja habilitado, pois ele está desabilitado por padrão. Se você precisar habilitar o modo de usuário único, siga estas instruções:
@@ -89,7 +89,7 @@ Se tiver configurado o GRUB e o acesso à raiz com as instruções acima, você 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Entrar no modo de usuário único sem conta raiz habilitada no RHEL
 Se não percorrer as etapas acima para habilitar que o usuário raiz, você poderá ainda redefinir a senha raiz. Use as instruções a seguir:
 
-> Observação: se você estiver usando o SELinux, verifique se seguiu as etapas adicionais descritas na documentação do Red Hat [aqui](https://aka.ms/rhel7grubterminal) ao redefinir a senha raiz.
+> Observação: Se você estiver usando o SELinux, verifique se seguiu as etapas adicionais descritas na documentação do Red Hat [aqui](https://aka.ms/rhel7grubterminal) ao redefinir a senha raiz.
 
 1. Pressione 'Esc' ao reiniciar a VM para acessar o GRUB
 1. No GRUB, pressione 'e' para editar o sistema operacional selecionado no qual você deseja inicializar (normalmente, a primeira linha)
@@ -103,7 +103,7 @@ Se não percorrer as etapas acima para habilitar que o usuário raiz, você pode
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Observação: executar as instruções acima o direcionará para o shell de emergência, portanto, você também pode executar tarefas, como edição de `fstab`. No entanto, a sugestão geralmente aceita é redefinir sua senha raiz e usá-la para entrar no modo de usuário único. 
+> Observação: Executar as instruções acima o direcionará para o shell de emergência, portanto, você também poderá executar tarefas como editar `fstab`. No entanto, a sugestão geralmente aceita é redefinir sua senha raiz e usá-la para entrar no modo de usuário único. 
 
 
 ## <a name="access-for-centos"></a>Acesso para o CentOS

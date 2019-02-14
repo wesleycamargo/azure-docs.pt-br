@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160470"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506457"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
 
@@ -53,7 +53,7 @@ O túnel forçado no Azure é configurado por meio de rotas de rede virtual defi
 * Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
   
   * **Rotas locais de Rede Virtual:** diretamente para as VMs de destino na mesma rede virtual.
-  * **Rotas locais:** para o gateway de VPN do Azure.
+  * **Rotas locais:** para um Gateway de VPN do Azure.
   * **Rota padrão:** diretamente para a Internet. Os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
 * Este procedimento usa rotas definidas pelo usuário (UDR) a fim de criar uma tabela de roteamento para adicionar uma rota padrão e associar a tabela de roteamento às sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
 * O túnel forçado deve ser associado a uma Rede Virtual que tenha um Gateway de VPN de roteamento. Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual. Além disso, o dispositivo VPN local deve ser configurado usando 0.0.0.0/0 como seletores de tráfego. 
@@ -61,7 +61,7 @@ O túnel forçado no Azure é configurado por meio de rotas de rede virtual defi
 
 ## <a name="configuration-overview"></a>Visão geral de configuração
 
-O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtual. Em seguida, você criará um gateway de VPN e configurará um túnel forçado. Nesse procedimento, a rede virtual "MultiTier-VNet" tem três sub-redes: ‘Frontend’, ‘Midtier’ e ‘Backend’, com quatro conexões entre locais: ‘DefaultSiteHQ’ e três Branches.
+O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtual. Em seguida, você criará um gateway de VPN e configurará um túnel forçado. Neste procedimento, a rede virtual "MultiTier-VNet" tem três sub-redes: 'Frontend', 'Midtier' e 'Backend', com quatro conexões entre instalações: 'DefaultSiteHQ' e três Branches.
 
 As etapas do procedimento definem ‘DefaultSiteHQ’ como a conexão de site padrão para o túnel forçado e configuram as sub-redes Midtier e Back-end para usarem túnel forçado.
 

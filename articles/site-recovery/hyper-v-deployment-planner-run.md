@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321170"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815058"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Execute o planejador de implantação do Azure Site Recovery para recuperação de desastre do Hyper-V no Azure
 
 Você pode executar a ferramenta de linha de comando do planejador de implementação do Site Recovery (ASRDeploymentPlanner.exe) em qualquer um desses quatro modos: 
--   [Obtenha a lista de máquinas virtuais (VMs)](#get-vm-list-for-profiling-hyper-v-vms)
+-   Obter a lista de máquinas virtuais (VMs)
 -   [Perfil](#profile-hyper-v-vms)
--   [Gerar um relatório](#generate-report)
+-   Gerar um relatório
 -   [Obter taxa de transferência](#get-throughput)
 
 Primeiro, execute a ferramenta para obter a lista de VMs de um único host de Hyper-V, ou de vários. Depois, execute a ferramenta no modo de criação de perfil para obter a variação de dados de VM e IOPS. Em seguida, execute a ferramenta para gerar o relatório e obter os requisitos de armazenamento e largura de banda de rede.
@@ -74,7 +74,7 @@ A ferramenta consulta o host Hyper-V uma vez a cada 15 segundos para garantir a 
 A ferramenta lida perfeitamente com a migração da VM de um nó para outro nó no cluster, e com a migração de armazenamento em um host.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Obter a lista de VMs para criação de perfil
-Para criar uma lista de VMs para criação de perfil consulte a operação [GetVMList](#get-vm-list-for-profiling-hyper-v-vms).
+Para criar uma lista de VMs para criação de perfil, confira a operação GetVMList.
 
 Após obter a lista de VMs para criação de perfil, você pode executar a ferramenta no modo de criação de perfil. 
 
