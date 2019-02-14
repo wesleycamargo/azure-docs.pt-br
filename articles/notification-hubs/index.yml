@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7f25086203a840d5769cfbacf35d4ea3ac58f22a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 068bd70c8094c0c3d7a5e525042eb3682dc67f89
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452489"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243070"
 documentType: LandingData
 title: Documentação dos Hubs de Notificação do Azure
 metadata:
@@ -59,8 +59,8 @@ sections:
     className: cardsD
     items:
     - title: Linha de comando
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.notificationhubs/?view=azurermps-6.8.1">PowerShell do Azure</a></p>
-    - title: Linguagens
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">PowerShell do Azure</a></p>
+    - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
     - title: REST
       html: <p><a href="/rest/api/notificationhubs">API REST</a></p>

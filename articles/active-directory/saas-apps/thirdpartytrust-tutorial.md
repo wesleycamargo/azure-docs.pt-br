@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jeedes
-ms.openlocfilehash: ace619e5eba8d5f1b4f1740f2c88fbce7bc83790
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ae9481f6d8b4b54bd90ad0dd54a29b43c9e20531
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150508"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>Tutorial: Integração do Azure Active Directory com ThirdPartyTrust
 
@@ -38,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao ThirdPartyTrust, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do ThirdPartyTrust
 
 > [!NOTE]
@@ -190,11 +191,11 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O painel Adicionar Atribuição][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de Usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique no botão **Atribuir** na caixa de diálogo **Adicionar atribuição**.
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

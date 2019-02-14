@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745259"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116908"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -76,7 +76,6 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |LesteEUA2EUAP|CentroEUAEUAP|
-|Oeste dos EUA 2|Oeste dos EUA 2|
 
 Desmarque a caixa de seleção ao lado de qualquer máquina virtual que você não deseja habilitar. Máquinas virtuais que não podem ser habilitadas já estão desmarcadas.
 

@@ -1,17 +1,17 @@
 ---
 title: Saiba como proteger o acesso aos dados no Azure Cosmos DB
 description: Saiba mais sobre os conceitos do controle de acesso no Azure Cosmos DB, incluindo chaves mestras, chaves somente leitura, usuários e permissões.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
-ms.author: rafats
-ms.openlocfilehash: 12327f60fd8e8fca391200839be1b52f35af3167
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.author: rimman
+ms.openlocfilehash: 133181fcc76d759a57725df1ff965966f3797399
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459393"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245704"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994946"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113780"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(PRETERIDO) Pools de agentes DC/OS para Serviço de Contêiner do Azure
 
@@ -27,7 +27,7 @@ Os clusters DC/OS no Serviço de Contêiner do Azure contêm nós de agente em d
 
 * **Agentes públicos**: Nós de agente público executam aplicativos e serviços DC/OS por meio de uma rede acessível publicamente. 
 
-Para obter mais informações sobre segurança de rede DC/OS, confira a [documentação do DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
+Para obter mais informações sobre segurança de rede DC/OS, confira a [documentação do DC/OS](https://docs.mesosphere.com/).
 
 ## <a name="deploy-agent-pools"></a>Implantar pools de agentes
 

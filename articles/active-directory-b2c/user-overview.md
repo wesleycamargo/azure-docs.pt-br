@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157968"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100118"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
@@ -47,21 +47,21 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 É possível usar as seguintes informações para criar uma nova conta corporativa:
 
 - [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil do usuário
 
 É possível usar as seguintes informações para atualizar o perfil de um usuário:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma senha para um usuário
 
 É possível usar as seguintes informações para redefinir a senha de um usuário: 
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Usuário Convidado
 
@@ -69,7 +69,7 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 Ao convidar um usuário convidado para o locatário, você fornece o endereço de email do destinatário e uma mensagem descrevendo o convite. O link de convite leva o usuário à página de consentimento, onde o botão **Iniciar** é selecionado e a revisão de permissões é aceita. Se uma caixa de entrada não estiver anexada ao endereço de email, o usuário poderá navegar até a página de consentimento, acessando uma página da Microsoft usando as credenciais de convidado. O usuário é forçado a resgatar o convite da mesma maneira que clicar no link no email. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Também é possível usar a [API do Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post) para convidar um usuário convidado.
+Também é possível usar a [API do Microsoft Graph](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) para convidar um usuário convidado.
 
 ## <a name="consumer-user"></a>Usuário Consumidor
 

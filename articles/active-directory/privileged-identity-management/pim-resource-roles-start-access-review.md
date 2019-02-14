@@ -14,12 +14,13 @@ ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1f4ebf9ec08915a557f897a743cac1160d7e6823
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160042"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173429"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Começar uma revisão de acesso para funções de recurso do Azure no PIM
 As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de funções obsoletas, os administradores de funções privilegiadas devem revisar regularmente as funções. Este documento aborda as etapas para iniciar uma revisão de acesso no Privileged Identity Management (PIM) para recursos do Azure.

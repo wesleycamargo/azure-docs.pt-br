@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39a3164c27fa30250fe08e864db889eac844f646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172996"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107303"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Credenciais da Web com OpenID Connect
 O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web. Ao usar a implementação do Azure AD B2C (Azure Active Directory B2C) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade em seus aplicativos Web para o Azure AD (Azure Active Directory). Este guia mostra como fazer isso de maneira independente da linguagem. Ele descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
@@ -27,7 +27,7 @@ Como ele estende o OAuth 2.0, também permite que os aplicativos adquiram *token
 O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [parâmetro de fluxo de usuário](active-directory-b2c-reference-policies.md), que permite usar o OpenID Connect para adicionar experiências de usuário, como o gerenciamento de inscrição, de entrada e de perfis, ao seu aplicativo. Aqui, mostramos como usar o OpenID Connect e os fluxos dos usuários para implementar cada uma dessas experiências nos aplicativos Web. Também mostraremos como obter tokens de acesso para acessar APIs Web.
 
 As solicitações HTTP de exemplo na próxima seção usam o diretório B2C de exemplo, fabrikamb2c.onmicrosoft.com, bem como o aplicativo de exemplo, https://aadb2cplayground.azurewebsites.net e fluxos dos usuários. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios.
-Saiba como [obter seu próprio locatário B2C, aplicativo e fluxos dos usuários](#use-your-own-b2c-directory).
+Saiba como [obter seu próprio locatário B2C, aplicativo e fluxos dos usuários](#use-your-own-b2c-tenant).
 
 ## <a name="send-authentication-requests"></a>Enviar solicitações de autenticação
 Quando o aplicativo Web precisa autenticar o usuário e executar um fluxo de usuário, ele pode direcionar o usuário para o ponto de extremidade `/authorize`. Essa é a parte interativa do fluxo, na qual o usuário executa uma ação, dependendo do fluxo de usuário.
