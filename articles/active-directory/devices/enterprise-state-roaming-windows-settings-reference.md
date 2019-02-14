@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300227"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184492"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -31,10 +32,10 @@ Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de cont
 
 | Tipo e operação de conta | Desktop | Móvel |
 | --- | --- | --- |
-| Active Directory do Azure: sincronização |SIM |Não  |
+| Active Directory do Azure: sincronização |Sim |Não  |
 | Active Directory do Azure: backup/restauração |Não  |Não  |
-| Conta da Microsoft: sincronização |SIM |SIM |
-| Conta da Microsoft: backup/restauração |Não  |SIM |
+| Conta da Microsoft: sincronização |Sim |Sim |
+| Conta da Microsoft: backup/restauração |Não  |Sim |
 
 ## <a name="what-is-backup"></a>O que é backup?
 As configurações do Windows geralmente são sincronizadas por padrão, mas algumas configurações são incluídas apenas no backup, como a lista de aplicativos instalados em um dispositivo. O backup é destinado somente a dispositivos móveis e atualmente não está disponível para usuários do Enterprise State Roaming. O backup usa uma conta da Microsoft e armazena as configurações e dados do aplicativo no OneDrive. Se um usuário desabilitar a sincronização no dispositivo usando o aplicativo Configurações, os dados de aplicativo que normalmente são sincronizados se tornarão somente backup. Os dados de backup só podem ser acessados por meio da operação de restauração durante a primeira execução de um novo dispositivo. Os backups podem ser desabilitados por meio de configurações do dispositivo e podem ser gerenciados e excluídos por meio da conta do OneDrive do usuário.

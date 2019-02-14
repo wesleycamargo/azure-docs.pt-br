@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API de Detecção de Emoções para Vídeo em Serviços Cognitivos.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b7e49b5376782e0dfa0676c0e9637e64b8e44c9a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211161"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237709"
 ---
 # <a name="example-call-emotion-api-for-video"></a>Exemplo: Chamar API de Detecção de Emoções para Vídeo
 

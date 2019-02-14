@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402329"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237120"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
@@ -33,12 +33,12 @@ A tabela a seguir compara os tipos de serviço disponíveis dos Hubs de Eventos.
 | Eventos de entrada | Pagamento por milhão de eventos | Incluso |
 | Unidade de taxa de transferência (entrada de 1 MB/s, saída de 2 MB/s) | Pagamento por hora | Incluso |
 | Tamanho da mensagem | 1 MB | 1 MB |
-| Políticas do publicador | SIM | SIM |   
+| Políticas do publicador | Sim | Sim |   
 | Grupos de consumidores | 20 | 20 |
-| Reprodução de mensagem | SIM | SIM |
+| Reprodução de mensagem | Sim | Sim |
 | Unidades de produtividade máxima | 20 (flexível até 100)   | 1 Unidade de Capacidade (CU) ≈ 50 |
 | Conexões orientadas | 1000 incluídos | 100.000 incluídos |
-| Conexões agenciadas adicionais | SIM | SIM |
+| Conexões agenciadas adicionais | Sim | Sim |
 | Retenção de mensagem | 1 dia incluído | Até 7 dias incluídos |
 | Captura | Pagamento por hora | Incluso |
 

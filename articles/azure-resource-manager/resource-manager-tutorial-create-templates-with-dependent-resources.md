@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5cfda4ddbf51f51d76b4ede2e44f768bd3261780
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491749"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234395"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -114,6 +114,8 @@ Ao especificar as dependências, o Gerenciador de Recursos implanta a solução 
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud Shell no portal do Azure.
 
 1. Entrar no [Cloud Shell](https://shell.azure.com). 
@@ -140,7 +142,6 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
 7. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
 
     ```azurepowershell
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -148,13 +149,14 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
 8. Execute o seguinte comando do PowerShell para listar a máquina virtual criada recentemente:
 
     ```azurepowershell

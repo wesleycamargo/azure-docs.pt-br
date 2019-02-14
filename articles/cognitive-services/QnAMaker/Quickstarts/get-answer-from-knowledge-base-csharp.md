@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Este início rápido de C# baseado em REST fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento de forma programática.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9b268424a07568868fc760e42bcf7d8130a7b41f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226886"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861112"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Obter respostas a uma pergunta de uma base de dados de conhecimento com C#
 

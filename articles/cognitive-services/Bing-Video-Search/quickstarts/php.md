@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP'
+title: 'Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP'
 titlesuffix: Azure Cognitive Services
 description: Use este início rápido para enviar solicitações de pesquisa de vídeo para a API REST de Pesquisa de Vídeo do Bing usando PHP
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: d009bbd8fec33f3ade633bfd3ae1b9b5df305744
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3f96bb829bb32e0fa706349684ca3796a7c5379d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569045"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863968"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP
 

@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8f1c34be9b16830ef8e09c018a7971347ce9c3f8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 761cef1421f8a0dca84f4142c6ae9ae1b45f33c7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847859"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242015"
 ---
 # <a name="audit-sql-server-audit-settings"></a>Auditar as configurações de auditoria do SQL Server
 
@@ -63,7 +63,7 @@ Ao atribuir uma política, selecione **Auditar configuração de auditoria no n�
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9

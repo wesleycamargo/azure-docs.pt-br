@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f0d368097c72efccf5dc15fe15ec0b7d920279e5
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508599"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245875"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o manuseio de emails e anexos com os Aplicativos Lógicos do Azure
 
@@ -82,7 +82,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Copie e salve a chave e o nome da conta de armazenamento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
+   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Crie um contêiner de armazenamento de blobs para os anexos de email.
    
@@ -100,7 +100,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Contêiner de armazenamento concluído](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
+   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Em seguida, conecte o Gerenciador de Armazenamento à conta de armazenamento.
 

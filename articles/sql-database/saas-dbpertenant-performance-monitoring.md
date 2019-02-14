@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459478"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004610"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
 Neste tutorial, vários dos principais cenários de gerenciamento de desempenho usados em aplicativos SaaS são explorados. São demonstrados o uso de um gerador de carga para simular a atividade em todos os bancos de dados de locatário, os recursos internos de monitoramento e alertas do Banco de Dados SQL e os pools elásticos.
 
-O aplicativo Wingtip Tickets SaaS Banco de dados Por Locatário usa um modelo de dados de único locatário, em que cada local (locatário) tem seu próprio banco de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para aproveitar esse padrão de uso típico do banco de dados, os bancos de dados de locatário são implantados em pools de banco de dados elásticos. Os pools elásticos otimizam o custo de uma solução ao compartilhar recursos entre vários bancos de dados. Com esse tipo de padrão, é importante monitorar o uso de recursos do banco de dados e do pool para garantir que as cargas sejam razoavelmente balanceadas entre os pools. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e que os pools não atinjam seus limites de [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e pools e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
+O aplicativo Wingtip Tickets SaaS Banco de dados Por Locatário usa um modelo de dados de único locatário, em que cada local (locatário) tem seu próprio banco de dados. Como muitos aplicativos SaaS, o padrão esperado de carga de trabalho do locatário é imprevisível e esporádico. Em outras palavras, as vendas de ingressos podem ocorrer a qualquer momento. Para aproveitar esse padrão de uso típico do banco de dados, os bancos de dados de locatário são implantados em pools de banco de dados elásticos. Os pools elásticos otimizam o custo de uma solução ao compartilhar recursos entre vários bancos de dados. Com esse tipo de padrão, é importante monitorar o uso de recursos do banco de dados e do pool para garantir que as cargas sejam razoavelmente balanceadas entre os pools. Você também precisa garantir que os bancos de dados individuais tenham recursos adequados e que os pools não atinjam seus limites de [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model). Este tutorial explora maneiras para monitorar e gerenciar bancos de dados e pools e como realizar uma ação corretiva em resposta às variações na carga de trabalho.
 
 Neste tutorial, você aprenderá a:
 

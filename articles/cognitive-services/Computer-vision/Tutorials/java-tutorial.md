@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Explore um aplicativo Java Swing básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 2c306a5447f2e5d9c7072bd2bed8dd8f1d4078d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225390"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868082"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Tutorial: API da Pesquisa Visual Computacional Java
 

@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754533"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217200"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida do aplicativo Service Fabric
 Semelhante a outras plataformas, um aplicativo no Azure Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, atualização, manutenção e remoção. O Service Fabric dá um excelente suporte ao ciclo de vida completo dos aplicativos em nuvem, desde o desenvolvimento até a implantação, gerenciamento diário, manutenção e possível encerramento. O modelo de serviço permite que várias funções diferentes participem do ciclo de vida do aplicativo de forma independente. Este artigo fornece uma visão geral das APIs e como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de um aplicativo da Malha do Serviço.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
-
-O vídeo da Microsoft Virtual Academy a seguir descreve como gerenciar o ciclo de vida do aplicativo:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="service-model-roles"></a>Funções do modelo de serviço
 As funções do modelo de serviço são:
@@ -58,7 +54,7 @@ Confira [implantar um aplicativo](service-fabric-deploy-remove-applications.md) 
 
 ## <a name="test"></a>Teste
 1. Depois de implantar o cluster de desenvolvimento local ou um cluster de teste, um *desenvolvedor de serviço* executa o cenário de teste de failover interno usando as classes [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) e [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) ou o cmdlet [**Invoke-ServiceFabricFailoverTestScenario**](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). O cenário de teste de failover executa um determinado serviço através de transições e failovers importantes para garantir que ainda estará disponível e funcionando.
-2. O *desenvolvedor de serviço* executa o cenário de teste de caos interno usando as classes [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) e [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) ou o cmdlet [**Invoke-ServiceFabricChaosTestScenario**](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). O cenário de teste caos induz vários nós, pacote de código e falhas de réplica aleatoriamente no cluster.
+2. O *desenvolvedor de serviço* executa o cenário de teste de caos interno usando as classes [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) e [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) ou o cmdlet [**Invoke-ServiceFabricChaosTestScenario**](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). O cenário de teste caos induz vários nós, pacote de código e falhas de réplica aleatoriamente no cluster.
 3. O *desenvolvedor de serviço* [testa a comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md) por meio da criação de cenários de teste que movem réplicas primárias pelo cluster.
 
 Consulte [Introduction to the Fault Analysis Service (Introdução ao Fault Analysis Service)](service-fabric-testability-overview.md) para obter mais informações.

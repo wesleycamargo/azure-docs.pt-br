@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857090"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232722"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserir um relatório nas Coleções de Workspaces do Power BI
 
@@ -42,13 +42,13 @@ Ao usar o SDK do .NET, você precisará criar uma credencial de token que se bas
 
 **Instalar o pacote NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Api
 ```
 
 **Código C#**
 
-```
+```csharp
 using Microsoft.PowerBI.Api.V1;
 using Microsoft.Rest;
 
@@ -63,7 +63,7 @@ var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, 
 
 ### <a name="calling-the-rest-api-directly"></a>Chamar a API REST diretamente
 
-```
+```csharp
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
 
 request.Method = "GET";
@@ -90,13 +90,13 @@ Você usa a ID de relatório que você recuperou anteriormente. Depois de criar 
 
 **Instalar o pacote NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **Código C#**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername, roles and scopes are optional.
@@ -118,16 +118,17 @@ Depois de ter o token de acesso e a ID do relatório, é possível inserir o rel
 
 **Instalar o pacote NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **Código JavaScript**
 
-```
+```html
 <script src="/scripts/powerbi.js"></script>
 <div id="reportContainer"></div>
 
+<script>
 var embedConfiguration = {
     type: 'report',
     accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
@@ -137,6 +138,7 @@ var embedConfiguration = {
 
 var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
+</script>
 ```
 
 ### <a name="set-the-size-of-embedded-elements"></a>Defina o tamanho dos elementos inseridos

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 786d6fe04ced719217f57a2d603dff810b7a4c20
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f16dde524e20863f5fe20d98f5c62f18e835f8c5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430748"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234112"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos usando o Azure PowerShell
 
@@ -26,6 +26,8 @@ Neste início rápido, você cria um hub de eventos usando o Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para concluir este tutorial, verifique se você tem:
 
 - Assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
@@ -34,7 +36,7 @@ Para concluir este tutorial, verifique se você tem:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você estiver usando o PowerShell localmente, você deve executar a versão mais recente do PowerShell para concluir este início rápido. Se precisar instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+Se você estiver usando o PowerShell localmente, você deve executar a versão mais recente do PowerShell para concluir este início rápido. Se precisar instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -43,7 +45,7 @@ Um grupo de recursos é uma coleção lógica de recursos do Azure e você preci
 O exemplo a seguir cria um grupo de recursos na região Leste dos EUA. Substitua `myResourceGroup` pelo nome do grupo de recursos e local que você deseja usar:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
+New-AzResourceGroup –Name myResourceGroup –Location eastus
 ```
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
@@ -51,7 +53,7 @@ New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 Após o seu grupo de recursos ser criado, crie um namespace de Hubs de Eventos dentro deste mesmo grupo de recursos. Um namespace de Hubs de Eventos fornece um nome de domínio exclusivo totalmente qualificado no qual você pode criar seu hub de eventos. Substitua `namespace_name` por um nome exclusivo para o seu namespace:
 
 ```azurepowershell-interactive
-New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
+New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
 ## <a name="create-an-event-hub"></a>Criar um Hub de Evento
@@ -60,7 +62,7 @@ Agora que você possui um namespace de Hubs de Eventos, crie um hub de eventos d
 O período permitido para `MessageRetentionInDays` é entre 1 e 7 dias.
 
 ```azurepowershell-interactive
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
+New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
 Parabéns! Você usou o Azure PowerShell para criar um namespace de Hubs de Eventos e um hub de eventos dentro desse namespace. 
@@ -73,8 +75,8 @@ Neste artigo, você criou um namespace de Hubs de Eventos e aplicativo de exempl
 - **Receber eventos para um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
-[New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
+[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps
+[New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-Azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

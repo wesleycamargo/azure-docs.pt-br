@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Notas de versão – o que mudou nas versões mais recentes
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 25e5b1fd1e1513fbfd64448b334e2fa26361ad6f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870700"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK dos Dispositivos de Fala dos Serviços Cognitivos
 

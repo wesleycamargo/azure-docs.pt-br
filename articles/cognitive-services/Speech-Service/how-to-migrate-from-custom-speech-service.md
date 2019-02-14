@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: O Custom Speech Service agora faz parte do Serviço de Fala. Mude para o serviço de fala para se beneficiar das mais recentes atualizações de qualidade e recursos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211025"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856879"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do Serviço de Fala Personalizado para o Serviço de Fala
 
@@ -40,12 +40,6 @@ O modelo de preços é mais simples, usando um modelo de preços baseado em hora
 3. Siga os guias de início rápido e as amostras de SDK para usar as APIs corretas. Se você usar as APIs REST, também precisará usar os terminais e as chaves de recursos corretos.
 
 4. Atualize o aplicativo cliente para usar o Serviço de Fala e as APIs.
-
-> [!NOTE]
-> * Se você habilitar a fala no Reconhecimento vocal (LUIS), um único recurso LUIS na mesma região funcionará para LUIS, assim como todos os serviços de fala. Para mais informações, consulte [Reconhecer intenções da fala](how-to-recognize-intents-from-speech-csharp.md).
-> * A conversão de texto em texto não faz parte do Serviço de Fala. Essa funcionalidade requer sua própria assinatura de recursos do Azure.
- 
-
 
 ## <a name="migration-for-existing-customers"></a>Migração para os clientes existentes
 

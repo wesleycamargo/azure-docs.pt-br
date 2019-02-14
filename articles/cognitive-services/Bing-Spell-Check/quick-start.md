@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: API de Verificação Ortográfica do Bing'
+title: 'Início Rápido: API de Verificação Ortográfica do Bing'
 titlesuffix: Azure Cognitive Services
 description: Mostra como começar a usar a API de Verificação Ortográfica do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: e5fa4db8754924b8c2bacfc8bf624380aae063c2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 70aec949dd8f1b27a2a04c28a892b4caa2122844
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148941"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867810"
 ---
 # <a name="quickstart-your-first-spell-check-request"></a>Início Rápido: Sua primeira solicitação de verificação ortográfica
 

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Usar o SDK de Pesquisa na Web do Bing para C#'
+title: 'Início rápido: Usar o SDK de Pesquisa na Web do Bing para C#'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo C#. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 510cecdd4b646a9d0dd391632716c39759992a7d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180952"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869391"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para C#
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início rápido: Usar o SDK de Pesquisa na Web do Bing para C#
 
 O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo C#. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091196"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982753"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurar um gateway de rede virtual para ExpressRoute usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -42,9 +42,8 @@ As etapas para essa tarefa usam uma VNet baseada nos valores na lista de referê
 * Nome da sub-rede do gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
     * Espaço de endereço da Sub-Rede do Gateway = “192.168.200.0/26”
 * Nome do gateway = "ERGW"
-* Nome de IP do gateway = "MyERGWVIP"
-* Tipo de gateway = "ExpressRoute". Esse tipo é necessário para uma configuração de ExpressRoute.
 * Nome do IP público do gateway = "MyERGWVIP"
+* Tipo de gateway = "ExpressRoute". Esse tipo é necessário para uma configuração de ExpressRoute.
 
 Você pode exibir um [Vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dessas etapas antes de iniciar sua configuração.
 

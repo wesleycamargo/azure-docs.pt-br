@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273860"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113679"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuída geograficamente com ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Cenários de aplicativos que exigem escala muito alta podem exceder a capacidade de recursos de computação disponíveis para uma única implantação de um aplicativo.  Aplicativos de votação, eventos esportivos e de entretenimento televisionados são exemplos de cenários que exigem escala extremamente alta. Os requisitos de alta escala podem ser atendidos pela escalação horizontal de aplicativos, com várias implantações de aplicativo feitas dentro de uma única região, bem como entre regiões, para lidar com requisitos de carga extrema.
 
 Ambientes de Serviço de Aplicativo são uma plataforma ideal para escalar horizontalmente.  Uma vez que uma configuração de Ambiente de Serviço de Aplicativo tiver selecionada possa dar suporte a uma taxa de solicitação conhecida, os desenvolvedores poderão implantar Ambientes de Serviço de Aplicativo adicionais em massa para obter uma capacidade de carga de pico desejada.
@@ -68,13 +71,13 @@ O parâmetro *TrafficRoutingMethod* define a política de balanceamento de carga
 
 Com o perfil criado, cada instância do aplicativo é adicionada ao perfil como um ponto de extremidade do Azure nativo.  O código a seguir busca uma referência para cada aplicativo da web de front-end e, em seguida, adiciona cada aplicativo como um ponto de extremidade do Gerenciador de Tráfego por meio do parâmetro *TargetResourceId* .
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

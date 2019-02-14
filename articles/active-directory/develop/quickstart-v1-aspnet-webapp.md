@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816257"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185309"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -229,7 +230,7 @@ Essa opção é um cenário comum para aplicativos de linha de negócios.
 Se desejar que seu aplicativo aceite entradas apenas de contas pertencentes a uma instância específica do Azure AD (incluindo *contas de convidados* dessa instância), siga estas etapas:
 
 1. Substitua o parâmetro `Tenant` em *web.config* de `Common` pelo nome do locatário da organização– por exemplo, *contoso.onmicrosoft.com*.
-1. Altere o argumento `ValidateIssuer` em sua [*Classe de inicialização OWIN*](#configure-the-authentication-pipeline) para `true`.
+1. Altere o argumento `ValidateIssuer` em sua [*Classe de inicialização OWIN*](#step-4-configure-the-authentication-pipeline) para `true`.
 
 Para permitir usuários apenas de uma única lista de organizações específicas, siga estas etapas:
 

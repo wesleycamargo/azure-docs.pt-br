@@ -16,14 +16,15 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819086"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191717"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início rápido: atualizar um aplicativo no Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início Rápido: atualizar um aplicativo no Azure Active Directory
 
 Os desenvolvedores corporativos e os provedores de SaaS (software como serviço) que registraram aplicativos no Azure AD (Azure Active Directory) podem precisar configurar seus aplicativos para acessar outros recursos, como APIs Web, disponibilizá-los em outras organizações, entre outras ações.
 
@@ -144,7 +145,7 @@ Para obter mais informações sobre os conceitos do manifesto do aplicativo em g
 
 Conforme mencionado anteriormente, além de expor/acessar APIs para seus próprios aplicativos, você também pode registrar seu aplicativo cliente para acessar APIs expostas pelos recursos da Microsoft. A API do Microsoft Graph, conhecida como "Microsoft Graph" na lista de recursos/APIs do portal, está disponível a todos os aplicativos registrados com o Azure AD. Se você estiver registrando seu aplicativo cliente em um locatário que contenha contas que se inscreveram para uma assinatura do Office 365, você também poderá acessar os escopos expostos pelos vários recursos do Office 365.
 
-Para obter uma discussão completa sobre os escopos expostos pela API do Microsoft Graph, consulte o artigo [ referência de permissões do Microsoft Graph ](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+Para obter uma discussão completa sobre os escopos expostos pela API do Microsoft Graph, consulte o artigo [ referência de permissões do Microsoft Graph ](https://docs.microsoft.com/graph/permissions-reference).
 
 > [!NOTE]
 > Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a API do Graph do AD do Azure se eles usarem a permissão "Acessar diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
