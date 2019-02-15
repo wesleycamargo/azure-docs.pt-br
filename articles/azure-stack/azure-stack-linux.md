@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8e30edcc7a600088693de57264665f5ffff3842a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890545"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300724"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Adicionar imagens do Linux para o Azure Stack
 
@@ -36,9 +36,9 @@ Observe que há atualizações frequentes para essas imagens, portanto, verifiqu
 
 ## <a name="prepare-your-own-image"></a>Preparar sua própria imagem
 
-Sempre que possível, baixe as imagens disponíveis por meio do gerenciamento do Marketplace que estejam preparados e testado para o Azure Stack. 
- 
-Agente Linux do Azure (normalmente chamado `WALinuxAgent` ou `walinuxagent`) é necessário, e nem todas as versões do agente funcionará no Azure Stack. Você deve usar a versão 2.2.20 ou posterior se você cria sua própria imagem. Observe que [cloud_init](https://cloud-init.io/) não tem suporte no Azure Stack no momento.
+Sempre que possível, baixe as imagens disponíveis por meio do gerenciamento do Marketplace que estejam preparados e testado para o Azure Stack.
+
+O agente Linux do Azure (normalmente chamado `WALinuxAgent` ou `walinuxagent`) é necessárias e nem todas as versões do trabalho de agente com o Azure Stack. Você deve usar a versão 2.2.20 ou posterior se você cria sua própria imagem. Observe que [cloud_init](https://cloud-init.io/) não tem suporte no Azure Stack no momento.
 
 Você pode preparar sua própria imagem do Linux usando as instruções a seguir:
 
@@ -48,9 +48,8 @@ Você pode preparar sua própria imagem do Linux usando as instruções a seguir
 * [SLES e openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-    
 ## <a name="add-your-image-to-the-marketplace"></a>Adicione sua imagem no Marketplace
- 
+
 Siga [adicionar a imagem do Marketplace](azure-stack-add-vm-image.md). Certifique-se de que o `OSType` parâmetro é definido como `Linux`.
 
 Depois de adicionar a imagem no Marketplace, um item do Marketplace é criado e os usuários podem implantar uma máquina virtual Linux.
