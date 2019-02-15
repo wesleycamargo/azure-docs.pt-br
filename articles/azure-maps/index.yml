@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f45fad91c94b35de512c0c995ef4e3a6311a25ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767411"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270123"
 documentType: LandingData
 title: Documentação dos Mapas do Azure
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/04/2019
+  ms.date: 02/14/2019
   ms.author: philmea
 abstract:
   description: Os Azure Mapas fornecem funcionalidades geoespaciais avançadas para desenvolvedores de todos os setores, contendo os mais recentes dados de mapeamento disponíveis para fornecer um contexto geográfico a aplicativos Web e móveis. Os Azure Mapas são um conjunto de APIs REST em conformidade com a API Azure One para mapas, pesquisa, roteamento, tráfego, fusos horários, localização geográfica, delimitação geográfica, dados de mapa e operações espaciais, acompanhado de SDKs da Web e do Android para tornar o desenvolvimento fácil, flexível e portátil entre várias plataformas.
@@ -35,13 +35,15 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: Crie um aplicativo Web geoespacial para pesquisar pontos de interesse e rotas para locais usando os Mapas do Azure.
+    text: Crie um aplicativo Web geoespacial para pesquisar pontos de interesse, rotear para locais e rastrear dispositivos fazendo uma cerca geográfica usando o Azure Mapas.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-maps/tutorial-search-location">Pesquisar pontos de interesse</a>
     - html: <a href="/azure/azure-maps/tutorial-route-location">Rota para um ponto de interesse</a>
     - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Rotas por modo de viagem</a>
+    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Criar um localizador de repositório</a>
+    - html: <a href="/azure/azure-maps/tutorial-geofence">Configurar uma cerca geográfica</a>
 - title: Referência
   items:
   - type: list
@@ -51,4 +53,4 @@ sections:
     - title: JavaScript
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Controle de mapa</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Serviço de renderização</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Serviço de roteamento</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Serviço de pesquisa</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Serviço de fuso horário</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Serviço de tráfego</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Gerenciamento de contas de mapas</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">Serviço de dados</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Serviço de geolocalização</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Serviço de renderização</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Serviço de roteamento</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Serviço de pesquisa</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Serviço espacial</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Serviço de fuso horário</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Serviço de tráfego</a></p>
