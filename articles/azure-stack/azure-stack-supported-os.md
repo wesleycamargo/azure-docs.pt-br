@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247843"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301274"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais convidados com suporte no Azure Stack
 
@@ -53,7 +53,7 @@ Edições Datacenter estão disponíveis no mercado para download; os clientes p
 Distribuições do Linux listadas como disponíveis no Marketplace incluem o necessário Windows Azure Linux Agent (WALA). Se você traga sua própria imagem para o Azure Stack, siga as diretrizes [Linux adicionar imagens ao Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Imagens personalizadas devem ser criadas com a versão mais recente de WALA de público. Versões anteriores ao 2.2.18 podem não funcionar corretamente no Azure Stack.
+> Imagens personalizadas devem ser criadas com a versão mais recente de WALA de público ou com a versão 2.2.20. Versões mais antigas que 2.2.20 e entre 2.2.20 e 2.2.35 (exclusivo) podem não funcionar corretamente no Azure Stack. 
 >
 > [a inicialização de nuvem](https://cloud-init.io/) não tem suporte no Azure Stack no momento.
 

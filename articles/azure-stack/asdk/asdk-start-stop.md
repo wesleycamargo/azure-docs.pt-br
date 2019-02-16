@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191957"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268644"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Iniciar e parar o Azure Stack desenvolvimento ASDK (Kit de)
 Não é recomendável simplesmente reiniciar o computador de host ASDK. Em vez disso, você deve seguir os procedimentos neste artigo para desligar e reiniciar serviços ASDK corretamente. 
@@ -29,7 +29,7 @@ Não é recomendável simplesmente reiniciar o computador de host ASDK. Em vez d
 ## <a name="stop-azure-stack"></a>Parar o Azure Stack 
 Para desligar corretamente os serviços do Azure Stack e o computador de host ASDK, use os seguintes comandos do PowerShell:
 
-1. Faça logon como AzureStack\CloudAdmin no computador host ASDK.
+1. Faça logon como AzureStack\AzureStackAdmin no computador host ASDK.
 2. Abra o PowerShell como administrador (não o PowerShell ISE).
 3. Execute os seguintes comandos para estabelecer uma sessão do ponto de extremidade com privilégios (PEP): 
 
@@ -49,7 +49,7 @@ Serviços ASDK devem ser iniciada automaticamente quando o computador host é in
 Independentemente de como o ASDK tiver sido desligado, você deve usar as etapas a seguir para verificar se todos os serviços do Azure Stack são iniciados e operacionais totalmente depois que o computador host está ligado: 
 
 1. Ligue o computador host ASDK. 
-2. Faça logon como AzureStack\CloudAdmin no computador host ASDK.
+2. Faça logon como AzureStack\AzureStackAdmin no computador host ASDK.
 3. Abra o PowerShell como administrador (não o PowerShell ISE).
 4. Execute os seguintes comandos para estabelecer uma sessão do ponto de extremidade com privilégios (PEP):
 
@@ -68,7 +68,7 @@ Para saber mais sobre os procedimentos recomendados para desligar e reiniciar os
 ## <a name="troubleshoot-startup-and-shutdown"></a>Solucionar problemas de inicialização e desligamento 
 Se os serviços do Azure Stack não iniciam com êxito dentro de duas horas após você ligar seu computador de host ASDK, execute estas etapas:
 
-1. Faça logon como AzureStack\CloudAdmin no computador host ASDK.
+1. Faça logon como AzureStack\AzureStackAdmin no computador host ASDK.
 2. Abra o PowerShell como administrador (não o PowerShell ISE).
 3. Execute os seguintes comandos para estabelecer uma sessão do ponto de extremidade com privilégios (PEP):
 

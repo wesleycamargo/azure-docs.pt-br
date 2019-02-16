@@ -25,6 +25,8 @@ items:
     href: quickstart-create-data-factory-rest-api.md
   - name: Criar fábrica de dados - Modelo do Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Criar fluxo de dados
+    href: data-flow-create.md
   expanded: true
 - name: Tutoriais
   items:
@@ -408,6 +410,42 @@ items:
       href: control-flow-wait-activity.md
     - name: Atividade da Web
       href: control-flow-web-activity.md
+  - name: Transformações do fluxo de dados
+    items:
+    - name: Agregação
+      href: data-flow-aggregate.md
+    - name: Divisão condicional
+      href: data-flow-conditional-split.md
+    - name: Coluna derivada
+      href: data-flow-derived-column.md
+    - name: Exists
+      href: data-flow-exists.md
+    - name: Filter
+      href: data-flow-filter.md
+    - name: Ingressar
+      href: data-flow-join.md
+    - name: Pesquisa
+      href: data-flow-lookup.md
+    - name: Novo branch
+      href: data-flow-new-branch.md
+    - name: Tabela dinâmica
+      href: data-flow-pivot.md
+    - name: Selecionar
+      href: data-flow-select.md
+    - name: Coletor
+      href: data-flow-sink.md
+    - name: Classificar
+      href: data-flow-sort.md
+    - name: Fonte
+      href: data-flow-source.md
+    - name: Chave alternativa
+      href: data-flow-surrogate-key.md
+    - name: União
+      href: data-flow-union.md
+    - name: Tabela não dinâmica
+      href: data-flow-unpivot.md
+    - name: Janela
+      href: data-flow-window.md
   - name: Parametrizar
     items:
     - name: Parametrizar serviços vinculados
@@ -528,9 +566,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174411"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270412"
