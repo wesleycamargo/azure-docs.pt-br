@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251360"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327232"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -74,11 +74,11 @@ Os diagramas e descrições nas seções a seguir podem ajudá-lo a selecionar u
 
 ### <a name="site-to-site"></a>Site a site
 
-Um *site a site* (S2S) conexão de gateway VPN é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). Esse tipo de conexão exige um dispositivo VPN que está localizado no local e é atribuído um endereço IP público. Este dispositivo não pode estar localizado atrás de NAT. As conexões S2S podem ser usadas para configurações entre instalações e híbridas.
+Um *site a site* (S2S) conexão de gateway VPN é uma conexão por túnel VPN IPsec/IKE (IKEv2). Esse tipo de conexão exige um dispositivo VPN que está localizado no local e é atribuído um endereço IP público. Este dispositivo não pode estar localizado atrás de NAT. As conexões S2S podem ser usadas para configurações entre instalações e híbridas.
 
 ![Exemplo de configuração de conexão de VPN site a site](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Vários sites
+### <a name="multi-site"></a>Multissite
 
 Um *multissite* conexão é uma variação da conexão site a site. Você pode criar mais de uma conexão de VPN em seu gateway de rede virtual, normalmente se conectando a vários sites locais. Ao trabalhar com várias conexões, você deve usar um tipo de VPN baseado em rota (conhecido como gateway dinâmico ao trabalhar com redes virtuais clássicas). Como cada rede virtual pode ter apenas um gateway de VPN, todas as conexões por meio do gateway compartilham a largura de banda disponível.
 

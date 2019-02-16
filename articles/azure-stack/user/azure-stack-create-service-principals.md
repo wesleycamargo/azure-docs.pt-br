@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813153"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312847"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Fornecer aos aplicativos acesso aos recursos do Azure Stack, Criando entidades de serviço
 
@@ -50,7 +50,7 @@ A maneira como você configurou o Active Directory para o Azure Stack determina 
 * Criar um serviço principal para [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Criar um serviço principal para [serviços de Federação do Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-As etapas para atribuir uma entidade de serviço a uma função o mesmo para o Azure AD e o AD FS. Depois de criar a entidade de serviço, você pode [delegar permissões](azure-stack-create-service-principals.md#assign-role-to-service-principal) atribuindo-a uma função.
+As etapas para atribuir uma entidade de serviço a uma função o mesmo para o Azure AD e o AD FS. Depois de criar a entidade de serviço, você pode [delegar permissões](azure-stack-create-service-principals.md) atribuindo-a uma função.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Criar entidade de serviço do AD do Azure
 
@@ -85,7 +85,7 @@ Depois de salvar a chave, a chave **valor** é exibida. Anote esse valor, porque
 
 ![Aviso de valor de chave para a chave salva.](./media/azure-stack-create-service-principal/image15.png)
 
-A etapa final é [atribuindo uma função de seu aplicativo](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+A etapa final é [atribuindo uma função de seu aplicativo](azure-stack-create-service-principals.md).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Criar entidade de serviço do AD FS
 

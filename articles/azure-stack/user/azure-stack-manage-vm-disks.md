@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961390"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326503"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Criar o armazenamento de disco da máquina virtual no Azure Stack
 
@@ -32,9 +32,9 @@ Este artigo descreve como criar o armazenamento de disco da máquina virtual usa
 
 Começando com a versão 1808, o Azure Stack suporta o uso de discos gerenciados e não gerenciados em máquinas virtuais, como um sistema operacional (SO) e um disco de dados. Antes da versão 1808, há suporte para apenas discos não gerenciados. 
 
-**[Discos gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  simplificar o gerenciamento de disco para VMs IaaS do Azure, gerenciando as contas de armazenamento associadas com os discos de VM. Você só precisa especificar o tamanho do disco necessário e o Azure Stack cria e gerencia o disco para você.
+**[Discos gerenciados](../../virtual-machines/windows/managed-disks-overview.md)**  simplificar o gerenciamento de disco para VMs IaaS do Azure, gerenciando as contas de armazenamento associadas com os discos de VM. Você só precisa especificar o tamanho do disco necessário e o Azure Stack cria e gerencia o disco para você.
 
-**[Discos não gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, exigem que você crie uma [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para armazenar os discos. Os discos que você cria são chamados de discos de VM e são armazenados em contêineres na conta de armazenamento.
+Discos não gerenciados, exigem que você crie uma conta de armazenamento para armazenar os discos. Os discos que você cria são chamados de discos de VM e são armazenados em contêineres na conta de armazenamento.
 
 ### <a name="best-practice-guidelines"></a>Diretrizes de práticas recomendadas
 
@@ -97,7 +97,7 @@ Cada disco não gerenciado que você adicionar deve ser colocado em um contêine
 
     -  Selecione o **tipo de fonte**.
 
-       Criar um disco de um instantâneo de outro disco, um blob em uma conta de armazenamento, ou criar um disco vazio.
+       Crie um disco de um instantâneo de outro disco, um blob em uma conta de armazenamento ou crie um disco vazio.
 
         **Instantâneo**  
         Selecione um instantâneo, se ele estiver disponível. O instantâneo deve estar no disponíveis na assinatura e o local da VM.

@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965317"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329346"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Use o ASDK para validar um backup do Azure Stack
 Depois de implantar o Azure Stack e provisionamento de recursos do usuário, como ofertas, planos, cotas e assinaturas, você deve [habilitar o backup de infraestrutura do Azure Stack](../azure-stack-backup-enable-backup-console.md). Agendamento e execução de backups regulares de infra-estrutura garantirá que os dados de gerenciamento de infraestrutura não seja perdidos se não houver um hardware catastrófico ou falha de serviço.
@@ -52,11 +52,11 @@ Antes de iniciar uma implantação de recuperação de nuvem do ASDK, certifique
 
 |Pré-requisito|DESCRIÇÃO|
 |-----|-----|
-|Caminho de compartilhamento de backup.|O caminho de compartilhamento de arquivo UNC do backup mais recente do Azure Stack que será usado para recuperar informações de infraestrutura do Azure Stack. Esse compartilhamento local será criado durante o processo de implantação da recuperação de nuvem.|
-|Chave de criptografia de backup.|A chave de criptografia que foi usada para agendar backup de infraestrutura para ser executado usando o portal de administração do Azure Stack.|
-|ID de backup para restaurar.|A ID de backup, na forma alfanumérica de "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica o backup a serem restaurados durante a recuperação de nuvem.|
-|IP do servidor de tempo.|Um IP do servidor de tempo válido, como 132.163.97.2, é necessário para a implantação do Azure Stack.|
-|Senha do certificado externo.|A senha para o certificado externo usado pelo Azure Stack. O backup da CA contém certificados externos que precisam ser restaurados com essa senha.|
+|Caminho de compartilhamento de backup|O caminho de compartilhamento de arquivo UNC do backup mais recente do Azure Stack que será usado para recuperar informações de infraestrutura do Azure Stack. Esse compartilhamento local será criado durante o processo de implantação da recuperação de nuvem.|
+|Chave de criptografia de backup|Opcional. Necessário apenas se você atualizou para a versão do Azure Stack 1901 ou posterior de uma versão anterior do Azure Stack com backup habilitado.|
+|ID de backup para restaurar|A ID de backup, na forma alfanumérica de "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica o backup a serem restaurados durante a recuperação de nuvem.|
+|IP do servidor de tempo|Um IP do servidor de tempo válido, como 132.163.97.2, é necessário para a implantação do Azure Stack.|
+|Senha do certificado externo|A senha do certificado autoassinado chave privada (. pfx) que foi usado para proteger o backup.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Preparar o computador host 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>Restaurar dados de infraestrutura de backup
 Depois de uma implantação de recuperação de nuvem bem-sucedido, você precisa concluir a restauração usando o **AzureStack restauração** cmdlet. 
 
-Depois de fazer logon como o operador, o Azure Stack [instalar o PowerShell do Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) e, em seguida, substituindo sua ID de Backup para o `Name` parâmetro, execute o seguinte comando:
+Depois de fazer logon como o operador, o Azure Stack [instalar o Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) e execute os seguintes comandos para especificar o certificado e a senha a ser usado ao restaurar do backup:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Aguarde 60 minutos depois de chamar esse cmdlet para iniciar a verificação dos dados de backup na nuvem recuperado ASDK.
 
 ## <a name="next-steps"></a>Próximas etapas
