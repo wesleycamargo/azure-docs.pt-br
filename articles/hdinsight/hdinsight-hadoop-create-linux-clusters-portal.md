@@ -77,7 +77,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
     Selecione **Próximo** para ir para a próxima página.
 
 
-5. Em **3 Armazenamento**, especifique se você quer que o Armazenamento do Azure ou o Azure Data Lake Storage seja o armazenamento padrão. Para obter mais informações, confira a tabela a seguir.
+5. Em **3 Armazenamento**, especifique se prefere o Armazenamento do Azure ou o Azure Data Lake Storage como o armazenamento padrão. Para obter mais informações, confira a tabela a seguir.
 
      ![Definir configurações de armazenamento](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Criar um novo cluster no portal do Azure")
 
@@ -85,7 +85,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
      |----------------------------------------------|-------------|
      | **Blobs de Armazenamento do Azure como o armazenamento padrão**   | <ul><li>Para o **tipo de armazenamento primário**, selecione **Armazenamento do Azure**. Para **Método de seleção**, escolha **Minhas assinaturas**, se você quiser especificar uma conta de armazenamento que faz parte da sua assinatura do Azure. Em seguida, selecione a conta de armazenamento. Caso contrário, selecione **Chave de acesso**. Em seguida, forneça as informações da conta de armazenamento que você quer escolher fora da sua assinatura do Azure.</li><li>Para **Contêiner padrão**, escolha o nome do contêiner padrão sugerido pelo portal ou especifique o seu próprio.</li><li>Se o Armazenamento de Blobs do Azure for o armazenamento padrão, também será possível selecionar **Contas de Armazenamento Adicionais** para especificar contas de armazenamento adicionais para associar ao cluster. Para **Chaves de Armazenamento do Azure**, selecione **Adicionar uma chave de armazenamento**. Em seguida, você poderá fornecer uma conta de armazenamento a partir das suas assinaturas do Azure, ou de outras assinaturas. Forneça a chave de acesso à conta de armazenamento.</li><li>Se o armazenamento de Blobs for o armazenamento padrão, também será possível selecionar **Acesso ao Data Lake Storage** para especificar o Azure Data Lake Storage como armazenamento adicional. Para saber mais, confira [Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage como o armazenamento padrão** | Para **Tipo de armazenamento primário**, selecione **Azure Data Lake Storage Gen1** ou **Azure Data Lake Storage Gen2**. Em seguida, consulte o artigo [Início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para saber mais. |
-     | **Metastores externas**                      | Como opção, especifique um banco de dados SQL para salvar metadados do Apache Hive e do Apache Oozie associados ao cluster. Para **Selecionar um banco de dados SQL para Hive**, selecione um banco de dados SQL. Em seguida, forneça o nome de usuário e a senha para o banco de dados. Repita essas etapas para metadados do Oozie.<br><br>Algumas considerações sobre o uso do banco de dados SQL do Azure para metastores são as seguintes: <ul><li>O banco de dados SQL do Azure usado para o metastore deve permitir conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No lado direito do painel do banco de dados SQL do Azure, selecione o nome do servidor. Esse servidor é aquele em que a instância do banco de dados SQL executa. Após exibir o servidor, selecione **Configurar**. Em seguida, para **Serviços do Azure**, selecione **Sim**. Em seguida, selecione **Salvar**.</li><li>Quando você criar um metastore, não nomeie um banco de dados usando traços nem hifens. Esses caracteres podem causar falha no processo de criação do cluster.</li></ul> |
+     | **Metastores externas**                      | Como opção, especifique um banco de dados SQL para salvar metadados do Apache Hive e do Apache Oozie associados ao cluster. Para **Selecionar um banco de dados SQL para Hive**, selecione um banco de dados SQL. Em seguida, forneça o nome de usuário e a senha para o banco de dados. Repita essas etapas para metadados do Oozie.<br><br>Algumas considerações sobre o uso do banco de dados SQL do Azure para metastores são as seguintes: <ul><li>O banco de dados SQL do Azure usado para o metastore deve permitir conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No lado direito do painel do banco de dados SQL do Azure, selecione o nome do servidor. Esse servidor é aquele no qual a instância do banco de dados SQL é executada. Após exibir o servidor, selecione **Configurar**. Em seguida, para **Serviços do Azure**, selecione **Sim**. Em seguida, selecione **Salvar**.</li><li>Ao criar um metastore, não use traços nem hifens para nomear um banco de dados. Esses caracteres podem causar falha no processo de criação do cluster.</li></ul> |
 
      > [!WARNING]  
      > Não há suporte para o uso de uma conta de armazenamento adicional em uma localização diferente do cluster HDInsight.
@@ -93,7 +93,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
      Selecione **Próximo** para ir para a próxima página.
 
 
-6. Em **4 Aplicativos (opcional)**, selecione os aplicativos desejados. ISVs (fornecedores independentes de software) da Microsoft ou você podem desenvolver esses aplicativos. Para obter mais informações, consulte [Instalar aplicativos durante a criação do cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Em **4 Aplicativos (opcional)**, selecione os aplicativos desejados. Você, a Microsoft ou os fornecedores independentes de software (ISVs)  podem desenvolver esses aplicativos. Para obter mais informações, consulte [Instalar aplicativos durante a criação do cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
     Selecione **Próximo** para ir para a próxima página.
 
@@ -126,7 +126,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
     
     Os ícones na janela são explicados da seguinte forma:
     
-    * A guia de **Visão Geral** fornece todas as informações essenciais sobre o cluster. Exemplos são o nome, o grupo de recursos ao qual ele pertence, a localização, o sistema operacional e a URL do painel do cluster.
+    * A guia **Visão Geral** fornece todas as informações essenciais sobre o cluster. Exemplos são o nome, o grupo de recursos ao qual ele pertence, a localização, o sistema operacional e a URL do painel do cluster.
     * **Painel** direciona você para o portal do Ambari associado ao cluster.
     * **Secure Shell** fornece informações necessárias para acessar o cluster usando SSH.
     * Usando **Dimensionar cluster**, é possível aumentar o número de nós de trabalho associados ao cluster.

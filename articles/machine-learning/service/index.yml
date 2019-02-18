@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300016"
+ms.locfileid: "56311420"
 documentType: LandingData
 title: Documentação do Serviço do Azure Machine Learning
 metadata:
@@ -17,26 +17,26 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 1/30/2019
+  ms.date: 2/15/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: O serviço do Azure Machine Learning fornece um ambiente baseado em nuvem para criar, treinar e implantar rapidamente seus modelos de machine learning. Use o machine learning automatizado para identificar os algoritmos e ajustar os hiperparâmetros com mais rapidez. Melhore a produtividade e reduza os custos com a computação de dimensionamento automático e o Azure DevOps para machine learning. Acesse esses recursos em seu ambiente Python usando estruturas de software livre, como PyTorch, TensorFlow e scikit-learn, juntamente com os SDKs de serviço. Saiba mais com nossos tutoriais e guias de início rápido.
+  description: O Serviço do Azure Machine Learning fornece um ambiente de nuvem para preparar, treinar e implantar rapidamente seus modelos de machine learning. Use o machine learning automatizado para identificar os algoritmos e ajustar os hiperparâmetros com mais rapidez. Aprimore a produtividade e reduza custos com a computação de dimensionamento automático e os pipelines. Acesse essas funcionalidades com estruturas do Python de software livre, como a PyTorch, a TensorFlow e a scikit-learn, juntamente com os SDKs do serviço. Comece a seguir nossos guias de início rápido e tutoriais.
 sections:
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Para usar esse serviço, você precisa de um workspace e de recursos associados.  Introdução:'
+    text: 'Para usar esse serviço, você precisa de um workspace e de recursos associados.  Comece com:'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started">Use o guia de início rápido do portal do Azure</a> para obter o workspace e executar um experimento sem instalar nada.
-    - html: <a href="quickstart-create-workspace-with-python">Use o guia de início rápido do Python</a> para instalar o SDK principal, criar um workspace e executar um experimento em um servidor de notebook local.
+    - html: '<a href="quickstart-get-started">Início rápido do portal do Azure</a>: obtenha um workspace e faça experimentos sem instalar nada.'
+    - html: '<a href="quickstart-create-workspace-with-python">Início rápido do Python</a>: instale o SDK principal, crie um workspace e faça um experimento em um servidor de notebook local.'
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: 'Saiba como preparar dados, configurar experimentos e operacionalizar modelos de aprendizado de máquina:'
+    text: 'Saiba como preparar dados, configurar experimentos, treinar e operacionalizar modelos de machine learning:'
   - type: list
     style: unordered
     items:

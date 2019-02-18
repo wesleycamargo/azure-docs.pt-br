@@ -99,20 +99,13 @@ items:
   - name: Manutenção e atualizações
     href: maintenance-and-updates.md
   - name: Armazenamento em disco
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introdução aos discos gerenciados
       href: managed-disks-overview.md
-    - name: Premium SSDs
-      href: premium-storage.md
-    - name: SSDs Standard
-      href: disks-standard-ssd.md
-    - name: Ultra SSDs
-      href: disks-ultra-ssd.md
-    - name: Desempenho do armazenamento Premium
+    - name: Selecione um tipo de disco para VMs IaaS
+      href: disks-types.md
+    - name: Projetando para alto desempenho
       href: premium-storage-performance.md
-    - name: Armazenamento Standard
-      href: standard-storage.md
     - name: Metas da escalabilidade para os discos
       href: disk-scalability-targets.md
     - name: Backup e recuperação de desastres para discos
@@ -426,6 +419,8 @@ items:
         href: add-disk.md
       - name: Portal do Azure
         href: attach-disk-portal.md
+    - name: Submeter um disco a benchmark
+      href: disks-benchmarks.md
     - name: Desanexar um disco
       href: detach-disk.md
     - name: Redimensionar um disco
@@ -450,7 +445,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Usando o acelerador de gravação
       href: how-to-enable-write-accelerator.md
-    - name: Habilitar Ultra SSD
+    - name: Habilitar discos ultra
       href: disks-enable-ultra-ssd.md
     - name: Otimizar desempenho
       href: optimization.md
@@ -562,9 +557,9 @@ items:
     href: faq.md
 - name: Solucionar problemas
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 5a154ba0022a73b8acf9ded071ccfb13e62b7509
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3c7ef0b41167e396828063950a63574ad5b3a7c9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299129"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330793"
