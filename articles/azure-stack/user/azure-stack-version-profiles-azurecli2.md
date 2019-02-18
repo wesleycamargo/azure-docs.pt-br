@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765702"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329278"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -114,7 +114,12 @@ Antes de criar máquinas virtuais usando a CLI, entre em contato com o operador 
 
 Use as seguintes etapas para se conectar ao Azure Stack:
 
-1. Registre-se o seu ambiente de pilha do Azure executando o `az cloud register` comando.
+1. Registre-se o seu ambiente de pilha do Azure executando o `az cloud register` comando. Em alguns cenários, a conectividade de internet de saída direta é roteada por meio de um proxy ou firewall, que impõe a interceptação de SSL. Nesses casos, o `az cloud register` comando pode falhar com um erro como "Não é possível obter pontos de extremidade da nuvem". Para contornar esse erro, você pode definir as seguintes variáveis de ambiente:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
      a. Para registrar o *nuvem administrativa* ambiente, use:
 
