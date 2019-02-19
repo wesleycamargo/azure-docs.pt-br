@@ -3,7 +3,7 @@ title: Início Rápido do Azure – Definir e recuperar um segredo do Key Vault 
 description: Início Rápido que mostra como definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078381"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117095"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -58,14 +58,14 @@ Nesse ponto, sua conta do Azure é a única autorizada a executar operações ne
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Nesse caso, adicionamos uma senha que pode ser usada por um aplicativo. A senha é chamada **ExamplePassword**, e armazenamos o valor de **Pa$$w0rd** nele.
+Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Nesse caso, adicionamos uma senha que pode ser usada por um aplicativo. A senha é chamada **ExamplePassword**, e armazenamos o valor **hVFkk965BuUv** nela.
 
 1. Na página de propriedades do Key Vault, selecione **Segredos**.
 2. Clique em **Gerar/Importar**.
 3. Na tela **Criar um segredo**, escolha os seguintes valores:
     - **Opções de upload**: Manual.
     - **Nome**: ExamplePassword.
-    - **Valor**: Pa$$w0rd.
+    - **Valor**: hVFkk965BuUv
     - Deixe os outros valores com seus padrões. Clique em **Criar**.
 
 Quando receber a mensagem de que o segredo foi criado com êxito, clique nele na lista. Você pode ver algumas das propriedades. Se você clicar na versão atual, poderá ver o valor especificado na etapa anterior.

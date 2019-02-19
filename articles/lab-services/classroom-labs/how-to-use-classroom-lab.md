@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8ea1afbfb90a55ec1c34f5c59cf38ea5417118ff
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390908"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965011"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como acessar um laboratório de sala de aula, conecte-se à VM no laboratório e interrompa a VM. 
@@ -44,10 +44,8 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 
 ## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Conecte-se à máquina virtual em um laboratório de sala de aula
 
-1. Inicie a VM caso ainda não o tenha feito; selecione **Iniciar**.
+1. Inicie a VM caso ainda não o tenha feito; selecione **Iniciar** no bloco. 
 2. Selecione **Conectar** no bloco que representa a máquina virtual do laboratório que você deseja acessar. 
-
-    ![Exibir todos os laboratórios](../media/how-to-use-classroom-lab/connect-button.png)
 3. Salve o arquivo RDP (para VM Windows) no disco rígido e abra-o. 
 4. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
 

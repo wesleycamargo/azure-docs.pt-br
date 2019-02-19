@@ -4,19 +4,19 @@ description: Use este início rápido para fazer sua primeira pesquisa de imagem
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7603895d623bba9d5023379643b5ea9752344a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238123"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Início Rápido: pesquisar imagens com o SDK de Pesquisa de Imagem do Bing para Java
 
@@ -63,9 +63,10 @@ Instale as dependências do SDK de Pesquisa de Imagem do Bing usando Maven, Grad
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Enviar uma solicitação de pesquisa para a API de Pesquisa de Imagem do Bing
+## <a name="send-a-search-request-to-the-api"></a>Enviar uma solicitação de pesquisa para a API
 
 1. Usando `bingImages().search()`, envie a solicitação HTTP que contém a consulta de pesquisa. Salve a resposta como um `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -76,7 +77,7 @@ Instale as dependências do SDK de Pesquisa de Imagem do Bing usando Maven, Grad
 ## <a name="parse-and-view-the-result"></a>Analisar e exibir o resultado
 
 Analise os resultados da imagem retornados na resposta.
-Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como URL da miniatura, a URL original, juntamente com o número total de imagens devolvidas.  
+Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como a URL da miniatura, a URL original, juntamente com o número total de imagens retornadas.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

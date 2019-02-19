@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810415"
+ms.locfileid: "55882260"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -31,7 +31,7 @@ Este tutorial mostra como mover as VMs do Azure para outra região usando o Azur
 > * [Descartar os recursos na região de origem](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> Este documento explica como mover as VMs do Azure de uma região para outra no estado em que se encontram. Se o requisito é melhorar a disponibilidade movendo as VMs de um conjunto de disponibilidade para VMs fixas em zonas em outra região, consulte o tutorial aqui.
+> Este documento explica como mover as VMs do Azure de uma região para outra no estado em que se encontram. Se o requisito for melhorar a disponibilidade movendo as VMs em um conjunto de disponibilidade para VMs fixas em zonas em outra região, veja o tutorial [aqui](move-azure-VMs-AVset-Azone.md).
 
 ## <a name="verify-prerequisites"></a>Verificar pré-requisitos
 

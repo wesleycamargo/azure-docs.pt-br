@@ -10,15 +10,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/26/2018
-ms.openlocfilehash: 250f03809a182e541fb58f73469f46d2b281b69f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: 49fe9f51026c4cb096fd8248b53d2e5b5b574923
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756030"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236015"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início rápido: Usar o Node.js para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Usar o Node.js para consultar um banco de dados SQL do Azure
 
 Este artigo demonstra como usar o [Node.js](https://nodejs.org) para se conectar a um Banco de dados SQL do Azure. Depois você pode usar as instruções T-SQL para consultar dados.
 
@@ -26,7 +26,22 @@ Este artigo demonstra como usar o [Node.js](https://nodejs.org) para se conectar
 
 Para concluir este modelo, é necessário atender aos seguintes pré-requisitos:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Um banco de dados SQL do Azure. Você pode usar um destes guias de início rápido para criar e, em seguida, configurar um banco de dados no Banco de Dados SQL do Azure:
+
+  || Banco de dados individual | Instância gerenciada |
+  |:--- |:--- |:---|
+  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configurar | [Regra de firewall de IP no nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividade do local](sql-database-managed-instance-configure-p2s.md)
+  |Carregar dados|Adventure Works carregado por guia de início rápido|[Restaurar o Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restaurar ou importar Adventure Works do arquivo [BACPAC](sql-database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Os scripts deste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para uma instância de banco de dados ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
+
 
 - O software relacionado ao Node.js do seu sistema operacional:
 
@@ -36,12 +51,15 @@ Para concluir este modelo, é necessário atender aos seguintes pré-requisitos:
   
   - **Windows**, instale o Chocolatey e o Node.js, depois instale o driver ODBC e SQLCMD. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
-## <a name="get-database-connection"></a>Obter a conexão de banco de dados
+## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
 
-> [!IMPORTANT]
-> Você deve ter uma regra de firewall em vigor para o endereço IP público do computador em que você executa este tutorial. Caso esteja em um computador diferente ou tenha um endereço IP público diferente, crie uma [regra de firewall no nível de servidor usando o portal do Azure](sql-database-server-level-firewall-rule.md).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+
+2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL**.
+
+3. Na página **Visão geral**, examine o nome do servidor totalmente qualificado próximo ao **Nome do servidor** para um banco de dados individual ou o nome do servidor totalmente qualificado próximo ao **Host** para instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone **Copiar**. 
 
 ## <a name="create-the-project"></a>Criar o projeto
 

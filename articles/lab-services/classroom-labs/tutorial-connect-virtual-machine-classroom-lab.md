@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 1328835714086dcec71b0e9dd4d1916794f557a6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390177"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894421"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acessar um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, você, como aluno, conecta-se a uma máquina virtual (VM) em um laboratório de sala de aula. 
@@ -32,10 +32,10 @@ Neste tutorial, você executa as seguintes ações:
 
 ## <a name="use-the-registration-link"></a>Usar o link de registro
 
-1. Navegue até a **URL de registro** que você recebeu do professor/educador. 
-2. Entre no serviço usando sua conta da escola para concluir o registro. 
-3. Depois de registrado, confirme que consegue ver a máquina virtual do laboratório ao qual você tem acesso. 
-2. Aguarde até que a máquina virtual fique pronta e **inicie** a VM. Esse processo demora um pouco.  
+1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). 
+1. Entre no serviço usando sua conta da escola para concluir o registro. 
+2. Depois de registrado, confirme que consegue ver a máquina virtual do laboratório ao qual você tem acesso. 
+3. Aguarde até que a máquina virtual fique pronta e **inicie** a VM. Esse processo demora um pouco.  
 
     ![Iniciar a VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 

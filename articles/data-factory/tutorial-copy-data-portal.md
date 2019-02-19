@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c7e6a4da9880677fbc4aad76b820ba596058bb6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025242"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233856"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados SQL usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados SQL. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -36,7 +36,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Monitore as execuções de pipeline e de atividade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de *origem*. Se você não tiver uma conta de armazenamento, confira [Criar uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md) a fim de conhecer as etapas para criar uma.
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um banco de dados SQL, confira [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md) a fim de conhecer as etapas para criar um.
 
@@ -82,30 +82,30 @@ Agora, prepare seu armazenamento de blobs e o banco de dados SQL para o tutorial
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 Nesta etapa, você cria um data factory e inicia a interface do usuário do Data Factory para criar um pipeline no data factory. 
 
-1. Abra o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. No menu à esquerda, selecione **Novo** > **Dados + Análise** > **Data Factory**. 
+1. Abra o **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**. 
   
    ![Criação do novo data factory](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-1. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**. 
+3. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**. 
       
      ![Novo data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
   
    ![Mensagem de erro](./media/tutorial-copy-data-portal/name-not-available-error.png)
-1. Selecione a **assinatura** do Azure na qual deseja criar o data factory. 
-1. Em **Grupo de Recursos**, use uma das seguintes etapas:
+4. Selecione a **assinatura** do Azure na qual deseja criar o data factory. 
+5. Em **Grupo de Recursos**, use uma das seguintes etapas:
      
      a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
 
     b. Selecione **Criar novo**e insira o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
-1. Em **Versão**, selecione **V2**.
-1. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
-1. Selecione **Fixar no painel**. 
-1. Selecione **Criar**. 
-1. No painel, o bloco com o seguinte status é exibido: **Implantando o Data Factory**: 
+6. Em **Versão**, selecione **V2**.
+7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+8. Selecione **Fixar no painel**. 
+9. Selecione **Criar**. 
+10. No painel, o bloco com o seguinte status é exibido: **Implantando o Data Factory**: 
 
     ![Bloco Como implantar o Data Factory](media/tutorial-copy-data-portal/deploying-data-factory.png)
 1. Depois de finalizada a criação, a página **Data Factory** será exibida conforme mostrado na imagem.
@@ -127,7 +127,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
    ![Criar um pipeline](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
 1. Na guia **Geral** do pipeline, insira **CopyPipeline** para o **Nome** do pipeline.
 
-1. Na caixa de ferramentas de **Atividades**, expanda a categoria **DataFlow** e arraste e solte a atividade **Copiar** da caixa de ferramentas para a superfície do designer do pipeline. Especifique **CopyFromBlobToSql** para o **Nome**.
+1. Na caixa de ferramentas de **Atividades**, expanda a categoria **Move andTransform** e arraste e solte a atividade **Copiar Dados** da caixa de ferramentas para a superfície do designer do pipeline. Especifique **CopyFromBlobToSql** para o **Nome**.
 
     ![Atividade de cópia](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 

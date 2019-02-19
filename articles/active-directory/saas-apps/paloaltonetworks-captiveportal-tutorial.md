@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 15ddb29f090ca8dc14befc93e3377c181038b554
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816153"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Azure Active Directory ao Palo Alto Networks – Captive Portal
 
@@ -81,7 +82,7 @@ Para configurar e testar o logon único do Azure AD com o Palo Alto Networks –
 2. **[Configurar o logon único do Palo Alto Networks – Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Defina as configurações de logon único no aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)**: Teste o logon único do Azure AD com a usuária *Brenda Fernandes*.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)**: Configure Brenda Fernandes para usar o logon único do Azure AD.
-5. **[Criar um usuário de teste do Palo Alto Networks – Captive Portal](#create-palo-alto-networks-captive-portal-test-user)**: Crie um usuário da contraparte *Brenda Fernandes* no Palo Alto Networks – Captive Portal que esteja vinculado ao usuário do Azure AD.
+5. **Criar um usuário de teste da Palo Alto Networks – Captive Portal**: Crie um usuário da contraparte *Brenda Fernandes* no Palo Alto Networks – Captive Portal que esteja vinculado ao usuário do Azure AD.
 6. **[Testar o logon único](#test-single-sign-on)**: Verifique se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD

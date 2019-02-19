@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 026540290710d039dbc06c394ab538ebe2d7c12f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344662"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212916"
 ---
 De volta na _janela do terminal local_, adicione um remoto do Azure ao repositório Git local. Substitua  _&lt;deploymentLocalGitUrl-from-create-step>_ pela URL do Git remoto que você salvou de [Criar um aplicativo Web](#create-a-web-app).
 
@@ -21,7 +21,7 @@ De volta na _janela do terminal local_, adicione um remoto do Azure ao repositó
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Envie por push para o Azure remoto para implantar seu aplicativo com o comando a seguir. Quando solicitado a fornecer credenciais pelo Gerenciador de Credenciais do Git, insira as credenciais criadas em [Configurar um usuário de implantação](#configure-a-deployment-user), não as credenciais usadas para iniciar sessão no portal do Azure.
+Envie por push para o Azure remoto para implantar seu aplicativo com o comando a seguir. Quando solicitado a fornecer credenciais pelo Gerenciador de Credenciais do Git, insira as credenciais criadas em Configurar um usuário de implantação, não as credenciais usadas para entrar no portal do Azure.
 
 ```bash
 git push azure master

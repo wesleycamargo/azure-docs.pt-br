@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: Procure palavras com o dicionário bilíngue, Java – API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Java – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a localizar traduções alternativas para um termo e também exemplos de uso dessas traduções alternativas usando Java e a API de Tradução de Texto.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a1e59b8a6ceae3e2379a271a9ff55030f14a5622
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9c24d1f128267bcfd201de3aac27b81eb8b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223214"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961261"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Início Rápido: Procure palavras com o dicionário bilíngue Java
 
@@ -171,6 +171,12 @@ E, pronto, você já pode executar seu aplicativo de exemplo. Na linha de comand
 
 ```console
 gradle build
+```
+
+Quando o build for concluído, execute:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Resposta de exemplo

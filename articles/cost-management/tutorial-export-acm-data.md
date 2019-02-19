@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766394"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100668"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -71,7 +71,7 @@ Há três tipos de opções de exportação:
 
 **Exportação diária dos custos do mês atual** – a exportação inicial é executada imediatamente. As exportações seguintes são executadas no dia seguinte, na mesma hora da exportação inicial. Os últimos dados são agregados das exportações diárias anteriores.
 
-**Custos semanais dos últimos sete dias** – a exportação inicial é executada imediatamente. As exportações seguintes são executadas no dia da semana e na mesma hora da exportação inicial. Os custos referem-se aos últimos sete dias.
+**Exportação semanal dos custos dos últimos 7 dias** – a exportação inicial é executada imediatamente. As exportações seguintes são executadas no dia da semana e na mesma hora da exportação inicial. Os custos referem-se aos últimos sete dias.
 
 **Personalizado** – permite que você agende exportações semanal e mensalmente com opções de semana e mês atual. *A exportação inicial será executada imediatamente.*
 

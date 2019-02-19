@@ -1,22 +1,61 @@
 ---
 title: Solucionar problemas de replicação para recuperação de desastre de VMs VMware e servidores físicos para o Azure usando o Azure Site Recovery | Microsoft Docs
 description: Este artigo fornece informações sobre a solução de problemas comuns de replicação durante a recuperação de desastre de VMs VMware e servidores físicos para o Azure usando o Azure Site Recovery.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411468"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964760"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
 Você pode ver uma mensagem de erro específica ao proteger suas máquinas virtuais VMware ou servidores físicos usando o Azure Site Recovery. Este artigo descreve alguns problemas comuns que você pode encontrar ao replicar VMs VMware locais e servidores físicos no Azure utilizando o [Site Recovery](site-recovery-overview.md).
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Monitorar a integridade do Servidor de Processo para evitar problemas de replicação
+
+É recomendável monitorar a Integridade do PS (Servidor de Processo) no portal para garantir que a replicação esteja em andamento para os computadores de origem associados. No cofre, vá para Gerenciar > Infraestrutura do Site Recovery > Servidores de Configuração. Na folha Servidor de Configuração, clique no Servidor de Processo em Servidores Associados. A folha Servidor de Processo é aberta com as estatísticas de integridade. É possível acompanhar a utilização da CPU, o uso de memória, o status dos serviços de PS necessários para replicação, a data de validade do certificado e o espaço livre disponível. O status de todas as estatísticas deve estar na cor verde. 
+
+**É recomendável ter memória e uso da CPU abaixo de 70% e espaço livre acima de 25%**. Espaço livre refere-se ao espaço em disco do cache no Servidor de Processo, o qual será usado para armazenar os dados de replicação dos computadores de origem antes de carregar para o Azure. Se reduzir para menos de 20%, a replicação será limitada para todos os computadores de origem associados. Siga as [diretrizes de capacidade](./site-recovery-plan-capacity-vmware.md#capacity-considerations) para reconhecer a configuração necessária para replicar os computadores de origem.
+
+Assegure-se de que os serviços a seguir estão em execução no computador de PS. Iniciar ou reiniciar qualquer serviço que não está em execução.
+
+**Servidor de Processo Interno**
+
+* cxprocessserver
+* InMage PushInstall
+* Serviço de Upload de Log (LogUpload)
+* Serviço de Aplicativo InMage Scout
+* Agente dos Serviços de Recuperação do Microsoft Azure (obengine)
+* Agente do InMage Scout VX - Sentinel/Outpost (svagents)
+* tmansvc
+* Serviço de Publicação na World Wide Web (W3SVC)
+* MySQL
+* Serviço do Microsoft Azure Site Recovery (dra)
+
+**Expandir Servidor de Processo**
+
+* cxprocessserver
+* InMage PushInstall
+* Serviço de Upload de Log (LogUpload)
+* Serviço de Aplicativo InMage Scout
+* Agente dos Serviços de Recuperação do Microsoft Azure (obengine)
+* Agente do InMage Scout VX - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Servidor de Processo no Azure para failback**
+
+* cxprocessserver
+* InMage PushInstall
+* Serviço de Upload de Log (LogUpload)
+
+Certifique-se de que o StartType de todos os serviços esteja definido como **Automático ou Automático (Atraso na Inicialização)**. O agente dos Serviços de Recuperação do Microsoft Azure (obengine) não precisa ter o conjunto StartType, conforme acima.
 
 ## <a name="initial-replication-issues"></a>Problemas de replicação inicial
 
@@ -26,7 +65,7 @@ Falhas de replicação inicial geralmente são causadas por problemas de conecti
 
 A lista a seguir mostra maneiras para você verificar o computador de origem:
 
-*  Na linha de comando no servidor de origem, use Telnet para executar ping no servidor de processo através da porta HTTPS (a porta HTTPS padrão é 9443), executando o comando a seguir. O comando verifica se há problemas de conectividade de rede e problemas que bloqueiam a porta do firewall.
+*  Na linha de comando do servidor de origem, use Telnet para executar ping no servidor de processo por meio da porta HTTPS, executando o comando a seguir. A Porta HTTPS 9443 é o padrão usado pelo Servidor de Processo para enviar e receber tráfego de replicação. É possível modificar essa porta no momento do registro. O comando a seguir verifica problemas de conectividade de rede e problemas que bloqueiam a porta de firewall.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ A lista a seguir mostra maneiras para você verificar o computador de origem:
    > [!NOTE]
    > Use Telnet para testar a conectividade. Não use `ping`. Se o Telnet não estiver instalado, conclua as etapas listadas em [instalar o cliente Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
+   Se o Telnet conectar-se com êxito à porta de PS, uma tela em branco será exibida.
+
    Se você não pode se conectar ao servidor de processo, permita tráfego pela porta de entrada 9443 no servidor de processo. Por exemplo, talvez seja necessário permitir tráfego pela porta de entrada 9443 no servidor de processo, se sua rede tiver uma rede de perímetro ou sub-rede filtrada. Em seguida, verifique se o problema ainda ocorre.
 
-*  Verifique o status do serviço **InMage Scout VX Agent – Sentinel/OutpostStart**. Se o serviço não está em execução, inicie o serviço e, em seguida, verifique se o problema ainda ocorre.   
+*  Se o Telnet tiver êxito e o computador de origem relatar que o PS não está acessível, abra o navegador da Web no computador de origem e verifique se o endereço https://<PS_IP>:<PS_Data_Port>/ está acessível.
+
+    Erro de certificado HTTPS é esperado ao atingir esse endereço. Ignorar o erro de certificado e continuar deverá encerrar em 400 – Solicitação Incorreta, o que significa que o servidor não pode atender à solicitação do navegador e que a conexão HTTPS padrão com o servidor está funcionando bem e corretamente.
+
+    Se isso não der certo, os detalhes da mensagem de erro no navegador fornecerão orientações. Por exemplo, se a autenticação do proxy estiver incorreta, o servidor proxy retornará 407 – Autenticação de Proxy Obrigatória juntamente com as ações necessárias na mensagem de erro. 
+
+*  Verifique os seguintes logs na VM de origem quanto a erros relacionados às falhas de upload da rede:
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>Alterar o servidor de processo
 
 A lista a seguir mostra maneiras para você verificar o servidor de processo:
+
+> [!NOTE]
+> O Servidor de Processo deve ter um endereço IPv4 estático e não deve ter o IP de NAT configurado nele.
+
+* **Verifique a conectividade entre os computadores de origem e o Servidor de Processo**
+1. Caso tenha resposta para Telnet do computador de origem e ainda assim o PS não puder ser acessado a partir da origem, verifique a conexão ponta a ponta com cxprocessserver da VM de origem, executando a ferramenta cxpsclient na VM de origem:
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    Verifique os logs gerados no PS nos diretórios a seguir para obter detalhes sobre os erros correspondentes:
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. Verifique os seguintes logs no PS, caso não haja pulsação do PS:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **Verifique se o servidor de processo está enviando dados por push ativamente para o Azure**.
 

@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 08d9978134ce214a468691ec367fb1797f6e86fc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7536b5d0815351d2e6cb67705060d2e1046c970
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457744"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857865"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consultar um contêiner do Azure Cosmos
 
-Este artigo explica como consultar um contêiner (coleção, grafo, tabela) no Azure Cosmos DB.
+Este artigo explica como consultar um contêiner (coleção, grafo ou tabela) no Azure Cosmos DB.
 
 ## <a name="in-partition-query"></a>Consulta na partição
 
-Quando você consulta dados de contêineres, se a consulta tem um filtro de chave de partição especificado, o Azure Cosmos DB roteia automaticamente a consulta para as partições que correspondem aos valores das chaves de partição especificados no filtro. Por exemplo, a consulta a seguir é roteada para a partição de DeviceId que contém todos os documentos correspondente ao valor de chave de partição "XMS-0001".
+Quando você consulta dados de contêineres, se a consulta tiver um filtro de chave de partição especificado, o Azure Cosmos DB lidará com a consulta automaticamente. Ele encaminha a consulta para as partições correspondentes aos valores de chave de partição especificados no filtro. Por exemplo, a consulta a seguir é roteada para a partição `DeviceId`, que contém todos os documentos correspondentes ao valor de chave de partição `XMS-0001`.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -30,7 +30,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 ## <a name="cross-partition-query"></a>Consulta entre partições
 
-A consulta a seguir não tem um filtro na chave de partição (DeviceId) e é distribuída para todas as partições em que ela é executada no índice da partição. Para executar uma consulta entre partições, defina **EnableCrossPartitionQuery** como true (ou x-ms-documentdb-query-enablecrosspartition na API REST).
+A consulta a seguir não tem um filtro na chave de partição (`DeviceId`) e é distribuída para todas as partições em que ela é executada no índice da partição. Para executar uma consulta entre partições, defina `EnableCrossPartitionQuery` como true (ou `x-ms-documentdb-query-enablecrosspartition` na API REST).
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading
@@ -40,11 +40,11 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-O Cosmos DB dá suporte a funções de agregação COUNT, MIN, MAX e AVG em contêineres usando o SQL. As funções de agregação de contêineres começa na versão 1.12.0 do SDK e posteriores. As consultas devem incluir um único operador de agregação e um único valor na projeção.
+O Azure Cosmos DB dá suporte a funções de agregação COUNT, MIN, MAX e AVG em contêineres usando o SQL. As funções de agregação de contêineres começa na versão 1.12.0 do SDK e posteriores. As consultas devem incluir um único operador de agregação e um único valor na projeção.
 
 ## <a name="parallel-cross-partition-query"></a>Consulta entre partições em paralelo
 
-Os SDKs do Cosmos DB 1.9.0 e versões superiores dão suporte a opções de execução de consultas paralelas.  Consultas entre partições em paralelo permitem que você execute consultas entre partições de baixa latência. Por exemplo, a consulta a seguir é configurada para ser executada paralelamente entre partições.
+Os SDKs do Azure Cosmos DB 1.9.0 e versões superiores dão suporte a opções de execução de consultas paralelas. Consultas entre partições em paralelo permitem que você execute consultas entre partições de baixa latência. Por exemplo, a consulta a seguir é configurada para ser executada paralelamente entre partições.
 
 ```csharp
 // Cross-partition Order By Query with parallel execution
@@ -57,15 +57,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- **MaxDegreeOfParallelism**: Define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como -1, o grau de paralelismo será gerenciado pelo SDK. Se o MaxDegreeOfParallelism não for especificado nem definido como 0, que é o valor padrão, haverá uma única conexão de rede com as partições do contêiner.
+- **MaxDegreeOfParallelism**: Define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como -1, o SDK gerenciará o grau de paralelismo. Se `MaxDegreeOfParallelism` não estiver especificado ou definido como 0, que é o valor padrão, haverá uma conexão de rede individual com as partições do contêiner.
 
-- **MaxBufferedItemCount**: Troca latência de consulta versus utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
+- **MaxBufferedItemCount**: Troca latência de consulta versus utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
 
-Tendo o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem de uma execução serial. Ao executar uma consulta entre partições que inclui operadores de classificação (ORDER BY e/ou TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
+Com o mesmo estado da coleção, uma consulta paralela retorna resultados na mesma ordem de uma execução serial. Ao executar uma consulta entre partições que inclui operadores de classificação (ORDER BY, TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições. Ela mescla parcialmente os resultados classificados no lado do cliente para produzir resultados ordenados globalmente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte os seguintes artigos para saber mais sobre particionamento no Cosmos DB:
+Consulte os seguintes artigos para saber mais sobre o particionamento no Azure Cosmos DB:
 
 - [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 - [Chaves de partição sintética no Azure Cosmos DB](synthetic-partition-keys.md)

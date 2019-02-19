@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249873"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108748"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Azure Data Box Gateway (Versão prévia)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Azure Data Box Gateway (versão prévia)
 
 
 ## <a name="introduction"></a>Introdução
@@ -121,13 +121,13 @@ Execute estas etapas no cliente Linux conectado ao Edge do Data Box.
 
 2. Depois que o cliente NFS for instalado, use o seguinte comando para montar o compartilhamento NFS criado em seu dispositivo do Data Box Gateway:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     Antes de configurar as montagens, verifique se os diretórios que atuarão como pontos de montagem em seu computador local já foram criados e, também, se eles não contêm arquivos ou subpastas.
 
     O exemplo a seguir mostra como se conectar via NFS a um compartilhamento no dispositivo do Gateway. O IP do dispositivo virtual é `10.10.10.60`, o compartilhamento `mylinuxshare2` é montado no ubuntuVM e `/home/databoxubuntuhost/gateway` é o ponto de montagem.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > As seguintes condições são aplicáveis à versão prévia:
@@ -146,6 +146,6 @@ Neste tutorial, você aprendeu tópicos do Data Box Gateway, como:
 Avance para o próximo tutorial para aprender a administrar seu Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Usar a interface do usuário Web local para administrar o Gateway do Data Box](https://aka.ms/dbg-docs)
+> [Usar a interface do usuário Web local para administrar o Data Box Gateway](https://aka.ms/dbg-docs)
 
 

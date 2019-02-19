@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099151"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117741"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware (Versão Prévia)
 
@@ -66,7 +66,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 
 Antes de começar:
 
-- Revise os requisitos de rede para implantar um Data Box Gateway e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Revise os requisitos de rede para implantar um Data Box Gateway e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Garanta que a largura de banda mínima da Internet seja de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
 
 ## <a name="check-the-host-system"></a>Verificar o sistema host
@@ -77,7 +77,7 @@ Para criar um dispositivo virtual, você precisa de:
  
   * Um mínimo de quatro núcleos.
   * Pelo menos 8 GB de RAM. 
-  * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet. 
+  * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet.
   * Um disco de SO de 250 GB.
   * Um disco virtual de 2 TB para dados.
 * Cliente VMware vSphere em seu sistema para gerenciar o host ESXi.
@@ -89,7 +89,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 1. Copie a imagem do dispositivo virtual no seu sistema. Você fez o download dessa imagem virtual (dois arquivos) por meio do portal do Azure. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
 
-2. Entre no servidor ESXi usando o cliente Web vSphere. Você precisa ter privilégios de administrador para criar uma máquina virtual.
+2. Entre no servidor ESXi por meio de um navegador nesta URL: `https://<IP address of the ESXi server>`. Você precisa ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -149,20 +149,24 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    Role a tela para baixo até ver o **Novo disco rígido** e expanda-o para exibir as configurações. Defina o **Nó do Dispositivo Virtual** como **Controlador IDE 0**. Clique em **Próximo**.
+    Role a tela para baixo até ver o **Novo disco rígido** e expanda-o para exibir as configurações. Defina o **Nó do Dispositivo Virtual** como **Controlador IDE 0**.
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. Na página **Pronto para Concluir** , examine todas as configurações associadas à nova máquina virtual. Verifique se a CPU é 4, memória é 8192 MB, adaptador de rede é 1 e Disco rígido 2 tem o controlador IDE 0. Clique em **Concluir**. 
+17. (Opcional) *Execute esta etapa somente se você estiver executando o VMware ESXi Server 6.7*. Na página **Personalizar as configurações**, clique em **Opções de VM**. Acesse **Opções de inicialização > Firmware** e altere-a para **BIOS**. Por padrão, o valor é definido como EFI. Clique em **Próximo**.
+
+    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+
+18. Na página **Pronto para Concluir** , examine todas as configurações associadas à nova máquina virtual. Verifique se a CPU é 4, memória é 8192 MB, adaptador de rede é 1 e Disco rígido 2 tem o controlador IDE 0. Clique em **Concluir**.
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Sua máquina virtual está agora provisionada. Você verá uma notificação sobre isso, e a nova máquina virtual será adicionada à lista de VMs. 
+Sua máquina virtual está agora provisionada. Você verá uma notificação sobre isso, e a nova máquina virtual será adicionada à lista de VMs.
 
 ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-A próxima etapa é ligar esse computador e obter o endereço IP.
+A próxima etapa é ativar essa VM e obter o endereço IP.
 
 > [!NOTE]
 > Recomendamos que você não instale as ferramentas do VMware em seu dispositivo virtual (como provisionado acima). A instalação das ferramentas do VMware resultará em uma configuração sem suporte.

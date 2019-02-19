@@ -7,16 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/24/2018
 ms.author: victorh
-ms.openlocfilehash: 872227e0521bd54e6bf7fdbe3626dfca34170863
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 73b8dfd741543560cd6ebf26178618a70bdae5f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257718"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992765"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Tutorial: Criar uma zona privada do DNS do Azure usando o Azure PowerShell
 
 Este tutorial explica as etapas para criar sua primeira zona e registro DNS privado usando o Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -46,25 +48,25 @@ These instructions assume you have already installed and signed in to Azure Powe
 Primeiro, crie um grupo de recursos para conter a zona DNS: 
 
 ```azurepowershell
-New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
+New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-private-zone"></a>Criar uma zona de DNS privado
 
-Uma zona DNS é criada usando o cmdlet `New-AzureRmDnsZone` com um valor de *Privado* para o parâmetro **ZoneType**. O exemplo a seguir cria uma zona DNS chamada **contoso.local** no grupo de recursos chamado **MyAzureResourceGroup** e a disponibiliza na rede virtual chamada **MyAzureVnet** .
+Uma zona DNS é criada usando o cmdlet `New-AzDnsZone` com um valor de *Privado* para o parâmetro **ZoneType**. O exemplo a seguir cria uma zona DNS chamada **contoso.local** no grupo de recursos chamado **MyAzureResourceGroup** e a disponibiliza na rede virtual chamada **MyAzureVnet** .
 
 Observe que, se o parâmetro **ZoneType** for omitido, a zona será criada como uma zona pública e, portanto, ele é necessário para criar uma zona privada. 
 
 ```azurepowershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
-$vnet = New-AzureRmVirtualNetwork `
+$backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `
   -Location eastus `
   -Name myAzureVNet `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
    -ZoneType Private `
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
@@ -76,16 +78,16 @@ Se você quisesse criar uma zona apenas para a resolução de nome (sem criaçã
 
 ### <a name="list-dns-private-zones"></a>Listar zonas de DNS privado
 
-Omitindo o nome da zona de `Get-AzureRmDnsZone`, você pode enumerar todas as zonas em um grupo de recursos. Essa operação retorna uma matriz de objetos de zona.
+Omitindo o nome da zona de `Get-AzDnsZone`, você pode enumerar todas as zonas em um grupo de recursos. Essa operação retorna uma matriz de objetos de zona.
 
 ```azurepowershell
-Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
-Omitindo o nome da zona e o nome do grupo de recursos do `Get-AzureRmDnsZone`, você pode enumerar todas as regiões na assinatura do Azure.
+Omitindo o nome da zona e o nome do grupo de recursos do `Get-AzDnsZone`, você pode enumerar todas as regiões na assinatura do Azure.
 
 ```azurepowershell
-Get-AzureRmDnsZone
+Get-AzDnsZone
 ```
 
 ## <a name="create-the-test-virtual-machines"></a>Criar as máquinas virtuais de teste
@@ -93,7 +95,7 @@ Get-AzureRmDnsZone
 Agora, crie duas máquinas virtuais para que você possa testar a zona DNS privada:
 
 ```azurepowershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM01" `
     -Location "East US" `
@@ -102,7 +104,7 @@ New-AzureRmVm `
     -addressprefix 10.2.0.0/24 `
     -OpenPorts 3389
 
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM02" `
     -Location "East US" `
@@ -116,12 +118,12 @@ Isso levará alguns minutos para ser concluído.
 
 ## <a name="create-an-additional-dns-record"></a>Criar um registro DNS adicional
 
-Você cria conjuntos de registros usando o cmdlet `New-AzureRmDnsRecordSet`. O exemplo a seguir cria um registro com o nome relativo **db** na Zona DNS **contoso.local** no grupo de recursos **MyAzureResourceGroup**. O nome totalmente qualificado do conjunto de registros é **db.contoso.local**. O tipo de registro é "A", com o endereço IP "10.2.0.4" e a TTL de 3600 segundos.
+Você cria conjuntos de registros usando o cmdlet `New-AzDnsRecordSet`. O exemplo a seguir cria um registro com o nome relativo **db** na Zona DNS **contoso.local** no grupo de recursos **MyAzureResourceGroup**. O nome totalmente qualificado do conjunto de registros é **db.contoso.local**. O tipo de registro é "A", com o endereço IP "10.2.0.4" e a TTL de 3600 segundos.
 
 ```azurepowershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
-   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
+   -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
 ### <a name="view-dns-records"></a>Exibir registros DNS
@@ -129,13 +131,13 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 Para listar os registros DNS em sua zona, execute:
 
 ```azurepowershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
 Lembre-se de que você não verá registros A criados automaticamente para as duas máquinas virtuais de teste.
 
 ## <a name="test-the-private-zone"></a>Testar a zona privada
 
-Agora você pode testar a resolução de nome para a zona privada **contoso. local**.
+Agora você pode testar a resolução de nome para a zona privada **contoso.local**.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Configurar VMs para permitir ICMP de entrada
 
@@ -198,7 +200,7 @@ Repita para myVM02.
 Quando não for mais necessário, exclua o grupo de recursos **MyAzureResourceGroup** para excluir os recursos criados neste tutorial.
 
 ```azurepowershell
-Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
+Remove-AzResourceGroup -Name MyAzureResourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

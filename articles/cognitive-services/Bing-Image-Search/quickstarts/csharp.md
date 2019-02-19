@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Use este Início Rápido para enviar solicitações de pesquisa de imagens para a API REST de Pesquisa de Imagem do Bing usando C# e receba respostas JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: af67ca78921e677283148c4cb0350162eeb225f5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181972"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238174"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Início Rápido: Pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e C#
 
-Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e exibir um resultado de pesquisa da resposta JSON. Esse aplicativo C# simples envia uma consulta de pesquisa de imagem HTTP para a API e exibe a URL da primeira imagem retornada.
+Use este guia de início rápido para começar a enviar solicitações de pesquisa para a API de Pesquisa de Imagem do Bing. Esse aplicativo C# envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
-
-O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) com anotações de código e tratamentos de erro adicionais.
+O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) com anotações e tratamentos de erro adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
@@ -31,8 +29,6 @@ O código-fonte para esse exemplo está disponível [no GitHub](https://github.c
 * Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
-Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
@@ -101,7 +97,7 @@ namespace BingSearchApisQuickstart
 
 No método `BingImageSearch`, execute as seguintes etapas.
 
-1. Construa o URI para a solicitação de pesquisa. Observe que o termo de pesquisa `SearchTerm` deve ser formatado antes de ser acrescentado à cadeia de caracteres.
+1. Construa o URI para a solicitação de pesquisa. O termo de pesquisa `SearchTerm` deve ser formatado antes de ser acrescentado à cadeia de caracteres.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -110,7 +106,7 @@ No método `BingImageSearch`, execute as seguintes etapas.
     //...
     ```
 
-2. Execute a solicitação da Web e obtenha a resposta como uma cadeia de caracteres JSON.
+2. Envie a solicitação da Web e obtenha a resposta como uma cadeia de caracteres JSON.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -157,7 +153,7 @@ No método `BingImageSearch`, execute as seguintes etapas.
     ```  
 
 
-## <a name="json-response"></a>Resposta JSON
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 As respostas da API de Pesquisa de Imagem do Bing são retornadas como JSON. Este exemplo de resposta foi truncado para mostrar um único resultado.
 
@@ -201,7 +197,7 @@ As respostas da API de Pesquisa de Imagem do Bing são retornadas como JSON. Est
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -213,7 +209,8 @@ As respostas da API de Pesquisa de Imagem do Bing são retornadas como JSON. Est
 ## <a name="see-also"></a>Consulte também
 
 * [O que é a Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para as APIs de Pesquisa do Bing. 
 * [Obtenha uma chave de acesso de Serviços Cognitivos grátis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
 * [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

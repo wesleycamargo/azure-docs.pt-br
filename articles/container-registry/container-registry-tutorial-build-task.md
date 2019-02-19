@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756352"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868558"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar builds de imagem de contêiner na nuvem ao confirmar o código-fonte
 
@@ -51,6 +51,8 @@ As Tarefas de ACR são compatíveis com os seguintes gatilhos atualmente:
 
 * Confirmar para um repositório Git
 * Atualização de imagem base
+
+Neste tutorial, a tarefa ACR cria e envia por push uma única imagem de contêiner especificada em um Dockerfile. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md) (no momento em versão prévia), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
 
 ## <a name="create-a-build-task"></a>Criar uma tarefa de build
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > Se você já tiver criado tarefas durante a versão prévia com o comando `az acr build-task`, essas tarefas precisarão ser recriadas usando o comando [az acr task][az-acr-task].
 
-Esta tarefa especifica que qualquer código de tempo é confirmado para o branch *mestre* no repositório especificado por `--context`, as Tarefas do ACR compilarão a imagem de contêiner do código presente nesse branch. O Dockerfile especificado pelo `--file` da raiz do repositório é usado. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão de marca da imagem, garantindo que a imagem criada esteja correlacionada a um build específico e seja marcada exclusivamente.
+Esta tarefa especifica que qualquer código de tempo é confirmado para o branch *mestre* no repositório especificado por `--context`, as Tarefas do ACR compilarão a imagem de contêiner do código presente nesse branch. O Dockerfile especificado pelo `--file` da raiz do repositório é usado para criar a imagem. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão de marca da imagem, garantindo que a imagem criada esteja correlacionada a um build específico e seja marcada exclusivamente.
 
 A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é semelhante à seguinte:
 

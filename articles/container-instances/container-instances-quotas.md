@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/17/2018
+ms.date: 02/08/2019
 ms.author: danlep
-ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075491"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160570"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
 
@@ -28,13 +28,13 @@ As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões
 
 | Local padrão | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canadá Central | Linux | 4 | 16 |
+| Canadá Central, Centro dos EUA, Leste dos EUA 2 | Linux | 4 | 16 |
 | Leste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA, Oeste dos EUA 2 | Linux | 4 | 14 |
 | Leste do Japão | Linux | 2 | 8 |
-| Leste da Austrália, Leste dos EUA 2, Sudeste Asiático | Linux | 2 | 7 |
+| Leste da Austrália, Sudeste Asiático | Linux | 2 | 7 |
 | Índia Central, Ásia Oriental, Centro-Norte dos EUA, Centro-Sul dos EUA, Sul da Índia | Linux | 2 | 3,5 |
 | Leste dos EUA, Europa Ocidental, Oeste dos EUA |  Windows | 4 | 14 |
-| Leste da Austrália, Canadá Central, Índia Central, Ásia Oriental, Leste dos EUA 2, Leste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sul da Índia, Sudeste Asiático, Oeste dos EUA 2 |  Windows | 2 | 3,5 |
+| Leste da Austrália, Canadá Central, Índia Central, EUA Central, Ásia Oriental, Leste dos EUA 2, Leste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sul da Índia, Sudeste Asiático, Oeste dos EUA 2 |  Windows | 2 | 3,5 |
 
 As instâncias de contêiner criadas dentro desses limites de recursos estão sujeitas à disponibilidade dentro da região de implantação. Quando uma região está sob carga pesada, você pode enfrentar uma falha durante a implantação de instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de memória e CPU inferiores ou tente implantar em um momento posterior.
 

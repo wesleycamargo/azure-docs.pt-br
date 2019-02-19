@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169307"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175720"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -78,7 +78,7 @@ Você também pode experimentar a [Solução de problemas para problemas de empa
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 
 As seguintes restrições se aplicam quando as redes virtuais estão pareadas globalmente:
-- As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
+- As redes virtuais podem existir em qualquer região da nuvem pública do Azure e em regiões de nuvem do Azure na China, mas não em nuvens do Azure Governamental.
 - Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno do Azure em uma rede virtual com cobertura global. O balanceador de carga e os recursos que se comunicam com ele devem estar na mesma região.
 - Você não pode usar gateways remotos ou permitir o tráfego de gateway. Para usar gateways remotos ou permitir trânsito de gateway, as redes virtuais emparelhadas devem estar na mesma região.
 

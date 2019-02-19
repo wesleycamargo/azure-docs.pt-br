@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818644"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893119"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -153,7 +153,7 @@ Nesta seção, você cria um notebook no workspace do Azure Databricks e executa
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-6. Nesse bloco de código, substitua os valores de espaço reservado `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções [Reservar a configuração da conta de armazenamento](#config). Substitua o valor de espaço reservado `storage-account-name` pelo nome da sua conta de armazenamento.
+6. Nesse bloco de código, substitua os valores de espaço reservado `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções Reservar a configuração da conta de armazenamento. Substitua o valor de espaço reservado `storage-account-name` pelo nome da sua conta de armazenamento.
 
 7. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 

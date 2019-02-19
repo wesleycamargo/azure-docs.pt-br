@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824433"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112539"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -33,7 +33,7 @@ Este documento explica os vários cenários em que você desejará mover as VMs 
 Os clientes movem as VMs pelos seguintes motivos:
 
 - Se você já tiver feito a implantação em uma região e for adicionado o suporte a uma nova região que seja mais próxima aos usuários finais do aplicativo ou do serviço, você desejará **mover as VMs no estado em que se encontram para a nova região**, a fim de reduzir a latência. A mesma abordagem será adotada se você desejar consolidar assinaturas ou se houver regras de governança/da organização que exigem a movimentação. 
-- Se a VM foi implantada como uma VM de instância única ou como parte de um conjunto de disponibilidade e você deseja aumentar o SLA de disponibilidade, **mova as VMs para um conjunto de disponibilidade**. 
+- Se a VM foi implantada como uma VM de instância única ou como parte de um conjunto de disponibilidade e você deseja aumentar os SLAs de disponibilidade, **mova as VMs para uma zona de disponibilidade**. 
 
 ## <a name="how-to-move-azure-vms"></a>Como mover as VMs do Azure
 A movimentação das VMs envolve as seguintes etapas:
@@ -97,7 +97,7 @@ Com base nas [arquiteturas](#typical-architectures-for-a-multi-tier-deployment) 
 
 2. **VMs em cada camada implantadas em um conjunto de disponibilidade** – você poderá optar por configurar e colocar as VMs de um conjunto de disponibilidade em Zonas de Disponibilidade separadas quando optar por habilitar a replicação na VM usando o Azure Site Recovery. O SLA de disponibilidade será de 99,9% depois que a operação de movimentação for concluída.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Próximas etapas

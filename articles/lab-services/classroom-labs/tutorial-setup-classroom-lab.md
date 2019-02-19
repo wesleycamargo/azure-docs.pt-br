@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095746"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998511"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -28,7 +28,7 @@ Neste tutorial, você executa as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório de sala de aula
-> * Configurar o laboratório de sala de aula
+> * Adicionar usuários ao laboratório
 > * Enviar link de registro para estudantes
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,13 +43,12 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 2. Selecione **Iniciar sessão** e insira suas credenciais. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
 3. Na janela **Novo laboratório**, execute as seguintes ações: 
     1. Especifique um **nome** para o laboratório. 
-    2. Especifique o **número de usuários** máximo permitido no laboratório. 
+    2. Especifique o **número máximo de máquinas virtuais** no laboratório. É possível aumentar ou diminuir o número de VMs após criar o laboratório ou em um laboratório existente. Para saber mais, confira [Update number of VMs in a lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab) (Atualizar número de VMs em um laboratório)
     6. Clique em **Salvar**.
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, siga estas etapas:
     1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. 
-    2. Selecione a **região** na qual você deseja criar as VMs. 
     3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. 
     4. Selecione **Avançar**.
 
@@ -69,17 +68,15 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 7. Após a configuração do modelo ser concluída, você verá a seguinte página: 
 
     ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. As seguintes etapas do tutorial são opcionais: 
+8. Na página **Configurar modelo**, execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
     1. Inicie a VM modelo selecionando **Iniciar**.
     2. Conecte-se à VM modelo selecionando **Conectar**. 
     3. Instale e configure software em sua VM modelo. 
     4. **Pare** a VM.  
     5. Insira uma **descrição** do modelo
-
-        !["Avançar" na página de configuração do modelo](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Selecione **Avançar** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as seguintes ações. 
-    1. Para publicar o modelo imediatamente, marque a caixa de seleção *Eu entendo que não posso modificar o modelo depois da publicação. Esse processo só pode ser feito uma vez e pode levar até uma hora* e selecione **Publicar**.  
+    1. Publicar o modelo imediatamente e selecionar **Publicar**.  
 
         > [!WARNING]
         > Depois de publicar, você não pode cancelar a publicação. 
@@ -103,7 +100,9 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
 1. Selecione **Usuários** no menu à esquerda. Por padrão, a opção **Restringir acesso** está habilitada. Quando essa configuração está habilitada, um usuário não pode se registrar com o laboratório mesmo que o usuário tenha o link de registro, a menos que o usuário esteja na lista de usuários. Somente os usuários na lista podem se registrar no laboratório usando o link de registro enviado. Neste procedimento, você pode adicionar usuários à lista. Como alternativa, você pode desativar a opção **Restringir acesso**, o que permite que os usuários se registrem no laboratório, desde que eles tenham o link de registro. 
 2. Selecione **Adicionar usuários** na barra de ferramentas. 
-3. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
+
+    ![Botão Adicionar usuários](../media/how-to-configure-student-usage/add-users-button.png)
+1. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
 
     ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Clique em **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 

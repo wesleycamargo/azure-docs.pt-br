@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902152"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982396"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cabear e conectar-se ao Azure Data Box
 
@@ -40,7 +40,7 @@ Antes de começar, verifique se:
     - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
 6. Você deve ter acesso a uma superfície plana na qual possa colocar o Data Box. Caso deseje colocar o dispositivo em uma prateleira de rack padrão, você precisará de um slot 7U no rack de seu datacenter. Você pode colocar o dispositivo no rack na posição horizontal ou vertical.
 7. Você comprou os cabos a seguir para conectar o Data Box ao computador host.
-    - Dois cabos de cobre SFP+ Twinax de 10 GbE (usar com adaptadores de rede DATA 1 ou DATA 2). O Data Box tem os Adaptadores Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T com adaptador de rede PCI Express 3.0; portanto, os cabos compatíveis com esse adaptador devem funcionar. Por exemplo, um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M foi usado para teste interno.
+    - Um ou mais cabos de cobre SFP+ Twinax de 10 GbE ou cabos de fibra ótica SFP+ (usar com adaptadores de rede DATA 1 ou DATA 2). O Data Box tem os Adaptadores Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T com adaptador de rede PCI Express 3.0; portanto, os cabos compatíveis com esse adaptador devem funcionar. Por exemplo, um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M foi usado para teste interno.
     - Um cabo de rede RJ-45 CAT 6 (usar com adaptador de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps respectivamente)
 
@@ -57,7 +57,7 @@ Execute as etapas a seguir para cabear seu dispositivo.
     1. Conecte o cabo de alimentação ao local de entrada de energia identificado. A outra extremidade do cabo de alimentação deve estar conectada a uma unidade de distribuição de energia.
     2. Use o cabo RJ-45 CAT 6 para conectar a porta MGMT em uma extremidade e um laptop na outra extremidade.            
     3. Use o cabo RJ-45 CAT 6 para conectar-se à porta DATA 3 em uma extremidade. A DATA 3 está configurada como 10 GbE, se a conexão for via cabo RJ-45 CAT 6A, e como 1 GbE, se a conexão for via cabo RJ-45 CAT 6.
-    4. Use os cabos de cobre 10 GbE SFP + Twinax para conectar as portas DATA 1 e DATA 2 respectivamente. 
+    4. Dependendo das interfaces de rede, convém se conectar para transferência de dados, use até dois cabos de cobre SFP+ Twinax de 10 GbE ou de fibra ótica SFP+ para conectar as portas DATA 1 e DATA 2, respectivamente. 
     5. As outras extremidades dos cabos das portas de dados estão conectadas ao computador host por um switch de 10 GbE.
 
 4. Localize o botão de energia na parte frontal do painel do dispositivo de operação. Ligar o dispositivo.

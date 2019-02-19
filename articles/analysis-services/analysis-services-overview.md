@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189472"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243847"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -140,19 +140,21 @@ O modo DirectQuery* aproveita o banco de dados relacional back-end para armazena
 
 \* A disponibilidade de recursos depende da camada.
 
-## <a name="supported-datasources"></a>Fontes de dados com suporte
+## <a name="supported-data-sources"></a>Fontes de dados com suporte
 
 Modelos tabulares no Azure Analysis Services dão suporte a uma ampla variedade de fontes de dados, desde arquivos de texto simples até Big Data no Azure Data Lake Store. Para saber mais, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
 ## <a name="your-data-is-secure"></a>Seus dados estão seguros
 
-O Azure Analysis Services fornece segurança para os dados confidenciais em vários níveis. No nível do servidor: Firewall, autenticação do Azure, funções de administrador do servidor e Criptografia do Servidor. E no nível do modelo de dados, funções de usuário, segurança em nível de objeto e em nível de linha garantem que os dados estejam seguros e sejam vistos apenas pelos usuários que desejam vê-los.
+O Azure Analysis Services fornece segurança para os dados confidenciais em vários níveis. Como um serviço do Azure, o Analysis Services fornece um nível **Básico** de ataques de DDoS (negação de serviço distribuído) habilitado automaticamente como parte da plataforma Azure. Para saber mais, confira [Visão geral de Proteção contra DDoS do Azure Standard](../virtual-network/ddos-protection-overview.md). 
+
+No nível do servidor, o Analysis Services fornece firewall, autenticação do Azure, funções de administrador do servidor e criptografia do servidor. No nível do modelo de dados, funções de usuário, segurança em nível de objeto e em nível de linha garantem que os dados estejam seguros e sejam vistos apenas pelos usuários que desejam vê-los.
 
 ### <a name="firewall"></a>Firewall
 
-O Firewall do Azure Analysis Services bloqueia todas as conexões de clientes que não sejam os endereços IP especificados nas regras. Configure as regras especificando os endereços IP permitidos por IPs de clientes individuais ou por intervalo. As conexões do Power BI (serviço) também podem ser permitidas ou bloqueadas. Configure o firewall e as regras no portal ou usando o PowerShell. Para saber mais, consulte [Configurar um firewall de servidor](analysis-services-qs-firewall.md).
+O Firewall do Azure Analysis Services bloqueia todas as conexões de clientes que não sejam os endereços IP especificados nas regras. Por padrão, a proteção de firewall não está habilitada para novos servidores. É recomendável que a proteção de firewall fique habilitada e que as regras sejam configuradas, como parte de um script de provisionamento do servidor ou no portal, imediatamente após o servidor ser criado. Configure as regras especificando os endereços IP permitidos por IPs de clientes individuais ou por intervalo. As conexões do Power BI (serviço) também podem ser permitidas ou bloqueadas. Configure o firewall e as regras no portal ou usando o PowerShell. Para saber mais, consulte [Configurar um firewall de servidor](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A autenticação do usuário é tratada pelo [ AAD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md). Ao fazer logon, os usuários usam uma identidade de conta da organização com acesso baseado em função ao banco de dados. As identidades de usuário devem ser membros do Azure Active Directory padrão para a assinatura em que reside o servidor. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 

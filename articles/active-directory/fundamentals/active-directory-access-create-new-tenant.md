@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 33bab4b66532a4cdcbd33c2f8594476d07985f4b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096935"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194811"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início Rápido: Crie um novo locatário no Azure Active Directory
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
@@ -34,7 +35,7 @@ Entre no [portal do Azure](https://portal.azure.com/) da organização usando um
 Após entrar no portal do Azure, é possível criar um novo locatário para a organização. O novo locatário representa a organização e ajuda a gerenciar uma instância específica dos serviços em nuvem da Microsoft para usuários internos e externos.
 
 ### <a name="to-create-a-new-tenant"></a>Criar um novo locatário
-1. Selecione **Azure Active Directory**, **Criar recursos**, **Identidade** e **Azure Active Directory**.
+1. Selecione **Criar um recurso**, **Identidade** e **Azure Active Directory**.
 
     A página **Criar diretório** será exibida.
 

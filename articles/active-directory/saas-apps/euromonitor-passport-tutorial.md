@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab9439cbf46fd77a24aa07cab1884e4e50720e43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478844"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutorial: Integração do Azure Active Directory ao Euromonitor Passport
 
@@ -66,7 +67,7 @@ Para configurar a integração do Euromonitor Passport ao Azure AD, você precis
 
 4. Na caixa de pesquisa, digite **Euromonitor Passport**, selecione **Euromonitor Passport** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Euromonitor Passport na lista de resultados](common/search-new-app.png)
+    ![Euromonitor Passport na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -104,17 +105,17 @@ Para configurar o logon único do Azure AD com o Euromonitor Passport, execute a
 
     ![Informações de logon único de Domínio e URLs do Euromonitor Passport](common/preintegrated.png)
 
-5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
+5. Se quiser configurar o aplicativo no modo iniciado por **SP**, você precisará obter o formulário de URL de logon da [equipe de suporte do Euromonitor Passport](mailto:passport.support@euromonitor.com). Depois de obter a URL de logon da equipe de suporte do Euromonitor Passport, clique em **Definir URLs adicionais** e execute a seguinte etapa:
 
     ![Informações de logon único de Domínio e URLs do Euromonitor Passport](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL: `https://portal.euromonitor.com`
+    Cole o valor da URL de logon obtido da equipe de suporte ao Euromonitor Passport na caixa de texto URL de Logon.
 
 6. O aplicativo Euromonitor Passport espera que as instruções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
 
     ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
+7. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
 
     | NOME | Atributo de Origem|
     | ---------------| --------- |

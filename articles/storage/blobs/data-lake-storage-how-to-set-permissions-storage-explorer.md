@@ -1,6 +1,6 @@
 ---
 title: Definir permissões para o Data Lake Storage Gen2 com o Gerenciador de Armazenamento do Azure
-description: Nestas instruções, você aprenderá a definir permissões com o Gerenciador de Armazenamento do Azure em arquivos e diretórios dentro da conta de armazenamento com capacidade para Azure Data Lake Storage Gen2 (Versão Prévia).
+description: Nestas instruções, você aprenderá a definir permissões com o Gerenciador de Armazenamento do Azure em arquivos e diretórios dentro da conta de armazenamento com capacidade para Azure Data Lake Storage Gen2.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867045"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Definir permissões no nível do arquivo e do diretório usando o Gerenciador de Armazenamento do Azure com o Azure Data Lake Storage Gen2 (Versão Prévia)
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Definir permissões no nível do arquivo e do diretório usando o Gerenciador de Armazenamento do Azure com o Azure Data Lake Storage Gen2
 
-Arquivos armazenados no Azure Data Lake Storage Gen2 (Versão Prévia) são compatíveis com permissões refinadas e gerenciamento de ACL (lista de controle de acesso). Juntos, permissões refinadas e gerenciamento de ACL permitem que você gerencie o acesso aos seus dados em um nível muito granular.
+Arquivos armazenados no Azure Data Lake Storage Gen2 são compatíveis com permissões refinadas e gerenciamento de ACL (lista de controle de acesso). Juntos, permissões refinadas e gerenciamento de ACL permitem que você gerencie o acesso aos seus dados em um nível muito granular.
 
 Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento do Azure para:
 

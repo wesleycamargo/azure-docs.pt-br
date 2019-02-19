@@ -4,199 +4,214 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1a51e677-c62b-4aee-9c61-56926aaaa899
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/15/2017
+ms.topic: tutorial
+ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 894363a48f0ba1f45664451d5508473f78aceb07
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 23a14129b7a50bdf2ec33c112fc02fd97f83c3f8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162201"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutorial: integração do Azure Active Directory com o BitaBIZ
 
 Neste tutorial, você aprenderá a integrar o BitaBIZ ao Azure Active Directory (Azure AD).
-
 A integração do BitaBIZ ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem terá acesso ao BitaBIZ.
-- Você pode permitir que usuários façam logon automaticamente no BitaBIZ (logon único) com as respectivas contas do AD do Azure.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Você pode controlar no Azure AD quem terá acesso ao BitaBIZ.
+* Você pode permitir que os usuários sejam conectados automaticamente ao BitaBIZ (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao BitaBIZ, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do BitaBIZ
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do BitaBIZ
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o BitaBIZ a partir da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+
+* O BitaBIZ dá suporte ao SSO iniciado por **SP e IDP**
 
 ## <a name="adding-bitabiz-from-the-gallery"></a>Adicionar o BitaBIZ a partir da galeria
+
 Para configurar a integração do BitaBIZ ao Azure AD, você precisará adicionar o Bynder a partir da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o BitaBIZ a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![O botão Novo aplicativo][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **BitaBIZ**, selecione **BitaBIZ** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![BitaBIZ na lista de resultados](./media/bitabiz-tutorial/tutorial_bitabiz_addfromgallery.png)
+4. Na caixa de pesquisa, digite **BitaBIZ**, selecione **BitaBIZ** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+
+     ![BitaBIZ na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o BitaBIZ, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do BitaBIZ é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no BitaBIZ.
-
-No BitaBIZ, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nesta seção, você configurará e testará o logon único do Azure AD com o BitaBIZ, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do BitaBIZ.
 
 Para configurar e testar o logon único do Azure AD com o BitaBIZ, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do BitaBIZ](#create-a-bitabiz-test-user)** – para ter um equivalente de Brenda Fernandes no BitaBIZ vinculado à representação do usuário no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Configurar o logon único do BitaBIZ](#configure-bitabiz-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do BitaBIZ](#create-bitabiz-test-user)** – para ter um equivalente de Brenda Fernandes no BitaBIZ que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo BitaBIZ.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o BitaBIZ, realize as seguintes etapas:**
+Para configurar o logon único do Azure AD com o BitaBIZ, execute as seguintes etapas:
 
-1. No portal do Azure, na página de integração de aplicativos do **BitaBIZ**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **BitaBIZ**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/bitabiz-tutorial/tutorial_bitabiz_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-1. Na seção **Domínio e URLs do BitaBIZ**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo IDP:
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    ![Informações de logon único de Domínio e URLs do BitaBIZ](./media/bitabiz-tutorial/tutorial_bitabiz_url.png)
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+
+4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP**:
+
+    ![Informações de logon único de Domínio e URLs do BitaBIZ](common/idp-identifier.png)
 
     Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.bitabiz.com/<instanceId>`
 
-    > [!NOTE] 
+    > [!NOTE]
     > O valor na URL anterior é apenas para demonstração. Você atualiza o valor com o identificador real, o que é explicado no tutorial posteriormente.
 
-1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do BitaBIZ](./media/bitabiz-tutorial/tutorial_bitabiz_url1.png)
+    ![image](common/both-preintegrated-signon.png)
 
     Na caixa de texto **URL de Logon**, digite a URL: `https://www.bitabiz.com/dashboard`
 
-1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-    ![O link de download do Certificado](./media/bitabiz-tutorial/tutorial_bitabiz_certificate.png) 
+    ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Clique no botão **Salvar** .
+7. Na seção **Configurar o BitaBIZ**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Botão Salvar em Configurar Logon Único](./media/bitabiz-tutorial/tutorial_general_400.png)
-    
-1. Na seção **Configuração do BitaBIZ**, clique em **Configurar o BitaBIZ** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    ![Configuração do BitaBIZ](./media/bitabiz-tutorial/tutorial_bitabiz_configure.png) 
+    a. URL de logon
+
+    b. Identificador do Azure Ad
+
+    c. URL de logoff
+
+### <a name="configure-bitabiz-single-sign-on"></a>Configurar o logon único do BitaBIZ
 
 1. Em uma janela diferente do navegador da Web, faça logon em seu locatário do BitaBIZ como um administrador.
 
-1. Clique em **CONFIGURAR ADMIN**.
+2. Clique em **CONFIGURAR ADMIN**.
 
     ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings1.png)
 
-1. Clique em **Integrações Microsoft** na seção **Adicionar valor**.
+3. Clique em **Integrações Microsoft** na seção **Adicionar valor**.
 
     ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings2.png)
 
-1. Role para baixo até a seção **Microsoft Azure AD (Habilitar logon único)** e execute as seguintes etapas:
+4. Role para baixo até a seção **Microsoft Azure AD (Habilitar logon único)** e execute as seguintes etapas:
 
     ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings3.png)
 
-     a. Copie o valor da caixa de texto **ID da entidade ("Identificador" no Azure AD)** e cole-o na caixa e texto **Identificador** na seção **Domínio e URLs do BitaBIZ** no portal do Azure. 
-    
-    b. Cole a **URL de Serviço de Logon Único do SAML** que você copiou do portal do Azure na caixa de texto **URL de Serviço de Logon Único do Azure AD**.
-    
-    c. Na caixa de texto **ID da Entidade do SAML do Azure AD**, cole a **ID da Entidade do SAML** copiada do portal do Azure.
+     a. Copie o valor da caixa de texto **ID da Entidade (“Identificador” no Azure AD)** e cole-o na caixa e texto **Identificador** na seção **Configuração Básica do SAML** do portal do Azure. 
+
+    b. Na caixa de texto **URL de Serviço de Logon Único do Azure AD**, cole a **URL de Logon** copiada do portal do Azure.
+
+    c. Na caixa de texto **ID da Entidade do SAML do Azure AD**, cole o **Identificador do Azure AD** copiado do portal do Azure.
 
     d. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, em seguida, cole-o na caixa de texto **Certificado de autenticação do Azure AD (codificação Base64)**.
 
     e. Adicione seu nome de domínio de email corporativo, ou seja, minhaempresa.com na caixa de texto **Nome de domínio** para atribuir o SSO aos usuários em sua empresa com este domínio de email (OPCIONAL).
-    
-    f. Marque **Habilitado para SSO** para a conta do BitaBIZ.
-    
-    g. Clique em **Salvar a configuração do Azure AD** para salvar e ativar a configuração de SSO.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
+    f. Marque **Habilitado para SSO** para a conta do BitaBIZ.
+
+    g. Clique em **Salvar a configuração do Azure AD** para salvar e ativar a configuração de SSO.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/bitabiz-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/bitabiz-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/bitabiz-tutorial/create_aaduser_03.png)
-
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/bitabiz-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-bitabiz-test-user"></a>Criar um usuário de teste BitaBIZ
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao BitaBIZ.
+
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **BitaBIZ**.
+
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicativos, selecione **BitaBIZ**.
+
+    ![O link do BitaBIZ na lista de Aplicativos](common/all-applications.png)
+
+3. No menu à esquerda, selecione **Usuários e grupos**.
+
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
+
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-bitabiz-test-user"></a>Criar um usuário de teste do BitaBIZ
 
 Para permitir que os usuários do Azure AD façam logon no BitaBIZ, eles devem ser provisionados no BitaBIZ.  
 No caso do BitaBIZ, o provisionamento é uma tarefa manual.
@@ -205,19 +220,19 @@ No caso do BitaBIZ, o provisionamento é uma tarefa manual.
 
 1. Faça logon em seu site de empresa do BitaBIZ como administrador.
 
-1. Clique em **CONFIGURAR ADMIN**.
+2. Clique em **CONFIGURAR ADMIN**.
 
     ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/settings1.png)
 
-1. Clique em **Adicionar usuários** na seção **Organização**.
+3. Clique em **Adicionar usuários** na seção **Organização**.
 
     ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user1.png)
 
-1. Clique em **Adicionar novo funcionário**.
+4. Clique em **Adicionar novo funcionário**.
 
     ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user2.png)
 
-1. Na página da caixa de diálogo **“Adicionar novo funcionário”**, execute as seguintes etapas:
+5. Na página da caixa de diálogo **Adicionar novo funcionário**, execute as seguintes etapas:
 
     ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user3.png)
 
@@ -229,68 +244,23 @@ No caso do BitaBIZ, o provisionamento é uma tarefa manual.
 
     d. Selecione uma data em **Data de admissão**.
 
-    e. Existem outros atributos de usuário opcionais, que podem ser configurados para o usuário. Consulte o [Documento de configuração do usuário](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee) para obter mais detalhes.    
-    
+    e. Existem outros atributos de usuário opcionais, que podem ser configurados para o usuário. Consulte o [Documento de configuração do usuário](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee) para obter mais detalhes.
+
     f. Clique em **Salvar funcionário**.
-    
+
     > [!NOTE]
     > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
-    
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao BitaBIZ.
-
-![Atribuir a função de usuário][200] 
-
-**Para atribuir Brenda Fernandes ao BitaBIZ, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
-
-1. Na lista de aplicativos, selecione **BitaBIZ**.
-
-    ![O link do BitaBIZ na lista de Aplicativos](./media/bitabiz-tutorial/tutorial_bitabiz_app.png)  
-
-1. No menu à esquerda, clique em **usuários e grupos**.
-
-    ![O link “Usuários e grupos”][202]
-
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar Atribuição][203]
-
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
-
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
-
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do BitaBIZ no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do BitaBIZ.
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Ao clicar no bloco do BitaBIZ no Painel de Acesso, você deverá ser conectado automaticamente ao BitaBIZ, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/bitabiz-tutorial/tutorial_general_01.png
-[2]: ./media/bitabiz-tutorial/tutorial_general_02.png
-[3]: ./media/bitabiz-tutorial/tutorial_general_03.png
-[4]: ./media/bitabiz-tutorial/tutorial_general_04.png
-
-[100]: ./media/bitabiz-tutorial/tutorial_general_100.png
-
-[200]: ./media/bitabiz-tutorial/tutorial_general_200.png
-[201]: ./media/bitabiz-tutorial/tutorial_general_201.png
-[202]: ./media/bitabiz-tutorial/tutorial_general_202.png
-[203]: ./media/bitabiz-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

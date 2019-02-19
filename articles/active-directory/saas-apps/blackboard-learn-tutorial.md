@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811563"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutorial: Integração do Azure Active Directory ao Blackboard Learn
 
@@ -148,7 +149,7 @@ Para configurar o logon único do Azure AD com o Blackboard Learn, execute as se
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -174,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -211,7 +212,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-blackboard-learn-test-user"></a>Criar um usuário de teste do Blackboard Learn
 
-Nesta seção, você deve criar um usuário chamado Brenda Fernandes no Blackboard Learn. O aplicativo Blackboard Learn dá suporte a provisionamento de usuários imediato. Configure as declarações, conforme descrito na seção **[Configurando o Logon Único do Azure AD](#configuring-azure-ad-single-sign-on)**
+Nesta seção, você deve criar um usuário chamado Brenda Fernandes no Blackboard Learn. O aplicativo Blackboard Learn dá suporte a provisionamento de usuários imediato. Configure as declarações, conforme descrito na seção **Configurando o logon único do Azure AD**
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 82e80b9dd4d20709fc8598e0fed3323046c21cfa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751116"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189405"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento em uma VM Linux no Azure com Jenkins, GitHub e Docker
 
@@ -59,7 +59,7 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
   - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
@@ -109,6 +109,21 @@ Para fins de segurança, você precisa inserir a senha de administrador inicial 
 ssh azureuser@<publicIps>
 ```
 
+Verifique se o Jenkins está executando usando o comando `service`:
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 Exiba o `initialAdminPassword` para sua instalação do Jenkins e copie-o:
 
 ```bash
@@ -125,7 +140,7 @@ Agora, abra um navegador da Web e vá para `http://<publicIps>:8080`. Conclua a 
 - Selecione **Salvar e Concluir**
 - Assim que o Jenkins estiver pronto, selecione **Começar a usar o Jenkins**
   - Se seu navegador da Web exibir uma página em branco quando você começar a usar o Jenkins, reinicie o serviço do Jenkins. Em sua sessão do SSH, digite `sudo service jenkins restart`, depois atualize seu navegador da Web.
-- Faça logon no Jenkins com o nome de usuário e senha que você criou.
+- Se necessário, faça logon no Jenkins com o nome de usuário e a senha que você criou.
 
 
 ## <a name="create-github-webhook"></a>Criar um webhook do GitHub
@@ -133,11 +148,13 @@ Para configurar a integração com o GitHub, abra o [aplicativo de exemplo Olá,
 
 Crie um webhook dentro da bifurcação criada:
 
-- Selecione **Configurações** e, em seguida, **Integrações e serviços** no lado esquerdo.
-- Escolha **Adicionar serviço** e, em seguida, digite *Jenkins* na caixa de filtro.
-- Selecione *Jenkins (plug-in do GitHub)*
-- Para a **URL de gancho do Jenkins**, digite `http://<publicIps>:8080/github-webhook/`. Certifique-se de incluir a barra à direita (/)
-- Selecione **Adicionar serviço**
+- Selecione **Configurações** e, em seguida, **Webhooks** no lado esquerdo.
+- Escolha **Adicionar webhook** e, em seguida, digite *Jenkins* na caixa de filtro.
+- Para a **URL de Conteúdo**, insira `http://<publicIps>:8080/github-webhook/`. Certifique-se de incluir a barra à direita (/)
+- Para **Tipo de Conteúdo**, selecione *application/x-www-form-urlencoded*.
+- Para **Quais eventos você deseja que disparem esse webhook?**, selecione *Apenas o evento de envio por push.*
+- Defina **Ativo** como marcado.
+- Clique em **Adicionar webhook**.
 
 ![Adicione um webhook do GitHub ao seu repositório bifurcado](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -166,7 +183,7 @@ response.end("Hello World!");
 
 Para confirmar suas alterações, selecione o botão **Confirmar alterações** na parte inferior.
 
-No Jenkins, um novo build começa na seção **Histórico de build** do canto inferior esquerdo da sua página de trabalho. Escolha o link com o número de build e selecione **Saída do console** no lado esquerdo. Você pode exibir as etapas que o Jenkins realiza conforme seu código é extraído por pull do GitHub e a ação de build gera a mensagem `Testing` no console. Cada vez que uma confirmação é feita no GitHub, o webhook alcança o Jenkins e dispara um novo build dessa maneira.
+No Jenkins, um novo build começa na seção **Histórico de build** do canto inferior esquerdo da sua página de trabalho. Escolha o link com o número de build e selecione **Saída do console** no lado esquerdo. Você pode exibir as etapas que o Jenkins realiza conforme seu código é extraído por pull do GitHub e a ação de build gera a mensagem `Test` no console. Cada vez que uma confirmação é feita no GitHub, o webhook alcança o Jenkins e dispara um novo build dessa maneira.
 
 
 ## <a name="define-docker-build-image"></a>Definir a imagem de build do Docker

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Usar o Serviço de Migração de Banco de Dados do Azure para fazer a migração online do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs'
-description: Saiba como fazer a migração online do SQL Server local para a Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
+title: 'Tutorial: Usar o Serviço de Migração de Banco de Dados do Azure para fazer a migração online do SQL Server para a instância gerenciada do Banco de Dados SQL do Azure | Microsoft Docs'
+description: Saiba como fazer a migração online do SQL Server local para a instância gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -10,51 +10,52 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/04/2019
-ms.openlocfilehash: ac3f24530d23278eb8f59ddc195ae1ac4f881a37
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.date: 02/08/2019
+ms.openlocfilehash: 95eb5131cb953cdcb5f7c5cc255c80ae0b9e1ca8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700852"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997202"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure online usando DMS
-Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para uma [Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance.md) com tempo de inatividade mínimo. Para métodos adicionais que possam exigir algum esforço manual, consulte o artigo [Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar SQL Server para instância gerenciada do Banco de Dados SQL do Azure online usando DMS
 
-Neste tutorial, você migrará o banco de dados do **Adventureworks2012** de uma instância local do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure com tempo de inatividade mínimo usando o Serviço de Migração de Banco de Dados do Azure.
+É possível usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para uma [instância gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance.md) com tempo de inatividade mínimo. Para obter métodos adicionais que possam exigir algum esforço manual, confira o artigo [Migração da instância do SQL Server para a instância gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
+
+Neste tutorial, você migrará o banco de dados do **Adventureworks2012** de uma instância local do SQL Server para uma instância gerenciada do Banco de Dados SQL do Azure com tempo de inatividade mínimo usando o Serviço de Migração de Banco de Dados do Azure.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-> * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
-> * Crie um projeto de migração e inicie uma migração online usando o Serviço de Migração de Banco de Dados do Azure.
-> * Monitorar a migração.
-> * Substitua a migração quando você estiver pronto.
+> - Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> - Crie um projeto de migração e inicie uma migração online usando o Serviço de Migração de Banco de Dados do Azure.
+> - Monitorar a migração.
+> - Substitua a migração quando você estiver pronto.
 
 > [!NOTE]
 > O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium.
-
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Este artigo descreve uma migração online do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure. Para uma migração online, confira [Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure offline usando DMS](tutorial-sql-server-to-managed-instance.md).
+Este artigo descreve uma migração online do SQL Server para a instância gerenciada do Banco de Dados SQL do Azure. Para uma migração offline, confira [Migrar do SQL Server para a instância gerenciada do Banco de Dados SQL do Azure offline usando DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este tutorial, você precisará:
 
-- Criar um VNET para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba mais sobre as topologias de rede para migrações da Instância Gerenciada do BD SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure](https://aka.ms/dmsnetworkformi).
+- Criar um VNET para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba mais sobre as topologias de rede para migrações da instância gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure](https://aka.ms/dmsnetworkformi).
 - Verificar se as regras do Grupo de Segurança de Rede da VNET (Rede Virtual) do Azure não bloqueiam as portas de comunicação 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da Rede Virtual do Azure, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure o [Firewall do Windows para acesso ao mecanismo de banco de dados de fonte](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que por padrão é porta TCP 1433.
 - Caso esteja executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez seja preciso habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio de seus firewalls para que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada em seu servidor de origem.
 - Se estiver usando um dispositivo de firewall na frente dos bancos de dados de origem, talvez seja preciso adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração, além de arquivos por meio da porta 445 do SMB.
-- Crie uma Instância Gerenciada do Banco de Dados SQL do Azure seguindo os detalhes do artigo [Criar uma Instância Gerenciada do Banco de Dados SQL do Azure no portal do Azure](https://aka.ms/sqldbmi).
-- Verificar se os logons usados para conectar o SQL Server de origem e a Instância Gerenciada de destino são membros da função de servidor sysadmin.
+- Crie uma instância gerenciada do Banco de Dados SQL do Azure seguindo os detalhes do artigo [Criar uma instância gerenciada do Banco de Dados SQL do Azure no portal do Azure](https://aka.ms/sqldbmi).
+- Verificar se os logons usados para conectar o SQL Server de origem e a instância gerenciada de destino são membros da função de servidor sysadmin.
 - Forneça um compartilhamento de rede SMB que contém todos os seus arquivos de backup de banco de dados completo do banco de dados e arquivos de backup de log de transações subsequentes que o Serviço de Migração de Banco de Dados do Azure pode usar para a migração de banco de dados.
 - Certifique-se de que a conta de serviço que executa a instância do SQL Server de origem tem privilégios de gravação no compartilhamento de rede que você criou e que a conta de computador do servidor de origem tem acesso de leitura/gravação para o mesmo compartilhamento.
 - Anote um usuário do Windows (e a senha) que tem privilégios de controle total no compartilhamento de rede criado anteriormente. O Serviço de Migração de Banco de Dados do Azure representa a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração.
-- Crie uma ID do aplicativo do Azure Active Directory que gera a chave da ID do aplicativo que o serviço do DMS pode usar para se conectar à Instância Gerenciada do Banco de Dados SQL do Azure e o Contêiner do Armazenamento do Microsoft Azure de destino. Para obter mais informações, confira o artigo [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar os recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+- Crie uma ID do aplicativo do Azure Active Directory que gera a chave da ID do aplicativo que o serviço do DMS pode usar para se conectar à instância gerenciada do Banco de Dados SQL do Azure e o Contêiner do Armazenamento do Microsoft Azure de destino. Para obter mais informações, confira o artigo [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar os recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 - Criar ou anote o **Nível de desempenho Standard**, a Conta de Armazenamento do Azure, que permite que o serviço do DMS faça upload dos arquivos de backup do banco de dados para usá-los na migração de bancos de dados.  Crie a conta de armazenamento do Azure na mesma região que o serviço do DMS criado.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
@@ -82,26 +83,26 @@ Para concluir este tutorial, você precisará:
 
 3. Na tela **Criar Serviço de Migração**, especifique um nome para o serviço, a assinatura e um grupo de recurso novo ou existente.
 
-4.  Selecione o local no qual você deseja criar a instância do DMS.
+4. Selecione o local no qual você deseja criar a instância do DMS.
 
 5. Escolha uma rede virtual existente (VNET) ou criar uma.
- 
-    A VNET fornece ao Serviço de Migração de Banco de Dados do Azure acesso ao SQL Server de origem e à Instância Gerenciada do Banco de Dados SQL do Azure de destino.
+
+    A VNET fornece ao Serviço de Migração de Banco de Dados do Azure acesso ao SQL Server de origem e à instância gerenciada do Banco de Dados SQL do Azure de destino.
 
     Para mais informações sobre como criar uma VNET no portal do Azure, consulte o artigo [Criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
-    Para obter detalhes adicionais, consulte o artigo [Topologias de rede para migrações da Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure](https://aka.ms/dmsnetworkformi).
+    Para obter detalhes adicionais, confira o artigo [Topologias de rede para migrações da Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selecione um SKU do tipo de preço Premium.
 
     > [!NOTE]
     > Há suporte para migrações online somente ao usar a camada Premium. 
-   
+
     Para obter mais informações sobre os custos e camadas de preços, consulte a [página de preços](https://aka.ms/dms-pricing).
-   
+
     ![Criar o serviço DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
-7.  Selecione **Criar** para criar a conta.
+7. Selecione **Criar** para criar a conta.
 
 ## <a name="create-a-migration-project"></a>Criar um projeto de migração
 
@@ -112,7 +113,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. Na tela **Serviço de Migração de Banco de Dados do Azure**, procure o nome da instância que você criou e, em seguida, selecione-a.
- 
+
 3. Selecione + **Novo Projeto de Migração**.
 
 4. Na tela **Novo projeto de migração**, especifique um nome para o projeto; na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**; na caixa de texto **Tipo de servidor de destino**, selecione **Instância Gerenciada do Banco de Dados SQL do Azure** e, em seguida, em **Escolher tipo de atividade**, selecione **Migração de dados online**.
@@ -141,25 +142,25 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
    ![Selecionar bancos de dados de origem](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
 
     > [!IMPORTANT]
-    > Se você usa o SSIS (SQL Server Integration Services), o DMS não dá suporte no momento à migração do banco de dados de catálogo dos seus projetos/pacotes do SSIS (SSISDB) do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure. No entanto, é possível provisionar o SSIS no ADF (Azure Data Factory) e reimplantar os projetos/pacotes do SSIS no SSISDB de destino hospedado pela Instância Gerenciada do Banco de Dados SQL do Azure. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+    > Se você usa o SSIS (SQL Server Integration Services), o DMS não dá suporte, no momento, à migração do banco de dados de catálogo dos seus projetos/pacotes do SSIS (SSISDB) do SQL Server para a instância gerenciada do Banco de Dados SQL do Azure. No entanto, é possível provisionar o SSIS no ADF (Azure Data Factory) e reimplantar os projetos/pacotes do SSIS no SSISDB de destino hospedado pela instância gerenciada do Banco de Dados SQL do Azure. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 5. Clique em **Salvar**.
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1.  Na tela **Detalhes de destino de migração**, especifique a **ID do aplicativo** e a **Chave** que a instância de DMS pode usar para se conectar à instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure e a Conta de Armazenamento do Azure.
+1. Na tela **Detalhes de destino de migração**, especifique a **ID do aplicativo** e a **Chave** que a instância de DMS pode usar para se conectar à instância de destino da instância gerenciada do Banco de Dados SQL do Azure e a Conta de Armazenamento do Azure.
 
     Para obter mais informações, confira o artigo [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar os recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
-    
-2. Selecione a **Assinatura** que contém a instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure e selecione-a.
 
-    Se você ainda não tiver provisionado a Instância Gerenciada do Banco de Dados SQL do Azure, selecione o [link](https://aka.ms/SQLDBMI) para ajudar você a provisionar a instância. Quando a instância da Instância Gerenciada do Banco de Dados SQL do Azure estiver pronta, retorne a este projeto específico para executar a migração.
+2. Selecione a **Assinatura** que contém a instância de destino da instância gerenciada do Banco de Dados SQL do Azure e selecione-a.
 
-3. Forneça o **Usuário do SQL** e **Senha** para se conectar à instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure.
+    Se você ainda não tiver provisionado a instância gerenciada do Banco de Dados SQL do Azure, selecione o [link](https://aka.ms/SQLDBMI) para ajudar você a provisionar a instância. Quando a instância gerenciada do Banco de Dados SQL do Azure estiver pronta, retorne a este projeto específico para executar a migração.
+
+3. Forneça o **Usuário do SQL** e a **Senha** para se conectar à instância gerenciada do Banco de Dados SQL do Azure.
 
     ![Selecionar o destino](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
-2.  Clique em **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="select-source-databases"></a>Selecionar bancos de dados de origem
 
@@ -170,7 +171,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 2. Clique em **Salvar**.
 
 ## <a name="configure-migration-settings"></a>Definir as configurações de migração
- 
+
 1. Na tela **Definir as configurações de migração**, forneça os seguintes detalhes:
 
     | | |
@@ -180,17 +181,17 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     |**Senha** | Senha do usuário. |
     |**Assinatura da Conta de Armazenamento do Azure** | Selecione a assinatura que contém a Conta de Armazenamento do Azure. |
     |**Conta de Armazenamento do Azure** | Selecione a Conta de Armazenamento do Azure da qual o DMS pode fazer upload dos arquivos de backup para o compartilhamento de rede do SMB e usá-los para a migração de banco de dados.  É recomendável selecionar a Conta de Armazenamento na mesma região que o serviço do DMS para um desempenho ideal de upload de arquivo. |
-    
+
     ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. Clique em **Salvar**.
- 
+
 ## <a name="review-the-migration-summary"></a>Análise do resumo da migração
 
 1. Na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração.
 
 2. Analise e verifique os detalhes associados ao projeto de migração.
- 
+
     ![Resumo do projeto de migração](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## <a name="run-and-monitor-the-migration"></a>Executar e monitorar a migração
@@ -198,7 +199,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 1. Selecione **Executar migração**.
 
 2. Na tela da atividade de migração, selecione **Atualizar** para atualizar a exibição.
- 
+
    ![Atividade de migração em andamento](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     É possível expandir ainda mais as categorias de logon e banco de dados para monitorar o status da migração dos respectivos objetos de servidor.
@@ -207,26 +208,26 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 ## <a name="performing-migration-cutover"></a>Executar a substituição de migração
 
-Depois que o backup do banco de dados completo for restaurado na instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure, o banco de dados está disponível para executar uma substituição de migração.
+Depois que o backup do banco de dados completo for restaurado na instância de destino da instância gerenciada do Banco de Dados SQL do Azure, o banco de dados estará disponível para executar uma substituição de migração.
 
-1.  Quando você estiver pronto para concluir a migração de banco de dados online, selecione **Iniciar substituição**.
+1. Quando você estiver pronto para concluir a migração de banco de dados online, selecione **Iniciar substituição**.
 
-2.  Interrompa todo o tráfego de entrada para os bancos de dados de origem.
+2. Interrompa todo o tráfego de entrada para os bancos de dados de origem.
 
-3.  Obtenha o [backup da parte final do log], disponibilize o arquivo de backup no compartilhamento de rede SMB e aguarde até que esse backup de log de transações final seja restaurado.
+3. Obtenha o [backup da parte final do log], disponibilize o arquivo de backup no compartilhamento de rede SMB e aguarde até que esse backup de log de transações final seja restaurado.
 
     Nesse ponto, você verá **Alterações pendentes** definido como 0.
 
-4.  Selecione **Confirmar**e, em seguida, **Aplicar**.
+4. Selecione **Confirmar**e, em seguida, **Aplicar**.
 
     ![Preparar para a substituição completa](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
-5.  Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos à nova instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure.
+5. Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos à nova instância de destino da instância gerenciada do Banco de Dados SQL do Azure.
 
     ![Substituição concluída](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter um tutorial mostrando como migrar um banco de dados para uma Instância Gerenciada usando o comando T-SQL RESTORE, consulte [Restaurar um backup para uma Instância Gerenciada usando o comando restaurar](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Para obter informações sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada](../sql-database/sql-database-managed-instance.md).
-- Para obter informações sobre como se conectar a aplicativos a uma Instância Gerenciada, confira [Conectar aplicativos](../sql-database/sql-database-managed-instance-connect-app.md).
+- Para obter um tutorial mostrando como migrar um banco de dados para uma instância gerenciada usando o comando T-SQL RESTORE, confira [Restore a backup to a managed instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md) (Restaurar um backup para uma Instância Gerenciada usando o comando restaurar).
+- Para saber mais sobre a instância gerenciada, confira [O que é uma instância gerenciada](../sql-database/sql-database-managed-instance.md).
+- Para saber mais sobre como conectar aplicativos a uma instância gerenciada, confira [Conectar aplicativos](../sql-database/sql-database-managed-instance-connect-app.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: ee721b7c68924f5e05fbdc4bc4b919837d4cc05b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 35f1b805323da03f1622e5c355d6ffa6d960b275
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23636986"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106912"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Crie uma definição de aplicativo gerenciado com o PowerShell
 
@@ -27,6 +27,8 @@ Este script publica uma definição de aplicativo gerenciado em um catálogo de 
 
 ## <a name="sample-script"></a>Script de exemplo
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/create-definition/create-definition.ps1 "Create definition")]
 
 
@@ -34,9 +36,9 @@ Este script publica uma definição de aplicativo gerenciado em um catálogo de 
 
 Este script usa os comandos a seguir para implantar a definição de aplicativo gerenciado. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
-| [New-AzureRmManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplicationdefinition) | Crie uma definição de aplicativo gerenciado. Forneça o pacote que contém os arquivos necessários. |
+| [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Crie uma definição de aplicativo gerenciado. Forneça o pacote que contém os arquivos necessários. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

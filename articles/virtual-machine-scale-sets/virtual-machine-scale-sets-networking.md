@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: a939438ad657066805f0179eb06f829abf301763
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 9203e786f701929a25251066190f5d507eacac02
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740120"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982017"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
 Quando você implanta um conjunto de dimensionamento de máquinas virtuais do Azure pelo portal, determinadas propriedades de rede são padronizadas, por exemplo um Azure Load Balancer com regras NAT de entrada. Este artigo descreve como usar alguns dos recursos mais avançados de rede que podem ser configurados com conjuntos de dimensionamento.
 
-Todos os recursos discutidos neste artigo podem ser configurados usando modelos do ARM (Azure Resource Manager). Exemplos da CLI do Azure e PowerShell também estão incluídos para os recursos selecionados. Usar a CLI do Azure 2.0.10 ou posterior e o PowerShell 4.2.0 ou posterior.
+Todos os recursos discutidos neste artigo podem ser configurados usando modelos do ARM (Azure Resource Manager). Exemplos da CLI do Azure e PowerShell também estão incluídos para os recursos selecionados.
 
 ## <a name="accelerated-networking"></a>Rede Acelerada
 A Rede Acelerada do Azure melhora o desempenho de rede habilitando a SR-IOV (virtualização de E/S de raiz única) para uma máquina virtual. Para saber mais sobre o uso de Rede Acelerada, consulte Rede acelerada para máquinas virtuais do [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) ou do [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Para usar a rede acelerado com conjuntos de dimensionamento, defina enableAcceleratedNetworking como **true** nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo: 
@@ -169,14 +169,14 @@ Modelo de exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-qui
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Como consultar os endereços IP públicos das máquinas virtuais em um conjunto de dimensionamento
 Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de escalas usando a CLI, use o comando **az vmss list-instance-public-ips**.
 
-Para listar os endereços IP públicos do conjunto de dimensionamento usando o PowerShell, use o comando _Get-AzureRmPublicIpAddress_. Por exemplo: 
+Para listar os endereços IP públicos do conjunto de dimensionamento usando o PowerShell, use o comando _Get-AzPublicIpAddress_. Por exemplo: 
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Você também pode consultar diretamente os endereços IP públicos referenciando a ID de recurso da configuração de endereço IP público. Por exemplo: 
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
 Você também pode exibir os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento consultando o [Azure Resource Explorer](https://resources.azure.com) ou a API REST do Azure com a versão **2017-03-30** ou superior.

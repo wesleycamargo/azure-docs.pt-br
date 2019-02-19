@@ -11,24 +11,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c3d9b0660ab7803fc0c2696ded7bbffa90e07a5a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8a839d33d66ed434fe04b2c0df742606c11dff2c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211597"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217931"
 ---
 # <a name="azure-media-services-overview"></a>Visão geral dos Serviços de Mídia do Azure 
 
-> [!div class="op_single_selector" title1="Selecione a versão do Media Services que você está usando:"]
-> * [Versão 2](media-services-overview.md)
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versão 3](../latest/media-services-overview.md)
+> * [Versão 2](media-services-overview.md)
 
 O AMS (Serviços de Mídia do Microsoft Azure) trata-se de uma plataforma extensível baseada em nuvem que permite aos desenvolvedores compilar aplicativos de gerenciamento e entrega de mídia escalonável. Os serviços de mídia se baseiam em APIs REST que permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
 Você pode compilar fluxos de trabalho de ponta a ponta usando totalmente os serviços de mídia. Você também pode optar por usar componentes de terceiros para algumas partes do seu fluxo de trabalho. Por exemplo, codifique usando um codificador de terceiros. Em seguida, carregue, proteja, empacote e entregue usando os serviços de mídia. Você pode optar por transmitir seu conteúdo ao vivo ou fornecer conteúdo sob demanda. 
+
+> [!NOTE]
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +64,7 @@ Para compilar soluções de serviços de mídia, você pode usar:
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [exemplos de código dos Serviços de Mídia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [Exemplos de código de Serviços de Mídia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Conceitos
 

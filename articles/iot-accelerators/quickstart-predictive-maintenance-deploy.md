@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604330"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097160"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
 
 Este início rápido mostra como implantar o acelerador de solução de manutenção preditiva do Azure IoT para execução como uma solução de manutenção preditiva baseada em nuvem. Após ter implantado o acelerador de solução, você usa página **Painel** da solução para executar uma análise de manutenção preditiva nos dados de um motor de aeronave simulado. Você pode usar esse acelerador de solução como o ponto de partida para sua própria implementação ou como uma ferramenta de aprendizado.
 
@@ -42,7 +42,7 @@ Na página **Criar solução de manutenção preditiva**, insira um **Nome da so
 
 Selecione a **Assinatura** e a **Região** que você deseja usar para o acelerador de solução. Normalmente a região escolhida é a mais próxima de você. Para este início rápido, estamos usando o **Visual Studio Enterprise** e **Leste dos EUA**. Você deve ser um [usuário ou administrador global ](iot-accelerators-permissions.md) na assinatura.
 
-Clique em **Criar solução** para iniciar a implantação. Esse processo leva pelo menos cinco minutos para ser executado:
+Clique em **Criar** para iniciar a implantação. Esse processo leva pelo menos cinco minutos para ser executado:
 
 ![Detalhes da solução de manutenção preditiva](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Clique em **Criar solução** para iniciar a implantação. Esse processo leva p
 
 Quando a implantação para sua assinatura do Azure for concluída, você verá uma marca de seleção verde e **Pronto** no bloco da solução. Agora você pode entrar em seu painel de acelerador de solução de Manutenção Preditiva.
 
-Na página **Soluções provisionadas**, clique em seu novo acelerador de solução de manutenção preditiva. Você pode exibir informações sobre o acelerador de solução no painel exibido. Escolha **Painel da solução** para exibir o acelerador de solução de manutenção preditiva:
+Na página **Soluções provisionadas**, clique em seu novo acelerador de solução de manutenção preditiva.
 
-![Painel de solução](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![Painel de solução](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ Veja as informações sobre o acelerador de solução na página exibida. Escolha **Ir para o acelerador de solução** para exibir o acelerador de solução da Manutenção Preditiva:
+
+![Painel de solução](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 Clique em **Aceitar** para aceitar a solicitação de permissões. O painel de solução de manutenção preditiva é exibido no navegador:
 

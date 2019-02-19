@@ -1,59 +1,71 @@
 ---
-title: Unidades de solicitação e taxa de transferência no Azure Cosmos DB
-description: Saiba mais sobre como especificar e estimar os requisitos da unidade de solicitação no Azure Cosmos DB
+title: Unidades de Solicitação e taxa de transferência no Azure Cosmos DB
+description: Saiba mais sobre como especificar e estimar os requisitos da Unidade de Solicitação no Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: dd9fb81b37627518af1375aa9876e6c509b917c9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3801c19fbef70bf5d67670c4d9acc950291853e6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033920"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990148"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Unidades no banco de dados do Azure Cosmos de solicitação
+# <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 
-Com o Azure Cosmos DB, você paga pela taxa de transferência provisionada e pelo armazenamento que consome por hora. A taxa de transferência deve ser provisionada para garantir que recursos do sistema suficientes estejam disponíveis para o banco de dados Azure Cosmos o tempo todo para atender ou exceder o SLA do banco de dados do Microsoft Azure Cosmos DB.
+Com o Azure Cosmos DB, você paga pela taxa de transferência provisionada e pelo armazenamento que consome por hora. A taxa de transferência deverá ser provisionada para garantir que recursos do sistema suficientes sempre estejam disponíveis para o banco de dados do Azure Cosmos DB. Recursos suficientes são necessários para cumprir ou exceder o SLA do banco de dados do Azure Cosmos DB.
 
-O Azure Cosmos DB suporta uma variedade de APIs (SQL, MongoDB, Cassandra, Gremlin e Table). Cada API possui seu próprio conjunto de operações de banco de dados, desde simples leituras e gravações de pontos a consultas complexas. Cada operação de banco de dados consome recursos do sistema, dependendo da complexidade da operação.  O custo de todas as operações do banco de dados é normalizado pelo Azure Cosmos DB e é expresso em termos de Unidades de Solicitação (RUs). O custo para ler um item de 1 KB é 1 unidade de solicitação (1 RU) e RUs mínimas necessárias para consumir o 1 GB de armazenamento é 40. Todas as outras operações de banco de dados são atribuídas de maneira similar a um custo em termos de URs. Independentemente da API que você está usando para interagir com o contêiner Azure Cosmos e a operação do banco de dados (gravação, leitura, consulta), os custos são sempre medidos em termos de RUs.
+O Azure Cosmos DB dá suporte a muitas APIs como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem seu próprio conjunto de operações de banco de dados. Essas operações variam de simples leituras e gravações de pontos a consultas complexas. Cada operação de banco de dados consome recursos do sistema com base na complexidade da operação. 
 
-Você pode pensar em RU / s como a moeda para o rendimento. RU / s é uma moeda baseada em taxa, que abstrai os recursos do sistema, como CPU, IOPS e memória, necessários para executar as operações do banco de dados suportadas pelo Azure Cosmos DB. A imagem a seguir mostra as unidades de solicitação consumidas por diferentes operações do banco de dados:
+O custo de todas as operações do banco de dados é normalizado pelo Azure Cosmos DB e expresso por RUs (Unidades de Solicitação). O custo para leitura de um item de 1 KB é 1 RU (Unidade de Solicitação). Todas as outras operações do banco de dados são atribuídas de maneira semelhante a um custo usando RUs. Independentemente da API usada para interagir com o contêiner do Azure Cosmos DB, os custos sempre serão medidos por RUs. Independentemente da operação do banco de dados ser uma gravação, leitura ou consulta, os custos sempre serão medidos em RUs.
 
-![Operações de banco de dados consomem unidades de solicitação](./media/request-units/request-units.png)
+É possível pensar em RUs por segundo como a moeda para a taxa de transferência. RUs por segundo é uma moeda baseada em taxa. Elas extraem os recursos do sistema como CPU, IOPS e memória que são necessários para executar as operações do banco de dados com suporte no Azure Cosmos DB. A imagem a seguir mostra as RUs consumidas por diferentes operações do banco de dados:
 
-Para gerenciar e planejar a capacidade, o Azure Cosmos DB garante que o número de RUs para uma determinada operação de banco de dados em um determinado conjunto de dados seja determinístico. Você pode rastrear o número de RUs consumidos por qualquer operação de banco de dados, examinando o cabeçalho de resposta. Depois de entender os fatores que afetam as cobranças da unidade de solicitação e os requisitos de taxa de transferência do seu aplicativo, você poderá executar seu aplicativo de maneira econômica.
+![Operações do banco de dados consomem Unidades de Solicitação](./media/request-units/request-units.png)
 
-Enquanto você é cobrado de hora em hora, provisiona o número de RUs para seu aplicativo em uma base por segundo em incrementos de 100 RU/s. Para dimensionar a taxa de transferência provisionada para seu aplicativo, você pode aumentar ou diminuir o número de RUs (nos incrementos ou decrementos de 100 RUs) a qualquer momento, seja de forma programática ou usando o portal do Azure.
+Para gerenciar e planejar a capacidade, o Azure Cosmos DB garante que o número de RUs para uma determinada operação de banco de dados em um determinado conjunto de dados seja determinístico. Examine o cabeçalho de resposta para rastrear o número de RUs consumidas por qualquer operação de banco de dados. Após reconhecer os fatores que afetam os encargos de RU e os requisitos de taxa de transferência do aplicativo, você poderá executar o custo do aplicativo de forma eficiente.
+
+Você é cobrado por hora. Você provisiona o número de RUs para o aplicativo em uma base por segundo em incrementos de 100 RUs por segundo. Para dimensionar a taxa de transferência provisionada ao aplicativo, você poderá aumentar ou diminuir o número de RUs a qualquer momento. Faça as alterações em incrementos ou decrementos de 100 RUs. É possível fazer as alterações programaticamente ou usando o portal do Azure.
 
 Você pode provisionar a taxa de transferência em duas granularidades distintas: 
 
-* **Contêineres**. Para obter mais informações, consulte [como provisionar a taxa de transferência em um contêiner Azure Cosmos.](how-to-provision-container-throughput.md)
-* **Bancos de dados**. Para obter mais informações, consulte [como provisionar a taxa de transferência em um banco Azure Cosmos.](how-to-provision-database-throughput.md)
+* **Contêineres**. Para obter mais informações, consulte [Provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
+* **Bancos de dados**. Para obter mais informações, consulte [Provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).
 
-## <a name="request-unit-considerations"></a>Considerações sobre unidades de solicitação
+## <a name="request-unit-considerations"></a>Considerações sobre Unidade de Solicitação
 
-Ao estimar o número de RU / s para provisão, é importante considerar os seguintes fatores:
+Enquanto você estima o número de RUs por segundo para provisionar, considere os seguintes fatores:
 
-* **Tamanho do item** - À medida que o tamanho de um item aumenta, o número de RUs consumidos para ler ou gravar o item também aumenta.
+* **Tamanho do item**: Na medida em que o tamanho de um item aumentar, o número de RUs consumidas para leitura ou gravação do item também aumentará.
 
-* **Indexação de documentos** - por padrão, cada item é indexado automaticamente. Menos unidades de solicitação são consumidas se você optar por não indexar alguns de seus itens em um contêiner.
+* **Indexação de itens**: Por padrão, cada item é indexado automaticamente. Menos RUs serão consumidas se você optar por não indexar alguns dos itens em um contêiner.
 
-* **Contagem de propriedades do item** - Assumindo a indexação padrão em todas as propriedades, o número de RUs consumidas para gravar um item aumenta à medida que a contagem da propriedade do item aumenta.
+* **Contagem de propriedades do item**: Assumindo a indexação padrão em todas as propriedades, o número de RUs consumidas para gravar um item aumentará na medida em que a contagem da propriedade do item aumentar.
 
-* **Propriedades indexadas** - Uma política de índice em cada contêiner determina quais propriedades são indexadas por padrão. Você pode reduzir o consumo de unidade de solicitação para operações de gravação, limitando o número de propriedades indexadas.
+* **Propriedades indexadas**: Uma política de índice em cada contêiner determina quais propriedades são indexadas por padrão. Para reduzir o consumo de RU para operações de gravação, limite o número de propriedades indexadas.
 
-* **Consistência de dados** - Os níveis de consistência forte e limitada do staleness consomem aproximadamente 2X mais RUs durante a execução de operações de leitura, quando comparados com outros níveis de consistência relaxada.
+* **Consistência de dados**: Os níveis de consistência de desatualização limitada e forte consomem aproximadamente duas vezes mais RUs durante a execução de operações de leitura, quando comparados com outros níveis de consistência flexíveis.
 
-* **Padrões de consulta** - A complexidade de uma consulta afeta quantas unidades de solicitação são consumidas para uma operação. O número de resultados da consulta, o número de predicados, a natureza dos predicados, o número de funções definidas pelo usuário, o tamanho dos dados de origem, o tamanho do conjunto de resultados e as projeções afetam o custo das operações de consulta. O Azure Cosmos DB garante que a mesma consulta nos mesmos dados sempre irá custar o mesmo número de RUs em execuções repetidas.
+* **Padrões de consulta**: A complexidade de uma consulta afetará quantas RUs serão consumidas por uma operação. Fatores que afetam o custo das operações de consulta incluem: 
+    
+    - O número de resultados da consulta.
+    - O número de predicados.
+    - A natureza dos predicados.
+    - O número de funções definidas pelo usuário.
+    - O tamanho dos dados de origem.
+    - O tamanho do conjunto de resultados.
+    - Projeções.
 
-* **Uso de script** - Assim como em consultas, procedimentos armazenados e acionadores consomem RUs com base na complexidade das operações que estão sendo executadas. À medida que você desenvolve sua aplicação, inspecione o cabeçalho de cobrança da solicitação para entender melhor a capacidade da unidade de solicitação consumida por cada operação.
+  O Azure Cosmos DB garante que a mesma consulta nos mesmos dados sempre custa o mesmo número de RUs em execuções repetidas.
+
+* **Uso de script**: Assim como acontece com as consultas, os procedimentos armazenados e gatilhos consomem RUs com base na complexidade das operações que são executadas. Conforme você desenvolve o aplicativo, inspecione o cabeçalho de encargo de solicitação para reconhecer melhor a capacidade de RU que cada operação consome.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [provisionamento de taxa de transferência para contêineres do Azure Cosmos DB e bancos de dados](set-throughput.md)
-* Saiba mais sobre [Partições lógicas](partition-data.md)
-* Saiba mais sobre [globalmente colocação em escala de taxa de transferência provisionada](scaling-throughput.md)
-* Aprenda [como provisionar a taxa de transferência em um contêiner Azure Cosmos](how-to-provision-container-throughput.md)
-* Aprenda [como provisionar a taxa de transferência em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md)
+* Saiba mais sobre como [provisionar taxa de transferência para contêineres e bancos de dados do Azure Cosmos DB](set-throughput.md).
+* Saiba mais sobre [partições lógicas](partition-data.md).
+* Saiba mais sobre como [dimensionar taxa de transferência provisionada globalmente](scaling-throughput.md).
+* Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
+* Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).

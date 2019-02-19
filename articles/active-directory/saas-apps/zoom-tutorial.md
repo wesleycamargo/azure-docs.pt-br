@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca0e2c0ce12edba504745e2783844db5109ee01a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812974"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Azure Active Directory ao Zoom
 
@@ -124,6 +125,10 @@ Para configurar o logon único do Azure AD com o Zoom, execute as seguintes etap
     | Sobrenome  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | Número de telefone  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | função |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > Clique [aqui](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para saber como configurar a Função no Azure AD
 
      a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
@@ -141,15 +146,18 @@ Para configurar o logon único do Azure AD com o Zoom, execute as seguintes etap
 
     f. Clique em **Salvar**.
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+    > [!NOTE]
+    > O Zoom pode esperar uma declaração de grupo no conteúdo SAML, portanto, se você tiver criado algum grupo, contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc/en-us) com as informações de grupo para que eles também possam configurar essas informações de grupo. Você também precisará fornecer a ID do Objeto para a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc/en-us) para que eles possam configurar. Siga o [documento](https://support.zoom.us/hc/en-us/articles/115005887566) para obter a ID de Objeto.
+
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Zoom**, copie as URLs apropriadas de acordo com suas necessidades.
+8. Na seção **Configurar o Zoom**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -160,29 +168,29 @@ Para configurar o logon único do Azure AD com o Zoom, execute as seguintes etap
 1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zoom como administrador.
 
 2. Clique na guia **Logon Único** .
-   
-    ![Guia Logon único](./media/zoom-tutorial/IC784700.png "Logon único")
+
+    ![Guia Logon único](./media/zoom-tutorial/ic784700.png "Logon único")
 
 3. Clique na guia **Controle de Segurança** e vá para as configurações de **Logon Único**.
 
 4. Na seção de Configurações de Logon Único, execute as seguintes etapas:
-   
-    ![Seção Logon único](./media/zoom-tutorial/IC784701.png "Logon único")
-   
+
+    ![Seção Logon único](./media/zoom-tutorial/ic784701.png "Logon único")
+
      a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL de Logon** copiado do portal do Azure.
-   
+
     b. Na caixa de texto **URL da página de saída**, cole o valor da **URL de Logout** copiado do portal do Azure.
-     
+
     c. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade** .
 
     d. Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure. 
 
     e. Clique em **Salvar**.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Para obter mais informações, visite a documentação de zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
@@ -198,7 +206,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -240,17 +248,17 @@ Para permitir que os usuários do Azure AD façam logon no Zoom, eles devem esta
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 
 1. Faça logon em seu site de empresa do **Zoom** como administrador.
- 
+
 2. Clique na guia **Gerenciamento de Contas** e, em seguida, clique em **Gerenciamento de Usuários**.
 
 3. Na seção Gerenciamento de Usuários, clique em **Adicionar usuários**.
-   
-    ![Gerenciamento de usuário](./media/zoom-tutorial/IC784703.png "Gerenciamento de usuário")
+
+    ![Gerenciamento de usuário](./media/zoom-tutorial/ic784703.png "Gerenciamento de usuário")
 
 4. Na página **Adicionar usuários** , realize as seguintes etapas:
-   
-    ![Adicionar Usuários](./media/zoom-tutorial/IC784704.png "Adicionar Usuários")
-   
+
+    ![Adicionar Usuários](./media/zoom-tutorial/ic784704.png "Adicionar Usuários")
+
      a. Para **Tipo de Usuário**, selecione **Básico**.
 
     b. Na caixa de texto **Emails**, digite o endereço de email de uma conta de Azure AD válida que você deseja provisionar.
@@ -260,7 +268,7 @@ Para permitir que os usuários do Azure AD façam logon no Zoom, eles devem esta
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação de conta de usuário do Zoom ou as APIs fornecidas pelo Zoom para provisionar contas de usuário do Azure Active Directory.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -273,4 +281,3 @@ Ao clicar no bloco do Zoom no Painel de Acesso, você deverá ser conectado auto
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

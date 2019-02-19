@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754366"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860466"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
@@ -21,7 +21,7 @@ As **Tarefas do ACR** são um pacote de recursos no Registro de Contêiner do Az
 
 O ciclo de desenvolvimento “loop interno” é o processo iterativo de escrever código, compilar e testar seu aplicativo antes de confirmá-lo no controle do código-fonte. Uma tarefa rápida estende o “loop interno” para a nuvem, fornecendo validação de sucesso de build e push automático de imagens criadas com êxito para o registro de contêiner. As imagens são criadas nativamente na nuvem, perto de seu registro, permitindo a implantação mais rápida.
 
-Todos os seus conhecimentos do Dockerfile são transferíveis diretamente para as Tarefas do ACR. Você não precisa alterar seus Dockerfiles para compilar na nuvem com as Tarefas do ACR, apenas o comando que você executa.
+Todos os seus conhecimentos do Dockerfile são transferíveis diretamente para as Tarefas do ACR. Você não precisa alterar seus Dockerfiles para compilar na nuvem com as Tarefas do ACR, apenas o comando que você executa. 
 
 Neste tutorial, a primeira parte de uma série:
 
@@ -30,7 +30,7 @@ Neste tutorial, a primeira parte de uma série:
 > * Criar uma imagem de contêiner no Azure
 > * Implantar um contêiner em Instâncias de Contêiner do Azure
 
-Em tutoriais subsequentes, você aprenderá a usar as Tarefas do ACR para builds de imagem de contêiner automatizados na confirmação de código e atualização da imagem base.
+Em tutoriais subsequentes, você aprenderá a usar as Tarefas do ACR para builds de imagem de contêiner automatizados na confirmação de código e atualização da imagem base. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md) (no momento em versão prévia), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

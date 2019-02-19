@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885142"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171223"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste início rápido, você criará um conjunto de dimensionamento de máquinas virtuais no Portal do Azure.
@@ -46,11 +46,12 @@ Você pode implantar um conjunto de dimensionamento com uma imagem do Windows Se
     - Uma **Senha** deve ter pelo menos 12 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [requisitos de senha e nome de usuário](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
     - Se você selecionar uma imagem de disco do SO Linux, em vez disso, você poderá escolher **chave pública SSH**. Apenas forneça sua chave pública, tal como *~/.ssh/id_rsa.pub*. Você pode usar o Azure Cloud Shell por meio do portal para [criar e usar as chaves de SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-7. Insira um **nome de endereço IP público**, tal como *myPublicIP*.
-8. Insira um único **Rótulo de nome de domínio**, tal como *myuniquedns*. Esse rótulo DNS compõe a base do FQDN para o balanceador de carga na frente do conjunto de dimensionamento.
-9. Para confirmar as opções do conjunto de dimensionamento, selecione **Criar**.
+    ![Detalhes Básicos para criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Selecione uma opção de balanceamento de carga, como *Balanceador de carga*, em **Escolher opções de Balanceamento de carga**. Insira os detalhes restantes para a opção de balanceamento de carga. Por exemplo, para o *Balanceador de carga*, você precisa inserir um **Nome do endereço IP público** e um **Rótulo do nome de domínio**.
+1. Insira os detalhes da rede virtual em **Configurar Redes Virtuais**. Por exemplo, você pode criar uma rede virtual, *myVirtualNetwork*, e uma nova sub-rede, *default*.
+1. Para confirmar as opções do conjunto de dimensionamento, selecione **Criar**.
+    ![Detalhes de Rede para criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Conectar-se a uma VM no conjunto de dimensionamento

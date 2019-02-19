@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Acessar dados da versão prévia do Azure Data Lake Storage Gen2 com Azure Databricks usando o Spark | Microsoft Docs'
+title: 'Tutorial: Acessar dados do Azure Data Lake Storage Gen2 com o Azure Databricks usando o Spark | Microsoft Docs'
 description: Este tutorial mostra como executar consultas Spark em um cluster do Azure Databricks para acessar dados em uma conta de armazenamento do Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813595"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891650"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados da Versão Prévia do Data Lake Storage Gen2 com o Azure Databricks usando o Spark
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados de Data Lake Storage Gen2 com o Azure Databricks usando o Spark
 
-Este tutorial mostra como conectar seu cluster do Azure Databricks aos dados armazenados em uma conta de Armazenamento do Azure que tenha o Azure Data Lake Storage Gen2 (Versão Prévia) habilitado. Essa conexão permite que você execute nativamente consultas e análises nos dados por meio do cluster.
+Este tutorial mostra como conectar seu cluster do Azure Databricks aos dados armazenados em uma conta de Armazenamento do Azure que tenha o Azure Data Lake Storage Gen2 habilitado. Essa conexão permite que você execute nativamente consultas e análises nos dados por meio do cluster.
 
 Neste tutorial, você irá:
 
@@ -145,7 +145,7 @@ Nesta seção, você criará um sistema de arquivos e uma pasta em sua conta de 
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções [Reservar a configuração da conta de armazenamento](#config) e [Criar uma entidade de serviço](#service-principal) deste artigo. Substitua o espaço reservado `file-system-name` por qualquer nome que deseje fornecer ao sistema de arquivos.
+18. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções [Reservar a configuração da conta de armazenamento](#service-principal) e Criar uma entidade de serviço deste artigo. Substitua o espaço reservado `file-system-name` por qualquer nome que deseje fornecer ao sistema de arquivos.
 
 19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco. 
 

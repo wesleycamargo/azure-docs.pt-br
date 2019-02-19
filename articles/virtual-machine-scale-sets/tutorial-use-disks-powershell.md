@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881674"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984776"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
+
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -35,9 +36,9 @@ Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Se você escolher instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 6.0.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
@@ -95,12 +96,12 @@ Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto 
 Você pode criar e anexar discos ao criar um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos na criação do conjunto de dimensionamento
-Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Quando solicitado, forneça um nome de usuário e senha para as instâncias da VM. Para distribuir o tráfego para as instâncias de VM individuais, um balanceador de carga também é criado. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, além de permitir o tráfego de área de trabalho remota na porta TCP 3389 e comunicação remota do PowerShell na porta TCP 5985.
+Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando solicitado, forneça um nome de usuário e senha para as instâncias da VM. Para distribuir o tráfego para as instâncias de VM individuais, um balanceador de carga também é criado. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, além de permitir o tráfego de área de trabalho remota na porta TCP 3389 e comunicação remota do PowerShell na porta TCP 5985.
 
 Dois discos são criados com o parâmetro `-DataDiskSizeGb`. É o primeiro disco tem *64* GB de tamanho e o segundo, *128* GB. Quando solicitado, forneça suas próprias credenciais administrativas desejadas para as instâncias de VM no conjunto de dimensionamento:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -115,23 +116,23 @@ New-AzureRmVmss `
 Leva alguns minutos para criar e configurar todos os recursos e as instâncias de VM do conjunto de dimensionamento.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Anexar um disco ao conjunto de dimensionamento existente
-Você também pode anexar discos a um conjunto de dimensionamento existente. Use o conjunto de dimensionamento criado na etapa anterior para adicionar outro disco com [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). O exemplo a seguir anexa um disco adicional de *128* GB em um conjunto de dimensionamento existente:
+Você também pode anexar discos a um conjunto de dimensionamento existente. Use o conjunto de dimensionamento criado na etapa anterior para adicionar outro disco com [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). O exemplo a seguir anexa um disco adicional de *128* GB em um conjunto de dimensionamento existente:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
-Add-AzureRmVmssDataDisk `
+Add-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -143,11 +144,13 @@ Os discos que são criados e anexados às suas instâncias de VM do conjunto de 
 
 Para automatizar o processo em várias instâncias de VM em um conjunto de dimensionamento, você pode usar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/windows/extensions-customscript.md).
 
-O exemplo a seguir executa um script de um repositório GitHub de exemplo em cada instância de VM com [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension), que prepara todos os discos de dados brutos anexados:
+
+O exemplo a seguir executa um script de um repositório GitHub de exemplo em cada instância de VM com [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension), que prepara todos os discos de dados brutos anexados:
+
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
@@ -158,7 +161,7 @@ $publicSettings = @{
 }
 
 # Use Custom Script Extension to prepare the attached data disks
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
@@ -166,7 +169,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -174,17 +177,18 @@ Update-AzureRmVmss `
 
 Para confirmar que os discos foram preparados corretamente, faça a RDP a uma das instâncias de VM. 
 
-Primeiro, obtenha o objeto do balanceador de carga com [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Depois, exiba as regras NAT de entrada com [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig). A lista de regras NAT de *FrontendPort* para cada instância de VM escutada pela RDP. Por fim, obtenha o endereço IP público do balanceador de carga com [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Primeiro, obtenha o objeto do balanceador de carga com [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Depois, exiba as regras NAT de entrada com [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). A lista de regras NAT de *FrontendPort* para cada instância de VM escutada pela RDP. Por fim, obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
 Para conectar-se à sua VM, especifique seu próprio endereço IP público e número da porta da instância de VM necessária, conforme mostrado com os comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento. Caso use o Azure Cloud Shell, execute esta etapa de um prompt do PowerShell local ou do Cliente da Área de Trabalho Remota. O exemplo a seguir se conecta a uma instância de VM em *1*:
@@ -245,10 +249,10 @@ Feche a sessão de conexão de área de trabalho remota com a instância de VM.
 
 
 ## <a name="list-attached-disks"></a>Listar discos anexados
-Para exibir informações sobre discos anexados a um conjunto de dimensionamento, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) da seguinte maneira:
+Para exibir informações sobre discos anexados a um conjunto de dimensionamento, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) da seguinte maneira:
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
 Na propriedade *VirtualMachineProfile.StorageProfile*, é exibida a lista *DataDisks*. São exibidas informações sobre o tamanho do disco, a camada de armazenamento e o LUN (número de unidade lógica). A saída de exemplo abaixo detalha os três discos de dados anexados ao conjunto de dimensionamento:
@@ -279,21 +283,21 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>Desanexar um disco
-Quando não precisar mais de determinado disco, você poderá desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, use [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) e especifique o LUN do disco. Os LUNs são mostrados na saída de [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) na seção anterior. O exemplo a seguir desanexa o LUN *3* do conjunto de dimensionamento:
+Quando não precisar mais de determinado disco, você poderá desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, use [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) e especifique o LUN do disco. Os LUNs são mostrados na saída de [Get-AzVmss](/powershell/module/az.compute/get-azvmss) na seção anterior. O exemplo a seguir desanexa o LUN *3* do conjunto de dimensionamento:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
-Remove-AzureRmVmssDataDisk `
+Remove-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -Lun 2
 
 # Update the scale set and detach the disk from the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -301,10 +305,10 @@ Update-AzureRmVmss `
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o conjunto de dimensionamento e os discos, exclua o grupo de recursos e todos os seus recursos com [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
+Para remover o conjunto de dimensionamento e os discos, exclua o grupo de recursos e todos os seus recursos com [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

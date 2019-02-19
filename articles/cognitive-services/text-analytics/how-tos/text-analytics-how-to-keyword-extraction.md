@@ -1,22 +1,22 @@
 ---
-title: Como usar a extração de frase-chave na API REST de Análise de Texto (Serviços Cognitivos da Microsoft no Azure) | Microsoft Docs
-description: Como extrair as frases chave usando a API REST de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure neste tutorial passo a passo.
+title: Extração de frases-chave usando a API REST de Análise de Texto | Microsoft Docs
+description: Saiba como extrair frases-chave usando a API REST de Análise de Texto dos Serviços Cognitivos do Azure.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216737"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245602"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: Como extrair frases-chave em Análise de Texto
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave na Análise de Texto
 
 A [API de Extração de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave. 
 
@@ -29,13 +29,13 @@ Atualmente, a Extração de Frases-chave dá tem suporte em inglês, alemão, es
 
 ## <a name="preparation"></a>Preparação
 
-A extração de frase-chave funciona melhor quando você concede maiores partes de texto para trabalhar. Isso é o oposto da análise de sentimento, que executa melhor em blocos menores de texto. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
+A extração de frase-chave funciona melhor quando você concede trechos maiores de texto com os quais ela pode trabalhar. Isso é o oposto da análise de sentimento, que executa melhor em blocos de texto menores. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
 
 Você deve ter documentos JSON neste formato: id, texto, idioma
 
 O tamanho do documento deve ter menos de 5.000 caracteres por documento e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. O exemplo a seguir é uma ilustração do conteúdo que você pode enviar para extração de frase-chave.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs 
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados.
 
-Um exemplo de saída para extração de frase-chave é mostrado a seguir:
+Um exemplo de saída para extração de frase-chave é mostrado aqui:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

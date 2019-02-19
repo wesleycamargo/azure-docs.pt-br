@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3cca5e6d5ccdac5ee9ed250edfc526919d710d83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -42,7 +43,7 @@ Para configurar a integração do Microsoft Azure AD com o G Suite, você precis
 - Uma assinatura do Google Apps ou uma assinatura do Google Cloud Platform.
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. Este documento foi criado usando o novo usuário, experiência de logon único. Se você ainda estiver usando o antigo, a instalação terá aparência distinta. Você pode habilitar a nova experiência nas configurações de logon único do aplicativo do G Suite. Vá para **Azure Active Directory, aplicativos empresariais**, selecione **G Suite**, selecione **Single Sign-on** e, em seguida, clique em **Tentar nossa nova experiência**.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. Este documento foi criado usando o novo usuário, experiência de logon único. Se você ainda estiver usando o antigo, a instalação terá uma aparência diferente. Você pode habilitar a nova experiência nas configurações de logon único do aplicativo do G Suite. Vá para **Azure Active Directory, aplicativos empresariais**, selecione **G Suite**, selecione **Single Sign-on** e, em seguida, clique em **Tentar nossa nova experiência**.
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
@@ -146,7 +147,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Entrara**, digite uma URL usando o padrão a seguir: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
@@ -163,7 +164,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Entrara**, digite uma URL usando o padrão a seguir: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |

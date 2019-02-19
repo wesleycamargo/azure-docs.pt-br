@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822469"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115888"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -98,7 +98,7 @@ Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 > [!IMPORTANT]
 > Se você tiver uma conexão VPN entre seu ambiente local e o Azure, deve configurar uma VM do Azure como um servidor de processo para proteger novamente e failback. Para configurar um servidor de processo no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
 
-Para obter mais informações sobre os pré-requisitos para proteger novamente e failback consulte esta [seção] (vmware-azure-reprotect.md##before-you-begin). 
+Para obter mais informações sobre os pré-requisitos de nova proteção e failback, veja esta [seção](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

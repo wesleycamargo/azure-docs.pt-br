@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks | Microsoft Docs'
+title: 'Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks | Microsoft Docs'
 description: Saiba como executar um trabalho do Spark no Azure Databricks usando o portal do Azure e uma conta de armazenamento do Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
@@ -8,16 +8,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694160"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895798"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
+# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
 
-Este início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise dos dados armazenados em uma conta de armazenamento com a versão prévia do Azure Data Lake Storage Gen2 habilitada.
+Este início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise dos dados armazenados em uma conta de armazenamento com o Azure Data Lake Storage Gen2 habilitado.
 
 Como parte do trabalho do Spark, você analisará dados de uma assinatura de canal de rádio para obter insights sobre o uso gratuito/pago com base em dados demográficos.
 

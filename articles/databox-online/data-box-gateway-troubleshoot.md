@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241593"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106957"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solucionar problemas do Azure Data Box Gateway 
 
@@ -103,6 +103,7 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Não foi possível fazer upload de dados para a conta, uma vez que a conta ou o compartilhamento está desabilitado.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Não foi possível se conectar ao contêiner porque as permissões de conta estão incorretas ou desatualizadas. Verifique seu acesso.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Não foi possível adicionar novos dados, pois o contêiner está cheio. Verifique as especificações do Azure para os tamanhos de contêiner com suporte com base no tipo. Por exemplo, arquivos do Azure têm suporte apenas para um tamanho máximo do arquivo de 5 TB.                                     |
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    Erro inesperado. Esse é um erro transitório que será resolvido por si só.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Erro inesperado. O erro poderá se resolver sozinho, porém, se ele persistir por mais de 24 horas, entre em contato com o Suporte da Microsoft.                                                                                                     |
     |    16000           |    RefreshException                                        |    Não foi possível desativar esse arquivo.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Não foi possível desativar esse arquivo, pois ela já existe em seu sistema local.                                                                                                                                                         |

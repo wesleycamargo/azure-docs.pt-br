@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0aa4b8fd606c45f2dea702140c34fc93bcd4c5a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 10fc55886e4c91a2d468704d13d3b206f4a9cf51
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885364"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980234"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
+
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -35,16 +36,17 @@ Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenci
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você escolher instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 6.0.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure. 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *EastUS*. 
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *EastUS*. 
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 O nome do grupo de recursos é especificado quando você cria ou modifica um conjunto de dimensionamento ao longo deste tutorial.
 
@@ -56,10 +58,10 @@ Primeiro, defina o nome de usuário e a senha de um administrador para as instâ
 $cred = Get-Credential
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego para as instâncias de VM individuais, um balanceador de carga também é criado. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, além de permitir o tráfego de área de trabalho remota na porta TCP 3389 e comunicação remota do PowerShell na porta TCP 5985:
+Agora crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Para distribuir o tráfego para as instâncias de VM individuais, um balanceador de carga também é criado. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, além de permitir o tráfego de área de trabalho remota na porta TCP 3389 e comunicação remota do PowerShell na porta TCP 5985:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
   -Location "EastUS" `
@@ -74,10 +76,10 @@ Leva alguns minutos para criar e configurar todos os recursos e as instâncias d
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Exibir as instâncias de VM em um conjunto de dimensionamento
-Para exibir uma lista de instância de VM em um conjunto de dimensionamento, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) da seguinte forma:
+Para exibir uma lista de instâncias de VM em um conjunto de dimensionamento, use [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) da seguinte forma:
 
 ```azurepowershell-interactive
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 A saída de exemplo abaixo mostra duas instâncias de VM no conjunto de dimensionamento:
@@ -89,24 +91,25 @@ MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succe
 MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Para exibir informações adicionais sobre uma instância específica de VM, adicione o parâmetro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O exemplo abaixo exibe informações sobre a instância de VM *1*:
+Para exibir informações adicionais sobre uma instância específica de VM, adicione o parâmetro `-InstanceId` a [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). O exemplo abaixo exibe informações sobre a instância de VM *1*:
 
 ```azurepowershell-interactive
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
 ## <a name="list-connection-information"></a>Listar informações de conexão
 Um endereço IP público é atribuído ao balanceador de carga que direciona o tráfego para as instâncias de VM individuais. Por padrão, as regras de Conversão de endereços de rede (NAT) são adicionadas ao balanceador de carga do Azure, que encaminha o tráfego de conexão remota para cada VM em determinada porta. Para conectar as instâncias de VM em um conjunto de dimensionamento, crie uma conexão remota para um endereço IP público e número de porta atribuídos.
 
-Para listar as portas NAT que devem se conectar a instâncias de VM em um conjunto de dimensionamento, primeiro obtenha o objeto do balanceador de carga com [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Em seguida, exiba as regras NAT de entrada com [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
+Para listar as portas NAT que devem se conectar a instâncias de VM em um conjunto de dimensionamento, primeiro obtenha o objeto do balanceador de carga com [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Depois, exiba as regras NAT de entrada com [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 ```
 
 A saída de exemplo a seguir mostra o nome da instância, o endereço IP público do balanceador de carga e o número de porta para onde as regras de NAT encaminham o tráfego:
@@ -120,12 +123,13 @@ myScaleSet3389.1 Tcp             50002        3389
 myScaleSet5985.1 Tcp             51002        5985
 ```
 
-O *Nome* da regra está de acordo com o nome da instância de VM conforme mostrado em um comando [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) anterior. Por exemplo, para se conectar à instância de VM *0*, use *myScaleSet3389.0* e conecte-se à porta *50001*. Para se conectar à instância de VM *1*, use o valor de *myScaleSet3389.1* e conecte-se à porta *50002*. Para usar a comunicação remota do PowerShell, conecte-se à regra de instância de VM apropriada para a porta *TCP* *5985*.
+O *Nome* da regra está de acordo com o nome da instância de VM conforme mostrado em um comando [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) anterior. Por exemplo, para se conectar à instância de VM *0*, use *myScaleSet3389.0* e conecte-se à porta *50001*. Para se conectar à instância de VM *1*, use o valor de *myScaleSet3389.1* e conecte-se à porta *50002*. Para usar a comunicação remota do PowerShell, conecte-se à regra de instância de VM apropriada para a porta *TCP* *5985*.
 
-Exiba o endereço IP público do balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Exiba o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress
 ```
 
 Saída de exemplo:
@@ -146,16 +150,16 @@ Depois de conectado à instância de VM, você poderá executar algumas alteraç
 
 
 ## <a name="understand-vm-instance-images"></a>Entender imagens de instância de VM
-O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâncias de VM. Para ver uma lista de fornecedores disponíveis, use o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâncias de VM. Para ver uma lista de fornecedores disponíveis, use o comando [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher).
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "EastUS"
+Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Para exibir uma lista de imagens de determinado publicador, use [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). A lista de imagens também pode ser filtrada por `-PublisherName` ou `–Offer`. No exemplo a seguir, a lista é filtrada para todas as imagens com o nome do fornecedor *MicrosoftWindowsServer* e uma oferta que corresponde a *WindowsServer*:
+Para exibir uma lista de imagens de determinado publicador, use [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). A lista de imagens também pode ser filtrada por `-PublisherName` ou `–Offer`. No exemplo a seguir, a lista é filtrada para todas as imagens com o nome do fornecedor *MicrosoftWindowsServer* e uma oferta que corresponde a *WindowsServer*:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
 A saída de exemplo abaixo mostra todas as imagens disponíveis do Windows Server:
@@ -178,10 +182,10 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-Quando você criou um conjunto de dimensionamento no início do tutorial, uma imagem de VM padrão do *Windows Server 2016 DataCenter* foi fornecida para as instâncias de VM. Você pode especificar uma imagem de VM diferente com base na saída de [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `-ImageName` para especificar uma imagem de VM do *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
+Quando você criou um conjunto de dimensionamento no início do tutorial, uma imagem de VM padrão do *Windows Server 2016 DataCenter* foi fornecida para as instâncias de VM. É possível especificar uma imagem de VM diferente com base na saída de [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `-ImageName` para especificar uma imagem de VM do *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup2" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet2" `
@@ -211,10 +215,10 @@ A tabela a seguir categoriza tamanhos de VMs comuns para determinados casos de u
 | [Alto desempenho](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Localizar tamanhos de instância de VM disponíveis
-Para ver uma lista de tamanhos de instância de VM disponíveis em uma região específica, use o comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). 
+Para ver uma lista de tamanhos de instância de VM disponíveis em uma região específica, use o comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize). 
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "EastUS"
+Get-AzVMSize -Location "EastUS"
 ```
 
 O resultado é semelhante ao exemplo condensado abaixo, que mostra os recursos atribuídos a cada tamanho de VM:
@@ -235,10 +239,10 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Quando você criou um conjunto de dimensionamento no início do tutorial, um SKU de VM padrão *Standard_DS1_v2* foi fornecido para as instâncias de VM. Você pode especificar um tamanho de instância de VM diferente com base na saída de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `-VmSize` para especificar um tamanho de instância de VM *Standard_F1*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
+Quando você criou um conjunto de dimensionamento no início do tutorial, um SKU de VM padrão *Standard_DS1_v2* foi fornecido para as instâncias de VM. É possível especificar um tamanho de instância de VM diferente com base na saída de [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize). O exemplo a seguir cria um conjunto de dimensionamento com o parâmetro `-VmSize` para especificar um tamanho de instância de VM *Standard_F1*. Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup3" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet3" `
@@ -255,21 +259,21 @@ New-AzureRmVmss `
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
 Quando você criou um conjunto de dimensionamento, solicitou duas instâncias de VM. Para aumentar ou diminuir o número de instâncias de VM no conjunto de dimensionamento, você pode alterar a capacidade manualmente. O conjunto de dimensionamento cria ou remove o número necessário de instâncias de VM e configura o balanceador de carga para distribuir o tráfego.
 
-Primeiro, crie um objeto de conjunto de dimensionamento com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), em seguida, especifique um novo valor para `sku.capacity`. Para aplicar a alteração de capacidade, use [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). O seguinte exemplo aumenta o número de instâncias de VM no conjunto de dimensionamento para *3*:
+Primeiro, crie um objeto de conjunto de dimensionamento com [Get-AzVmss](/powershell/module/az.compute/get-azvmss), em seguida, especifique um novo valor para `sku.capacity`. Para aplicar a alteração de capacidade, use [Update-AzVmss](/powershell/module/az.compute/update-azvmss). O seguinte exemplo aumenta o número de instâncias de VM no conjunto de dimensionamento para *3*:
 
 ```azurepowershell-interactive
 # Get current scale set
-$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
-Demora alguns minutos para atualizar a capacidade do seu conjunto de dimensionamento. Para ver o número de instâncias que você tem agora no conjunto de dimensionamento, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+Demora alguns minutos para atualizar a capacidade do seu conjunto de dimensionamento. Para ver o número de instâncias que você tem agora no conjunto de dimensionamento, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 A seguinte saída de exemplo mostra que a capacidade do conjunto de dimensionamento agora é *3*:
@@ -286,26 +290,26 @@ Sku        :
 Agora você pode criar um conjunto de dimensionamento, listar as informações de conexão e se conectar a instâncias de VM. Você aprendeu como pode usar uma imagem de sistema operacional diferente para suas instâncias de VM, selecionar um tamanho de VM diferente ou dimensionar o número de instâncias manualmente. Como parte do gerenciamento diário, talvez seja necessário parar, iniciar ou reiniciar as instâncias de VM em seu conjunto de dimensionamento.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Parar e desalocar instâncias de VM em um conjunto de dimensionamento
-Para parar uma ou mais VMs em um conjunto de dimensionamento, use [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para parar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são paradas. O exemplo abaixo interrompe a instância *1*:
+Para parar uma ou mais VMs em um conjunto de dimensionamento, use [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs a serem paradas. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são paradas. O exemplo abaixo interrompe a instância *1*:
 
 ```azurepowershell-interactive
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 Por padrão, as VMs paradas são desalocadas e não incorrem em encargos de computação. Se desejar que a VM permaneça em um estado de provisionamento quando interrompido, adicione o parâmetro `-StayProvisioned` ao comando anterior. VMs paradas que permanecem provisionadas incorrem em encargos de computação regulares.
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Iniciar instâncias de VM em um conjunto de dimensionamento
-Para iniciar uma ou mais VMs em um conjunto de dimensionamento, use [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs a serem iniciadas. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são iniciadas. O exemplo abaixo inicia a instância *1*:
+Para iniciar uma ou mais VMs em um conjunto de dimensionamento, use [Start-AzVmss](/powershell/module/az.compute/start-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs a serem iniciadas. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são iniciadas. O exemplo abaixo inicia a instância *1*:
 
 ```azurepowershell-interactive
-Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Reiniciar instâncias de VM em um conjunto de dimensionamento
-Para reiniciar uma ou mais VMs em um conjunto de dimensionamento, use [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para reiniciar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. O exemplo abaixo reinicia a instância *1*:
+Para reiniciar uma ou mais VMs em um conjunto de dimensionamento, use [Retart-AzVmss](/powershell/module/az.compute/restart-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para reiniciar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. O exemplo abaixo reinicia a instância *1*:
 
 ```azurepowershell-interactive
-Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
@@ -313,7 +317,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 Quando você excluir um grupo de recursos, todos os recursos contidos, como as instâncias de VM, as rede virtuais e os discos, também serão excluídos. O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

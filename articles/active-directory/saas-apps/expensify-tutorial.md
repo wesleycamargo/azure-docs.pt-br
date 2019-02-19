@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453886"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integração do Azure Active Directory com o Expensify
 
@@ -104,9 +105,12 @@ Para configurar o logon único do Azure AD com o Expensify, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Expensify](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://www.expensify.com/authentication/saml/login`
+     a. Na caixa de texto **URL de Logon**, digite a URL usando o seguinte padrão: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://www.expensify.com`
+
+    > [!NOTE]
+    > O valor da URL de Entrada não é real. Atualize esse valor com a URL de logon real. Contate a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com) para obter esse valor.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -125,18 +129,18 @@ Para configurar o logon único do Azure AD com o Expensify, execute as seguintes
 ### <a name="configure-expensify-single-sign-on"></a>Configurar o Logon Único do Expensify
 
 Para habilitar o SSO no Expensify, primeiro habilite o **Controle de Domínio** no aplicativo. Você pode habilitar o Controle de Domínio no aplicativo por meio das etapas listadas [aqui](https://help.expensify.com/domain-control). Para obter suporte adicional, trabalhe com a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com). Depois que o Controle de Domínio estiver habilitado, siga estas etapas:
-   
+
 ![Configurar o logon único](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Faça logon no seu aplicativo Expensify.
-    
+
 2. No painel esquerdo, clique em **Configurações** e navegue para **SAML**.
-    
+
 3. Alterne a opção **Logon do SAML** para **habilitado**.
-    
+
 4. Abra os Metadados de Federação baixados do Azure AD no bloco de notas, copie o conteúdo e cole-o na caixa de texto **Metadados do Provedor de Identidade**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
@@ -191,7 +195,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você criará um usuário chamado Brenda Fernandes no Expensify. Trabalhe com a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com) para adicionar usuários na plataforma do Expensify.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -204,4 +208,3 @@ Ao clicar no bloco do Expensify no Painel de Acesso, você deverá ser conectado
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

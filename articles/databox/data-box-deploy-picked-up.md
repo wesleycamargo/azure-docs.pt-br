@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900503"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243001"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verificar o upload de dados para o Azure
 
@@ -42,7 +42,7 @@ Antes de começar, verifique se:
 ## <a name="ship-data-box-back"></a>Devolver o Data Box
 
 1. Certifique-se de que o dispositivo esteja desligado e os cabos removidos. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte posterior do dispositivo.
-2. Se o envio do dispositivo estiver ocorrendo nos EUA, verifique se a etiqueta de remessa está aparecendo no papel eletrônico e agende uma retirada com a operadora. Se o rótulo estiver danificado ou perdido ou não for exibido na tela E-ink, acesse **Visão geral > Baixar etiqueta de remessa** no portal do Azure. Baixe a etiqueta de remessa e afixe-a ao dispositivo.
+2. Se o envio do dispositivo estiver ocorrendo nos EUA, verifique se a etiqueta de remessa está aparecendo no papel eletrônico e agende uma retirada com a operadora. Se o rótulo for danificado ou perdido ou não exibido na tela de papel eletrônico, contate o Suporte da Microsoft. Somente se o suporte sugerir, acesse **Visão geral > Baixar etiqueta de remessa** no portal do Azure. Baixe a etiqueta de remessa e afixe-a ao dispositivo.
 
     Se o envio do dispositivo está ocorrendo na Europa, a tela de papel eletrônico não mostra a etiqueta de remessa. Em vez disso, a etiqueta de remessa de devolução está incluído na bolsa transparente sob a etiqueta de remessa de encaminhamento. Remova a etiqueta de remessa antiga e verifique se a etiqueta de remessa está claramente visível.
     

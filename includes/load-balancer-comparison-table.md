@@ -5,15 +5,15 @@ services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 01/09/2018
+ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: c4989016d31880e1c1990c0eb46091c8f50018bc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1d3ce900f7354b31e999c12b8e1eb0e23d391fcb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211796"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56078479"
 ---
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "54211796"
 | Portas de alta disponibilidade | Balanceador de Carga Interno | Não disponível. |
 | Segurança por padrão | O IP público, os pontos de extremidade do Balanceador de Carga público e os pontos de extremidade do Balanceador de Carga interno estão fechados para fluxos de entrada, a menos que estejam na lista de permissões de um grupo de segurança de rede. | Aberto por padrão, grupo de segurança de rede opcional. |
 | [Conexões de saída](../articles/load-balancer/load-balancer-outbound-connections.md) | Você pode definir explicitamente com base no pool de NAT de saída com [regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Você pode usar vários front-ends com recusa de regra de balanceamento de carga. Um cenário de saída _precisa_ ser explicitamente criado para a máquina virtual, o conjunto de disponibilidade e o conjunto de dimensionamento de máquinas virtuais para usar a conectividade de saída.  Os Pontos de Extremidade de Serviço da Rede Virtual podem ser acessados sem definir a conectividade de saída e não são considerados dados processados.  Quaisquer endereços de IP públicos, incluindo serviços de PaaS do Azure não estão disponíveis como pontos de extremidade de VNet, devem ser acessados por meio de conectividade de saída e contam para dados processados. Quando apenas um Balanceador de Carga interno estiver atendendo a uma máquina virtual, um conjunto de disponibilidade ou um conjunto de dimensionamento de máquinas virtuais, as conexões de saída via SNAT padrão não estarão disponíveis. Nesse caso, use [regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md). A programação de saída SNAT é o protocolo de transporte específicos com base no protocolo da regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estiverem presentes.  Quando apenas um Balanceador de Carga interno estiver atendendo a uma máquina virtual, um conjunto de disponibilidade ou um conjunto de dimensionamento de máquinas virtuais, um SNAT padrão será usado. |
-| [Regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Configuração de NAT de saída declarativa usando endereços IP públicos ou prefixos IP públicos ou ambos, tempo limite de ociosidade de saída configurável, alocação de porta de SNAT personalizada | Não disponível. |
+| [Regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Configuração do NAT de saída declarativa usando endereços IP públicos, prefixos de IP público ou ambos, tempo limite de ociosidade de saída configurável (4-120 minutos), alocação personalizada de porta do SNAT | Não disponível. |
 |  [Redefinição de TCP quando ocioso](../articles/load-balancer/load-balancer-tcp-reset.md) | Habilitar a Redefinição de TCP (TCP RST) quando o tempo limite de ociosidade for atingido em qualquer regra | Não disponível |
 | [Vários front-ends](../articles/load-balancer/load-balancer-multivip-overview.md) | Entrada e [saída](../articles/load-balancer/load-balancer-outbound-connections.md) | Somente entrada |
 | Operações de Gerenciamento | Maioria das operações < 30 segundos | Normalmente, 60 a 90 segundos ou mais. |

@@ -12,12 +12,13 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494657"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190459"
 ---
 # <a name="what-is-hybrid-identity"></a>O que é identidade híbrida? 
 
@@ -42,14 +43,14 @@ Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade 
 |Eu preciso de:|PHS e SSO<sup>1</sup>| PTA e SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Sincronizar automaticamente na nuvem as contas de novo usuário, de contato e de grupo criadas no meu Active Directory local.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Configurar meu locatário para cenários híbridos do Office 365|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Habilitar os usuários para entrar e acessar serviços de nuvem usando suas senhas locais|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Implementar o logon único usando credenciais corporativas|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|  
-|Certificar-me de que os hashes de senha não sejam armazenados na nuvem| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Habilitar soluções de autenticação multifator de nuvem| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Habilitar soluções de autenticação multifator locais| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Suporte à autenticação de cartão inteligente para meus usuários<sup>4</sup>| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Exibir notificações de expiração de senha no Portal do Office e na área de trabalho do Windows 10| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Configurar meu locatário para cenários híbridos do Office 365.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Habilitar os usuários a entrar e acessar serviços de nuvem usando suas senhas locais.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Implementar o logon único usando credenciais corporativas.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|  
+|Assegurar que nenhum hash de senha seja armazenado na nuvem.| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Habilitar soluções de autenticação multifator de nuvem.| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Habilitar soluções de autenticação multifator locais.| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Dar suporte à autenticação de cartão inteligente para meus usuários.<sup>4</sup>| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Exibir notificações de expiração de senha no Portal do Office e na área de trabalho do Windows 10.| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Sincronização de hash de senha com logon único. 
 > 

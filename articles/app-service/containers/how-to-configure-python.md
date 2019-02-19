@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 416566ac52e8df6324cbf6146919df160deb0f98
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220987"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892160"
 ---
 # <a name="configure-your-python-app-for-azure-app-service"></a>Configurar seu aplicativo Python para o Serviço de Aplicativo do Azure
 Este artigo descreve como o [Serviço de Aplicativo do Azure](app-service-linux-intro.md) executa aplicativos Python e como você pode personalizar o comportamento do Serviço de Aplicativo quando necessário. Aplicativos Python precisam ser implantados com todos os módulos [pip](https://pypi.org/project/pip/) exigidos. O mecanismo de implantação do Serviço de Aplicativo (Kudu) ativa um ambiente virtual e executa `pip install -r requirements.txt` para você quando você implanta um [repositório Git](../deploy-local-git.md) ou um [pacote Zip](../deploy-zip.md) com processos de build ativados.
@@ -82,7 +82,7 @@ Para aplicativos Django, o Serviço de Aplicativo procura um arquivo chamado `ws
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Se você quiser um controle mais específico sobre o comando de inicialização, use um [comando de inicialização personalizado](#custom-startup-command) e substitua `<module>` pelo nome do módulo que contém *wsgi.py*.
+Se desejar ter um controle mais específico sobre o comando de inicialização, use um comando de inicialização personalizado e substitua `<module>` pelo nome do módulo que contém *wsgi.py*.
 
 ### <a name="flask-app"></a>Aplicativo do Flask
 
@@ -95,7 +95,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Se o módulo principal do aplicativo estiver contido em um arquivo diferente, use um nome diferente para o objeto de aplicativo. Caso você queira fornecer argumentos adicionais para Gunicorn, use um [comando de inicialização personalizado](#custom-startup-command).
+Se o módulo principal do aplicativo estiver contido em um arquivo diferente, use um nome diferente para o objeto de aplicativo. Caso você deseje fornecer argumentos adicionais a Gunicorn, use um comando de inicialização personalizado.
 
 ### <a name="default-behavior"></a>Comportamento padrão
 
@@ -160,7 +160,7 @@ Estrutura Web populares permitem que você acesse informações do `X-Forwarded-
 - Reinicie o Serviço de Aplicativo, aguarde de 15 a 20 segundos e verifique o aplicativo novamente.
 - Verifique se você está usando o Serviço de Aplicativo para Linux em vez de uma instância baseada em Windows. Na CLI do Azure, execute o comando `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, substituindo `<resource_group_name>` e `<app_service_name>` adequadamente. Você deve ver `app,linux` como saída; caso contrário, recrie o Serviço de Aplicativo e escolha o Linux.
 - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se há arquivos em *site/wwwroot*. Se os arquivos não existirem, examine seu processo de implantação e reimplante o aplicativo.
-- Se os arquivos existem, o Serviço de Aplicativo não pôde identificar o arquivo de inicialização específica. Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app), ou use um [comando de inicialização personalizados](#custom-startup-command).
+- Se os arquivos existem, o Serviço de Aplicativo não pôde identificar o arquivo de inicialização específica. Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app) ou use um comando de inicialização personalizado.
 - **Você verá a mensagem "Serviço Não Disponível" no navegador.** O navegador atingiu o tempo limite aguardando uma resposta do Serviço de Aplicativo, o que indica que o Serviço de Aplicativo iniciou o servidor Gunicorn, mas os argumentos que especificam o código do aplicativo estão incorretos.
 - Atualize o navegador, especialmente se você estiver usando os tipos de preço mais baixos no seu plano de Serviço de Aplicativo. O aplicativo pode levar mais tempo para ser iniciado ao usar camadas gratuitas, por exemplo, e se tornar responsivo novamente depois que você atualizar o navegador.
 - Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app), ou use um [comando de inicialização personalizados](#customize-startup-command).

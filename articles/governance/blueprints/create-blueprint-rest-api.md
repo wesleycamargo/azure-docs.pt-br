@@ -4,17 +4,17 @@ description: Use o Blueprint do Azure para criar, definir e implantar artefatos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566935"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989959"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
 
@@ -329,6 +329,12 @@ O valor de `{BlueprintVersion}` é uma cadeia de caracteres de letras, números 
 
 Depois que um blueprint é publicado usando a API REST, ele pode ser atribuído a uma assinatura. Atribua o blueprint que você criou a uma das assinaturas em sua hierarquia do grupo de gerenciamento. Se o blueprint for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura. O **Corpo da Solicitação** especifica o blueprint a ser atribuído, fornece o nome e a localização para quaisquer grupos de recursos na definição do blueprint e fornece todos os parâmetros definidos no blueprint e usados por um ou mais artefatos anexados.
 
+Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
+
+- `{tenantId}` – Substitua pela ID de locatário
+- `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
+- `{subscriptionId}`: substitua por sua ID da assinatura
+
 1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ele usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
    - URI da API REST
@@ -387,6 +393,25 @@ Depois que um blueprint é publicado usando a API REST, ele pode ser atribuído 
          "location": "westus"
      }
      ```
+
+   - Identidade gerenciada atribuída pelo usuário
+
+     Uma atribuição de blueprint também pode usar uma [identidade gerenciada atribuída por usuário](../../active-directory/managed-identities-azure-resources/overview.md). Nesse caso, a parte **identidade** do corpo da solicitação é alterada da seguinte maneira.  Substitua `{yourRG}` e `{userIdentity}` pelo nome do grupo de recursos e pelo nome da identidade gerenciada atribuída por usuário, respectivamente.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     A **identidade gerenciada atribuída por usuário** pode estar em qualquer assinatura e grupo de recursos aos quais o usuário que atribui o blueprint tem acesso.
+
+     > [!IMPORTANT]
+     > Blueprints não gerenciam a identidade gerenciada atribuída por usuário. Os usuários são responsáveis por atribuir funções e permissões suficientes ou a atribuição de blueprint falhará.
 
 ## <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
 

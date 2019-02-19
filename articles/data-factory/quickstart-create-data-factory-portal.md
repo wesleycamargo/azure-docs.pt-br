@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018240"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989382"
 ---
-# <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Criar um data factory usando a interface do usuário do Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início rápido: Criar um data factory usando a interface do usuário do Azure Data Factory
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-portal.md)
 
-Este guia de início rápido descreve como usar a interface do usuário do Azure Data Factory para criar e monitorar um data factory. O pipeline que você criar nesse data factory *copia* dados de uma pasta para outra no Armazenamento de Blobs do Azure. Para obter um tutorial sobre como *transformar* dados usando o Azure Data Factory, consulte [Tutorial: transformar dados usando Spark](tutorial-transform-data-spark-portal.md).
+Este guia de início rápido descreve como usar a interface do usuário do Azure Data Factory para criar e monitorar um data factory. O pipeline que você criar nesse data factory *copia* dados de uma pasta para outra no Armazenamento de Blobs do Azure. Para ver um tutorial sobre como *transformar* dados usando o Azure Data Factory, confira [Tutorial: Transformar dados usando o Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Se você for novo no Azure Data Factory, confira a [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este guia de início rápido. 
@@ -80,7 +81,7 @@ Nesta etapa, você criará um serviço vinculado para vincular sua Conta de Arma
    ![Selecionar o bloco "Armazenamento de Blobs do Azure"](./media/quickstart-create-data-factory-portal/select-azure-blob-linked-service.png)
 1. Conclua as seguintes etapas: 
 
-   a. Para o campo **Nome**, insira **AzureStorageLinkedService**.
+    a. Para o campo **Nome**, insira **AzureStorageLinkedService**.
 
    b. Insira o nome da sua Conta de Armazenamento do Azure em **Nome da conta de armazenamento**.
 
@@ -109,7 +110,7 @@ Nas configurações de serviço vinculado, você especificou a conta de armazena
 
 1. Alterne para a guia **Conexão** e siga estas etapas: 
 
-    a. Selecione **AzureStorageLinkedService** para **Serviço vinculado**.
+     a. Selecione **AzureStorageLinkedService** para **Serviço vinculado**.
 
     b. Para **Caminho do arquivo**, selecione o botão **Procurar**.
 
@@ -117,10 +118,11 @@ Nas configurações de serviço vinculado, você especificou a conta de armazena
 
     ![Procure o arquivo de entrada](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (opcional) Selecione **Visualizar dados** para visualizar os dados no arquivo emp.txt.     
+    d. (opcional) Selecione **Visualizar dados** para visualizar os dados no arquivo emp.txt.     
+
 1. Repita as etapas para criar o conjunto de dados de saída:  
 
-   a. Selecione o botão **+** (mais) adição e, em seguida, selecione **Conjunto de Dados**.
+    a. Selecione o botão **+** (mais) adição e, em seguida, selecione **Conjunto de Dados**.
 
    b. Na página **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e selecione **Concluir**.
 
