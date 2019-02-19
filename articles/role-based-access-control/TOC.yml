@@ -1,5 +1,5 @@
 items:
-- name: Documentação do controle de acesso baseado em funções
+- name: Documentação do RBAC para recursos do Azure
   href: index.yml
 - name: Visão geral
   items:
@@ -9,15 +9,15 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Guia de início rápido
   items:
-  - name: Exibir funções para um usuário
+  - name: Ver o acesso de um usuário
     href: check-access.md
 - name: Tutoriais
   items:
-  - name: Conceder acesso a um usuário - Portal
+  - name: Conceder acesso a um usuário – Portal
     href: quickstart-assign-role-user-portal.md
-  - name: Conceder acesso a um usuário - PowerShell
+  - name: Conceder acesso a um usuário – PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Conceder acesso a um grupo - PowerShell
+  - name: Conceder acesso a um grupo – PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Criar uma função personalizada - PowerShell
     href: tutorial-custom-role-powershell.md
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Compreender atribuições de negação
     href: deny-assignments.md
-  - name: PIM (Privileged Identity Management) para RBAC
+  - name: PIM para Recursos do Azure
     href: pim-azure-resource.md
   - name: Acesso condicional para o gerenciamento do Azure
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Desenvolva suas habilidades com o Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099200"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408758"

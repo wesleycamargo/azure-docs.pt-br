@@ -1,6 +1,6 @@
 ---
-title: Organizar seus recursos com grupos de gerenciamento do Azure
-description: Saiba mais sobre os grupos de gerenciamento e como usá-los.
+title: Organizar seus recursos com grupos de gerenciamento do Azure – Governança do Azure
+description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584597"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339280"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -105,7 +105,7 @@ O gráfico a seguir mostra a lista de funções e as ações compatíveis nos gr
 |Colaborador da política de recurso |        |        |      |        |               | X             |       |
 |Administrador de Acesso do Usuário   |        |        |      |        | X             |               |       |
 
-*: o MG Contributor e o MG Reader só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
+*: O Colaborador de MG e o Leitor de MG só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e definição de função RBAC personalizada
 
@@ -118,7 +118,7 @@ Para controlar os grupos de gerenciamento por meio desta API, use a [API de Loca
 1. Como um administrador de locatários do locatário do AD do Azure, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md), em seguida, atribua uma função de leitor para o usuário de auditoria sobre o escopo `/providers/microsoft.insights/eventtypes/management`.
 1. Como o usuário de auditoria, chame a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs) para ver as atividades do grupo de gerenciamento. Convém filtrar pelo Provedor de Recursos **Microsoft.Management** para todas as atividades do grupo de gerenciamento.  Exemplo:
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
