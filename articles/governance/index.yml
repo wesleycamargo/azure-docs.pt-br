@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507419"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341226"
 documentType: LandingData
 title: Gerenciamento do Azure – Governança
 metadata:
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Saiba mais sobre como agrupar e organizar suas assinaturas em uma hierarquia lógica que dá suporte à implantação de outros serviços de Governança de maneira estruturada.<br /></p>
       image:
+        alt: Grupos de Gerenciamento
         src: ./media/management-groups-illustration.svg
       title: Grupos de Gerenciamento
     - href: ./resource-graph/
       html: <p>Use uma avançada ferramenta de linha de comando (com suporte para a CLI do Azure e o Azure PowerShell) para consultar rapidamente detalhes complexos sobre seus recursos do Azure. Encontre e exponha informações que anteriormente exigiam scripts complexos e iterativos para descobrir esses recursos em escala.</p>
       image:
+        alt: Resource Graph
         src: ./media/resource-graph-illustration.svg
       title: Resource Graph
     - href: ./policy/
       html: <p>Defina e aplique padrões para recursos em seu ambiente. Impeça a criação de recursos indesejados, aprimore novos recursos com elementos adicionais e faça auditorias e corrija recursos que já estão em seu ambiente.</p>
       image:
+        alt: Política
         src: ./media/policy-illustration.svg
       title: Política
     - href: ./blueprints/
       html: <p>Crie um pacote nativo do Azure com <i>artefatos</i> (grupos de recursos, políticas, atribuições de função, modelos do Resource Manager e muito mais) que podem ser implantados dinamicamente em assinaturas para criar ambientes uniformes e reproduzíveis.</p>
       image:
+        alt: Blueprints
         src: ./media/blueprints-illustration.svg
       title: Blueprints
 - title: Implementações
