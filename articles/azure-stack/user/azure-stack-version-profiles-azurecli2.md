@@ -14,12 +14,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329278"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416982"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -205,7 +205,7 @@ Use as seguintes etapas para se conectar ao Azure Stack:
       ```
 
       > [!NOTE]
-      > Se sua conta de usuário tiver a autenticação multifator habilitada, você pode usar o `az login command` sem fornecer o `-u` parâmetro. Executar esse comando fornece uma URL e um código que você deve usar para autenticar.
+      > Se sua conta de usuário tiver a autenticação multifator habilitada, você pode usar o `az login` comando sem fornecer o `-u` parâmetro. Executar esse comando fornece uma URL e um código que você deve usar para autenticar.
    
       * Entrar como um *entidade de serviço*: Antes de entrar no, [criar uma entidade de serviço por meio do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribuí-lo uma função. Agora, entre usando o comando a seguir:
 
