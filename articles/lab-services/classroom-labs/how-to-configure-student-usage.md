@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490440"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964807"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar políticas e configurações de uso
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -29,7 +29,9 @@ Se você tiver o **Restringir acesso** habilitado, adicione usuários (endereço
 
 1. Selecione **Usuários** no menu à esquerda.
 2. Selecione **Adicionar usuários** na barra de ferramentas. 
-3. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
+
+    ![Botão Adicionar usuários](../media/how-to-configure-student-usage/add-users-button.png)
+1. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
 
     ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Clique em **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
@@ -64,11 +66,14 @@ Defina cotas por usuário usando as seguintes etapas:
 
 1. Selecione **Usuários** no menu à esquerda.
 2. Selecione **Cota por usuário: ilimitado** na barra de ferramentas. 
-3. Na página **Cota por usuário**, selecione **Limitar o número de horas que um usuário pode usar uma VM**. 
-4. Por **Quantas horas deseja dar a cada usuário?**, insira o número de horas e selecione **Salvar**. 
+3. Na página **Cota por usuário**, selecione uma das seguintes opções: 
+    1. **None**. Os usuários podem usar as máquinas virtuais apenas durante o horário agendado ou quando um proprietário de laboratório ativa máquinas virtuais por eles.
+    2. **Ilimitado (padrão)**. Os usuários podem usar suas máquinas virtuais sem nenhuma restrição de horário.
+    3. **Especifique o número de horas por usuário**. Os usuários podem usar suas máquinas virtuais durante o número definido de horas (especificado abaixo), além do horário agendado. Se você selecionar essa opção, insira o **número de horas** na caixa de texto. 
 
-    ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Agora você verá o número de horas na barra de ferramentas: **Cota por usuário: &lt;número de horas&gt;**. 
+        ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Clique em **Salvar**. 
+5. Agora você vê os valores alterados na barra de ferramentas: **Cota por usuário: &lt;número de horas&gt;**. 
 
     ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -78,8 +83,19 @@ Defina cotas por usuário usando as seguintes etapas:
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar usuários ao carregar um arquivo CSV
 Você também pode adicionar usuários ao carregar um arquivo CSV com endereços de email dos usuários.
 
-1. Selecione **Carregar CSV** na barra de ferramentas.
-2. Selecione o arquivo CSV com endereços de email do usuário. Todos os endereços de email devem estar em uma coluna quando você abri-los com o Excel. 
+1. Crie um arquivo CSV com endereços de email de usuários em uma coluna.
+
+    ![Cota por usuário](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Na página **Usuários** do laboratório, selecione **Carregar CSV** na barra de ferramentas.
+
+    ![Botão Carregar CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Selecione o arquivo CSV com endereços de email do usuário. Quando você seleciona **Abrir** após selecionar o arquivo CSV, você vê a seguinte janela **Adicionar usuários**. A lista de endereço de email é preenchida com endereços de email do arquivo CSV. 
+
+    ![Adicionar janela de usuários populada com endereços de email do arquivo CSV](../media/how-to-configure-student-usage/add-users-window.png)
+4. Selecione **Salvar** na janela **Adicionar usuários**. 
+5. Confirme que você vê os usuários na lista de usuários. 
+
+    ![Lista de usuários adicionados](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>Gerenciar VMs do usuário
 Após o registro dos alunos no Azure Lab Services usando o link de registro fornecido, você verá as VMs atribuídas aos alunos na guia **Máquinas virtuais**. 

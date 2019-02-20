@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 52e115aa7f54eccc2be4e500c544aa38ca3bc32d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631269"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975777"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Pssar credenciais para o manipulador de extensões DSC do Azure
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 Este artigo aborda a extensão Configuração de Estado Desejado (DSC) do Azure. Para obter uma visão geral do manipulador de extensões DSC, consulte [Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure](dsc-overview.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="pass-in-credentials"></a>Passar credenciais
 
@@ -65,7 +65,7 @@ configuration Main
 
 Para publicar esse script no armazenamento de blobs do Azure:
 
-`Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
+`Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
 Para definir a extensão DSC do Azure e fornecer a credencial:
 
@@ -73,16 +73,16 @@ Para definir a extensão DSC do Azure e fornecer a credencial:
 $configurationName = 'Main'
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
-$vm = Get-AzureRmVM -Name 'example-1'
+$vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
-$vm | Update-AzureRmVM
+$vm | Update-AzVM
 ```
 
 ## <a name="how-a-credential-is-secured"></a>Como uma credencial é protegida
 
-Executar esse código solicita uma credencial. Depois que a credencial é fornecida, ela é armazenada brevemente na memória. Quando a credencial é publicada usando o cmdlet **Set-AzureRmVMDscExtension**, a credencial é transmitida por HTTPS para a VM. Na VM, o Azure armazena a credencial criptografada no disco usando o certificado local da VM. A credencial é brevemente descriptografada na memória e, em seguida, criptografada novamente para passá-la à DSC.
+Executar esse código solicita uma credencial. Depois que a credencial é fornecida, ela é armazenada brevemente na memória. Quando a credencial é publicada usando o cmdlet **Set-AzVMDscExtension**, ela é transmitida por HTTPS para a VM. Na VM, o Azure armazena a credencial criptografada no disco usando o certificado local da VM. A credencial é brevemente descriptografada na memória e, em seguida, criptografada novamente para passá-la à DSC.
 
 Esse processo é diferente de [usar configurações seguras sem o manipulador de extensões](/powershell/dsc/securemof). O ambiente do Azure oferece uma forma de transmitir dados de configuração com segurança por meio de certificados. Ao usar o manipulador de extensão DSC, não é necessário fornecer **$CertificatePath** ou uma entrada **$CertificateID**/ **$Thumbprint** em **ConfigurationData**.
 

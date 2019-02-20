@@ -4,7 +4,7 @@ description: Este artigo fornece diretrizes sobre como atualizar os Serviços de
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619649"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005158"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento 
 
 Ao criar uma nova conta do AMS (Serviços de Mídia do Azure), você também é solicitado a selecionar uma conta de Armazenamento do Azure, que é usada para armazenar o conteúdo de mídia. Você pode adicionar mais de uma conta de armazenamento à sua conta dos Serviços de Mídia. Este artigo mostra como rotacionar chaves de armazenamento. Também mostra como adicionar contas de armazenamento a uma conta de mídia. 
 
@@ -68,7 +68,7 @@ O exemplo a seguir demonstra como obter a conta de armazenamento e sincronizá-l
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Etapas para adicionar contas de armazenamento à sua conta do AMS
 
-O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS: [Anexar várias contas de armazenamento a uma conta de Serviços de Mídia](meda-services-managing-multiple-storage-accounts.md).
+O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS: [Anexe várias contas de armazenamento a uma conta de Serviços de Mídia](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -77,4 +77,4 @@ O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Agradecimentos
-Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
+Gostaríamos de agradecer às seguintes pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.

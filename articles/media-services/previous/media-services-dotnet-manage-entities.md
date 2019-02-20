@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: af5baf3444196e5a0e8412d9ab4f019fdccb033e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783675"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979965"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 > [!div class="op_single_selector"]
@@ -28,12 +28,12 @@ ms.locfileid: "33783675"
 > 
 > 
 
-Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com .NET. 
+Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com o .NET (herança)
 
 >[!NOTE]
 > A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, junto com seus registros de tarefas associados, mesmo que o número total de registros esteja abaixo da cota máxima. Por exemplo, no dia 1º de abril de 2017, qualquer registro de Trabalho em sua conta que seja mais antigo do que 31 de dezembro de 2016 será excluído automaticamente. Se você precisar arquivar as informações de trabalho/tarefa, poderá usar o código descrito neste tópico.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
@@ -352,7 +352,7 @@ O exemplo a seguir exclui um ativo.
 ## <a name="delete-a-job"></a>Excluir um trabalho
 Para excluir um trabalho, você deve verificar o estado do trabalho, conforme indicado na propriedade Estado. Os Trabalhos que foram concluídos ou cancelados podem ser excluídos, enquanto os trabalhos que estão em alguns outros estados, como enfileirado, agendado ou em processamento devem ser cancelados primeiro e, em seguida, eles podem ser excluídos.
 
-O exemplo de código a seguir mostra um método para exclusão de um trabalho de verificação de estados de trabalho e a exclusão quando o estado é concluído ou cancelado. Esse código depende da seção anterior deste tópico para obter uma referência a um trabalho: Obter uma referência de trabalho.
+O exemplo de código a seguir mostra um método para exclusão de um trabalho de verificação de estados de trabalho e a exclusão quando o estado é concluído ou cancelado. Esse código depende da seção anterior deste tópico para obter uma referência a um trabalho: Obtenha uma referência de trabalho.
 
 ```csharp
     static void DeleteJob(string jobId)

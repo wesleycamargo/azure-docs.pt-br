@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c679d2e6b7dc8998016e79d265f368504d6def3d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038397"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961832"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Conectar-se à conta do Cosmos usando o Studio 3T
 
@@ -26,7 +26,7 @@ Para se conectar a uma conta do Cosmos usando a API do Cosmos DB para MongoDB, �
 ## <a name="create-the-connection-in-studio-3t"></a>Criar a conexão no Studio 3T
 Para adicionar sua conta do Cosmos ao gerenciador de conexões do Studio 3T, execute as seguintes etapas:
 
-1. Recupere as informações de conexão para sua conta do Cosmos configurada com a API do Azure Cosmos DB para MongoDB usando as instruções no artigo [Conectar um aplicativo MongoDB ao Banco de Dados do Azure Cosmos DB](connect-mongodb-account.md).
+1. Recupere as informações de conexão para sua conta do Cosmos configurada com a API do Azure Cosmos DB para MongoDB usando as instruções no artigo [Conectar um aplicativo MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
 
     ![Captura de tela da página da cadeia de conexão](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Clique em **Conectar** para abrir o Gerenciador de Conexões e clique em **Nova Conexão**

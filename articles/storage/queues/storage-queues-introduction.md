@@ -1,22 +1,21 @@
 ---
-title: Introdução ao Armazenamento de filas do Azure | Microsoft Docs
-description: Introdução ao Armazenamento de filas do Azure
+title: Introdução às Filas do Azure | Microsoft Docs
+description: Introdução às Filas do Azure
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/06/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: b173934db17b8c3ac5a48e599b75478fb214c240
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ae0d3993df54e1c9e5a9bf93619e8f9faa8a917
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458390"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873590"
 ---
-# <a name="introduction-to-queues"></a>Introdução às Filas
+# <a name="what-are-azure-queues"></a>O que são as Filas do Azure?
 
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.
 

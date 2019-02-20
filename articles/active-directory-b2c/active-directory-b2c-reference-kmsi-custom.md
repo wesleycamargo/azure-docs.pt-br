@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812286"
+ms.locfileid: "55870955"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C
 
@@ -154,7 +154,7 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
 
     O valor de **SessionExpiryInSeconds** representa o horário de expiração de uma sessão de SSO. Ele é usado internamente pelo Azure AD B2C para verificar se a sessão do KMSI expirou ou não. O valor de **KeepAliveInDays** determina o valor Expires/Max-Age do cookie de SSO no navegador da Web. Ao contrário de **SessionExpiryInSeconds**, **KeepAliveInDays** é usado para impedir o navegador de limpar o cookie quando for fechado. Um usuário só poderá entrar sem autenticação se o cookie da sessão SSO existir, o que é controlado por **KeepAliveInDays** e não tiver expirado, o que é controlado por **SessionExpiryInSeconds**. 
     
-    Se um usuário não permite **Mantenha-me conectado** na página de inscrição e entrada, uma sessão expira após o tempo indicado pelo **SessionExpiryInSeconds** tenha passado ou o navegador está fechado. Se um usuário habilita **Mantenha-me conectado**, o valor de **KeepAliveInDays** substitui o valor de **SessionExpiryInSeconds** e determina o tempo de expiração de sessão. Até os usuários fecham o navegador e abrem novamente, eles podem silenciosamente entrar enquanto estiverem dentro do tempo de **KeepAliveInDays**. É recomendável que você defina o valor de **SessionExpiryInSeconds** para um período curto (1.200 segundos), enquanto o valor de **KeepAliveInDays** pode ser definido como um período relativamente longo (7 dias), conforme mostrado no exemplo a seguir:
+    Se um usuário não permite **Mantenha-me conectado** na página de inscrição e entrada, uma sessão expira após o tempo indicado pelo **SessionExpiryInSeconds** tenha passado ou o navegador está fechado. Se um usuário habilita **Mantenha-me conectado**, o valor de **KeepAliveInDays** substitui o valor de **SessionExpiryInSeconds** e determina o tempo de expiração de sessão. Mesmo se os usuários fecharem o navegador e o abrirem novamente, eles poderão entrar silenciosamente enquanto estiverem dentro do tempo de **KeepAliveInDays**. É recomendável que você defina o valor de **SessionExpiryInSeconds** para um período curto (1.200 segundos), enquanto o valor de **KeepAliveInDays** pode ser definido como um período relativamente longo (7 dias), conforme mostrado no exemplo a seguir:
 
     ```XML
     <RelyingParty>

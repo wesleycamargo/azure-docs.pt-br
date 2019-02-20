@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: e9378fd1e7fd0d8c6b3f913ec3d8f629a2c3be37
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 92d5d458615b029553dee2f8047c85e3fb5f9696
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770679"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892586"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: Downloads e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -47,6 +47,12 @@ ms.locfileid: "55770679"
 * Novo modelo de objeto, com CosmosClient de nível superior e métodos divididos entre as classes CosmosDatabases, CosmosContainers e CosmosItems. 
 * Suporte para fluxos. 
 * Atualizado CosmosResponseMessage do servidor para retornar o código de status e somente gerar exceção quando nenhuma resposta for retornada. 
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+
+* A configuração de variável de ambiente "POCOSerializationOnly" foi adicionada.
+
+* DocumentDB.Spatial.Sql.dll foi excluído e, agora, foi incluído em Microsoft.Azure.Documents.ServiceInterop.dll
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 
@@ -351,6 +357,7 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.2](#2.2.2) |06 de fevereiro de 2019 |--- |
 | [2.2.1](#2.2.1) |24 de dezembro de 2018 |--- |
 | [2.2.0](#2.2.0) |07 de dezembro de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |

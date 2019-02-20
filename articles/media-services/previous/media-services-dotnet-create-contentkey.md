@@ -4,7 +4,7 @@ description: Saiba como criar chaves de conteúdo que fornecem acesso seguro aos
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 53df4c4cef19f6eef99aa15bb265317aa0cd1d58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782735"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992153"
 ---
-# <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET
+# <a name="create-contentkeys-with-net-legacy"></a>Criar ContentKeys com o .NET (herdado)
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -71,7 +71,7 @@ Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo d
 ```
 
 ## <a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
-O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope. Em seguida, associa a chave com o ativo especificado.
+O snippet de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope. Em seguida, associa a chave com o ativo especificado.
 
 ```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -109,7 +109,7 @@ call
 
 
 ## <a id="common_contentkey"></a>Criar um tipo comum de ContentKey
-O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia comum. Em seguida, associa a chave com o ativo especificado.
+O snippet de código a seguir cria uma chave de conteúdo do tipo de criptografia comum. Em seguida, associa a chave com o ativo especificado.
 
 ```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)

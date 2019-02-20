@@ -1,6 +1,6 @@
 ---
-title: Direcionamento de soluções de gerenciamento no Azure | Microsoft Docs
-description: Direcionamento de soluções de gerenciamento permite limitar as soluções de gerenciamento a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de escopo e aplicá-la a uma solução.
+title: Direcionamento de soluções de monitoramento no Azure Monitor | Microsoft Docs
+description: O direcionamento de soluções de monitoramento permite limitar as soluções de monitoramento a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de escopo e aplicá-la a uma solução.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192746"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989178"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Direcionamento de Soluções de Gerenciamento no Azure (versão prévia)
-Quando você adiciona uma solução de gerenciamento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu workspace do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Direcionamento de soluções de monitoramento no Azure Monitor (versão prévia)
+Quando você adiciona uma solução de monitoramento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e do Linux conectados ao seu workspace do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Como direcionar uma solução
 Há três etapas para direcionar uma solução, conforme descrito nas próximas seções. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores
-Especifique os computadores que você deseja incluir em um escopo criando um [grupo de computadores](../../azure-monitor/platform/computer-groups.md) no Log Analytics.  O grupo de computadores pode se basear em uma pesquisa de logs ou ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente os computadores que estão diretamente conectados ao Log Analytics serão incluídos no escopo.
+Especifique os computadores que deseja incluir no escopo criando um [grupo de computadores](../platform/computer-groups.md) no Azure Monitor.  O grupo de computadores pode se basear em uma consulta de logs ou pode ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente computadores conectados diretamente ao Azure Monitor serão incluídos no escopo.
 
 Depois de criar o grupo de computadores em seu workspace, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
  
@@ -38,7 +40,7 @@ Depois de criar o grupo de computadores em seu workspace, você o incluirá em u
  
  Crie uma configuração de escopo usando o processo a seguir.  
 
- 1. No portal do Azure, navegue para **Log Analytics** e selecione seu workspace.
+ 1. No portal do Azure, navegue até **Workspaces do Log Analytics** e selecione seu workspace.
  2. Nas propriedades do workspace em **Fontes de Dados do Workspace**, selecione **Configurações de Escopo**.
  3. Clique em **Adicionar** para criar uma nova configuração de escopo.
  4. Digite um **Nome** para a configuração de escopo.
@@ -52,7 +54,7 @@ Depois que você tiver uma configuração de escopo, poderá aplicá-la a uma ou
 
 Aplique uma configuração de escopo usando o processo a seguir.  
 
- 1. No portal do Azure, navegue para **Log Analytics** e selecione seu workspace.
+ 1. No portal do Azure, navegue até **Workspaces do Log Analytics** e selecione seu workspace.
  2. Nas propriedades do workspace, selecione **Soluções**.
  3. Clique na solução que você deseja definir como escopo.
  4. Nas propriedades da solução em **Fontes de Dados do Workspace**, selecione **Direcionamento de Solução**.  Se a opção não estiver disponível, isso significa que [essa solução não poderá ser direcionada](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ Veja a seguir os critérios para agentes e soluções que não podem ser usados 
 
 - O direcionamento de solução se aplica somente às soluções implantadas em agentes.
 - O direcionamento de solução se aplica somente às soluções fornecidas pela Microsoft.  Ele não se aplica às soluções [criadas por você ou por parceiros](solutions-creating.md).
-- Você pode filtrar os agentes que se conectam diretamente ao Log Analytics.  As soluções serão implantadas automaticamente em todos os agentes que fazem parte de um grupo de gerenciamento conectado do Operations Manager, independentemente de estarem incluídas ou não em uma configuração de escopo.
+- Você pode filtrar somente os agentes que se conectam diretamente ao Azure Monitor.  As soluções serão implantadas automaticamente em todos os agentes que fazem parte de um grupo de gerenciamento conectado do Operations Manager, independentemente de estarem incluídas ou não em uma configuração de escopo.
 
 ### <a name="exceptions"></a>Exceções
 O direcionamento de solução não pode ser usado com as soluções descritas a seguir, mesmo que elas se enquadrem nos critérios indicados.
@@ -73,5 +75,5 @@ O direcionamento de solução não pode ser usado com as soluções descritas a 
 - Avaliação de Integridade do Agente
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as soluções de gerenciamento, incluindo as soluções disponíveis para instalação em seu ambiente em [Adicionar soluções de gerenciamento do Azure Log Analytics a seu workspace](solutions.md).
-- Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em pesquisas de logs do Log Analytics](../../azure-monitor/platform/computer-groups.md).
+- Saiba mais sobre as soluções de monitoramento, incluindo as soluções disponíveis para instalação em seu ambiente, em [Adicionar soluções de monitoramento do Azure Log Analytics a seu workspace](solutions.md).
+- Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em consultas de logs do Azure Monitor](../platform/computer-groups.md).

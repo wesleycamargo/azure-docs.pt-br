@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c280a1f7e060ab7637e8d0b2484951f72b58a89c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081187"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894098"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 
@@ -54,7 +54,7 @@ O serviço Data Factory permite criar pipelines de dados que movem e transformam
 Consulte os artigos [Introdução ao Azure Data Factory](data-factory-introduction.md) e [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para começar a introdução ao serviço do Azure Data Factory.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning juntos
-O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do [Azure Machine Learning][azure-machine-learning] publicado para a análise preditiva. Usando a **Atividade de Execução em Lotes** em um pipeline do Azure Data Factory, você pode chamar um serviço Web do Azure Machine Learning Studio para fazer previsões sobre dados em lote. Confira a seção [Chamar um serviço Web do Azure Machine Learning usando a Atividade de execução em lote](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) para saber mais.
+O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do [Azure Machine Learning][azure-machine-learning] publicado para a análise preditiva. Usando a **Atividade de Execução em Lotes** em um pipeline do Azure Data Factory, você pode chamar um serviço Web do Azure Machine Learning Studio para fazer previsões sobre dados em lote. Confira a seção Chamar um serviço Web do Azure Machine Learning usando a Atividade de execução em lote para saber mais.
 
 Ao longo do tempo, os modelos de previsão nos testes de pontuação do Azure Machine Learning Studio precisam ser reciclados usando novos conjuntos de dados de entrada. Você pode treinar novamente um modelo do Azure Machine Learning Studio a partir de um pipeline do Data Factory executando as seguintes etapas:
 

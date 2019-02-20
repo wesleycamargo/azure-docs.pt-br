@@ -3,7 +3,7 @@ title: Criar e gerenciar servidores de Banco de Dados SQL do Azure e bancos de d
 description: Saiba como criar e gerenciar servidores de Banco de Dados SQL e bancos de dados individuais.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: 0a43414ef446beb3f5d6c8e357390363a95ac31c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751184"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099336"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores de Banco de Dados SQL e bancos de dados individuais no Banco de Dados SQL do Azure
 
@@ -57,7 +57,7 @@ Para gerenciar um banco de dados existente, navegue até a página **bancos de d
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Gerenciar servidores de Banco de Dados SQL e bancos de dados individuais
 
-Para criar e gerenciar os servidores de Banco de Dados SQL do Azure, bancos de dados autônomos e em pool e firewalls do servidor de Banco de Dados SQL com o Azure PowerShell, use os cmdlet do PowerShell a seguir. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+Para criar e gerenciar os servidores de Banco de Dados SQL do Azure, bancos de dados individuais e em pool e firewalls do servidor de Banco de Dados SQL com o Azure PowerShell, use os cmdlet do PowerShell a seguir. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, confira [Usar o PowerShell para criar um Banco de Dados SQL do Azure individual e configurar uma regra de firewall de servidor de Banco de Dados SQL](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorar e escalar um Banco de Dados SQL individual usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -160,5 +160,5 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
 - Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-database-features.md).

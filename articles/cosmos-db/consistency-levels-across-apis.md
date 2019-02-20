@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806990"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001948"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
-Os cinco modelos de consistência oferecidos pelo Azure Cosmos DB são nativamente suportados pela API Cosmos DB SQL, que é a API SQL do Azure Cosmos DB. Quando você usa o Azure Cosmos DB, a API do SQL é o padrão. 
+Os cinco modelos de consistência oferecidos pelo Azure Cosmos DB são nativamente compatíveis com a API SQL. Quando você usa o Azure Cosmos DB, a API do SQL é o padrão. 
 
-O Azure Cosmos DB também oferece suporte nativo para transmissão compatível com o protocolo de APIs para bancos de dados populares. Bancos de dados incluem armazenamento MongoDB, Apache Cassandra, Gremlin e armazenamento de Tabelas do Azure. Esses bancos de dados não oferecem modelos de consistência precisamente definidos nem garantias por SLA para os níveis de consistência. Fornecem normalmente apenas um subconjunto dos cincos modelos de consistência oferecidos pelo Azure Cosmos DB. Para a API de SQL, a API do Gremlin e a API de Tabela, o nível de coerência padrão configurado na conta do Azure Cosmos DB é usado. 
+O Azure Cosmos DB também oferece suporte nativo para transmissão compatível com o protocolo de APIs para bancos de dados populares. Bancos de dados incluem armazenamento MongoDB, Apache Cassandra, Gremlin e armazenamento de Tabelas do Azure. Esses bancos de dados não oferecem modelos de consistência precisamente definidos nem garantias por SLA para os níveis de consistência. Fornecem normalmente apenas um subconjunto dos cincos modelos de consistência oferecidos pelo Azure Cosmos DB. Para a API de SQL, a API do Gremlin e a API de Tabela, o nível de coerência padrão configurado na conta do Azure Cosmos é usado. 
 
-As seções a seguir mostram o mapeamento entre a consistência de dados solicitado por um driver de cliente de software livre para o Apache Cassandra 4.x e o MongoDB 3.4. Este documento também mostra os níveis de consistência do Azure Cosmos DB correspondentes para o Apache Cassandra e MongoDB.
+As seções a seguir mostram o mapeamento entre a consistência de dados solicitada por um driver cliente do OSS para o Apache Cassandra e o MongoDB e os níveis de consistência correspondentes no Azure Cosmos DB.
 
 ## <a id="cassandra-mapping"></a>O mapeamento entre os níveis de consistência do Apache Cassandra e o Azure Cosmos DB
 
-Esta tabela mostra o mapeamento de consistência entre o Apache Cassandra e os níveis de consistência no Azure Cosmos DB. Para cada um dos níveis de consistência de Leitura e Gravação do Cassandra, o Nível de Consistência do Cosmos DB correspondente fornece garantias mais fortes, isto é, mais rígidas.
+A tabela abaixo descreve a combinação de consistência que uma pessoa pode usar na API do Cassandra e o mapeamento de nível de consistência nativo equivalente do Cosmos DB. Todas as combinações de modos de leitura e gravação do Apache Cassandra são nativamente compatíveis com o Cosmos DB. Em todas as combinações do modelo de consistência de leitura e gravação do Apache Cassandra, o Cosmos DB fornece garantias de consistência igual ou maior que a do Apache Cassandra. Além disso, o Cosmos DB fornece maior garantias de durabilidade que o Apache Cassandra, até mesmo no modo mais fraco de gravação.
 
 A seguinte tabela mostra o **mapeamento de consistência de gravação** entre o Azure Cosmos DB e o Cassandra:
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756573"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875484"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia do Azure v3
 
@@ -36,17 +36,7 @@ Para obter detalhes, confira [Dimensionar o processamento de mídia com a CLI](m
 
 ### <a name="how-does-pagination-work"></a>Como a paginação funciona?
 
-Os Serviços de Mídia dão suporte para $top para recursos que dão suporte para OData, mas o valor passado para $top deve ser menor que 1000 (por exemplo, o tamanho da página para paginação).
-
-Isso permite que você obtenha uma pequena amostra de itens usando $top (por exemplo, os 100 itens mais recentes) ou paginar todos os itens usando paginação. 
-
-Os Serviços de Mídia não dão suporte para paginação pelos dados com um tamanho de página especificado pelo usuário.
-
-Para obter mais informações, confira [Filtragem, classificação, paginação](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Como recuperar uma entidade nos Serviços de Mídia v3?
-
-A v3 é baseada em uma superfície de API unificada que expõe a funcionalidade de operações e gerenciamento compilada no **Azure Resource Manager**. De acordo com o **Azure Resource Manager**, os nomes dos recursos são sempre exclusivos. Desse modo, é possível usar qualquer cadeia de caracteres de identificador exclusivo (por exemplo, GUIDs) para o recurso.
+Ao usar a paginação, você sempre deve usar o próximo link para enumerar a coleção e não depender de um tamanho de página em particular. Para obter detalhes e exemplos, confira [Filtragem, ordenação, paginação](entities-overview.md).
 
 ## <a name="live-streaming"></a>Transmissão ao vivo 
 

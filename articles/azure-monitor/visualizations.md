@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264403"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990165"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
 
 Visualizações como tabelas e gráficos podem ajudá-lo a analisar seus dados de monitoramento para detalhar problemas e identificar padrões. Dependendo da ferramenta que você usa, você também pode ter a opção de compartilhar visualizações com outros usuários dentro e fora de sua organização.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-dashboards"></a>Painéis do Azure
 Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a principal tecnologia de painéis do Azure. Eles são particularmente úteis para fornecer um único painel de controle sobre sua infraestrutura e serviços do Azure, permitindo que você identifique rapidamente problemas importantes.
@@ -30,9 +32,9 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 ![painel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantagens
-- Integração profunda no Azure. As visualizações podem ser fixadas em painéis por meio de várias páginas do Azure, incluindo análise de métricas, Log Analytics e Application Insights.
+- Integração profunda no Azure. As visualizações podem ser fixadas em painéis a partir de várias páginas do Azure, incluindo o Metrics Explorer, o Log Analytics e o Application Insights.
 - Suporta métricas e logs.
-- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](../azure-monitor/platform/metrics-charts.md), [consultas do Log Analytics](../azure-monitor/log-query/log-query-overview.md) e [mapas](../azure-monitor/app/app-map.md) e disponibilidade no Application Insights.
+- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](platform/metrics-charts.md), das [consultas do Log Analytics](log-query/log-query-overview.md) e dos [mapas](app/app-map.md), e a [disponibilidade]() no Application Insights.
 - Opção para os painéis de pessoais ou compartilhadas. Integrado com a autenticação baseada em função do Azure [(RBAC)](../role-based-access-control/overview.md).
 - Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Registra a atualização em um minuto.
 - Painéis de métricas parametrizadas com carimbo de data/hora e parâmetros personalizados.
@@ -49,14 +51,14 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 - Detalhamento contextual limitado.
 
 ## <a name="azure-monitor-views"></a>Modos de exibição do Monitor do Azure
-As [exibições no Azure Monitor](../log-analytics/log-analytics-view-designer.md) permitem que você crie visualizações personalizadas com os dados de log. Elas são usadas pelas [soluções de monitoramento](insights/solutions.md) para apresentar os dados coletados.
+As [exibições no Azure Monitor](platform/view-designer.md) permitem que você crie visualizações personalizadas com os dados de log. Elas são usadas pelas [soluções de monitoramento](insights/solutions.md) para apresentar os dados coletados.
 
 ![Visualizar](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de log.
 - Exporte e importe visualizações para transferi-las para outros grupos de recursos e assinaturas.
-- Integra-se ao modelo de gerenciamento do Log Analytic com workspaces e soluções de monitoramento.
+- Integra-se no modelo de gerenciamento do Azure Monitor com espaços de trabalho e soluções de monitoramento.
 - [Filtros](platform/view-designer-filters.md) para parâmetros personalizados.
 - Interativo, suporta drill-in de vários níveis (veja as brocas em outra visão)
 
@@ -71,7 +73,7 @@ As [exibições no Azure Monitor](../log-analytics/log-analytics-view-designer.m
 
 
 ## <a name="application-insights-workbooks"></a>Pastas de trabalho do Insights de aplicativos
-[As pastas de trabalho](../azure-monitor/app/usage-workbooks.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
+[As pastas de trabalho](../application-insights/app-insights-usage-workbooks.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
 
 ![Pasta de trabalho](media/visualizations/workbook.png)
 
@@ -89,7 +91,7 @@ As [exibições no Azure Monitor](../log-analytics/log-analytics-view-designer.m
 
 
 ## <a name="power-bi"></a>Power BI
-[O Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é particularmente útil para criar painéis e relatórios centrados nos negócios, bem como relatórios que analisam tendências de KPI de longo prazo. Você pode [importar os resultados de uma consulta de log](../log-analytics/log-analytics-powerbi.md) para um conjunto de dados do Power BI para aproveitar seus recursos, como combinar dados de diferentes fontes e compartilhar relatórios na Web e em dispositivos móveis.
+[O Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é particularmente útil para criar painéis e relatórios centrados nos negócios, bem como relatórios que analisam tendências de KPI de longo prazo. Você pode [importar os resultados de uma consulta de log](platform/powerbi.md) para um conjunto de dados do Power BI para aproveitar seus recursos, como combinar dados de diferentes fontes e compartilhar relatórios na Web e em dispositivos móveis.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +111,7 @@ As [exibições no Azure Monitor](../log-analytics/log-analytics-view-designer.m
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) é uma plataforma aberta que se destaca em painéis operacionais. É particularmente útil para detectar, isolar e triar incidentes operacionais. Você pode adicionar [o plug-in da fonte de dados do Grafana Azure Monitor](../azure-monitor/platform/grafana-plugin.md) à sua assinatura do Azure para que ela visualize seus dados de métricas do Azure.
+[Grafana](https://grafana.com/) é uma plataforma aberta que se destaca em painéis operacionais. É particularmente útil para detectar, isolar e triar incidentes operacionais. Você pode adicionar [o plug-in da fonte de dados do Grafana Azure Monitor](platform/grafana-plugin.md) à sua assinatura do Azure para que ela visualize seus dados de métricas do Azure.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -140,7 +142,6 @@ Você pode acessar os dados nos dados de log e métrica do Azure Monitor por mei
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-collection.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
-- Saiba mais sobre [pastas de trabalho no Application Insights](../azure-monitor/app/usage-workbooks.md).
-- Saiba mais sobre [importar dados de log no Power BI](../azure-monitor/platform/powerbi.md).
-- Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](../azure-monitor/platform/grafana-plugin.md).
-
+- Saiba mais sobre [pastas de trabalho no Application Insights](app/usage-workbooks.md).
+- Saiba mais sobre [importar dados de log no Power BI](platform/powerbi.md).
+- Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](platform/grafana-plugin.md).

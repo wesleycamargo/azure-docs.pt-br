@@ -16,16 +16,17 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081952"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206167"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início Rápido: Bloquear o acesso quando um risco de sessão é detectado com acesso condicional do Azure Active Directory  
 
-Para manter seu ambiente protegido, você talvez queira impedir que usuários suspeitos assinem na atividade de assinatura. [Proteção de Identidade do Azure Active Directory (Azure AD)](../active-directory-identityprotection.md) analiza cada login e calcula a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de entrada](conditions.md#sign-in-risk). Definindo a condição de risco de entrada, você pode configurar uma política de acesso condicional para responder aos níveis de risco de entrada específico. 
+Para manter o ambiente protegido, convém bloquear a conexão de usuários suspeitos. [Proteção de Identidade do Azure Active Directory (Azure AD)](../active-directory-identityprotection.md) analiza cada login e calcula a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de entrada](conditions.md#sign-in-risk). Definindo a condição de risco de entrada, você pode configurar uma política de acesso condicional para responder aos níveis de risco de entrada específico. 
 
 Este início rápido mostra como configurar uma [política de acesso condicional](../active-directory-conditional-access-azure-portal.md) que bloqueia uma entrada quando um nível de risco de entrada configurado foi detectado. 
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105178"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895832"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastre de máquinas virtuais VMware locais ou de servidores físicos para um site secundário
 
@@ -218,7 +218,7 @@ A Atualização 5 do Scout é uma atualização cumulativa. Ela contém todas as
 
 #### <a name="new-platform-support"></a>Novo suporte à plataforma
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
-* O SLES 11 SP4 de 64 bits  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é empacotado com o pacote base do Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Baixe o pacote GA do portal, conforme é descrito em [criar um cofre](#create-a-vault).
+* O SLES 11 SP4 de 64 bits  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é empacotado com o pacote base do Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Baixe o pacote GA do portal, conforme é descrito em criar um cofre.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Correções de bug e melhorias
@@ -252,7 +252,7 @@ Scout Atualização 4 é uma atualização cumulativa. Ela inclui todas as corre
   * CentOS 6.8
 
 > [!NOTE]
-> O RHEL/CentOS 7 de 64 bits **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** é empacotado com o pacote **InMage_Scout_Standard_8.0.1 GA.zip** base do Scout GA. Baixe o pacote do Scout GA do portal, conforme é descrito em [criar um cofre](#create-a-vault).
+> O RHEL/CentOS 7 de 64 bits **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** é empacotado com o pacote **InMage_Scout_Standard_8.0.1 GA.zip** base do Scout GA. Baixe o pacote do Scout GA do portal, conforme é descrito em criar um cofre.
 
 #### <a name="bug-fixes-and-enhancements"></a>Correções de bug e melhorias
 

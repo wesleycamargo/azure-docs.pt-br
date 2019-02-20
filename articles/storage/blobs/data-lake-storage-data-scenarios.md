@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1c50a6e14955b2c31222ff1317aa99ad28866ec8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239020"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864717"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando o Azure Data Lake Storage Gen2 para exigências de big data
 
@@ -82,6 +82,8 @@ Carregar conjuntos de dados que incluem vários terabytes usando os métodos des
 Depois que os dados estiverem disponíveis no Azure Data Lake Storage Gen2, você poderá executar uma análise nesses dados usando os aplicativos de Big Data compatíveis. Atualmente, é possível usar o Azure HDInsight e o Azure Databricks para executar trabalhos de análise de dados nos dados armazenados no Azure Data Lake Storage Gen2.
 
 ![Analisar dados no Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analisar dados no Data Lake Storage Gen2")
+
+Para ver um exemplo, consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
 
 ## <a name="download-data-from-data-lake-storage-gen2"></a>Fazer o download dos dados do Data Lake Storage Gen2

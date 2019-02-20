@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486293"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003305"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
 Este artigo descreve o que são alertas, seus benefícios e como começar a usá-los.  
 
 
+
+
 ## <a name="what-are-alerts-in-microsoft-azure"></a>O que são os alertas no Microsoft Azure?
 Os alertas trabalham de forma proativa, mandando notificações quando encontram condições importante em seus dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. 
 
-Este artigo discute a experiência unificada de alerta no Azure Monitor, que agora inclui o Log Analytics e Application Insights. A [experiência anterior de alerta](alerts-classic.overview.md) e os tipos de alerta são chamados de **alertas clássicos**. Você pode ver a experiência mais antiga e o tipo mais antigo de alerta clicando em **Exibir alertas clássicos** na parte superior da página de alerta. 
+Este artigo discute a experiência unificada de alerta no Azure Monitor, que agora inclui alertas que eram gerenciados pelo Log Analytics e pelo Application Insights. A [experiência anterior de alerta](alerts-classic.overview.md) e os tipos de alerta são chamados de **alertas clássicos**. Você pode ver a experiência mais antiga e o tipo mais antigo de alerta clicando em **Exibir alertas clássicos** na parte superior da página de alerta. 
 
 ## <a name="overview"></a>Visão geral
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/4/2019
+ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 31683159f96dd87fe4e7ceea050d5e1d213decba
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770343"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979166"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java Async do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,12 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 | **Tempo de execução mínimo com suporte**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* Direct GA.
+* Adicionado suporte para QueryMetrics.
+* Alteração das APIs aceitando o java.util.Collection para o qual a ordem é importante para aceitar java.util.List no lugar.
+  Agora o ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) aceitam listas.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-Beta-1
 * Adição de suporte ao Direct.
@@ -130,6 +136,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |8 de fevereiro de 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 de fevereiro de 2019|--- |
 | [2.3.1](#2.3.1) |15 de janeiro de 2019|--- |
 | [2.3.0](#2.3.0) |29 de novembro 2018|--- |

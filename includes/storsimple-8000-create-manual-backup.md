@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165433"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889253"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>Para criar um backup manual
 
 1. Acesse o serviço StorSimple Device Manager e clique em **Dispositivos**. Na lista tabular de dispositivos, selecione seu dispositivo. Acesse **Configurações > Gerenciar > Políticas de backup**.
@@ -23,7 +21,7 @@ ms.locfileid: "50165433"
 
 3. Na folha **Fazer backup agora**, execute as seguintes etapas:
 
-    1. Escolha o **Tipo de instantâneo** apropriado na lista suspensa: instantâneo **Local** ou instantâneo de **Nuvem**. Selecione instantâneo local para backups ou restaurações rápidas, e instantâneo de nuvem para resiliência de dados.
+    1. Escolha o **tipo de Instantâneo** adequado no menu suspenso: Instantâneo **local** ou instantâneo **De nuvem**. Selecione instantâneo local para backups ou restaurações rápidas, e instantâneo de nuvem para resiliência de dados.
 
         ![Criar o backup manual](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

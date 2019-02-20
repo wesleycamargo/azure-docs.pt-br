@@ -1,6 +1,6 @@
 ---
-title: Camadas do serviço do Banco de Dados SQL do Azure - DTU | Microsoft Docs
-description: Saiba mais sobre as camadas de serviço para bancos de dados individuais e em pool para fornecer tamanhos de computação e de armazenamento.
+title: Camadas de serviço do Banco de Dados SQL do Azure – modelo de compra baseado em DTU | Microsoft Docs
+description: Saiba mais sobre as camadas de serviço do modelo de compra baseado em DTU, para bancos de dados individuais e em pool, para fornecer tamanhos de computação e de armazenamento.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507647"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993589"
 ---
-# <a name="dtu-based-service-tiers"></a>Camadas de serviço com base em DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
-As camadas de serviço com base em DTU são diferenciadas por um intervalo de tamanhos de computação com uma quantidade fixa de armazenamento incluído, um período de retenção fixo para backups e um preço fixo. Todas as camadas de serviço fornecem flexibilidade para alterar os tamanhos de computação sem tempo de inatividade. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho de computação.
+As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por uma gama de tamanhos de computação com quantidade fixa de armazenamento incluído, período de retenção fixo para backups e preço fixo. Todas as camadas de serviço do modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos de computação sem tempo de inatividade. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho de computação.
 
 > [!IMPORTANT]
-> A Instância Gerenciada do Banco de Dados SQL, atualmente em visualização pública, não dá suporte a um modelo de compra baseado em DTU. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
+> A instância gerenciada do Banco de Dados SQL não dá suporte ao modelo de compra baseado em DTU. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
 > [!NOTE]
-> Para obter informações sobre as camadas de serviço com base em vCore, confira [camadas de serviço com base em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferença entre camadas de serviço com base em DTU e camadas de serviço com base em vCore, confira [modelos de compra do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+> Para obter informações sobre as camadas de serviço com base em vCore, confira [camadas de serviço com base em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferença entre camadas de serviço com base em DTU e camadas de serviço com base em vCore, confira [modelos de compra do Banco de Dados SQL do Azure](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Compare as camadas de serviço com base em DTU
 
@@ -34,8 +34,8 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
-|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção||
-|SLA de tempo de atividade|99,99%|99,99%|99,99%|N/d enquanto estiver em versão prévia|
+|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
+|SLA de tempo de atividade|99,99%|99,99%|99,99%|
 |Retenção de backup|7 dias|35 dias|35 dias|
 |CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |Taxa de transferência de E/S (aproximada) |2.5 IOPS por DTU| 2.5 IOPS por DTU | 48 IOPS por DTU|
@@ -49,12 +49,12 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU de banco de dados único e limite de armazenamento
 
-Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [modelo de compra com base em DTU](sql-database-service-tiers.md#dtu-based-purchasing-model)?
+Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [modelo de compra com base em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
-| Máximo de DTUs | 5 | 3000 | 4000 | |
+| Máximo de DTUs | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,9 +72,9 @@ Os tamanhos de computação são expressos em termos de DTUs (unidades de transa
 ||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento na camada Premium está disponível no momento em todas as regiões, exceto para: Centro-oeste dos EUA, Leste da China, USDoD Central, Alemanha Central, Leste do USDoD, Sudoeste do US Gov, US Gov Iowa, Nordeste da Alemanha e Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Atualmente, mais de 1 TB de armazenamento na camada Premium está disponível em todas as regiões, exceto pelas seguintes: Centro-oeste dos EUA, Leste da China, USDoD Central, Alemanha Central, Leste do USDoD, Sudoeste do US Gov, US Gov Iowa, Nordeste da Alemanha e Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, confira [Gerenciar espaço para arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="dtu-benchmark"></a>Parâmetro de comparação de DTU
 
@@ -88,7 +88,7 @@ O parâmetro de comparação e sua metodologia são descritos em mais detalhes a
 
 ### <a name="benchmark-summary"></a>Resumo do parâmetro de comparação
 
-O ASDB mede o desempenho de uma combinação de operações básicas do banco de dados que ocorrem com mais frequência em cargas de trabalho de OLPT (transação online). Embora o parâmetro de comparação seja projetado com a computação em nuvem em mente, o esquema do banco de dados, o preenchimento dos dados e as transações foram projetados para ser amplamente representativos dos elementos básicos mais comumente usados em cargas de trabalho OLTP.
+O parâmetro de comparação mede o desempenho de um conjunto de operações básicas do banco de dados que ocorrem com mais frequência em cargas de trabalho de OLPT (transação online). Embora o parâmetro de comparação seja projetado com a computação em nuvem em mente, o esquema do banco de dados, o preenchimento dos dados e as transações foram projetados para ser amplamente representativos dos elementos básicos mais comumente usados em cargas de trabalho OLTP.
 
 ### <a name="schema"></a>Esquema
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299030"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893724"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -23,19 +23,20 @@ Fontes de dados e conectores mostrados no Get Data ou no Assistente de Importaç
 
 |Fonte de dados  |Na memória  |DirectQuery  |
 |---------|---------|---------|
-|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   SIM      |    SIM      |
-|SQL Data Warehouse do Azure     |   SIM      |   SIM       |
-|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   SIM       |    Não       |
-|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   SIM       |    Não       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  SIM        |  Não         |
-|Azure Data Lake Storage<sup>[1](#tab1400a)</sup>     |   SIM       |    Não       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     SIM     |   Não        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   SIM       |   Não        |
+|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
+|SQL Data Warehouse do Azure     |   Sim      |   Sim       |
+|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não       |
+|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não       |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não         |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não       |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não        |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não        |
 ||||
 
-<a name="tab1400a">1</a> Tabular 1400 e modelos superiores somente.   
-<a name="azsqlmanaged">2</a> Há suporte para a Instância Gerenciada do Banco de Dados SQL do Azure. Como uma instância gerenciada é executada dentro da VNet do Azure com um endereço IP privado, um gateway de dados local é necessário.   
-<a name="databricks">3</a> No momento, não há suporte para o Azure Databricks usando o conector do Spark.
+<a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.   
+<a name="azsqlmanaged">2</a> - Há suporte para a Instância Gerenciada do Banco de Dados SQL do Azure. Como uma instância gerenciada é executada dentro da VNet do Azure com um endereço IP privado, um gateway de dados local é necessário.   
+<a name="databricks">3</a> - No momento, não há suporte para o Azure Databricks usando o conector do Spark.   
+<a name="gen2">4</a> - No momento, não há suporte para o ADLS Gen2.
 
 
 **Provedor**   

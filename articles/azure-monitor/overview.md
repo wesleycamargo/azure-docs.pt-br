@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098023"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001945"
 ---
 # <a name="azure-monitor-overview"></a>Visão geral do Azure Monitor
 
@@ -28,6 +28,7 @@ O Azure Monitor maximiza a disponibilidade e o desempenho de seus aplicativos fo
 ## <a name="overview"></a>Visão geral
 O diagrama a seguir fornece uma visão geral do Azure Monitor. No centro do diagrama estão os armazenamentos de dados para métricas e logs, que são os dois tipos fundamentais de uso de dados pelo Azure Monitor. À esquerda estão as [fontes de dados de monitoramento](platform/data-sources.md) que populam esses [armazenamentos de dados](platform/data-collection.md). À direita estão as diferentes funções que o Azure Monitor executa com os dados coletados, como análise, alertas e transmissão para sistemas externos.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Visão geral do Azure Monitor](media/overview/overview.png)
 
@@ -35,11 +36,11 @@ O diagrama a seguir fornece uma visão geral do Azure Monitor. No centro do diag
 ## <a name="monitoring-data-platform"></a>Plataforma de dados de monitoramento
 Todos os dados coletados pelo Azure Monitor se enquadram em um dos dois tipos fundamentais, [métricas e logs](platform/data-collection.md). As [Métricas](platform/data-collection.md#metrics) são valores numéricos que descrevem algum aspecto de um sistema em um ponto específico no tempo. Elas são leves e podem dar suporte a cenários quase em tempo real. Os [Logs](platform/data-collection.md#logs) contêm diferentes tipos de dados organizados em registros com diferentes conjuntos de propriedades para cada um. Os dados telemétricos, como eventos e rastreamentos, são armazenados como logs acrescidos dos dados de desempenho, de modo que possam todos ser combinados para análise.
 
-Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor diretamente em sua página de visão geral no portal do Azure. Dê uma olhada em um máquina virtual, por exemplo, e você verá vários gráficos que exibem as métricas de desempenho. Clique em um dos gráficos para abrir os dados no [Metrics Explorer](platform/metrics-charts.md) no portal do Azure, que permite ver os valores de várias métricas no gráfico ao longo do tempo.  É possível exibir os gráficos interativamente ou fixá-los em um painel para exibi-los com outras visualizações.
+Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor diretamente em sua página de visão geral no portal do Azure. Dê uma olhada em um máquina virtual, por exemplo, e você verá vários gráficos que exibem as métricas de desempenho. Clique em um dos gráficos para abrir os dados no [Metrics Explorer](platform/metrics-charts.md), no portal do Azure, que permite fazer o gráfico dos valores de várias métricas ao longo do tempo.  É possível exibir os gráficos interativamente ou fixá-los em um painel para exibi-los com outras visualizações.
 
 ![Métricas](media/overview/metrics.png)
 
-Os dados de log coletados pelo Azure Monitor são armazenados no Log Analytics, que inclui uma [linguagem de consulta avançada](log-query/log-query-overview.md) para recuperar, consolidar e analisar os dados coletados rapidamente.  Você pode criar e testar consultas usando a [página do Log Analytics](log-query/portals.md) no portal do Azure e analisar os dados diretamente usando essas ferramentas ou salvar consultas para usá-las com [visualizações](visualizations.md) ou [ regras de alerta](platform/alerts-overview.md).
+Os dados do log coletados pelo Azure Monitor podem ser analisados com [consultas](log-query/log-query-overview.md) que recuperam, consolidam e analisam rapidamente esses dados.  É possível criar e testar consultas usando o [Log Analytics](log-query/portals.md) no portal do Azure e, em seguida, analisar diretamente os dados usando essas ferramentas ou salvar consultas para uso com [visualizações](visualizations.md) ou [regras de alerta](platform/alerts-overview.md).
 
 O Azure Monitor usa uma versão da [linguagem de consulta do Data Explorer](/azure/kusto/query/) que é adequada para consultas de log simples, mas também inclui funcionalidades avançadas como agregações, junções e análises inteligentes. É possível aprender a linguagem de consulta rapidamente por meio de [várias lições](log-query/get-started-queries.md).  São fornecidas orientações específicas para usuários que já estão familiarizados com [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -54,7 +55,7 @@ O Azure Monitor pode coletar dados de várias fontes. Você pode pensar em dados
 - **Dados de monitoramento de assinatura do Azure**: Dados sobre a operação e o gerenciamento de uma assinatura do Azure, bem como dados sobre a integridade e a operação do próprio Azure. 
 - **Dados de monitoramento do locatário do Azure**: Dados sobre a operação de serviços do Azure no nível de locatário como Azure Active Directory.
 
-Assim que você cria uma assinatura do Azure e começa a adicionar recursos como máquinas virtuais e aplicativos Web, o Azure Monitor começará a coletar dados.  Os [logs de atividades](platform/activity-logs-overview.md) registram quando os recursos são criados ou modificados. As [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) indicam o desempenho do recurso e os recursos que ele está consumindo. 
+Assim que você cria uma assinatura do Azure e começa a adicionar recursos como máquinas virtuais e aplicativos Web, o Azure Monitor começará a coletar dados.  Os [logs de atividades](platform/activity-logs-overview.md) registram quando os recursos são criados ou modificados. As [métricas](platform/data-collection.md) indicam o desempenho do recurso e os recursos que ele está consumindo. 
 
 Estenda os dados que você está coletando para a operação real dos recursos [habilitando o diagnóstico](platform/diagnostic-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para recursos de computação. Isso colherá dados telemétricos para a operação interna do recurso e permitirá que você configure diferentes [fontes de dados](platform/agent-data-sources.md) para coletar logs e métricas do sistema operacional convidado Windows e Linux. 
 

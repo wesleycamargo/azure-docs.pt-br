@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Fluxx Labs | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Fluxx Labs | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Fluxx Labs.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 367310527619d4bdb5f84a80c567a9d83698846e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c48e41318ff5ba189e4cc8b8529bb3b81911052
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433743"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Azure Active Directory com o Fluxx Labs
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Microsoft Azure Active Directory com o Fluxx Labs, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Fluxx Labs habilitada para logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Fluxx Labs da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -109,7 +110,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Informações de logon único de Domínio e URLs do Fluxx Labs](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     | Ambiente | Padrão de URL|
     |-------------|------------|
@@ -152,7 +153,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
 
-    a. Marque a caixa de seleção **SSO do SAML**.
+     a. Marque a caixa de seleção **SSO do SAML**.
 
     b. Na caixa de texto **Caminho de solicitação**, digite **/auth/saml**.
 
@@ -225,7 +226,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config5.png)
 
-    a. O Fluxx Labs usa email como identificador exclusivo para logons únicos. Preencha o campo **UID do SSO** com o endereço de email do usuário, que corresponde ao endereço de email, que estão usando como logon com o SSO.
+     a. O Fluxx Labs usa email como identificador exclusivo para logons únicos. Preencha o campo **UID do SSO** com o endereço de email do usuário, que corresponde ao endereço de email, que estão usando como logon com o SSO.
 
     b. Clique em **Salvar**.
 

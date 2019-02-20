@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731539"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895526"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -23,7 +23,7 @@ Este artigo contém problemas conhecidos e limitações temporárias com o Azure
 
 APIs de armazenamento de B’lob e APIs do Azure Data Lake Gen2 não são interoperáveis.
 
-Se você tiver ferramentas, aplicativos ou scripts personalizados que usam APIs de Blob e deseja usá-los para trabalhar com todo o conteúdo que é carregado na sua conta, então não habilite a namespaces hierárquicos em sua conta de armazenamento de Blob até que essas APIs de Blob tornam-se interoperáveis com as APIs do Azure Data Lake Gen2. Usar uma conta de armazenamento sem o namespace hierárquico significa que, em seguida, você não tem acesso a recursos específicos do Azure Data Lake Storage Gen2, como o sistema de arquivos e diretório listas de controle de acesso.
+Se você tiver ferramentas, aplicativos, serviços ou scripts que usam APIs de Blob e desejar usá-los para trabalhar com todo o conteúdo carregado para sua conta, não habilite um namespace hierárquico em sua conta de Armazenamento de Blobs até que essas APIs de Blob se tornem interoperáveis com as APIs do Azure Data Lake Gen2. Usar uma conta de armazenamento sem um namespace hierárquico significa que, então, você não tem acesso a recursos específicos do Azure Data Lake Storage Gen2, como listas de controle de acesso de sistema de arquivos e diretório.
 
 ## <a name="blob-storage-apis"></a>APIs de armazenamento de Blob
 
@@ -41,15 +41,15 @@ Se você usou essas APIs para carregar dados antes que fossem desabilitados, e v
 
 * Mesmo se você não será afetado ativamente em produção, conte-nos se você precisa dos dados a serem copiados para outra conta de armazenamento por algum motivo e nesse caso, por que?
 
-Nessas circunstâncias, podemos restaurar o acesso à API do Blob por um período de tempo limitado para que você possa copiar esses dados para uma conta de armazenamento que não tenha namespaces hierárquicos habilitados.
+Nessas circunstâncias, podemos restaurar o acesso à API do blob por um período de tempo limitado para que você possa copiar esses dados para uma conta de armazenamento que não tenha o recurso de namespace hierárquico habilitado.
 
-Discos não gerenciados de Máquina Virtual (VM) dependem dessas APIs de Armazenamento de Blobs desabilitadas, portanto, se você quiser habilitar namespaces hierárquicos em uma conta de armazenamento, considere colocar os discos não gerenciados de VM em uma conta de armazenamento que não tem namespaces hierárquicos habilitados.
+Discos de VM (máquina virtual) não gerenciados dependem das APIs de Armazenamento de Blobs desabilitadas; portanto, se você deseja habilitar um namespace hierárquico em uma conta de armazenamento, considere colocar os discos de VM não gerenciados em uma conta de armazenamento que não tenha o recurso de namespace hierárquico habilitado.
 
 ## <a name="azure-storage-explorer"></a>Gerenciador de Armazenamento do Azure
 
 Para exibir ou gerenciar contas do Azure Data Lake Storage Gen2 usando o Gerenciador de Armazenamento do Microsoft Azure, você deve ter pelo menos versão `1.6.0` da ferramenta que está disponível como [download gratuito](https://azure.microsoft.com/features/storage-explorer/).
 
-Observe a versão do Gerenciador de Armazenamento que está incorporado no Portal do Azure atualmente não dá suporte para exibir ou gerenciar contas do Azure Data Lake Storage Gen2 com namespaces hierárquicos habilitados.
+Observe a versão do Gerenciador de Armazenamento incorporada no Portal do Azure não dá suporte, no momento, à exibição ou ao gerenciamento de contas do Azure Data Lake Storage Gen2 com o recurso de namespace hierárquico habilitado.
 
 ## <a name="blob-viewing-tool"></a>Ferramenta de visualização de Blob
 
@@ -75,17 +75,17 @@ Em vez disso, use a versão de visualização mais recente do AzCopy ( [AzCopy v
 
 Instantâneos e a exclusão reversível não estão disponíveis para contas de armazenamento do Azure Data Lake Storage Gen2.
 
-Todos os recursos de controle de versão, incluindo [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) e [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) ainda não estão disponíveis para contas de armazenamento que têm namespaces hierárquicos habilitados.
+Todos os recursos de controle de versão, incluindo [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) e [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) ainda não estão disponíveis para contas de armazenamento que têm o recurso de namespace hierárquico habilitado.
 
 ## <a name="object-level-storage-tiers"></a>Camadas de armazenamento no nível de objeto
 
-As camadas de armazenamento no nível de objeto (frequente, cold e arquivo morto) ainda não estão disponíveis para contas de armazenamento do Azure Data Lake Storage Gen 2, mas eles estão disponíveis para contas de armazenamento que não têm namespaces hierárquicos habilitados.
+As camadas de armazenamento no nível de objeto (de acesso frequente, frio e de arquivos) ainda não estão disponíveis para contas do Azure Data Lake Storage Gen 2, mas elas estão disponíveis para contas de armazenamento que não têm o recurso de namespace hierárquico habilitado.
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Políticas de gerenciamento (visualização) do ciclo de vida de armazenamento de Blob do Azure
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Políticas de gerenciamento de ciclo de vida do Armazenamento de Blobs do Azure
 
-Políticas de gerenciamento (visualização) do ciclo de vida de armazenamento de Blob do Azure ainda não estão disponíveis para contas de armazenamento do Azure Data Lake Storage Gen2.
+As políticas de gerenciamento de ciclo de vida do Armazenamento de Blobs do Azure ainda não estão disponíveis para contas do Azure Data Lake Storage Gen2.
 
-Essas políticas estão disponíveis para contas de armazenamento que não têm namespaces hierárquicos habilitados.
+Essas políticas estão disponíveis para as contas de armazenamento que não têm o recurso de namespace hierárquico habilitado.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 

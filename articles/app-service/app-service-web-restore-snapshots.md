@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726554"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100476"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar um aplicativo no Azure a partir de um instantâneo
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/overview.md) a partir de um instantâneo. Você pode restaurar seu aplicativo para um estado anterior, com base em um dos instantâneos do seu aplicativo. Você não precisa habilitar o backup de instantâneos, a plataforma salva automaticamente um instantâneo de todos os aplicativos para fins de recuperação de dados.
@@ -38,6 +38,7 @@ A restauração usando instantâneos está disponível para aplicativos que são
 - O Serviço de Aplicativo interrompe o aplicativo de destino ou o slot de destino ao realizar a restauração.
 - O Serviço de Aplicativo mantém três meses de instantâneos para fins de recuperação de dados de plataforma.
 - Você só pode restaurar instantâneos dos últimos 30 dias.
+- Serviços de aplicativos em execução em um ambiente de serviço de aplicativo não dão suporte a instantâneos.
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Restaurar um aplicativo usando um instantâneo

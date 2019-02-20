@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091520"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894710"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com
   ![Configurar a camada da SKU e a medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **camada** determina se um complemento padrão ou premium do ExpressRoute está habilitado. Você pode especificar **Standard** para obter o SKU padrão ou **Premium** para o complemento premium.
-  * **medição de dados** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitado** para **Ilimitado**, mas não pode alterar o tipo de **Ilimitado** para **Limitado**.
+  * **medição de dados** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitada** para **Ilimitada**.
+    > [!IMPORTANT] Você não pode alterar o tipo de **Ilimitada** para **Limitada**.
   * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
 
     > [!IMPORTANT]
@@ -117,10 +118,11 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 É possível executar as seguintes tarefas sem tempo de inatividade:
 
 * Habilitar ou desabilitar um complemento Premium do ExpressRoute para seu circuito do ExpressRoute.
-* Aumentar a largura de banda do circuito do ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito. 
-* Alterar o plano de medição de *Dados Limitados* para *Dados Ilimitados*. Não há suporte para alteração do plano de medição de Dados Ilimitados para Dados Limitados.
+* Aumentar a largura de banda do circuito do ExpressRoute, desde que haja capacidade disponível na porta.
+  > [!IMPORTANT] Não há suporte para fazer o downgrade da largura de banda de um circuito. 
+* Alterar o plano de medição de *Dados Limitados* para *Dados Ilimitados*.
+  > [!IMPORTANT] Não há suporte para a alteração do plano de medição de Dados Ilimitados para Dados Limitados.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
-
 > [!IMPORTANT]
 > Talvez seja necessário recriar o circuito de ExpressRoute se não houver capacidade adequada na porta existente. Você não pode atualizar o circuito não se houver capacidade adicional disponível nesse local.
 >

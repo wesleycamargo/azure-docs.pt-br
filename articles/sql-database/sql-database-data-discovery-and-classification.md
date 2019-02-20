@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731845"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892874"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Descoberta e classificação de dados do Banco de Dados SQL do Azure
 
@@ -143,7 +143,8 @@ Também é possível usar APIs REST para gerenciar programaticamente as classifi
 - [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Cria ou atualiza o rótulo de confidencialidade de uma determinada coluna
 - [Excluir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Exclui o rótulo de confidencialidade de uma determinada coluna
 - [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Obtém o rótulo de confidencialidade de uma determinada coluna
-- [Listar por banco de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - Obtém os rótulos de confidencialidade de um determinado banco de dados
+- [Lista por Banco de Dados Atual](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - obtém os rótulos atuais de confidencialidade de determinado banco de dados
+- [Listar por Banco de Dados Recomendado](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - obtém os rótulos atuais de confidencialidade de determinado banco de dados
 
 ## <a id="subheading-5"></a>Próximas etapas
 

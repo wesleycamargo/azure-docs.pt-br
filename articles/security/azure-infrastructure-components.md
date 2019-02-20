@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral da arquitetura e do geren
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186469"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118132"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informações do Azure
 Este artigo apresenta uma descrição geral da arquitetura e do gerenciamento do Azure. O ambiente do sistema do Azure é composto por redes a seguir:
@@ -54,9 +54,9 @@ A equipe do sistema operacional fornece imagens, na forma de Discos Rígidos Vir
 
 Há três tipos de imagens do sistema operacional gerenciado por malha:
 
-- Host: um sistema operacional personalizado executado em VMs de host.
-- Nativo: um sistema operacional nativo executado em locatários (por exemplo, o Armazenamento do Azure). Esse sistema operacional não tem nenhum hipervisor.
-- Convidado: um sistema operacional convidado executado em VMs convidadas.
+- Host: Um sistema operacional personalizado executado nas VMs de host.
+- Nativo: Um sistema operacional nativo executado nos locatários (por exemplo, o Armazenamento do Azure). Esse sistema operacional não tem nenhum hipervisor.
+- Convidado: Um sistema operacional convidado executado nas VMs convidadas.
 
 Os sistemas operacionais gerenciados por FC de host e nativos são projetados para uso na nuvem e não são acessíveis publicamente.
 
@@ -118,7 +118,7 @@ A equipe de rede do Azure configura contas de serviço de rede para permitir que
 A equipe de operações do Azure deve usar SAWs (estações de trabalho de administração seguras). Os clientes podem implementar controles semelhantes usando estações de trabalho com acesso privilegiado. Com SAWs, a equipe administrativa usa uma conta administrativa individualmente atribuída separada da conta de usuário padrão do usuário. A SAW se baseia nessa prática de separação de conta fornecendo uma estação de trabalho confiável para essas contas confidenciais.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, veja:
+Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:
 
 - [Recursos, local e segurança física do Azure](azure-physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](azure-infrastructure-availability.md)

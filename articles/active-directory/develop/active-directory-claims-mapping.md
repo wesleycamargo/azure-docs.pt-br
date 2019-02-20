@@ -12,12 +12,13 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241660"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209737"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -49,7 +50,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | Conjunto de declarações básicas | Inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações principais). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
 | Conjunto de declarações restritas | Não pode ser modificado usando a política. A fonte de dados não pode ser alterada e nenhuma transformação é aplicada ao gerar essas declarações. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: Conjunto de declarações restritas do JWT (Token Web JSON)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: conjunto de declarações restritas do JWT (Token Web JSON)
 
 |Tipo de declaração (nome)|
 | ----- |
@@ -243,7 +244,7 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 
 **Cadeia de caracteres:** IncludeBasicClaimSet
 
-**Tipo de dados:** booliano (True ou False)
+**Tipo de dados:** booliano (true ou false)
 
 **Resumo:** essa propriedade determina se o conjunto de declarações básicas está incluído nos tokens afetados por essa política. 
 
@@ -259,21 +260,21 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 
 **Tipo de dados:** blob JSON com uma ou mais entradas de esquema de declaração
 
-**Resumo:** esta propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações de núcleo.
+**Resumo:** essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações principais.
 Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique o local em que os dados são originados (**Valor** ou o **par Origem/ID**) e com qual declaração eles são emitidos (**Tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
 **Valor:** o elemento de valor define um valor estático como os dados a serem emitidos na declaração.
 
-**Par Origem/ID:** os elementos de Origem e ID definem de onde os dados na declaração foram originados. 
+**Par ID/Origem:** os elementos de Origem e ID definem de onde os dados na declaração foram originados. 
 
 Defina o elemento Origem para um dos seguintes valores: 
 
 - "user": os dados na declaração são uma propriedade no objeto User. 
 - "application": os dados na declaração são uma propriedade na entidade de serviço de aplicativo (cliente). 
 - "resource": os dados na declaração são uma propriedade na entidade de serviço de recurso.
-- "audience": os dados na declaração são uma propriedade da entidade de serviço que é o público-alvo do token (o cliente ou o recurso de entidade de serviço).
+- "audience": os dados na declaração são uma propriedade da entidade de serviço que é o público-alvo do token (o cliente ou a entidade de serviço do recurso).
 - "company": os dados na declaração são uma propriedade do objeto Company do locatário do recurso.
 - "transformation": os dados na declaração são de uma transformação de declarações (consulte a seção "Transformação de declarações" mais adiante neste artigo).
 
@@ -281,7 +282,7 @@ Se a fonte for uma transformação, o elemento **TransformationID** deverá ser 
 
 O elemento ID identifica qual propriedade na origem fornece o valor da declaração. A tabela a seguir lista os valores de ID válida para cada valor de Origem.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
+#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: valores de ID válidos por fonte
 
 |Fonte|ID|DESCRIÇÃO|
 |-----|-----|-----|
@@ -318,7 +319,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 |Usuário|extensionattribute14|Atributo de extensão 14|
 |Usuário|extensionattribute15|Atributo de extensão 15|
 |Usuário|othermail|Outro email|
-|Usuário|country|País|
+|Usuário|country|País/Região|
 |Usuário|city|City|
 |Usuário|state|Estado|
 |Usuário|jobtitle|Cargo|
@@ -329,7 +330,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 |aplicativo, recurso, público-alvo|marcas|Marcação da entidade de serviço|
 |Empresa|tenantcountry|País/Região do locatário|
 
-**TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento de origem estiver definido como "transformation".
+**TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento Source estiver definido como "transformation".
 
 - Esse elemento deve corresponder ao elemento de ID da entrada de transformação na propriedade **ClaimsTransformation** que define como os dados dessa declaração são gerados.
 
@@ -349,13 +350,13 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 **Resumo:** use esta propriedade para aplicar transformações comuns a dados de origem para gerar os dados de saída para declarações especificadas no esquema de declarações.
 
-**ID:** use o elemento de ID para fazer referência a esta entrada de transformação na entrada de esquema de transformações TransformationID. Esse valor deve ser exclusivo para cada entrada de transformação nesta política.
+**ID:** use o elemento de ID para fazer referência a esta entrada de transformação na entrada de esquema de declarações TransformationID. Esse valor deve ser exclusivo para cada entrada de transformação nesta política.
 
 **TransformationMethod:** o elemento TransformationMethod identifica qual operação é executada para gerar os dados para a declaração.
 
 Com base no método escolhido, um conjunto de entradas e saídas é esperado. Defina as entradas e as saídas usando os elementos **InputClaims**, **InputParameters** e **OutputClaims**.
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: métodos de transformação e entradas e saídas esperadas
 
 |TransformationMethod|Entrada esperada|Saída esperada|DESCRIÇÃO|
 |-----|-----|-----|-----|
@@ -372,16 +373,16 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 - **Value** é o valor constante real a ser passado.
 - O elemento **ID** é usado para fornecer um nome exclusivo a essa entrada. O nome deve corresponder a uma das entradas esperadas para o método de transformação.
 
-**OutputClaims:** usam um elemento OutputClaims para armazenar os dados gerados por uma transformação e associá-lo a uma entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**OutputClaims:** use um elemento OutputClaims para reter os dados gerados por uma transformação e associá-lo a uma entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** é unido à ID da entrada de esquema de declaração para encontrar a declaração de saída apropriada.
 - **TransformationClaimType** é usado para fornecer um nome exclusivo à saída. O nome deve corresponder a uma das saídas esperadas para o método de transformação.
 
 ### <a name="exceptions-and-restrictions"></a>Exceções e restrições
 
-**NameID e UPN SAML:** os atributos dos quais você obtém os valores de NameID e UPN, bem como as transformações de declarações que são permitidas, são limitados. Consulte as tabelas 5 e 6 para ver os valores permitidos.
+**NameID e UPN SAML:** os atributos dos quais você obtém os valores de source NameID e UPN, bem como as transformações de declarações que são permitidas, são limitados. Consulte as tabelas 5 e 6 para ver os valores permitidos.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atributos permitidos como fonte de dados para NameID SAML
 
 |Fonte|ID|DESCRIÇÃO|
 |-----|-----|-----|
@@ -405,7 +406,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 |Usuário|extensionattribute14|Atributo de extensão 14|
 |Usuário|extensionattribute15|Atributo de extensão 15|
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: Métodos de transformação permitidos para o NameID SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: métodos de transformação permitidos para o NameID SAML
 
 |TransformationMethod|Restrições|
 | ----- | ----- |

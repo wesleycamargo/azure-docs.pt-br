@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a1d71bb992276cb37c73a7ba27b427ccb617f688
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216091"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984351"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -39,7 +39,7 @@ Quando você começa [adicionando enunciados de exemplo](luis-how-to-add-example
 
 ### <a name="utterances-arent-always-well-formed"></a>Os enunciados nem sempre são bem formados
 
-Pode ser uma sentença como "Reserve uma passagem para Paris para mim", ou um fragmento de uma sentença, como "Reserva" ou "Voo Paris".  Os usuários costumam cometer erros de ortografia. Ao planejar o aplicativo, considere se você usará ou não [Verificação Ortográfica do Bing] [(luis-tutorial-bing-spellcheck) para corrigir a entrada do usuário, antes de passar para o LUIS. 
+Pode ser uma sentença como "Reserve uma passagem para Paris para mim", ou um fragmento de uma sentença, como "Reserva" ou "Voo Paris".  Os usuários costumam cometer erros de ortografia. Ao planejar o aplicativo, considere se você usará ou não a [Verificação Ortográfica do Bing](luis-tutorial-bing-spellcheck.md) para corrigir a entrada do usuário, antes de passar para o LUIS. 
 
 Se você não realizar a verificação ortográfica de enunciados do usuário, deverá treinar o LUIS em enunciados que incluam erros de digitação e erros de ortografia.
 

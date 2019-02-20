@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543488"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893809"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
 
@@ -27,9 +27,9 @@ O diagrama a seguir mostra um cenário híbrido que inclui os serviços do Azure
 
 * **Rede** - local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - Arquivos de entrada e saída: NFS ou CFS usando VMs do Azure, sincronizados com armazenamento local por meio da Sincronização de Arquivos do Azure e RSync.
+* **Armazenamento** - Arquivos de entrada e saída: NFS ou CFS usando VMs do Azure, sincronizados com armazenamento local por meio da Sincronização de Arquivos do Azure e RSync. Como alternativa: Avere vFXT para os arquivos entrada ou saída a partir dos dispositivos NAS locais usando NFS.
 
-  ![Intermitência de nuvem - Híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![Intermitência de nuvem - Híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Híbrido com Blobfuse
 
@@ -51,9 +51,9 @@ O diagrama a seguir mostra um cenário híbrido totalmente conectado para comput
 
 * **Rede** - local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - Entre instalações: Avere vFXT. Arquivamento opcional de arquivos locais por meio do Azure Data Box para armazenamento de Blobs.
+* **Armazenamento** - Entre instalações: Avere vFXT. Arquivamento opcional dos arquivos locais via Azure Data Box para o armazenamento de Blobs ou Avere FXT local para a aceleração do NAS.
 
-  ![Intermitência de nuvem - Computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![Intermitência de nuvem - Computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,6 +1,6 @@
 ---
-title: Configurar a replicação na Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre como configurar a replicação transacional na Instância Gerenciada do Banco de Dados SQL do Azure
+title: Configurar a replicação em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+description: Aprenda a configurar a replicação transacional em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467656"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893002"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurar a replicação na Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure
 
-A replicação transacional permite replicar dados de bancos de dados do SQL Server ou da Instância Gerenciada do Banco de Dados SQL do Azure para a Instância Gerenciada ou enviar por push as alterações feitas nos bancos de dados na Instância Gerenciada para outro SQL Server, pool elástico ou banco de dados individual do SQL Server ou outra Instância Gerenciada. A replicação está em versão prévia pública na [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). Uma Instância Gerenciada pode hospedar bancos de dados publicadores, distribuidores e assinantes. Confira [Configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para obter as configurações disponíveis.
+A replicação transacional permite que você replique dados em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure de um banco de dados do SQL Server ou de outro banco de dados de instância. Também é possível usar a replicação transacional para efetuar push de alterações feitas em um banco de dados de instância na instância gerenciada do Banco de Dados SQL do Azure para um banco de dados do SQL Server, para um banco de dados individual no Banco de Dados SQL do Azure, para um banco de dados em pool em um pool elástico do Banco de Dados SQL do Azure. A replicação transacional está em versão prévia pública na [instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerenciada pode hospedar bancos de dados publicadores, distribuidores e assinantes. Confira [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para obter as configurações disponíveis.
 
 ## <a name="requirements"></a>Requisitos
 
-A configuração com publicador e distribuidor no Banco de Dados SQL do Azure requer:
+A configuração de uma instância gerenciada para funcionar como publicador ou distribuidor requer:
 
-- Uma Instância Gerenciada do Banco de Dados SQL do Azure que não esteja na configuração de recuperação de desastre geográfico.
+- que, no momento, a instância gerenciada não esteja participando de uma relação de replicação geográfica.
 
    >[!NOTE]
-   >Bancos de Dados SQL do Azure não configurados com a Instância Gerenciada podem ser apenas assinantes.
+   >Banco de dados individuais e em pool no Banco de Dados SQL do Azure só podem ser assinantes.
 
-- Todas as instâncias do SQL Server precisam estar na mesma vNet.
+- Todas as instâncias gerenciadas devem estar na mesma vNet.
 
 - A conectividade usa Autenticação SQL entre os participantes da replicação.
 
 - Um compartilhamento da Conta de Armazenamento do Azure para o diretório de trabalho de replicação.
 
-- A porta 445 (TCP de saída) precisa ser aberta nas regras de segurança de sub-rede da Instância Gerenciada para acessar o compartilhamento de arquivos do Azure
+- A porta 445 (TCP de saída) precisa ser aberta nas regras de segurança de sub-rede da instância gerenciada para acessar o compartilhamento de arquivo do Azure
 
 ## <a name="features"></a>Recursos
 
 Suporta:
 
-- Combinação de replicação transacional e de instantâneo de instâncias locais e da Instância Gerenciada do Banco de Dados SQL do Azure.
-
-- Os assinantes podem ser bancos de dados individuais, locais no Banco de Dados SQL do Azure ou bancos de dados em pool nos pools elásticos do Banco de Dados SQL do Azure.
-
+- Combinação de replicação transacional e de instantâneo das instâncias gerenciadas e locais do SQL Server no Banco de Dados SQL do Azure.
+- Os assinantes podem estar em bancos de dados locais do SQL Server, bancos de dados individuais no Banco de Dados SQL do Azure ou bancos de dados em pool nos pools elásticos do Banco de Dados SQL do Azure.
 - Replicação unidirecional ou bidirecional.
 
-Não há suporte para os seguintes recursos:
+Não há suporte para os seguintes recursos em uma instância gerenciada no Banco de Dados SQL do Azure:
 
 - Assinaturas atualizáveis.
-
 - Replicação geográfica ativa.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Exemplo de configuração de publicação e distribuição
 
-1. [Crie uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-tutorial-portal.md) no portal.
+1. [Crie uma instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-tutorial-portal.md) no portal.
 2. [Crie uma Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
 
    Certifique-se de copiar as chaves de armazenamento. Consulte [Exibir e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Crie um banco de dados para o publicador.
+3. Crie um banco de dados de instância para o publicador.
 
-   Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` pelo nome do banco de dados.
+   Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` pelo nome do banco de dados de instância.
 
 4. Crie um usuário do banco de dados com Autenticação SQL para o distribuidor. Use uma senha segura.
 

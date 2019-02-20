@@ -2,7 +2,7 @@
 title: Publicar conteúdo dos Serviços de Mídia do Azure usando o REST
 description: Saiba como criar um localizador que é usado para construir um URL de transmissão. O código usa a API REST.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8385dedd494c0cef968cb869ded3e92ce213da5e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 185e047bb1877d5ee4660653c0e7b6b32f273a0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785855"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991592"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST
+# <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -140,20 +140,20 @@ Resposta:
 ### <a name="build-streaming-urls"></a>Criar URLs de streaming
 Use o valor **Caminho** retornado após a criação do localizador para criar as URLs MPEG DASH, Smooth e HLS. 
 
-Smooth Streaming: **Caminho** + nome de arquivo de manifesto + "/manifest"
+Smooth Streaming: **Caminho** + nome de arquivo do manifesto + "/manifest"
 
 exemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS: **Caminho** + nome de arquivo de manifesto + "/manifest(format=m3u8-aapl)"
+HLS: **Caminho** + nome de arquivo do manifesto + "/manifest(format=m3u8-aapl)"
 
 exemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-DASH: **Caminho** + nome de arquivo de manifesto + "/manifest(format=mpd-time-csf)"
+DASH: **Caminho** + nome de arquivo do manifesto + "/manifest(format=mpd-time-csf)"
 
 exemplo:
 
@@ -163,7 +163,7 @@ exemplo:
 ### <a name="build-progressive-download-urls"></a>Crie URLs de download progressivo
 Use o valor **Caminho** retornado após a criação do localizador para criar a URL de download progressivo.   
 
-URL: **Caminho** + nome do arquivo MP4 do ativo
+URL: **Caminho** + nome mp4 do arquivo do ativo
 
 exemplo:
 

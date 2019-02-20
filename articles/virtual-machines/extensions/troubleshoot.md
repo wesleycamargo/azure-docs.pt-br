@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 9973eaa7e930d38e78289219e726b5934d82ee86
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945378"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979681"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solucionando problemas de falhas da extensão da VM do Windows no Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -32,7 +32,7 @@ Veja um exemplo:
 
 PowerShell do Azure:
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Veja o exemplo de saída:
 
@@ -62,10 +62,10 @@ Veja o exemplo de saída:
 ## <a name="troubleshooting-extension-failures"></a>Solução de problemas de falhas da extensão
 ### <a name="rerun-the-extension-on-the-vm"></a>Executar novamente a extensão na VM
 Se estiver executando scripts na VM usando a Extensão de Script Personalizado, às vezes, você poderá se deparar com um erro em que a VM foi criada com êxito, mas o script falhou. Nessas condições, a maneira recomendada de se recuperar desse erro é remover a extensão e executar o modelo novamente.
-Observação: no futuro, essa funcionalidade será aprimorada para eliminar a necessidade de desinstalar a extensão.
+Observação: No futuro, essa funcionalidade será aprimorada para eliminar a necessidade de desinstalar a extensão.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Remover a extensão do Azure PowerShell
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 

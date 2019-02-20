@@ -1,6 +1,6 @@
 ---
-title: Visualizar logs de fluxo NSG de Observador de Rede do Azure usando ferramentas de código aberto | Microsoft Docs
-description: Esta página descreve como usar ferramentas de código aberto para visualizar logs de fluxo NSG.
+title: Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e a Pilha Elástica | Microsoft Docs
+description: Gerencie e analise os Logs de Fluxo do Grupo de Segurança de Rede no Azure usando o Observador de Rede e a Pilha Elástica.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822901"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098987"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -28,7 +28,7 @@ Os logs de fluxo do Grupo de Segurança de Rede fornecem informações que podem
 Esses logs de fluxo podem ser difíceis de serem analisados e de obter ideias de forma manual. No entanto, há várias ferramentas de código livre que podem ajudar a visualizar esses dados. Esse artigo fornece uma solução para visualizar esses logs usando o Elastic Stack que permite indexar e visualizar seus logs de fluxo em um painel Kibana.
 
 > [!Warning]  
-> As etapas a seguir funcionam com a versão 1 do fluxo de logs. Para obter detalhes, consulte [Introdução ao log de fluxo dos grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As instruções a seguir não funcionarão com a versão 2 dos arquivos de log, sem modificação.
+> As etapas a seguir funcionam com os logs de fluxo versão 1. Para obter detalhes, consulte [Introdução ao fluxo de log para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções a seguir não funcionarão com a versão 2 dos arquivos de log, sem modificação.
 
 ## <a name="scenario"></a>Cenário
 

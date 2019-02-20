@@ -1,6 +1,6 @@
 ---
-title: Linguagem de consulta do Log Analytics no Azure Monitor | Microsoft Docs
-description: Referências a recursos para aprender a escrever consultas no Log Analytics.
+title: Consultas de log do Azure Monitor | Microsoft Docs
+description: Referências a recursos para aprender a escrever consultas de log no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,55 +11,57 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 32e64ce7772d562ea34a0d74afbd737be27d247d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968861"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989231"
 ---
-# <a name="log-analytics-query-language"></a>Linguagem de consulta do Log Analytics
-O Log Analytics fornece coleta e análise de logs para o Azure Monitor. Ele se baseia no Azure Data Explorer e usa uma versão da mesma linguagem de consulta. A [Documentação da linguagem de consulta do Azure Data Explorer](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas do Log Analytics. Esta página fornece links para outros recursos sobre como aprender a escrever consultas e sobre diferenças na implementação da linguagem no Log Analytics.
+# <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
+Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log do Azure Monitor usam uma versão da mesma linguagem de consulta. A [Documentação da linguagem de consulta do Azure Data Explorer](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para saber mais sobre como escrever consultas e sobre diferenças na implementação da linguagem no Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="getting-started"></a>Introdução
 
-- [Introdução ao Log Analytics no portal do Azure](get-started-portal.md) é uma lição sobre como escrever consultas e trabalhar com os resultados no portal do Azure.
--  [Introdução às consultas no Log Analytics](get-started-queries.md) é uma lição sobre como escrever consultas usando dados do Log Analytics.
+- [Introdução à análise do log do Azure Monitor](get-started-portal.md) é uma lição sobre como escrever consultas e trabalhar com os resultados no portal do Azure.
+- [Introdução às consultas de log do Azure Monitor](get-started-queries.md) é uma lição sobre como escrever consultas usando dados de log do Azure Monitor.
 
 ## <a name="concepts"></a>Conceitos
-- [Analisar dados do Log Analytics no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve visão geral das consultas de log e descreve como os dados do Log Analytics são estruturados.
-- [Exibir e analisar dados no Log Analytics](../../azure-monitor/log-query/portals.md) explica os portais nos quais você pode criar e executar consultas do Log Analytics.
+- [Analisar dados de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve visão geral das consultas de log e descreve como os dados de log do Azure Monitor são estruturados.
+- [Exibir e analisar dados de log no Azure Monitor](../../azure-monitor/log-query/portals.md) explica os portais nos quais você pode criar e executar consultas de log.
 
 ## <a name="reference"></a>Referência
 
 - [Referência da linguagem de consulta](/azure/kusto/query) é a referência completa da linguagem de consulta do Data Explorer.
-- [Diferenças da linguagem de consulta do Log Analytics](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta do Data Explorer.
-- [Propriedades padrão em registros do Log Analytics](../../azure-monitor/platform/log-standard-properties.md) descreve as propriedades que são padrão para todos os dados do Log Analytics.
-- [Executar pesquisas de log de recursos cruzados no Log Analytics](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas que usam dados de vários workspaces do Log Analytics e aplicativos do Application Insights.
+- [Diferenças na linguagem de consulta de log do Azure Monitor](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta do Data Explorer.
+- [Propriedades padrão nos registros de log do Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) descreve as propriedades que são padrão para todos os dados de log do Azure Monitor.
+- [Executar consultas entre logs de recursos no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de log que usam dados de vários workspaces do Log Analytics e aplicativos do Application Insights.
 
 
 ## <a name="examples"></a>Exemplos
 
-- [Exemplos de consulta do Log Analytics](examples.md) fornece consultas de exemplo usando dados do Log Analytics.
+- [Exemplos de consulta de log do Azure Monitor](examples.md) fornece exemplos de consultas usando dados de log do Azure Monitor.
 
 
 
 ## <a name="lessons"></a>Lições
 
-- [Trabalhar com cadeias de caracteres em consultas do Log Analytics](string-operations.md) descreve como trabalhar com os dados de cadeia de caracteres.
-- [Trabalhar com valores de data/hora em consultas do Log Analytics](datetime-operations.md) descreve como trabalhar com os dados de data e hora. 
-- [Agregações em consultas do Log Analytics](aggregations.md) e [Agregações avançadas em consultas do Log Analytics](advanced-aggregations.md) descrevem como agregar e resumir dados.
-- [Junções em consultas do Log Analytics](joins.md) descreve como unir dados de várias tabelas.
-- [Trabalhar com JSON e estruturas de dados em consultas do Log Analytics](json-data-structures.md) descreve como analisar dados JSON.
-- [Escrever consultas avançadas no Log Analytics](advanced-query-writing.md) descreve estratégias para criar consultas complexas e reutilizar código.
-- [Criar gráficos e diagramas de consultas do Log Analytics](charts.md) descreve como visualizar dados de uma consulta.
+- [Trabalhar com cadeias de caracteres em consultas de log do Azure Monitor](string-operations.md) descreve como trabalhar com os dados de cadeia de caracteres.
+- [Trabalhar com valores de data/hora em consultas de log do Azure Monitor](datetime-operations.md) descreve como trabalhar com os dados de data e hora. 
+- [Agregações em consultas de log do Azure Monitor](aggregations.md) e [Agregações avançadas em consultas de log do Azure Monitor](advanced-aggregations.md) descrevem como agregar e resumir dados.
+- [Junções em consultas de log do Azure Monitor](joins.md) descreve como unir dados de várias tabelas.
+- [Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor](json-data-structures.md) descreve como analisar dados JSON.
+- [Escrever consultas de log avançadas no Azure Monitor](advanced-query-writing.md) descreve estratégias para criar consultas complexas e reutilizar código.
+- [Criar gráficos e diagramas de consultas de log do Azure Monitor](charts.md) descreve como visualizar dados de uma consulta de log.
 
 ## <a name="cheatsheets"></a>Folhas de cola
 
--  [Folha de referências da linguagem de consulta SQL para Log Analytics](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o SQL.
--  [Folha de referências da linguagem de consulta Splunk para Log Analytics](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o Splunk.
+-  [SQL para consultas de log do Azure Monitor](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o SQL.
+-  [Splunk para consultas de log do Azure Monitor](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o Splunk.
  
 ## <a name="next-steps"></a>Próximas etapas
 

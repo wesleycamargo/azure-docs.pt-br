@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816587"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962121"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -34,7 +34,7 @@ A Instância Gerenciada tem características e limites de recursos que dependem 
 
 A Instância Gerenciada do Banco de Dados SQL do Azure pode ser implantada em duas gerações de hardware (Gen4 e Gen5). As gerações de hardware têm características diferentes que são descritas na tabela a seguir:
 
-|   | **Geração 4** | **Geração 5** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, SSD ligado vCore = 1 PP (núcleo físico) | Processadores Intel E5-2673 v4 (Broadwell) 2,3 GHz, SSD NVMe rápido, vCore=1 LP (hyper-thread) |
 | Computação | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
@@ -51,7 +51,7 @@ A Instância Gerenciada tem dois níveis de serviço - Uso Geral e Comercialment
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | Memória | Gen4: 56 GB – 168 GB<br/>Gen5: 40,8 GB – 408 GB<br/>\*Proporcional ao número de vCores | Gen4: 56 GB – 168 GB <br/> Gen5: 40,8 GB – 408 GB<br/>\*Proporcional ao número de vCores |
-| Tamanho máximo de armazenamento | 8 TB | Gen 4: 1 TB <br/> Geração 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
+| Tamanho máximo de armazenamento | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máximo de bancos de dados por instância | 100 | 100 |
 | Arquivos de banco de dados máximo por instância | Até 280 | 32.767 arquivos por banco de dados |

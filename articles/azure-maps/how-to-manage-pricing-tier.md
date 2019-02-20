@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065317"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107694"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerencie o tipo de preço da sua conta do Azure Mapas
 
@@ -34,7 +34,7 @@ Depois de criar uma conta do Azure Mapas, você pode fazer um upgrade ou downgra
 ![Alterar um tipo de preço](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> Não é necessário gerar novas chaves de assinatura ao fazer upgrade ou downgrade do tipo de preço da sua conta do Azure Mapas.
+> Não será necessário gerar novas chaves de assinatura nem ID do cliente (para a autenticação do Azure AD) se você fizer upgrade ou downgrade do tipo de preço da sua conta do Azure Mapas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

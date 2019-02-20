@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753054"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894693"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall de IP do SQL Data Warehouse e do Banco de Dados SQL do Azure
 
@@ -92,7 +92,7 @@ Para melhorar o desempenho, as regras de firewall de IP de nível de servidor s�
 > [!TIP]
 > Você pode usar a [Auditoria de Banco de Dados SQL](sql-database-auditing.md) para auditar alterações de firewall no nível do servidor e no nível de banco de dados.
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>Gerenciar regras de firewall de IP usando o portal do Azure
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>Gerenciar regras de firewall de IP de nível de servidor usando o portal do Azure
 
 Para definir uma regra de firewall de IP no nível do servidor no portal do Azure, você pode acessar a página de Visão geral de seu Banco de Dados SQL do Azure ou a página de Visão geral do seu servidor de Banco de Dados SQL.
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Excluir regra de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Servidor |Remove as regras de firewall de IP no nível de servidor |
 | [Obter regras de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Servidor | Obtém regras de firewall de IP no nível de servidor |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>Regra de firewall de IP de nível de servidor em vez de uma regra de firewall de IP no nível de banco de dados
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Regras de firewall de IP no nível de servidor versus no nível de banco de dados
 
 P. Os usuários de um banco de dados devem ser totalmente isolados de outro banco de dados?
 Em caso afirmativo, conceda o acesso usando regras de firewall de IP no nível de banco de dados. Isso evita o uso de regras de firewall de IP no nível de servidor, o que permite o acesso pelo firewall a todos os bancos de dados, reduzindo a profundidade das defesas.

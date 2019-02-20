@@ -1,5 +1,5 @@
 ---
-title: Saiba mais sobre codificadores locais de transmissão ao vivo recomendados pelos Serviços de Mídia -  Azure | Microsoft Docs
+title: Codificadores de streaming dinâmicos recomendados pelos Serviços de Mídia – Azure | Microsoft Docs
 description: Saiba mais sobre codificadores locais de transmissão ao vivo recomendados pelos Serviços de Mídia
 services: media-services
 keywords: codificação; codificadores; mídia
@@ -9,18 +9,18 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a165fac2de89d5510b21b9185d4bc61e730b09ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656661"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960115"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
-Nos Serviços de Mídia, um [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de transmissão ao vivo. O evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras:
+Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de streaming dinâmico. O Evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras.
 
-* Um codificador dinâmico local envia um RTMP com múltiplas taxas de bits ou fluxo Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **passagem**. Um codificador dinâmico pode enviar um fluxo de taxa de bits única para um canal de passagem, mas essa configuração não é recomendada porque não permite um streaming de taxa de bits adaptável para o cliente.
+* Um codificador dinâmico local envia um RTMP com múltiplas taxas de bits ou fluxo Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **passagem**. Um codificador dinâmico pode enviar um fluxo de taxa de bits único para um canal de passagem. Não recomendamos essa configuração, porque ela não possibilita o streaming de taxa de bits adaptável para o cliente.
 
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -50,7 +50,7 @@ Os Serviços de Mídias recomendam usar um dos seguintes codificadores dinâmico
 - VMIX
 - xStream
 
-## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores dinâmicos com saída MP4 fragmentado
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores dinâmicos que transmitem MP4 fragmentado
 
 Os Serviços de Mídia recomendam usar um dos seguintes codificadores dinâmicos que têm Smooth Streaming com múltiplas taxas de bits (MP4 fragmentado) como saída. Os esquemas de URL com suporte são `http://` ou `https://`.
 
@@ -67,38 +67,38 @@ Para obter informações sobre quais configurações são válidas para o seu ti
 
 ### <a name="playback-requirements"></a>Requisitos de reprodução
 
-Tanto um fluxo de áudio quanto um de vídeo devem estar presentes para que seja possível reproduzir conteúdo. Não há suporte para a reprodução de fluxo somente de vídeo.
+Para reproduzir conteúdo, os fluxos de áudio e de vídeo devem estar presentes. Não há suporte para a reprodução de fluxo somente de vídeo.
 
 ### <a name="configuration-tips"></a>Dicas de configuração
 
 - Sempre que possível, use uma conexão de Internet com fio.
-- Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.
+- Ao determinar os requisitos de largura de banda, dobre as taxas de bits de streaming. Embora não seja obrigatório, essa regra simples ajuda a atenuar o impacto do congestionamento de rede.
 - Ao usar codificadores baseados em software, feche todos os programas desnecessários.
-- Não altere a configuração do codificador após ele começar a enviar por push. Isso tem efeitos negativos sobre o evento e pode torná-lo instável. 
-- Reserve bastante tempo para configurar seu evento. Para eventos em alta escala, é recomendado iniciar a configuração uma hora antes do evento.
+- A alteração da configuração do codificador após ela ter começado a efetuar push tem efeitos negativos sobre o evento. As alterações na configuração podem fazer o evento ficar instável. 
+- Reserve bastante tempo para configurar seu evento. Para eventos em alta escala, recomendamos que você comece a configuração uma hora antes do evento.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como tornar-se um parceiro de codificador local
+## <a name="becoming-an-on-premises-encoder-partner"></a>Tornar-se um parceiro de codificador local
 
-Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Serviços de Mídia promovem seu produto, recomendando seu codificador aos clientes corporativos. Para tornar-se um parceiro de codificador local, é necessário verificar a compatibilidade do seu codificador local com os Serviços de Mídia. Para fazer isso, conclua as seguintes verificações:
+Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Serviços de Mídia promovem seu produto, recomendando seu codificador aos clientes corporativos. Para tornar-se um parceiro de codificador local, é necessário verificar a compatibilidade do seu codificador local com os Serviços de Mídia. Para fazer isso, conclua as seguintes verificações.
 
 ### <a name="pass-through-live-event-verification"></a>Verificação de evento ao vivo de passagem
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
 2. Crie e inicie um evento ao vivo de **passagem**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
-3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar a transmissão ao vivo com taxas de bits múltiplas para os Serviços de Mídia.
+3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar o fluxo ao vivo com múltiplas taxas de bits para os Serviços de Mídia.
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 5. Crie um novo objeto de **ativo**.
 6. Crie um **LiveOutput** e use o nome do ativo que você criou.
 7. Crie um **Localizador de Streaming** com os tipos internos da **Política de Streaming**.
 8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas.
-9. Obtenha o nome do host para o **ponto de extremidade de streaming** de onde você deseja transmitir.
+9. Obtenha o nome do host para o **Ponto de Extremidade de Streaming** do qual você deseja transmitir.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
 11. Execute o codificador dinâmico por aproximadamente 10 minutos.
 12. Interrompa o Evento ao Vivo. 
-13. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para inspecionar o ativo arquivado e garantir que a reprodução não tenha falhas visíveis em todos os níveis de qualidade (Ou, como alternativa, inspecione e valide por meio da URL de Visualização durante a sessão ao vivo).
-14. Registre a ID de Ativo, a URL de transmissão publicada para o arquivo ao vivo e as configurações e a versão usadas no codificador dinâmico.
+13. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao ativo arquivado para verificar se a reprodução não tem falhas visíveis em nenhum nível de qualidade. Ou assista e valide por meio da URL de visualização durante a sessão ao vivo.
+14. Registre a ID do ativo, a URL de streaming publicada para os arquivos ao vivo e as configurações e a versão usadas no codificador dinâmico.
 15. Reinicie o estado do evento ao vivo após criar cada exemplo.
-16. Repita as etapas de 5 a 15 para todas as configurações com suporte do codificador (com e sem sinalização de anúncios/legendas/diferentes velocidades de codificação).
+16. Repita as etapas de 5 a 15 para todas as configurações compatíveis com o codificador (com e sem sinalização de anúncios, legendas ou diferentes velocidades de codificação).
 
 ### <a name="live-encoding-live-event-verification"></a>Verificação do evento ao vivo de codificação ativa
 
@@ -110,22 +110,22 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 6. Crie um **LiveOutput** e use o nome do ativo que você criou.
 7. Crie um **Localizador de Streaming** com os tipos internos da **Política de Streaming**.
 8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas.
-9. Obtenha o nome do host para o **ponto de extremidade de streaming** de onde você deseja transmitir.
+9. Obtenha o nome do host para o **Ponto de Extremidade de Streaming** do qual você deseja transmitir.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
 11. Execute o codificador dinâmico por aproximadamente 10 minutos.
 12. Interrompa o Evento ao Vivo.
-13. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para inspecionar o ativo arquivado e garantir que a reprodução não tenha falhas visíveis em todos os níveis de qualidade (Ou, como alternativa, inspecione e valide por meio da URL de Visualização durante a sessão ao vivo).
-14. Registre a ID de Ativo, a URL de transmissão publicada para o arquivo ao vivo e as configurações e a versão usadas no codificador dinâmico.
+13. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao ativo arquivado para verificar se a reprodução não tem galhas visíveis em nenhum nível. Ou assista e valide por meio da URL de visualização durante a sessão ao vivo.
+14. Registre a ID do ativo, a URL de streaming publicada para os arquivos ao vivo e as configurações e a versão usadas no codificador dinâmico.
 15. Reinicie o estado do evento ao vivo após criar cada exemplo.
-16. Repita as etapas de 5 a 15 para todas as configurações com suporte do codificador (com e sem sinalização de anúncios/legendas/diferentes velocidades de codificação).
+16. Repita as etapas de 5 a 15 para todas as configurações compatíveis com o codificador (com e sem sinalização de anúncios, legendas ou diferentes velocidades de codificação).
 
 ### <a name="longevity-verification"></a>Verificação de longevidade
 
-Mesmas etapas que as da [verificação de evento ao vivo de passagem](#pass-through-live-event-verification), exceto pela etapa 11. <br/>Em vez de dez minutos, execute o codificador dinâmico por uma semana ou mais. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir à transmissão ao vivo de tempos em tempos (ou ativo arquivado) para garantir que a reprodução não tenha falhas visíveis.
+Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#pass-through-live-event-verification), exceto pela etapa 11. <br/>Em vez de dez minutos, execute o codificador dinâmico por uma semana ou mais. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir à transmissão ao vivo periodicamente (ou um ativo arquivado) para verificar se a reprodução não tem falhas visíveis.
 
 ### <a name="email-your-recorded-settings"></a>Envie suas configurações registradas por email
 
-Por último, envie por email as configurações registradas e os parâmetros do arquivo ao vivo aos Serviços de Mídia do Azure em amsstreaming@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões relacionadas a esse processo.
+Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amsstreaming@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811733"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989058"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementar streaming de failover com os Serviços de Mídia do Azure
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>Implementar streaming de failover com os Serviços de Mídia (herdados)
 
 Este passo a passo demonstra como copiar conteúdo (blobs) de um ativo para outro a fim de lidar com a redundância no streaming sob demanda. Esse cenário é útil se você quer configurar a Rede de Distribuição de Conteúdo do Azure para fazer failover entre dois datacenters no caso de uma interrupção em um datacenter. Este passo a passo usa o SDK dos Serviços de Mídia do Azure, a API REST dos Serviços de Mídia do Azure e o SDK de Armazenamento do Azure para demonstrar as seguintes tarefas:
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561368"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858273"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do Banco de Dados SQL para restauração geográfica ou failover
 
@@ -32,6 +32,9 @@ A principal desvantagem é que gerenciar o processo de recuperação de desastre
 ## <a name="how-to-configure-logins-and-users"></a>Como configurar logons e usuários
 
 Se você estiver usando logons e usuários (em vez de usuários independentes), precisará realizar etapas extras para garantir que os mesmos logons existam no banco de dados mestre. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
+
+  >[!NOTE]
+  > Também é possível usar logons do Azure Active Directory (AAD) para gerenciar seus bancos de dados. Para saber mais, confira [Logons e usuários do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurar o acesso do usuário a um banco de dados secundário ou recuperado
 

@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310195"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997603"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Versão da API REST do Serviço Azure Search 2017-11-11-Versão prévia
 Este artigo descreve a versão `api-version=2017-11-11-Preview` da API REST do serviço Azure Search, oferecendo recursos experimentais ainda não disponíveis.
@@ -28,7 +28,7 @@ Este artigo descreve a versão `api-version=2017-11-11-Preview` da API REST do s
 
 ## <a name="new-in-2017-11-11-preview"></a>Novidades na versão prévia 2017-11-11
 
-[**O preenchimento automático** ](search-autocomplete-tutorial.md) une a [API de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) para adicionar experiências de complementar preenchimento automático para a barra de pesquisa. O preenchimento automático retorna candidato em termos de consulta, um usuário pode escolher como a cadeia de caracteres de consulta para uma pesquisa subsequente. Sugestões retorna documentos reais em resposta às entradas parciais: resultados da pesquisa são imediatos e alteram dinamicamente à medida que a entrada de termo de pesquisa aumenta em tamanho e a especificidade.
+[**O preenchimento automático**](search-autocomplete-tutorial.md) une a [API de Sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) existente para adicionar experiências complementares de preenchimento automático à barra de pesquisa. O preenchimento automático retorna os termos de consulta candidatos que um usuário pode escolher como a cadeia de caracteres de consulta para uma pesquisa subsequente. Sugestões retorna documentos reais em resposta às entradas parciais: resultados da pesquisa são imediatos e alteram dinamicamente à medida que a entrada de termo de pesquisa aumenta em tamanho e a especificidade.
 
 A [**pesquisa cognitiva**](cognitive-search-concept-intro.md), uma nova funcionalidade de enriquecimento no Azure Search encontra informações latentes em fontes que não são de texto e em textos não diferenciados, transformando-as em um conteúdo pesquisável de texto completo no Azure Search. Os recursos a seguir são introduzidos ou modificados na API REST de versão prévia. Todas as outras APIs REST são as mesmas, independentemente de você chamar a versão disponível ou de versão prévia.
 

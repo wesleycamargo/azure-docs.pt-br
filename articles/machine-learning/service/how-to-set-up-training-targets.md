@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756522"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981444"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo
 
@@ -47,6 +47,11 @@ O Serviço do Azure Machine Learning tem suporte variado nos diferentes destinos
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Todos os destinos de computação podem ser reutilizados para vários trabalhos de treinamento**. Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos.
+
+> [!NOTE]
+> A Computação do Azure Machine Learning pode ser criada como um recurso persistente ou criada dinamicamente quando você solicita uma execução. A criação baseada em execução remove o destino de computação após a conclusão da execução de treinamento, portanto, não é possível reutilizar os destinos de computação criados dessa maneira.
+
 ## <a name="whats-a-run-configuration"></a>O que é uma configuração de execução?
 
 Durante o treinamento, é comum iniciar em seu computador local e depois executar esse script de treinamento em um destino de computação diferentes. Com o Serviço do Azure Machine Learning, você pode executar seu script em vários destinos de computação sem precisar alterar seu script. 
@@ -65,7 +70,7 @@ Use um ambiente gerenciado pelo sistema quando quiser que o [Conda](https://cond
 
 Tudo o que você precisa fazer é especificar cada dependência de pacote usando a [classe CondaDependency](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py). Em seguida, o Conda cria um arquivo chamado **conda_dependencies** no diretório **aml_config** em seu workspace com sua lista de dependências do pacote e conjuntos de backup de seu ambiente do Python quando você envia seu teste de treinamento. 
 
-A configuração inicial do backup de um novo ambiente pode levar vários minutos, dependendo do tamanho das dependências necessárias. Desde que a lista de pacotes permaneça inalterada, o conjunto de tempo configuração ocorrerá apenas uma vez.
+A configuração inicial de um novo ambiente pode levar vários minutos, dependendo do tamanho das dependências necessárias. Desde que a lista de pacotes permaneça inalterada, o tempo de configuração ocorrerá apenas uma vez.
   
 O código a seguir mostra um exemplo de um ambiente gerenciado pelo sistema que exige scikit-learn:
     
@@ -73,7 +78,7 @@ O código a seguir mostra um exemplo de um ambiente gerenciado pelo sistema que 
 
 #### <a name="user-managed-environment"></a>Ambiente gerenciado por usuário
 
-Para ambientes gerenciados pelo usuário, você é responsável por configurar seu ambiente e instalar todos os pacotes de que seu script de treinamento precisa no destino de computação. Se seu ambiente de treinamento já estiver configurado (como em seu computador local), você poderá ignorar a etapa configurar definindo `user_managed_dependencies` como True. O Conda não verificará seu ambiente nem instalará nada para você.
+Para ambientes gerenciados pelo usuário, você é responsável por configurar o ambiente e por instalar todos os pacotes de que seu script de treinamento precisa no destino de computação. Se o ambiente de treinamento já estiver configurado (como ocorreria em seu computador local), você poderá ignorar a etapa de configuração definindo `user_managed_dependencies` como True. O Conda não verificará seu ambiente nem instalará nada para você.
 
 O código a seguir está um exemplo de configuração de execuções de treinamento para um ambiente gerenciado pelo usuário:
 
@@ -242,7 +247,7 @@ Você pode acessar quais destinos de computação são associados com seu worksp
 
 * [Exibir destinos de computação](#portal-view) anexado ao seu workspace
 * [Criar um destino de computação](#portal-create) no workspace
-* [Reutilizar os destinos de computação existentes](#portal-reuse)
+* [Anexar um destino de computação](#portal-reuse) que foi criado fora do workspace
 
 Depois que um destino é criado e anexado ao seu workspace, você o usará em sua configuração de execução com um objeto `ComputeTarget`: 
 
@@ -293,9 +298,11 @@ Siga as etapas anteriores para exibir a lista de destinos de computação. Em se
 
 
 
-### <a id="portal-reuse"></a>Reutilizar os destinos de computação existentes
+### <a id="portal-reuse"></a>Anexar destinos de computação
 
-Siga as etapas anteriores para exibir a lista de destinos de computação. Em seguida, use estas etapas para criar um destino de computação: 
+Para usar destinos de computação criados fora do workspace do Serviço do Azure Machine Learning, é necessário anexá-los. Anexar um destino de computação o disponibiliza para seu workspace.
+
+Siga as etapas anteriores para exibir a lista de destinos de computação. Em seguida, use as etapas abaixo para anexar um destino de computação: 
 
 1. Selecione no sinal de adição (+) para adicionar um destino de computação. 
 1. Insira um nome para o destino de computação. 

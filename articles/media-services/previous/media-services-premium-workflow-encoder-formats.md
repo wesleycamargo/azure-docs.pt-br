@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450193"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895005"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
 
@@ -33,7 +33,7 @@ Este documento contém uma lista de formatos de arquivo de entrada e saída e co
 
 [Codecs e formatos de entrada do Media Encoder Premium Workflow](#input_formats)
 
-[Codecs e formatos de saída do Media Encoder Premium Workflow](#output_formats)
+Codecs e formatos de saída do Media Encoder Premium Workflow
 
 **Fluxo de trabalho do Media Encoder Premium** dá suporte a legendas codificadas descritas [nesta](#closed_captioning) seção 
 

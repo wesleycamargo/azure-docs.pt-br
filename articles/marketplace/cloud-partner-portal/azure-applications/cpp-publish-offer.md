@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177025"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098214"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicativo do Azure
 
@@ -46,7 +46,6 @@ A tabela a seguir lista e descreve cada etapa de publicação, além de fornecer
 | Live                           | < 1 dia | A oferta é lançada, replicada para as regiões especificadas e disponibilizada ao público. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 Você pode monitorar o processo de publicação na guia **Status** para sua oferta no Portal do Cloud Partner.
 
 ![Guia Status para uma oferta de aplicativo do Azure](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ Você pode monitorar o processo de publicação na guia **Status** para sua ofer
 Depois de concluir o processo de publicação, a oferta será listada na [categoria de aplicativo do Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
-
 ## <a name="errors-and-review-feedback"></a>Erros e comentários de revisão
 
-Além de exibir o status da publicação da sua oferta, a guia **Status** também exibe mensagens de erro e comentários da etapa **revisão da Microsoft**.  Normalmente, problemas de revisão são referenciados como uma PR (solicitação de pull).  Cada solicitação de pull está vinculada a um item online do VSTS (Visual Studio Team Services, renomeado para [Azure DevOps](https://azure.microsoft.com/services/devops/)), que contém detalhes sobre o problema.  A imagem a seguir exibe um exemplo de uma referência de PR de revisão.  Para situações mais complexas, as equipes de revisão e de suporte podem entrar em contato com você por email. 
-
-![Comentários de revisão de exibição da guia de Status](./media/status-tab-ms-review.png)
-
-Você precisa resolver cada problema reportado antes que a oferta continue para o processo de publicação.  O diagrama a seguir ilustra como esse processo de comentários se relaciona com o processo de publicação.
-
-![Etapas de publicação com comentários do VSTS](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>Acesso do VSTS
-
-Para exibir os itens do VSTS referenciados em comentários de revisão, é preciso conceder a autorização adequada aos publicadores.  Caso contrário, os novos publicadores recebem uma página de resposta de `401 - Not Authorized`.  Para solicitar acesso ao sistema do VSTS de revisão de oferta, execute as seguintes etapas:
-
-1. Colete as seguintes informações:
-    - Sua ID e nome de publicador
-    - Tipo de oferta (aplicativo do Azure), nome da oferta e ID do SKU
-    - O link da solicitação de pull, por exemplo: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>` Essa URL pode ser recuperada da mensagem de notificação ou do endereço da página de resposta 401.
-    - Os endereços de email dos indivíduos de sua organização de publicação à qual você deseja obter acesso.  Eles devem incluir os endereços de proprietário que você forneceu quando se registrou como um publicador no Portal do Cloud Partner.
-2. Crie um incidente de suporte.  Na barra de título do Portal do Cloud Partner, selecione o botão **Ajuda** e, em seguida, escolha **Suporte** no menu.  Seu navegador da Web padrão deverá iniciar e navegar até a página de novo incidente de suporte da Microsoft.  (Talvez você precise entrar primeiro.)
-3. Especifique o **Tipo de problema** como **integração do marketplace** e **Categoria** como **Problema de acesso**, em seguida, selecione **Iniciar solicitação**.
-
-    ![Categoria de tíquete de suporte](./media/support-incident1.png)
-
-4. Na página **Etapa 1 de 2**, forneça suas informações de contato e selecione **Continuar**.
-5. Na página **Etapa 2 de 2**, especifique um título do incidente (por exemplo `Request VSTS access`) e forneça as informações coletadas na primeira etapa (acima).  Leia e aceite o contrato e selecione **Enviar**.
-
-Se a criação de incidentes for bem-sucedida, uma página de confirmação será exibida.  Salve as informações de confirmação para sua referência.  O Suporte da Microsoft deve responder à sua solicitação de acesso dentro de alguns dias úteis.
+Além de exibir o status da publicação da sua oferta, a guia **Status** também exibe mensagens de erro e comentários de quaisquer etapas de publicação em que um problema é encontrado.  Se o problema é crítico, a publicação é cancelada.  Em seguida, você precisa corrigir os problemas relatados e republicar a oferta.  Já que a etapa **revisão da Microsoft** representa uma revisão abrangente de sua oferta e seus ativos técnicos associados (especialmente o modelo do Azure Resource Manager), os problemas normalmente são apresentados como links de solicitações de pull.  Obter uma explicação de como exibir e responder a essas solicitações de pull, confira [Como lidar com comentários de revisão](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que um aplicativo do Azure for publicado, você poderá [Atualizar uma oferta existente](./cpp-update-existing-offer.md) para refletir a mudança de requisitos empresariais ou técnicos. 
+Se encontrar erros em uma ou mais das etapas de publicação, você precisará corrigi-los e republicar sua oferta.  Se problemas críticos forem encontrados na etapa de **revisão da Microsoft**, você precisará [lidar com os comentários da revisão](./cpp-handling-review-feedback.md) acessando o repositório do Azure DevOps da equipe de revisão da Microsoft.
+
+Depois que um aplicativo do Azure for publicado com êxito, você poderá [atualizar a oferta existente](./cpp-update-existing-offer.md) para refletir a mudança de requisitos empresariais ou técnicos. 

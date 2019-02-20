@@ -15,17 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817318"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981257"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
 
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 <a id="quickfixrdp"></a>
 
@@ -107,7 +109,7 @@ Se você ainda não fez isso, [instale e configure o último Azure PowerShell](/
 Os exemplos a seguir usam variáveis como `myResourceGroup`, `myVM` e `myVMAccessExtension`. Substitua essas localizações e nomes de variáveis por seus próprios valores.
 
 > [!NOTE]
-> Você redefine as credenciais do usuário e a configuração de RDP usando o cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) do PowerShell. Nos exemplos a seguir, `myVMAccessExtension` é um nome que você especifica como parte do processo. Caso você tenha trabalhado anteriormente com o VMAccessAgent, será possível obter o nome da extensão existente usando `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para verificar as propriedades da VM. Veja a seção 'Extensões' da saída para exibir o nome.
+> Você redefine as credenciais do usuário e a configuração de RDP usando o cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) do PowerShell. Nos exemplos a seguir, `myVMAccessExtension` é um nome que você especifica como parte do processo. Caso você tenha trabalhado anteriormente com o VMAccessAgent, será possível obter o nome da extensão existente usando `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para verificar as propriedades da VM. Veja a seção 'Extensões' da saída para exibir o nome.
 
 Após cada etapa de solução de problemas, tente se conectar à VM novamente. Caso você ainda não consiga conectar, tente a próxima etapa.
 
@@ -116,7 +118,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     O exemplo a seguir redefine a conexão de RDP em uma VM denominada `myVM` na localização `WestUS` e no grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
 2. **Verifique as regras de Grupo de Segurança de Rede**. Essa etapa de solução de problemas verifica se você tem uma regra em seu Grupo de Segurança de Rede para permitir o tráfego RDP. A porta padrão para RDP é a porta TCP 3389. É possível que uma regra para permitir o tráfego RDP não seja criada automaticamente quando você criar a VM.
@@ -124,7 +126,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     Primeiro, atribua todos os dados de configuração do Grupo de Segurança de Rede à variável `$rules`. O exemplo a seguir obtém informações sobre o Grupo de Segurança de Rede denominado `myNetworkSecurityGroup` no grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
+    $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
@@ -164,7 +166,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     Agora, atualize as credenciais na VM. O exemplo a seguir atualiza as credenciais em uma VM denominada `myVM` na localização `WestUS` e no grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
@@ -174,14 +176,14 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     O exemplo a seguir reinicia a VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Reimplante a VM**. Essa etapa de solução de problemas reimplanta sua VM para outro host dentro do Azure para corrigir problemas subjacentes de rede ou de plataforma.
    
     O exemplo a seguir reimplanta a VM denominada `myVM` na localização `WestUS` e no grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 6. **Verificar o roteamento**. Use a funcionalidade [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) do Observador de Rede para confirmar que uma rota não está impedindo que o tráfego seja roteado de ou para uma máquina virtual. Você também pode examinar as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para saber mais, confira [Usar regras efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/diagnose-network-routing-problem.md).

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767445"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963430"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
 
@@ -40,7 +40,7 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Nome do código da região 
+### <a name="region-code-name"></a>Nome do código da região 
 
 Quando precisa fornecer o parâmetro de **localização**, você precisa fornecer o nome do código de região como o valor da **localização**. Para obter o nome do código da região na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -62,6 +62,42 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>Pontos de extremidade  
+
+É importante conhecer os pontos de extremidade a seguir ao conectar as contas de Serviços de Mídia em diferentes nuvens nacionais do Azure.
+
+### <a name="global-azure"></a>Azure Global
+
+|Pontos de extremidade ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Público do token | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|Pontos de extremidade||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Público do token | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Alemanha
+
+| Pontos de extremidade ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Público do token | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+
+|Pontos de extremidade||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Público do token |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Próximas etapas
 

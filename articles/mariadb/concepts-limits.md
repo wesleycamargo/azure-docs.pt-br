@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 02/07/2019
+ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970269"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895781"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
@@ -52,6 +52,7 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 ### <a name="unsupported"></a>Sem suporte
 - Função DBA: Muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
 - Privilégio SUPER: De forma semelhante, o [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
+- DEFINER: Requer privilégios super para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 
@@ -76,6 +77,9 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 
 ### <a name="subscription-management"></a>Gerenciamento de assinaturas
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
+
+### <a name="vnet-service-endpoints"></a>Ponto de extremidade de serviço VNet
+- O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 ## <a name="current-known-issues"></a>Problemas frequentes conhecidos
 - Instância de servidor MariaDB exibe a versão de servidor incorreto após o estabelecimento de conexão. Para obter a versão correta do mecanismo de instância de servidor, use o comando `select version();`.

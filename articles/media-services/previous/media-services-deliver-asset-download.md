@@ -4,7 +4,7 @@ description: Aprenda a baixar ativos para seu computador. Os exemplos de código
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782795"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993105"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Como fornecer um ativo por Download
+# <a name="how-to-deliver-an-asset-by-download"></a>Como: Fornecer um ativo por download  
 Este artigo descreve as opções para entregar os ativos de mídia carregados nos Serviços de Mídia. Você pode entregar conteúdo dos Serviços de Mídia em vários cenários de aplicativos. Após a codificação, faça o download dos ativos de mídia gerados ou acesse-os usando um localizador de streaming. Para melhor desempenho e escalabilidade, você também pode fornecer conteúdo usando uma CDN (Rede de Entrega de Conteúdo).
 
 Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no computador local. O código consulta os trabalhos associados à conta dos Serviços de Mídia por ID do trabalho e acessa sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de mídia de saída que resulta da execução de um trabalho). Este exemplo mostra como baixar os ativos de mídia da saída de um trabalho, mas você pode aplicar a mesma abordagem para baixar outros ativos.

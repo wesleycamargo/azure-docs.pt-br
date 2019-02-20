@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815231"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960183"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerenciar um modelo de sala de aula no Azure Lab Services
 Um modelo em um laboratório é uma imagem básica da máquina virtual a partir do qual todas as máquinas virtuais de todos os usuários são criadas. Configure a máquina virtual do modelo para que ela seja configurada exatamente com o que você deseja fornecer aos usuários de laboratório. Você pode fornecer um nome e uma descrição do modelo exibido para os usuários do laboratório. Em seguida, publique o modelo para tornar as instâncias do modelo de VM disponíveis para os usuários do laboratório. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo.
@@ -72,7 +72,7 @@ Primeiro, você pode configurar e publicar um modelo ao criar um laboratório de
 
         > [!WARNING]
         > Depois de publicar, você não pode cancelar a publicação. 
-    2. Para publicar mais tarde, selecione **Salvar para mais tarde**. É possível publicar a VM modelo após a conclusão do assistente. Para obter detalhes sobre como configurar e publicar após a conclusão do assistente, confira a seção Publicar o modelo no artigo [Como gerenciar laboratórios de curso](how-to-manage-classroom-labs.md).
+    2. Para publicar mais tarde, selecione **Salvar para mais tarde**. É possível publicar a VM modelo após a conclusão do assistente. Para obter detalhes sobre como configurar e publicar após a conclusão do assistente, consulte a seção Publicar o modelo no artigo [Como gerenciar laboratórios de curso](how-to-manage-classroom-labs.md).
 
         ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Você vê o **andamento da publicação** do modelo. Esse processo pode levar até uma hora. 
@@ -92,7 +92,7 @@ Use as etapas a seguir para definir o título e descrição para a primeira vez 
 1. Na seção **Modelo** seção, mova o mouse sobre **Nome** do modelo ou **descrição** do modelo e selecione-o. 
 2. Insira o **novo nome** ou **nova descrição** para o modelo e pressione **ENTER**.
 
-    ![Nome e descrição do modelo](../media/how-to-create-manage-template/template-name-description.png)
+    ![Nome do modelo e descrição](../media/how-to-create-manage-template/template-name-description.png)
 
 ## <a name="set-up-or-update-a-template-vm"></a>Configurar ou atualizar um modelo de VM
  Você se conecta à VM modelo e instala todo o software necessário antes de disponibilizá-la para os alunos. Use as seguintes etapas para configurar um modelo VM pela primeira vez ou atualizar a VM. 
@@ -103,7 +103,12 @@ Use as etapas a seguir para definir o título e descrição para a primeira vez 
 1. Leia o aviso e selecione **Iniciar**. 
 
     ![Iniciar o modelo – aviso](../media/how-to-create-manage-template/start-template-warning.png)
+2. Você vê o status no bloco do laboratório na seção **Modelo**.
+
+    ![Iniciar o modelo - status](../media/how-to-create-manage-template/template-start-status.png)
 1. Depois que ela for iniciada, para se conectar à VM, selecione **Conectar** e siga as instruções. 
+
+    ![Conectar ou parar a VM do modelo](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Gerenciador de Armazenamento do Azure etc.). 
 2. Desconecte (feche sua sessão de área de trabalho remota) da VM modelo. 
 3. **Pare** a VM modelo selecionando **Parar**. 

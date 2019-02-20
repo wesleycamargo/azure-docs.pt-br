@@ -1,25 +1,25 @@
 ---
 title: Copiar um banco de dados SQL do Azure | Microsoft Docs
-description: Crie uma cópia transacionalmente consistente de um banco de dados SQL do Azure existente no mesmo servidor ou em um servidor diferente.
+description: Crie uma cópia consistente transacionalmente de um banco de dados SQL do Azure existente no mesmo servidor ou em um servidor diferente.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 6e25c0970a48674e157dac5f51c9508596ff6ea1
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461332"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097075"
 ---
-# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia consistente transicionalmente de um banco de dados SQL do Azure
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Fazer uma cópia consistente transicionalmente de um banco de dados SQL do Azure
 
 O Banco de Dados SQL do Azure fornece vários métodos para criar uma cópia transacionalmente consistente do Banco de Dados SQL do Azure existente no mesmo servidor ou em um servidor diferente. Você pode copiar um Banco de Dados SQL usando o Portal do Azure, o PowerShell ou o T-SQL. 
 
@@ -68,6 +68,7 @@ Faça logon no banco de dados mestre com o logon principal no nível do servidor
 Inicie a cópia do banco de dados de origem com a instrução [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) . A execução dessa instrução inicia o processo de cópia do banco de dados. Como a cópia um banco de dados é um processo assíncrono, a instrução CREATE DATABASE retorna antes da conclusão da cópia do banco de dados.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Copiar um banco de dados SQL para o mesmo servidor
+
 Faça logon no banco de dados mestre com o logon principal no nível do servidor ou o logon que criou o banco de dados que você deseja copiar. Para que a cópia do banco de dados seja bem-sucedida, os logons que não forem a entidade de segurança de nível de servidor deverão ser membros da função dbmanager.
 
 Esse comando copia o Banco de dados 1 para um novo banco de dados chamado Database2 (Banco de dados 2) no mesmo servidor. Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
@@ -86,6 +87,9 @@ Esse comando copia o Database1 no servidor 1- para um novo banco de dados chamad
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Para mover um banco de dados entre assinaturas
+
+No [Portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que hospeda seu banco de dados da lista. Clique em **Mover**, então selecione os recursos a mover e a assinatura para a qual movê-los.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia
 
@@ -96,7 +100,6 @@ Monitore o processo de cópia consultando as exibições sys.databases e sys.dm_
 
 > [!NOTE]
 > Se você decidir cancelar a cópia enquanto ela estiver em andamento, execute a instrução [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) no novo banco de dados. Como alternativa, a execução da instrução DROP DATABASE no banco de dados de origem também cancelará o processo de cópia.
-> 
 
 ## <a name="resolve-logins"></a>Resolver logons
 

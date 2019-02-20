@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881589"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962223"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerenciar regras de detecção inteligente do Application Insights usando modelos do Azure Resource Manager
 
@@ -31,6 +31,7 @@ Esse método pode ser usado na implantação de novos recursos do Application In
 - Se a regra está habilitada (o padrão é **true**.)
 - Se emails devem ser enviados para os proprietários de assinatura, colaboradores e leitores quando uma detecção for encontrada (o padrão é **true**.)
 - Quaisquer destinatários de email adicionais que devem receber uma notificação quando uma detecção for encontrada.
+- * Configuração de email não está disponível para regras de detecção inteligente marcadas como _visualização_.
 
 Para permitir a definição das configurações da regra por meio do Azure Resource Manager, a configuração da regra de detecção inteligente agora está disponível como um recurso interno dentro do recurso do Application Insights nomeado **ProactiveDetectionConfigs**.
 Para máxima flexibilidade, cada regra de detecção inteligente pode ser definida com configurações de notificação exclusivas.

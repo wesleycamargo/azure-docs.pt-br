@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754975"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099319"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no Banco de Dados SQL do Azure
 
-A opção de implantação de banco de dados individual cria um banco de dados autônomo no Banco de Dados SQL com seu próprio conjunto de recursos e é gerenciada por meio de um servidor de Banco de Dados SQL. Com um banco de dados individual, cada banco de dados é portátil e fica isolado uns dos outros, cada qual com sua própria camada de serviço dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou do [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e uma garantia de tamanho de computação.
+A opção de implantação de banco de dados individual cria um banco de dados no Banco de Dados SQL com seu próprio conjunto de recursos e é gerenciada por meio de um servidor de Banco de Dados SQL. Com um banco de dados individual, cada banco de dados é portátil e fica isolado uns dos outros, cada qual com sua própria camada de serviço dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou do [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e uma garantia de tamanho de computação.
 
 > [!IMPORTANT]
 > O banco de dados individual é uma das três opções de implantação para o Banco de Dados SQL. As outras duas são [pools elásticos](sql-database-elastic-pool.md) e [instância gerenciada](sql-database-managed-instance.md).
@@ -58,5 +58,5 @@ O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar rapidamente com um banco de dados individual, comece com o [Guia de Início Rápido de banco de dados individual](sql-database-single-database-quickstart-guide.md).
-- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
 - Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-database-features.md).

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507800"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958483"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>A camada de serviço Premium RS do Banco de Dados SQL do Azure (versão prévia) está sendo desativada - opções para migração
 
@@ -50,8 +50,8 @@ Para as cargas de trabalho Premium RS de computação intensiva, é recomendáve
 
 |**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
 |---|---|---|
-|Premium RS 1|Uso Geral 1 vCore (Gen4)|Padrão 3|
-|Premium RS 2|Uso Geral 2 vCores (Gen4)|Padrão 4|
+|Premium RS 1|1 vCore de Uso Geral (Gen4)|Padrão 3|
+|Premium RS 2|2 vCores de Uso Geral (Gen4)|Padrão 4|
 |Premium RS 4|Uso Geral 4 vCores (Gen4)|Padrão 6|
 |Premium RS 6|Uso Geral 6 vCores (Gen4)|Padrão 7|
 
@@ -59,8 +59,8 @@ Para as cargas de trabalho Premium RS de computação intensiva, é recomendáve
 
 |**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
 |---|---|---|
-|Pool Premium RS 125 DTU|Uso Geral 1 vCore (Gen4)|Pool Padrão 100 eDTUs|
-|Pool Premium RS 250 DTU|Uso Geral 2 vCores (Gen4)|Pool Padrão 250 eDTUs|
+|Pool Premium RS 125 DTU|1 vCore de Uso Geral (Gen4)|Pool Padrão 100 eDTUs|
+|Pool Premium RS 250 DTU|2 vCores de Uso Geral (Gen4)|Pool Padrão 250 eDTUs|
 |Pool Premium RS 500 DTU|Uso Geral 4 vCores (Gen4)|Pool Padrão 500 eDTUs|
 |Pool Premium RS 1000 DTU|Uso Geral 8 vCores (Gen4)|Pool Padrão 1000 eDTUs|
 
@@ -70,10 +70,10 @@ Para as cargas de trabalho Premium RS de computação intensiva, é recomendáve
 
 |**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
 |---|---|---|
-|Premium RS 1|(Versão prévia) Hiperescala 1 vCore (Gen4) ou Comercialmente Crítico 1 vCore (Gen4)|Premium 1|
-|Premium RS 2|(Versão prévia) Hiperescala 2 vCores (Gen4) ou Comercialmente Crítico 2 vCores (Gen4|Premium 2|
-|Premium RS 4|(Versão prévia) Hiperescala 4 vCores (Gen4) ou Comercialmente Crítico 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Versão prévia) Hiperescala 6 vCores (Gen4) ou Comercialmente Crítico 6 vCores (Gen4)|Premium 6|
+|Premium RS 1|(Versão prévia) 1 vCore de Hiperescala (Gen4) ou 1 vCore Comercialmente Crítico (Gen4)|Premium 1|
+|Premium RS 2|(Versão prévia) 2 vCores de Hiperescala (Gen4) ou 2 vCores Comercialmente Críticos (Gen4)|Premium 2|
+|Premium RS 4|(Versão prévia) 4 vCores de Hiperescala (Gen4) ou 4 vCores Comercialmente Críticos (Gen4)|Premium 4
+|Premium RS 6|(Versão prévia) 6 vCores de Hiperescala (Gen4) ou 6 vCores Comercialmente Críticos (Gen4)|Premium 6|
 
 |**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
 |---|---|---|

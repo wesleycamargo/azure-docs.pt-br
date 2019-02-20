@@ -1,5 +1,5 @@
 ---
-title: Driver de sistema de arquivos de Blob do Azure para versão prévia do Azure Data Lake Store Gen2
+title: Driver do Sistema de Arquivos de Blobs do Azure para o Azure Data Lake Storage Gen2
 description: Driver de sistema de arquivos ABFS do Hadoop
 services: storage
 author: jamesbak
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240872"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962427"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver do Sistema de Arquivos de Blobs do Azure (ABFS): Um driver de Armazenamento do Microsoft Azure dedicado para Hadoop
 
-Um dos métodos de acesso primário para dados na versão prévia do Azure Data Lake Store Gen2 é por meio do [sistema de arquivos Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). O Data Lake Storage Gen2 permite que os usuários do Armazenamento de Blobs do Azure acessem um novo driver, o driver do Sistema de Arquivos de Blobs do Azure ou `ABFS`. O ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Usando esse driver, muitos aplicativos e estruturas podem acessar dados no armazenamento de Blobs do Azure sem nenhum código referenciando explicitamente o serviço Data Lake Store Gen2.
+Um dos principais métodos de acesso para dados no Azure Data Lake Storage Gen2 é via [Sistema de Arquivos Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). O Data Lake Storage Gen2 permite que os usuários do Armazenamento de Blobs do Azure acessem um novo driver, o driver do Sistema de Arquivos de Blobs do Azure ou `ABFS`. O ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Usando esse driver, muitos aplicativos e estruturas podem acessar dados no armazenamento de Blobs do Azure sem nenhum código referenciando explicitamente o serviço Data Lake Store Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funcionalidade anterior: Driver do Azure Storage Blob do Windows
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internamente, o driver ABFS converte os recursos especificados no URI em arquivos e diretórios e faz chamadas à API REST do Azure Data Lake Store com essas referências.
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo Hadoop possa acessar com segurança os recursos contidos em uma conta compatível com Azure Data Lake Storage Gen2. Detalhes completos dos esquemas de autenticação disponíveis são fornecidos no [guia de segurança do Armazenamento do Microsoft Azure](../common/storage-security-guide.md). Eles são:
 
@@ -62,6 +62,5 @@ O driver ABFS está totalmente documentado na [Documentação oficial do Hadoop]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurar clusters HDInsight](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 - [Criar um cluster do Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Usar o URI do Azure Data Lake Store Gen2](./data-lake-storage-introduction-abfs-uri.md)

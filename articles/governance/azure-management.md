@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088129"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112199"
 ---
 # <a name="management-in-azure"></a>Gerenciamento no Azure
 
@@ -24,7 +24,7 @@ O diagrama a seguir ilustra as diferentes áreas de gerenciamento que são neces
 
 ![Disciplinas de gerenciamento](../monitoring/media/management-overview/management-capabilities.png)
 
-Nenhum serviço único do Azure preenche completamente os requisitos de uma área de gerenciamento específica. Em vez disso, cada qual é realizado por vários serviços que trabalham em conjunto. Alguns serviços, como o Application Insights, oferecem funcionalidade de monitoramento segmentado para aplicativos Web. Outros, como o Log Analytics, armazenam dados de gerenciamento para outros serviços. Esse recurso permite que você analise diferentes tipos de dados coletados por diversificados serviços.
+Nenhum serviço único do Azure preenche completamente os requisitos de uma área de gerenciamento específica. Em vez disso, cada qual é realizado por vários serviços que trabalham em conjunto. Alguns serviços, como o Application Insights, oferecem funcionalidade de monitoramento segmentado para aplicativos Web. Outros, como os logs do Azure Monitor, armazenam dados de gerenciamento para outros serviços. Esse recurso permite que você analise diferentes tipos de dados coletados por diversificados serviços.
 
 As seções a seguir descrevem resumidamente as diferentes áreas de gerenciamento e fornecem links para conteúdo detalhado sobre os principais serviços do Azure destinados a abordá-las.
 

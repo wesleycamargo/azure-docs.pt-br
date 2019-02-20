@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117445"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965351"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -195,6 +195,63 @@ Ao [configurar as páginas da Web para o Application Insights](../../azure-monit
 Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro.  Atualmente, a amostragem não dá suporte a outros valores.
 
 Se você habilitar também a amostragem de taxa fixa no servidor, o cliente e o servidor serão sincronizados para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
+
+## <a name="aspnet-core-sampling"></a>Amostragem do ASP.NET Core
+
+A amostragem adaptável está habilitada por padrão para todos os aplicativos ASP.NET Core. É possível desabilitar ou personalizar o comportamento de amostragem.
+
+### <a name="turning-off-adaptive-sampling"></a>Desligar a amostragem adaptável
+
+O recurso de amostragem padrão pode ser desabilitado quando adicionamos o serviço do Application Insights, no método ```ConfigureServices```, usando ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+O código acima desabilitará o recurso de amostragem. Siga as etapas abaixo para adicionar a amostragem com mais opções de personalização.
+
+### <a name="configure-sampling-settings"></a>Definir configurações de amostragem
+
+Use os métodos de extensão de ```TelemetryProcessorChainBuilder``` conforme mostrado abaixo para personalizar o comportamento de amostragem.
+
+> [!IMPORTANT]
+> Se usar esse método para configurar a amostragem, não deixe de usar a configuração aiOptions.EnableAdaptiveSampling = false; com AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Se usar o método acima para configurar a amostragem, não deixe de usar as configurações ```aiOptions.EnableAdaptiveSampling = false;``` com AddApplicationInsightsTelemetry().**
+
+Sem isso, haverá vários processadores de amostragem na cadeia TelemetryProcessor, levando a consequências não intencionais.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Amostragem de taxa fixa para sites ASP.NET e Java web
 A amostragem de taxa fixa reduz o tráfego enviado do seu servidor Web e de navegadores da Web. Ao contrário da amostragem adaptável, ela reduz a telemetria a uma taxa fixa decidida por você. Ela também sincroniza a amostragem de servidor e de cliente para que os itens relacionados sejam mantidos, por exemplo, quando você examinar um modo de exibição de página na Pesquisa, poderá localizar a solicitação relacionada.

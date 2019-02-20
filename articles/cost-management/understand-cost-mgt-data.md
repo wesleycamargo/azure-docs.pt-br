@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/06/2019
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0531c106228190fdc40f494e8eee70ec550f6404
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820242"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981750"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -27,23 +27,23 @@ As informações a seguir mostram as atuais [ofertas do Microsoft Azure](https:/
 
 | Categoria  | **Nome da oferta** | **Número da oferta** |
 | --- | --- | --- |
+| **Azure Alemanha** | [Pagamento Conforme o Uso do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
+| **Azure Governamental** | Azure Governamental Enterprise | MS-AZR-USGOV-0017P |
+| **Enterprise Agreement (EA)** | Desenvolvimento/Teste Enterprise | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
-| **Enterprise Agreement (EA)**| Desenvolvimento/Teste Enterprise | MS-AZR-0148P |
 | **Microsoft Developer Network (MSDN)** | [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
+| **Pré-paga** | [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
+| **Pré-paga** | [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
+| **Pré-paga** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
+| **Pré-paga** | [Teste Gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
+| **Pré-paga** | [Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
+| **Pré-paga** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
+| **Pré-paga** | Azure Pass | MS-AZR-0120P, MS-AZR-0122P – MS-AZR-0125P, MS-AZR-0128P – MS-AZR-0130P |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
-| **Direto/Pago conforme o uso** | [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **Direto/Pago conforme o uso** | Microsoft Azure Internal Consumption | MS-AZR-0015P |
-| **Direto/Pago conforme o uso** | [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Direto/Pago conforme o uso** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Direto/Pago conforme o uso** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **Direto/Pago conforme o uso** | [Teste Gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **Direto/Pago conforme o uso** | [Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **Direto/Pago conforme o uso** | [Azure for Students](https://azure.microsoft.com/en-us/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **Direto/Pago conforme o uso** | Azure Pass | MS-AZR-0120P, MS-AZR-0122P – MS-AZR-0125P, MS-AZR-0128P – MS-AZR-0130P |
 
 A tabela a seguir mostra ofertas sem suporte.
 
@@ -52,7 +52,8 @@ A tabela a seguir mostra ofertas sem suporte.
 | **CSP (Provedor de Soluções na Nuvem)** | Microsoft Azure | MS-AZR-0145P |
 | **CSP (Provedor de Soluções na Nuvem)** | CSP do Azure Governamental | MS-AZR-USGOV-0145P |
 | **CSP (Provedor de Soluções na Nuvem)** | CSP do Azure na Alemanha para o Microsoft Cloud Alemanha | MS-AZR-DE-0145P |
-| **Direto/Pago conforme o uso** | Azure for Students Starter | MS-AZR-0144P |
+| **Pré-paga** | Azure for Students Starter | MS-AZR-0144P |
+| **Pré-paga** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Planos de suporte** | Suporte Standard | MS-AZR-0041P |
 | **Planos de suporte** | Suporte Professional Direct | MS-AZR-0042P |
 | **Planos de suporte** | Suporte Developer | MS-AZR-0043P |
@@ -68,17 +69,6 @@ Se não vir os dados de uma assinatura e quiser determinar se sua assinatura se 
 ## <a name="costs-included-in-cost-management"></a>Custos incluídos no Gerenciamento de Custos
 
 As tabelas a seguir mostram os dados que estão incluídos ou não no Gerenciamento de Custos.
-
-**Tipos de conta**
-
-| **Incluído** | **Não incluído** |
-| --- | --- |
-| EA (Enterprise Agreement) | CSP (Provedor de Soluções na Nuvem) – Para obter mais informações, consulte a [Visão geral do Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
-| Pagamento conforme o uso (PAYG) |   |
-| Desenvolvimento/Teste |   |
-| Gratuito, avaliação e patrocinado |   |
-| Rede de parceiros |   |
-| Azure via Open | &nbsp;  |
 
 **Dados de uso e de custo**
 

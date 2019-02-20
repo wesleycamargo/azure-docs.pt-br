@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189925"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960676"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Solução de problemas do Analytics no Application Insights
 Problemas com a [Application Insights Analytics](analytics.md)? Comece por aqui. A análise é a poderosa ferramenta de pesquisa do Azure Application Insights.
@@ -34,9 +34,9 @@ Desabilite a extensão ou use um navegador diferente.
 ## <a name="e-a"></a> "Erro inesperado"
 ![Tela de erro inesperado](media/analytics-troubleshooting/010.png)
 
-Ocorreu um erro interno durante o tempo de execução do portal exceção sem tratamento.
+Ocorreu um erro interno durante o tempo de execução do portal. Exceção sem tratamento.
 
-* Limpe o cache do navegador. 
+* Limpe o cache do navegador.
 
 ## <a name="e-b"></a>403... tentar recarregar
 ![403... tente recarregar](media/analytics-troubleshooting/020.png)
