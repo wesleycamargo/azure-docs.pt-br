@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181887"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112489"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de rede inválida para o domínio gerenciado
 Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à rede que resultam na seguinte mensagem de alerta:
@@ -36,7 +36,7 @@ Configurações inválidas do NSG são a causa mais comum de erros de rede para 
 2. Na tabela, escolha o NSG associado à sub-rede na qual o domínio gerenciado está habilitado.
 3. Em **Configurações** no painel esquerdo, clique em **Regras de segurança de entrada**
 4. Examine as regras em vigor e identifique quais regras estão bloqueando o acesso a [essas portas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Edite o NSG para garantir a conformidade excluindo a regra, adicionando uma regra, ou criando um NSG completamente novo. As etapas para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [criar um novo NSG compatível](#create-a-nsg-for-azure-ad-domain-services-using-powershell) estão abaixo
+5. Edite o NSG para garantir a conformidade excluindo a regra, adicionando uma regra, ou criando um NSG completamente novo. Vaja abaixo as etapas para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou criar um novo NSG compatível
 
 ## <a name="sample-nsg"></a>Exemplo de NSG
 A tabela a seguir ilustra um exemplo de NSG que manteria seu domínio gerenciado seguro ao mesmo tempo em que permitiria o monitoramento, gestão e atualização das informações pela Microsoft.

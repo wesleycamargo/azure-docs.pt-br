@@ -3,20 +3,20 @@ title: Aumentar a cota de ponto de extremidade
 titleSuffix: Azure Cognitive Services
 description: O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491715"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997899"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
 O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**. 
@@ -362,6 +362,9 @@ A resposta bem-sucedida com o ponto de extremidade LUIS é:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Usar o perfil pai do Gerenciador de Tráfego
 Para gerenciar o tráfego entre pontos de extremidade, é necessário inserir uma chamada ao DNS do Gerenciador de Tráfego para localizar o ponto de extremidade LUIS. Essa chamada é feita para toda solicitação do ponto de extremidade LUIS e precisa simular a localização geográfica do usuário do aplicativo cliente LUIS. Adicione o código de resposta do DNS entre seu aplicativo cliente LUIS e a solicitação para o LUIS da previsão do ponto de extremidade. 
 
+## <a name="resolving-a-degraded-state"></a>Resolvendo um estado degradado
+
+Habilitar [logs de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) do Gerenciador de Tráfego para ver por que o status do ponto de extremidade está degradado.
 
 ## <a name="clean-up"></a>Limpar
 Remova as duas chaves de ponto de extremidade de LUIS, os três perfis do Gerenciador de Tráfego e o grupo de recursos que continha esses cinco recursos. Isso é feito no portal do Azure. Exclua os cinco recursos da lista de recursos. Em seguida, exclua o grupo de recursos. 

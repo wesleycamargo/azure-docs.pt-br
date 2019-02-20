@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: a7a7c8a6f16183d677aeb09ca62ac601cbd01289
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2366bd5543a7c3ee4a45eff74f71232a9c60989f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694033"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098520"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -60,7 +60,7 @@ Se você criar recursos para uso com seu cluster AKS, como contas de armazenamen
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Posso modificar tags e outras propriedades dos recursos do AKS no grupo de recursos MC_ *?
 
-Modificar e excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos *MC_** pode levar a resultados inesperados, além de erros de atualização e dimensionamento. Há suporte para criar e modificar marcas personalizadas adicionais, como atribuir uma unidade de negócios ou um centro de custo. Modificando os recursos sob o *MC_** no AKS cluster divide o SLO.
+Modificar e excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos *MC_** pode levar a resultados inesperados, além de erros de atualização e dimensionamento. Há suporte para criar e modificar marcas personalizadas adicionais, como atribuir uma unidade de negócios ou um centro de custo. Modificar os recursos sob *MC_** no cluster AKS interrompe o objetivo no nível do serviço (SLO). Para obter mais informações, confira [O AKS oferece contrato no nível do serviço?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quais os controles de admissão de Kubernetes que o AKS suporta? Controladores de admissão podem ser adicionados ou removidos?
 

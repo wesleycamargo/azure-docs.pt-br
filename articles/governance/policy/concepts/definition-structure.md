@@ -4,17 +4,17 @@ description: Descreve como a definição de diretiva de recurso é usada pela Po
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698250"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237410"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -90,8 +90,20 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 > [!NOTE]
 > Os parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro deve incluir a propriedade **defaultValue**. Isso impede que atribuições existentes da política ou da iniciativa sejam tornadas inválidas indiretamente.
 
-Por exemplo, você pode definir uma política para limitar os locais em que os recursos podem ser implantados.
-Quando você cria sua política, declarara os seguintes parâmetros:
+### <a name="parameter-properties"></a>Propriedades do parâmetro
+
+Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
+
+- **nome**: o nome do parâmetro. Usado pela função de implantação `parameters` dentro da regra de política. Para saber mais, confira [Usar o valor de parâmetro](#using-a-parameter-value).
+- `type`: determina se o parâmetro é uma **cadeia de caracteres** ou uma **matriz**.
+- `metadata`: define as subpropriedades usadas principalmente pelo portal do Azure para exibição de informações simples:
+  - `description`: a explicação de uso do parâmetro. Pode ser usado para fornecer exemplos de valores aceitáveis.
+  - `displayName`: O nome amigável exibido no portal para o parâmetro.
+  - `strongType`: (opcional) usado ao atribuir a definição de política por meio do portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, confira [strongType](#strongtype).
+- `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se não houver valor fornecido. Necessário ao atualizar uma definição de política existente que é atribuída.
+- `allowedValues`: (opcional) fornece a lista de valores que o parâmetro aceita durante a atribuição.
+
+Por exemplo, você pode definir uma definição de política para limitar os locais em que os recursos podem ser implantados. Um parâmetro para essa definição de política pode ser **allowedLocations**. Esse parâmetro deve ser usado por cada atribuição da definição de política para limitar os valores aceitos. O uso de **strongType** fornece uma experiência aprimorada ao concluir a atribuição por meio do portal:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Quando você cria sua política, declarara os seguintes parâmetros:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-O tipo de um parâmetro pode ser cadeia de caracteres ou matriz. A propriedade de metadados é usada para ferramentas como o portal do Azure exibirem informações fáceis e simples ao usuário.
-
-Na propriedade de metadados, você pode usar **strongType**  para fornecer uma lista de opções de seleção múltipla no portal do Azure. Os valores atualmente permitidos para **strongType** incluem:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Usando um valor de parâmetro
 
 Na regra de política, você faz referência a parâmetros com a seguinte sintaxe de função de valor de implantação `parameters`:
 
@@ -126,6 +134,19 @@ Na regra de política, você faz referência a parâmetros com a seguinte sintax
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+Este exemplo faz referência ao parâmetro **allowedLocations** que foi demonstrado nas [propriedades do parâmetro](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+Na propriedade `metadata`, você pode usar **strongType** para fornecer uma lista de opções de seleção múltipla no portal do Azure. Os valores atualmente permitidos para **strongType** incluem:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Local da definição
 
@@ -187,7 +208,7 @@ Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação
 
 ### <a name="conditions"></a>Condições
 
-Uma condição avalia se um **campo** atende a determinados critérios. As condições com suporte são:
+Uma condição avalia se um **campo** ou um acessador de **valor** atende a determinados critérios. As condições com suporte são:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -231,7 +252,53 @@ Há suporte para os seguintes campos:
   - Essa sintaxe de colchete é compatível com nomes de marca com um ponto.
   - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
   - Exemplo: `tags[Acct.CostCenter]` em que **Acct.CostCenter** é o nome da marca.
+
 - aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
+
+### <a name="value"></a>Valor
+
+As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
+O **valor** é emparelhado a uma [condição](#conditions) com suporte.
+
+#### <a name="value-examples"></a>Exemplos de valor
+
+Este exemplo de regra de política usa **valor** para comparar o resultado da função `resourceGroup()` e a propriedade **nome** retornada para uma condição **like** de `*netrg`. A regra nega qualquer recurso que não for do **tipo** `Microsoft.Network/*` em qualquer grupo de recursos cujo nome termine em `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Este exemplo de regra de política usa **valor** para verificar se o resultado de várias funções aninhadas é **igual** a `true`. A regra nega qualquer recurso que não tenha pelo menos três marcas.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Efeito
 
@@ -274,12 +341,15 @@ Para obter detalhes completos sobre cada efeito, ordem de avaliação, proprieda
 
 ### <a name="policy-functions"></a>Funções de política
 
-Várias [Funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política. As funções atualmente com suporte são:
+Exceto para a implantação seguinte e as funções de recurso, todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso em uma regra de política:
 
-- [parâmetros](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- lista*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Além disso, a função `field` está disponível para as regras de política. `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 

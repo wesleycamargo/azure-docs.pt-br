@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754295"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892749"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 Este artigo mostra a você como anexar um disco persistente à sua VM para que você possa preservar dados, mesmo que sua VM seja provisionada novamente devido à manutenção ou ao redimensionamento.
@@ -73,10 +73,10 @@ A saída deverá ser semelhante ao seguinte exemplo:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Aqui, *sdc* é o disco que queremos. Particione o disco com `parted`, se o tamanho do disco for de 2 tebibytes (TiB) ou maior, você deveá usar o particionamento GPT, mas se ele for menor que 2 TiB, você poderá usar o particionamento MBR ou GPT. Torne-o um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo `parted` em */dev/sdc*:
+Aqui, *sdc* é o disco que queremos. Particione o disco com `parted`, se o tamanho do disco for de 2 tebibytes (TiB) ou maior, você deverá usar o particionamento GPT, mas se ele for menor que 2 TiB, você poderá usar o particionamento MBR ou GPT. Se você estiver usando o particionamento MBR, pode utilizar `fdisk`. Torne-o um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo `fdisk` em */dev/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Use o `n` comando para adicionar uma nova partição. Neste exemplo, podemos também escolher `p` para um principal de partição e aceite o restante dos valores padrão. A saída será semelhante ao exemplo seguinte:

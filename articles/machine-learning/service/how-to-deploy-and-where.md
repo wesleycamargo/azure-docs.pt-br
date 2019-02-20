@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766615"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878605"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
 
@@ -463,7 +463,7 @@ O serviço Web é uma API REST, portanto, você pode criar aplicativos de client
 
 ## <a id="update"></a> Atualizar o serviço Web
 
-Quando você cria uma nova imagem, deve atualizar manualmente cada serviço que usará a nova imagem. Para atualizar o serviço Web, use o método `update`. O código a seguir demonstra como atualizar o serviço Web para usar uma nova imagem:
+Quando você criar uma nova imagem, deve atualizar manualmente cada serviço que a usará. Para atualizar o serviço Web, use o método `update`. O código a seguir demonstra como atualizar o serviço Web para usar uma nova imagem:
 
 ```python
 from azureml.core.webservice import Webservice

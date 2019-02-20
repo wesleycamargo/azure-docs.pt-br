@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063226"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234672"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
 
@@ -30,19 +30,22 @@ As camadas de preços S0 e S1 lidam com diferentes quantidades de taxa de transf
 | Recurso                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    |
+| Geocodificação de lote (versão prévia)              |                   |     ✓    |
+| Polígonos de pesquisa          |                   |     ✓    |
 | Roteamento                                 |        ✓           |     ✓    |
+| Intervalo de rotas                    |                   |     ✓    |
+| Roteamento de lote (versão prévia)                |                   |     ✓    |
+| Roteamento de matriz (versão prévia)               |                   |     ✓    |
 | Renderizar                                  |        ✓           |     ✓    |
+| Imagens + imagens híbridas    |            |     ✓    |
 | Tráfego                                 |        ✓           |     ✓    |
 | Fusos horários                              |        ✓           |     ✓    |
-| * Imagens + imagens híbridas (versão prévia)  |        ✓           |     ✓    |
-| * Intervalo de rota (versão prévia)                  |        ✓           |     ✓    |
-| * Localização IP 2 (versão prévia)                |        ✓           |     ✓    |
-| * Polígonos de pesquisa (versão prévia)         |        ✓           |     ✓    |
-| * Geocodificação de lote (versão prévia)              |        ✓           |     ✓    |
-| * Roteamento de lote (versão prévia)                |        ✓           |     ✓    |
-| * Roteamento de matriz (versão prévia)               |        ✓           |     ✓    |
+| Geolocalização (versão prévia)                |        ✓           |     ✓    |
+| Dados (versão prévia)               |                   |     ✓    |
+| Espacial (versão prévia)               |                   |     ✓    |
+| Delimitação geográfica (versão prévia)               |                   |     ✓    |
 
-\* O acesso a esses recursos a partir da camada de preços S0 será preterido após 4 de fevereiro de 2019.
+
 
 Vale a pena considerar esses pontos de dados adicionais:
 * Que tipo de empreendimento você tem?

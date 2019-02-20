@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745700"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106387"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
-Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
+Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](../platform/alerts-overview.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
 
-O Alerta de Log consiste em regras de Pesquisa de Log criadas para o [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre seu uso, consulte [Criar alertas de log no Azure](../../azure-monitor/platform/alerts-log.md)
+O Alerta de Log consiste em regras de consulta de log criadas para o [Azure Monitor](../learn/tutorial-viewdata.md) ou o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre seu uso, consulte [Criar alertas de log no Azure](../platform/alerts-log.md)
 
 > [!NOTE]
-> Os dados de log populares do [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) agora também estão disponíveis na plataforma de métricas no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](../../azure-monitor/platform/alerts-metric-logs.md)
+> Os dados de log populares do [Azure Monitor](../learn/tutorial-viewdata.md) agora também estão disponíveis na plataforma de métricas no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](../platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regra de alerta de pesquisa de log - definição e tipos
@@ -41,7 +41,7 @@ As regras de pesquisa de log são definidas pelos detalhes a seguir:
 
 - **Limite**.  Os resultados da pesquisa de logs são avaliados para determinar se um alerta deve ser criado.  O limite é diferente para os diferentes tipos de regras de alerta da pesquisa de logs.
 
-As regras de pesquisa de logs para o [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) podem ser de dois tipos. Cada um desses tipos é descrito detalhadamente nas seções a seguir.
+As regras de consulta de logs para o [Azure Monitor](../learn/tutorial-viewdata.md) ou o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events) podem ser de dois tipos. Cada um desses tipos é descrito detalhadamente nas seções a seguir.
 
 - **[Número de resultados](#number-of-results-alert-rules)**. Alerta único criado quando o número de registros retornados pela pesquisa de logs excedeu um número especificado.
 - **[Medida métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de logs com valores que excedem o limite especificado.
@@ -99,14 +99,28 @@ Considere um cenário em que você deseje um alerta se qualquer computador exced
 - **Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Período de Tempo:** 30 minutos<br>
 - **Frequência de alerta:** cinco minutos<br>
-- **Valor de agregação:** Maior do que 90<br>
+- **Lógica de alerta – condição e limite:** Maior do que 90<br>
+- **Campo Grupo (agregar em):** Computador
 - **Disparar alerta com base em:** Total de violações maior que 2<br>
 
-A consulta criaria um valor médio para cada computador em intervalos de cinco minutos.  Essa consulta seria executada cada cinco minutos para os dados coletados durante os 30 minutos anteriores.  Abaixo, são mostrados dados de exemplo para três computadores.
+A consulta criaria um valor médio para cada computador em intervalos de cinco minutos.  Essa consulta seria executada cada cinco minutos para os dados coletados durante os 30 minutos anteriores. Uma vez que o campo de grupo (agregar em) escolhido é o 'Computador' colunar – o AggregatedValue é dividido para vários valores de 'Computador' e utilização média do processador para cada computador é determinada para um compartimento temporal de 5 minutos.  O resultado da consulta de exemplo para (digamos) três computadores seria conforme mostrado abaixo.
+
+
+|TimeGenerated [UTC] |Computador  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Se o resultado da consulta fosse plotado, ele apareceria como.
 
 ![Resultados da consulta de exemplo](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-Neste exemplo, alertas separados seriam criados para srv02 e srv03, uma vez que eles violaram o limite de 90% três vezes durante o período.  Se **Disparar alerta com base em:** fosse alterado para **Consecutivas**, o único alerta criado seria para srv03, já que ele violou o limite em três amostras consecutivas.
+Neste exemplo, podemos ver em compartimentos de 5 minutos para cada um dos três computadores – utilização média de processador conforme computada para 5 minutos. Limite de 90 sendo violado por srv01 apenas uma vez no compartimento 1:25. Em comparação, srv02 excede o limite de 90 nos compartimentos 1:10, 1:15 e 1:25; enquanto srv03 excede o limite de 90 em 1:10, 1:15, 1:20 e 1:30. Já que o alerta é configurado para disparar com base em um total de violações que ultrapasse duas, vemos que apenas srv02 e srv03 atendem aos critérios. Assim, alertas separados seriam criados para srv02 e srv03, já que eles violaram o limite de 90% duas vezes durante vários compartimentos temporais.  Se o parâmetro *Disparar alerta com base em:* fosse em vez disso configurado para a opção *Violações contínuas*, um alerta seria acionado **apenas** para srv03, já que ele violou o limite para três compartimentos temporais consecutivos, de 1:10 a 1:20. Isso já **não** ocorreria para srv02, pois ele violou o limite em dois compartimentos temporais consecutivos, de 1:10 a 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regra de alerta de pesquisa de logs – acionamento e estado
 
@@ -114,11 +128,11 @@ A regra de alerta de pesquisa de logs funciona com a lógica definida pelo usuá
 
 Agora, vamos supor que nós temos uma regra de alerta de log chamada *Contoso-Log-Alert*, de acordo com a configuração no [exemplo fornecido para o alerta de log do tipo Número de Resultados](#example-of-number-of-records-type-log-alert). 
 - Às 13h05, quando Contoso-Log-Alert foi executado pelos alertas do Azure, o resultado da pesquisa de logs gerou 0 registros; o que está abaixo do limite e, portanto, não acionou o alerta. 
-- Na próxima iteração, às 13h10, quando Contoso-Log-Alert foi executado pelos Alertas do Azure, o resultado da pesquisa de logs forneceu 5 registros, ultrapassando o limite e disparando o alerta, logo após disparar a [grupo de ações](../../azure-monitor/platform/action-groups.md) associado. 
-- Às 13h15, quando Contoso-Log-Alert foi executado pelos Alertas do Azure, o resultado da pesquisa de logs forneceu 2 registros, ultrapassando o limite e disparando o alerta, logo após disparar a [grupo de ações](../../azure-monitor/platform/action-groups.md) associado.
+- Na próxima iteração, às 13h10, quando Contoso-Log-Alert foi executado pelos Alertas do Azure, o resultado da pesquisa de logs forneceu 5 registros, ultrapassando o limite e disparando o alerta, logo após disparar a [grupo de ações](../platform/action-groups.md) associado. 
+- Às 13h15, quando Contoso-Log-Alert foi executado pelos Alertas do Azure, o resultado da pesquisa de logs forneceu 2 registros, ultrapassando o limite e disparando o alerta, logo após disparar a [grupo de ações](../platform/action-groups.md) associado.
 - Agora, na iteração seguinte, às 13h20, quando Contoso-Log-Alert foi executado pelo alerta do Azure, o resultado da pesquisa de logs novamente gerou 0 registros; o que está abaixo do limite e, portanto, não acionou o alerta.
 
-Mas, no caso listado acima, às 13h15, os alertas do Azure não podem determinar se os problemas subjacentes vistos às 13h10 persistiram e se há novas falhas de rede. Como a consulta fornecida pelo usuário pode estar levando em conta registros anteriores, os alertas do Azure podem ter certeza. Portanto, por precaução, quando o Contoso-Log-Alert for executado às 13h15, o [grupo de ações](../../azure-monitor/platform/action-groups.md) configurado será acionado novamente. Agora, às 13h20, quando não são vistos registros, os alertas do Azure não podem ter certeza de que a causa dos registros foi resolvida. Portanto, Contoso-Log-Alert não será alterado para Resolvido no painel de Alerta do Azure nem serão enviadas notificações informando a resolução do alerta.
+Mas, no caso listado acima, às 13h15, os alertas do Azure não podem determinar se os problemas subjacentes vistos às 13h10 persistiram e se há novas falhas de rede. Como a consulta fornecida pelo usuário pode estar levando em conta registros anteriores, os alertas do Azure podem ter certeza. Portanto, por precaução, quando o Contoso-Log-Alert for executado às 13h15, o [grupo de ações](../platform/action-groups.md) configurado será acionado novamente. Agora, às 13h20, quando não são vistos registros, os alertas do Azure não podem ter certeza de que a causa dos registros foi resolvida. Portanto, Contoso-Log-Alert não será alterado para Resolvido no painel de Alerta do Azure nem serão enviadas notificações informando a resolução do alerta.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e cobrança dos Alertas de Log
@@ -133,9 +147,8 @@ Preços aplicáveis aos Alertas de Log estão disponíveis na página [Preços d
     > Se houver caracteres inválidos, como `<, >, %, &, \, ?, /`, eles serão substituídos por `_` na fatura. Para excluir os recursos de scheduleQueryRules criados para cobrança de regras de alerta usando a [API herdada do Log Analytics](api-alerts.md), o usuário precisa excluir a programação original e a ação do alerta usando a [API herdada do Log Analytics](api-alerts.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a [criação de alertas de log no Azure](../../azure-monitor/platform/alerts-log.md).
+* Saiba mais sobre a [criação de alertas de log no Azure](../platform/alerts-log.md).
 * Entenda os [webhooks nos alertas de log no Azure](alerts-log-webhook.md).
-* Saiba mais sobre os [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
-* Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md).
-* Saiba mais sobre o [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* Saiba mais sobre os [Alertas do Azure](../platform/alerts-overview.md).
+* Saiba mais sobre o [Application Insights](../app/analytics.md).
+* Saiba mais sobre as [consultas de log do Azure Monitor](../log-query/log-query-overview.md).    

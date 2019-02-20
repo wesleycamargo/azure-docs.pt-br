@@ -10,21 +10,21 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: b01958dc320ff6c81bb27c85ff4a5e508eabb01b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ce022e22cc98dd218dff4840f686464233f99c72
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209937"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176332"
 ---
 # <a name="create-an-azure-media-services-account"></a>Criar uma conta de Serviços de Mídia do Azure
 
 Para iniciar a criptografia, codificação, analise, gerenciamento e streaming de conteúdo de mídia no Azure, você precisa criar uma conta dos Serviços de Mídia. Quando você cria uma conta de Serviços de Mídia, você também cria uma conta de armazenamento associada (ou usa uma existente).  
 
 > [!NOTE]
-> A conta de Serviços de Mídia e todas as contas de armazenamento associadas devem estar na mesma assinatura do Azure. É recomendável usar contas de armazenamento no mesmo local que a conta de Serviços de Mídia.
+> A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. É altamente recomendável usar contas de armazenamento no mesmo local da conta de Serviços de Mídia para evitar custos de saída de dados e latência adicionais.
 
 Este artigo descreve as etapas para criar uma nova conta dos Serviços de Mídia do Azure usando a CLI do Azure.  
 

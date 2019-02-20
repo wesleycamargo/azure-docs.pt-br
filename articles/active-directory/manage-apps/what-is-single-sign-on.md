@@ -2,21 +2,22 @@
 title: Logon único para aplicativos – Azure Active Directory | Microsoft Docs
 description: Saiba como escolher um método de logon único ao configurar aplicativos no Azure AD (Azure Active Directory). Use o logon único para que os usuários não precisem se lembrar de senhas para cada aplicativo e para simplificar a administração de gerenciamento de conta.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664022"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163063"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
 O SSO (logon único) adiciona segurança e conveniência quando os usuários se conectam a aplicativos no Azure Active Directory. Este artigo descreve os métodos de logon único e ajuda você a escolher o método de SSO mais adequado ao configurar os seus aplicativos.
@@ -58,7 +59,7 @@ Para obter mais informações, consulte:
 - [Guia do desenvolvedor do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## <a name="saml-sso"></a>SSO do SAML
-Com o **logon único SAML**, o Azure AD realiza a autenticação para o aplicativo usando a conta do Azure AD do usuário. O Azure AD comunica as informações do logon para o aplicativo por meio de um protocolo de conexão. Com o logon único baseado em SAML, você pode mapear os usuários para funções de aplicativo específicas com base nas regras definidas nas suas declarações SAML
+Com o **logon único SAML**, o Azure AD realiza a autenticação para o aplicativo usando a conta do Azure AD do usuário. O Azure AD comunica as informações do logon para o aplicativo por meio de um protocolo de conexão. Com o logon único baseado em SAML, você pode mapear os usuários para funções de aplicativo específicas com base nas regras definidas nas suas declarações SAML.
 
 Escolha o logon único baseado em SAML quando o aplicativo der suporte a ele.
 
@@ -85,7 +86,7 @@ Escolha o logon único baseado em senha quando:
 O logon único baseado em senha for compatível com qualquer aplicativo baseado em nuvem que tenha uma página de entrada baseada em HTML. O usuário pode usar qualquer um dos seguintes navegadores:
 
 - Internet Explorer 11 no Windows 7 ou posterior
-- O Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior 
+- O Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior
 - Chrome no Windows 7 ou posterior e no MacOS X ou posterior
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 

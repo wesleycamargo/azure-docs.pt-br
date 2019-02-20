@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254427"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005141"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "51254427"
 >
 
 ## <a name="overview"></a>Visão geral
+
 Para fornecer vídeo digital pela Internet, é necessário compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para serem fornecidos pela Internet ou exibidos corretamente nos dispositivos dos clientes. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia.
 
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos Serviços de Mídia do Azure. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, é possível usar o codificador interno dos Serviços de Mídia (Codificador de Mídia Padrão). Você também pode usar um codificador fornecido por um parceiro dos Serviços de Mídia. Codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, confira [Predefinições de tarefa para o Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
@@ -54,12 +55,13 @@ Antes de começar a fazer referência a processadores de mídia, verifique se vo
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Criar um trabalho com uma única tarefa de codificação
+
 > [!NOTE]
 > Ao trabalhar com a API REST dos Serviços de Mídia, as seguintes considerações se aplicam:
 >
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 >
-> Ao usar o JSON e especificar o uso da palavra-chave **__metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), é necessário definir o cabeçalho **Accept** como [formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+> Quando usar JSON e especificar o uso da palavra-chave **Metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), você deve definir o cabeçalho **Accept** para o [ formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 

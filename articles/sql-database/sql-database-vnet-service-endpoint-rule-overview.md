@@ -1,5 +1,5 @@
 ---
-title: Pontos de extremidade de serviço e regras da Rede Virtual para o Banco de Dados SQL do Azure e o SQL Data Warehouse | Microsoft Docs
+title: Pontos de extremidade e regras da VNet para bancos de dados únicos e em pool no SQL do Azure | Microsoft Docs
 description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453920"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118370"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Use pontos de extremidade e regras do serviço de rede virtual para o Azure SQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço da rede virtual para os servidores do banco de dados
 
-*Regras de rede virtual* são um recurso de segurança do firewall que controla se o [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou o servidor do [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu Banco de Dados SQL do Azure e com o SQL Data Warehouse.
+As *regras da rede virtual* são um recurso de segurança do firewall que controla se o servidor do banco de dados para seus bancos de dados individuais e pool elástico no [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou os bancos de dados no [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceitam comunicações enviadas de sub-redes particulares nas redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu Banco de Dados SQL do Azure e com o SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Este artigo faz *não* se aplica ao **Banco de Dados de Instância Gerenciada do SQL**.
+> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
 
 Para criar uma regra de rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
 

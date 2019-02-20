@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331633"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984300"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)
 
@@ -153,16 +153,18 @@ Se você for habilitar o Backup Automatizado pela primeira vez, o Azure configur
 Você pode usar o PowerShell para configurar o Backup Automatizado v2. Antes de começar, faça o seguinte:
 
 - [Baixe e instale o Azure PowerShell mais recente](https://aka.ms/webpi-azps).
-- Abra o Windows PowerShell e associe-o à sua conta com o comando **Connect-AzureRmAccount**.
+- Abra o Windows PowerShell e associe-o à sua conta com o comando **Connect-AzAccount**.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ### <a name="install-the-sql-iaas-extension"></a>Instalar a Extensão IaaS do SQL Server
-Se você tiver provisionado uma máquina virtual do SQL Server no Portal do Azure, a Extensão IaaS do SQL Server já deverá estar instalada. Você pode determinar se ele está instalado para a sua VM chamando o comando **Get-AzureRmVM** e examinando a propriedade **Extensions**.
+Se você tiver provisionado uma máquina virtual do SQL Server no Portal do Azure, a Extensão IaaS do SQL Server já deverá estar instalada. Você pode determinar se ela está instalada para a sua VM chamando o comando **Get-AzVM** e examinando a propriedade **Extensions**.
 
 ```powershell
 $vmname = "vmname"
 $resourcegroupname = "resourcegroupname"
 
-(Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
+(Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
 Se a extensão do agente IaaS do SQL Server estiver instalada, você deverá vê-lo listado como “SqlIaaSAgent” ou “SQLIaaSExtension”. **ProvisioningState** para a extensão também deve mostrar "Êxito". 
@@ -171,16 +173,16 @@ Se ele não estiver instalado ou o provisionamento tiver falhado, você poderá 
 
 ```powershell
 $region = “EASTUS2”
-Set-AzureRmVMSqlServerExtension -VMName $vmname `
+Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
 ```
 
 ### <a id="verifysettings"></a> Verificar as configurações atuais
-Se você habilitou o backup automatizado durante o provisionamento, poderá usar o PowerShell para verificar a configuração atual. Execute o comando **Get-AzureRmVMSqlServerExtension** e examine a propriedade **AutoBackupSettings**:
+Se você habilitou o backup automatizado durante o provisionamento, poderá usar o PowerShell para verificar a configuração atual. Execute o comando **Get-AzVMSqlServerExtension** e examine a propriedade **AutoBackupSettings**:
 
 ```powershell
-(Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
+(Get-AzVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
 Você deve ver um resultado semelhante ao seguinte:
@@ -214,27 +216,27 @@ Primeiro, selecione ou crie uma conta de armazenamento para os arquivos de backu
 $storage_accountname = “yourstorageaccount”
 $storage_resourcegroupname = $resourcegroupname
 
-$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+$storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
 If (-Not $storage)
-    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    { $storage = New-AzStorageAccount -ResourceGroupName $storage_resourcegroupname `
     -Name $storage_accountname -SkuName Standard_GRS -Location $region } 
 ```
 
 > [!NOTE]
 > O Backup Automatizado não dá suporte ao armazenamento de backups no Armazenamento Premium, mas ele pode fazer backups de discos de VM que usam o Armazenamento Premium.
 
-Em seguida, use o comando **New-AzureRmVMSqlServerAutoBackupConfig** para habilitar e definir as configurações do Backup Automatizado v2 para armazenar backups na conta de armazenamento do Azure. Neste exemplo, os backups são definidos para ser mantidos por 10 dias. Os backups de banco de dados do sistema estão habilitados. Os backups completos são agendados para serem realizados semanalmente com uma janela de tempo com início às 20h por duas horas. Os backups de log estão agendados para a cada 30 minutos. O segundo comando, **Set-AzureRmVMSqlServerExtension**, atualiza a VM do Azure especificada com essas configurações.
+Em seguida, use o comando **New-AzVMSqlServerAutoBackupConfig** para habilitar e definir as configurações do Backup Automatizado v2 e armazenar backups na conta de armazenamento do Azure. Neste exemplo, os backups são definidos para ser mantidos por 10 dias. Os backups de banco de dados do sistema estão habilitados. Os backups completos são agendados para serem realizados semanalmente com uma janela de tempo com início às 20h por duas horas. Os backups de log estão agendados para a cada 30 minutos. O segundo comando, **Set-AzVMSqlServerExtension**, atualiza a VM do Azure especificada com essas configurações.
 
 ```powershell
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
     -BackupScheduleType Manual -FullBackupFrequency Weekly `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname 
 ```
 
@@ -246,7 +248,7 @@ Para habilitar a criptografia, modifique o script anterior para passar o parâme
 $password = "P@ssw0rd"
 $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
 
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -EnableEncryption -CertificatePassword $encryptionpassword `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
@@ -254,19 +256,19 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
 Para confirmar que as configurações estão aplicadas, [verifique a configuração do Backup Automatizado](#verifysettings).
 
 ### <a name="disable-automated-backup"></a>Desabilitar o Backup automatizado
-Para desabilitar o Backup Automatizado, execute o mesmo script sem o parâmetro **-Enable** para o comando **New-AzureRmVMSqlServerAutoBackupConfig**. A ausência do parâmetro **-Enable** sinaliza o comando para desabilitar o recurso. Assim como acontece com a instalação, pode demorar vários minutos para desabilitar o Backup Automatizado.
+Para desabilitar o Backup Automatizado, execute o mesmo script sem o parâmetro **-Enable** para o comando **New-AzVMSqlServerAutoBackupConfig**. A ausência do parâmetro **-Enable** sinaliza o comando para desabilitar o recurso. Assim como acontece com a instalação, pode demorar vários minutos para desabilitar o Backup Automatizado.
 
 ```powershell
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
@@ -288,21 +290,21 @@ $logbackupfrequency = "30"
 
 # ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension 
 
-Set-AzureRmVMSqlServerExtension -VMName $vmname `
+Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 
 # Creates/use a storage account to store the backups
 
-$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+$storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
 If (-Not $storage)
-    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    { $storage = New-AzStorageAccount -ResourceGroupName $storage_resourcegroupname `
     -Name $storage_accountname -SkuName Standard_GRS -Location $region }
 
 # Configure Automated Backup settings
 
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays $retentionperiod -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
     -BackupScheduleType $backupscheduletype -FullBackupFrequency $fullbackupfrequency `
@@ -311,7 +313,7 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
 
 # Apply the Automated Backup settings to the VM
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 

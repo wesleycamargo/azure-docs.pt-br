@@ -1,5 +1,5 @@
 ---
-title: TDE - BYOK (Bring Your Own Key) - Banco de Dados SQL do Microsoft Azure| Microsoft Docs
+title: Integração do TDE com o Azure Key Vault ou BYOK (Bring Your Own Key) – Banco de Dados SQL do Azure| Microsoft Docs
 description: Suporte BYOK (Bring Your Own Key) para TDE (Transparent Data Encryption) com Azure Key Vault para Banco de Dados SQL e Data Warehouse. Visão geral de TDE com BYOK, benefícios, como funciona, considerações e recomendações.
 services: sql-database
 ms.service: sql-database
@@ -11,23 +11,24 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 474e8d708a335b27899e818dcdba1fb469ad94a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 15ca5c007b2f7a1217b4b921e11f97b4fd6e3741
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469223"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238157"
 ---
-# <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Transparent Data Encryption do SQL do Azure: Suporte Bring Your Own Key
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault: Suporte Bring Your Own Key
 
-O suporte BYOK (Bring Your Own Key) para [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) permite criptografar a DEK (Chave de Criptografia) do Banco de Dados com uma chave assimétrica chamada Protetor de TDE.  O Protetor de TDE é armazenado sob seu controle no [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), o sistema de gerenciamento de chave externa baseado em nuvem do Azure. O Azure Key Vault é o primeiro serviço de gerenciamento de chaves com o qual a TDE integrou suporte para BYOK. A DEK de TDE, que é armazenada na página de inicialização de um banco de dados, é criptografada e descriptografada pelo protetor de TDE. O Protetor de TDE é armazenado no Azure Key Vault e nunca sai do cofre de chaves. Se o acesso do servidor ao cofre da chaves for revogado, um banco de dados não poderá ser descriptografado e lido na memória. Para o Banco de Dados SQL do Azure, protetor de TDE é definido no nível do servidor de Banco de Dados SQL e é herdado por todos os bancos de dados associados a esse servidor. Para Istância Gerenciada do SQL, o protetor de TDE é definido no nível de instância e ela é herdada por todos o bancos de dados *criptografados* nessa instância. O termo *servidor* refere-se ao servidor e instância ao longo deste documento, a menos que indicado de forma diferente.
+A integração do [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) com o Azure Key Vault permite criptografar a DEK (Chave de Criptografia do Banco de Dados) com uma chave assimétrica gerenciada pelo cliente chamada Protetor de TDE.  O Protetor de TDE é armazenado em um [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) gerenciado e de propriedade do cliente, o sistema de gerenciamento de chave externa baseado em nuvem do Azure. A DEK de TDE, que é armazenada na página de inicialização de um banco de dados, é criptografada e descriptografada pelo Protetor de TDE, que é armazenado no Azure Key Vault e nunca deixa o cofre de chaves.  O Banco de Dados SQL precisa ter permissões concedidas para o cofre de chaves de propriedade do cliente para descriptografar e criptografar a DEK. Se as permissões do SQL Server lógico para o cofre de chaves forem revogadas, um banco de dados não poderá ser acessado e todos os dados serão criptografados. Para o Banco de Dados SQL do Azure, o protetor de TDE é definido no nível do SQL Server lógico e é herdado por todos os bancos de dados associados a esse servidor. Para a [Instância Gerenciada do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados *criptografados* nessa instância. O termo *servidor* refere-se ao servidor e instância ao longo deste documento, a menos que indicado de forma diferente.
 
-Com o suporte BYOK, os usuários podem controlar as principais tarefas de gerenciamento, incluindo rotações de chave, permissões de cofre de chaves, excluir chaves e habilitar auditoria/relatório em todos os protetores de TDE usando a funcionalidade do Azure Key Vault. O Key Vault fornece gerenciamento central de chaves, utiliza HSMs (Módulos de Segurança de Hardware) rigidamente monitorados e permite a separação de funções entre o gerenciamento de chaves e dados para ajudar no cumprimento da conformidade regulatória.  
+Com a integração do TDE ao Azure Key Vault, os usuários podem controlar as principais tarefas de gerenciamento, incluindo rotações de chave, permissões de cofre de chaves, backups de chaves e habilitar auditoria/relatório em todos os protetores de TDE usando a funcionalidade do Azure Key Vault. O Key Vault fornece gerenciamento central de chaves, utiliza HSMs (Módulos de Segurança de Hardware) rigidamente monitorados e permite a separação de funções entre o gerenciamento de chaves e dados para ajudar a atender a conformidade com políticas de segurança.  
 
-A TDE com BYOK fornece os seguintes benefícios:
+A integração do TDE com o Azure Key Vault fornece os seguintes benefícios:
 
 - Maior transparência e controle granular com a capacidade de autogerenciar o protetor de TDE
+- Capacidade de revogar permissões a qualquer momento para renderizar o banco de dados inacessível
 - Gerenciamento central de protetores de TDE (em conjunto com outras chaves e segredos usados em outros serviços do Azure) hospedando-os no Key Vault
 - Separação das principais responsabilidades de gerenciamento de dados dentro da organização para dar suporte à separação de funções
 - Maior confiança dos próprios clientes, pois o Key Vault é projetado para que a Microsoft não veja nem extraia nenhuma chave de criptografia.
@@ -36,7 +37,7 @@ A TDE com BYOK fornece os seguintes benefícios:
 > [!IMPORTANT]
 > Para aqueles que usam TDE de serviço gerenciado e que gostariam de começar a usar o Key Vault, a TDE permanecerá habilitada durante o processo de mudança para um protetor de TDE no Key Vault. Não há tempo de inatividade nem nova criptografia dos arquivos do banco de dados. A mudança de uma chave de serviço gerenciado para uma chave do Key Vault requer apenas a nova criptografia da DEK (Chave de Criptografia) do banco de dados, que é uma operação rápida e online.
 
-## <a name="how-does-tde-with-byok-support-work"></a>Como funciona TDE com suporte BYOK?
+## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>Como a integração do TDE com o Azure Key Vault dá suporte ao trabalho
 
 ![Autenticação do Servidor para o Key Vault](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
@@ -45,13 +46,13 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE do Ke
 > [!IMPORTANT]
 > É importante observar que **depois que um Protetor de TDE é armazenado no Azure Key Vault, o protetor nunca sai do Azure Key Vault**. O servidor somente pode enviar solicitações de operação de chave para o material da chave de proteção de TDE dentro do Key Vault e **nunca acessa ou armazena em cache o protetor de TDE** . O administrador do Key Vault tem o direito de revogar as permissões do Key Vault do servidor a qualquer momento e, nesse caso, todas as conexões com o servidor serão cortadas.
 
-## <a name="guidelines-for-configuring-tde-with-byok"></a>Diretrizes para configurar a TDE com BYOK
+## <a name="guidelines-for-configuring-tde-with-azure-key-vault"></a>Diretrizes para configurar o TDE com o Azure Key Vault
 
 ### <a name="general-guidelines"></a>Diretrizes gerais
 
 - Certifique-se de que o Azure Key Vault e o Banco de Dados SQL do Azure/Instância Gerenciada estejam no mesmo locatário.  Interações do servidor e do cofre de chaves entre locatários **não têm suporte**.
 - Decida quais assinaturas serão usadas para os recursos necessários - mover o servidor pelas assinaturas posteriormente requer uma nova configuração de TDE com BYOKs. Saiba mais sobre a [movimentação de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- Ao configurar TDE com BYOK, é importante considerar a carga colocada no cofre de chaves por meio de repetidas operações de encapsulamento/desencapsulamento. Por exemplo, como todos os bancos de dados associados a um servidor de Banco de Dados SQL usam o mesmo protetor de TDE, um failover desse servidor disparará o máximo de operações de chave no cofre, pois há bancos de dados no servidor. Com base em nossa experiência e nos [limites de serviço do cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits) documentados, é recomendável associar no máximo 200 bancos de dados Comercialmente Crítico/Premium ou 500 Standard/Uso Geral com um Azure Key Vault em uma única assinatura para garantir alta disponibilidade consistente ao acessar o protetor de TDE no cofre.
+- Ao configurar TDE com Azure Key Vault, é importante considerar a carga colocada no cofre de chaves por meio de repetidas operações de encapsulamento/desencapsulamento. Por exemplo, como todos os bancos de dados associados a um servidor de Banco de Dados SQL usam o mesmo protetor de TDE, um failover desse servidor disparará o máximo de operações de chave no cofre, pois há bancos de dados no servidor. Com base em nossa experiência e nos [limites de serviço do cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits) documentados, é recomendável associar no máximo 200 bancos de dados Comercialmente Crítico/Premium ou 500 Standard/Uso Geral com um Azure Key Vault em uma única assinatura para garantir alta disponibilidade consistente ao acessar o protetor de TDE no cofre.
 - Recomendável: Mantenha uma cópia do protetor de TDE nas instalações.  Isso requer um dispositivo de HSM para criar um Protetor de TDE localmente e um sistema de caução de chave para armazenar uma cópia local do Protetor de TDE.  Saiba [como transferir uma chave de um HSM local para o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Diretrizes para configurar o Azure Key Vault
@@ -64,12 +65,12 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE do Ke
 - Conceda ao servidor de Banco de Dados SQL acesso ao cofre de chaves usando a identidade do Azure AD (Azure Active Directory).  Ao usar a interface do usuário do portal, a identidade do Azure AD é criada automaticamente e as permissões de acesso ao cofre de chaves são concedidas ao servidor.  Usando o PowerShell para configurar TDE com BYOK, a identidade do Azure AD deve ser criada e a conclusão verificada. Consulte [Configurar a TDE com BYOK](transparent-data-encryption-byok-azure-sql-configure.md) e [Configurar a TDE com BYOK para a Instância Gerenciada](http://aka.ms/sqlmibyoktdepowershell) para obter instruções passo a passo detalhadas ao usar o PowerShell.
 
   > [!NOTE]
-  > Se a identidade do Azure AD **for excluída acidentalmente ou as permissões do servidor forem revogadas** usando a política de acesso do cofre de chaves, o servidor perderá o acesso ao cofre de chaves e os bancos de dados criptografados por TDE serão removidos dentro de 24 horas.
+  > Se a identidade do Azure AD **for excluída acidentalmente ou as permissões do servidor forem revogadas** usando a política de acesso do cofre de chaves, o servidor perderá o acesso ao cofre de chaves e os bancos de dados criptografados por TDE ficarão inacessíveis dentro de 24 horas.
 
 - Ao usar firewalls e redes virtuais com o Azure Key Vault, você deve configurar: - permitir serviços confiáveis da Microsoft para ignorar esse firewall – escolher Sim
 
  > [!NOTE]
- > Se os bancos de dados criptografados da linguagem SQL perdem o acesso ao cofre de chaves do Transparent Data Encryption porque não conseguem ignorar o firewall, os bancos de dados são descartados dentro de 24 horas.
+ > Se os bancos de dados criptografados da linguagem SQL perdem o acesso ao cofre de chaves do TDE porque não conseguem ignorar o firewall, os bancos de dados ficam inacessíveis dentro de 24 horas.
 
 - Habilite a auditoria e relatórios em todas as chaves de criptografia: O Key Vault fornece logs que são fáceis de serem injetados em outras ferramentas de SIEM (gerenciamento de eventos e informações de segurança). O OMS (Operations Management Suite) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) é um exemplo de um serviço que já está integrado.
 - Para garantir alta disponibilidade dos bancos de dados criptografados, configure cada servidor de Banco de Dados SQL com dois Azure Key Vaults que residem em regiões diferentes.
@@ -83,7 +84,7 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE do Ke
    > [!NOTE]
    > Para fins de teste, é possível criar uma chave com o Azure Key Vault, no entanto, essa chave não pode ser garantida porque a chave privada nunca pode sair do cofre de chaves.  Sempre faça backup e armazene as chaves usadas para criptografar os dados de produção, pois a perda da chave (exclusão acidental no cofre de chaves, expiração, etc.) resulta em perda permanente de dados.
 
-- Use uma chave sem uma data de validade – e nunca defina uma data de validade em uma chave já em uso: **quando a chave expira, os bancos de dados criptografados perdem o acesso ao Protetor de TDE e são removidos dentro de 24 horas**.
+- Use uma chave sem uma data de expiração – e não defina uma data de expiração em uma chave já em uso: **quando a chave expira, os bancos de dados criptografados perdem o acesso ao Protetor de TDE e ficam inacessíveis dentro de 24 horas**.
 - Certifique-se de que a chave esteja habilitada e tenha permissões para executar as operações *get*, *codificar chave* e *decodificar chave*.
 - Crie um backup de chave do Azure Key Vault antes de usar a chave no Azure Key Vault pela primeira vez. Saiba mais sobre o comando [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
 - Crie um novo backup sempre que forem feitas alterações na chave (por exemplo, adicionar ACLs, adicionar marcas, adicionar atributos de chave).

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: e27826629873566bf7b746649923c25e6ab70827
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457149"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981138"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
 
@@ -35,16 +35,18 @@ Quando não precisar mais de um disco de dados conectado a uma máquina virtual,
 Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="detach-a-data-disk-using-powershell"></a>Desanexar um disco de dados usando o PowerShell
 
 É possível remover um disco de dados *hot* usando o PowerShell, mas certifique-se de que nada esteja usando ativamente o disco antes de desanexá-lo da VM.
 
-Neste exemplo, removemos o disco nomeado **myDisk** da VM **myVM** no grupo de recursos **myResourceGroup**. Primeiro, remova o disco usando o cmdlet [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk). Em seguida, atualize o estado da máquina virtual, usando o cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) para concluir o processo de remoção do disco de dados.
+Neste exemplo, removemos o disco nomeado **myDisk** da VM **myVM** no grupo de recursos **myResourceGroup**. Primeiro, remova o disco usando o cmdlet [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk). Em seguida, atualize o estado da máquina virtual, usando o cmdlet [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) para concluir o processo de remoção do disco de dados.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.

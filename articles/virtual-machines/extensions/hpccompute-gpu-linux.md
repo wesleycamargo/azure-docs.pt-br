@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198381"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100254"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 
@@ -85,7 +85,7 @@ Todas as configurações são opcionais. O comportamento padrão é não atualiz
 | NOME | DESCRIÇÃO | Valor Padrão | Valores Válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | falso | verdadeiro, falso | booleano |
-| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | verdadeiro | verdadeiro, falso | booleano |
 
 
@@ -123,7 +123,7 @@ O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso d
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -159,7 +159,7 @@ az vm extension set `
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell e a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

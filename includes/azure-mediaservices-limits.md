@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279429"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56212933"
 ---
 >[!NOTE]
 >Para obter recursos que não são fixos, você pode solicitar que as cotas sejam geradas, abrindo um tíquete de suporte. **Não** crie contas adicionais dos Serviços de Mídia do Azure em uma tentativa de obter limites mais altos.
@@ -27,7 +27,7 @@ ms.locfileid: "52279429"
 | Canais ao vivo por conta AMS  |5|
 | Programas no estado interrompido por canal  |50|
 | Programa em estado de execução por canal  |3|
-| Pontos de extremidade de streaming no estado “executando” por conta AMS|2|
+| Pontos de extremidade de streaming (interrompidos ou em execução) por conta dos Serviços de Mídia|2|
 | Unidades de streaming por ponto de extremidade de streaming |10 |
 | Contas de armazenamento | 1,000<sup>(5)</sup> (fixo) |
 | Políticas | 1,000,000<sup>(6)</sup> |

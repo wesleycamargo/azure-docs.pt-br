@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699118"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175448"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -120,6 +120,34 @@ Um firewall do aplicativo web (WAF) fornece uma camada adicional de segurança p
 
 Recursos de entrada ou do Balanceador de carga continuam sendo executados no cluster do AKS para refinar ainda mais a distribuição de tráfego. Gateway de Aplicativo pode ser gerenciado centralmente como um controlador de entrada com uma definição de recurso. Para começar, [crie um controlador de Entrada do Gateway de Aplicativo][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Controlar o fluxo de tráfego com políticas de rede
+
+**Diretrizes de melhores práticas** – Use as políticas de rede para permitir ou recusar o tráfego para os pods. Por padrão, todo o tráfego é permitido entre pods dentro de um cluster. Para maior segurança, defina regras que limitam a comunicação entre pods.
+
+As políticas de rede são recursos de Kubernetes que permitem controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. O uso de políticas de rede é uma maneira mais nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente. Não use grupos de segurança de rede do Azure para controlar o tráfego entre pods, use as políticas de rede.
+
+Para usar a política de rede, o recurso precisa estar habilitado durante a criação de um cluster AKS. Não é possível habilitar a política de rede em um cluster AKS existente. Planeje com antecedência para garantir que a política de rede seja habilitada nos clusters e que eles sejam usados conforme necessário.
+
+Uma política de rede é criada como um recurso do Kubernetes usando um manifesto YAML. As políticas são aplicadas a pods definidos, em seguida, as regras de entrada ou saída definem como o tráfego pode fluir. O exemplo a seguir aplica uma política de rede aos pods com o rótulo *app: back-end* aplicado. Então, a regra de entrada permitirá apenas o tráfego dos pods com o rótulo *app: front-end*:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Para começar a usar as políticas, confira [Proteger o tráfego entre os pods usando as políticas de rede no AKS (Serviço de Kubernetes do Azure)][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Conecte-se com segurança a nós por meio de um host bastião
 
 **Guia de práticas recomendadas de** -não expõe a conectividade remota em seus nós do AKS. Crie um host bastião, ou jump box, em uma rede virtual de gerenciamento. Use o host de bastião para rotear o tráfego com segurança no cluster do AKS para tarefas de gerenciamento remoto.
@@ -155,5 +183,6 @@ Este artigo se concentra na conectividade de rede e segurança. Para obter mais 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

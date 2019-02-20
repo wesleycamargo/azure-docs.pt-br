@@ -11,14 +11,14 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140603"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244922"
 ---
-# <a name="secure-b2b-messages-with-certificates"></a>Proteger mensagens B2B com certificados
+# <a name="secure-b2b-messages-with-certificates"></a>Proteger as mensagens de B2B com certificados
 
 Quando for necessário manter a comunicação B2B confidencial, será possível proteger a comunicação B2B de aplicativos de integração corporativa, especificamente aplicativos lógicos, adicionando certificados à conta de integração. Certificados são documentos digitais que verificam as identidades dos participantes em comunicações eletrônicas e ajudam a proteger a comunicação das seguintes maneiras:
 
@@ -30,6 +30,8 @@ Você pode usar esses tipos de certificados em seus aplicativos de integração 
 * [Certificados públicos](https://en.wikipedia.org/wiki/Public_key_certificate), que você deve comprar de uma [CA (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) pública da Internet, mas não requer chaves. 
 
 * Certificados privados ou [*certificados autoassinados*](https://en.wikipedia.org/wiki/Self-signed_certificate), que você cria e emite, mas também exigem chaves privadas. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Carregar um certificado público
 
@@ -67,11 +69,11 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
 > [!NOTE]
 > Para certificados privados, certifique-se de adicionar um certificado público correspondente que aparece nos [contratos AS2](logic-apps-enterprise-integration-as2.md) **Enviar e receber** configurações para assinar e criptografar mensagens.
 
-1. [Adicionar sua chave privada no Azure Key Vault](../key-vault/key-vault-get-started.md#add) e **Nome de Chave**.
+1. [Adicionar sua chave privada no Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) e **Nome de Chave**.
    
-2. Autorize os Aplicativos Lógicos do Azure a executarem operações no Azure Key Vault. Para conceder acesso à entidade de serviço de Aplicativos Lógicos, use o comando do PowerShell, [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), por exemplo:
+2. Autorize os Aplicativos Lógicos do Azure a executarem operações no Azure Key Vault. Para conceder acesso à entidade de serviço de Aplicativos Lógicos, use o comando do PowerShell, [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), por exemplo:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Entre no [Portal do Azure](https://portal.azure.com). No menu principal do Azure, selecione **Todos os recursos**. Na caixa de pesquisa, insira o nome da conta de integração e selecione a conta de integração desejada.

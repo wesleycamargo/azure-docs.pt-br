@@ -1,25 +1,25 @@
 ---
 title: Como configurar o Cache do Azure para Redis | Microsoft Docs
 description: Entenda a configuração padrão Redis no Cache do Azure para Redis e aprenda a configurar as instâncias de Cache do Azure para Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: wesmc
-ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: yegu
+ms.openlocfilehash: 67a093068df30460a1b2cf17c04164bf8b1dc6a0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819834"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234893"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -429,7 +429,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> As configurações `databases` pode ser definida somente durante a criação do cache e apenas usando PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> As configurações `databases` pode ser definida somente durante a criação do cache e apenas usando PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

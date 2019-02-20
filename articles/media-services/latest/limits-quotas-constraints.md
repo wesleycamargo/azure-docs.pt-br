@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700308"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190952"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cotas e limitações dos Serviços de Mídia do Azure v3
 
@@ -37,7 +37,7 @@ Este artigo descreve cotas e limitações nos Serviços de Mídia do Azure v3.
 | Contas de Serviços de Mídia em uma única assinatura | 25 (fixo) |
 | Saídas ao vivo em estado de execução por LiveEvent |3|
 | Contas de armazenamento | 100<sup>(4)</sup> (fixo) |
-| Pontos de extremidade de streaming no estado “executando” por conta dos Serviços de Mídia|2|
+| Pontos de extremidade de streaming (interrompidos ou em execução) por conta dos Serviços de Mídia|2|
 | Políticas de Streaming | 100 <sup>(3)</sup> |
 | Transformações por conta dos Serviços de Mídia | 100  (fixo)|
 | Localizadores de streaming exclusivos associados a um Ativo ao mesmo tempo | 100<sup>(5)</sup> (fixado) |

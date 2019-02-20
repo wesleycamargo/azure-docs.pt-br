@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao join.me | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o join.me | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o join.me.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871968"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209527"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Azure Active Directory ao join.me
+# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Azure Active Directory com o join.me
 
 Neste tutorial, você aprenderá a integrar o join.me com o Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o join.me, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do join.me habilitada para logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o join.me da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,11 +108,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/joinme-tutorial/b1_b2_saml_sso.png)
 
-4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração Básica do SAML**.
+4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/joinme-tutorial/b1-domains_and_urlsedit.png)
 
-5. Na seção **Configuração básica do SAML**, o usuário não precisa executar nenhuma etapa porque o aplicativo já está pré-integrado ao Azure.
+5. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
      ![image](./media/joinme-tutorial/tutorial_joinme_url.png)
  
@@ -125,7 +126,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/joinme-tutorial/d_users_and_groups.png)
 
@@ -133,11 +134,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/joinme-tutorial/d_adduser.png)
 
-3. Nas Propriedades do usuário, execute etapas a seguir.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
     ![image](./media/joinme-tutorial/d_userproperties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -148,13 +149,13 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-joinme-test-user"></a>Criar um usuário de teste do join.me
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no join.me. Trabalhe com a [equipe de suporte do join.me](https://help.join.me/s/?language) para adicionar os usuários à plataforma join.me. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no join.me. Trabalhe com a  [equipe de suporte do join.me](https://help.join.me/s/?language) para adicionar os usuários na plataforma do join.me. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao join.me.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** e **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/joinme-tutorial/d_all_applications.png)
 
@@ -166,11 +167,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![image](./media/joinme-tutorial/d_leftpaneusers.png)
 
-4. Clique no botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![image](./media/joinme-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
@@ -179,7 +180,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do join.me no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo join.me.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

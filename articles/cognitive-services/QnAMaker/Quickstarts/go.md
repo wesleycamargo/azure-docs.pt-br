@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código com base em REST do Go para ajudá-lo a começar a usar a API de Tradução de Texto da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 67654e11f3f5b883c587a4fdc0bb7a25f56cd48b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f16909a9504b2868c1eecf849b9a1fd537cd6048
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220018"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244251"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Como usar a API REST do QnA Maker com Go 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overv
 - [Excluir uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves do ponto de extremidade atual.](#GetKeys)
 - [Gerar novamente as chaves do ponto de extremidade atual.](#PutKeys)
-- [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
-- [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
+- [Obter o conjunto atual de alterações de palavras que não consideram maiúsculas e minúsculas.](#GetAlterations)
+- [Substituir o conjunto atual de alterações de palavras que não consideram maiúsculas e minúsculas.](#PutAlterations)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

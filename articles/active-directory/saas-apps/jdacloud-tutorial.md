@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o JDA Cloud | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o JDA Cloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o JDA Cloud.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703220"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168333"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Active Directory do Azure com o JDA Cloud
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Azure Active Directory com o JDA Cloud
 
 Neste tutorial, você aprenderá como integrar o JDA Cloud ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com a nuvem JDA, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Assinatura habilitada para um nuvem JDA logon único
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando JDA Cloud da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -109,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon de único de URLs e domínio de nuvem JDA](./media/jdacloud-tutorial/tutorial_jdacloud_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.jdadelivers.com`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.jdadelivers.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
 
@@ -170,7 +171,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-jda-cloud-test-user"></a>Criar um usuário de teste de nuvem JDA
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no JDA Cloud. Trabalhe com a [equipe de suporte do JDA Cloud](https://support.jda.com/) para adicionar os usuários na plataforma JDA Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no JDA Cloud. Trabalhe com a  [equipe de suporte do JDA Cloud](https://support.jda.com/)  para adicionar os usuários na plataforma do JDA Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -207,7 +208,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco JDA Cloud no Painel de Acesso, deve se conectar automaticamente ao seu aplicativo JDA Cloud.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

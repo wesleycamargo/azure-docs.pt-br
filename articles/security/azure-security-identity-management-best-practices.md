@@ -4,7 +4,7 @@ description: Este artigo fornece um conjunto de práticas recomendadas para gere
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245708"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112091"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -61,11 +61,11 @@ As seções a seguir listam as práticas recomendadas de segurança de acesso e 
 Em um cenário de [identidade híbrida](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?), recomendamos que você integre seus locais e diretórios na nuvem. A integração permite que sua equipe de TI gerencie contas de um único local, independentemente de onde uma conta é criada. Integração também ajuda os usuários a serem mais produtivos fornecendo uma identidade comum para acessar os recursos de nuvem e locais.
 
 
-**Prática recomendada**: integrar seus diretórios locais ao Microsoft Azure Active Directory.  
-**Detalhe**: Use [do Microsoft Azure Active Directory Connect](../active-directory/connect/active-directory-aadconnect.md) para sincronizar seu diretório local com seu diretório na nuvem.
+**Melhor prática**: Integrar seus diretórios locais ao Azure AD.  
+**Detalhe**: Use o [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) para sincronizar seu diretório local com seu diretório na nuvem.
 
-**Prática recomendada**: ativar a sincronização de hash de senha.  
-**Detalhe**: sincronização de hash de senha é um recurso usado para sincronizar hashes de hashes da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem.
+**Melhor prática**: Ativar a sincronização de hash de senha.  
+**Detalhe**: A sincronização de hash de senha é um recurso usado para sincronizar hashes de hashes da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem.
 
 Mesmo se você decidir usar a federação com os serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, você pode definir opcionalmente a sincronização de hash de senha como um backup no caso de seus servidores locais falhem ou fiquem temporariamente indisponíveis. Isso permite que os usuários se conectem ao serviço usando a mesma senha que eles usam para entrar em sua instância local do Active Directory. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Microsoft Azure Active Directory.
 
@@ -79,8 +79,8 @@ Em um mundo de dispositivos móveis e nuvem em primeiro lugar, você deseja habi
 
 Ao usar a mesma solução de identidade para todos os aplicativos e recursos, você pode obter o SSO. E seus usuários podem usar o mesmo conjunto de credenciais para entrar e acessar os recursos que eles precisam, se os recursos estiverem localizados no local ou na nuvem.
 
-**Prática recomendada**: habilitar o SSO.  
-**Detalhe**: Azure AD [estende o Microsoft Azure Active Directory no local](../active-directory/connect/active-directory-aadconnect.md) para a nuvem. Os usuários podem usar sua conta escolar ou corporativa primária para seus dispositivos ingressados no domínio, os recursos da empresa e todos os aplicativos de SaaS que eles precisam para realizar seu trabalho e web. Os usuários não precisam se lembrar de vários conjuntos de nomes de usuário e senhas e o acesso do aplicativo pode ser automaticamente provisionado (ou desprovisionado) com base em suas associações de grupo da organização e seu status como funcionário. E você pode controlar o acesso para aplicativos da galeria ou para seus próprios aplicativos locais que você já desenvolveu e publicado por meio de [com o Proxy de aplicativo Azure AD](../active-directory/active-directory-application-proxy-get-started.md).
+**Melhor prática**: Habilitar SSO.  
+**Detalhe**: O Azure AD [estende o Active Directory local](../active-directory/connect/active-directory-aadconnect.md) para a nuvem. Os usuários podem usar sua conta escolar ou corporativa primária para seus dispositivos ingressados no domínio, os recursos da empresa e todos os aplicativos de SaaS que eles precisam para realizar seu trabalho e web. Os usuários não precisam se lembrar de vários conjuntos de nomes de usuário e senhas e o acesso do aplicativo pode ser automaticamente provisionado (ou desprovisionado) com base em suas associações de grupo da organização e seu status como funcionário. E você pode controlar o acesso para aplicativos da galeria ou para seus próprios aplicativos locais que você já desenvolveu e publicado por meio de [com o Proxy de aplicativo Azure AD](../active-directory/active-directory-application-proxy-get-started.md).
 
 Use o SSO para permitir que os usuários acessem seus [aplicativos de SaaS](../active-directory/active-directory-appssoaccess-whatis.md) com base em sua conta corporativa ou de estudante no Microsoft Azure Active Directory. Isso é aplicável não apenas a aplicativos de SaaS da Microsoft, mas também a outros aplicativos, como [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) e [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). É possível configurar seu aplicativo para usar o Microsoft Azure Active Directory como uma [identidade baseada em um servidor SAML](../active-directory/fundamentals-identity.md). Como um controle de segurança do Azure AD emite um token que permite aos usuários entrar no aplicativo, a menos que eles receberam acesso por meio do Microsoft Azure Active Directory. Você pode conceder acesso diretamente ou por meio de um grupo do qual fazem parte.
 
@@ -92,18 +92,18 @@ Os usuários podem acessar os recursos da organização usando uma grande varied
 
 Para dominar o equilíbrio entre segurança e produtividade, você também precisa considerar como um recurso é acessado em uma decisão de controle de acesso. Com acesso condicional do Azure AD, você pode atender a esse requisito. Com o acesso condicional, você pode tomar decisões de controle de acesso automatizado para o acesso a aplicativos de nuvem com base em condições.
 
-**Prática recomendada**: gerenciar e controlar o acesso aos recursos corporativos.  
-**Detalhe**: configurar o Azure AD [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md) com base em um grupo, localização e sensibilidade de aplicativo para aplicativos SaaS e aplicativos conectados ao Microsoft Azure Active Directory.
+**Melhor prática**: Gerenciar e controlar o acesso aos recursos corporativos.  
+**Detalhe**: Configure o [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md) do Azure AD com base em um grupo, localização e sensibilidade de aplicativo para aplicativos SaaS e aplicativos conectados ao Azure AD.
 
 ## <a name="enable-password-management"></a>Habilitar o gerenciamento de senhas
 
 Se você tiver vários locatários ou deseja permitir que os usuários [redefinam suas próprias senhas](../active-directory/active-directory-passwords-update-your-own-password.md), é importante que você use as políticas de segurança apropriadas para evitar abusos.
 
-**Prática recomendada**: redefinição de conjunto de senha de autoatendimento (SSPR) para seus usuários.  
-**Detalhe**: use recurso [de redefinição de senha de autoatendimento](../active-directory-b2c/active-directory-b2c-reference-sspr.md) do Microsoft Azure Active Directory.
+**Melhor prática**: Configurar SSPR (redefinição de senha self-service) para seus usuários.  
+**Detalhe**: Use o recurso de [redefinição de senha self-service](../active-directory-b2c/active-directory-b2c-reference-sspr.md) do Azure AD.
 
-**Prática recomendada**: Monitor como ou se o SSPR realmente está sendo usado.  
-**Detalhe**: monitorar os usuários que estão se registrando com o uso o [relatório de atividade de registro de redefinição de senha do Microsoft Azure Active Directory](../active-directory/active-directory-passwords-get-insights.md). O recurso de relatório do Microsoft Azure AD fornece ajuda a responder perguntas usando relatórios predefinidos. Se você estiver licenciado adequadamente, também poderá criar consultas personalizadas.
+**Melhor prática**: Monitorar como ou se o SSPR realmente está sendo usado.  
+**Detalhe**: Monitore os usuários que estão se registrando com o uso do [relatório de atividade de registro de redefinição de senha](../active-directory/active-directory-passwords-get-insights.md) do Azure AD. O recurso de relatório do Microsoft Azure AD fornece ajuda a responder perguntas usando relatórios predefinidos. Se você estiver licenciado adequadamente, também poderá criar consultas personalizadas.
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>Impor a verificação de autenticação multifator para usuários
 
@@ -113,16 +113,16 @@ Há várias opções para exigir a verificação em duas etapas. A melhor opçã
 
 Estas são as opções e benefícios para habilitar a verificação em duas etapas:
 
-**Opção 1**: [habilitar a Autenticação Multifator do Microsoft Azure, alterando o estado do usuário](../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefício**: esse é o método tradicional para exigir a verificação em duas etapas. Funciona com ambos [Autenticação Multifator do Azure na nuvem e o Servidor de Autenticação Multifator do Microsoft Azure](../active-directory/authentication/concept-mfa-whichversion.md). O uso desse método exigirá que os usuários realizem a verificação em duas etapas sempre que entrarem e substituírem as políticas de acesso condicional.
+**Opção 1**: [Habilitar a Autenticação Multifator alterando o estado do usuário](../active-directory/authentication/howto-mfa-userstates.md).   
+**Benefício**: Esse é o método tradicional para exigir a verificação em duas etapas. Funciona com ambos [Autenticação Multifator do Azure na nuvem e o Servidor de Autenticação Multifator do Microsoft Azure](../active-directory/authentication/concept-mfa-whichversion.md). O uso desse método exigirá que os usuários realizem a verificação em duas etapas sempre que entrarem e substituírem as políticas de acesso condicional.
 
-**Opção 2**: [habilitar a Autenticação Multifator do Microsoft Azure com política de acesso condicional](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
-**Benefício**: essa opção permite que você solicite a verificação em duas etapas sob condições específicas usando [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md). As condições específicas podem ser entrada do usuário de locais diferentes, não confiável de dispositivos ou aplicativos que você considere arriscadas. Definir condições específicas em que você exige verificação em duas etapas permite que você evite solicitação constante para seus usuários, que podem ser uma experiência de usuário desagradáveis.
+**Opção 2**: [Habilitar a Autenticação Multifator com a política de acesso condicional](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Benefício**: Essa opção permite que você solicite a verificação em duas etapas sob condições específicas usando o [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md). As condições específicas podem ser entrada do usuário de locais diferentes, não confiável de dispositivos ou aplicativos que você considere arriscadas. Definir condições específicas em que você exige verificação em duas etapas permite que você evite solicitação constante para seus usuários, que podem ser uma experiência de usuário desagradáveis.
 
 Essa é a maneira mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitar uma política de acesso condicional funciona apenas para autenticação multifator do Azure na nuvem e é um recurso premium do Microsoft Azure Active Directory. Você pode encontrar mais informações sobre esse método em [implantar autenticação de multifator do Azure baseado em nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Opção 3**: habilitar a autenticação multifator com políticas de acesso condicional ao avaliar o risco de usuário e a entrada de [do Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
-**Benefício**: essa opção permite que você:
+**Opção 3**: Habilitar a Autenticação Multifator com políticas de acesso condicional ao avaliar o usuário e o risco de entrada do [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
+**Benefício**: Essa opção permite que você:
 
 - Detecte possíveis vulnerabilidades que afetam as identidades da organização.
 - Configurar respostas automatizadas para ações suspeitas detectadas que se relacionem com as identidades da sua organização.
@@ -151,11 +151,11 @@ As contas privilegiadas são aquelas que administram e gerenciam sistemas de TI.
 
 A seguir, um resumo das práticas recomendadas encontradas na [proteção de acesso privilegiado para implantações de nuvem e híbridos no Microsoft Azure Active Directory](../active-directory/users-groups-roles/directory-admin-roles-secure.md):
 
-**Prática recomendada**: gerenciar, controlar e monitorar o acesso a contas privilegiadas.   
-**Detalhe**: Ative [Gerenciamento de Identidades com Privilégios do Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). Depois de ativar o Privileged Identity Management, você receberá mensagens de notificação por email para alterações da função de acesso privilegiado. Essas notificações fornecem aviso antecipado quando usuários adicionais são adicionados às funções altamente privilegiadas no seu diretório.
+**Melhor prática**: Gerenciar, controlar e monitorar o acesso a contas privilegiadas.   
+**Detalhe**: Ative o [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). Depois de ativar o Privileged Identity Management, você receberá mensagens de notificação por email para alterações da função de acesso privilegiado. Essas notificações fornecem aviso antecipado quando usuários adicionais são adicionados às funções altamente privilegiadas no seu diretório.
 
-**Prática recomendada**: identifique e categorize as contas que estão em funções altamente privilegiadas.   
-**Detalhes**: depois de ativar o Azure AD Privileged Identity Management, exiba os usuários que estão no administrador global, administrador de função com privilégios e outras funções altamente privilegiadas. Remova as contas que não são mais necessárias nessas funções e categorize as contas que são atribuídas a funções de administrador:
+**Melhor prática**: Identificar e categorizar as contas que estão em funções altamente privilegiadas.   
+**Detalhe**: Depois de ativar o Azure AD Privileged Identity Management, exiba os usuários que estão no administrador global, administrador de função com privilégios e outras funções altamente privilegiadas. Remova as contas que não são mais necessárias nessas funções e categorize as contas que são atribuídas a funções de administrador:
 
 - Atribuídas individualmente a usuários administrativos e podem ser usadas para fins não administrativos (por exemplo, email pessoal)
 - Individualmente atribuídas para usuários administrativos e designadas para fins administrativos apenas
@@ -164,22 +164,22 @@ A seguir, um resumo das práticas recomendadas encontradas na [proteção de ace
 - Para scripts automatizados
 - Para usuários externos
 
-**Prática recomendada**: implementar "just in time" (JIT) acessem ainda mais a reduzir o tempo de exposição de privilégios e aumentar sua visibilidade sobre o uso de contas privilegiadas.   
-**Detalhes**: o gerenciamento de identidades com os privilégios do Azure Active Directory Privileged Identity Management permite:
+**Melhor prática**: Implementar acesso JIT ("Just-In-Time") para reduzir ainda mais o tempo de exposição de privilégios e aumentar sua visibilidade sobre o uso de contas privilegiadas.   
+**Detalhe**: O Gerenciamento de identidades com privilégios do AD do Azure:
 
 - Limitar os usuários a assumir seus privilégios JIT.
 - Atribua funções por uma duração reduzida com confiança de que os privilégios são revogados automaticamente.
 
-**Prática recomendada**: definir pelo menos duas contas de acesso de emergência.   
-**Detalhes**: contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado em um ambiente existente do Microsoft Azure Active Directory. Essas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. Contas de acesso de emergência são limitadas a cenários em que as contas administrativas normais não podem ser usadas. As organizações devem limitar o uso da conta de emergência para somente a quantidade necessária de tempo.
+**Melhor prática**: Definir pelo menos duas contas de acesso de emergência.   
+**Detalhe**: Contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado em um ambiente existente do Azure Active Directory. Essas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. Contas de acesso de emergência são limitadas a cenários em que as contas administrativas normais não podem ser usadas. As organizações devem limitar o uso da conta de emergência para somente a quantidade necessária de tempo.
 
 Avalie as contas que são atribuídas ou qualificadas para a função de administrador global. Se você não vir nenhuma conta somente na nuvem usando o `*.onmicrosoft.com` domínio (usado para acesso de emergência), crie-os. Para obter mais informações, consulte Gerenciamento de contas administrativas de acesso de emergência no Microsoft Azure Active Directory.
 
-**Prática recomendada**: ative a Autenticação Multifator e registre todas as outras contas de administrador não federadas de usuário único altamente privilegiadas.  
-**Detalhe**: exija o Azure Multi-Factor Authentication (MFA) na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Microsoft Azure Active Directory: Administrador Global, administrador de funções com privilégios, administrador do Exchange Online e administrador SharePoint Online. Use o guia para habilitar [a Autenticação Multifator do Microsoft Azure para suas contas de administrador](../active-directory/authentication/howto-mfa-userstates.md) e certifique-se de que todos esses usuários têm [registrado](https://aka.ms/mfasetup).
+**Melhor prática**: Ativar a Autenticação Multifator e registrar todas as outras contas de administrador de usuário único, não federadas e altamente privilegiadas.  
+**Detalhe**: Exija a Autenticação Multifator do Azure na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais funções de administrador do Azure AD: administrador global, administrador de funções com privilégios, administrador do Exchange Online e administrador do SharePoint Online. Use o guia para habilitar [a Autenticação Multifator do Microsoft Azure para suas contas de administrador](../active-directory/authentication/howto-mfa-userstates.md) e certifique-se de que todos esses usuários têm [registrado](https://aka.ms/mfasetup).
 
-**Prática recomendada**: realize etapas para atenuar com mais frequência usada técnicas atacadas.  
-**Detalhe**: [identifique as contas da Microsoft em funções administrativas que precisam ser alteradas para contas de trabalho ou escolares](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**Melhor prática**: Realizar etapas para diminuir as técnicas de ataque usadas com mais frequência.  
+**Detalhe**: [Identifique as contas da Microsoft em funções administrativas que precisam ser alternadas para contas corporativas ou de estudante](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
 [Garanta contas de usuário separadas e emails de encaminhamento para as contas de administrador global](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
@@ -218,7 +218,7 @@ As organizações que não estão controlando como os recursos são criados são
 
 Uma sistema de monitoramento de identidade Active Directory pode detectar o comportamento suspeito e disparar um alerta para uma investigação mais aprofundada rapidamente. A tabela a seguir lista os dois recursos do Azure Active Directory que podem ajudar as organizações a monitorar suas identidades:
 
-**Prática recomendada**: ter um método para identificar:
+**Melhor prática**: Ter um método para identificar:
 
 - Tenta entrar em [sem rastreamento](../active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md).
 - [Força bruta](../active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md) ataques contra uma conta específica.
@@ -226,10 +226,10 @@ Uma sistema de monitoramento de identidade Active Directory pode detectar o comp
 - Entradas de [dispositivos infectados](../active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 - Entradas de endereços IP suspeitos.
 
-**Detalhe**: uso dos relatórios de anomalia do [Azure Active Directory Premium ](../active-directory/active-directory-view-access-usage-reports.md). Ter processos e procedimentos em vigor para que os administradores de TI executem esses relatórios diariamente ou sob demanda (geralmente em um cenário de resposta a incidentes).
+**Detalhe**: Use os [relatórios de anomalia](../active-directory/active-directory-view-access-usage-reports.md) do Azure AD Premium. Ter processos e procedimentos em vigor para que os administradores de TI executem esses relatórios diariamente ou sob demanda (geralmente em um cenário de resposta a incidentes).
 
-**Prática recomendada**: ter um sistema de monitoramento ativo que notifica você a respeito dos riscos e pode ajustar o nível de risco (alta, média ou baixa) a seus requisitos de negócios.   
-**Detalhe**: Uso [do Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md), que sinaliza atual o risco em seu próprio painel e envia notificações diárias de resumo por e-mail. Para ajudar a proteger as identidades da organização, você pode configurar políticas de risco que respondem automaticamente a problemas detectados quando um nível de risco especificado for atingido.
+**Melhor prática**: Ter um sistema de monitoramento ativo que notifica você a respeito dos riscos e pode ajustar o nível de risco (alto, médio ou baixo) a seus requisitos de negócios.   
+**Detalhe**: Use o [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md), que sinaliza os riscos atuais em seu próprio painel e envia notificações com resumos diárias por email. Para ajudar a proteger as identidades da organização, você pode configurar políticas de risco que respondem automaticamente a problemas detectados quando um nível de risco especificado for atingido.
 
 As organizações que não monitoram ativamente os seus sistemas de identidade estão em risco de ter as credenciais de usuário comprometidas. Sem o conhecimento que atividades suspeitas estão ocorrendo através dessas credenciais, as organizações não podem reduzir esse tipo de ameaça.
 

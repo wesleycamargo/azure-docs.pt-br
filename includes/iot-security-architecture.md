@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995640"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246689"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança da Internet das Coisas (IoT)
 
@@ -225,7 +225,7 @@ Ameaças em torno do caminho de comunicação entre dispositivos, dispositivos e
 | **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
 | Hub IoT de dispositivo |TID |(D)TLS (PSK/RSA) para criptografar o tráfego |Espionagem ou interferência na comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo. Com os protocolos personalizados, você precisa descobrir como protegê-los. Na maioria dos casos, a comunicação ocorre do dispositivo para o Hub IoT (o dispositivo inicia a conexão). |
-| Dispositivo |TID |(D)TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre os dispositivos. Violação de dados. Sobrecarga do dispositivo com novas conexões |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com os protocolos personalizados, você precisa descobrir como protegê-los. A mitigação da ameaça de DoS é para os dispositivos pares por meio de um gateway de campo ou nuvem e fazê-los agir somente como clientes para a rede. O emparelhamento pode resultar em uma conexão direta entre os pares após ter sido agenciado pelo gateway |
+| Dispositivo para dispositivo |TID |(D)TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre os dispositivos. Violação de dados. Sobrecarga do dispositivo com novas conexões |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com os protocolos personalizados, você precisa descobrir como protegê-los. A mitigação da ameaça de DoS é para os dispositivos pares por meio de um gateway de campo ou nuvem e fazê-los agir somente como clientes para a rede. O emparelhamento pode resultar em uma conexão direta entre os pares após ter sido agenciado pelo gateway |
 | Dispositivo de entidade externa |TID |Emparelhamento forte da entidade externa com o dispositivo |Espionagem da conexão com o dispositivo. Interferência na comunicação com o dispositivo |Emparelhar de forma segura a entidade externa com o dispositivo NFC/Bluetooth LE. Controlar o painel operacional do dispositivo (físico) |
 | Gateway de nuvem de Gateway de campo |TID |TLS (PSK/RSA) para criptografar o tráfego. |Espionagem ou interferência na comunicação entre o dispositivo e o gateway |Segurança no nível de protocolo (MQTT/AMQP/HTTP/CoAP). Com os protocolos personalizados, você precisa descobrir como protegê-los. |
 | Gateway de nuvem do dispositivo |TID |TLS (PSK/RSA) para criptografar o tráfego. |Espionagem ou interferência na comunicação entre o dispositivo e o gateway |Segurança no nível de protocolo (MQTT/AMQP/HTTP/CoAP). Com os protocolos personalizados, você precisa descobrir como protegê-los. |

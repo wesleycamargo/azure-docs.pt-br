@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273486"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232594"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar pontos de extremidade de serviço de Rede Virtual com Hubs de Eventos do Azure
 
@@ -29,7 +29,7 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 >[!WARNING]
 > Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com Hubs de Eventos.
 >
-> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas e isto será disponibilizada em breve.
+> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Azure Monitor
@@ -74,7 +74,7 @@ Parâmetros de modelo:
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"**, o que não restringe as conexões.
-> Ao criar as regras de Rede Virtual ou de Firewalls, devemos alterar ***"defaultAction"***
+> Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
 > de
 > ```json

@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250701"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244872"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Expanda sua infraestrutura do Azure DevTest Labs
 Antes de implementar o DevTest Labs em escala empresarial, há vários pontos de decisão essenciais. Conhecer a fundo esses pontos de decisão ajuda uma organização a tomar decisões de design no futuro. No entanto, esses pontos não devem impedir uma organização de iniciar uma prova de conceito. As três principais áreas para o planejamento inicial de expansão são:
@@ -66,4 +67,4 @@ Uma prova de conceito do DevTest Labs tem três funções principais com respons
 - **Usuário do DevTest Labs** – pode criar e consumir as máquinas virtuais no laboratório. Esses indivíduos têm algumas capacidades administrativas mínimas nas VMs que eles criam (iniciar/parar/excluir/configurar as respectivas VMs). Os usuários não podem gerenciar VMs de outros usuários.
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o próximo artigo desta série: [Orquestrar a implementação do Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+Consulte o próximo artigo desta série: [Orquestrar a implementação do Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

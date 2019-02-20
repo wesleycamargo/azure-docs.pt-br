@@ -16,24 +16,25 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092726"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234417"
 ---
 # <a name="id-tokens"></a>Tokens de ID
 
-`id_tokens` são enviados para o aplicativo cliente como parte de um fluxo do [OpenID Connect](v1-protocols-openid-connect-code.md). Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário. 
+`id_tokens` são enviados para o aplicativo cliente como parte de um fluxo do [OpenID Connect](v1-protocols-openid-connect-code.md). Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário.
 
 ## <a name="using-the-idtoken"></a>Usando o id_token
 
-Tokens de ID devem ser usados para validar se o usuário é quem ela alega ser e para obter mais informações úteis sobre ele. Um token de ID não deve ser usado para autorização no lugar de um [token de acesso](access-tokens.md). As declarações que ele fornece podem ser usadas para a experiência do usuário dentro de seu aplicativo, emitindo uma chave para o banco de dados e fornecendo acesso ao aplicativo cliente. 
+Tokens de ID devem ser usados para validar se o usuário é quem ela alega ser e para obter mais informações úteis sobre ele. Um token de ID não deve ser usado para autorização no lugar de um [token de acesso](access-tokens.md). As declarações que ele fornece podem ser usadas para a experiência do usuário dentro de seu aplicativo, emitindo uma chave para o banco de dados e fornecendo acesso ao aplicativo cliente.
 
 ## <a name="claims-in-an-idtoken"></a>Declarações em um id_token
 
-`id_tokens` para uma identidade da Microsoft são [JWTs](https://tools.ietf.org/html/rfc7519), o que significa que são compostos pelas partes de cabeçalho, de conteúdo e de assinatura. Você pode usar o cabeçalho e o conteúdo para verificar a autenticidade do token, enquanto o conteúdo contém as informações sobre o usuário solicitadas pelo cliente. Exceto quando observado, todas as declarações listadas aqui aparecem nos tokens de v1.0 e v2.0.
+`id_tokens` para uma identidade da Microsoft são [JWTs](https://tools.ietf.org/html/rfc7519), o que significa que são compostos pelas partes de cabeçalho, de conteúdo e de assinatura. Você pode usar o cabeçalho e a assinatura para verificar a autenticidade do token, enquanto o conteúdo tem informações sobre o usuário solicitado pelo cliente. Exceto quando observado, todas as declarações listadas aqui aparecem nos tokens de v1.0 e v2.0.
 
 ### <a name="v10"></a>v1.0
 

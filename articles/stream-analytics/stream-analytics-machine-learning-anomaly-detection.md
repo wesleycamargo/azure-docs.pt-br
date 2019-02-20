@@ -2,255 +2,112 @@
 title: Detecção de anomalias no Azure Stream Analytics (versão prévia)
 description: Este artigo descreve como usar o Azure Stream Analytics e o Azure Machine Learning em conjunto para detectar anomalias.
 services: stream-analytics
-author: dubansal
-ms.author: dubansal
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bdd512972f1a684a3b76ae0323bbadd87bf0d659
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091213"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238310"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
-> [!IMPORTANT]
-> Essa funcionalidade está prestes a ser preterida, mas será substituída por novas funções. Para obter mais informações, visite a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/).
+O Azure Stream Analytics oferece recursos internos de detecção de anomalias baseados em aprendizado de máquina, que podem ser usados para monitorar as duas anomalias que ocorrem com mais frequência: temporárias e persistentes. Com as funções **AnomalyDetection_SpikeAndDip** e **AnomalyDetection_ChangePoint**, você pode detectar anomalias diretamente no seu trabalho do Stream Analytics.
 
-O operador **AnomalyDetection** é usado para detectar diferentes tipos de anomalias em fluxos de eventos. Por exemplo, uma diminuição lenta na memória livre durante um longo tempo pode ser uma indicação de um vazamento de memória, ou o número de solicitações de serviço Web que são estáveis em um intervalo pode aumentar ou diminuir muito.  
+Os modelos de machine learning supõem uma série temporal incluída na amostra de maneira uniforme. Se a série temporal não for uniforme, insira uma etapa de agregação com uma janela em cascata antes de chamar a detecção de anomalias.
 
-O operador AnomalyDetection detecta três tipos de anomalias: 
+As operações de aprendizado de máquina não são compatíveis com tendências de sazonalidade, nem com correlações multivariadas.
 
-* **Alteração no nível bidirecional**: um aumento ou diminuição sustentada no nível de valores, tanto ascendente como descendente. Esse valor é diferente de picos e quedas, que são mudanças instantâneas ou de curta duração.  
+## <a name="model-accuracy-and-performance"></a>Precisão e desempenho do modelo
 
-* **Tendência positiva lenta**: um aumento lento na tendência ao longo do tempo.  
+De modo geral, a precisão do modelo melhora com mais dados na janela deslizante. Os dados na janela deslizante especificada são tratados como parte de seu intervalo de valores normal para o período. O modelo considera o histórico de eventos ao longo da janela deslizante apenas para verificar se o evento atual é anormal. Conforme a janela deslizante se move, os valores antigos são removidos do treinamento do modelo.
 
-* **Tendência negativa lenta**: uma redução lenta na tendência ao longo do tempo.  
+As funções operam estabelecendo um determinado valor normal com base no que foi observado até então. As exceções são identificadas pela comparação em relação ao normal estabelecido, no nível de confiança. O tamanho da janela deve se basear nos eventos mínimos necessários para treinar o modelo para comportamento normal, de modo que ele esteja apto a reconhecê-la quando uma anomalia ocorrer.
 
-Ao usar o operador AnomalyDetection, será necessário especificar a cláusula **Limit Duration**. Essa cláusula especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) que deve ser considerado ao detectar anomalias. Opcionalmente, esse operador poderá ser limitado a apenas eventos correspondentes a uma determinada propriedade ou condição, usando a cláusula **When**. Como alternativa, esse operador também poderá processar grupos de eventos separadamente com base na chave especificada na cláusula **Partition by**. Treinamento e previsão ocorrem de forma independente para cada partição. 
+Lembre-se de que o tempo de resposta do modelo aumenta com o tamanho do histórico, pois é preciso fazer a comparação com um número maior de eventos passados. É recomendável incluir apenas o número necessário de eventos para obter melhor desempenho.
 
-## <a name="syntax-for-anomalydetection-operator"></a>Sintaxe para operador AnomalyDetection
+As lacunas na série temporal podem ser um resultado do não recebimento de eventos pelo modelo em determinados pontos no tempo. Essa situação é tratada pelo Stream Analytics usando a imputação. O tamanho do histórico e a duração para a mesma janela deslizante são usados para calcular a taxa média na qual os eventos são esperados.
 
-`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
+## <a name="spike-and-dip"></a>Pico e queda
 
-**Exemplo de uso**  
+As anomalias temporárias em um fluxo de eventos de série temporal são conhecidas como picos e quedas. Os picos e quedas podem ser monitorados usando o operador baseado em Machine Learning, **AnomalyDetection_SpikeAndDip**.
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`
+![Exemplo de anomalia de pico e queda](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-### <a name="arguments"></a>Argumentos
+Na mesma janela deslizante, se um segundo pico for menor que o primeiro, a pontuação calculada para o menor pico provavelmente não será significativa o suficiente em comparação com a pontuação para o primeiro pico no nível de confiança especificado. Você pode tentar diminuir a configuração do nível de confiança do modelo para capturar essas anomalias. No entanto, se começar a receber muitos alertas, é possível usar um intervalo de confiança maior.
 
-* **scalar_expression** - A expressão escalar sobre a qual a detecção de anomalia é realizada. Os valores permitidos para esse parâmetro incluem tipos de dados Float ou Bigint que retornam um único valor (escalar). A expressão curinga **\*** não é permitida. A expressão escalar não pode conter outras funções analíticas ou funções externas. 
+O exemplo de consulta a seguir pressupõe uma taxa uniforme de entrada de 1 evento por segundo em uma janela deslizante de 2 minutos com um histórico de 120 eventos. A instrução SELECT final extrai e gera a pontuação e o status da anomalia com um nível de confiança de 95%.
 
-* **partition_by_clause** - A cláusula `PARTITION BY <partition key>` divide o aprendizado e o treinamento em partições separadas. Em outras palavras, um modelo separado seria usado por valor de `<partition key>`, e apenas os eventos com esse valor seriam usados para o aprendizado e treinamento nesse modelo. Por exemplo, a consulta a seguir treina e pontua uma leitura em relação a outras leituras do mesmo sensor somente:
-
-  `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
-
-* **Cláusula limit_duration** `DURATION(<unit>, <length>)` - Especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) deverá ser considerado ao detectar anomalias. Consulte [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) para uma descrição detalhada das unidades com suporte e suas abreviaturas. 
-
-* **when_clause** - Especifica uma condição booliana para os eventos considerados na computação de detecção de anomalia.
-
-### <a name="return-types"></a>Tipos de retorno
-
-O operador AnomalyDetection retorna um registro contendo as três pontuações como sua saída. As propriedades associadas aos diferentes tipos de detectores de anomalia são:
-
-- BiLevelChangeScore
-- SlowPosTrendScore
-- SlowNegTrendScore
-
-Para extrair os valores individuais do registro, use a função **GetRecordPropertyValue**. Por exemplo: 
-
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
-
-Uma anomalia de um tipo é detectada quando uma das pontuações de anomalias cruza um limite. O limite pode ser qualquer número de ponto flutuante >= 0. O limite é um equilíbrio entre sensibilidade e confiança. Por exemplo, um limite inferior tornaria a detecção mais sensível a alterações e geraria mais alertas, enquanto um limite superior poderia tornar a detecção menos sensível e mais segura, mas mascararia algumas anomalias. O valor exato do limite a ser usado depende do cenário. Não há limite superior, mas o intervalo recomendado é 3,25-5. 
-
-O valor 3,25 mostrado no exemplo é apenas um ponto de partida sugerido. Ajuste o valor executando as operações no seu próprio conjunto de dados e observe o valor de saída até alcançar um limite tolerável.
-
-## <a name="anomaly-detection-algorithm"></a>Algoritmo de detecção de anomalia
-
-* O operador AnomalyDetection usa uma **abordagem de aprendizado não supervisionado**, onde não assume nenhum tipo de distribuição nos eventos. Em geral, dois modelos são mantidos em paralelo em qualquer momento, onde um deles é usado para pontuação e o outro é treinado em segundo plano. Os modelos de detecção de anomalia são treinados usando dados do fluxo atual em vez de usar um mecanismo fora de banda. A quantidade de dados utilizados para treinamento depende do tamanho da janela d especificado pelo usuário dentro do parâmetro Limit Duration. Cada modelo acaba sendo treinado com base no valor de eventos d para 2d. É recomendável ter pelo menos 50 eventos em cada janela para obter melhores resultados. 
-
-* O operador AnomalyDetection usa **semântica de janela deslizante** para treinar modelos e pontuar eventos. O que significa que cada evento é avaliado por anomalia e uma pontuação é retornada. A pontuação é uma indicação do nível de confiança dessa anomalia. 
-
-* O operador AnomalyDetection fornece uma **garantia de repetibilidade** na mesma entrada sempre produzir o mesmo resultado, independentemente da hora de início da saída do trabalho. A hora de início da saída do trabalho representa o momento em que o primeiro evento de saída é produzido pelo trabalho. É definido pelo usuário para a hora atual, um valor personalizado ou a última hora de saída (se o trabalho tivesse produzido uma saída anteriormente). 
-
-### <a name="training-the-models"></a>Treinar os modelos 
-
-À medida que o tempo avança, os modelos são treinados com dados diferentes. Para entender as pontuações, ajuda a entender o mecanismo subjacente pelo qual os modelos são treinados. Aqui, **t<sub>0</sub>** é a **hora de início da saída do trabalho** e **d** é o **tamanho da janela** do parâmetro Limit Duration. Suponha que o tempo seja dividido em **saltos de tamanho d**, iniciando de `01/01/0001 00:00:00`. As etapas a seguir são usadas para treinar o modelo e marcar os eventos:
-
-* Quando um trabalho é iniciado, ele lê os dados começando no tempo t<sub>0</sub> – 2d.  
-* Quando o tempo chega ao próximo salto, um novo modelo M1 é criado e começa a ser treinado.  
-* Quando o tempo avança por outro salto, um novo modelo M2 é criado e começa a ser treinado.  
-* Quando o tempo alcança t<sub>0</sub>, M1 é ativado e sua pontuação começa a ser emitida.  
-* No próximo salto, três situações acontecem ao mesmo tempo:  
-
-  * M1 não é mais necessário e é descartado.  
-  * M2 foi suficientemente treinado, então é usado para pontuação.  
-  * Um novo modelo M3 é criado e começa a ser treinado em segundo plano.  
-
-* Este ciclo se repete para cada salto, onde o modelo ativo é descartado, alterna para o modelo paralelo e inicia o treinamento de um terceiro modelo em segundo plano. 
-
-Diagramaticamente, as etapas são semelhantes às seguintes: 
-
-![Modelos de treinamento de aprendizado de máquina](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
-
-|**Modelo** | **Hora de início do treinamento** | **Hora de começar a usar sua pontuação** |
-|---------|---------|---------|
-|M1     | 11:20   | 11:33   |
-|M2     | 11:30   | 11:40   |
-|M3     | 11:40   | 11:50   |
-
-* O modelo M1 começa a treinar às 11:20, que é o próximo salto após o trabalho começar a ler às 11:13. O primeiro resultado é produzido a partir de M1 às 11:33 após treinamento com 13 minutos de dados. 
-
-* Um novo modelo de M2 também começa a treinar às 11:30, mas sua pontuação não é usada até as 11:40, após ter sido treinado com 10 minutos de dados. 
-
-* O M3 segue o mesmo padrão que o M2. 
-
-### <a name="scoring-with-the-models"></a>Pontuação com os modelos 
-
-No nível de Machine Learning, o algoritmo de detecção de anomalia calcula um valor de estranheza para cada evento de entrada comparando-o com eventos em uma janela de histórico. A computação de estranheza difere para cada tipo de anomalia.  
-
-Vamos revisar a computação de estranheza em detalhes (assumir um conjunto de janelas de histórico com eventos existentes): 
-
-1. **Alteração no nível bidirecional:** com base na janela de histórico, um intervalo de operação normal é computado como [10º percentil, 90º percentil] que é o valor do 10º percentil como o limite inferior e o valor do 90º percentil como limite superior. Um valor de estranheza para o evento atual é computado como:  
-
-   - 0, se event_value estiver no intervalo de operação normal  
-   - event_value/90th_percentile, se event_value > 90th_percentile  
-   - 10th_percentile/event_value, se event_value for < 10th_percentile  
-
-2. **Tendência positiva lenta:** uma linha de tendência sobre os valores de evento na janela de histórico é calculada e a operação pesquisa uma tendência positiva dentro da linha. O valor de estranheza é calculado como:  
-
-   - Inclinação, se a inclinação for positiva  
-   - 0, caso contrário 
-
-3. **Tendência negativa lenta:** uma linha de tendência sobre os valores de evento na janela de histórico é calculada e a operação pesquisa uma tendência negativa dentro da linha. O valor de estranheza é calculado como: 
-
-   - Inclinação, se a inclinação for negativa  
-   - 0, caso contrário  
-
-Quando o valor de estranheza para o evento de entrada é computado, um valor martingale é computado com base no valor de estranheza (consulte o [blog do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para detalhes sobre como o valor martingale é computado). Esse valor martingale é retornado como a pontuação de anomalia. O valor martingale aumenta lentamente em resposta a valores estranhos, o que permite que o detector permaneça robusto para mudanças esporádicas e reduz alertas falsos. Também possui uma propriedade útil: 
-
-Probabilidade [existe t tal que M<sub>t</sub> > λ] < 1/λ, em que M<sub>t</sub> é o valor martingale em t instantâneo e λ é um valor real. Por exemplo, se houver um alerta quando M<sub>t</sub>>100, então, a probabilidade de falsos positivos será menor que 1/100.  
-
-## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Diretriz para o uso do detector de alteração de nível bidirecional 
-
-O detector de alteração de nível bidirecional pode ser usado em cenários como interrupção de energia e recuperação, ou tráfego de horas de pico etc. No entanto, ele funciona de tal forma que, uma vez que um modelo é treinado com determinados dados, outra alteração de nível será anômala se e somente se o novo valor for maior que o limite superior anterior (caso de alteração de nível ascendente) ou inferior ao limite inferior anterior (caso de alteração de nível descendente). Portanto, um modelo não deverá ver os valores de dados no intervalo do novo nível (ascendente ou descendente) em sua janela de treinamento para que possam ser considerados anômalos. 
-
-Os seguintes pontos devem ser considerados ao usar esse detector: 
-
-1. Quando as séries temporais repentinamente aumentam ou diminuem o valor, o operador AnomalyDetection detecta. Mas detectar o retorno ao normal requer mais planejamento. Se uma série temporal estava em estado contínuo antes da anomalia, o que pode ser alcançado configurando a janela de detecção do operador AnomalyDetection para no máximo metade do comprimento da anomalia. Esse cenário pressupõe que a duração mínima da anomalia pode ser estimada antes do tempo, e há eventos suficientes nesse período de tempo para treinar o modelo o suficiente (pelo menos 50 eventos). 
-
-   Isso é mostrado nas figuras 1 e 2 abaixo, usando uma alteração de limite superior (a mesma lógica aplica-se a uma mudança de limite inferior). Em ambas as figuras, as formas de onda são uma alteração de nível anômala. As linhas verticais alaranjadas indicam limites de salto e tamanho de salto é o mesmo que a janela de detecção especificada no operador AnomalyDetection. As linhas verdes indicam o tamanho da janela de treinamento. Na Figura 1, o tamanho de salto é o mesmo que o tempo de duração da anomalia. Na Figura 2, o tamanho de salto é metade do tempo de duração da anomalia. Em todos os casos, uma alteração ascendente é detectada porque o modelo utilizado para pontuação foi treinado em dados normais. Mas, com base em como o detector de alteração de nível bidirecional funciona, ele deve excluir os valores normais da janela de treinamento usada para o modelo que marca o retorno ao normal. Na Figura 1, o treinamento do modelo de pontuação inclui alguns eventos normais, desse modo, retornar ao normal não pode ser detectado. Mas, na Figura 2, o treinamento inclui apenas a parte anômala, que garante que o retorno ao normal seja detectado. Qualquer coisa menor que a metade também funciona pela mesma razão, enquanto que qualquer coisa maior acabará incluindo um pouco dos eventos normais. 
-
-   ![AD com tamanho da janela igual comprimento de anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
-
-   ![AD com tamanho da janela é igual à metade do comprimento da anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
-
-2. Nos casos em que o comprimento da anomalia não pode ser previsto, esse detector opera com o melhor esforço. No entanto, escolher uma janela de tempo mais estreita limita os dados de treinamento, o que aumentaria a probabilidade de detectar o retorno ao normal. 
-
-3. No cenário a seguir, a anomalia mais longa não é detectada, pois a janela de treinamento já inclui uma anomalia do mesmo valor alto. 
-
-   ![Anomalias detectadas com o mesmo tamanho](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
-
-## <a name="example-query-to-detect-anomalies"></a>Exemplo de consulta para detectar anomalias 
-
-A consulta a seguir pode ser usada para gerar um alerta se uma anomalia for detectada.
-Quando o fluxo de entrada não é uniforme, a etapa de agregação pode ajudar a transformá-lo em uma série temporal uniforme. O exemplo usa AVG, mas o tipo específico de agregação depende do cenário do usuário. Além disso, quando uma série temporal tem lacunas maiores do que a janela de agregação, não há nenhum evento na série temporal para disparar a detecção de anomalias (de acordo com a semântica de janela deslizante). Como resultado, a suposição de uniformidade é interrompida quando o próximo evento chega. Em tais situações, as lacunas na série temporal devem ser preenchidas. Uma abordagem possível é colocar o último evento em cada janelas de salto, conforme mostrado abaixo.
-
-```sql
-    WITH AggregationStep AS 
-    (
-         SELECT
-               System.Timestamp as tumblingWindowEnd,
-
-               AVG(value) as avgValue
-
-         FROM input
-         GROUP BY TumblingWindow(second, 5)
-    ),
-
-    FillInMissingValuesStep AS
-    (
-          SELECT
-                System.Timestamp AS hoppingWindowEnd,
-
-                TopOne() OVER (ORDER BY tumblingWindowEnd DESC) AS lastEvent
-
-         FROM AggregationStep
-         GROUP BY HOPPINGWINDOW(second, 300, 5)
-
-    ),
-
-    AnomalyDetectionStep AS
-    (
-
-          SELECT
-                hoppingWindowEnd,
-                lastEvent.tumblingWindowEnd as lastTumblingWindowEnd,
-                lastEvent.avgValue as lastEventAvgValue,
-                system.timestamp as anomalyDetectionStepTimestamp,
-
-                ANOMALYDETECTION(lastEvent.avgValue) OVER (LIMIT DURATION(hour, 1)) as
-                scores
-
-          FROM FillInMissingValuesStep
-    )
-
+```SQL
+WITH AnomalyDetectionStep AS
+(
     SELECT
-          alert = 1,
-          hoppingWindowEnd,
-          lastTumblingWindowEnd,
-          lastEventAvgValue,
-          anomalyDetectionStepTimestamp,
-          scores
-
-    INTO output
-
-    FROM AnomalyDetectionStep
-
-    WHERE
-
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
-
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
-        3.25
-
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
-       3.25
+        EVENTENQUEUEDUTCTIME AS time,
+        CAST(temperature AS float) AS temp,
+        AnomalyDetection_SpikeAndDip(CAST(temperature AS float), 95, 120, 'spikesanddips')
+            OVER(LIMIT DURATION(second, 120)) AS SpikeAndDipScores
+    FROM input
+)
+SELECT
+    time,
+    temp,
+    CAST(GetRecordPropertyValue(SpikeAndDipScores, 'Score') AS float) AS
+    SpikeAndDipScore,
+    CAST(GetRecordPropertyValue(SpikeAndDipScores, 'IsAnomaly') AS bigint) AS
+    IsSpikeAndDipAnomaly
+INTO output
+FROM AnomalyDetectionStep
 ```
 
-## <a name="performance-guidance"></a>Diretriz de desempenho
+## <a name="change-point"></a>Ponto de alteração
 
-* Use seis unidades de streaming para trabalhos. 
-* Envie eventos pelo menos um segundo de distância.
-* Uma consulta não particionada que está usando o operador AnomalyDetection pode produzir resultados com uma latência computacional de aproximadamente 25 ms em média.
-* A latência experimentada por uma consulta particionada varia um pouco com o número de partições, à medida que o número de cálculos for maior. No entanto, a latência é quase a mesma que o caso não particionado para um número total comparável de eventos em todas as partições.
-* Durante a leitura de dados não em tempo real, uma grande quantidade de dados é incluída rapidamente. O processamento desses dados é mais lento. A latência em tais cenários foi encontrada para aumentar linearmente com o número de pontos de dados na janela, em vez do tamanho da janela ou intervalo de eventos. Para reduzir a latência em casos de não em tempo real, considere o uso de um tamanho menor de janela. Como alternativa, considere começar seu trabalho na hora atual. Alguns exemplos de latências em uma consulta não particionada: 
-    - 60 pontos de dados na janela de detecção podem resultar em uma latência de 10 segundos, com uma taxa de transferência de 3 Mbps. 
-    - Em 600 pontos de dados, a latência pode atingir aproximadamente 80 segundos com uma taxa de transferência de 0,4 MBps.
+As anomalias persistentes em um fluxo de eventos de série temporal são alterações na distribuição de valores no fluxo de eventos, como alterações e tendências no nível. No Stream Analytics, tais anomalias são detectadas usando o operador **AnomalyDetection_ChangePoint** baseado em Machine Learning.
 
-## <a name="limitations-of-the-anomalydetection-operator"></a>Limitações do operador AnomalyDetection 
+As alterações persistentes duram muito mais que picos e quedas e podem indicar eventos catastróficos. As alterações persistentes geralmente não são vistas facilmente a olho nu, mas podem ser detectadas com o operador **AnomalyDetection_ChangePoint**.
 
-* Atualmente, esse operador não fornece suporte a detecção de pico e queda. Picos e quedas são alterações espontâneas ou de curta duração na série temporal. 
+A seguinte imagem é um exemplo de alteração no nível:
 
-* Atualmente, esse operador não lida com padrões de sazonalidade. Padrões de sazonalidade são padrões repetidos nos dados, por exemplo, um comportamento de tráfego da Web diferente durante fins de semana ou tendências de compras diferentes durante o Black Friday, que não são anomalias, mas um padrão de comportamento esperado. 
+![Exemplo de anomalia de alteração no nível](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-level-change.png)
 
-* Esse operador espera que as séries temporais de entrada sejam uniformes. Um fluxo de eventos pode ficar uniforme pela agregação sobre uma janela em cascata ou de salto. Em cenários onde a lacuna entre os eventos sempre é menor do que a janela de agregação, uma janela em cascata é suficiente para tornar a série temporal uniforme. Quando o intervalo puder ser maior, os intervalos poderão ser preenchidos repetindo o último valor usando uma janela de salto. 
+A seguinte imagem é um exemplo de alteração na tendência:
 
-## <a name="references"></a>Referências
+![Exemplo de anomalia de alteração na tendência](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-* [Detecção de anomalias – Usar Machine Learning para detectar anormalidades nos dados da série temporal](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [API de detecção de anomalias do Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
-* [Detecção de anomalias de série temporal](https://msdn.microsoft.com/library/azure/mt775197.aspx)
+O exemplo de consulta a seguir pressupõe uma taxa uniforme de entrada de 1 evento por segundo em uma janela deslizante de 20 minutos com um tamanho de histórico de 1200 eventos. A instrução SELECT final extrai e gera a pontuação e o status da anomalia com um nível de confiança de 80%.
+
+```SQL
+WITH AnomalyDetectionStep AS
+(
+    SELECT
+        EVENTENQUEUEDUTCTIME AS time,
+        CAST(temperature AS float) AS temp,
+        AnomalyDetection_ChangePoint(CAST(temperature AS float), 80, 1200) 
+        OVER(LIMIT DURATION(minute, 20)) AS ChangePointScores
+    FROM input
+)
+SELECT
+    time,
+    temp,
+    CAST(GetRecordPropertyValue(ChangePointScores, 'Score') AS float) AS
+    ChangePointScore,
+    CAST(GetRecordPropertyValue(ChangePointScores, 'IsAnomaly') AS bigint) AS
+    IsChangePointAnomaly
+INTO output
+FROM AnomalyDetectionStep
+
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

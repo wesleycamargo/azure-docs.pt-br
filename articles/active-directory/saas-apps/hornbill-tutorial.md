@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Hornbill | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Hornbill | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Hornbill.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 30fdb55758d5fbac41452236ebaa9f96ab9bba6b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f23a1520175827f775553e1ba949c62567cf83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163453"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201917"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutorial: integração do Azure Active Directory com o Hornbill
+# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutorial: Integração do Azure Active Directory com o Hornbill
 
 Neste tutorial, você aprende a integrar o Hornbill com o Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Hornbill, serão necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Hornbill
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Hornbill da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Hornbill](./media/hornbill-tutorial/tutorial_hornbill_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/lib/saml/auth/simplesaml/module.php/saml/sp/metadata.php/saml`
 
@@ -195,7 +196,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Hornbill. O Hornbill dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Hornbill, caso ainda não exista.
 
 > [!Note]
-> Se for necessário criar um usuário manualmente, contate a [equipe de suporte ao cliente do Hornbill](https://www.hornbill.com/support/?request/).
+> Se você precisar criar um usuário manualmente, contate a  [equipe de suporte ao Cliente do Hornbill](https://www.hornbill.com/support/?request/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -232,7 +233,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Hornbill no Painel de Acesso, você deverá ser automaticamente conectado ao aplicativo Hornbill.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

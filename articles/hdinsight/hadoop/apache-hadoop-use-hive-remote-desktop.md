@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 60bed4786b61bc96b918511b63ae89daa1cba1c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409047"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217421"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Usar Apache Hive com Apache Hadoop no HDInsight com Área de Trabalho Remota
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -64,7 +64,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
      >
      >
-   * **FORMATO DO PIN**: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * **FORMATO DA LINHA**: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
    * **ARMAZENADO COMO ARQUIVO DE TEXTO LOCAL**: Informa ao Hive o local em que os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
    * **SELECIONAR**: Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
    * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
@@ -103,10 +103,7 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 * [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
-
-* [Usar a interface do usuário do Apache Tez no HDInsight baseado no Windows](../hdinsight-debug-tez-ui.md)
-* [Usar a exibição de Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md)
+Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração: [Usar a exibição do Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md).
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

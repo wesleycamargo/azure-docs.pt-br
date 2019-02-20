@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d6fed65dad0e8f12495177b274cef181e9e91879
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877500"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET bulk executor para executar operações em massa no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Atualmente, a biblioteca do executor em massa é suportada apenas pelas contas d
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
-* Você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso. Ou você pode usar o [Emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o URI de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).
+* Você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso. Ou você pode usar o [Emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).
 
 * Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar conta de banco de dados](create-sql-api-dotnet.md#create-a-database-account) do artigo de início rápido do .NET. 
 

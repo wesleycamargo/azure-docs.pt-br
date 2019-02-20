@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b4dc2e48093398077071eb2423a80c86eb62c67
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815006"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894931"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Rotear tráfego com uma tabela de rotas utilizando o PowerShell
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Embora o rastreamento de rota seja utilizado para testar o roteamento neste artigo, não é recomendável o ICMP através do Firewall do Windows para implantações de produção.
 
-Você habilitou o encaminhamento de IP no Azure para a interface de rede da VM em [Habilitar encaminhamento de IP](#enable-ip-forwarding). Dentro da VM, o sistema operacional, ou um aplicativo em execução na VM, também pode ser capaz de encaminhar o tráfego. Habilite o encaminhamento de IP no sistema operacional do *myVmNva*.
+Você habilitou o encaminhamento de IP no Azure para a interface de rede da VM em Habilitar encaminhamento de IP. Dentro da VM, o sistema operacional, ou um aplicativo em execução na VM, também pode ser capaz de encaminhar o tráfego. Habilite o encaminhamento de IP no sistema operacional do *myVmNva*.
 
 Em um prompt de comando na VM *myVmPrivate*, a área de trabalho remota para a *myVmNva*:
 

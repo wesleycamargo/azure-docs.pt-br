@@ -4,7 +4,7 @@ description: Este artigo fornece uma lista estruturada de apresentações de seg
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: b6e4539be76449093de0587e43b0e97243602967
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 148b26cc694abaa09bf5016f3c2f2fe3a1c12a70
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540128"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109802"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Vídeos de segurança do Azure no Channel 9
 [Channel 9](https://channel9.msdn.com/) é uma comunidade que apresenta as pessoas por trás de nossos produtos e conecta-as aos clientes.
@@ -40,7 +40,7 @@ Com a Central de Segurança do Azure, você obtém uma exibição central do est
 
 Com a Central de Segurança do Azure, você obtém uma exibição central do estado da segurança de todos os seus recursos do Azure. No mesmo instante, verifique se os controles de segurança adequados estão sendo usados e se foram configurados corretamente. Scott conversa com Sara Fender, que explica tudo!
 
-[Live Demo: Protecting against, Detecting and Responding to Threats](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
+[Demonstração ao Vivo: Proteger, Detectar e Responder a Ameaças](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
 
 Participe desta sessão para ver a plataforma de segurança da Microsoft em ação. Julia White, gerente geral da Cloud & Enterprise, demonstra os recursos de segurança do Windows 10, Azure e Office 365 que podem ajudar a manter sua organização segura.
 
@@ -56,7 +56,7 @@ Jack Richins ensina [Scott](https://channel9.msdn.com/Niners/Glucose) como cript
 
 [How to set security in DevTest Labs](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
-Como proprietário de laboratório, você pode proteger o acesso ao laboratório por meio de duas funções de laboratório: Proprietário e Usuário do DevTest Labs. Uma pessoa na função de Proprietário tem acesso completo no laboratório, enquanto uma pessoa na função de Usuário do DevTest Labs tem acesso limitado. Neste vídeo, mostramos como adicionar uma pessoa em qualquer uma dessas funções a um laboratório.
+Como proprietário de laboratório, você pode proteger o acesso ao laboratório por meio de duas funções de laboratório: Owner e DevTest Labs User. Uma pessoa na função de Proprietário tem acesso completo no laboratório, enquanto uma pessoa na função de Usuário do DevTest Labs tem acesso limitado. Neste vídeo, mostramos como adicionar uma pessoa em qualquer uma dessas funções a um laboratório.
 
 [Managing Secrets for Azure Apps](https://channel9.msdn.com/events/Build/2016/P456)
 
@@ -66,7 +66,7 @@ Cada aplicativo genuíno que você implantar no Azure tem segredos críticos –
 
 Narayan Annamalai, Gerente de Programas Sênior ensina Scott a usar os Grupos de Segurança de Rede em uma Rede Virtual do Azure. Você pode criar a controlar o acesso aos objetos no Azure por sub-rede e rede! Você aprenderá a controlar o acesso e criar grupos no Azure usando o PowerShell.
 
-[Privileged Identity Management do AD do Azure: Assistente de Segurança, Alertas, Revisões](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
+[Azure AD Privileged Identity Management: Assistente de Segurança, Alertas, Revisões](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
 
 Privileged Identity Management do Azure Active Directory (AD) é uma funcionalidade premium que permite descobrir, restringir e monitorar as identidades com privilégios e o acesso aos recursos. Também impõe um acesso administrativo sob demanda no momento certo, quando necessário. Saiba mais sobre:
 

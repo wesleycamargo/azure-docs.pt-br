@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567648"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197531"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco no Azure Active Directory Identity Protection (atualizado)
 
@@ -81,7 +82,7 @@ No entanto, por motivos de segurança, essa configuração só funciona para usu
 
 Se quiser exigir MFA para entradas de risco, você deverá:
 
-1. Habilite a [política de registro de autenticação multifator](#multi-factor-authentication-registration-policy) para os usuários afetados.
+1. Habilite a política de registro de autenticação multifator para os usuários afetados.
 
 2. Exija que os usuários afetados façam logon em uma sessão sem risco para realizar um registro de MFA.
 

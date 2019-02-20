@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756641"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100662"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de Banco de Dados SQL do Azure e seu gerenciamento
 
 ## <a name="what-is-an-azure-sql-database-server"></a>O que é um servidor de Banco de Dados SQL do Azure?
 
-Um servidor de Banco de Dados SQL é um constructo lógico que atua como um ponto administrativo central para vários bancos de dados autônomos ou [em pool](sql-database-elastic-pool.md), [logons](sql-database-manage-logins.md), [regras de firewall](sql-database-firewall-configure.md), [regras de auditoria](sql-database-auditing.md), [políticas de detecção de ameaças](sql-database-threat-detection.md) e [grupos de failover](sql-database-auto-failover-group.md). Um servidor de Banco de Dados SQL pode estar em uma região diferente do próprio grupo de recursos. O servidor de Banco de Dados SQL precisa existir antes que seja possível criar o Banco de Dados SQL do Azure. Todos os bancos de dados gerenciados por um servidor de Banco de Dados SQL são criados na mesma região que o servidor de Banco de Dados SQL.
+Um servidor de Banco de Dados SQL é um constructo lógico que atua como um ponto administrativo central para vários bancos de dados individuais ou [em pool](sql-database-elastic-pool.md), [logons](sql-database-manage-logins.md), [regras de firewall](sql-database-firewall-configure.md), [regras de auditoria](sql-database-auditing.md), [políticas de detecção de ameaças](sql-database-threat-detection.md) e [grupos de failover](sql-database-auto-failover-group.md). Um servidor de Banco de Dados SQL pode estar em uma região diferente do seu grupo de recursos. O servidor de Banco de Dados SQL precisa existir antes que seja possível criar o Banco de Dados SQL do Azure. Todos os bancos de dados gerenciados por um servidor de Banco de Dados SQL são criados na mesma região que o servidor de Banco de Dados SQL.
 
 Um servidor de Banco de Dados SQL é diferente de uma instância do SQL Server com a qual você talvez esteja familiarizado no mundo local. Especificamente, o serviço do Banco de Dados SQL não faz garantias da localização dos bancos de dados em relação ao servidor de Banco de Dados SQL que o gerencia e não expõe nenhum recurso ou acesso no nível da instância. Em contraste, os bancos de dados em instância em uma Instância Gerenciada estão todos colocalizados, do mesmo modo que você está acostumado no SQL Server no mundo local.
 
@@ -189,5 +189,5 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+- Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
 - Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-database-features.md).

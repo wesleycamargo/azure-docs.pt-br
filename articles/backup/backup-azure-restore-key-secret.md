@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: 233325f0032dc31445bbaa9d9e522f401f43c093
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9ec6760e790bc540554cf18a9f85f24048becbed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488757"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114664"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar chave e segredo do Cofre de Chaves para VMs criptografadas usando o Backup do Azure
 Este artigo fala sobre usar o Backup da VM do Azure para executar a restauração de VMs do Azure criptografadas se a chave e o segredo não existirem no cofre de chaves. Essas etapas também poderão ser usadas se vocês quiser manter uma cópia separada da chave (Chave de Criptografia de Chave) e o segredo (Chave de Criptografia do BitLocker) para a VM restaurada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Backup de VMs criptografadas** – o backup de VMs do Azure criptografadas foi feito usando o Backup do Azure. Consulte o artigo [Gerenciar backup e restauração de VMs do Azure usando o PowerShell](backup-azure-vms-automation.md) para obter detalhes sobre como fazer o backup de VMs do Azure criptografadas.
-* **Configurar o Cofre de Chaves do Azure** – garanta que o cofre de chaves ao qual as chaves e segredos precisam ser restaurados já esteja presente. Consulte o artigo [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) para obter detalhes sobre o gerenciamento do cofre de chaves.
+* **Backup de VMs criptografadas** – o backup de VMs do Azure criptografadas foi feito usando o Backup do Azure. Consulte o artigo [Gerenciar backup e restauração de VMs do Azure usando o PowerShell](backup-azure-vms-automation.md) para obter detalhes sobre como fazer backup das VMs do Azure criptografadas.
+* **Configurar o Cofre de Chaves do Azure** – garanta que o cofre de chaves ao qual as chaves e segredos precisam ser restaurados já esteja presente. Confira o artigo [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md) para obter detalhes sobre o gerenciamento do cofre de chaves.
 * **Restaurar o disco** – verifique se você disparou o trabalho de restauração para restaurar discos da VM criptografada usando as [etapas do PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Isso ocorre porque esse trabalho gera um arquivo JSON em sua conta de armazenamento que contém chaves e segredos para a VM criptografada a ser restaurada.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Obter a chave e o segredo do Backup do Azure

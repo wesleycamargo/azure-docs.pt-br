@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Documentação de referência para a API de texto do tradutor V2.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463218"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861707"
 ---
 # <a name="translator-text-api-v20"></a>API de Tradução de Texto v2.0
 
@@ -327,7 +327,7 @@ Tipo de Conteúdo da Resposta: aplicativo/xml
 |text|(vazio)   |Obrigatório. Uma cadeia de caracteres contendo uma ou mais frases do idioma especificado a ser falada para o fluxo de wave. O tamanho do texto para falar não deve exceder dois mil caracteres.|query|string|
 |Linguagem|(vazio)   |Obrigatório. Uma cadeia de caracteres representando o código de idioma compatível no qual falar o texto. O código deve estar presente na lista de códigos retornados do método `GetLanguagesForSpeak`.|query|string|
 |formato|(vazio)|Opcional. Uma cadeia de caracteres especificando a ID do tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor padrão é `audio/wav`.|query|string|
-|options|(vazio)    |<ul><li>Opcional. Uma cadeia de caracteres especificando propriedades da fala sintetizada:<li>`MaxQuality` e `MinSize` estão disponíveis para especificar a qualidade dos sinais de áudio. Com `MaxQuality`, você pode obter as vozes com a qualidade mais alta e, com `MinSize`, você pode obter as vozes com o menor tamanho. O padrão é `MinSize`.</li><li>`female` e `male` estão disponíveis para especificar o gênero desejado da voz. O padrão é `female`. Use a barra vertical `|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul> |query|string|
+|options|(vazio)    |<ul><li>Opcional. Uma cadeia de caracteres especificando propriedades da fala sintetizada:<li>`MaxQuality` e `MinSize` estão disponíveis para especificar a qualidade dos sinais de áudio. Com `MaxQuality`, você pode obter as vozes com a qualidade mais alta e, com `MinSize`, você pode obter as vozes com o menor tamanho. O padrão é `MinSize`.</li><li>`female` e `male` estão disponíveis para especificar o gênero desejado da voz. O padrão é `female`. Use a barra vertical `|` para incluir várias opções. Por exemplo `MaxQuality|Male`.</li></li></ul> |query|string|
 |Autorização|(vazio)|Obrigatório se o campo `appid` ou o cabeçalho `Ocp-Apim-Subscription-Key` não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |Ocp-Apim-Subscription-Key|(vazio)  |Obrigatório se o campo `appid` ou o cabeçalho `Authorization` não for especificado.|cabeçalho|string|
 

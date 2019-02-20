@@ -4,7 +4,7 @@ description: O OCR (reconhecimento óptico de caracteres) da Análise de Mídia 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4a7a31b4e0069d2c94a4f109248d7b02c0b03faa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785895"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005124"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital  
 ## <a name="overview"></a>Visão geral
 Se for necessário extrair o conteúdo de texto de seus arquivos de vídeo e gerar um texto digital editável e pesquisável, você deverá usar o OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure. Esse Processador de Mídia do Azure detecta o conteúdo de texto em seus arquivos de vídeo e gera arquivos de texto para seu uso. O OCR permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia.
 
@@ -32,7 +32,7 @@ O processador de mídia de **OCR de Mídia do Azure** atualmente está em Previe
 Este artigo fornece detalhes sobre o **OCR de Mídia do Azure** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET. Para obter informações e exemplos adicionais, consulte [este blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>Arquivos de entrada de OCR
-Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
+Arquivos de vídeo. Atualmente, há suporte para os formatos a seguir: MP4, MOV e WMV.
 
 ## <a name="task-configuration"></a>Configuração de tarefa
 Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de Mídia do Azure**, é necessário especificar uma predefinição de configuração usando JSON ou XML. 
@@ -45,8 +45,8 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
 | Nome do atributo | DESCRIÇÃO |
 | --- | --- |
 |AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é falso. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Linguagem |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: AutoDetect (padrão), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
-| TextOrientation |(opcional) descreve a orientação do texto a ser procurado.  "Left" significa que a parte superior de todas as letras apontam para a esquerda.  O texto padrão (como aquele que pode ser encontrado em um livro), tem a orientação “Up”.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
+| Linguagem |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: Detecção Automática (padrão), árabe, chinês simplificado, chinês tradicional, tcheco, dinamarquês, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, português, romeno, russo, sérvio (alfabeto cirílico), sérvio (alfabeto latino), eslovaco, espanhol, sueco, turco. |
+| TextOrientation |(opcional) descreve a orientação do texto a ser procurado.  "Left" significa que a parte superior de todas as letras apontam para a esquerda.  O texto padrão (como aquele que pode ser encontrado em um livro), tem a orientação “Up”.  Um dos seguintes: Detecção Automática (padrão), Acima, Direita, Abaixo, Esquerda. |
 | TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss.SSS (padrão 00:00:00.500)<br/>Formato XML: duração primitiva do W3C XSD (padrão PT0.5) |
 | DetectRegions |(opcional) Uma matriz de objetos DetectRegion especificando regiões dentro do quadro de vídeo para detectar o texto.<br/>Um objeto DetectRegion é composto pelos quatro seguintes valores inteiros:<br/>Left: pixels a partir da margem esquerda<br/>Top: pixels a partir da margem superior<br/>Width: altura da região em pixels<br/>Height: altura da região em pixels |
 

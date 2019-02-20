@@ -1,6 +1,6 @@
 ---
-title: Referência da linguagem do Log Analytics do Azure Monitor | Microsoft Docs
-description: Informações de referência para a linguagem de consulta do Data Explorer usada pelo Log Analytics. Inclui elementos adicionais específicos ao Log Analytics e elementos sem suporte em consultas do Log Analytics.
+title: Diferenças na linguagem de consulta de log do Azure Monitor | Microsoft Docs
+description: Informações de referência para a linguagem de consulta do Data Explorer usada pelo Azure Monitor. Inclui elementos adicionais específicos ao Azure Monitor e elementos sem suporte às consultas do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,26 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 645750ec40f0aba2ef58c096a72125fad2947719
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186252"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003612"
 ---
-# <a name="log-analytics-query-language-differences"></a>Diferenças da linguagem de consulta do Log Analytics
+# <a name="azure-monitor-log-query-language-differences"></a>Diferenças na linguagem de consulta de log do Azure Monitor
 
-Enquanto o [Log Analytics](log-query-overview.md) é criado no [Azure Data Explorer](/azure/data-explorer) e usa a [mesma linguagem de consulta](/azure/kusto/query), a versão da linguagem têm algumas diferenças. Este artigo identifica os elementos que são diferentes entre a versão do idioma usado para o Data Explorer e a versão usada para consultas do Log Analytics.
+Enquanto os [logs no Azure Monitor](log-query-overview.md) são criados no [Azure Data Explorer](/azure/data-explorer) e usam a [mesma linguagem de consulta](/azure/kusto/query), a versão da linguagem tem algumas diferenças. Este artigo identifica os elementos que são diferentes entre a versão do idioma usado para o Data Explorer e a versão usada para consultas de log do Azure Monitor.
 
-## <a name="data-explorer-elements-not-supported-in-log-analytics"></a>Elementos do Data Explorer sem suporte no Log Analytics
-As seções a seguir descrevem os elementos da linguagem de consulta do Data Explorer sem suporte do Log Analytics.
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-### <a name="statements-not-supported-in-log-analytics"></a>Instruções sem suporte no Log Analytics
+## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Elementos do Data Explorer não compatíveis com o Azure Monitor
+As seções a seguir descrevem os elementos da linguagem de consulta do Data Explorer não compatíveis com o Azure Monitor.
+
+### <a name="statements-not-supported-in-azure-monitor"></a>Instruções não compatíveis com o Azure Monitor
 
 * [Alias](/azure/kusto/query/aliasstatement)
 * [Parâmetros de consulta](/azure/kusto/query/queryparametersstatement)
 
-### <a name="functions-not-supported-in-log-analytics"></a>Funções sem suporte no Log Analytics
+### <a name="functions-not-supported-in-azure-monitor"></a>Funções não compatíveis com o Azure Monitor
 
 * [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
@@ -43,23 +45,23 @@ As seções a seguir descrevem os elementos da linguagem de consulta do Data Exp
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-### <a name="operators-not-supported-in-log-analytics"></a>Operadores sem suporte no Log Analytics
+### <a name="operators-not-supported-in-azure-monitor"></a>Operadores não compatíveis com o Azure Monitor
 
 * [Junção entre clusters](/azure/kusto/query/joincrosscluster)
 * [Operador externaldata](/azure/kusto/query/externaldata-operator)
 
-### <a name="plugins-not-supported-in-log-analytics"></a>Plug-ins sem suporte no Log Analytics
+### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-ins não compatíveis com o Azure Monitor
 
 * [Plug-in do sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
-## <a name="additional-operators-in-log-analytics"></a>Operadores adicionais no Log Analytics
-Os seguintes operadores dão suporte a recursos específicos do Log Analytics e não estão disponíveis fora do Log Analytics.
+## <a name="additional-operators-in-azure-monitor"></a>Operadores adicionais no Azure Monitor
+Os seguintes operadores dão suporte a recursos específicos do Azure Monitor e não estão disponíveis fora do Azure Monitor.
 
 * [app()](app-expression.md)
 * [workspace()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Obtenha referências para diferentes [recursos para escrever consultas do Log Analytics](query-language.md).
+- Obtenha referências para diferentes [recursos para escrever consultas de log do Azure Monitor](query-language.md).
 - Acesse a [documentação de referência completa da linguagem de consulta do Data Explorer](/azure/kusto/query/).

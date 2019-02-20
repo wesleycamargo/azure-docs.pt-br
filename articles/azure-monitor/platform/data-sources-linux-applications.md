@@ -1,5 +1,5 @@
 ---
-title: Coletar o desempenho de aplicativos do Linux no Log Analytics | Microsoft Docs
+title: Coletar o desempenho de aplicativos do Linux no Azure Monitor | Microsoft Docs
 description: Este artigo fornece detalhes para configurar o Agente do Log Analytics para Linux para coletar contadores de desempenho do MySQL e Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104838"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001317"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Coletar contadores de desempenho para aplicativos Linux no Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Este artigo fornece detalhes sobre como configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux), a fim de coletar contadores de desempenho de aplicativos específicos no Log Analytics.  Os aplicativos incluídos neste artigo são:  
+Este artigo fornece detalhes sobre como configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos no Azure Monitor.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -114,7 +114,7 @@ Esses privilégios podem ser concedidos por meio da execução dos seguintes com
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois que você configurar o agente do Log Analytics para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](data-sources-performance-counters.md) com os contadores na tabela a seguir.
+Depois de configurar o agente do Log Analytics para Linux para enviar dados para o Azure Monitor, você precisará configurar os contadores de desempenho a serem coletados.  Use o procedimento descrito em [Fontes de dados de desempenho do Windows e do Linux no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois que você configurar o agente do Log Analytics para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](data-sources-performance-counters.md) com os contadores na tabela a seguir.
+Depois de configurar o agente do Log Analytics para Linux para enviar dados para o Azure Monitor, você precisará configurar os contadores de desempenho a serem coletados.  Use o procedimento descrito em [Fontes de dados de desempenho do Windows e do Linux no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -168,4 +168,4 @@ Depois que você configurar o agente do Log Analytics para Linux para enviar dad
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Coletar contadores de desempenho](data-sources-performance-counters.md) de agentes do Linux.
-* Saiba mais sobre [registrar consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 
+* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

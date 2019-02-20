@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732304"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234741"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -133,9 +133,9 @@ Para habilitar o serviço do gerenciador de reparo:
 
 3. Atualize o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [crie um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualize a configuração do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Com o cluster em execução com o manifesto do cluster atualizado, agora você poderá ver o serviço do sistema do gerenciador de reparo em execução no seu cluster, que é chamado de `fabric:/System/RepairManagerService`, sob a seção de serviços do sistema no Service Fabric Explorer.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Desabilite o Windows Update automático em todos os nós
+### <a name="configure-windows-updates-for-all-nodes"></a>Configurar o Windows Update para todos os nós
 
-As atualizações automáticas do Windows podem causar a perda de disponibilidade porque vários nós de cluster podem ser reiniciados ao mesmo tempo. O aplicativo de orquestração de patch, por padrão tenta desabilitar o Windows Update automático em cada nó de cluster. No entanto, se as configurações forem gerenciadas pela política de grupo ou administrador, é recomendável configurar a política do Windows Update explicitamente como "Notificar antes de baixar".
+As Atualizações Automáticas do Windows podem causar a perda de disponibilidade porque vários nós de cluster podem ser reiniciados ao mesmo tempo. O aplicativo de orquestração de patch, por padrão tenta desabilitar o Windows Update automático em cada nó de cluster. No entanto, se as configurações forem gerenciadas por um administrador ou uma Política de Grupo, é recomendável configurar a política do Windows Update explicitamente como "Notificar antes de Baixar".
 
 ## <a name="download-the-app-package"></a>Baixar o pacote do aplicativo
 

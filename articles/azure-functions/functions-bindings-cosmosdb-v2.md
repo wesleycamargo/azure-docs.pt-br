@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818117"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118200"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associações do Azure Cosmos DB para o Azure Functions 2.x
 
@@ -992,7 +992,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Esta seção contém os seguintes exemplos que leem um documento especificando um valor de ID de várias fontes:
 
-* [Gatilho da fila, pesquisar ID no JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Gatilho da fila, pesquisar ID no JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Gatilho HTTP, pesquisar ID na cadeia de caracteres de consulta](#http-trigger-look-up-id-from-query-string-javascript)
 * [Gatilho HTTP, pesquisar ID nos dados da rota](#http-trigger-look-up-id-from-route-data-javascript)
 * [Gatilho da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1200,7 +1200,7 @@ Aqui está o código JavaScript:
 
 Esta seção contém os seguintes exemplos que leem um documento especificando um valor de ID de várias fontes:
 
-* [Gatilho da fila, pesquisar ID no JSON](#queue-trigger-look-up-id-from-string-python)
+* [Gatilho da fila, pesquisar ID no JSON](#queue-trigger-look-up-id-from-json-python)
 * [Gatilho HTTP, pesquisar ID na cadeia de caracteres de consulta](#http-trigger-look-up-id-from-query-string-python)
 * [Gatilho HTTP, pesquisar ID nos dados da rota](#http-trigger-look-up-id-from-route-data-python)
 * [Gatilho da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -2288,7 +2288,7 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
     }
 ```
 
-Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-example).
+Para ver um exemplo completo, confira Saída - exemplo de C#.
 
 ## <a name="output---configuration"></a>Saída - configuração
 

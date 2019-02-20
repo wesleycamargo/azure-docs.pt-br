@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535260"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238140"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de conexão dos Hubs de Eventos
 
@@ -51,13 +51,16 @@ Você pode adicionar uma nova política de SAS e obter a cadeia de conexão ou u
 ![Obter a cadeia de conexão dos Hubs de Eventos](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obter a cadeia de conexão com o Azure PowerShell
-Você pode usar o Get-AzureRmEventHubNamespaceKey para obter a cadeia de conexão para o nome de política/regra específica, conforme mostrado abaixo:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Você pode usar Get-AzEventHubNamespaceKey para obter a cadeia de conexão para o nome de política/regra específica, conforme mostrado abaixo:
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-Consulte o [módulo do PowerShell dos Hubs de Eventos do Azure](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) para obter mais detalhes.
+Consulte o [módulo do PowerShell dos Hubs de Eventos do Azure](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) para obter mais detalhes.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Obter a cadeia de conexão com a CLI do Azure
 Use o seguinte para obter a cadeia de conexão para o namespace:

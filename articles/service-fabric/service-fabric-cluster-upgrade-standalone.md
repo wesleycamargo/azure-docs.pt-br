@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 6f0ffac9ecf4d0c8f6c3dc7c57670b168417cd3a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857811"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963159"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Atualizando e atualizando um cluster independente do Service Fabric
 
 Para qualquer sistema moderno, oferecer a possibilidade de atualização é fundamental para o sucesso duradouro de seu produto. Um cluster independente do Azure Service Fabric é um recurso que você possui. Este artigo descreve o que pode ser atualizado ou atualizado.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de malha que é executada em seu cluster
-Certifique-se de que o cluster sempre esteja executando uma versão do Service Fabric com suporte. Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data do comunicado. Novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nesse momento, a nova versão está disponível para escolha.
+Certifique-se de que o cluster sempre esteja executando uma [versão do Service Fabric com suporte](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data do comunicado. Novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nesse momento, a nova versão está disponível para escolha.
 
 Você pode configurar seu cluster para receber upgrades automáticos de fabric à medida que eles são liberados pela Microsoft ou você pode selecionar manualmente uma versão de estrutura suportada na qual deseja que seu cluster esteja. Para obter mais informações, leia [Atualize a versão do Service Fabric que é executada em seu cluster](service-fabric-cluster-upgrade-windows-server.md).
 

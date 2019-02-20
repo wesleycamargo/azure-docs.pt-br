@@ -1,26 +1,18 @@
 ---
-title: 'Planejamento e design de conexões entre locais: Gateway de VPN do Azure | Microsoft Docs'
+title: 'Planejamento e design das conexões entre locais: Gateway de VPN do Azure | Microsoft Docs'
 description: Saiba mais sobre o planejamento e design de Gateway de VPN para conexões entre locais, híbridas e VNet a VNet
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
-ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yushwang
+ms.openlocfilehash: 7802061ba09a30ca34ed3804ace846118c5edb9b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125474"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235352"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planejamento e design para o Gateway de VPN
 
@@ -30,7 +22,7 @@ Planejar e projetar suas conexões entre redes virtuais e entre locais pode ser 
 
 ### <a name="compare"></a>Opções de conectividade entre locais
 
-Caso você queira conectar seus sites locais com segurança a uma rede virtual, há três maneiras diferentes de fazer isso: Site a Site, Ponto a Site e o ExpressRoute. Compare as diferentes conexões entre locais que estão disponíveis. A opção escolhida pode depender de várias considerações, como:
+Caso você queira conectar seus sites locais com segurança a uma rede virtual, há três maneiras diferentes de fazer isso: Site a Site, Ponto a Site e ExpressRoute. Compare as diferentes conexões entre locais que estão disponíveis. A opção escolhida pode depender de várias considerações, como:
 
 * Que tipo de taxa de transferência sua solução exige?
 * Você deseja se comunicar através da Internet pública por meio de VPN segura ou através de uma conexão privada?

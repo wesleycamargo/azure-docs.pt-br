@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753292"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990063"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do Banco de Dados SQL do Azure
 
@@ -28,9 +28,9 @@ ms.locfileid: "55753292"
 ||Pool elástico|[Pool elástico](sql-database-elastic-pool.md)|
 ||Instância gerenciada|[Instância gerenciada](sql-database-managed-instance.md)|
 |Objetos do servidor|Servidor de Banco de Dados SQL ou o servidor de banco de dados|[Servidor de banco de dados](sql-database-servers.md)|
-||Instância gerenciada ou instância gerenciada do Banco de Dados SQL|[Instância gerenciada](sql-database-managed-instance.md)|
+||Servidor de instância gerenciada do Banco de Dados SQL, servidor de instância gerenciada ou servidor de instância|[Instância gerenciada](sql-database-managed-instance.md)|
 Objetos de banco de dados|Banco de Dados SQL Azure|Qualquer banco de dados no Banco de Dados SQL do Azure|
-||Banco de dados individual|Um banco de dados criado como um banco de dados autônomo usando a opção de implantação do banco de dados individual|
+||Banco de dados individual|Um banco de dados criado usando a opção de implantação do banco de dados individual|
 ||Banco de dados em pool|Um banco de dados criado ou movido para um pool elástico|
 ||Banco de dados de instância|Um banco de dados criado em uma instância gerenciada|
 ||Banco de dados básico|Um banco de dados criado em ou movido para a camada de serviço básica do modelo de compra baseado em DTU|
@@ -39,7 +39,7 @@ Objetos de banco de dados|Banco de Dados SQL Azure|Qualquer banco de dados no Ba
 ||Banco de dados de uso geral|Um banco de dados criado ou movido para a camada de serviço de uso geral do modelo de compra baseado em vCore|
 ||Banco de dados de hiperescala|Um banco de dados criado ou movido para a camada de serviço de hiperescala do modelo de compra baseado em vCore|
 ||Banco de dados comercialmente crítico|Um banco de dados criado ou movido para a camada de serviço comercialmente crítica do modelo de compra baseado em vCore|
-|[Recursos e modelos de compra](sql-database-service-tiers.md)|Modelo de compra com base em DTU|[Modelo de compra com base em DTU](sql-database-service-tiers-dtu.md)|
+|[Recursos e modelos de compra](sql-database-purchase-models.md)|Modelo de compra com base em DTU|[Modelo de compra com base em DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compra baseado em vCore|[Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Um núcleo fornecido para o SO convidado pelo hipervisor.|
 ||Camada de serviço|Um nível de serviço dentro de um modelo de compra|

@@ -2,7 +2,7 @@
 title: Inserindo um vídeo de Streaming Adaptável MPEG-DASH em um Aplicativo HTML5 com DASH.js | Microsoft Docs
 description: Este tópico demonstra como inserir um Vídeo de Streaming Adaptável MPEG-DASH em um Aplicativo HTML5 com DASH.js.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2b0e6bf643f55e1809b29def7766c58b59f4bb50
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783375"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998426"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Inserção de um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>Inserção de um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js (herdado)
+
 ## <a name="overview"></a>Visão geral
 O MPEG-DASH é um padrão ISO para a transmissão adaptativa de conteúdo de vídeo, o que oferece benefícios significativos para os desenvolvedores que desejam oferecer saída de streaming de vídeo adaptável de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta automaticamente para uma definição inferior quando a rede ficar congestionada. Dessa maneira, é menor a probabilidade de o vídeo ser pausado enquanto o player baixa os próximos segundos a serem reproduzidos (também conhecido como buffer). À medida que o congestionamento de rede é reduzido, o player de vídeo retorna para um fluxo de qualidade mais alta. Essa capacidade de adaptação da largura de banda necessária também resulta em um tempo de início mais rápido do vídeo. Isso significa que os primeiros segundos podem ser reproduzidos em um segmento de qualidade inferior para rápido download e, em seguida, o vídeo passará a ter uma qualidade mais alta assim que conteúdo suficiente tiver sido armazenado em buffer.
 

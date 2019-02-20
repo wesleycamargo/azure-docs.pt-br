@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de espaço de arquivo do Banco de Dados SQL do Azure | Microsoft Docs
-description: Esta página descreve como gerenciar o espaço no arquivo com o Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisa reduzir um banco de dados, além de como executar uma operação de redução do banco de dados.
+title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool do Banco de Dados SQL do Azure | Microsoft Docs
+description: Esta página descreve como gerenciar o espaço no arquivo com bancos de dados individuais e em pool no Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisará reduzir um banco de dados individual ou em pool, além de como executar uma operação de redução do banco de dados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,20 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468624"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110142"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Gerenciar espaço no arquivo no Banco de Dados SQL do Azure
-Este artigo descreve os diferentes tipos de espaço de armazenamento no Banco de Dados SQL do Azure e as etapas que podem ser executadas quando o espaço no arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado explicitamente.
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no Banco de Dados SQL do Azure
+
+Este artigo descreve os diferentes tipos de espaço de armazenamento para bancos de dados individuais e em pool no Banco de Dados SQL do Azure e as etapas que podem ser executadas quando o espaço no arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado explicitamente.
+
+> [!NOTE]
+> Este artigo faz não se aplica à opção de implantação de instância gerenciada no Banco de Dados SQL do Azure.
 
 ## <a name="overview"></a>Visão geral
 
-No Banco de Dados SQL do Azure, há padrões de carga de trabalho nos quais a alocação de arquivos de dados subjacentes para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usadas. Essa condição pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente. O motivo é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.
+Com bancos de dados individuais e em pool no Banco de Dados SQL do Azure, há padrões de carga de trabalho nos quais a alocação de arquivos de dados subjacentes para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usadas. Essa condição pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente. O motivo é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.
 
 O monitoramento do uso do espaço no arquivo e a redução dos arquivos de dados podem ser necessários nos seguintes cenários:
 
@@ -33,17 +37,20 @@ O monitoramento do uso do espaço no arquivo e a redução dos arquivos de dados
 - Permitir a alteração de um único banco de dados ou conjunto elástico para uma camada de serviço ou camada de desempenho diferente com um tamanho máximo menor.
 
 ### <a name="monitoring-file-space-usage"></a>Monitorando o uso de espaço de arquivo
+
 A maioria das métricas de espaço de armazenamento exibido no portal do Azure e as seguintes APIs apenas medir o tamanho das páginas de dados usados:
+
 - APIs de métricas baseadas no Azure Resource Manager, incluindo [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) do PowerShell
 - T-SQL: [sys.DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para os bancos de dados Elástico e de pools:
+
 - T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Redução de arquivos de dados
 
-O serviço Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [Recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space). 
+O serviço de Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > Ao contrário dos arquivos de dados, o serviço Banco de Dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dados. 
@@ -62,13 +69,14 @@ Noções básicas sobre as quantidades de espaço de armazenamento a seguir são
 
 O diagrama a seguir ilustra o relacionamento entre os tipos de espaço diferentes de espaço de armazenamento para um banco de dados.
 
-![relações e tipos de espaço de armazenamento](./media/sql-database-file-space-management/storage-types.png) 
+![relações e tipos de espaço de armazenamento](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Consultar um banco de dados para informações de espaço de armazenamento
+## <a name="query-a-single-database-for-storage-space-information"></a>Consultar um banco de dados individual para informações de espaço de armazenamento
 
-As consultas a seguir podem ser usadas para determinar as quantidades de espaço de armazenamento para um banco de dados.  
+As consultas a seguir podem ser usadas para determinar as quantidades de espaço de armazenamento para um banco de dados individual.  
 
 ### <a name="database-data-space-used"></a>Espaço de dados do banco de dados usado
+
 Modifique a consulta a seguir para retornar a quantidade de espaço para dados do banco de dados usado.  Unidades do resultado da consulta são em MB.
 
 ```sql
@@ -81,6 +89,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de banco de dados alocado e espaço alocado não usado
+
 Use a seguinte consulta para retornar a quantidade de espaço de dados do banco de dados alocado e a quantidade de espaço não utilizado alocada.  Unidades do resultado da consulta são em MB.
 
 ```sql
@@ -94,6 +103,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Tamanho máximo de dados de banco de dados
+
 Modifique a consulta a seguir para retornar o tamanho máximo do banco de dados.  Unidades do resultado da consulta são em bytes.
 
 ```sql
@@ -137,7 +147,7 @@ Modifique o seguinte script do PowerShell para retornar uma tabela listando o es
 
 Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
 
-O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) para instalar.
+O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
 
 ```powershell
 # Resource group name
@@ -218,7 +228,7 @@ Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](http
 
 ### <a name="auto-shrink"></a>A redução automática
 
-Como alternativa, a redução automática pode ser ativada para um banco de dados.  O encolhimento automático reduz a complexidade do gerenciamento de arquivos e é menos impactante para o desempenho do banco de dados do que o SHRINKDATABASE ou o SHRINKFILE.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação de espaço no arquivo do que SHRINKDATABASE e SHRINKFILE.
+Como alternativa, a redução automática pode ser ativada para um banco de dados.  A redução automática reduz a complexidade do gerenciamento de arquivos e é menos impactante para o desempenho do banco de dados do que o `SHRINKDATABASE` ou `SHRINKFILE`.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação de espaço no arquivo do que `SHRINKDATABASE` e `SHRINKFILE`.
 Para ativar a redução automática, modifique o nome do banco de dados no comando a seguir.
 
 

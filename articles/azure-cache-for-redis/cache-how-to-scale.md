@@ -1,25 +1,25 @@
 ---
 title: Como dimensionar o Cache Redis do Azure | Microsoft Docs
 description: Saiba como dimensionar suas instâncias do Cache Redis do Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
-ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105195"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235565"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -69,9 +69,12 @@ Além de dimensionar as instâncias do cache no Portal do Azure, você pode dime
 * [Dimensionar usando MAML](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Dimensionar usando o PowerShell
-É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Para saber mais sobre o dimensionamento com o PowerShell, consulte [Para dimensionar um Cache Redis do Azure usando Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 

@@ -3,9 +3,8 @@ title: Gerenciar o acesso a aplicativos de nuvem restringindo locatários – Az
 description: Como usar Restrições de Locatário para gerenciar quais usuários podem acessar aplicativos com base em seu locatário do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: yossib
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: richagi
-ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2dc03b329ce8a4b42f44b958aee96654dafb098
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163085"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197735"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar Restrições de Locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -89,7 +89,7 @@ Esta seção mostra a experiência para usuários finais e administradores.
 
 ### <a name="end-user-experience"></a>Experiência do usuário final
 
-Um usuário de exemplo está na rede da Contoso, mas está tentando acessar a instância da Fabrikam de um aplicativo de SaaS compartilhado como o Outlook online. Se a Fabricam for um locatário não permitido para a instância da Contoso, o usuário verá a seguinte página:
+Um usuário de exemplo está na rede da Contoso, mas está tentando acessar a instância da Fabrikam de um aplicativo de SaaS compartilhado como o Outlook online. Se a Fabrikam for um locatário não permitido para a instância da Contoso, o usuário verá a seguinte página:
 
 ![Página de acesso negado para usuários em locatários não permitido](./media/tenant-restrictions/end-user-denied.png)
 

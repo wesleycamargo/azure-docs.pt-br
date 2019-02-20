@@ -10,18 +10,19 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: bc0a4d4ce13c4013d634748503f98451e5fae9be
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3d565d2215ac84d42b6682f4c4a52dd87278a70a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216142"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206830"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
 Ao configurar a federação com o Google, você pode permitir que os usuários convidados entrem em seus aplicativos e recursos compartilhados usando as próprias contas do Google, sem precisar criar Contas da Microsoft (contas de serviço gerenciado) ou contas do Azure AD.  
 > [!NOTE]
-> Os usuários convidados do Google precisam entrar usando um link que inclua o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>` ou no caso de um domínio padrão verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, o uso de `https://myapps.microsoft.com`, `https://portal.azure.com` ou do ponto de extremidade comum das Equipes resultará em erro.
+> Os usuários convidados do Google precisam entrar usando um link que inclua o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio padrão verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, o uso de `https://myapps.microsoft.com`, `https://portal.azure.com` ou do ponto de extremidade comum das Equipes resultará em erro.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Qual é a experiência do usuário do Google?
 Quando você envia um convite para um usuário do Google Gmail, o usuário convidado deve acessar seus aplicativos ou recursos compartilhados utilizando um link que inclui o contexto do locatário. A experiência varia dependendo de a conexão ao Google já ter ocorrido ou não:

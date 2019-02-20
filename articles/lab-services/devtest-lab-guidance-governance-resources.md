@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262067"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244123"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governança da infraestrutura do Azure DevTest Labs – Recursos
 Este artigo aborda o alinhamento e o gerenciamento de recursos para o DevTest Labs em sua organização. 
@@ -75,7 +76,7 @@ Você também pode usar um laboratório para um projeto específico em projetos 
 Como podemos evitar a exclusão de recursos dentro de um laboratório?
 
 ### <a name="answer"></a>Resposta
-É recomendável que você defina permissões apropriadas no nível do laboratório, para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **Usuários do DevTest Labs**. O desenvolvedor líder ou o líder de infraestrutura deve ser o **Proprietário do DevTest Labs**. É recomendável que você tenha apenas dois proprietários de laboratório. Essa política se estende ao repositório de código para evitar corrupção. Usuários do laboratório têm direitos para usar recursos, mas não podem atualizar políticas de laboratório. Confira o artigo a seguir, que lista as funções e os direitos de cada grupo interno em um laboratório: [Adicionar proprietários e usuários no Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+É recomendável que você defina permissões apropriadas no nível do laboratório, para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **Usuários do DevTest Labs**. O desenvolvedor líder ou o líder de infraestrutura deve ser o **Proprietário do DevTest Labs**. É recomendável que você tenha apenas dois proprietários de laboratório. Essa política se estende ao repositório de código para evitar corrupção. Usuários do laboratório têm direitos para usar recursos, mas não podem atualizar políticas de laboratório. Confira o artigo a seguir, que lista as funções e os direitos de cada grupo interno tem em um laboratório: [Adicionar proprietários e usuários ao Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## <a name="move-lab-to-another-resource-group"></a>Mover laboratório para outro grupo de recursos 
 

@@ -4,7 +4,7 @@ description: Este artigo fornece um conjunto de melhores práticas de segurança
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391222"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114698"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -173,7 +173,7 @@ Há duas etapas básicas para configurar um cofre de chaves:
 
     O cofre de chaves deve ser habilitado para a implantação. O provedor de recursos de computação, em seguida, pode obter os certificados do cofre e instalá-los em instâncias de VM.
 
-Para saber mais sobre como configurar o cofre de chaves, confira [Introdução ao Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
 Depois de criar os aplicativos para representar seu cluster, atribua os usuários às funções com suporte no Service Fabric para leitura e administrador. É possível atribuir essas funções usando o Portal do Azure.

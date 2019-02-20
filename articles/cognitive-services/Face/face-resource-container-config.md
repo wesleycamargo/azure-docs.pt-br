@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Definições de configuração para contêineres.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 218343db4d8ac7e35f58951ee177f5c288aed3d9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a70c200f0260d87d35eae8728ed1f908e7061f32
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476410"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979098"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar contêineres do Docker de Detecção Facial
 
@@ -45,7 +45,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A configuração `Billing` especifica o URI de ponto de extremidade do recurso de _Detecção Facial_ no Azure usado para medir informações de cobrança para o contêiner. Você precisa especificar um valor para esta definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Detecção Facial_ no Azure.
+A configuração `Billing` especifica o URI de ponto de extremidade do recurso de _Detecção Facial_ no Azure usado para medir informações de cobrança para o contêiner. Você precisa especificar um valor para esta definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Detecção Facial_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
@@ -53,7 +53,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 |Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
-|SIM| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -112,7 +112,7 @@ Os seguintes exemplos do Docker são para o contêiner de Detecção Facial.
 
 ### <a name="basic-example"></a>Exemplo básico 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -122,7 +122,7 @@ Os seguintes exemplos do Docker são para o contêiner de Detecção Facial.
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemplo de registro em log com argumentos de linha de comando
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -131,7 +131,7 @@ Os seguintes exemplos do Docker são para o contêiner de Detecção Facial.
 
 ### <a name="logging-example-with-environment-variable"></a>Exemplo de registro em log com variável de ambiente
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

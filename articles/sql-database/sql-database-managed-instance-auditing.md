@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728990"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894387"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à Auditoria da instância gerenciada do Banco de Dados SQL do Azure
 
@@ -154,7 +154,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
 Para informações adicionais:
 
-- [Diferenças de auditoria entre bancos de dados individuais, pools elásticos e instâncias gerenciadas no Banco de Dados SQL do Azure e em bancos de dados do SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Diferenças de auditoria entre bancos de dados individuais, pools elásticos e instâncias gerenciadas no Banco de Dados SQL do Azure e em bancos de dados do SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CRIAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTERAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,13 +223,13 @@ O Log Analytics fornece análises operacionais em tempo real usando pesquisa int
 
 As principais diferenças entre a auditoria em bancos de dados no Banco de Dados SQL do Azure e em bancos de dados no SQL Server são:
 
-- Com a opção de implantação de instância gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena arquivos de log `.xel` em uma conta do Armazenamento de Blobs do Azure.
+- Com a opção de implantação de instância gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena os arquivos de log `.xel` no armazenamento de Blobs do Azure.
 - Com as opções de implantação de banco de dados individual e pool elástico no Banco de Dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - No SQL Server local/em máquinas virtuais, a auditoria funciona no nível do servidor, mas armazena os eventos em logs de eventos do Windows/do sistema de arquivos.
 
-A auditoria XEvent na Instância Gerenciada dá suporte a destinos de armazenamento de blobs do Azure. **Não há suporte** para logs de arquivo e do Windows.
+A auditoria XEvent na instância gerenciada dá suporte aos destinos do armazenamento de Blobs do Azure. **Não há suporte** para logs de arquivo e do Windows.
 
-As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de blobs do Azure são:
+As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de Blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de blobs do Azure onde arquivos `.xel` são colocados.
 - Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para permitir destinos no Hub de Eventos e no Log Analytics.

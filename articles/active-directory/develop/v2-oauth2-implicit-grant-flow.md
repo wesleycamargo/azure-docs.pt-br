@@ -17,12 +17,13 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c569d1be9a301b2282ad1b4fd6e21130f7de2575
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec47e6d52a3aef8533a3d16f0f81693b8f01f3cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103523"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205045"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos v2.0 - SPAs que usam o fluxo implícito
 
@@ -79,7 +80,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id` | obrigatório |A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuiu ao aplicativo. |
 | `response_type` | obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir o response_type `token`. O uso de `token` aqui permitirá que seu aplicativo receba imediatamente um token de acesso do ponto de extremidade de autorização sem precisar fazer uma segunda solicitação ao ponto de extremidade de autorização. Se você usar o response_type de `token`, o parâmetro `scope` deverá conter um escopo indicando para quais recursos o token será emitido. |
 | `redirect_uri` | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. |
-| `scope` | obrigatório |Uma lista de escopos separados por espaços. Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento. Como opção, convém incluir[ escopos](v2-permissions-and-consent.md) `email`ou `profile` para obter acesso a dados adicionais do usuário. Você também pode incluir outros escopos nessa solicitação a fim de solicitar o consentimento a vários recursos. |
+| `scope` | obrigatório |Uma lista de [escopos](v2-permissions-and-consent.md) separados por espaços. Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento. Como opção, convém incluir os escopos `email` ou `profile` para obter acesso a dados adicionais do usuário. Você também pode incluir outros escopos nessa solicitação a fim de solicitar o consentimento a vários recursos. |
 | `response_mode` | opcional |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo. O padrão é consulta de um token de acesso, mas um fragmento caso a solicitação inclua um id_token. |
 | `state` | recomendável |Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 | `nonce` | obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. Necessário somente quando um id_token é solicitado. |
@@ -100,7 +101,7 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fmail.read 
+&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
@@ -156,7 +157,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations
@@ -166,9 +167,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 Para obter detalhes sobre os parâmetros de consulta na URL, consulte [enviar a solicitação de entrada](#send-the-sign-in-request).
 
 > [!TIP]
-> Tente copiar e colar a solicitação abaixo em uma guia do navegador! (Não se esqueça de substituir os valores `domain_hint` e `login_hint` pelos valores corretos para o seu usuário)
+> Tente copiar e colar a solicitação abaixo em uma guia do navegador! (Não se esqueça de substituir os valores `login_hint` pelos valores corretos para o seu usuário)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint=your-username`
 >
 
 Graças ao parâmetro `prompt=none` , essa solicitação terá êxito ou falhará imediatamente e retornará ao seu aplicativo. Uma resposta bem-sucedida será enviada ao seu aplicativo no `redirect_uri` indicado, usando o método especificado no parâmetro `response_mode`.

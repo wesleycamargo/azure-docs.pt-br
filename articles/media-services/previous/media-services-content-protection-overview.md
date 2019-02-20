@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249907"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992239"
 ---
-# <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo
- É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
+# <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo 
+
+ É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
 
 A seguinte imagem ilustra o fluxo de trabalho de proteção de conteúdo dos Serviços de Mídia: 
 
@@ -80,9 +81,9 @@ As seguintes considerações se aplicam:
 * O tipo de criptografia não precisa ser especificado na URL se apenas uma criptografia foi aplicada no ativo.
 * O tipo de criptografia diferencia as letras maiúsculas de minúsculas.
 * Os seguintes tipos de criptografia podem ser especificados:
-  * **cenc**: para PlayReady ou Widevine (criptografia comum)
-  * **cbcs-aapl**: para FairPlay (criptografia AES CBC)
-  * **cbc**: para criptografia de envelope AES
+  * **cenc**: Para PlayReady ou Widevine (criptografia comum)
+  * **cbcs-aapl**: Para FairPlay (criptografia AES CBC)
+  * **cbc**: Para criptografia de envelope AES
 
 ## <a name="next-steps"></a>Próximas etapas
 Os artigos a seguir descrevem as próximas etapas para ajudar na introdução à proteção de conteúdo:

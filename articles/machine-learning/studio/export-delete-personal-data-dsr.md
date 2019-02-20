@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462181"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994936"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar e excluir dados do usuário no produto do Azure Machine Learning Studio
 
@@ -53,7 +53,7 @@ Há três tipos de contas no Machine Learning Studio. O tipo de conta que você 
     - É possível exportar dados pessoais e de clientes por meio da interface do usuário, APIs REST ou pacote do PowerShell
     - É possível excluir os dados no portal do Azure.
 
-## <a name="delete-workspace-data-in-studio"></a>Excluir dados do workspace no Studio 
+## <a name="delete"></a>Excluir dados do workspace no Studio 
 
 ### <a name="delete-individual-assets"></a>Excluir recursos individuais
 

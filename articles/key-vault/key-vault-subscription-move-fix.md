@@ -4,7 +4,7 @@ description: Saiba como mudar a ID de locatário para um cofre de chaves depois 
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: ea6fc4b155075084150d5bb732f3f8a08846974f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a83bff5a494ce338f43b6e967df5fe67cacfab01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074301"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112182"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar a ID de locatário do cofre de chaves depois de mover uma assinatura
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: Minha assinatura foi movida do locatário A para o locatário B. Como posso alterar a ID do locatário para o cofre de chaves existente e definir as ACLs corretas para as entidades de segurança no locatário B?
 
@@ -33,17 +35,17 @@ Quando você cria um novo cofre de chaves em uma assinatura, ele é vinculado au
 Por exemplo, se você tiver o cofre de chaves 'myvault' em uma assinatura que foi movida do locatário A para o B, veja como mudar a ID de locatário para o cofre de chaves e remover as antigas políticas de acesso.
 
 <pre>
-Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
+Select-AzSubscription -SubscriptionId YourSubscriptionID
+$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId
+$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties
+$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId
 $vault.Properties.AccessPolicies = @()
-Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Já que o cofre estava no locatário A antes da mudança, o valor original de **$vault. Properties.TenantId** é locatário A e **(Get-AzureRmContext).Tenant.TenantId** é locatário B.
+Já que o cofre estava no locatário A antes da mudança, o valor original de **$vault.Properties.TenantId** é o locatário A e **(Get-AzContext).Tenant.TenantId** é o locatário B.
 
-Agora que o cofre está associado à ID de locatário correta e as entradas de política de acesso antigas foram removidas, defina novas entradas de política de acesso com [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy).
+Agora que o cofre está associado à ID de locatário correta e as antigas entradas da política de acesso foram removidas, defina novas entradas da política de acesso com [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy).
 
 ## <a name="next-steps"></a>Próximas etapas
 

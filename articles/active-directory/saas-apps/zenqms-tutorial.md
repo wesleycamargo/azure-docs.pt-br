@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o ZenQMS | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ZenQMS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ZenQMS.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 57a8c698133b2b5516a1f5d352f28148afe6f3d2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447296"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204858"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: integração do Azure Active Directory com o ZenQMS
+# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integração do Azure Active Directory com o ZenQMS
 
 Neste tutorial, você aprende a integrar o ZenQMS ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure Active Directory com o ZenQMS, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do ZenQMS
 
 > [!NOTE]
@@ -51,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do ZenQMS da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -110,7 +111,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Informações de logon único de Domínio e URLs do ZenQMS](./media/zenqms-tutorial/tutorial_zenqms_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:zenqms:<INSTANCE>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:zenqms:<INSTANCE>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<INSTANCE>.zenqms.com/SAML/AssertionConsumerService`
 
@@ -172,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-zenqms-test-user"></a>Criar um usuário de teste do ZenQMS
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no ZenQMS. Trabalhe com a [equipe de suporte do ZenQMS](mailto:help@zenqms.com) para adicionar os usuários na plataforma do ZenQMS. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no ZenQMS. Trabalhe com a  [equipe de suporte do ZenQMS](mailto:help@zenqms.com) para adicionar os usuários na plataforma do ZenQMS. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -209,7 +210,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco ZenQMS no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo ZenQMS.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

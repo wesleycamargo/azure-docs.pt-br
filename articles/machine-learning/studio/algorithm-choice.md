@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244463"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244786"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos do Azure Machine Learning Studio
 
@@ -41,12 +41,10 @@ Leia os rótulos do caminho e do algoritmo no gráfico, como “Para *&lt;rótul
 Às vezes, nenhuma delas é a solução perfeita. Elas se destinam a serem recomendações gerais, portanto não se preocupe com a exatidão delas.
 Vários cientistas dados com quem conversei disseram que a única maneira de encontrar o melhor algoritmo é experimentar todos eles.
 
-Veja um exemplo da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de um experimento que testa vários algoritmos nos mesmos dados e compare os resultados: [Compare os classificadores multiclasse: Reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Veja um exemplo da [Galeria de IA do Azure](http://gallery.azure.ai/) de um experimento que testa vários algoritmos nos mesmos dados e compare os resultados: [Compare os classificadores multiclasse: Reconhecimento de letra](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio, consulte [Diagrama de visão geral dos recursos do Azure Machine Learning Studio](studio-overview-diagram.md).
-> 
-> 
+> Para baixar uma visão geral infográfica e fácil de entender dos conceitos básicos do aprendizado de máquina para saber mais sobre os algoritmos populares usados para responder a perguntas comuns desse aprendizado, confira [Conceitos básicos do aprendizado de máquina com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md).
 
 ## <a name="flavors-of-machine-learning"></a>Tipos de aprendizado de máquina
 
@@ -242,13 +240,11 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter um infográfico para download que descreve algoritmos e fornece exemplos, confira [Infográfico para download: Conceitos básicos do aprendizado de máquina com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md).
+* Para baixar uma visão geral infográfica e fácil de entender dos conceitos básicos do aprendizado de máquina para saber mais sobre os algoritmos populares usados para responder a perguntas comuns desse aprendizado, confira [Conceitos básicos do aprendizado de máquina com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md).
 
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio, consulte [Inicializar Modelo](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) na Ajuda de Algoritmo e Módulo do Machine Learning Studio.
 
 * Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio, consulte a [Lista de A-Z de módulos do Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) na Ajuda de módulo e algoritmo do Machine Learning Studio.
-
-* Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio, consulte [Diagrama de visão geral dos recursos do Azure Machine Learning Studio](studio-overview-diagram.md).
 
 <!-- Media -->
 

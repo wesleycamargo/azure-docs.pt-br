@@ -7,71 +7,77 @@ items:
     href: introduction.md
 - name: Guia de início rápido
   items:
-  - name: SQL
-    items:
-    - name: .NET
-      href: create-sql-api-dotnet.md
-    - name: Versão prévia do .NET
-      href: create-sql-api-dotnet-preview.md
-    - name: Java
-      href: create-sql-api-java.md
-    - name: Node.js
-      href: create-sql-api-nodejs.md
-    - name: Python
-      href: create-sql-api-python.md
-    - name: Xamarin
-      href: create-sql-api-xamarin-dotnet.md
-  - name: API do Azure Cosmos DB para MongoDB
-    items:
-    - name: .NET
-      href: create-mongodb-dotnet.md
-    - name: Java
-      href: create-mongodb-java.md
-    - name: Node.js
-      href: create-mongodb-nodejs.md
-    - name: Python
-      href: create-mongodb-flask.md
-    - name: Xamarin
-      href: create-mongodb-xamarin.md
-    - name: Golang
-      href: create-mongodb-golang.md
-  - name: Gremlin
-    items:
-    - name: Console do Gremlin
-      href: create-graph-gremlin-console.md
-    - name: .NET
-      href: create-graph-dotnet.md
-    - name: Java
-      href: create-graph-java.md
-    - name: Node.js
-      href: create-graph-nodejs.md
-    - name: Python
-      href: create-graph-python.md
-    - name: PHP
-      href: create-graph-php.md
-  - name: Cassandra
-    items:
-    - name: .NET
-      href: create-cassandra-dotnet.md
-    - name: Java
-      href: create-cassandra-java.md
-    - name: Node.js
-      href: create-cassandra-nodejs.md
-    - name: Python
-      href: create-cassandra-python.md
-  - name: Tabela
-    items:
-    - name: .NET
-      href: create-table-dotnet.md
-    - name: Java
-      href: create-table-java.md
-    - name: Node.js
-      href: create-table-nodejs.md
-    - name: Python
-      href: create-table-python.md
+  - name: .NET
+    href: create-sql-api-dotnet.md
+  - name: Versão prévia do .NET
+    href: create-sql-api-dotnet-preview.md
+  - name: Java
+    href: create-sql-api-java.md
+  - name: Node.js
+    href: create-sql-api-nodejs.md
+  - name: Python
+    href: create-sql-api-python.md
+  - name: Xamarin
+    href: create-sql-api-xamarin-dotnet.md
   expanded: true
+- name: Tutoriais
+  items:
+  - name: 1 - Criar conta
+    items:
+    - name: Compilar o aplicativo de console
+      items:
+      - name: .NET
+        href: sql-api-get-started.md
+      - name: Versão prévia do .NET
+        href: sql-api-dotnet-get-started-preview.md
+      - name: .NET Core
+        href: sql-api-dotnetcore-get-started.md
+      - name: Versão prévia do .NET Core
+        href: sql-api-dotnet-core-get-started-preview.md
+      - name: Java
+        href: sql-api-java-get-started.md
+      - name: Async Java
+        href: sql-api-async-java-get-started.md
+      - name: Node.js
+        href: sql-api-nodejs-get-started.md
+    - name: Compilar um aplicativo Web
+      items:
+      - name: .NET
+        href: sql-api-dotnet-application.md
+      - name: Versão prévia do .NET
+        href: sql-api-dotnet-application-preview.md
+      - name: Java
+        href: sql-api-java-application.md
+      - name: Node.js
+        href: sql-api-nodejs-application.md
+      - name: Xamarin
+        href: mobile-apps-with-xamarin.md
+  - name: 2 - Migrar dados
+    href: import-data.md
+  - name: 3 - Consultar dados
+    href: tutorial-query-sql-api.md
+  - name: 4- Distribuir dados globalmente
+    href: tutorial-global-distribution-sql-api.md
+- name: Exemplos
+  items:
+  - name: Amostras do .NET
+    href: sql-api-dotnet-samples.md
+  - name: Exemplos do Java
+    href: sql-api-java-samples.md
+  - name: Amostras de Java assíncronos
+    href: sql-api-async-java-samples.md
+  - name: Exemplos do Node.js
+    href: sql-api-nodejs-samples.md
+  - name: Exemplos em Python
+    href: sql-api-python-samples.md
+  - name: PowerShell
+    href: powershell-samples.md
+  - name: CLI do Azure
+    href: cli-samples.md
 - name: Conceitos
   items:
+  - name: Dados de documento modelo
+    href: modeling-data.md
   - name: Distribuição global
     items:
     - name: Visão geral
@@ -190,122 +196,28 @@ items:
       href: online-backup-and-restore.md
     - name: Conformidade
       href: compliance.md
-- name: APIs de vários modelos
+- name: Cassandra, MongoDB e outras APIs
   items:
-  - name: API do SQL
-    items:
-    - name: Dados de documento modelo
-      href: modeling-data.md
-    - name: Tutoriais
-      items:
-      - name: 1 - Criar conta
-        items:
-        - name: Compilar o aplicativo de console
-          items:
-          - name: .NET
-            href: sql-api-get-started.md
-          - name: Versão prévia do .NET
-            href: sql-api-dotnet-get-started-preview.md
-          - name: .NET Core
-            href: sql-api-dotnetcore-get-started.md
-          - name: Versão prévia do .NET Core
-            href: sql-api-dotnet-core-get-started-preview.md
-          - name: Java
-            href: sql-api-java-get-started.md
-          - name: Async Java
-            href: sql-api-async-java-get-started.md
-          - name: Node.js
-            href: sql-api-nodejs-get-started.md
-        - name: Compilar um aplicativo Web
-          items:
-          - name: .NET
-            href: sql-api-dotnet-application.md
-          - name: Versão prévia do .NET
-            href: sql-api-dotnet-application-preview.md
-          - name: Java
-            href: sql-api-java-application.md
-          - name: Node.js
-            href: sql-api-nodejs-application.md
-          - name: Xamarin
-            href: mobile-apps-with-xamarin.md
-      - name: 2 - Migrar dados
-        href: import-data.md
-      - name: 3 - Consultar dados
-        href: tutorial-query-sql-api.md
-      - name: 4- Distribuir dados globalmente
-        href: tutorial-global-distribution-sql-api.md
-    - name: Exemplos
-      items:
-      - name: Amostras do .NET
-        href: sql-api-dotnet-samples.md
-      - name: Exemplos do Java
-        href: sql-api-java-samples.md
-      - name: Amostras de Java assíncronos
-        href: sql-api-async-java-samples.md
-      - name: Exemplos do Node.js
-        href: sql-api-nodejs-samples.md
-      - name: Exemplos em Python
-        href: sql-api-python-samples.md
-      - name: PowerShell
-        href: powershell-samples.md
-      - name: CLI do Azure
-        href: cli-samples.md
-    - name: Guias de instruções
-      items:
-      - name: Desempenho de consulta de ajuste
-        href: sql-api-query-metrics.md
-      - name: Tipos de dados
-        items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: Geoespacial
-          href: geospatial.md
-        - name: Executor em massa - Biblioteca do .NET
-          href: bulk-executor-dot-net.md
-        - name: Executor em massa - Biblioteca Java
-          href: bulk-executor-java.md
-      - name: Desenvolvimento Java
-        items:
-        - name: Usar o iniciador do Spring Boot
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
-        - name: Usar a API do Spring Data Apache Cassandra
-          href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-        - name: Usar o iniciador do Spring Data Gremlin
-          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
-        - name: Usar a API do Spring Data MongoDB
-          href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-    - name: Referência
-      items:
-      - name: .NET
-        href: sql-api-sdk-dotnet.md
-      - name: .NET Core
-        href: sql-api-sdk-dotnet-core.md
-      - name: Biblioteca do feed de alterações do .NET
-        href: sql-api-sdk-dotnet-changefeed.md
-      - name: Biblioteca do executor em massa do .NET
-        href: sql-api-sdk-bulk-executor-dot-net.md
-      - name: Java
-        href: sql-api-sdk-java.md
-      - name: Biblioteca do executor em massa Java
-        href: sql-api-sdk-bulk-executor-java.md
-      - name: Async Java
-        href: sql-api-sdk-async-java.md
-      - name: Node.js
-        href: sql-api-sdk-node.md
-      - name: Python
-        href: sql-api-sdk-python.md
-      - name: REST
-        href: /rest/api/cosmos-db/
-      - name: Provedor de Recursos REST
-        href: /rest/api/cosmos-db-resource-provider/
-      - name: Modelo do Resource Manager
-        href: /azure/templates/microsoft.documentdb/databaseaccounts
   - name: API do Azure Cosmos DB para MongoDB
     items:
     - name: Introdução
       href: mongodb-introduction.md
     - name: Suporte de protocolo de transmissão
       href: mongodb-feature-support.md
+    - name: Guia de início rápido
+      items:
+      - name: .NET
+        href: create-mongodb-dotnet.md
+      - name: Java
+        href: create-mongodb-java.md
+      - name: Node.js
+        href: create-mongodb-nodejs.md
+      - name: Python
+        href: create-mongodb-flask.md
+      - name: Xamarin
+        href: create-mongodb-xamarin.md
+      - name: Golang
+        href: create-mongodb-golang.md
     - name: Tutoriais
       items:
       - name: 1 - Criar conta
@@ -350,12 +262,29 @@ items:
         href: mongodb-time-to-live.md
       - name: Gerenciar indexação de dados
         href: mongodb-indexing.md
+      - name: Armazenar e gerenciar dados do Spring
+        href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
+        maintainContext: true
   - name: API do Gremlin
     items:
     - name: Introdução
       href: graph-introduction.md
     - name: Suporte de protocolo de transmissão
       href: gremlin-support.md
+    - name: Guia de início rápido
+      items:
+      - name: Console do Gremlin
+        href: create-graph-gremlin-console.md
+      - name: .NET
+        href: create-graph-dotnet.md
+      - name: Java
+        href: create-graph-java.md
+      - name: Node.js
+        href: create-graph-nodejs.md
+      - name: Python
+        href: create-graph-python.md
+      - name: PHP
+        href: create-graph-php.md
     - name: Tutoriais
       items:
       - name: 1 - Consultar dados
@@ -366,12 +295,25 @@ items:
         href: bulk-executor-graph-dotnet.md
       - name: Particionamento de dados do Graph
         href: graph-partitioning.md
+      - name: Armazenar e gerenciar dados do Spring
+        href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
+        maintainContext: true
   - name: API Cassandra
     items:
     - name: Introdução
       href: cassandra-introduction.md
     - name: Suporte de protocolo de transmissão
       href: cassandra-support.md
+    - name: Guia de início rápido
+      items:
+      - name: .NET
+        href: create-cassandra-dotnet.md
+      - name: Java
+        href: create-cassandra-java.md
+      - name: Node.js
+        href: create-cassandra-nodejs.md
+      - name: Python
+        href: create-cassandra-python.md
     - name: Tutoriais
       items:
       - name: 1 - Criar conta e banco de dados
@@ -382,32 +324,47 @@ items:
         href: cassandra-api-query-data.md
       - name: 4 - Migrar dados
         href: cassandra-import-data.md
-    - name: Cassandra e Spark
+    - name: Guias de instruções
       items:
-      - name: Introdução
-        href: cassandra-spark-generic.md
-      - name: Conectar-se usando o Databricks
-        href: cassandra-spark-databricks.md
-      - name: Conectar-se usando o HDInsight
-        href: cassandra-spark-hdinsight.md
-      - name: Criar keyspace e tabela
-        href: cassandra-spark-ddl-ops.md
-      - name: Inserir dados
-        href: cassandra-spark-create-ops.md
-      - name: Ler dados
-        href: cassandra-spark-read-ops.md
-      - name: Upsert data
-        href: cassandra-spark-upsert-ops.md
-      - name: Excluir dados
-        href: cassandra-spark-delete-ops.md
-      - name: Operações de agregação
-        href: cassandra-spark-aggregation-ops.md
-      - name: Copiar dados da tabela
-        href: cassandra-spark-table-copy-ops.md
+      - name: Armazenar e gerenciar dados do Spring
+        href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+        maintainContext: true
+      - name: Cassandra e Spark
+        items:
+        - name: Introdução
+          href: cassandra-spark-generic.md
+        - name: Conectar-se usando o Databricks
+          href: cassandra-spark-databricks.md
+        - name: Conectar-se usando o HDInsight
+          href: cassandra-spark-hdinsight.md
+        - name: Criar keyspace e tabela
+          href: cassandra-spark-ddl-ops.md
+        - name: Inserir dados
+          href: cassandra-spark-create-ops.md
+        - name: Ler dados
+          href: cassandra-spark-read-ops.md
+        - name: Upsert data
+          href: cassandra-spark-upsert-ops.md
+        - name: Excluir dados
+          href: cassandra-spark-delete-ops.md
+        - name: Operações de agregação
+          href: cassandra-spark-aggregation-ops.md
+        - name: Copiar dados da tabela
+          href: cassandra-spark-table-copy-ops.md
   - name: API de Tabela
     items:
     - name: Introdução
       href: table-introduction.md
+    - name: Guia de início rápido
+      items:
+      - name: .NET
+        href: create-table-dotnet.md
+      - name: Java
+        href: create-table-java.md
+      - name: Node.js
+        href: create-table-nodejs.md
+      - name: Python
+        href: create-table-python.md
     - name: Tutoriais
       items:
       - name: 1 - Criar conta
@@ -418,12 +375,6 @@ items:
         href: tutorial-query-table.md
       - name: 4- Distribuir dados globalmente
         href: tutorial-global-distribution-table.md
-    - name: Guias de instruções
-      items:
-      - name: Compilar aplicativos com a API de tabela
-        href: table-support.md
-      - name: Guia de criação de armazenamento de tabelas
-        href: table-storage-design-guide.md
     - name: Exemplos
       items:
       - name: .NET
@@ -442,6 +393,12 @@ items:
         href: table-storage-how-to-use-ruby.md
       - name: F#
         href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    - name: Guias de instruções
+      items:
+      - name: Compilar aplicativos com a API de tabela
+        href: table-support.md
+      - name: Guia de criação de armazenamento de tabelas
+        href: table-storage-design-guide.md
     - name: Referência
       items:
       - name: .NET
@@ -543,10 +500,18 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Configurar o pipeline de CI/CD do Azure DevOps
     href: tutorial-setup-ci-cd.md
+  - name: Tipos de dados
+    items:
+    - name: DateTime
+      href: working-with-dates.md
+    - name: Geoespacial
+      href: geospatial.md
   - name: Práticas recomendadas
     items:
     - name: Dicas de desempenho
       items:
+      - name: Desempenho de consulta de ajuste
+        href: sql-api-query-metrics.md
       - name: Dicas de desempenho para o SDK do .NET
         href: performance-tips.md
       - name: Dicas de desempenho para o SDK do Java
@@ -586,7 +551,8 @@ items:
     - name: Hubs de Eventos do Azure e Armazenamento do Azure
       href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
     - name: Usar iniciador do Spring Boot
-      href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+      maintainContext: true
     - name: Arquitetura lambda
       href: lambda-architecture.md
     - name: Azure Databricks (conector do Spark)
@@ -599,10 +565,40 @@ items:
     items:
     - name: Sobre a biblioteca do executor em passa
       href: bulk-executor-overview.md
+    - name: Executor em massa - Biblioteca do .NET
+      href: bulk-executor-dot-net.md
+    - name: Executor em massa - Biblioteca Java
+      href: bulk-executor-java.md
   - name: Solucionar problemas
     items:
     - name: Solucionar problemas de SDK do Java Assíncrono
       href: troubleshoot-java-async-sdk.md
+- name: Referência
+  items:
+  - name: .NET
+    href: sql-api-sdk-dotnet.md
+  - name: .NET Core
+    href: sql-api-sdk-dotnet-core.md
+  - name: Biblioteca do feed de alterações do .NET
+    href: sql-api-sdk-dotnet-changefeed.md
+  - name: Biblioteca do executor em massa do .NET
+    href: sql-api-sdk-bulk-executor-dot-net.md
+  - name: Java
+    href: sql-api-sdk-java.md
+  - name: Biblioteca do executor em massa Java
+    href: sql-api-sdk-bulk-executor-java.md
+  - name: Async Java
+    href: sql-api-sdk-async-java.md
+  - name: Node.js
+    href: sql-api-sdk-node.md
+  - name: Python
+    href: sql-api-sdk-python.md
+  - name: REST
+    href: /rest/api/cosmos-db/
+  - name: Provedor de Recursos REST
+    href: /rest/api/cosmos-db-resource-provider/
+  - name: Modelo do Resource Manager
+    href: /azure/templates/microsoft.documentdb/databaseaccounts
 - name: Recursos
   items:
   - name: Desenvolva suas habilidades com o Microsoft Learn
@@ -631,9 +627,9 @@ items:
       href: use-cases.md
     - name: Aplicativos de mídia social
       href: social-media-apps.md
-ms.openlocfilehash: 72a6dced29f09379453d0e33131f78e875b2c9f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f2f061aebd996f62f793ba515f574c8a3748b87f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163489"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429104"

@@ -12,24 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191710"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185973"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
-Ao selecionar um tamanho de nó para um pool de Lote do Azure, você pode escolher dentre quase todos os tamanhos de VM disponíveis no Azure. O Azure oferece uma variedade de tamanhos para VMs do Linux e do Windows para diferentes cargas de trabalho. 
+Ao selecionar um tamanho de nó para um pool de Lote do Azure, você pode escolher dentre quase todos os tamanhos de VM disponíveis no Azure. O Azure oferece uma variedade de tamanhos para VMs do Linux e do Windows para diferentes cargas de trabalho.
 
 Há algumas exceções e limitações para escolher um tamanho de VM:
+
 * Não há suporte no Lote para algumas famílias de VM ou tamanhos de VM. 
 * Alguns tamanhos de VM são restritos e precisam ser especificamente habilitados antes de serem alocados.
-
 
 ## <a name="supported-vm-families-and-sizes"></a>Famílias e tamanhos de VM com suporte
 
@@ -42,16 +42,16 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a todos 
 | Série A básica | Basic_A0 (A0) |
 | Séria A | Standard_A0 |
 | Série B | Todos |
-| Série DC | Todos | 
+| Série DC | Todos |
 | Otimizado para memória extrema | Todos |
-| Hb-series<sup>1</sup> | Todos | 
+| Hb-series<sup>1</sup> | Todos |
 | Hc-series<sup>1</sup> | Todos |
 | Série Lsv2 | Todos |
 | NDv2-series<sup>1</sup> | Todos |
-| NVv2-series<sup>1</sup> | Todos |
+| Série NVv2 | Todos |
 | SAP HANA | Todos |
 
-<sup>1</sup> Sem suporte no momento, mas terá suporte no futuro.
+<sup>1</sup> Pode ser usado por contas do Lote no modo de assinatura do usuário; a conta do Lote no modo de assinatura do usuário precisa ter a cota de núcleo definida. Confira a [configuração para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) para obter mais informações.
 
 Os tamanhos de VM a seguir são suportados somente para nós de baixa prioridade:
 
@@ -74,6 +74,7 @@ Os pools de lote na configuração do Serviço de Nuvem oferecem suporte a todos
 ## <a name="restricted-vm-families"></a>Famílias de VM restritas
 
 As famílias de VM a seguir podem ser alocadas em pools de lote, mas você deve solicitar um aumento de cota específico (consulte [este artigo](batch-quota-limit.md#increase-a-quota)):
+
 * Série NCv2
 * Série NCv3
 * Série ND
@@ -82,7 +83,7 @@ Esses tamanhos só podem ser usados em pools na configuração da Máquina Virtu
 
 ## <a name="size-considerations"></a>Considerações de tamanhos
 
-* **Requisitos do aplicativo** - considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Para [cargas de trabalho de MPI](batch-mpi.md) de instâncias múltiplas ou aplicativos CUDA, considere tamanhos de VM de [HPC](../virtual-machines/linux/sizes-hpc.md) especializado ou [habilitado para GPU](../virtual-machines/linux/sizes-gpu.md), respectivamente. (Confira [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).) 
+* **Requisitos do aplicativo** - considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Para [cargas de trabalho de MPI](batch-mpi.md) de instâncias múltiplas ou aplicativos CUDA, considere tamanhos de VM de [HPC](../virtual-machines/linux/sizes-hpc.md) especializado ou [habilitado para GPU](../virtual-machines/linux/sizes-gpu.md), respectivamente. (Confira [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).)
 
 * **Tarefas por nó** - Geralmente, você seleciona um tamanho de nó supondo que uma tarefa seja executada no nó por vez. No entanto, pode ser vantajoso ter várias tarefas (e, portanto, várias instâncias do aplicativo) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum escolher um tamanho multicore de nó para acomodar a demanda crescente de execução de tarefas paralelas.
 
@@ -97,6 +98,4 @@ Esses tamanhos só podem ser usados em pools na configuração da Máquina Virtu
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
-* Para obter informações sobre tamanhos de VM de computação intensiva, consulte [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md). 
-
-
+* Para obter informações sobre tamanhos de VM de computação intensiva, consulte [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).

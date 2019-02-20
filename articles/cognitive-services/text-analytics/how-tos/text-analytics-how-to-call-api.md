@@ -3,19 +3,19 @@ title: Chamar a API da Análise de Texto
 titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API REST de Análise de Texto.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211577"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244021"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -30,9 +30,7 @@ Lembre-se de que a Análise de Texto é sem estado, portanto não há ativos de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Análise de Texto**. 
-
-São necessários o [ponto de extremidade e a chave de acesso](text-analytics-how-to-access-key.md) gerados para você durante a inscrição para os Serviços Cognitivos. 
+Você deve ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a API de Análise de Texto e o [ponto de extremidade e a chave de acesso](text-analytics-how-to-access-key.md) gerados quando você se inscreve nos Serviços Cognitivos. 
 
 <a name="json-schema"></a>
 

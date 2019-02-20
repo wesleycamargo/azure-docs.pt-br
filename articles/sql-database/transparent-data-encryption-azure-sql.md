@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 7b1d58b82f2ccc99ecacb6099f6063fba5899421
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 8fb7ea1841d788c1d8e7809a0641140228fd2ea5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478450"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233149"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure
 
@@ -40,15 +40,14 @@ A Microsoft também move e gerencia as chaves conforme necessário para replica�
 > [!IMPORTANT]
 > Todos os bancos de dados SQL criados recentemente são criptografados por padrão usando Transparent Data Encryption de serviço gerenciado. Bancos de dados de Instância Gerenciada do SQL Azure, bancos de dados SQL existentes criados antes de maio de 2017 e bancos de dados SQL criados por meio da restauração, replicação geográfica e cópia de banco de dados não são criptografados por padrão.
 
-## <a name="bring-your-own-key"></a>Bring Your Own Key
+## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Transparent Data Encryption gerenciada pelo cliente – Bring Your Own Key
 
-Com o suporte Bring Your Own Key, você pode controlar as chaves de Transparent Data Encryption e controlar quem pode acessá-las e quando. O Key Vault, que é o sistema de gerenciamento de chave externa baseado em nuvem do Azure, é o primeiro serviço de gerenciamento importante que a Transparent Data Encryption integrou ao suporte Bring Your Own Key. Com o suporte Bring Your Own Key, a chave de criptografia do banco de dados é protegida por uma chave assimétrica armazenada no Key Vault. A chave assimétrica nunca sai do Key Vault. Depois que o servidor tiver permissões para um cofre de chaves, o servidor enviará solicitações básicas de operação de chave para o cofre através do Key Vault. Você define a chave assimétrica no nível do servidor e todos os bancos de dados *criptografados*nesse servidor herdam a chave.
+O [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite criptografar a DEK (Chave de Criptografia do Banco de Dados) com uma chave assimétrica gerenciada pelo cliente chamada Protetor de TDE.  O Protetor de TDE é armazenado em um [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) gerenciado e de propriedade do cliente, o sistema de gerenciamento de chave externa baseado em nuvem do Azure. A DEK de TDE, que é armazenada na página de inicialização de um banco de dados, é criptografada e descriptografada pelo Protetor de TDE, que é armazenado no Azure Key Vault e nunca deixa o cofre de chaves.  O Banco de Dados SQL precisa ter permissões concedidas para o cofre de chaves de propriedade do cliente para descriptografar e criptografar a DEK. Se as permissões do SQL Server lógico para o cofre de chaves forem revogadas, um banco de dados não poderá ser acessado e todos os dados serão criptografados. Para o Banco de Dados SQL do Azure, o protetor de TDE é definido no nível do SQL Server lógico e é herdado por todos os bancos de dados associados a esse servidor. Para a [Instância Gerenciada do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados *criptografados* nessa instância. O termo *servidor* refere-se ao servidor e instância ao longo deste documento, a menos que indicado de forma diferente.
 
-Com o suporte Bring Your Own Key, é possível controlar as principais tarefas de gerenciamento como rotações de chave e permissões de cofre de chaves. Você também pode excluir chaves e habilitar auditoria/relatório em todas as chaves de criptografia. O Key Vault fornece gerenciamento central de chaves e usa módulos de segurança de hardware altamente monitorados. O Key Vault promove separação do gerenciamento de chaves e dados para ajudar no cumprimento da conformidade regulatória. Para saber mais sobre Key Vault, consulte a [página de documentação do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Com a integração do TDE ao Azure Key Vault, os usuários podem controlar as principais tarefas de gerenciamento, incluindo rotações de chave, permissões de cofre de chaves, backups de chaves e habilitar auditoria/relatório em todos os protetores de TDE usando a funcionalidade do Azure Key Vault. O Key Vault fornece gerenciamento central de chaves, utiliza HSMs (Módulos de Segurança de Hardware) rigidamente monitorados e permite a separação de funções entre o gerenciamento de chaves e dados para ajudar a atender a conformidade com políticas de segurança.
+Para saber mais sobre Transparent Data Encryption com integração do Azure Key Vault (com suporte Bring Your Own Key) para Banco de Dados SQL do Azure, Instância Gerenciada do SQL e Data Warehouse, confira [Transparent Data Encryption com integração do Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
 
-Para saber mais sobre Transparent Data Encryption com suporte Bring Your Own Key para Banco de Dados SQL do Azure Instância Gerenciada e Data Warehouse, consulte [Transparent Data Encryption com suporte Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
-
-Para começar a usar a Transparent Data Encryption com o suporte Bring Your Own Key, consulte o guia de instruções [Ativar Transparent Data Encryption com sua própria chave no Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
+Para começar a usar a Transparent Data Encryption com integração do Azure Key Vault (com suporte Bring Your Own Key), confira o guia de instruções [Ativar Transparent Data Encryption com sua própria chave no Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Mover um banco de dados protegido por Transparent Data Encryption
 

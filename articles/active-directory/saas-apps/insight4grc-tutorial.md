@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Insight4GRC | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Insight4GRC | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Active Directory do Azure e o Insight4GRC.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 256550dc6aaa832599747f6fe39c2ca77ed3f8d7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 08913fc2e12026d70976ea8e2169c190378f4054
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441574"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193723"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutorial: Integração do Microsoft Active Directory do Azure com o Insight4GRC
+# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutorial: Integração do Azure Active Directory com o Insight4GRC
 
 Neste tutorial, você aprenderá a integrar o Insight4GRC ao Azure Active Directory.
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure Active Directory ao Insight4GRC, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Insight4GRC
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Insight4GRC da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Active Directory do
 
     ![Informações de logon único de Domínio e URLs do Insight4GRC](./media/insight4grc-tutorial/tutorial_insight_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.Insight4GRC.com/SAML`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.Insight4GRC.com/SAML`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
 
@@ -167,7 +168,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Insight4GRC. O Insight4GRC dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o Insight4GRC, caso ele ainda não exista.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Insight4GRC](mailto:support.ss@rsmuk.com).
+>Se você precisar criar um usuário manualmente, contate a  [equipe de suporte ao Cliente do Insight4GRC](mailto:support.ss@rsmuk.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -204,7 +205,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar na peça Insight4GRC no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Insight4GRC.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

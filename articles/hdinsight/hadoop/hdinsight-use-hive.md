@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633956"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209227"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -204,11 +204,7 @@ Essas instruções executam as seguintes ações:
 
 Os [documentos de design do Apache Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
 
-Para ajudar na depuração de trabalhos executados usando Tez, o HDInsight fornece as seguintes interfaces de usuário na Web que permitem a exibição de detalhes de trabalhos do Tez:
-
-* [Usar a exibição de Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md)
-
-* [Usar a interface do usuário do Apache Tez no HDInsight baseado no Windows](../hdinsight-debug-tez-ui.md)
+Para ajudar na depuração de trabalhos executados com o Tez, o HDInsight fornece a seguinte interface de usuário na Web que permite a exibição de detalhes de trabalhos do Tez: [Usar a exibição de Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md).
 
 ### <a name="low-latency-analytical-processing-llap"></a>Processamento analítico de baixa latência (LLAP)
 

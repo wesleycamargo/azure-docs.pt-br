@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856360"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004988"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (versão prévia)?
 
@@ -41,7 +41,7 @@ Os recursos são organizados em três perspectivas:
 >[!NOTE]
 >Atualmente, o recurso Integridade é oferecido apenas para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais. Os recursos Desempenho e Mapa dão suporte a VMs do Azure e a máquinas virtuais hospedadas no ambiente ou em outro provedor de nuvem.
 
-A integração com o Log Analytics oferece agregação e filtragem eficientes e pode analisar tendências de dados ao longo do tempo. Esse monitoramento abrangente de carga de trabalho não pode ser obtido sozinho com o Azure Monitor, o Mapa do Serviço ou o Log Analytics.  
+A integração com os logs do Azure Monitor oferece uma agregação e uma filtragem eficientes, e pode analisar as tendências de dados ao longo do tempo. Esse monitoramento abrangente da carga de trabalho não pode ser obtido sozinho com o Azure Monitor ou o Mapa do Serviço.  
 
 Você pode exibir esses dados em uma VM individual na máquina virtual diretamente ou pode usar o Azure Monitor para fornecer uma exibição agregada das VMs. Essa exibição baseia-se na perspectiva de cada recurso:
 

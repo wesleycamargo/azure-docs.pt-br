@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/01/2019
-ms.openlocfilehash: cb4d3c4d15dded3c7f90a1e3cf118ca10371dcb1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.date: 02/072019
+ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700988"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962002"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites do modelo de compra baseado em vCore para Banco de Dados SQL do Azure para pools elásticos
+# <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para pools elásticos usando os limites do modelo de compras baseado no vCore
 
 Este artigo fornece os limites de recursos detalhados para pools elásticos do Banco de Dados SQL e bancos de dados em pool usando o modelo de compra baseado em vCore.
 
@@ -259,6 +259,9 @@ A tabela a seguir descreve as propriedades dos bancos de dados em pool.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
-- Confira [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Visão geral dos limites de recursos em um servidor do Banco de Dados SQL) para obter informações sobre limites nos níveis de servidor e assinatura.
+- Para os limites de recursos do vCore de um único banco de dados, confira os [limites de recursos para bancos de dados individuais usando o modelo de compras baseado no vCore](sql-database-vcore-resource-limits-single-databases.md)
+- Para os limites de recursos de DTU de um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compras baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Para os limites de recursos de DTU dos pools elásticos, confira [limites de recursos para pools elásticos usando o modelo de compras baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Para os limites de recursos das instâncias gerenciadas, confira [limites de recursos para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
+- Para se informar sobre os limites de recursos em um servidor do banco de dados, confira a [visão geral dos limites de recursos em um servidor de banco de dados SQL](sql-database-resource-limits-database-server.md) e verá informações sobre limites nos níveis do servidor e da assinatura.

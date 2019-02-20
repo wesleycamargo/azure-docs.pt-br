@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631661"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182979"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
+
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
 
 > [!NOTE]
-> Queremos ouvir nossos clientes para que possamos focar na correção de problemas que afetam você. Para relatar um problema ou fazer uma pergunta, faça uma postagem no [Fórum MSDN de Serviços de Mídia do Azure].
-> 
-> 
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. 
+
+Queremos ouvir nossos clientes para que possamos focar na correção de problemas que afetam você. Para relatar um problema ou fazer uma pergunta, faça uma postagem no [Fórum MSDN de Serviços de Mídia do Azure]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemas conhecidos no momento
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais dos Serviços de Mídia

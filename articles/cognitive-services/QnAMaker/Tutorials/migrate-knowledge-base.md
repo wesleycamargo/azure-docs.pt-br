@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Mova uma base de dados de conhecimento criada com o QnA Maker para uma nova base de dados de conhecimento.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809735"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245908"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import
 
@@ -56,7 +56,7 @@ Migrar uma base de dados de conhecimento requer a exportação de uma base de da
     Neste ponto, todo o conteúdo da base de dados de conhecimento – perguntas, respostas e metadados, juntamente com os nomes dos arquivos de origem e as URLs, são importados para a nova base de dados de conhecimento. 
 
 ## <a name="chat-logs-and-alterations"></a>Logs de chat e alterações
-As alterações (sinônimos) não são importadas automaticamente. Use as [APIs V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações da base de dados de conhecimento antiga e as [APIs V4](https://aka.ms/qnamaker-v4-apis) a fim de mover as alterações para a nova base de dados de conhecimento.
+As alterações (sinônimos) que não diferenciam maiúsculas de minúsculas não são importadas automaticamente. Use as [APIs V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações da base de dados de conhecimento antiga e as [APIs V4](https://aka.ms/qnamaker-v4-apis) a fim de mover as alterações para a nova base de dados de conhecimento.
 
 Não há nenhuma maneira de migrar os logs de chat, já que a nova base de dados de conhecimento usa o Application Insights para armazenar os logs de chat. 
 

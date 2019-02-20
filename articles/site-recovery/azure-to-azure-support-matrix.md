@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301587"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245177"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -58,9 +58,9 @@ China | Leste da China, Norte da China, Norte da China2, Leste da China2
 >[!NOTE]
 >
 > - Para a região **Sul do Brasil**, você pode replicar e fazer failover para um dos seguintes: Centro-Sul dos EUA, Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e regiões do Centro-Norte dos EUA. Deve-se observar que o Site Recovery habilitou apenas Sul do Brasil para ser usado como uma região de origem da qual as VMs podem ser protegidas. Ela **não pode ser usada como uma região de recuperação de desastre de destino** para nenhuma das regiões do Azure, como o Centro-Sul dos EUA. O motivo é a latência observada devido à distância geográfica, sendo recomendável selecionar qualquer outra região da América que não seja o Sul do Brasil.
-> 
+>
 > - Se você **não conseguir ver uma região** na qual deseja **criar um cofre**, verifique se sua assinatura tem acesso para criar recursos nessa região. Por exemplo:  Se você não puder criar o cofre no Sul da França, sua assinatura não terá acesso à região Sul da França. Registre um tíquete de suporte com o Tipo de questão "gerenciamento de assinatura", o tipo de problema "outras questões gerais" e o assunto "colocar assinatura na lista de permissões para a região XXX do Azure"
-> 
+>
 > - Caso **não possa ver uma região** em um cluster Geográfico **durante a habilitação da replicação**, verifique se a assinatura tem acesso para criar a máquina virtual nessa região. Por exemplo:  Se você estiver tentando proteger máquinas virtuais da França Central no Sul da França e não vir Sul da França na lista suspensa de regiões, sua assinatura não terá acesso para implantar a VM nessa região. Registre um tíquete de suporte com o Tipo de questão "gerenciamento de assinatura", o tipo de problema "outras questões gerais" e o assunto "colocar assinatura na lista de permissões para a região XXX do Azure"
 > - Você não pode selecionar regiões nos clusters geográficos mencionados acima.
 
@@ -123,7 +123,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19,9.20,9.21,9.22 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 a 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | 3.16.0-4-amd64 até 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 até 4.9.0-0.bpo.7-amd64 |
@@ -133,10 +133,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default até 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - sistema de arquivos Linux / armazenamento convidado
@@ -178,7 +178,7 @@ Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho máximo do disco do sistema operacional | 2048 GB | [Saiba mais](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) sobre discos de VM.
-Disco temporário | Sem suporte | O disco temporário é sempre excluído da replicação.<br/><br/> Não faça nenhum dado persistente no disco temporário. [Saiba mais](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Disco temporário | Sem suporte | O disco temporário é sempre excluído da replicação.<br/><br/> Não armazene nenhum dado persistente no disco temporário. [Saiba mais](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Tamanho máximo do disco de dados | 4095 GB |
 Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior que a máxima, a replicação não será recuperada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a replicação poderá recuperar, mas você poderá ver pontos de recuperação um pouco atrasados.
@@ -186,7 +186,7 @@ Disco de dados - conta de armazenamento padrão | Com suporte |
 Disco de dados - conta de armazenamento premium | Com suporte | Se uma VM tiver discos distribuídos em contas de armazenamento premium e padrão, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que você tenha a mesma configuração de armazenamento na região de destino.
 Disco gerenciado - standard | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |
 Disco gerenciado - premium | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |
-SSD Standard | Sem suporte |
+SSD Standard | Com suporte |
 Redundância | Há suporte para LRS e GRS.<br/><br/> Não há suporte para ZRS.
 Armazenamento frio e quente | Sem suporte | Discos de VM não são suportados em armazenamento fresco e quente
 Espaços de Armazenamento | Com suporte |
@@ -195,8 +195,8 @@ Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | As 
 ADE (Azure Disk Encryption) para sistema operacional Linux | Sem suporte |
 Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
 Exclusão de disco | Sem suporte|   O disco temporário é excluído por padrão.
-Espaços de armazenamento Diretos  | Sem suporte|
-Servidor de Arquivos de Expansão  | Sem suporte|
+Espaços de armazenamento Diretos  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
+Servidor de Arquivos de Expansão  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
 LRS | Com suporte |
 GRS | Com suporte |
 RA-GRS | Com suporte |

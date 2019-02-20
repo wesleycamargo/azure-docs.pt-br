@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439095"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243596"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
 
@@ -34,7 +34,7 @@ Regras de saída permitem que você controle:
 - quais máquinas virtuais devem ser convertidas em quais endereços IP públicos. 
 - como [portas SNAT de saída](load-balancer-outbound-connections.md#snat) devem ser alocadas.
 - para quais protocolos fornecer conversão de saída.
-- que duração usar para o tempo limite de ociosidade de conexão de saída.
+- qual duração usar para o tempo limite de ociosidade da conexão de saída (4-120 minutos).
 - se você deseja enviar uma Redefinição de TCP no tempo limite de ociosidade (em Versão Prévia Pública). 
 
 Regras de saída expandem o [cenário 2](load-balancer-outbound-connections.md#lb) descrito no artigo [conexões de saída](load-balancer-outbound-connections.md) e a precedência de cenário permanece como no estado em que se encontra.
@@ -90,7 +90,7 @@ Você pode reverter para a [alocação da porta SNAT automática com base no tam
 
 ### <a name="idletimeout"></a> Controlar o tempo limite de ociosidade de fluxo de saída
 
-Regras de saída fornecem um parâmetro de configuração para controlar o tempo limite de ociosidade de fluxo de saída e combiná-lo com as necessidades do seu aplicativo.  O padrão de tempos limite de ociosidade de saída é de 4 minutos.  O parâmetro aceita um valor de 4 a 66 para especificar o número de minutos para o tempo limite de ociosidade para fluxos correspondentes a essa regra específica.
+Regras de saída fornecem um parâmetro de configuração para controlar o tempo limite de ociosidade de fluxo de saída e combiná-lo com as necessidades do seu aplicativo.  O padrão de tempos limite de ociosidade de saída é de 4 minutos.  O parâmetro aceita um valor de 4 a 120 para especificar o número de minutos do tempo limite de ociosidade para os fluxos correspondentes a essa regra específica.
 
 Use o parâmetro a seguir para definir o tempo limite de ociosidade de saída como 1 hora:
 
@@ -205,7 +205,7 @@ Ao usar um Standard Load Balancer interno, a NAT de saída não estará disponí
 ## <a name="limitations"></a>Limitações
 
 - O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 51.200.
-- O intervalo de tempo limite de ociosidade de saída configurável é de 4 a 66 minutos (240 a 4.000 segundos).
+- O intervalo do tempo limite de ociosidade de saída configurável é de 4 a 120 minutos (240 a 7.200 segundos).
 - O Load Balancer não dá suporte a ICMP para NAT de saída.
 - O portal não pode ser usado para configurar ou exibir as regras de saída.  Em vez disso, use modelos, API REST, Az CLI 2.0 ou PowerShell.
 - Regras de saída só podem ser aplicadas ao NIC primário e à configuração de IP primária.

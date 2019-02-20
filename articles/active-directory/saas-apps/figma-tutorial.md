@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3885f579e4543f25c409010c0aae970c26d2b9c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095238"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Azure Active Directory ao Figma
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD ao Figma, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma [assinatura habilitada para logon único](https://www.figma.com/pricing/) do Figma
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Figma da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -116,7 +117,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Figma](./media/figma-tutorial/tutorial_figma_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
 
@@ -145,7 +146,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
 
-    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![Novo Atributo](./media/figma-tutorial/new_save_attribute.png)
 
@@ -187,7 +188,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

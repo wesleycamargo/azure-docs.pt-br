@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 68d9df20ca303d6f9f80d05a614da3eda466b3f8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657953"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999650"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -521,7 +521,7 @@ Use o seguinte conteúdo para o arquivo de entrada. Você precisa adaptar o cont
 }
 ```
 
-### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]** Atribuir a função personalizada à Entidade de Serviço
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Atribuir a função personalizada à Entidade de Serviço
 
 Atribua a função personalizada “Função do Agente de Isolamento Linux" que foi criada no último capítulo para a Entidade de Serviço. Não mais use a função de proprietário!
 

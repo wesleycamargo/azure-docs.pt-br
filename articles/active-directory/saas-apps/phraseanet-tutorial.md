@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Phraseanet | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Phraseanet | Microsoft Docs'
 description: Aprenda como configurar o logon único entre o Azure Active Directory e o Phraseanet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118038"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175533"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: Integração do Active Directory do Azure com o Phraseanet
+# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: Integração do Azure Active Directory com o Phraseanet
 
 Neste tutorial, você aprenderá como integrar o Phraseanet ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Phraseanet, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Assinatura habilitada para um Phraseanet o logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Phraseanet da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -99,24 +100,24 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/phraseanet-tutorial/b1_b2_select_sso.png)
 
-2. Sobre o **selecionar um método de logon único** caixa de diálogo, clique em **selecionar** para **SAML** modo para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
     ![image](./media/phraseanet-tutorial/b1_b2_saml_sso.png)
 
-3. Sobre o **definir o logon único com SAML** , clique em **editar** botão para abrir **básicas de configuração de SAML** caixa de diálogo.
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/phraseanet-tutorial/b1-domains_and_urlsedit.png)
 
-4. Sobre o **básicas de configuração de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    No **URL de logon** caixa de texto, digite uma URL como:  `https://<SUBDOMAIN>.alchemyasp.com`
+    No **URL de logon** caixa de texto, digite uma URL como: `https://<SUBDOMAIN>.alchemyasp.com`
 
     ![image](./media/phraseanet-tutorial/tutorial_phraseanet_url.png)
 
     > [!NOTE] 
     > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Entre em contato com a equipe de suporte do [Phraseanet](mailto:support@alchemy.fr) para obter o valor.
  
-5. No **definir o logon único com SAML** página, o **certificado de autenticação SAML** seção, clique em **baixar** para baixar o **XML de metadados de Federação**  e salve-o em seu computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
     ![image](./media/phraseanet-tutorial/tutorial_phraseanet_certificate.png) 
 
@@ -126,36 +127,36 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Active Directory do Azure**, selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/phraseanet-tutorial/d_users_and_groups.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo usuário** na parte superior da tela.
 
     ![image](./media/phraseanet-tutorial/d_adduser.png)
 
-3. Nas propriedades do usuário, execute as seguintes etapas.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
     ![image](./media/phraseanet-tutorial/d_userproperties.png)
 
-    a. No **nome** Inserir campo **Brendafernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa Senha.
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
  
 ### <a name="create-a-phraseanet-test-user"></a>Criar um usuário de teste Phraseanet
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Phraseanet. Trabalhar com [equipe de suporte do Phraseanet](mailto:support@alchemy.fr) para adicionar os usuários na plataforma do Phraseanet. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Phraseanet. Trabalhe com a  [equipe de suporte do Phraseanet](mailto:support@alchemy.fr) para adicionar os usuários na plataforma do Phraseanet. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Phraseanet.
 
-1. No portal do Azure, selecione **Aplicativos Corporativos**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/phraseanet-tutorial/d_all_applications.png)
 
@@ -167,20 +168,20 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
     ![image](./media/phraseanet-tutorial/d_leftpaneusers.png)
 
-4. Selecione o **Add** botão e, em seguida, selecione **usuários e grupos** no **Adicionar atribuição** caixa de diálogo.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![image](./media/phraseanet-tutorial/d_assign_user.png)
 
-4. No **usuários e grupos** diálogo, selecione **Britta Simon** na lista de usuários, em seguida, clique o **selecione** botão na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-5. Na caixa de diálogo **Add Assignment**, selecione o botão **Atribuir**.
+5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Phraseanet no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Phraseanet.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

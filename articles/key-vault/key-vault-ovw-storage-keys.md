@@ -1,20 +1,20 @@
 ---
 ms.assetid: ''
 title: O Azure Key Vault gerenciados a conta de armazenamento – CLI
-description: Chaves da conta de armazenamento fornecem uma integração contínua entre o Azure Key Vault e o acesso baseado em chave para a Conta de Armazenamento do Azure.
+description: As chaves da conta de armazenamento fornecem uma integração contínua entre o Azure Key Vault e o acesso baseado em chave para a Conta de Armazenamento do Azure.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814836"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118047"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault gerenciados a conta de armazenamento – CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55814836"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Instruções passo a passo sobre como usar o Key Vault para gerenciar chaves de conta de armazenamento
 --------------------------------------------------------------------------------
+Conceitualmente, a lista de etapas seguidas são
+- Primeiro, obtenha uma conta de armazenamento (preexistente)
+- Em seguida, busque um cofre de chaves (preexistente)
+- Depois, adicione uma conta de armazenamento gerenciada pelo KeyVault ao cofre, definindo Key1 como chave ativa e com um período de regeneração de 180 dias
+- Por fim, defina um contexto de armazenamento para a conta de armazenamento especificada, com Key1
+
 Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter permissões de operador em sua conta de armazenamento
 
 > [!NOTE]
@@ -56,13 +62,13 @@ Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter 
     ```
     Copie o campo da ID do resultado do comando acima
     
-2. Execute o comando a seguir para obter a ID do objeto de serviço da entidade de serviço do Azure Key Vault
+2. Obtenha a ID do objeto da entidade de serviço do Azure Key Vault executando o comando a seguir
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Após a conclusão bem-sucedida desse comando, localize a ID de objeto no resultado
+    Após a conclusão bem-sucedida desse comando, localize a ID de objeto no resultado:
     ```console
         {
             ...
@@ -71,7 +77,7 @@ Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter 
         }
     ```
     
-3. Atribuir função de operador da chave de armazenamento a identidade do Cofre de chave Azure
+3. Atribua a função de operador da chave de armazenamento à identidade do Azure Key Vault.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
@@ -85,9 +91,41 @@ Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter 
     ```
     No caso do usuário não tiver criado a conta de armazenamento e não tem permissões para a conta de armazenamento, as etapas a seguir defina as permissões para sua conta garantir que você pode gerenciar todas as permissões de armazenamento no cofre de chaves.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Instruções passo a passo sobre como usar o Key Vault para criar e gerenciar tokens SAS
+--------------------------------------------------------------------------------
+Também é possível solicitar que o Key Vault gere tokens SAS (Assinatura de Acesso Compartilhado). Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Com uma SAS, você pode conceder aos clientes acesso aos recursos em sua conta de armazenamento, sem compartilhar as chaves de conta. Este é o ponto principal do uso de assinaturas de acesso compartilhado em seus aplicativos: uma SAS é uma maneira segura de compartilhar seus recursos de armazenamento sem comprometer as chaves da conta.
+
+Após concluir as etapas listadas acima, execute os seguintes comandos para solicitar ao Key Vault a geração de tokens SAS. 
+
+A lista de itens que seriam obtidos nas etapas a seguir são
+- Configura uma definição de SAS de conta chamada '<YourSASDefinitionName>' em uma conta de armazenamento gerenciada pelo KeyVault '<YourStorageAccountName>' no seu cofre '<VaultName>'. 
+- Cria um token SAS de conta para serviços de Blob, Arquivo, Tabela e Fila, para tipos de recursos de Serviço, Contêiner e Objeto, com todas as permissões, via https e com as datas de início e término especificadas
+- Configura uma define de SAS de armazenamento gerenciado pelo KeyVault no cofre, com o URI do modelo como o token SAS criado acima, de tipo SAS "conta" e válido por N dias
+- Recupera o token de acesso real do segredo do KeyVault correspondente à definição de SAS
+
+1. Nesta etapa, criaremos uma definição de SAS. Após a criação dessa definição de SAS, será possível solicitar ao Key Vault a geração de mais tokens SAS. Esta operação requer a permissão de armazenamento/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Você pode ver mais ajuda sobre a operação anterior [aqui](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+Quando essa operação for executada com êxito, você verá uma saída semelhante à mostrada abaixo. Copie
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. Nesta etapa, usaremos a saída ($sasToken) gerada acima para criar uma definição de SAS. Para obter mais documentação, leia [aqui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > No caso em que o usuário não tem permissões à conta de armazenamento, obtemos primeiro a Object-Id do usuário
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter 
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Como acessar sua conta de armazenamento com tokens SAS
+## <a name="fetch-sas-tokens-in-code"></a>Buscar tokens SAS no código
 
 Nesta seção, discutiremos como você pode fazer operações em sua conta de armazenamento buscando [tokens SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) do Key Vault
 
-Na seção abaixo, demonstramos como buscar sua chave de conta de armazenamento armazenada no Key Vault e usar isso para criar uma definição de SAS (Assinatura de Acesso Compartilhado) para sua conta de armazenamento.
+Na seção abaixo, demonstramos como buscar tokens SAS depois que uma definição de SAS é criada, conforme mostrado acima.
 
 > [!NOTE] 
   Há três maneiras de se autenticar no Key Vault, como você pode ler nos [conceitos básicos](key-vault-whatis.md#basic-concepts)
@@ -132,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>Comandos importantes da CLI do Azure
 
-### <a name="relavant-azure-cli-cmdlets"></a>Cmdlets da CLI do Azure Relavant
-[Cmdlets de armazenamento da CLI do Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>Cmdlets relevantes do Powershell
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Comandos de Armazenamento para CLI do Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>Consulte também
 

@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral de como o Banco de Dados 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170847"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103941"
 ---
 # <a name="azure-sql-database-security-features"></a>Recursos de segurança do Banco de Dados SQL do Azure    
 O Banco de Dados SQL do Azure fornece um serviço de banco de dados relacional no Azure. Para proteger os dados do cliente e fornecer recursos de segurança fortes que eles esperam de um serviço de banco de dados relacional, o Banco de Dados SQL tem seus próprios conjuntos de recursos de segurança. Esses recursos se baseiam nos controles que são herdados do Azure.
@@ -61,9 +61,9 @@ Como o controlador de malha (FC) é o orquestrador central da malha do Azure, co
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
 A rede de produção do Azure é separada logicamente em três VLANs primárias:
 
-- A principal VLAN: Interconecta nós de clientes não confiáveis.
-- O FC VLAN: Contém FCs confiáveis e sistemas de suporte.
-- A VLAN do dispositivo: contém rede confiável e outros dispositivos de infraestrutura.
+- VLAN principal: Interconecta nós de clientes não confiáveis.
+- VLAN do FC: Contém FCs confiáveis e sistemas de suporte.
+- VLAN do dispositivo: Contém uma rede confiável e outros dispositivos de infraestrutura.
 
 ### <a name="packet-filtering"></a>Filtragem de pacotes
 O IPFilter e os firewalls de software que são implementados no sistema operacional raiz e sistema operacional convidado de nós impõem restrições de conectividade e impedir que o tráfego não autorizado entre as VMs.

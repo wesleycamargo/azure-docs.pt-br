@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fecd5cf3b5a6aac1133f94b4dc220eec826392f6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056218"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993411"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crie relatórios interativos com pastas de trabalho do Azure Monitor
 
@@ -77,7 +77,7 @@ Seções de consulta são altamente flexíveis e podem ser usadas para responder
 
 * Quantas exceções seu site gerou durante o mesmo período como um declínio no uso?
 * Qual foi a distribuição dos tempos de carregamento de página para os usuários que exibiram alguma página?
-* Quantos usuários exibiram algum conjunto de páginas no site, mas não algum outro conjunto de páginas? Isso poderá ser útil para entender se você tiver clusters de usuários que usam diferentes subconjuntos da funcionalidade do site (use o operador `join` com o modificador `kind=leftanti` na linguagem de consulta do Log Analytics).
+* Quantos usuários exibiram algum conjunto de páginas no site, mas não algum outro conjunto de páginas? Isso poderá ser útil para entender se você tiver clusters de usuários que usam diferentes subconjuntos da funcionalidade do site (use o operador `join` com o modificador `kind=leftanti` na linguagem de consulta do Data Explorer).
 
 Você também não é limitado apenas ao consultar a partir do contexto do aplicativo iniciado da pasta de trabalho. Você pode consultar em vários aplicativos monitorados do Application Insights, bem como os espaços de trabalho do Log Analytics, desde que você tem permissão de acesso a esses recursos.
 

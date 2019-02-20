@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490423"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235896"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -31,7 +31,9 @@ Ao usar modelos vinculados, você cria um modelo principal que recebe os valores
 
 Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./resource-manager-tutorial-create-linked-templates.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> Para modelos vinculados ou aninhados, você só pode usar o modo de implantação [Incremental](deployment-modes.md).
+>
 
 ## <a name="link-or-nest-a-template"></a>Vincular ou aninhar um modelo
 
@@ -52,8 +54,6 @@ Para vincular a outro modelo, adicione um recurso de **implantações** no seu m
 ```
 
 As propriedades que você fornece para o recurso de implantação variam dependendo se você está vinculando a um modelo externo ou aninhando um modelo in-line no modelo principal.
-
-Para os dois modelos vinculados e aninhados, você só pode usar modo de implantação [Incremental](deployment-modes.md). 
 
 ### <a name="nested-template"></a>Modelo aninhado
 
@@ -467,8 +467,8 @@ No PowerShell, você obtém um token para o contêiner e implanta os modelos com
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-$token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+$token = New-AzStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+$url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 

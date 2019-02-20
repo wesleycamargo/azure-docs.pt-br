@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822503"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163760"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso.
@@ -266,7 +267,7 @@ Os Termos de uso por dispositivo têm as seguintes restrições:
 
 - Um dispositivo somente pode ser unido a um locatário.
 - Um usuário deve ter permissões para ingressar seu dispositivo.
-- Não há suporte para o aplicativo de registro Intune.
+- Não há suporte para o aplicativo de registro do Intune.
 
 Se o dispositivo do usuário não estiver ingressado, ele receberá uma mensagem de que é necessário ingressar o dispositivo dele. A experiência dele será dependente da plataforma e do software.
 
@@ -333,6 +334,9 @@ Termos de uso podem ser usados para diferentes aplicativos de nuvem, como Prote�
 É possível configurar uma política de acesso condicional para o aplicativo de Registro do Microsoft Intune e exigir os Termos de uso antes do registro de um dispositivo no Intune. Para obter mais informações, leia [Escolher a solução de Termos correta para a postagem no blog da organização](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![Aplicativo de nuvem do Microsoft Intune](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> Não há suporte para o aplicativo de registro do Intune com [termos de uso por dispositivo](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

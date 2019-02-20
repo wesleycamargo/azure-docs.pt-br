@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190163"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115191"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas do Hub Virtual para conduzir o tráfego para uma solução de virtualização de rede
 
@@ -36,7 +36,7 @@ Verifique se você atende aos seguintes critérios:
 
 1. Você tem uma NVA (Solução de Virtualização de Rede), que é um software de terceiros de sua escolha, que normalmente é provisionado no Azure Marketplace (Link) em uma rede virtual.
 2. Você tem um IP privado atribuído ao adaptador de rede da NVA. 
-3. A NVA não pode ser implantada no hub virtual. Ela deve ser implantada em uma VNet separada. Para este artigo, a VNet é chamada de “VNet DMZ”.
+3. A NVA não pode ser implantada no hub virtual. Ela deve ser implantada em uma VNet separada. Neste artigo, a VNet NVA é chamada de 'VNet DMZ'.
 4. A “VNet DMZ” pode ter uma ou várias redes virtuais conectadas a ela. Neste artigo, essa VNet é chamada de “VNet de spoke indireto”. Essas VNets podem ser conectadas à rede VNets DMZ usando o emparelhamento VNet.
 5. Verifique se você tem duas VNets já criadas. Elas serão usadas como VNets spoke. Neste artigo, os espaços de endereço da VNets spoke são 10.0.2.0/24 e 10.0.3.0/24. Se você precisar obter informações sobre como criar uma VNets, consulte [Criar uma rede virtual usando o PowerShell](../virtual-network/quick-create-powershell.md).
 6. Certifique-se de que não há nenhum gateway de rede virtual nas VNets.

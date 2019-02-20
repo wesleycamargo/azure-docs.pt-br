@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012081"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998477"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Haivision KB para enviar uma transmissão ao vivo de taxa de bits única
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Haivision KB para enviar uma transmissão ao vivo de taxa de bits única  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -45,7 +45,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...**  no menu.
 [Haivision](./media/media-services-configure-kb-live-encoder/channel.png)
 2. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão. Verifique se a opção **Iniciar o novo canal agora** está marcada.
 3. Clique em **Criar Canal**.
@@ -59,30 +59,30 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 Vídeo:
 -   Codec: H.264
--   Perfil: Alto (nível 4.0)
--   Taxa de bits: 5.000 kbps
+-   Perfil: Alto (Nível 4.0)
+-   Taxa de bits: 5.000 Kbps
 -   Quadro-chave: 2 segundos (60 quadros)
 -   Taxa de quadros: 30
 
 Áudio:
 -   Codec: AAC (LC)
--   Taxa de bits: 192 kbps
+-   Taxa de bits: 192 Kbps
 -   Taxa de amostragem: 44,1 kHz
 
 ## <a name="configuration-steps"></a>Etapas da configuração
 1.  Faça logon na interface do usuário do Haivision KB.
 2.  Clique no **Botão de Menu** no centro de controle do canal e selecione **Adicionar canal**  
-    ![Screen Shot 2017-08-14 at 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![Captura de tela 14-08-2017 às 09:15:09](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Insira o **Nome do Canal** no campo Nome e clique em próximo.  
-    ![Screen Shot 2017-08-14 at 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![Captura de tela 14-08-2017 às 09:15:07](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  Selecione a **Fonte de Entrada do Canal** da lista suspensa **Fonte de Entrada** e clique em próximo.
-    ![Screen Shot 2017-08-14 at 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![Captura de tela 14-08-2017 às 09:20:44](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  A partir da lista suspensa **Modelo do Codificador** escolha **H264-720-AAC-192** e clique em próximo.
-    ![Screen Shot 2017-08-14 at 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![Captura de tela 14-08-2017 às 09:23:15](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  A partir da lista suspensa **Selecionar Nova Saída** escolha **RTMP** e clique em próximo.  
-    ![Screen Shot 2017-08-14 at 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![Captura de tela 14-08-2017 às 09:27:51](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  A partir da janela **Saída do Canal** preencha as informações de fluxo do Azure. Cole o link **RTMP** da configuração inicial do canal na área **Servidor**. Na área **Nome de Saída** digite o nome do canal. Na área do Modelo de Nome de Fluxo, use o modelo RTMPStreamName_%video_bitrate% para nomear o fluxo.
-    ![Screen Shot 2017-08-14 at 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![Captura de tela 14-08-2017 às 09:33:17](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Clique em Próximo e, em seguida, em Concluído.
 9.  Clique no **Botão Reproduzir** para iniciar o canal do codificador.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

@@ -1,24 +1,24 @@
 ---
 title: Use o Key Vault para armazenar e acessar chaves do Azure Cosmos DB
-description: Use o Azure Key Vault para armazenar e acessar cadeias de conexão, chaves e URIs do Azure Cosmos DB.
-author: rafats
+description: Use o Azure Key Vault para armazenar e acessar a cadeia de conexão, chaves e pontos de extremidade do Azure Cosmos DB.
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: rafats
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463303"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242185"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
 
-Ao usar o Azure Cosmos DB para seus aplicativos, você pode acessar o banco de dados, as coleções e os documentos usando o URI do ponto de extremidade e a chave dentro do arquivo de configuração do aplicativo.  No entanto, não é seguro colocar as chaves e a URL diretamente no código do aplicativo, porque eles ficam disponíveis no formato de texto não criptografado a todos os usuários. É interessante assegurar-se de que o URI e as chaves fiquem disponíveis, mas por meio de um mecanismo seguro. É aí que o Azure Key Vault pode ajudá-lo a armazenar e gerenciar os segredos do aplicativo com segurança.
+Ao usar o Azure Cosmos DB para seus aplicativos, você pode acessar o banco de dados, as coleções e os documentos usando o ponto de extremidade e a chave dentro do arquivo de configuração do aplicativo.  No entanto, não é seguro colocar as chaves e a URL diretamente no código do aplicativo, porque eles ficam disponíveis no formato de texto não criptografado a todos os usuários. Você deseja verificar se o ponto de extremidade e as chaves estão disponíveis, mas por meio de um mecanismo seguro. É aí que o Azure Key Vault pode ajudá-lo a armazenar e gerenciar os segredos do aplicativo com segurança.
 
 As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do Azure Cosmos DB usando o Key Vault:
 

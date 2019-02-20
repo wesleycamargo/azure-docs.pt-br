@@ -11,25 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 240715fe6d3e8344c15cddf80a23829ec84e81a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511982"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992119"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>camadas de serviço de vCore, Benefício Híbrido do Azure e migração
 
 O modelo de compra baseado em vCore permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. Também permite escolher a geração de hardware:
 
-- Ger 4 - Até 24 CPUs lógicas baseadas nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (núcleo físico), 7 GB por núcleo, SSD anexado
-- Ger 5 – até 80 CPUs lógicas baseadas nos processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 GB por núcleo, SSD eNVM rápido
+- Gen4 – até 24 CPUs lógicas baseadas nos processadores E5-2673 v3 (Haswell) de 2.4 GHz, vCore = 1 PP (núcleo físico), 7 GB por núcleo, SSD anexado
+- Gen5 – até 80 CPUs lógicas baseadas nos processadores E5-2673 v4 (Broadwell) de 2.3 GHz, vCore = 1 LP (hiper thread), 5,1 GB por núcleo, SSD eNVM rápido
 
-o modelo vCore também permite que você use [o Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) Obtenha economia de custo.
+Hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o hardware Gen5 permite que você amplie recursos de computação muito maiores.
 
 > [!NOTE]
-> Para obter informações sobre as camadas de serviço baseado em DTU, consulte [camadas de serviço baseado em DTU](sql-database-service-tiers-dtu.md). Para obter informações sobre a diferença entre camadas de serviço com base em DTU e camadas de serviço com base em vCore, confira [modelos de compra do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+> Para obter informações sobre as camadas de serviço baseado em DTU, consulte [camadas de serviço baseado em DTU](sql-database-service-tiers-dtu.md). Para obter informações sobre a diferença entre camadas de serviço com base em DTU e camadas de serviço com base em vCore, confira [modelos de compra do Banco de Dados SQL do Azure](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
@@ -58,8 +58,6 @@ A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 
 > [!IMPORTANT]
 > Se você precisar de menos de um vCore de capacidade de computação, use o modelo de compra baseado em DTU.
-
-Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 

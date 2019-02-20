@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468862"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116836"
 ---
 # <a name="choose-the-right-consistency-level"></a>Escolher nível certo de consistência 
 
@@ -33,6 +33,8 @@ Considere os seguintes pontos se seu aplicativo for criado usando a API SQL do C
 - Se você precisar de garantias de consistência menos rígidas do que as fornecidas pela consistência da sessão, é recomendável usar um nível consistente de consistência de prefixo.
 
 - Se você precisar de mais alta disponibilidade e latência mais baixa, use o nível de coerência eventual.
+
+- Se você precisar de mais durabilidade de dados ainda sem perder desempenho, poderá criar um nível de consistência personalizado na camada de aplicativo. Para obter mais informações, confira [Como implementar a sincronização personalizada em seus aplicativos](how-to-custom-synchronization.md).
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>API do Cassandra, MongoDB e Gremlin
 

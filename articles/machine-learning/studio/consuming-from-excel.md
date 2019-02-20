@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492871"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989416"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumindo um Serviço Studio Web de Microsoft Azure Machine Learning Studio do Excel
 
@@ -26,7 +26,7 @@ Se estiver usando o Excel 2013 (ou posterior) ou o Excel Online, é recomendáve
 
 
 ## <a name="steps"></a>Etapas
-Publicar um serviço Web. [Esta página](walkthrough-5-publish-web-service.md) explica como fazer isso. Atualmente, o recurso de pasta de trabalho do Excel só tem suporte para serviços de Solicitação/Resposta que têm uma única saída (ou seja, um único rótulo de pontuação). 
+Publicar um serviço Web. [Tutorial 3: Implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md) explica como fazê-lo. Atualmente, o recurso de pasta de trabalho do Excel só tem suporte para serviços de Solicitação/Resposta que têm uma única saída (ou seja, um único rótulo de pontuação). 
 
 Após ter um serviços Web, clique na seção **SERVIÇOS WEB** à esquerda do estúdio e selecione o serviço Web a ser consumido no Excel.
 

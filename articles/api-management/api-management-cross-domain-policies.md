@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fbafd2d224879dbe33c581c13dfe52fc9a22ae55
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510809"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098521"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -145,7 +145,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 - **Seções de política:** de entrada
-- **Escopos de política:** API, operação
+- **Escopos de política:** global, API, operação
 
 ## <a name="JSONP"></a> JSONP
 A política `jsonp` adiciona suporte a JSONP com padding (JSONP) a uma operação ou API para permitir chamadas entre domínios de clientes JavaScript baseados em navegador. O JSONP é um método usado em programas JavaScript para solicitar dados de um servidor em um domínio diferente. O JSONP ignora a limitação aplicada pela maioria dos navegadores da Web quando o acesso às páginas da Web precisa ser do mesmo domínio.

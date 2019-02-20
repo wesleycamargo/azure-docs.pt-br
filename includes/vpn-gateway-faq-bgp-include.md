@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/14/2019
+ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306872"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246688"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP tem suporte em todas as SKUs de Gateway de VPN do Azure?
 Não, BGP tem suporte nos gateways de VPN do Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e **HighPerformance**. **Basic** não tem suporte.
@@ -49,6 +49,9 @@ O Gateway de VPN do Azure anunciará as seguintes rotas para seus dispositivos d
 * Seus prefixos de endereços de VNet
 * Prefixos de endereços para cada Gateway de Rede Local conectado ao gateway de VPN do Azure
 * As rotas obtidas de outras sessões de emparelhamento de BGP conectadas ao gateway de VPN do Azure, **exceto rotas padrão sobrepostas com qualquer prefixo de VNet**.
+
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Quantos prefixos posso anunciar para o gateway de VPN do Azure?
+Damos suporte a até 4000 prefixos. A sessão BGP é descartada se o número de prefixos exceder o limite.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Posso anunciar a rota padrão (0.0.0.0/0) para gateways de VPN do Azure?
 Sim.

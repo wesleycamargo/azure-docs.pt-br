@@ -2,7 +2,7 @@
 title: Desenvolver aplicativos de player de vídeo
 description: O tópico fornece links para as Estruturas do Player e plug-ins que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir a mídia de streaming dos Serviços de Mídia.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237036"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004835"
 ---
 # <a name="develop-video-player-applications"></a>Desenvolver aplicativos de player de vídeo
 ## <a name="overview"></a>Visão geral
@@ -46,14 +46,14 @@ Você também pode usar qualquer um dos seguintes SDKs:
 
 * [SDK do cliente de Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Aplicativo de Smooth Streaming da Windows Store](media-services-build-smooth-streaming-apps.md)
-* [Plataforma de Mídia da Microsoft: Player Framework](http://playerframework.codeplex.com/) 
+* [Plataforma de Mídia da Microsoft: Estrutura de Player](http://playerframework.codeplex.com/) 
 * [Documentação da estrutura de player HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming](https://aka.ms/sspk) 
 * [Desenvolvimento de aplicativos de vídeo do XBOX](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Publicidade
-Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que você pode inserir em sua mídia:
+Os Serviços de Mídia do Azure oferecem suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que você pode inserir em sua mídia:
 
 Lineares – anúncios em tela cheia que pausam o vídeo principal
 
@@ -61,7 +61,7 @@ Não lineares – anúncios de sobreposição que são exibidos quando o vídeo 
 
 Complementares – anúncios que são exibidos fora do player
 
-Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo principal. Você deve indicar ao player quando reproduzir o anúncio e quais anúncios devem ser reproduzidos. Isso é feito usando um conjunto de arquivos padrão baseados em XML: VAST (Video Ad Service Template), VMAP (Digital Video Multiple Ad Playlist), MAST (Media Abstract Sequencing Template) e VPAID (Digital Video Player Ad Interface Definition). Os arquivos VAST especificam quais anúncios devem ser exibidos. Os arquivos VMAP especificam quando reproduzir diversos anúncios e contêm XML VAST. Os arquivos MAST são outra maneira de sequenciar anúncios que também podem conter XML VAST. Os arquivos VPAID definem uma interface entre o player de vídeo e o anúncio ou o servidor de anúncios. Para saber mais, confira [Inserindo anúncios](https://msdn.microsoft.com/library/dn387398.aspx).
+Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo principal. Você deve indicar ao player quando reproduzir o anúncio e quais anúncios devem ser reproduzidos. Isso é feito usando um conjunto de arquivos padrão baseados em XML: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) e Digital Video Player Ad Interface Definition (VPAID). Os arquivos VAST especificam quais anúncios devem ser exibidos. Os arquivos VMAP especificam quando reproduzir diversos anúncios e contêm XML VAST. Os arquivos MAST são outra maneira de sequenciar anúncios que também podem conter XML VAST. Os arquivos VPAID definem uma interface entre o player de vídeo e o anúncio ou o servidor de anúncios. Para saber mais, confira [Inserindo anúncios](https://msdn.microsoft.com/library/dn387398.aspx).
 
 Para obter informações sobre o suporte à legendagem oculta e a anúncios em vídeos de Streaming ao vivo, confira [Padrões de legendagem oculta e inserção de anúncios compatíveis](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847808"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210587"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 
@@ -83,6 +83,9 @@ Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um co
 Os serviços de mensagens do Barramento de Serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens com até 256 KB (camada standard) ou 1 MB (camada premium). Se você estiver lidando com mensagens de tamanho maior do que 1 MB, use o padrão de verificação de declaração descrito [nesta postagem de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>solução de problemas
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não eu consigo criar um namespace após excluí-lo de outra assinatura? 
+Quando você exclui um namespace de uma assinatura, aguarde até 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, a seguinte mensagem de erro será exibida: `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do Barramento de Serviço do Azure e suas ações sugeridas?
 Para obter uma lista de exceções possíveis do Barramento de Serviço, confira [Visão geral das exceções][Exceptions overview].
 

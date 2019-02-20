@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258843"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892228"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança em nível de linha com Coleções de Workspaces do Power BI
 
@@ -48,7 +48,7 @@ A RLS é criada no Power BI Desktop. Quando o conjunto de dados e o relatório s
 Eis algumas observações em relação a esse esquema:
 
 * Todas as medidas, como **Total de vendas**, são armazenadas na tabela de fatos **Vendas**.
-* Há quatro tabelas de dimensões adicionais relacionadas: **Item**, **Hora**, **Loja** e **Região**.
+* Há quatro tabelas de dimensões adicionais relacionadas: **Item**, **Tempo**, **Loja** e **Distrito**.
 * As setas nas linhas de relação indicam como os filtros podem fluir de uma tabela para outra. Por exemplo, se um filtro é colocado em **Hora[Data]**, no esquema atual ele filtraria somente valores na tabela **Vendas**. Nenhuma outra tabela seria afetada por esse filtro, já que todas as setas nas linhas de relação apontam em direção à tabela de vendas, e não para fora dela.
 * A tabela **Região** indica quem é o gerente de cada região:
   
@@ -94,7 +94,7 @@ Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há 
 * **nome de usuário** (opcional) – usado com RLS, é uma cadeia de caracteres que pode ser usada para ajudar a identificar o usuário ao aplicar regras RLS. Confira Usando segurança de nível de linha com o Power BI Embedded
 * **funções** – uma cadeia de caracteres que contém as funções a selecionar ao aplicar regras de segurança em nível de linha. Ao transmitir mais de uma função, elas deverão ser transmitidas como uma matriz de cadeia de caracteres.
 
-Crie o token usando o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Se a propriedade de nome de usuário estiver presente, você também deverá passar pelo menos um valor como funções.
+Crie o token usando o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Se a propriedade de nome de usuário estiver presente, você também deverá passar pelo menos um valor como funções.
 
 Por exemplo, você pode alterar EmbedSample. A linha 55 DashboardController pode ser atualizada de
 

@@ -1,28 +1,30 @@
 ---
 title: Como administrar o Cache Redis do Azure | Microsoft Docs
 description: Saiba como executar tarefas administrativas, como reinicialização e agendar atualizações para o Cache Redis do Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 0f86bd807bf7bf0d00ad659f86b6e1170f31074c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: yegu
+ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020959"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232374"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias do Cache Redis do Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="reboot"></a>Reboot
 A folha **Reinicializar** permite a reinicialização de um ou mais nós do cache. Essa funcionalidade de reinicialização permite que você teste seu aplicativo para garantir a resiliência caso ocorra uma falha de um nó de cache.
@@ -92,7 +94,7 @@ A folha **Agendar atualizações** permite designar uma -janela de manutenção 
 
 Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC. 
 
-A janela de manutenção padrão e mínima para atualizações é de cinco horas. Esse valor não é configurável no portal do Azure, mas você pode configurá-lo no PowerShell usando o parâmetro `MaintenanceWindow` do cmdlet [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Para saber mais, confira [Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+A janela de manutenção padrão e mínima para atualizações é de cinco horas. Esse valor não é configurável no portal do Azure, mas você pode configurá-lo no PowerShell usando o parâmetro `MaintenanceWindow` do cmdlet [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry). Para saber mais, confira [Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 
 ## <a name="schedule-updates-faq"></a>Perguntas frequentes sobre agendamento de atualizações
@@ -110,10 +112,10 @@ Apenas as atualizações do servidor Redis são realizadas durante a janela de m
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 Sim, você pode gerenciar as atualizações agendadas usando os cmdlets do PowerShell a seguir:
 
-* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
+* [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
+* [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
+* [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Que tipos de preços podem usar a funcionalidade de agendamento de atualizações?
 O recurso **Agendar atualizações** está disponível apenas no tipo de preço premium.

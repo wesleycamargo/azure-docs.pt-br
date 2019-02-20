@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188585"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175397"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -713,7 +714,7 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
 3. Essa operação dará início à sincronização inicial, o que poderá demorar algumas horas dependendo de quantos usuários estiverem no locatário do Workday. 
 
-4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria listam todos os eventos de sincronização realizados pelo serviço de provisionamento, tais como aqueles em que os usuários estão sendo lidos do Workday e, posteriormente adicionados ou atualizados no Active Directory. Consulte a seção [Solução de problemas](#troubleshooting-provisioning-issues) para obter instruções sobre como examinar os logs de auditoria e corrigir erros de provisionamento.
+4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria listam todos os eventos de sincronização realizados pelo serviço de provisionamento, tais como aqueles em que os usuários estão sendo lidos do Workday e, posteriormente adicionados ou atualizados no Active Directory. Consulte a seção Solução de problemas para obter instruções sobre como examinar os logs de auditoria e corrigir erros de provisionamento.
 
 5. Após a sincronização inicial ser concluída, um relatório de resumo de auditoria será gravado na guia **Provisionamento** conforme mostrado abaixo.
 

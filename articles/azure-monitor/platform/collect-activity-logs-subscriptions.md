@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580936"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984572"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Coletar logs de atividade do Azure em Log Analytics em assinaturas
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Coletar Logs de Atividade do Azure no Log Analytics em assinaturas de diferentes locatários do Azure Active Directory
 
-Este artigo aborda um método para coletar logs de atividade do Azure em um workspace usando o conector do coletor de dados do Log Analytics do Azure para aplicativos lógicos. Use o processo neste artigo quando você precisar enviar logs para um workspace em um Azure Active Directory diferente. Por exemplo, se você for um provedor de serviço gerenciado, convém coletar logs de atividade de assinatura do cliente e armazená-los em um workspace do Log Analytics em sua própria assinatura.
+Este artigo aborda um método para coletar logs de atividade do Azure em um workspace usando o conector do coletor de dados do Log Analytics do Azure para aplicativos lógicos. Use o processo neste artigo quando precisar enviar logs para um workspace em um locatário diferente do Azure Active Directory. Por exemplo, se você for um provedor de serviço gerenciado, convém coletar logs de atividade de assinatura do cliente e armazená-los em um workspace do Log Analytics em sua própria assinatura.
 
 Se o workspace do Log Analytics estiver na mesma assinatura do Azure, ou em uma assinatura diferente, mas no mesmo Active Directory do Azure, use as etapas na [solução de log de atividades do Azure](collect-activity-logs.md) para coletar logs de atividades do Azure.
 

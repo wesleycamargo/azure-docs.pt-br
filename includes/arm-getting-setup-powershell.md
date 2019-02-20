@@ -4,12 +4,12 @@ ms.service: azure-powershell
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sewhee
-ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b93722147959881dfbffbb47b7a3e4b140044525
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571789"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246700"
 ---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>Configurando o PowerShell para modelos do Gerenciador de recursos
 Antes de poder usar o Azure PowerShell com o Gerenciador de Recursos, você precisará ter as versões corretas do Windows PowerShell e do Azure PowerShell.
@@ -63,5 +63,5 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Para saber mais sobre contas e assinaturas do Azure, consulte [Como conectar-se à sua assinatura](/powershell/azureps-cmdlets-docs#step-3-connect).
+Para saber mais sobre contas e assinaturas do Azure, confira [Como: Conectar-se com as suas assinaturas](/powershell/azureps-cmdlets-docs).
 

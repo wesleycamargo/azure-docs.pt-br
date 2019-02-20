@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o ZephyrSSO | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ZephyrSSO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o ZephyrSSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310474"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209516"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integração do Active Directory do Azure com o ZephyrSSO
+# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integração do Azure Active Directory com o ZephyrSSO
 
 Neste tutorial, você aprenderá como integrar o ZephyrSSO ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com ZephyrSSO, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Assinatura habilitada para um ZephyrSSO o logon único
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando ZephyrSSO da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -109,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Domínio ZephyrSSO e informações de logon único de URLs](./media/zephyrsso-tutorial/tutorial_zephyrsso_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`
 
@@ -160,7 +161,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-zephyrsso-test-user"></a>Criar um usuário de teste ZephyrSSO
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no ZephyrSSO. Trabalhar com [equipe de suporte do ZephyrSSO](https://support.getzephyr.com) para adicionar os usuários na plataforma do ZephyrSSO. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no ZephyrSSO. Trabalhar com a  [equipe de suporte do ZephyrSSO](https://support.getzephyr.com)  para adicionar os usuários em sua plataforma. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -197,7 +198,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco ZephyrSSO no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo ZephyrSSO.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

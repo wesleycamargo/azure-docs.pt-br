@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818023"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995622"
 ---
-# <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com REST
+# <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
 Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você pode fazer a autenticação usando uma destas duas maneiras:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao SmartLPA | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o SmartLPA | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o SmartLPA.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeedes
-ms.openlocfilehash: eedec7de74f3bdd7ae43d1b1eb0decd5fe83ebf6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 01d8a52d18bb3b6317f843eb6c30061e730ee3ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075028"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161074"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Tutorial: integração do Azure Active Directory com o SmartLPA
+# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Tutorial: Integração do Azure Active Directory com o SmartLPA
 
 Neste tutorial, você aprenderá a integrar o SmartLPA ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao SmartLPA, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único de SmartLPA
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SmartLPA da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do SmartLPA](./media/smartlpa-tutorial/tutorial_smartlpa_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<TENANTNAME>.smartlpa.com/`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<TENANTNAME>.smartlpa.com/`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 
@@ -162,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-smartlpa-test-user"></a>Criar um usuário de teste SmartLPA
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no SmartLPA. Trabalhe com a [equipe de suporte do SmartLPA](mailto:support@smartlpa.com) para adicionar os usuários na plataforma do SmartLPA. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no SmartLPA. Trabalhe com a  [equipe de suporte do SmartLPA](mailto:support@smartlpa.com) para adicionar usuários na plataforma do SmartLPA. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -199,7 +200,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do SmartLPA no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo SmartLPA.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

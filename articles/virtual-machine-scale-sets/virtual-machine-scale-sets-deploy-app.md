@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733118"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980067"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
+
 Para executar aplicativos em instâncias de VM (máquina virtual) em um conjunto de dimensionamento, primeiro é necessário instalar os componentes de aplicativo e os arquivos necessários. Este artigo apresenta maneiras de criar uma imagem de VM personalizada para instâncias em um conjunto de dimensionamento ou executar scripts de instalação automaticamente em instâncias de VM existentes. Você também aprenderá a gerenciar aplicativos ou atualizações do SO em um conjunto de dimensionamento.
 
 
@@ -50,8 +51,8 @@ A extensão de DSC do PowerShell permite que você personalize as instâncias de
 
 - Instrui as instâncias da VM a baixar um pacote de DSC do GitHub – *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Define a extensão para executar um script de instalação – `configure-http.ps1`
-- Obtém informações sobre um conjunto de dimensionamento com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- Aplica a extensão para as instâncias de VM com [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+- Obtém informações sobre um conjunto de dimensionamento com [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
+- Aplica a extensão nas instâncias da VM com [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 
 A extensão de DSC é aplicada a instâncias de VM de *myScaleSet* no grupo de recursos denominado *myResourceGroup*. Insira seus próprios nomes da seguinte maneira:
 
@@ -67,12 +68,12 @@ $dscConfig = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
                 -ResourceGroupName "myResourceGroup" `
                 -VMScaleSetName "myScaleSet"
 
 # Add the Desired State Configuration extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
+$vmss = Add-AzVmssExtension `
     -VirtualMachineScaleSet $vmss `
     -Publisher Microsoft.Powershell `
     -Type DSC `
@@ -81,13 +82,13 @@ $vmss = Add-AzureRmVmssExtension `
     -Setting $dscConfig
 
 # Update the scale set and apply the Desired State Configuration extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet"  `
     -VirtualMachineScaleSet $vmss
 ```
 
-Se a política de atualização em seu conjunto de dimensionamento é *manual*, atualize as instâncias de VM com [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Este cmdlet aplica a configuração de conjunto de dimensionamento atualizado para as instâncias de VM e instala o aplicativo.
+Se a política de atualização em seu conjunto de dimensionamento for *manual*, atualize as instâncias da VM com [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). Este cmdlet aplica a configuração de conjunto de dimensionamento atualizado para as instâncias de VM e instala o aplicativo.
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Instalar um aplicativo em uma VM Linux com o cloud-init

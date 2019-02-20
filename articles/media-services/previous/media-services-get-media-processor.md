@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249230"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998630"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do processador de mídia
+# <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância do Processador de Mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -40,7 +40,7 @@ O tópico a seguir fornece listas de processadores de mídia:
 
 ## <a name="get-media-processor"></a>Obter processador de mídia
 
-O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como conectar-se aos Serviços de Mídia de forma programática](media-services-use-aad-auth-to-access-ams-api.md).
+O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável no nível do módulo chamada **_context** para referenciar o contexto do servidor, como descrito na seção [Como: Conectar Programaticamente os Serviços de Mídia](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

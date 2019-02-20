@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 0a5d0f87b31652b1e1ab32c6b1594021937751b6
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: dfcd9e017675d6ab8799d137b8ac985434a218ba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40046949"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212915"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparar-se para a integração de AKV
 Para usar a integração do Cofre da Chave do Azure e configurar a VM do SQL Server, há vários pré-requisitos: 
@@ -36,7 +36,7 @@ Verifique se você instalou o SDK mais recente do Azure PowerShell. Para obter m
 
 Primeiro, você precisa ter um [Active Directory do Azure](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) em sua assinatura. Entre os diversos benefícios, isso permite que você conceda permissão de acesso ao seu cofre de chave para determinados usuários e aplicativos.
 
-Em seguida, registre um aplicativo com o AAD Isso lhe dará uma conta de Entidade de Serviço com acesso ao cofre de chaves de que sua VM precisará. No artigo Cofre de Chaves do Azure, você pode encontrar estas etapas na seção [Registrar um aplicativo com o Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register), ou pode ver as etapas com capturas de tela na seção **Obter uma identidade para o aplicativo** desta [ostagem de blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Antes de concluir essas etapas, você precisa coletar as seguintes informações durante esse registro. Elas serão necessárias mais tarde, quando você habilitar a integração do Azure Key Vault em sua VM do SQL.
+Em seguida, registre um aplicativo com o AAD Isso lhe dará uma conta de Entidade de Serviço com acesso ao cofre de chaves de que sua VM precisará. No artigo Cofre de Chaves do Azure, você pode encontrar estas etapas na seção [Registrar um aplicativo com o Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory), ou pode ver as etapas com capturas de tela na seção **Obter uma identidade para o aplicativo** desta [ostagem de blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Antes de concluir essas etapas, você precisa coletar as seguintes informações durante esse registro. Elas serão necessárias mais tarde, quando você habilitar a integração do Azure Key Vault em sua VM do SQL.
 
 * Depois que o aplicativo é adicionado, localize o **ID do aplicativo** na folha **aplicativo registrado**.
     O ID do aplicativo é atribuído posteriormente ao parâmetro **$spName** (nome da Entidade de Serviço) no script do PowerShell a fim de habilitar a integração do Azure Key Vault.
@@ -49,12 +49,12 @@ Em seguida, registre um aplicativo com o AAD Isso lhe dará uma conta de Entidad
 
 * A ID do aplicativo e o segredo também poderão ser usados para criar uma credencial do SQL Server.
 
-* Você deve autorizar essa nova ID de cliente para ter as seguintes permissões de acesso: **get**, **wrapKey** e **unwrapKey**. Isso é feito com o cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) . Para saber mais, consulte [Autorizar o aplicativo a usar a chave ou o segredo](../articles/key-vault/key-vault-get-started.md#authorize).
+* Você deve autorizar essa nova ID de cliente para ter as seguintes permissões de acesso: **get**, **wrapKey** e **unwrapKey**. Isso é feito com o cmdlet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy). Para saber mais, confira [Visão geral do Cofre de Chaves do Azure](../articles/key-vault/key-vault-overview.md).
 
 ### <a id="createkeyvault"></a> Criar um cofre de chaves
-Para usar o Cofre da Chave do Azure a fim de armazenar as chaves que você usará para criptografia em sua VM, você precisa ter acesso em um cofre de chave. Se você ainda não tiver configurado seu cofre de chaves, crie um usando as etapas no artigo [Introdução ao Azure Key Vault](../articles/key-vault/key-vault-get-started.md). Antes de concluir essas etapas, você precisa coletar algumas informações durante esse configuração que serão necessárias mais tarde quando você habilitar a integração do Azure Key Vault em sua VM do SQL.
+Para usar o Cofre da Chave do Azure a fim de armazenar as chaves que você usará para criptografia em sua VM, você precisa ter acesso em um cofre de chave. Se você ainda não tiver configurado seu cofre de chaves, crie um usando as etapas no artigo [Introdução ao Azure Key Vault](../articles/key-vault/key-vault-overview.md). Antes de concluir essas etapas, você precisa coletar algumas informações durante esse configuração que serão necessárias mais tarde quando você habilitar a integração do Azure Key Vault em sua VM do SQL.
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
 Quando você chega à etapa Criar um cofre de chave, observe a propriedade **vaultUri** retornada, que é a URL do cofre de chave. No exemplo fornecido nesta etapa, mostrado abaixo, o nome do cofre de chaves é ContosoKeyVault, portanto a URL do cofre de chaves seria https://contosokeyvault.vault.azure.net/.
 

@@ -4,7 +4,7 @@ description: Use estas instruções para ajudá-lo a concluir a configuração c
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077701"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106113"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com a rotação de chaves e auditoria
 
 ## <a name="introduction"></a>Introdução
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Depois de ter um cofre de chaves, você pode começar a usá-lo para armazenar chaves e segredos. Seus aplicativos não precisam manter suas chaves ou segredos, mas podem solicitá-los do cofre conforme necessário. Isso permite que você atualize chaves e segredos sem afetar o comportamento do aplicativo, o que abre uma gama de possibilidades em relação ao gerenciamento de chaves e segredos.
 
@@ -36,7 +38,7 @@ Este artigo guia você por:
 - Ele demonstra como monitorar os logs de auditoria do cofre de chaves e gerar alertas quando solicitações inesperadas são feitas.
 
 > [!NOTE]
-> Este tutorial não se destina a explicar em detalhes a configuração inicial do cofre de chaves. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Para obter instruções sobre a Interface de Linha de Comando de Plataforma Cruzada, confira [Gerenciar Cofre de Chaves usando a CLI](key-vault-manage-with-cli2.md).
+> Este tutorial não se destina a explicar em detalhes a configuração inicial do cofre de chaves. Para obter essa informação, confira [O que é o Azure Key Vault?](key-vault-overview.md). Para obter instruções sobre a Interface de Linha de Comando de Plataforma Cruzada, confira [Gerenciar Cofre de Chaves usando a CLI](key-vault-manage-with-cli2.md).
 >
 >
 
@@ -45,7 +47,7 @@ Este artigo guia você por:
 Para permitir que um aplicativo recupere um segredo do Cofre de Chaves, primeiro crie o segredo e carregue-o no cofre. Isso pode ser feito iniciando uma sessão do Azure PowerShell e entrando em sua conta do Azure com o seguinte comando:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O PowerShell obterá todas as assinaturas que estão associadas a essa conta. O PowerShell usa a primeira por padrão.
@@ -53,19 +55,19 @@ Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta 
 Se tiver várias assinaturas, você terá que especificar a que foi usada para criar o cofre de chaves. Digite o seguinte para ver as assinaturas de sua conta:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Para especificar a assinatura associada ao cofre de chaves do qual os logs serão registrados, digite:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Como este artigo demonstra como armazenar uma chave de conta de armazenamento como um segredo, você deve obter essa chave de conta de armazenamento.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 Depois de recuperar o segredo, nesse caso, a chave da conta de armazenamento, você deve convertê-lo em uma cadeia de caracteres segura e criar um segredo com esse valor no Cofre de Chaves.
@@ -73,13 +75,13 @@ Depois de recuperar o segredo, nesse caso, a chave da conta de armazenamento, vo
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 Em seguida, obtenha o URI do segredo que você criou. Isso é usado em uma etapa posterior ao chamar o cofre de chaves para recuperar o segredo. Execute o seguinte comando do PowerShell e anote o valor de ID, que é o URI do segredo:
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configurar o aplicativo
@@ -110,7 +112,7 @@ Em seguida, gere uma chave para o aplicativo para que ele possa interagir com o 
 Antes de estabelecer as chamadas do aplicativo no cofre de chaves, você deve informar o cofre de chaves sobre o aplicativo e suas permissões. O comando a seguir obtém o nome do cofre e a ID do aplicativo do Azure Active Directory e permite o acesso **Get** ao cofre de chaves para o aplicativo.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 Agora você está pronto para começar a criar as chamadas do aplicativo. No aplicativo, você deve instalar primeiro os pacotes NuGet necessários para interagir com o Cofre de Chaves do Azure e o Azure Active Directory. No Visual Studio Package Manager Console, insira os comandos a seguir. Na elaboração deste artigo, a versão atual do pacote do Azure Active Directory é 3.10.305231913. Portanto, convém confirmar a versão mais recente e atualizar da maneira adequada.
@@ -188,7 +190,7 @@ Em **Ativos**, escolha **Módulos**. Nos **Módulos**, selecione **Galeria** e p
 Depois de recuperar a ID do aplicativo para a conexão da Automação do Azure, você deve informar ao cofre de chaves que o aplicativo tem acesso aos segredos atualizados no cofre. Isso pode ser feito com o seguinte comando do PowerShell:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 Em seguida, selecione **Runbooks** na instância da Automação do Azure e selecione **Adicionar um Runbook**. Selecione **Criação Rápida**. Atribua um nome ao runbook e selecione **PowerShell** como o tipo do runbook. Você tem a opção de adicionar uma descrição. Por fim, clique em **Criar**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 No painel do editor, escolha **Painel de teste** para testar o script. Depois que o script for executado sem erros, você poderá selecionar **Publicar** e poderá aplicar um cronograma ao runbook no painel de configuração.
@@ -246,9 +248,9 @@ Ao configurar um cofre de chaves, você pode ativar a auditoria para coletar log
 Primeiro, você deve habilitar o log no cofre de chaves. Isso pode ser feito por meio dos seguintes comandos do PowerShell (detalhes completos podem ser obtidos em [key-vault-logging](key-vault-logging.md)):
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 Depois que isso é habilitado, os logs de auditoria iniciam a coleta para a conta de armazenamento designada. Esses logs contêm eventos sobre como e quando os cofres de chaves são acessados e por quem.

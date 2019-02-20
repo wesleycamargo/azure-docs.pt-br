@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/07/2019
-ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3657844d5dd4c4dcf9b9729aaeea6c9af3ed6519
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567172"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894864"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
-No Banco de Dados SQL do Azure, é possível configurar um banco de dados único ou em pool com uma política LTR [Retenção de backup em longo prazo](sql-database-long-term-retention.md) para reter backups automaticamente no armazenamento de Blobs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups pelo Portal do Azure ou o PowerShell.
+No Banco de Dados SQL do Azure, é possível configurar um banco de dados individual ou em pool com uma política LTR de [retenção de backup em longo prazo](sql-database-long-term-retention.md) para reter backups automaticamente no armazenamento de Blobs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups pelo Portal do Azure ou o PowerShell.
 
 > [!IMPORTANT]
 > A [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md) não dá suporte à retenção de backup em longo prazo.

@@ -3,8 +3,8 @@ title: Problema na configuração do provisionamento do usuário para um aplicat
 description: Como solucionar problemas comuns enfrentados ao configurar provisionamento do usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 61739d381d5c668b5f1a9467b10398d173601b33
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822265"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178525"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD
 
@@ -55,7 +56,7 @@ Se você definir o **Status de provisionamento** como **Ligado** na seção **Az
 
 ## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Não é possível salvar a configuração devido a credenciais de aplicativo não estarem funcionando
 
-Para o provisionamento funcionar, Azure AD requer credenciais válidas que permitem a conexão com uma API fornecida pelo aplicativo de gerenciamento de usuário. Se essas credenciais não funcionam, ou você não souber o que são, examine o tutorial para configurar esse aplicativo, descrito anteriormente.
+Para o provisionamento funcionar, Azure AD requer credenciais válidas que permitem a conexão com uma API fornecida pelo aplicativo de gerenciamento de usuário. Se as credenciais não funcionarem, ou você não souber quais devem ser, examine o tutorial de configuração do aplicativo, descrito anteriormente.
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Logs de auditoria informa quais usuários são ignorados e não provisionados, mesmo que eles sejam atribuídos
 

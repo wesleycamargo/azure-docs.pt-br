@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda a usar as APIs REST de fala para texto e text-to-speech. Neste artigo, você aprenderá sobre opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247435"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998919"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST de serviço de fala
 
@@ -27,14 +27,14 @@ Antes de usar as APIs REST, entenda:
 * A API REST de fala para texto só retorna os resultados finais. Resultados parciais não são fornecidos.
 * A API REST de conversão de texto em voz requer um cabeçalho de autorização. Isso significa que você precisa concluir uma troca de tokens para acessar o serviço. Para obter mais informações, consulte [Autenticação](#authentication).
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Cada solicitação para a API REST de fala para texto ou texto para voz requer um cabeçalho de autorização. Esta tabela ilustra quais cabeçalhos são suportados para cada serviço:
 
 | Cabeçalhos de autorização suportados | Conversão de fala em texto | Conversão de texto em fala |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | SIM | Não  |
-| Autorização: Portador | SIM | SIM |
+| Ocp-Apim-Subscription-Key | Sim | Não  |
+| Autorização: Portador | Sim | Sim |
 
 Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua chave de assinatura. Por exemplo: 
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-O corpo da resposta contém o token de acesso no formato Java Web Token (JWT).
+O corpo da resposta contém o token de acesso no formato JSON Web Token (JWT).
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 

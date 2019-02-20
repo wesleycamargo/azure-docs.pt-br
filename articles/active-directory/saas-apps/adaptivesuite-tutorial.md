@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Adaptive Insights | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Adaptive Insights | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Adaptive Insights.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430282"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166514"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integração do Azure Active Directory ao Adaptive Insights
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integração do Azure Active Directory com o Adaptive Insights
 
 Neste tutorial, você aprenderá a integrar o Adaptive Insights ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Adaptive Insights, são necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Adaptive Insights
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Adaptive Insights da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -103,7 +104,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
-3. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica de SAML**.
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
 
@@ -111,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    a. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+     a. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
@@ -126,7 +127,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     Observe que a URL pode dizer o seguinte:
 
-    a. URL de logon
+     a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -148,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurações de SSO do SAML](./media/adaptivesuite-tutorial/IC805646.png "Configurações de SSO do SAML")
 
-    a. Na caixa de texto **Nome do provedor de identidade** , digite um nome para a sua configuração.
+     a. Na caixa de texto **Nome do provedor de identidade** , digite um nome para a sua configuração.
 
     b. Cole o **Identificador do Azure AD** copiado do Portal do Azure na caixa de texto **ID da Entidade do Provedor de Identidade**.
 
@@ -188,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/adaptivesuite-tutorial/d_userproperties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -216,7 +217,7 @@ Para permitir que os usuários do Azure AD façam logon no Adaptive Insights, el
 
    ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
 
-   a. Digite o **Nome**, **Logon**, **Email** e **Senha** de um usuário válido do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite o **Nome**, **Logon**, **Email** e **Senha** de um usuário válido do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
    b. Selecione uma **Função**.
 
@@ -246,7 +247,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![image](./media/adaptivesuite-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
@@ -255,7 +256,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando clica no bloco Adaptive Insights no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Adaptive Insights.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

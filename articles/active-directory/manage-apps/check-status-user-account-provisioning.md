@@ -3,8 +3,8 @@ title: Relatórios sobre o provisionamento automático de conta de usuário do A
 description: Saiba como verificar o status dos trabalhos de provisionamento de automático de conta de usuário e como solucionar problemas com o provisionamento de usuários individuais.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203905"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206983"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
@@ -58,13 +59,13 @@ Aqui, você pode acessar tanto o relatório de resumo de provisionamento quanto 
 
 O relatório de resumo de provisionamento fica visível na guia **Provisionamento** para determinado aplicativo. Ele está localizado na seção de **Detalhes de Sincronização** sob **Configurações**, e fornece as seguintes informações:
 
-* O número total de usuários e grupos que foram sincronizados e estão atualmente no escopo para provisionamento entre o sistema de origem e o sistema de destino
+* O número total de usuários e grupos que foram sincronizados e estão atualmente no escopo para provisionamento entre o sistema de origem e o sistema de destino.
 
 * A última vez em que a sincronização foi executada. As sincronizações normalmente ocorrem a cada 20 a 40 minutos, após uma [sincronização inicial](user-provisioning.md#what-happens-during-provisioning) ser concluída.
 
-* Se uma [sincronização inicial](user-provisioning.md#what-happens-during-provisioning) foi ou não concluída
+* Se uma [sincronização inicial](user-provisioning.md#what-happens-during-provisioning) foi ou não concluída.
 
-* Se o processo de provisionamento foi colocado em quarentena ou não e qual o motivo do status de quarentena (por exemplo, falha na comunicação com o sistema de destino devido a credenciais de administrador inválidas)
+* Se o processo de provisionamento foi colocado em quarentena ou não e qual o motivo do status de quarentena (por exemplo, falha na comunicação com o sistema de destino devido a credenciais inválidas do administrador).
 
 O relatório de resumo de provisionamento deve ser o primeiro local em que os administradores procuram para verificar a integridade operacional do trabalho de provisionamento.
 
@@ -79,7 +80,7 @@ Todas as atividades realizadas pelo serviço de provisionamento são registradas
 
 * **Eventos de exportação** – um evento de "exportação" é registrado sempre que o serviço de provisionamento do Azure AD grava um objeto de grupo ou conta de usuário em um sistema de destino. Esses eventos registram todos os atributos de usuário e os valores que foram gravados pelo serviço de provisionamento do Azure AD no momento do evento. Se tiver ocorrido um erro ao gravar o objeto de grupo ou conta de usuário no sistema de destino, ele será exibido aqui.
 
-* **Eventos de processamento de caução** – cauções de processo ocorrerem quando o serviço de provisionamento encontra uma falha ao tentar uma operação e começa a tentar realizar a operação novamente em um intervalo de retirada. Um evento "caução" é registrado sempre que uma operação de provisionamento é desativada.
+* **Eventos de processamento de caução** – cauções de processo ocorrerem quando o serviço de provisionamento encontra uma falha ao tentar uma operação e começa a tentar realizar a operação novamente em um intervalo de retirada. Um evento "caução" é registrado sempre que uma operação de provisionamento é repetida.
 
 Ao examinar eventos de provisionamento para um usuário individual, os eventos geralmente ocorrem nesta ordem:
 

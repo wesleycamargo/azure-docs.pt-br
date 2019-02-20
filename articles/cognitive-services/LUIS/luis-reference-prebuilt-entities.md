@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Este artigo contém listas das entidades predefinidas incluídas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4d5ce9775e7844fcc82aa993f5b01c7cc7ae4779
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213728"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179889"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
@@ -34,6 +34,7 @@ O LUIS (Serviço Inteligente de Reconhecimento Vocal) fornece entidades predefin
 |Coreano|[ko-KR](#korean-entity-support)|
 |Português|[pt-BR (Brasil)](#portuguese-brazil-entity-support)|
 |Espanhol|[es-ES (Espanha)](#spanish-spain-entity-support), [es-MX (México)](#spanish-mexico-entity-support)|
+|Turco|[turco](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>Suporte de entidades chinesas
 
@@ -51,7 +52,7 @@ Há suporte para as seguintes entidades:
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ Há suporte para as seguintes entidades:
 Veja as observações sobre [Entidades predefinidas preteridas](luis-reference-prebuilt-deprecated.md)
 
 A frase-chave não está disponível em todas as subculturas de Português (Brasil) - ```pt-BR```.
+
+## <a name="turkish-entity-support"></a>Suporte de entidades turcas
+
+Há suporte para as seguintes entidades:
+
+|Entidade predefinida|```tr-tr``` |
+------|:------:|
+[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
+[Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   | 
+[Email](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Número](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentual](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+Veja as observações sobre [Entidades predefinidas preteridas](luis-reference-prebuilt-deprecated.md)
+
+KeyPhrase não está disponível.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidade predefinida
 As entidades predefinidas são desenvolvidas no projeto de software livre Recognizers-Text. [Contribua com](https://github.com/Microsoft/Recognizers-Text) para o projeto. Esse projeto inclui exemplos de moeda por cultura. 

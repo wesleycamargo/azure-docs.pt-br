@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140393"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098299"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Passo a passo do acelerador de solução da Fábrica Conectada
 
@@ -46,7 +46,7 @@ O seguinte diagrama descreve os componentes lógicos do acelerador de solução:
 
 A solução usa a [especificação OPC UA Pub/Sub](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) para enviar dados de telemetria do OPC UA ao Hub IoT no formato JSON. A solução usa o módulo [Publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) do IoT Edge para essa finalidade.
 
-A solução também tem um cliente de OPC UA integrado a um aplicativo Web que pode estabelecer conexões com servidores OPC UA locais. O cliente usa um [proxy reverso](https://wikipedia.org/wiki/Reverse_proxy) e recebe ajuda do Hub IoT para fazer a conexão sem a necessidade de abrir portas no firewall local. Esse padrão de comunicação é chamado de [comunicação auxiliada por serviço](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). A solução usa o módulo [Proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/) do IoT Edge para essa finalidade.
+A solução também tem um cliente de OPC UA integrado a um aplicativo Web que pode estabelecer conexões com servidores OPC UA locais. O cliente usa um [proxy reverso](https://wikipedia.org/wiki/Reverse_proxy) e recebe ajuda do Hub IoT para fazer a conexão sem a necessidade de abrir portas no firewall local. Esse padrão de comunicação é chamado de comunicação auxiliada por serviço. A solução usa o módulo [Proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/) do IoT Edge para essa finalidade.
 
 
 ## <a name="simulation"></a>Simulação

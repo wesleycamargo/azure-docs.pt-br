@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: fea31bf1c5869164dde1eb7014b2aacc8fcc5e9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: c82717be3791a1bc397bbbdb369c55cd2ba04439
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757557"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56212932"
 ---
 | Recurso | Destino | Limite rígido |
 |----------|--------------|------------|
@@ -25,8 +25,8 @@ ms.locfileid: "55757557"
 | Pontos de extremidade de servidor por servidor | 30 pontos de extremidade de servidor | Sim |
 | Tamanho do ponto de extremidade | 4 TiB | Não  |
 | Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 25 milhões de objetos | Não  |
-| Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 200.000 objetos | Sim |
+| Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 1.000.000 de objetos | Sim |
 | Tamanho máximo do descritor de segurança (diretórios e arquivos) do objeto | 4 KiB | Sim |
 | Tamanho do arquivo | 100 GiB | Não  |
 | Tamanho mínimo do arquivo para que um arquivo seja colocado em camadas | 64 KiB | Sim |
-| Sessões de sincronização simultâneas | Agente V4: O limite varia com base nos recursos de sistema disponíveis. <BR> Agente V3: 2 sessões de sincronização ativas por processador ou, no máximo, 8 sessões de sincronização ativas por servidor | Sim
+| Sessões de sincronização simultâneas | Agente V4 e posterior: O limite varia com base nos recursos de sistema disponíveis. <BR> Agente V3: 2 sessões de sincronização ativas por processador ou, no máximo, 8 sessões de sincronização ativas por servidor | Sim

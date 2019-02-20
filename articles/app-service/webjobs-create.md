@@ -15,17 +15,20 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: d21d588660b67da024491151fe4f4376cebba46f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729734"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001163"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com o WebJobs no Serviço de Aplicativo do Azure
 
 ## <a name="overview"></a>Visão geral
 WebJobs é um recurso do [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/) que permite executar um programa ou script no mesmo contexto de um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
+
+> [!IMPORTANT]
+> O WebJobs ainda não é suportado para o Serviço de Aplicativo no Linux.
 
 Este artigo mostra como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou um script. Para obter informações sobre como desenvolver e implantar o WebJobs usando o Visual Studio, consulte [Implantar o WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 

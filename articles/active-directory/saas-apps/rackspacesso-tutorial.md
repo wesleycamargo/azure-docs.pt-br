@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Rackspace SSO | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Rackspace SSO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Rackspace SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 24864fd1e21efaf37f846fc95b9dae39ffb19e5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042050"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186821"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: integração do Azure Active Directory ao Rackspace SSO
+# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Active Directory ao Rackspace SSO
 
 Neste tutorial, você aprenderá a integrar o Rackspace SSO com o Microsoft Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Microsoft Azure AD ao Rackspace SSO, são necessários os seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Rackspace SSO habilitada para logon único
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Rackspace SSO da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -192,7 +193,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Rackspace SSO no Painel de Acesso, seu logon deverá ser feito automaticamente no aplicativo Rackspace SSO.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

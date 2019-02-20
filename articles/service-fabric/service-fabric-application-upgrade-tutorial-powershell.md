@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515311"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185835"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização do aplicativo do Service Fabric usando o PowerShell
 > [!div class="op_single_selector"]
@@ -34,11 +34,9 @@ O mais usado e o método de atualização recomendado é a atualização sem int
 
 Uma atualização do aplicativo monitorada pode ser executada usando o gerenciado ou nativo APIs, PowerShell, CLI do Azure, Java ou REST. Para obter instruções sobre como executar uma atualização usando o Visual Studio, confira [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Com as atualizações monitoradas sem interrupção do Service Fabric, o administrador de aplicativos pode configurar a política de avaliação de integridade que o Service Fabric usa para determinar se o aplicativo está íntegro. Além disso, o administrador pode configurar a ação a ser executada quando a avaliação de integridade falha (por exemplo, uma reversão automática). Esta seção fornece um passo a passo de uma atualização monitorada para um dos exemplos de SDK que usa o PowerShell. O vídeo do Microsoft Virtual Academy a seguir também explica o processo de atualização de um aplicativo: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+Com as atualizações monitoradas sem interrupção do Service Fabric, o administrador de aplicativos pode configurar a política de avaliação de integridade que o Service Fabric usa para determinar se o aplicativo está íntegro. Além disso, o administrador pode configurar a ação a ser executada quando a avaliação de integridade falha (por exemplo, uma reversão automática). Esta seção fornece um passo a passo de uma atualização monitorada para um dos exemplos de SDK que usa o PowerShell. 
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Etapa 1: criar e implantar o exemplo de Objetos Visuais
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Etapa 1: Criar e implantar o exemplo de Objetos Visuais
 Crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication** e selecionando o comando **Publicar**.  Para obter mais informações, confira o [Tutorial de atualização de aplicativos do Service Fabric](service-fabric-application-upgrade-tutorial.md).  Se preferir, você pode usar o PowerShell para implantar o seu aplicativo.
 
 > [!NOTE]
@@ -50,7 +48,7 @@ Depois de criar o projeto no Visual Studio, você pode usar o comando do PowerSh
 
 Agora, você pode usar o [Gerenciador de Malha do serviço para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo tem um serviço Web que pode ser acessado no Internet Explorer, digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) na barra de endereços.  Você deve ver alguns objetos visuais flutuantes moverem-se na tela.  Além disso, você pode usar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o status do aplicativo.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de Objetos Visuais
+## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: Atualizar o exemplo de Objetos Visuais
 Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais possam girar.
 
 Selecione o projeto VisualObjects.ActorService dentro da solução VisualObjects e abra o arquivo StatefulVisualObjectActor.cs. Nesse arquivo, navegue até o método `MoveObject`, desmarque o comentário `this.State.Move()` e remova os comentários `this.State.Move(true)`. Essa alteração gira os objetos após a atualização do serviço.
@@ -76,7 +74,7 @@ Agora, o arquivo *ApplicationManifest.xml* (localizado no projeto **VisualObject
 
 Agora, compile o projeto selecionando apenas o projeto **ActorService**, clicando com o botão direito do mouse e selecionando **Compilar** no Visual Studio. Se você selecionar **Recompilar todos**, deverá atualizar as versões de todos os projetos, pois o código pode ter sido alterado. Agora, vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em ***VisualObjectsApplication***, selecionando o menu do Service Fabric e escolhendo **Pacote**. Essa ação cria um pacote de aplicativos que pode ser implantado.  Seu aplicativo atualizado está pronto para ser implantado.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Etapa 3: decida sobre diretivas de integridade e parâmetros de atualização
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Etapa 3:  Decida sobre políticas de integridade e os parâmetros de atualização
 Familiarize-se com os [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e o [processo de atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, os tempos limite e o critério de integridade aplicados. Para este passo a passo, o critério de avaliação de integridade do serviço é definido como o padrão (e valores recomendados), o que significa que todos os serviços e as instâncias devem estar *íntegros* após a atualização.  
 
 Vamos, no entanto, aumentar *HealthCheckStableDuration* para 180 segundos (de modo que os serviços estejam íntegros pelo menos 120 segundos antes que a atualização prossiga para o próximo domínio de atualização).  Vamos definir também *UpgradeDomainTimeout* para 1.200 segundos e *UpgradeTimeout* para 3.000 segundos.
@@ -91,7 +89,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## <a name="step-4-prepare-application-for-upgrade"></a>Etapa 4: preparar o aplicativo para atualização
+## <a name="step-4-prepare-application-for-upgrade"></a>Etapa 4: Preparar o aplicativo para uma atualização
 Agora, o aplicativo está compilado e pronto para ser atualizado. Se você abrir uma janela do PowerShell como administrador e digitar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), será informado de que o aplicativo tipo 1.0.0.0 do **VisualObjects** foi implantado.  
 
 O pacote de aplicativos é armazenado no seguinte caminho relativo onde você descompactou o SDK de Service Fabric - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Você deve localizar uma pasta "Pacote" nesse diretório, no qual o pacote de aplicativos está armazenado. Verifique os carimbos de data/hora para garantir que é o build mais recente (talvez seja necessário modificar os caminhos adequadamente também).
@@ -116,7 +114,7 @@ Caso o comando anterior não funcione, é provável que você precise recompilar
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
 ```
 
-## <a name="step-5-start-the-application-upgrade"></a>Etapa 5: iniciar a atualização do aplicativo
+## <a name="step-5-start-the-application-upgrade"></a>Etapa 5: Iniciar a atualização do aplicativo
 Agora podemos iniciar a atualização do aplicativo usando o comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps):
 
 ```powershell

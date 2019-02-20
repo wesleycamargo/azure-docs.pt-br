@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247792"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211437"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciando o ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -37,7 +37,7 @@ A política de gerenciamento do ciclo de vida está disponível nas contas GPv2 
 O recurso de gerenciamento do ciclo de vida é gratuito na versão prévia. O custo de operação normal para as chamadas à API [Listar Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [Definir Camada de Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) é cobrado dos clientes. Para obter mais informações sobre preços, confira [Preços do Blob de Blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registrar-se para a versão prévia 
-Para se inscrever na versão prévia pública, você precisará enviar uma solicitação para registrar esse recurso em sua assinatura. Geralmente, as solicitações são aprovadas em até duas semanas. Após a aprovação, todas as contas de Armazenamento de Blobs ou GPv2 novas e existentes nas seguintes regiões incluirão o recurso: Oeste dos EUA 2, Centro-oeste dos EUA, Leste dos EUA 2 e Europa Ocidental. A versão prévia dá suporte apenas a blob de blocos. Assim como ocorre com a maioria das versões prévias, você não deverá usar esse recurso para cargas de trabalho de produção até que ele seja alterado para GA.
+Para se inscrever na versão prévia pública, você precisará enviar uma solicitação para registrar esse recurso em sua assinatura. Geralmente, as solicitações são aprovadas em até 72 horas. Após a aprovação, todas as contas de Armazenamento de Blobs ou GPv2 novas e existentes nas seguintes regiões incluirão o recurso: Oeste dos EUA 2, Centro-oeste dos EUA, Leste dos EUA 2 e Europa Ocidental. A versão prévia dá suporte apenas a blob de blocos. Assim como ocorre com a maioria das versões prévias, você não deverá usar esse recurso para cargas de trabalho de produção até que ele seja alterado para GA.
 
 Para enviar uma solicitação, execute os seguintes comandos da CLI ou do PowerShell.
 
@@ -189,7 +189,7 @@ Durante a versão prévia, os filtros válidos incluem:
 
 | Nome do filtro | Tipo do filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão prévia só dá suporte a `blockBlob`. | SIM |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão prévia só dá suporte a `blockBlob`. | Sim |
 | prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja encontrar uma correspondência para todos os blobs em "https://myaccount.blob.core.windows.net/container1/foo/..." em uma regra, o prefixMatch é `container1/foo`. | Se você não definir o prefixMatch, as regras serão aplicadas a todos os blobs da conta. | Não  |
 
 ### <a name="rule-actions"></a>Ações de regra

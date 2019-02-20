@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Skills Base | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Skills Base | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Skills Base.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8bc0353453cf5fe689eec398f6a7d73fb356b178
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205367"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190833"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: integração do Azure Active Directory com o Skills Base
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Azure Active Directory com o Skills Base
 
 Neste tutorial, você aprenderá a integrar o Skills Base ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Skills Base, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Skills Base habilitada para logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Skills Base da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -134,7 +135,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Único](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
-    a. Clique no botão **Atualizar metadados do IdP** ao lado da opção **Status** e cole o conteúdo do XML de metadados que você baixou do portal do Azure na caixa de texto especificada.
+     a. Clique no botão **Atualizar metadados do IdP** ao lado da opção **Status** e cole o conteúdo do XML de metadados que você baixou do portal do Azure na caixa de texto especificada.
 
     > [!Note]
     > Também é possível validar os metadados do IdP por meio da ferramenta **Validador de metadados**, conforme destacado na captura de tela acima.
@@ -215,7 +216,7 @@ Nesta seção, você habilita Brenda Fernandes a usar o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Skills Base no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Skills Base.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

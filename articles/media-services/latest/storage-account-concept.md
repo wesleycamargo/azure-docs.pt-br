@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 90e01f39fa6b31095d76d0dfae2f700b4fa2ca3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220341"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182860"
 ---
 # <a name="storage-accounts"></a>Contas de armazenamento
 
@@ -29,7 +29,7 @@ Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas cont
 
 É recomendável que você use GPv2, para que você possa aproveitar a vantagem de escolher entre camadas de armazenamento frequente e esporádico. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md). 
 
-A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. É recomendável usar contas de armazenamento na mesma localização da conta dos Serviços de Mídia.
+A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. Recomenda-se usar as contas de armazenamento no mesmo local da conta de Serviços de Mídia para evitar os custos adicionais da saída de dados e latência.
 
 ## <a name="assets-in-a-storage-account"></a>Ativos em uma conta de armazenamento
 

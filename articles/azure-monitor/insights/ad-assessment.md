@@ -1,5 +1,5 @@
 ---
-title: Otimizar seu ambiente do Active Directory com o Azure Log Analytics | Microsoft Docs
+title: Otimizar seu ambiente do Active Directory com o Azure Monitor | Microsoft Docs
 description: É possível usar a solução Verificação de Integridade do Active Directory para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193001"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999021"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Azure Monitor
 
 ![Símbolo da Verificação da Integridade do AD](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 É possível usar a solução Verificação de Integridade do Active Directory para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo ajuda você a instalar e usar a solução para que possa tomar ações corretivas para os problemas em potencial.
 
@@ -40,22 +42,22 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de Verificação de Integridade do Active Directory requer uma versão com suporte do .NET Framework 4.5.2 ou superior instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2, e o serviço Log Analytics.
+* A solução de Verificação de Integridade do Active Directory requer uma versão com suporte do .NET Framework 4.5.2 ou superior instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.
 * A solução oferece suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e 2012 R2 e o Windows Server 2016.
 * Um workspace Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure.  Não é necessária nenhuma configuração.
 
   > [!NOTE]
-  > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para o serviço Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
+  > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e, em seguida, enviados para o Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
   >
   >
 
-Para executar a verificação de integridade nos controladores de domínio membros do domínio que será avaliado, eles precisam de um agente e de conectividade com o Log Analytics usando um dos seguintes métodos com suporte:
+Para executar a verificação de integridade nos controladores de domínio membros do domínio que será avaliado, eles precisam de um agente e de conectividade com o Azure Monitor usando um dos seguintes métodos com suporte:
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
-2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o controlador de domínio poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
+2. Se for monitorado com o System Center 2016 – Operations Manager ou com o Operations Manager 2012 R2 e o grupo de gerenciamento não for integrado com o Azure Monitor, o controlador de domínio poderá ter hospedagem múltipla com o Azure Monitor para coletar dados, encaminhar para o serviço e ainda ser monitorado pelo Operations Manager.  
 3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
 
-O agente em seu controlador de domínio que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
+O agente em seu controlador de domínio que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o Azure Monitor.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Detalhes de coleta de dados da Verificação de Integridade do Active Directory
 
@@ -73,7 +75,7 @@ A Verificação de Integridade do Active Directory coleta dados das seguintes fo
 - API do NTFRS (Serviço de Replicação de Arquivos)
 - Código em C# personalizado
 
-Os dados são coletados no controlador de domínio e encaminhados ao Log Analytics a cada sete dias.  
+Os dados são coletados no controlador de domínio e encaminhados ao Azure Monitor a cada sete dias.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Compreendendo como as recomendações são priorizadas
 Cada recomendação feita recebe um valor de ponderação que identifica a importância relativa da recomendação. Somente as 10 recomendações mais importantes são mostradas.
@@ -107,30 +109,33 @@ Após a instalação, é possível exibir o resumo das recomendações usando o 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-3. Clique no bloco **Visão geral** para o seu workspace do Log Analytics no portal do Azure.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. Na página **Visão Geral**, clique no bloco **Verificação de Integridade do Active Directory**.
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações da Verificação da Integridade](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
-Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
+Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Azure Monitor para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
-1. No portal do Azure, na página do workspace Log Analytics de seu workspace selecionado, clique no bloco **Pesquisa de Log**.
-2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: <br><br> ![recomendações com falha](./media/ad-assessment/ad-failed-recommendations.png)
+Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
-3. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Esta é uma captura de tela mostrando uma consulta de log:<br><br> ![recomendações com falha](media/ad-assessment/ad-failed-recommendations.png)
+
+Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
 1. Crie um arquivo chamado IgnoreRecommendations.txt.
-2. Cole ou digite a RecommendationId de cada recomendação que você deseja que o Log Analytics ignore em uma linha separada e, em seguida, salve e feche o arquivo.
-3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o Log Analytics ignore as recomendações.
+2. Cole ou digite a RecommendationId de cada recomendação que você deseja que o Azure Monitor ignore em uma linha separada e, em seguida, salve e feche o arquivo.
+3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o Azure Monitor ignore as recomendações.
    * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou por meio do Operations Manager) - *SystemDrive*:\Arquivos de Programas\Microsoft Monitoring Agent\Agent
    * No servidor de gerenciamento do Operations Manager 2012 R2 - *SystemDrive*:\Arquivos de Programa\Microsoft System Center 2012 R2\Operations Manager\Server
    * No servidor de gerenciamento do Operations Manager 2016 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas
 Após a execução da próxima verificação de integridade agendada, por padrão, a cada sete dias, as recomendações especificadas são marcadas como *Ignoradas* e não aparecerão no painel.
 
-1. É possível usar as consultas da Pesquisa de Log a seguir para listar todas as recomendações ignoradas.
+1. É possível usar as consultas de log a seguir para listar todas as recomendações ignoradas.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 *Por que apenas as 10 principais recomendações são exibidas?*
 
-* Em vez de apresentar uma lista exaustiva de tarefas, é recomendável que você se concentre em tratar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se você preferir ver a lista detalhada, poderá ver todas as recomendações usando a Pesquisa de Log.
+* Em vez de apresentar uma lista exaustiva de tarefas, é recomendável que você se concentre em tratar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se preferir ver a lista detalhada, você poderá ver todas as recomendações usando uma consulta de log.
 
 *É possível ignorar uma recomendação?*
 
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use as [Pesquisas de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para aprender como analisar os dados da Verificação da Integridade do AD detalhados e as recomendações.
+* Use as [Consultas de log do Azure Monitor](../log-query/log-query-overview.md) para saber como analisar dados detalhados da Verificação de Integridade do AD, bem como as recomendações.

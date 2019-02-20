@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507507"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217523"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: integração do Azure Active Directory com o Dossier
+# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Azure Active Directory com o Dossier
 
 Neste tutorial, você aprende a integrar o Dossier ao Microsoft Azure Active Directory.
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Microsoft Azure Active Directory com o Dossier, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada do Dossier para logon único
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Dossier da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -109,7 +110,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Informações de logon único em Domínio e URLs do Dossier](./media/dossier-tutorial/tutorial_dossier_url1.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     
     | | |
     |-|-|
@@ -176,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-dossier-test-user"></a>Criar um usuário de teste do Dossier
 
-Nesta seção, você criará uma usuária chamado Brenda Fernandes no Dossier. Trabalhe com a [equipe de suporte do Dossier](mailto:support@intellimedia.ca) para adicionar os usuários na plataforma do Dossier. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamado Brenda Fernandes no Dossier. Trabalhe com a  [equipe de suporte do Dossier](mailto:support@intellimedia.ca)  para adicionar os usuários na plataforma do Dossier. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

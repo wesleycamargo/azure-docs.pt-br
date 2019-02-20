@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: a9f956e66be03a4811868cbc2e7d6fc7dc672310
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9b3261679b64e054bb8f750ad99983661a5b6035
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886202"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212928"
 ---
 ## <a name="specifying-formats"></a>Especificando formatos
 O Azure Data Factory dá suporte aos tipos de formato a seguir:
@@ -213,7 +213,7 @@ e quiser copiá-lo para uma tabela SQL do Azure no formato a seguir, ao extrair 
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção [Especificar a definição de estrutura para conjuntos de dados retangulares](#specifying-structure-definition-for-rectangular-datasets) para obter mais detalhes.
+- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção Especificar a definição de estrutura para conjuntos de dados retangulares para obter mais detalhes.
 - `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth ou usar **array[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
 
 ```json
@@ -286,7 +286,7 @@ e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao ni
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção [Especificar a definição de estrutura para conjuntos de dados retangulares](#specifying-structure-definition-for-rectangular-datasets) para obter mais detalhes.
+- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção Especificar a definição de estrutura para conjuntos de dados retangulares para obter mais detalhes.
 - `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão em linhas da ordem da **matriz**.
 - `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, "ordernumber", "orderdate" e "city" estão sob o objeto root com caminho JSON começando com"$.", enquanto "order_pd" e "order_price" são definidos com caminho derivado do elemento de matriz sem "$.".
 

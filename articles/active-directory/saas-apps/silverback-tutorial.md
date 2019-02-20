@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Silverback | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Silverback | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e Silverback.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123837"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172698"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Microsoft Azure Active Directory com Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Active Directory com o Silverback
 
 Neste tutorial, você aprenderá a integrar o Silverback ao Microsoft Azure Active Directory.
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Microsoft Azure Active Directory ao Silverback, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura ativa do Silverback
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Silverback da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Informações de logon único em Domínio e URLs do Silverback](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<YOURSILVERBACKURL>.com`
 
@@ -126,7 +127,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
 6.  Faça logon em seu servidor Silverback como administrador e execute as seguintes etapas:
 
-    a.  Navegue até **Admin** > **provedor de autenticação**.
+     a.  Navegue até **Admin** > **provedor de autenticação**.
 
     b. Na página **Configurações do Provedor de Autenticação**, execute as etapas a seguir:
 
@@ -196,7 +197,7 @@ Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, d
 
     ![O usuário ](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-    a. Na caixa de texto **Nome de usuário**, digite o nome do usuário, como **Brenda**.
+     a. Na caixa de texto **Nome de usuário**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
@@ -248,7 +249,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar na peça Silverback no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Silverback.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

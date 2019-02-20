@@ -1,6 +1,6 @@
 ---
-title: Usando a CLI do HDFS com a Visualização do Azure Data Lake Storage Gen2
-description: Introdução ao HDFS CLI para o Data Lake Storage Gen2 Preview
+title: Usando a CLI do HDFS com o Azure Data Lake Storage Gen2
+description: Introdução à CLI do HDFS para o Data Lake Storage Gen2
 services: storage
 author: artemuwka
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2691346433b3cc29b22446152ea797cefb02a380
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241263"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874169"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com o Data Lake Storage Gen2
 
-A Visualização do Gen2 do Data Storage do Azure Data permite que você gerencie e acesse os dados da mesma forma que faria com um [ Sistema de Arquivos Distribuídos Hadoop (HDFS) ](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se você tiver um cluster do HDInsight conectado ou executar um trabalho do Apache Spark usando as Chaves de dados do Azure para executar análises em dados armazenados em uma conta do Armazenamento do Azure, poderá usar a interface da linha de comando (CLI) para recuperar e manipular os dados carregados.
+O Azure Data Lake Storage Gen2 permite gerenciar e acessar os dados como seria feito com um [Sistema de Arquivos Distribuído Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se você tiver um cluster do HDInsight conectado ou executar um trabalho do Apache Spark usando as Chaves de dados do Azure para executar análises em dados armazenados em uma conta do Armazenamento do Azure, poderá usar a interface da linha de comando (CLI) para recuperar e manipular os dados carregados.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS CLI com HDInsight
 

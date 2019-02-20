@@ -10,12 +10,13 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 412e114fde8f9b9017d476083f1237c922c67bc8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463048"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185138"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação por senha avulsa por email (versão prévia)
 
@@ -29,7 +30,7 @@ O recurso de senha avulsa por Email autentica os usuários convidados de B2B qua
 Esse recurso está atualmente disponível em versão prévia (confira [Aceitar a versão prévia](#opting-in-to-the-preview) abaixo). Após a versão prévia, esse recurso será ativado por padrão para todos os locatários.
 
 > [!NOTE]
-> Os usuários com senha avulsa devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou ainda, no caso de um domínio padrão verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, o uso de `https://myapps.microsoft.com`, `https://portal.azure.com` ou do ponto de extremidade comum das Equipes resultará em erro. 
+> Os usuários de senha descartável devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, o uso de `https://myapps.microsoft.com`, `https://portal.azure.com` ou do ponto de extremidade comum das Equipes resultará em erro. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência do usuário para usuários convidados com senha avulsa
 Com a autenticação por senha avulsa, o usuário convidado pode resgatar seu convite clicando em um link direto ou usando o email de convite. Em ambos os casos, uma mensagem no navegador indica que um código será enviado ao endereço de email do usuário convidado. O usuário convidado seleciona **Enviar código**:

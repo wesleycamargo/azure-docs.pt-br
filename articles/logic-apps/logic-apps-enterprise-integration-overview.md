@@ -10,14 +10,14 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: d37d5cb2b89b82bd9741dee0946b3a77d456b22a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405745"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243103"
 ---
-# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Visão geral: cenários de Enterprise Integration B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Visão geral: Cenários de Enterprise Integration B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Para fluxos de trabalho entre empresas (B2B) e comunicação direta com os Aplicativos Lógicos do Azure, você pode habilitar cenários de integração corporativa com a solução baseada em nuvem da Microsoft, o Enterprise Integration Pack. Organizações podem trocar mensagens eletronicamente, mesmo usando diferentes protocolos e formatos. O pacote transforma diferentes formatos em um formato que os sistemas das organizações podem interpretar e processar. As organizações podem trocar mensagens por meio de protocolos padrão da indústria, incluindo [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) e [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Também é possível proteger mensagens com criptografia e assinaturas digitais.
 
@@ -33,7 +33,7 @@ Em termos de arquitetura, o Enterprise Integration Pack se baseia em "contas de 
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>Como começar a usar a integração corporativa?
 
-É possível criar e gerenciar aplicativos B2B com o Enterprise Integration Pack por meio do Designer de Aplicativos Lógicos no **Portal do Azure**. Também é possível gerenciar aplicativos lógicos com o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "PowerShell para aplicativos lógicos").
+É possível criar e gerenciar aplicativos B2B com o Enterprise Integration Pack por meio do Designer de Aplicativos Lógicos no **Portal do Azure**. Também é possível gerenciar aplicativos lógicos com o [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
 
 Confira as etapas de alto nível necessárias para criar aplicativos no Portal do Azure:
 
@@ -50,11 +50,11 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 
 * Uma assinatura do Azure com uma conta de integração
 * Visual Studio 2015 para criar esquemas e mapas
-* [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 (Ferramentas de integração corporativa do Aplicativo Lógico do Microsoft Azure para Visual Studio 2015)](https://aka.ms/vsmapsandschemas)  
+* [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 (Ferramentas de integração corporativa dos Aplicativos Lógicos do Microsoft Azure para Visual Studio 2015 2.0)](https://aka.ms/vsmapsandschemas)  
 
 ## <a name="try-it-now"></a>Teste agora
 
-[Implante um exemplo de aplicativo lógico de envio e recebimento AS2 totalmente operacional](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) que usa os recursos B2B do Aplicativo Lógico do Azure.
+[Implante um exemplo de aplicativo lógico de envio e recebimento AS2 totalmente operacional](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) que usa os recursos B2B dos Aplicativos Lógicos do Azure.
 
 ## <a name="learn-more"></a>Saiba mais
 * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")

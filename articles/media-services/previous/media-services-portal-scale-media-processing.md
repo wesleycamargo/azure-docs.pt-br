@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2aabdc503a694de46796b7c3afeedfcdb2f39ca9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 810d1bf6a550539b402721d089d8b041cfb48634
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037849"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991439"
 ---
 # <a name="change-the-reserved-unit-type"></a>Alterar o tipo de unidade reservada
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "51037849"
 
 ## <a name="overview"></a>Visão geral
 
-Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
+Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Escolha um entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
 
 Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento de sua conta com as **URs** (Unidades Reservadas). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
 
@@ -53,7 +53,7 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas, fa�
    
     Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use o controle deslizante **Unidades Reservadas de Mídia** no canto superior da tela.
    
-    Para alterar o **TIPO DE UNIDADE RESERVADA**, clique na barra **Velocidade das unidades reservadas de processamento**. Em seguida, selecione o tipo de preço de que precisa: S1, S2 ou S3.
+    Para alterar o **TIPO DE UNIDADE RESERVADA**, clique na barra **Velocidade das unidades reservadas de processamento**. Em seguida, escolha o tipo de preço adequado: S1, S2 ou S3.
    
 3. Pressione o botão SALVAR para salvar as alterações.
    

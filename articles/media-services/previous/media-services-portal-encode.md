@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247275"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996127"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificar um ativo usando o Media Encoder Standard no Portal do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247275"
 > 
 > 
 
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming de taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia do Azure dão suporte às seguintes tecnologias de streaming de taxa de bits adaptável: Apple HLS (HTTP Live Streaming), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming por HTTP), também chamado de MPEG-DASH. Para preparar os vídeos para streaming de taxa de bits adaptável, primeiro codifique o vídeo de origem como arquivos de múltiplas taxas de bits. Você pode usar o Azure Media Encoder Standard para codificar seus vídeos.  
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming de taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia oferecem suporte para as seguintes tecnologias de streaming de taxa de bits adaptável: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e Dynamic Adaptive Streaming no HTTP (DASH, também chamado de MPEG-DASH). Para preparar os vídeos para streaming de taxa de bits adaptável, primeiro codifique o vídeo de origem como arquivos de múltiplas taxas de bits. Você pode usar o Azure Media Encoder Standard para codificar seus vídeos.  
 
 Os Serviços de Mídia oferecem empacotamento dinâmico. Com o empacotamento dinâmico, você pode fornecer seus MP4s de múltiplas taxas de bits em HLS, Smooth Streaming e MPEG-DASH, sem reempacotar nesses formatos de fluxo contínuo. Quando você usa o empacotamento dinâmico, você pode armazenar e pagar por arquivos em um único formato de armazenamento. Os Serviços de Mídia criam e fornecem a resposta apropriada com base nas solicitações de um cliente.
 

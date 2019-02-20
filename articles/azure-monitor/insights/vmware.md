@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887403"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993360"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de Monitoramento de VMware (visualização) no Log Analytics
 
@@ -34,7 +34,7 @@ A solução usa a funcionalidade de syslog nativo do host ESXi para enviar dados
 ## <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-* Adicionar a solução de monitoramento do VMware à sua assinatura usando o processo descrito em [instalar uma solução de gerenciamento](../insights/solutions.md#install-a-management-solution).
+* Adicionar a solução de monitoramento do VMware à sua assinatura usando o processo descrito em [instalar uma solução de monitoramento](../insights/solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Hosts VMware ESXi com suporte
 Host vSphere ESXi 5.5, 6.0 e 6.5

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Use essas melhores práticas para melhorar a base de dados de conhecimento e fornecer melhores resultados aos usuários finais do aplicativo/chat.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219270"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245534"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento da base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) informa como gerenciar a base de dados de conhecimento de ponta a ponta. Use essas melhores práticas para melhorar a base de dados de conhecimento e fornecer melhores resultados aos usuários finais do aplicativo/chat.
@@ -74,7 +74,7 @@ A pontuação de confiança padrão usada como limite é 50, no entanto, você p
 Os [Metadados](../How-To/edit-knowledge-base.md) adicionam a capacidade de restringir os resultados de uma consulta do usuário com base em marcas de metadados. A resposta da base de dados de conhecimento poderá variar com base na marca de metadados, mesmo se a consulta for a mesma. Por exemplo, *"onde o estacionamento está localizado"* poderá ter uma resposta diferente se a localização da filial do restaurante for diferente – ou seja, se os metadados forem *Localização: Seattle* versus *Localização: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinônimos
-Embora haja algum suporte para sinônimos no idioma inglês, use [alterações de palavras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) para adicionar sinônimos a palavras-chave que apresentam formas diferentes. Os sinônimos devem ser adicionados no nível de serviço do QnA Maker e compartilhados por todas as bases de dados de conhecimento no serviço.
+Embora haja algum suporte para sinônimos no idioma inglês, use [alterações de palavras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) que não diferenciem maiúsculas de minúsculas para adicionar sinônimos a palavras-chave que apresentem formas diferentes. Os sinônimos devem ser adicionados no nível de serviço do QnA Maker e compartilhados por todas as bases de dados de conhecimento no serviço.
 
 |Palavra original|Sinônimos|
 |--|--|

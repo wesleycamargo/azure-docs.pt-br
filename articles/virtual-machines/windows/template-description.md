@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767066"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113236"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
 Este artigo descreve os aspectos de um modelo do Azure Resource Manager aplicáveis a máquinas virtuais. Este artigo não descreve um modelo completo para a criação de uma máquina virtual. Para isso, são necessárias definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como esses recursos podem ser definidos juntos, consulte o [Passo a passo do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Há muitos [modelos na galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluem o recurso de VM. Nem todos os elementos que podem ser incluídos em um modelo são descritos aqui.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 Este exemplo mostra uma seção de recursos típicos de um modelo para a criação de um número especificado de VMs:
 
@@ -163,8 +165,9 @@ A versão da API especificada em seu modelo afeta quais propriedades você pode 
 Use estas oportunidades para obter as versões mais recentes de API:
 
 - API REST – [listar todos os provedores de recursos](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell – [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - CLI do Azure - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+
 
 ## <a name="parameters-and-variables"></a>Parâmetros e variáveis
 
@@ -442,7 +445,7 @@ O script start.ps1 pode executar várias tarefas de configuração. Por exemplo,
 
 ![Obter status de extensão](./media/template-description/virtual-machines-show-extensions.png)
 
-Também é possível obter informações sobre extensões usando o comando do PowerShell **Get-AzureRmVMExtension**, o comando da CLI do Azure **vm extension get** ou a API REST **Obter informações de extensão**.
+Também é possível obter informações sobre extensões usando o comando do PowerShell **Get-AzVMExtension**, o comando da CLI do Azure **vm extension get** ou a API REST **Obter informações de extensão**.
 
 ## <a name="deployments"></a>Implantações
 

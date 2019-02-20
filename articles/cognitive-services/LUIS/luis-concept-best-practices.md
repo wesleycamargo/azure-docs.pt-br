@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Conheça as melhores práticas do LUIS para obter os melhores resultados do seu modelo de aplicativo do LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6f9c559ce6fe66d4fe3df9382bc931f4a55e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209359"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243409"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS. 
@@ -59,6 +59,12 @@ Considere os seguintes exemplos de declaração:
 
 "Reservar um voo" e "Reservar hotel" usam o mesmo vocabulário de "reservar um ". Esse formato é o mesmo, portanto deve ser a mesma intenção com palavras diferentes de voo e hotel como entidades extraídas. 
 
+Para mais informações:
+* Conceito: [Conceitos sobre intenções em seu aplicativo LUIS](luis-concept-intent.md)
+* Tutorial: [Criar aplicativo LUIS para determinar as intenções dos usuários](luis-quickstart-intents-only.md)
+* Como: [Adicionar intenções para determinar a intenção do usuário de enunciados](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>Localizar ponto ideal para intenções
 Use dados de previsão do LUIS para determinar se suas intenções estiverem se sobrepondo. Intenções sobrepostas confundem o LUIS. O resultado é que a principal intenção de pontuação está muito perto de outra intenção. Como o LUIS não usa o mesmo caminho exato por meio dos dados para treinamento a cada vez, uma intenção sobreposta tem uma chance de ser a primeira ou a segunda no treinamento. Convém que a pontuação da declaração para cada intenção esteja mais distante para que esse flip/flop não aconteça. A boa distinção para intenções deve resultar na principal intenção esperada toda vez. 
  
@@ -67,6 +73,9 @@ Mantenha um conjunto separado de declarações que não é usado como [declaraç
 
 Os desenvolvedores devem ter três conjuntos de dados. O primeiro é o exemplo de declarações para criar o modelo. O segundo é para testar o modelo no ponto de extremidade. O terceiro são os dados do teste cego usados no [teste de lote](luis-how-to-batch-test.md). Esse último conjunto não é usado no treinamento do aplicativo nem enviado no ponto de extremidade.  
 
+Para mais informações:
+* Conceito: [Ciclo de criação de seu aplicativo LUIS](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Adicione listas de frase e padrões em iterações posteriores
 As [listas de frase](luis-concept-feature.md) permitem que você defina dicionários de palavras relacionadas ao seu domínio de aplicativo. Propague sua lista de frase com poucas palavras e use o recurso de sugestão para que o LUIS conheça mais palavras no vocabulário específico para o seu aplicativo. Não adicione toda palavra ao vocabulário, pois a lista de frases não é uma correspondência exata. 
 
@@ -74,11 +83,22 @@ Declarações de usuário real do ponto de extremidade, muito semelhantes umas �
 
 Use a [sintaxe opcional](luis-concept-patterns.md) do padrão para pontuação para que a pontuação possa ser ignorada. Use a [lista explícita](luis-concept-patterns.md#explicit-lists) para compensar os problemas de sintaxe pattern.any. 
 
-Não aplique essas práticas antes de o seu aplicativo receber solicitações de ponto de extremidade, porque isso distorce a confiança.  
+Não aplique essas práticas antes de o seu aplicativo receber solicitações de ponto de extremidade. Você deve compreender como o aplicativo se comporta antes de adicionar listas de frases e padrões. Depois de compreender como o seu aplicativo se comporta sem elas, adicione cada um desses recursos que se aplicam ao seu aplicativo. 
+
+Não há nenhum problema em adicioná-los no início do design de seu modelo, mas é mais fácil ver como cada recurso altera os resultados se você adicioná-los depois de usar o aplicativo com o tráfego real. 
+
+Você não precisa adicionar esses recursos com cada iteração nem alterar os recursos com cada versão. 
+
+Para mais informações:
+* Conceito: [Ciclo de criação de seu aplicativo LUIS](luis-concept-app-iteration.md)
+* Conceito: [Recurso de lista de frases em seu aplicativo LUIS](luis-concept-feature.md)
+* Conceito: [Padrões aumentam a precisão da previsão](luis-concept-patterns.md)
+* Instruções: [Usar listas de frases para melhorar o sinal da lista de palavras](luis-how-to-add-features.md)
+* Instruções: [Como adicionar Padrões para aumentar a precisão da previsão](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Equilibrar suas declarações em todas as intenções
 
-Para que o LUIS tenha previsões precisas, a quantidade de declarações de exemplo em cada intenção (exceto para a intenção Nenhum), deve ser relativamente semelhante. 
+Para que o LUIS tenha previsões precisas, a quantidade de enunciados de exemplo em cada intenção (exceto para a intenção Nenhum), deve ser relativamente semelhante. 
 
 Se você tiver uma intenção com 100 declarações de exemplo e uma intenção com 20 declarações de exemplo, a intenção de expressão 100 terá uma taxa mais alta de previsão.  
 
@@ -86,9 +106,17 @@ Se você tiver uma intenção com 100 declarações de exemplo e uma intenção 
 
 Essa é a intenção fallback, indicou tudo fora do seu aplicativo. Adicione um exemplo de declaração à intenção None para todos os 10 exemplos de declarações no restante do seu aplicativo LUIS.
 
+Para mais informações:
+* Conceito: [Reconheça quais são os enunciados ideais para o aplicativo LUIS](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aproveite o recurso de sugestão para aprendizado ativo
 
 Use **Examinar declarações de ponto de extremidade** do [aprendizado ativo](luis-how-to-review-endoint-utt.md) regularmente, em vez de adicionar mais exemplos de declarações a intenções. Como o aplicativo está constantemente recebendo declarações de ponto de extremidade, essa lista está crescendo e mudando.
+
+Para mais informações:
+* Conceito: [Conceitos para habilitar o aprendizado ativo revisando enunciados de ponto de extremidade](luis-concept-review-endpoint-utterances.md)
+* Tutorial: [Tutorial: Consertar previsões incertas examinando os enunciados de ponto de extremidade](luis-tutorial-review-endpoint-utterances.md)
+* Instruções: [Como examinar enunciados de ponto de extremidade no portal do LUIS](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitore o desempenho do seu aplicativo
 
@@ -133,6 +161,11 @@ Adicione 10 ou 15 declarações antes do treinamento e da publicação. Isso per
 ## <a name="do-use-versions-for-each-app-iteration"></a>Use versões para cada iteração do aplicativo
 
 Cada ciclo de criação deve estar dentro de uma nova [versão](luis-concept-version.md), clonada de uma versão existente. LUIS não tem limite para as versões. Um nome de versão é usado como parte da rota de API, portanto, é importante escolher caracteres permitidos em uma URL, bem como manter dentro a contagem de 10 caracteres para uma versão. Desenvolva uma estratégia de nome de versão para manter suas versões organizadas. 
+
+Para mais informações:
+* Conceito: [Reconhecer como e quando usar uma versão do LUIS](luis-concept-version.md)
+* Instruções: [Usar versões para editar e testar sem afetar aplicativos de preparo ou produção](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821466"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236100"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerenciar o uso e custos do Log Analytics
 
@@ -116,6 +116,9 @@ Se quiser mover seu workspace para o tipo de preço atual, você precisará [alt
 
 > [!NOTE]
 > Se o seu workspace está vinculado a uma conta de automação, antes de poder selecionar o tipo de preços *Autônomo (por GB)*, deve excluir quaisquer soluções de **Automação e Controle** e desvincular a conta de Automação. Na folha do workspace, em **geral**, clique em **soluções** para ver e excluir soluções. Para desvincular a conta de automação, clique no nome da conta de automação na folha **Tipo de preços**.
+
+> [!NOTE]
+> Saiba mais sobre (definindo o tipo de preço por meio do ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] e como garantir que sua implantação do ARM terá êxito, independentemente da assinatura estar no modelo de herança ou de novo preço. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar problemas se o Log Analytics não está mais coletando dados

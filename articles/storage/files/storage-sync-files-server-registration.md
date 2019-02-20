@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478059"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165324"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerenciar servidores registrados com a Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -165,7 +165,10 @@ Como a Sincronização de arquivos do Azure raramente será o único serviço em
 > Definir limites muito baixos afetará o desempenho de sincronização e de recuperação da Sincronização de arquivos do Azure.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Definir limites de rede da Sincronização de arquivos do Azure
-Você pode limitar a utilização de rede da Sincronização de arquivos do Azure usando os cmdlets `StorageSyncNetworkLimit`. 
+Você pode limitar a utilização de rede da Sincronização de arquivos do Azure usando os cmdlets `StorageSyncNetworkLimit`.
+
+> [!Note]  
+> Limites de rede não se aplicam quando um arquivo em camadas é acessado ou o cmdlet Invoke-StorageSyncFileRecall é usado.
 
 Por exemplo, você pode criar uma nova limitação para garantir que a Sincronização de arquivos do Azure não use mais de 10 Mbps entre 9h e 17h de segunda a sexta-feira: 
 

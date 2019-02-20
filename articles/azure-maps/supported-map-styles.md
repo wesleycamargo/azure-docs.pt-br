@@ -3,20 +3,20 @@ title: Estilos de mapa compatíveis com o Azure Mapas | Microsoft Docs
 description: Estilos de mapa compatíveis com o Azure Mapas
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888453"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113424"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
-Os Mapas do Azure dão suporte a vários estilos de mapa internos diferentes, conforme descrito abaixo.
+O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como descrito abaixo.
 
 ## <a name="road"></a>rodoviário
 Um **mapa** de estradas é um mapa padrão que exibe estradas, naturais e artificiais recursos juntamente com os rótulos para esses recursos.
@@ -56,7 +56,16 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imag
 ## <a name="night"></a>noite
 **noite** é uma versão escura do estilo de mapa rodoviário com estradas e símbolos coloridos.
 
-![noite](./media/supported-map-styles/night.PNG)
+![noite](./media/supported-map-styles/night.png)
 
 **APIs aplicáveis:**
-* Controle de mapa JS 
+* Controle de mapa JS
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**road shaded relief** é o estilo principal do Azure Mapas concluído com as delimitações da Terra.
+
+![shaded relief](./media/supported-map-styles/shaded-relief.png)
+
+**APIs aplicáveis:**
+* Controle de mapa JS
+* [Peça de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Uberflip | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Uberflip | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Uberflip.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: bb1f53895fcd91a9474302fcf8c9e0040fe91961
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28add36dedcd942150a96d32508246ee03da60f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920268"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182571"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integração do Azure Active Directory com o Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Active Directory com o Uberflip
 
 Neste tutorial, você aprenderá a integrar o Uberflip ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD com o Uberflip, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Uberflip habilitada para logon único
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Uberflip por meio da galeria
 2. configurar e testar o logon único do AD do Azure

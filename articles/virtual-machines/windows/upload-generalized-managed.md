@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429252"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984538"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure
 
@@ -32,7 +32,8 @@ Para um exemplo de script, consulte [Script de exemplo para carregar um VHD no A
 
 - Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Examine [Planejar a migração para Discos Gerenciados](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a migração para [Discos Gerenciados](managed-disks-overview.md).
-- Este artigo requer o módulo do AzureRM versão 5.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM.Compute` para localizar a sua versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalize a VM de origem usando o Sysprep
@@ -65,17 +66,17 @@ Se você estiver usando o VHD para criar um disco gerenciado para uma VM, o loca
 Para exibir as contas de armazenamento disponíveis, insira:
 
 ```azurepowershell
-Get-AzureRmStorageAccount | Format-Table
+Get-AzStorageAccount | Format-Table
 ```
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD na sua conta de armazenamento
 
-Use o cmdlet [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) para carregar o VHD em um contêiner na conta de armazenamento. Este exemplo carrega o arquivo *myVHD.vhd* de *C:\Users\Public\Documents\Virtual hard disks\\* para uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos *myResourceGroup*. O arquivo será colocado em um contêiner chamado *mycontainer* e o novo nome do arquivo será *myUploadedVHD.vhd*.
+Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar o VHD em um contêiner na conta de armazenamento. Este exemplo carrega o arquivo *myVHD.vhd* de *C:\Users\Public\Documents\Virtual hard disks\\* para uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos *myResourceGroup*. O arquivo será colocado em um contêiner chamado *mycontainer* e o novo nome do arquivo será *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -129,15 +130,15 @@ $imageName = "myImage"
 Crie a imagem usando o VHD do sistema operacional generalizado.
 
 ```powershell
-$imageConfig = New-AzureRmImageConfig `
+$imageConfig = New-AzImageConfig `
    -Location $location
-$imageConfig = Set-AzureRmImageOsDisk `
+$imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
    -OsType Windows `
    -OsState Generalized `
    -BlobUri $urlOfUploadedImageVhd `
    -DiskSizeGB 20
-New-AzureRmImage `
+New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
@@ -150,7 +151,7 @@ Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da ima
 
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -ImageName $imageName `

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2017
-ms.locfileid: "26055782"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984521"
 ---
 # <a name="download-the-template-for-a-vm"></a>Baixar o modelo para uma VM
 Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do Resource Manager é criado automaticamente para você. Você pode usar este modelo para duplicar rapidamente uma implantação. O modelo contém informações sobre todos os recursos em um grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para dar suporte à VM desse grupo de recursos, incluindo os recursos de rede.
@@ -43,10 +43,10 @@ Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do 
 O arquivo template.json é o modelo.
 
 ## <a name="download-the-template-using-powershell"></a>Baixar o modelo usando o PowerShell
-Você também pode baixar o arquivo de modelo .json usando o cmdlet [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx). Você pode usar o parâmetro `-path` para fornecer o nome de arquivo e o caminho para o arquivo .json. Este exemplo mostra como baixar o modelo para o grupo de recursos denominado **myResourceGroup** para a pasta **C:\users\public\downloads** no computador local.
+Você também pode baixar o arquivo de modelo .json usando o cmdlet [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup). Você pode usar o parâmetro `-path` para fornecer o nome de arquivo e o caminho para o arquivo .json. Este exemplo mostra como baixar o modelo para o grupo de recursos denominado **myResourceGroup** para a pasta **C:\users\public\downloads** no computador local.
 
 ```powershell
-    Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
+    Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

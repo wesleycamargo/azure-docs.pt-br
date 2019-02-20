@@ -4,7 +4,7 @@ description: Este artigo fornece uma visão geral dos recursos de segurança do 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584767"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116313"
 ---
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
@@ -110,12 +110,12 @@ O [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-databas
 
 O serviço Banco de dados SQL do Azure só está disponível na porta TCP 1433. Para acessar um banco de dados SQL do seu computador, certifique-se de que o firewall do computador cliente permita a comunicação TCP de saída na porta TCP 1433. Se as conexões de entrada não forem necessários para outros aplicativos, bloqueie-as na porta TCP 1433.
 
-#### <a name="authentication"></a>Autenticação
+#### <a name="authentication"></a>Authentication
 
 A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:
 
--   **Autenticação do SQL Server:** uma conta de logon único é criada quando uma instância lógica do SQL é criada, chamada Conta de Assinante do Banco de Dados SQL. Essa conta é conectada usando a [autenticação do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome de usuário e senha). Essa conta é um administrador na instância do servidor lógico e em todos os bancos de dados do usuário conectados a essa instância. As permissões da conta de assinante não podem ser restringidas. Só pode existir uma dessas contas.
--   **Autenticação do Azure Active Directory**: a [autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) é um mecanismo de conexão com o Banco de Dados SQL do Azure e o SQL Data Warehouse usando identidades no Azure AD. Você pode usá-la para gerenciar as identidades de usuários de banco de dados de maneira centralizada.
+-   **Autenticação do SQL Server**: Uma conta de logon único é criada quando uma instância lógica do SQL é criada, chamada Conta de assinante do Banco de Dados SQL. Essa conta é conectada usando a [autenticação do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome de usuário e senha). Essa conta é um administrador na instância do servidor lógico e em todos os bancos de dados do usuário conectados a essa instância. As permissões da conta de assinante não podem ser restringidas. Só pode existir uma dessas contas.
+-   **Autenticação do Azure Active Directory**: A [autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) é um mecanismo de conexão com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure usando identidades no Azure AD. Você pode usá-la para gerenciar as identidades de usuários de banco de dados de maneira centralizada.
 
 ![Autenticação do AD do Azure com Banco de Dados SQL](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -176,8 +176,8 @@ A Auditoria do Banco de Dados SQL rastreia eventos do banco de dados e os grava 
 
 Há dois métodos de auditoria:
 
--   **Auditoria de blob**: os logs são gravados no Armazenamento de Blobs do Azure. Este é um método de auditoria mais recente. Esse é um método de auditoria mais recente, que fornece desempenho maior, dá suporte à auditoria do nível de objeto de granularidade mais alta e é mais econômico.
--   **Auditoria de tabela**: os logs são gravados no Armazenamento de Tabelas do Azure.
+-   **Auditoria de blobs**: Os logs são gravados no Armazenamento de Blobs do Azure. Este é um método de auditoria mais recente. Esse é um método de auditoria mais recente, que fornece desempenho maior, dá suporte à auditoria do nível de objeto de granularidade mais alta e é mais econômico.
+-   **Auditoria de tabela**: Os logs são gravados no armazenamento de Tabelas do Azure.
 
 ### <a name="threat-detection"></a>Detecção de ameaças
 

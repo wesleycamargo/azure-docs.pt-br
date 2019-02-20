@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769314"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098095"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Usar o SSL para proteger os serviços Web com o Serviço do Azure Machine Learning
 
@@ -82,6 +82,16 @@ Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmet
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Implantar em FPGA (Matrizes de Portas Programáveis em Campo)**
+
+  Durante a implantação em FPGA, forneça valores para os parâmetros relacionados a SSL, conforme é mostrado no trecho de código:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Atualizar o DNS
 
 Em seguida, você precisa atualizar o DNS para apontar para o serviço Web.
@@ -97,10 +107,6 @@ Em seguida, você precisa atualizar o DNS para apontar para o serviço Web.
   Atualize o DNS na guia "Configuração" do "Endereço IP Público" do cluster do AKS, conforme é mostrado na imagem. Encontre o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
   ![Serviço do Azure Machine Learning: Proteger os serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **Para FPGA**:
-
-Atualmente, não há suporte para o uso do SSL com serviços implantados em FPGA.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como:

@@ -4,23 +4,23 @@ description: Este tópico demonstra como editar rostos com o Azure Media Analyti
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33784445"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004886"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Edição facial com o Azure Media Analytics (herança)
 ## <a name="overview"></a>Visão geral
 **Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-redactor/)blog.
 
@@ -135,7 +135,7 @@ foo_IDList.txt de exemplo
 
 ## <a name="blur-types"></a>Tipos de desfoque
 
-No modo **Combinado** ou **Redação**, há cinco modos de desfoque diferentes para escolher por meio da configuração de entrada JSON: **Baixo**, **Med**, **Alto**, **Caixa** e **Preto**. Por padrão, **Med** é usado.
+No modo **Combinado** ou **Edição**, há cinco modos diferentes de desfoque para escolher na configuração de entrada JSON: **Baixo**, **Méd**, **Alto**, **Caixa** e **Preto**. Por padrão, **Med** é usado.
 
 Encontre exemplos dos tipos de desfoque abaixo.
 

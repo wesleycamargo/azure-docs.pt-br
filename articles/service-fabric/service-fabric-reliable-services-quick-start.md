@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208158"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182945"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]
@@ -28,17 +28,15 @@ ms.locfileid: "34208158"
 > 
 > 
 
-Um aplicativo do Service Fabric do Azure contém um ou mais serviços que executam seu código. Este guia mostra como criar aplicativos Service Fabric com e sem estado usando os [Reliable Services](service-fabric-reliable-services-introduction.md).  Este vídeo da Microsoft Virtual Academy mostra como criar um serviço confiável sem estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Um aplicativo do Service Fabric do Azure contém um ou mais serviços que executam seu código. Este guia mostra como criar aplicativos Service Fabric com e sem estado usando os [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 Para começar a usar os Reliable Services, você só precisa entender alguns conceitos básicos:
 
 * **Tipo de serviço**: esta é sua implementação de serviço. Ele é definido pela classe que você escreve que estende `StatelessService` e qualquer outro código ou dependências usadas nele, juntamente com um nome e um número de versão.
 * **Instância de serviço nomeada**: para executar seu serviço, criar instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Uma instância de serviço tem um nome na forma de um URI usando o esquema "fabric: /", por exemplo, "fabric:/MyApp/MyService".
-* **Host de serviço**: as instâncias de serviço nomeado que você cria precisam executar dentro de um processo de host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
-* **Registro de serviço**: o registro reúne tudo. O tipo de serviço deve ser registrado com o tempo de execução do Service Fabric em um host de serviço para permitir que o Service Fabric crie instâncias para executar.  
+* **Host de serviço**: As instâncias de serviço nomeadas que você criar têm que ser executadas dentro do processo de um host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
+* **Registro do serviço**: o registro reúne tudo. O tipo de serviço deve ser registrado com o tempo de execução do Service Fabric em um host de serviço para permitir que o Service Fabric crie instâncias para executar.  
 
 ## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
 Um serviço sem estado é um tipo de serviço que atualmente está na norma dos aplicativos em nuvem. Ele é considerado sem estado porque o serviço em si não contém dados que precisam ser armazenados de modo confiável nem altamente disponibilizados. Se uma instância de um serviço sem estado for desligada, todo seu estado interno será perdido. Nesse tipo de serviço, o estado deve ser mantido em um repositório externo, como em Tabelas do Azure ou um banco de dados SQL, para que ele se torne altamente disponível e confiável.
@@ -219,7 +217,7 @@ Depois que os serviços começaram a ser executados, você poderá exibir os eve
 ## <a name="next-steps"></a>Próximas etapas
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
 
-[Introdução aos serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Introdução: Serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md)
 
 [Saiba mais sobre as Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 

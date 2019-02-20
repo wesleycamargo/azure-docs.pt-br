@@ -11,46 +11,59 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7e3142e0274f2328d3e0c8a3e6f9a2e4c3d45d87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838802"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959130"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerenciar contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contêiner para laboratórios gerenciados, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, exibir todas as contas de laboratório ou excluir uma conta de laboratório.
 
 ## <a name="create-a-lab-account"></a>Criar uma conta de laboratório
+As etapas a seguir ilustram como usar o portal do Azure para criar uma conta de laboratório no Azure Lab Services. 
+
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione **Criar um recurso**.
-3. Procure **Serviços de Laboratório** no Azure Marketplace e selecione **Serviços de Laboratório** na lista suspensa. 
-4. Selecione **Serviços de Laboratório (Versão prévia)** na lista filtrada de serviços. 
-5. Na janela **Criar uma conta de laboratório**, selecione **Criar**.
-7. Na janela **Conta de laboratório**, execute as seguintes ações: 
+2. Selecione **Todos os serviços** no menu esquerdo. Selecione **Contas de laboratório** na seção **DEVOPS**. Se você selecionar a estrela (`*`) ao lado de **Contas de laboratório**, ela será adicionada à seção **FAVORITOS** no menu esquerdo. Na próxima vez em diante, selecione **Contas de laboratório** em **FAVORITOS**.
+
+    ![Todos os serviços -> Contas de laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Na página **Contas de laboratório**, selecione **Adicionar** na barra de ferramentas. 
+
+    ![Selecione Adicionar na página Contas de laboratório](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. Na página **Conta de laboratório**, execute as seguintes ações: 
     1. Para **Nome da conta de laboratório**, insira um nome. 
     2. Selecione a **Assinatura do Azure** na qual você quer criar a conta de laboratório.
     3. Para **Grupo de recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos.
     4. Para **Local**, selecione um local/região em que você deseja que a conta de laboratório seja criada. 
     5. Selecione **Criar**. 
 
-        ![Janela Criar uma conta de laboratório](../media/how-to-manage-lab-accounts/lab-account-settings.png)
-5. Se você não vir a página da conta de laboratório, selecione o botão **notificações** e, em seguida, clique no botão **Ir para o recurso** nas notificações. 
+        ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/lab-account-settings.png)
+5. Selecione o **ícone de sino** na barra de ferramentas (**Notificações**), confirme se a implantação foi bem-sucedida e, em seguida, selecione **Ir para o recurso**. 
 
-    ![Janela Criar uma conta de laboratório](../media/how-to-manage-lab-accounts/notification-go-to-resource.png)    
+    Como alternativa, selecione **Atualizar** na página **Contas de laboratório** e, em seguida, selecione a conta de laboratório que você criou. 
+
+    ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. Você verá a seguinte página de **conta de laboratório**:
 
-    ![Página da conta de laboratório](../media/how-to-manage-lab-accounts/lab-account-page.png)
+    ![Página da conta de laboratório](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Adicionar um usuário à função de criador de laboratório
-Para configurar um laboratório de curso em uma conta de laboratório, o usuário deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta usada para criar a conta de laboratório é automaticamente adicionada a essa função. Se você planeja usar a mesma conta de usuário para criar um laboratório de curso, poderá pular esta etapa. Para usar outra conta de usuário e criar um laboratório de curso, siga estas etapas: 
+Para configurar um laboratório de curso em uma conta de laboratório, o usuário deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta usada para criar a conta de laboratório é automaticamente adicionada a essa função. Se você planeja usar a mesma conta de usuário para criar um laboratório de curso, poderá pular esta etapa. Para usar outra conta de usuário para criar um laboratório de sala de aula, execute as seguintes etapas: 
+
+Para fornecer aos educadores a permissão para criar laboratórios para suas classes, adicione-os à função de **Criador de Laboratório**:
 
 1. Na página **Conta de Laboratório**, selecione **Controle de acesso (IAM)** e clique em **+ Adicionar atribuição de função** na barra de ferramentas. 
-2. Na página **Adicionar permissões**, selecione **Criador de Laboratório** em **Função**, selecione o usuário que você deseja adicionar à função de Criadores de Laboratório e selecione **Salvar**.
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especificar as imagens do Marketplace disponíveis para proprietários de laboratório
+    ![Controle de Acesso -> botão Adicionar atribuição de função](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. Na página **Adicionar atribuição de função**, selecione **Criador de Laboratório** em **Função**, selecione o usuário que você deseja adicionar à função de Criadores de Laboratório e selecione **Salvar**. 
+
+    ![Adicionar criador de laboratório](../media/tutorial-setup-lab-account/add-lab-creator.png)
+
+
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificar imagens do Marketplace disponíveis para os criadores de laboratório
 Como proprietário da conta de laboratório, você pode especificar as imagens do Marketplace que os criadores do laboratório podem usar para criar laboratórios na conta de laboratório. 
 
 1. Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). É possível filtrar a lista para ver apenas as imagens habilitadas/desabilitadas, selecionando a opção **Somente habilitadas**/**Somente desabilitadas** na lista suspensa na parte superior. 
@@ -76,16 +89,23 @@ Como proprietário da conta de laboratório, você pode especificar as imagens d
 ## <a name="view-lab-accounts"></a>Exibir contas de laboratório
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu. 
-3. Selecione **Serviços de Laboratório** para o **tipo**. 
+3. Selecione **Contas de Laboratório** para o **tipo**. 
     Você também pode filtrar por assinatura, grupo de recursos, locais e marcas. 
+
+    ![Todos os recursos -> Contas de laboratório](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
+
 
 ## <a name="delete-a-lab-account"></a>Excluir uma conta de laboratório
 Siga as instruções da seção anterior que exibe as contas de laboratório em uma lista. Use as instruções a seguir para excluir uma conta de laboratório: 
 
 1. Selecione a **conta de laboratório** que você deseja excluir. 
 2. Selecione **Excluir** na barra de ferramentas. 
-3. Digite **Sim** para confirmar.
-4. Selecione **Excluir**. 
+
+    ![Contas de laboratório -> botão Excluir](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Digite **Sim** para confirmar.
+1. Selecione **Excluir**. 
+
+    ![Excluir conta de laboratório – confirmação](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Visualize e gerencie laboratórios na conta do laboratório
 
@@ -107,7 +127,7 @@ Siga as instruções na seção anterior para ver uma lista dos laboratórios na
     ![Excluir um laboratório - botão](../media/how-to-manage-lab-accounts/delete-lab-button.png)
 2. Selecione **Sim** na mensagem de aviso. 
 
-
+    ![Confirmar exclusão do laboratório](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos:

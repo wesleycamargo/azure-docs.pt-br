@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233592"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
 Ao implantar os recursos, especifique que a implantação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Gerenciador de Recursos lida com recursos existentes no grupo de recursos que não estão no modelo. O modo padrão é incremental.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Somente modelos de nível raiz suporte ao modo de implantação completa. Para ver os [modelos vinculados ou aninhados](resource-group-linked-templates.md), você deve usar o modo incremental. 
 
 ## <a name="incremental-and-complete-deployments"></a>Implantações incrementais e completas
 
@@ -84,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Ao usar um modelo [vinculado ou aninhado](resource-group-linked-templates.md), você deve definir a `mode` propriedade como `Incremental`. Somente modelos de nível raiz suporte ao modo de implantação completa.
+O exemplo a seguir mostra um conjunto de modelos vinculados para o modo de implantação incremental:
 
 ```json
 "resources": [

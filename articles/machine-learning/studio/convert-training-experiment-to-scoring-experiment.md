@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496067"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001690"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ O Azure Machine Learning Studio fornece as ferramentas necessárias para desenvo
 
 Para fazer isso, use o Studio para criar um teste – chamado de *teste de treinamento* – em que você treina, pontua e edita o modelo. Quando estiver satisfeito, você terá o modelo pronto para implantação convertendo o teste de treinamento em um *teste preditivo* que é configurado para pontuar dados do usuário.
 
-Você pode ver um exemplo desse processo no [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Você pode ver um exemplo desse processo no [Tutorial 1: Prever risco de crédito](tutorial-part1-credit-risk.md).
 
 Este artigo aprofunda-se nos detalhes de como um teste de treinamento é convertido em um teste preditivo e como ele é implantado. Ao compreender esses detalhes, você pode aprender a configurar o modelo implantado a fim de torná-lo mais eficaz.
 

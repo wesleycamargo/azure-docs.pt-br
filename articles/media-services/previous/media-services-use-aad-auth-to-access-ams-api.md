@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230617"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994094"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
  
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
@@ -138,9 +138,9 @@ Se você não estiver usando o SDK de cliente do .NET dos Serviços de Mídia, d
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Exceção: “O servidor remoto retornou um erro: (401) Não autorizado”.
+Exceção: “O servidor remoto retornou um erro: (401) Não autorizado.”
 
-Solução: para que a solicitação REST dos Serviços de Mídia seja bem-sucedida, o usuário chamador deve ter uma função Colaborador ou Proprietário na conta dos Serviços de Mídia que ele está tentando acessar. Para obter mais informações, consulte a seção [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+Solução: Para que a solicitação REST dos Serviços de Mídia seja bem-sucedida, o usuário que chama deve ter uma função Colaborador ou Proprietário na conta dos Serviços de Mídia que está tentando acessar. Para obter mais informações, consulte a seção [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
 ## <a name="resources"></a>Recursos
 

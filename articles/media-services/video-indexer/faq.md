@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567258"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002350"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -66,7 +66,7 @@ No portal da Web do Video Indexer, é possível carregar um arquivo de mídia us
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Quanto tempo leva para o Video Indexer extrair insights de uma mídia?
 
-A quantidade de tempo que leva para indexar um arquivo de áudio ou vídeo usando a API do Video Indexer e a interface Web do Video Indexer depende de vários parâmetros, como o tamanho e a qualidade do arquivo, o número de insights encontrados no arquivo, o número de [unidades reservadas](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) e, ainda, se o [ponto de extremidade de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) está habilitado ou não. Para a maioria dos tipos de conteúdo, supondo que 10 unidades reservadas do tipo S3 estão habilitadas, podemos prever que a indexação levará de 1/3 a 1/2 da duração do arquivo de áudio ou vídeo (por exemplo, uma fonte de vídeo de 10 minutos demorará entre 3,5 e 5 minutos). No entanto, é recomendável que você execute alguns arquivos de teste com seu próprio conteúdo e calcule uma média para ter uma ideia melhor.
+A quantidade de tempo que leva para indexar um arquivo de áudio ou vídeo usando a API do Video Indexer e a interface Web do Video Indexer depende de vários parâmetros, como o tamanho e a qualidade do arquivo, o número de insights encontrados no arquivo, o número de [unidades reservadas](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) e, ainda, se o [ponto de extremidade de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) está habilitado ou não. É recomendável que você execute alguns arquivos de teste com seu próprio conteúdo e calcule uma média para ter uma ideia melhor.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Posso criar fluxos de trabalho personalizados para automatizar processos com o Video Indexer?
 

@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411740"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895679"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
 A instalação do serviço de mobilidade é uma etapa importante durante Habilitar Replicação. O sucesso dessa etapa depende exclusivamente dos pré-requisitos de reunião e trabalhe com as configurações com suporte. As falhas mais comuns enfrentadas durante a instalação do Serviço de Mobilidade são devido a:
 
-* Erros de credencial/privilégio
-* Falhas de logon
-* Erros de conectividade
-* Sistema operacional sem suporte
-* Falhas de instalação do VSS
+* [Erros de credencial/privilégio](#credentials-check-errorid-95107--95108)
+* [Falhas de logon](#login-failures-errorid-95519-95520-95521-95522)
+* [Erros de conectividade](#connectivity-failure-errorid-95117--97118)
+* [Erros de arquivo e de compartilhamento de impressora](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [Falhas de WMI](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Sistemas operacionais sem suporte](#unsupported-operating-systems)
+* [Configurações de inicialização sem suporte](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [Falhas de instalação do VSS](#vss-installation-failures)
+* [Nome do dispositivo na configuração do GRUB, em vez do UUID do dispositivo](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [Volume LVM](#lvm-support-from-920-version)
+* [Avisos de reinicialização](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 Quando você habilita a replicação, o Azure Site Recovery tenta enviar por push o agente de serviço de mobilidade em sua máquina virtual. Como parte desse processo, servidor de configuração tenta se conectar com a máquina virtual e copia o agente. Para habilitar a instalação com êxito, siga as diretrizes de solução de problemas passo a passo abaixo.
 
@@ -56,12 +62,14 @@ Quando o estabelecimento da relação de confiança do domínio entre o domínio
 
 Se você quiser modificar as credenciais da conta de usuário escolhido, siga as instruções fornecidas [aqui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="login-failure-errorid-95519"></a>Falha de logon (ErrorID: 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>Falhas de logon (ErrorID: 95519, 95520, 95521, 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>As credenciais da conta de usuário foram desabilitadas (ErrorID: 95519)
 
 A conta de usuário escolhida durante o trabalho Habilitar Replicação foi desabilitada. Para habilitar a conta de usuário, veja o artigo [aqui](https://aka.ms/enable_login_user) ou execute o comando a seguir, substituindo o texto *nome de usuário* pelo nome de usuário real.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>Falha de logon (ErrorID: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>Credenciais bloqueadas devido a múltiplas tentativas de logon com falha (ErrorID: 95520)
 
 Uma série de esforços de repetição com falha para acessar um computador bloqueará a conta de usuário. A falha pode ser devido a:
 
@@ -70,11 +78,11 @@ Uma série de esforços de repetição com falha para acessar um computador bloq
 
 Portando, modifique as credenciais escolhidas seguindo as instruções fornecidas [aqui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) e tente a operação novamente após algum tempo.
 
-## <a name="login-failure-errorid-95521"></a>Falha de logon (ErrorID: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Os servidores de logon não estão disponíveis no computador de origem (ErrorID: 95521)
 
 Esse erro ocorre quando os servidores de logon não estão disponíveis no computador de origem. A indisponibilidade dos servidores de logon levará à falha da solicitação de logon e, portanto, o agente de mobilidade não poderá ser instalado. Para fazer logon com êxito, verifique se os servidores de Logon estão disponíveis no computador de origem e inicie o serviço de Logon. Para obter instruções detalhadas, clique [aqui](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## <a name="login-failure-errorid-95522"></a>Falha de logon (ErrorID: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>O serviço de logon não está em execução no computador de origem (ErrorID: 95522)
 
 O serviço de logon não está em execução no computador de origem e causou a falha da solicitação de logon. Portanto, o agente de mobilidade não pode ser instalado. Para resolver esse erro, verifique se o serviço de Logon está em execução no computador de origem para fazer logon com êxito. Para iniciar o serviço de logon, execute o comando "net start Logon" no prompt de comando ou inicie o serviço "NetLogon" no gerenciador de tarefas.
 
@@ -138,15 +146,17 @@ Outros artigos de solução de problemas do WMI foi possível encontrar os artig
 Outro motivo mais comum para falha pode ser devido ao sistema operacional sem suporte. Verifique se que você estiver usando a versão do Kernel do sistema operacional com suporte para uma instalação bem-sucedida do serviço de mobilidade. Evite o uso de patch privado.
 Para ver a lista dos sistemas operacionais e versões do kernel com suporte do Azure Site Recovery, consulte nosso [documento da matriz de suporte](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>As partições/os volumes de inicialização e do sistema não estão no mesmo disco (ErrorID: 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Configurações de disco de inicialização sem suporte (ErrorID: 95309, 95310, 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>As partições/os volumes de inicialização e do sistema não estão no mesmo disco (ErrorID: 95309)
 
 Antes da versão 9.20, partições/volumes de inicialização e do sistema localizados em discos diferentes eram uma configuração sem suporte. Começando na [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), há suporte para essa configuração. Use a última versão para esse suporte.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>Disco de inicialização não encontrado (ErrorID: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>O disco de inicialização não está disponível (ErrorID: 95310)
 
 Uma máquina virtual sem um disco de inicialização não pode ser protegida. Isso serve para garantir uma recuperação tranquila da máquina virtual durante a operação de failover. A ausência do disco de inicialização resulta em uma falha de inicialização do computador após o failover. Garanta que a máquina virtual contenha o disco de inicialização e repita a operação. Além disso, observe que não há suporte para mais de um disco de inicialização no mesmo computador.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>Vários Discos de inicialização encontrados (ErrorID: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>Vários discos de inicialização presentes no computador de origem (ErrorID: 95311)
 
 Uma máquina virtual com vários discos de inicialização não é uma [configuração compatível](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
@@ -154,9 +164,45 @@ Uma máquina virtual com vários discos de inicialização não é uma [configur
 
 Antes da versão 9.20, a partição ou o volume raiz disposto em vários discos era uma configuração sem suporte. Começando na [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), há suporte para essa configuração. Use a última versão para esse suporte.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>Falha do GRUB UUID (ErrorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>Habilitar proteção falhou porque o nome do dispositivo foi mencionado na configuração do GRUB em vez do UUID (ErrorID: 95320)
 
-Se o GRUB do computador de origem estiver usando o nome do dispositivo em vez do UUID, ocorre falha na instalação do agente de mobilidade. Contate o administrador do sistema para fazer as alterações ao arquivo GRUB.
+**Possível causa:** </br>
+Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" ou "/etc/default/grub") podem conter o valor dos parâmetros **root** e **resume** como os nomes de dispositivo reais em vez do UUID. O Site Recovery exige a abordagem com UUID, pois o nome dos dispositivos poderá ser alterado quando ocorrer uma reinicialização da VM, uma vez que a VM poderá não ter o mesmo nome após um failover, causando problemas. Por exemplo:  </br>
+
+
+- A seguinte linha é do arquivo GRUB **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- A seguinte linha é do arquivo GRUB **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+Se você observar a cadeia de caracteres em negrito acima, o GRUB terá nomes de dispositivo reais para os parâmetros "root" e "resume" em vez do UUID.
+ 
+**Como corrigir:**<br>
+os nomes de dispositivo devem ser substituídos pelo UUID correspondente.<br>
+
+
+1. Localize o UUID do dispositivo executando o comando "blkid <device name>". Por exemplo: <br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Agora substitua o nome do dispositivo pelo UUID no formato como "root=UUID=<UUID>". Por exemplo, se substituirmos os nomes do dispositivo pelo UUID dos parâmetros root e resume mencionados acima nos arquivos "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" ou "/etc/default/grub: as linhas nos arquivos terão a aparência. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. Reiniciar o trabalho de proteção novamente
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Instalar o Serviço de Mobilidade concluído com o aviso para reinicializar (ErrorID: 95265 e 95266)
+
+O serviço de mobilidade do Site Recovery tem muitos componentes, um dos quais é chamado driver de filtro. O driver de filtro é carregado na memória do sistema apenas no momento da reinicialização do sistema. Isso significa que as correções do driver de filtro só podem percebidas quando um novo driver de filtro é carregado, o que pode acontecer apenas no momento da reinicialização do sistema.
+
+**Observe** que esse é um aviso e a replicação existente funcionará mesmo após a atualização do novo agente. É possível optar por reinicializar a qualquer momento que você desejar obter os benefícios do novo driver de filtro, mas se você não reinicializar, então o driver de filtro antigo continuará funcionando. Então, após uma atualização sem reinicialização, além do driver de filtro, **os benefícios de outros aprimoramentos e correções no serviço de mobilidade são concretizados**. Portanto, embora recomendável, não é obrigatório reinicializar após cada atualização. Para saber quando uma reinicialização é obrigatória, clique [aqui](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>Para obter melhores práticas sobre o agendamento de atualizações durante a janela de manutenção, veja [aqui](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## <a name="lvm-support-from-920-version"></a>Suporte do LVM começando na versão 9.20
 

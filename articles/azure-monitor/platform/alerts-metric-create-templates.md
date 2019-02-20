@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448221"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112590"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas novos](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> O modelo do Resource Manager especificado para o alerta de métrica não funcionará para o tipo de recurso: Microsoft.OperationalInsights/workspaces; como suporte para métricas do Log Analytics está em versão prévia. Os usuários interessados em usar a funcionalidade de versão prévia com o modelo de recurso podem entrar em contato por meio dos [Comentários de Alertas do Azure](mailto:azurealertsfeedback@microsoft.com)
+> Modelo de recursos para criar alertas de métrica para o tipo de recurso: O espaço de trabalho do Azure Log Analytics (ou seja `Microsoft.OperationalInsights/workspaces`), requer etapas adicionais. Para obter detalhes, consulte o artigo sobre [Alerta de Métrica para Logs - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Estas são as etapas básicas:
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249278"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995128"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET 
 
 Você pode usar o Media Encoder Standard para gerar uma ou mais miniaturas de sua entrada de vídeo nos formatos de arquivo de imagem [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) ou [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Você pode enviar Tarefas que geram somente imagens ou pode combinar a geração de miniaturas com codificação. Este artigo apresenta alguns exemplo de predefinições de miniatura em XML e JSON para esses cenários. No final do artigo, há um [código de exemplo](#code_sample) que mostra como usar o SDK .NET dos Serviços de Mídia para realizar a tarefa de codificação.
 
@@ -553,12 +553,12 @@ As seguintes considerações se aplicam:
   
   * Número de quadro se eles forem números inteiros não negativos, por exemplo, "Início": "120",
   * Relativos à duração da origem se expressos com sufixo %, por exemplo, "Início": "15%", OU
-  * Carimbo de data/hora se expresso no formato HH:MM:SS… . Por exemplo “Iniciar” : “00:01:00”
+  * Carimbo de data/hora se expresso no formato HH:MM:SS… . Por exemplo “Iniciar”: "00:01:00"
     
     Você pode combinar as notações como desejar.
     
     Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
-  * Padrões: Start:{Best}
+  * Padrões: Início: {Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
 ## <a name="next-steps"></a>Próximas etapas

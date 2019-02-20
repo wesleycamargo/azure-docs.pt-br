@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432006"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Azure Active Directory com o GetThere
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o GetThere, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do GetThere
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do GetThere da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -99,7 +100,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![image](./media/getthere-tutorial/B1_B2_Select_SSO.png)
 
-2. Na caixa de diálogo **Escolher um método de logon único**, escolha o modo **SAML** para ativar o logon único.
+2. Na caixa de diálogo **Selecionar um método de conexão única**, selecione o modo **SAML** para ativar o logon único.
 
     ![image](./media/getthere-tutorial/b1_b2_saml_sso.png)
 
@@ -111,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![image](./media/getthere-tutorial/tutorial_getthere_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma das URLs abaixo:
+     a. Na caixa de texto **Identificador**, digite uma das URLs abaixo:
     | |
     |--|
     | `getthere.com` |
@@ -136,7 +137,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | Sitename | "Forneça os valores de acordo com sua organização" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Nome de Usuário |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
     
-    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](./media/getthere-tutorial/i2-attribute.png)
 
@@ -152,7 +153,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     f. Clique em **Salvar**.
 
-7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Fazer o download** para fazer o download do certificado **(Base64)** e salve no seu computador.
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do certificado **(Base64)** e salve no seu computador.
 
     ![image](./media/getthere-tutorial/tutorial_getthere_certficate.png) 
 
@@ -160,7 +161,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     Observe que a URL pode dizer o seguinte:
 
-    a. URL de logon
+     a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -178,7 +179,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/getthere-tutorial/d_users_and_groups.png)
 
-2. Escolha **Novo usuário** na parte superior da tela.
+2. Selecione **Novo usuário** na parte superior da tela.
 
     ![image](./media/getthere-tutorial/d_adduser.png)
 
@@ -186,18 +187,18 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/getthere-tutorial/d_userproperties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Escolha **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
  
 ### <a name="create-a-getthere-test-user"></a>Criar um usuário de teste do GetThere
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no GetThere. Trabalhe com a [equipe de suporte ao cliente do GetThere](mailto:dataintegration@sabre.com) para adicionar os usuários à plataforma GetThere. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no GetThere. Trabalhe com a  [equipe de suporte ao Cliente do GetThere](mailto:dataintegration@sabre.com) para adicionar os usuários à plataforma do GetThere. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -215,20 +216,20 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![image](./media/getthere-tutorial/d_leftpaneusers.png)
 
-4. Marque o botão **Adicionar** e, em seguida, escolha **Usuários e grupos** no diálogo **Adicionar Atribuição**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![image](./media/getthere-tutorial/d_assign_user.png)
 
 4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-5. No diálogo **Adicionar Atribuição**, escolha o botão **Atribuir**.
+5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do GetThere no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo GetThere.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

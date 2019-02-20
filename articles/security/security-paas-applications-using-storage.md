@@ -4,7 +4,7 @@ description: Conheça as melhores práticas de segurança do Armazenamento do Az
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451860"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108918"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
 Neste artigo, discutiremos uma coleção de melhores práticas de segurança do Armazenamento do Azure para proteger seus aplicativos PaaS (plataforma como serviço) móveis e Web. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
 
 O Azure possibilita implantar e usar o armazenamento de formas que não são fáceis de alcançar localmente. Com o Armazenamento do Azure, você pode alcançar altos níveis de escalabilidade e disponibilidade com relativamente pouco esforço. O Armazenamento do Azure não é somente a base para as Máquinas Virtuais do Azure do Windows e Linux, ele também pode dar suporte a grandes aplicativos distribuídos.
 
-O Armazenamento do Azure fornece os quatro seguintes serviços: Armazenamento de Blobs, Armazenamento de Tabelas, Armazenamento de Filas e Armazenamento de Arquivos. Para saber mais, consulte a [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md).
+O Armazenamento do Azure fornece os quatro serviços a seguir: Armazenamento de Blobs, Armazenamento de Tabelas, Armazenamento de Filas e Armazenamento de Arquivos. Para saber mais, consulte a [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md).
 
 O [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md) é uma ótima fonte de informações detalhadas sobre o Armazenamento do Azure e sua segurança. Este artigo de melhores práticas aborda, em um nível mais amplo, alguns dos conceitos encontrados no guia de segurança e leva a ele, bem como a outras fontes, para mais informações.
 

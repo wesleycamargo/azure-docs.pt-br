@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428232"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235998"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
 
@@ -26,7 +26,7 @@ Para um runbook ser usado como um pré-script ou um pós-script, ele precisa ser
 
 ## <a name="using-a-prepost-script"></a>Usando um script pré/pós
 
-Para usar um pré-script ou um pós-script em uma Implantação de Atualização, comece criando uma Implantação de Atualização. Selecione **Pré-Scripts + Pós-scripts (versão prévia)**. Isso abre a página **Selecionar Pré-scripts + Pós-scripts**.  
+Para usar um pré-script ou um pós-script em uma Implantação de Atualização, comece criando uma Implantação de Atualização. Selecione **Pré-Scripts + Pós-scripts (versão prévia)**. Essa ação abre a página **Selecionar Pré-scripts + Pós-scripts**.  
 
 ![Selecionar scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -52,7 +52,9 @@ Ao clicar na execução da implantação de atualização, você recebe detalhes
 
 ## <a name="passing-parameters"></a>Passagem de parâmetros
 
-Ao configurar pré-scripts e pós-scripts, você pode passar parâmetros, assim como agenda um runbook. Os parâmetros são definidos no momento da criação da implantação de atualização. Além dos parâmetros do runbook padrão, um parâmetro adicional é fornecido. Esse parâmetro é **SoftwareUpdateConfigurationRunContext**. Esse parâmetro é uma cadeia de caracteres JSON; se você definir o parâmetro no pré-script ou no pós-script, ele será passado automaticamente pela implantação de atualização. O parâmetro contém informações sobre a implantação de atualização, que é um subconjunto das informações devolvidas pela [API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) A tabela a seguir mostra as propriedades que são fornecidas na variável:
+Ao configurar pré-scripts e pós-scripts, você pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação da implantação de atualização. Pré-scripts e pós-scripts exigem que os parâmetros sejam do tipo `String`. Se precisar de outro tipo de objeto, você poderá convertê-lo em outro tipo usando `[System.Convert]` ou manipulá-lo com sua própria lógica.
+
+Além dos parâmetros do runbook padrão, um parâmetro adicional é fornecido. Esse parâmetro é **SoftwareUpdateConfigurationRunContext**. Esse parâmetro é uma cadeia de caracteres JSON; se você definir o parâmetro no pré-script ou no pós-script, ele será passado automaticamente pela implantação de atualização. O parâmetro contém informações sobre a implantação de atualização, que é um subconjunto das informações devolvidas pela [API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). A tabela a seguir mostra as propriedades que são fornecidas na variável:
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
@@ -119,7 +121,7 @@ Ou pode pesquisar por elas usando o nome do script, como visto na lista a seguir
 > [!IMPORTANT]
 > Depois de importar os runbooks, você precisa **Publicar** antes que possam ser usados. Para fazer isso, localize o runbook na sua Conta de Automação, selecione **Editar** e clique em **Publicar**.
 
-Todos os exemplos se baseiam no modelo básico que é definido no exemplo a seguir. Esse modelo pode ser usado para criar seu próprio runbook para usar com pré-scripts e pós-scripts. A lógica necessária para autenticar com o Azure, assim como para lidar com o parâmetro `SoftwareUpdateConfigurationRunContext`, está inclusa.
+Todos os exemplos se baseiam no modelo básico que é definido no exemplo a seguir. Esse modelo pode ser usado para criar seu próprio runbook para usar com pré-scripts e pós-scripts. A lógica necessária para autenticar com o Azure e lidar com o parâmetro `SoftwareUpdateConfigurationRunContext` está inclusa.
 
 ```powershell
 <# 
@@ -174,7 +176,7 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-non-azure-machines"></a>Interação com computadores não Azure
 
-As pré-tarefas e as pós-tarefas são executadas no contexto do Azure e não têm acesso a computadores não Azure. Para interagir com os computadores não Azure, você precisa ter o seguinte:
+As pré-tarefas e as pós-tarefas são executadas no contexto do Azure e não têm acesso a computadores não Azure. Para interagir com os computadores não Azure, você precisa ter os seguintes itens:
 
 * Uma conta Executar como
 * Um Hybrid Runbook Worker instalado no computador

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: O ambiente de tempo de execução do contêiner do LUIS é configurado usando argumentos de comando `docker run`. O LUIS tem várias configurações obrigatórias e outras configurações opcionais.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294716"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983249"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker do Serviço Inteligente de Reconhecimento Vocal 
 
@@ -30,14 +30,14 @@ Esse contêiner tem as seguintes configurações:
 
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
-|SIM|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
+|Sim|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
 |Não |[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
-|SIM|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
-|SIM|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
+|Sim|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
+|Sim|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
 |Não |[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
 |Não |[Proxy HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
 |Não |[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
-|SIM|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
+|Sim|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
 > As configurações [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) e [`Eula`](#eula-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](luis-container-howto.md#billing).
@@ -59,7 +59,7 @@ Não use a chave inicial ou de criação.
 
 ## <a name="billing-setting"></a>Configuração de cobrança
 
-A configuração `Billing` especifica o URI de ponto de extremidade do recurso _Reconhecimento Vocal_ no Azure usado para medir informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de terminal válido para um recurso do _Serviço Inteligente de Reconhecimento Vocal_ no Azure.
+A configuração `Billing` especifica o URI de ponto de extremidade do recurso _Reconhecimento Vocal_ no Azure usado para medir informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de terminal válido para um recurso do _Serviço Inteligente de Reconhecimento Vocal_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
@@ -68,7 +68,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 |Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
-|SIM| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -100,7 +100,7 @@ A tabela a seguir descreve as configurações com suporte.
 
 |Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
 |-------|------|-----------|-------------|
-|SIM| `Input` | Cadeia de caracteres | O destino de montagem de entrada. O valor padrão é `/input`. Esse é o local dos arquivos de pacote do LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Sim| `Input` | Cadeia de caracteres | O destino de montagem de entrada. O valor padrão é `/input`. Esse é o local dos arquivos de pacote do LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Não | `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de consulta do LUIS e logs do contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>Configurações hierárquicas

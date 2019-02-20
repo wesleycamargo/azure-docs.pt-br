@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073751"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964246"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar o gerenciamento de cliente potencial usando um ponto de extremidade HTTPS
 
@@ -65,7 +65,7 @@ ms.locfileid: "54073751"
 
     ![Selecionar clientes potenciais](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. O Flow mostra um formulário para fornecer informações de clientes potenciais. É possível mapear itens da solicitação de entrada, escolhendo adicionar conteúdo dinâmico. A captura de tela a seguir mostra **LeadTitle** como um exemplo.
+4. O Flow mostra um formulário para fornecer informações de clientes potenciais. É possível mapear itens da solicitação de entrada, escolhendo adicionar conteúdo dinâmico. A captura de tela a seguir mostra **OfferTitle** como exemplo.
 
     ![Adicionar conteúdo dinâmico](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

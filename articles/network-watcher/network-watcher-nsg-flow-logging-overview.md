@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332295"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097641"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -65,7 +65,7 @@ Logs de fluxo incluem as seguintes propriedades:
                     * **Protocol** - o protocolo do fluxo. Os valores válidos são **T** para TCP e **U** para UDP
                     * **Traffic Flow** - a direção do fluxo do tráfego. Os valores válidos são **I** para entrada e **O** para saída.
                     * **Decisão de tráfego** - se o tráfego foi permitido ou negado. Os valores válidos são **A** para permitido e **D** para negado.
-                    * **Estado de fluxo - versão 2 somente** - captura o estado do fluxo. Os possíveis estados são **B**: Início, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Final, quando um fluxo é encerrado. Estatísticas são fornecidas.
+                    * **Estado de fluxo - versão 2 somente** - captura o estado do fluxo. Os possíveis estados são **B**: Iniciar, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Encerrar, quando um fluxo é encerrado. Estatísticas são fornecidas.
                     * **Pacotes - Fonte para destino - Versão 2 Apenas** A quantidade total de pacotes TCP ou UDP enviados da origem ao destino desde a última atualização.
                     * **Bytes enviados - Fonte para destino - Versão 2 Apenas** A quantidade total de bytes de pacotes TCP ou UDP enviados da origem ao destino desde a última atualização. O número total de bytes de pacote TCP e UDP enviados da origem para o destino desde os últimos bytes updatePacket inclui o cabeçalho e a carga útil do pacote.
                     * **Pacotes - Destino para fonte - Versão 2 Apenas** A quantidade total de pacotes TCP ou UDP enviados do destino para a fonte desde a última atualização.
@@ -287,5 +287,6 @@ O texto que segue é um exemplo de um log de fluxo. Como você pode ver, há vá
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para saber como ler os logs de fluxo, confira [Ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).
 - Para saber mais sobre o log de NSG, consulte [Log Analytics para os grupos de segurança da rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Para determinar se o tráfego é permitido ou negado para ou de uma VM, consulte [Diagnosticar um problema de filtro de tráfego de rede VM](diagnose-vm-network-traffic-filtering-problem.md)

@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: ad45b117df545c361f17c299bee47b314a408b06
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888835"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Para instalar o Adaptador StorSimple para SharePoint
 1. Copie o instalador para o servidor WFE (Web front-end) que também está configurado para executar o aplicativo Web da Administração Central do SharePoint. 
 2. Use uma conta com privilégios de administrador para fazer logon no servidor WFE.
@@ -29,5 +27,5 @@ ms.locfileid: "50165307"
    
     ![Página de instalação concluída do adaptador StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
 7. Abra a página de Administração Central do SharePoint. Você deve ver um grupo de Configuração do StorSimple que contém os links do Adaptador StorSimple para SharePoint.
-8. Vá para a próxima etapa: [Configurar RBS](#configure-rbs).
+8. Vá para a etapa seguinte: [Configurar o RBS](#configure-rbs).
 

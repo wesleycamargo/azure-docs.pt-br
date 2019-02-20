@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 29105f97385b11e59ccd3af9d13521ea803bfdb0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024222"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959658"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
 
-- **Movimentação de dados**: Mova os dados entre os armazenamentos de dados na rede pública e armazenamentos de dados na rede privada (rede local ou privada virtual). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
+- **Movimentação de dados**: Copie os dados entre os armazenamentos de dados na rede pública e armazenamento de dados na rede privada (rede local ou privada virtual). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
 - **Expedição de atividade**:  Expeça e monitore atividades de transformação executadas em uma variedade de serviços de computação, como o Azure HDInsight, o Azure Machine Learning, o Banco de Dados SQL do Azure, o SQL Server e muitos mais.
 - **Execução de pacote SSIS**: Execute nativamente pacotes do SSIS (SQL Server Integration Services) em um ambiente de computação gerenciada do Azure.
 

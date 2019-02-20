@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757608"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212919"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Design para Alto Desempenho
 
@@ -63,7 +63,7 @@ Portanto, é importante determinar os valores ideais de Taxa de Transferência e
 
 ## <a name="latency"></a>Latency
 
-A Latência é o tempo que leva para um aplicativo receber uma única solicitação, enviá-la aos discos de armazenamento e enviar a resposta ao cliente. Essa é uma medida essencial do desempenho de um aplicativo, além de IOPS e da Taxa de Transferência. A Latência de um disco do Armazenamento Premium é o tempo que se leva para recuperar informações de uma solicitação e comunicá-la de volta ao aplicativo. O Armazenamento Premium fornece baixas latências consistentes. Ao habilitar o cache do host ReadOnly nos discos do Armazenamento Premium, você obtém latência de leitura mais baixa. Abordaremos o Cache de Disco em mais detalhes na seção *Otimizando o desempenho do aplicativo*.
+A Latência é o tempo que leva para um aplicativo receber uma única solicitação, enviá-la aos discos de armazenamento e enviar a resposta ao cliente. Essa é uma medida essencial do desempenho de um aplicativo, além de IOPS e da Taxa de Transferência. A Latência de um disco do Armazenamento Premium é o tempo que se leva para recuperar informações de uma solicitação e comunicá-la de volta ao aplicativo. O Armazenamento Premium fornece baixas latências consistentes. Discos Premium são projetados para fornecer latências de dígito único em milissegundos para a maioria das operações de E/S. Ao habilitar o cache do host ReadOnly nos discos do Armazenamento Premium, você obtém latência de leitura mais baixa. Abordaremos o Cache de Disco em mais detalhes na seção *Otimizando o desempenho do aplicativo*.
 
 Quando você otimiza o aplicativo para obter IOPS e Taxa de Transferência mais altas, a Latência do aplicativo também é afetada. Depois de ajustar o desempenho do aplicativo, sempre avalie a latência do aplicativo para evitar comportamento inesperado de alta latência.
 

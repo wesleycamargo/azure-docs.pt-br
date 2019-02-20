@@ -4,7 +4,7 @@ description: Este tópico fornece uma visão geral da transmissão ao vivo usand
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382132"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998001"
 ---
-# <a name="overview-of-live-streaming-using-azure-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
+# <a name="overview-of-live-streaming-using-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
@@ -69,16 +69,16 @@ A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com su
 
 | Recurso | Canal de passagem | Canal padrão |
 | --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |SIM |
+| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |Sim |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Preço |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo de execução máximo |24x7 |8 horas |
-| Suporte para inserção de imagens fixas |Não  |SIM |
-| Suporte para sinalização de anúncios |Não  |SIM |
-| Legendas CEA 608/708 de passagem |SIM |SIM |
-| Suporte para GOPs de entrada não uniforme |SIM |Não – a entrada deve ser GOPs de 2 s fixos |
-| Suporte para entrada de taxa de quadros variável |SIM |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
+| Suporte para inserção de imagens fixas |Não  |Sim |
+| Suporte para sinalização de anúncios |Não  |Sim |
+| Legendas CEA 608/708 de passagem |Sim |Sim |
+| Suporte para GOPs de entrada não uniforme |Sim |Não – a entrada deve ser GOPs de 2 s fixos |
+| Suporte para entrada de taxa de quadros variável |Sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
 | Desligamento automático de Canais quando há perda do feed de entrada |Não  |Após 12 horas, se não houver nenhum Programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais (passagem)
