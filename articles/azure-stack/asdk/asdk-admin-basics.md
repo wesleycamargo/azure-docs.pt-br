@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248156"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428050"
 ---
 # <a name="asdk-administration-basics"></a>Noções básicas de administração de ASDK 
 Há várias coisas que você precisa saber se você é novo para a administração do Azure Stack desenvolvimento ASDK (Kit). Este guia fornece uma visão geral de sua função como um operador do Azure Stack no ambiente de avaliação e como garantir que seus usuários de teste pode se tornarem rapidamente produtivo.
@@ -36,8 +36,8 @@ Há algumas considerações de conta, que você deve estar atento ao gerenciar o
 |Conta|AD do Azure|AD FS|
 |-----|-----|-----|
 |Administrador local (. \Administrator)|Administrador de host ASDK|Administrador de host ASDK|
-|AzureStack\AzureStackAdmin|Administrador de host ASDK<br><br>Pode ser usado para fazer logon no portal de administração do Azure Stack<br><br>Acesso para exibir e administrar anéis do Service Fabric|Administrador de host ASDK<br><br>Nenhum acesso ao portal de administração do Azure Stack<br><br>Acesso para exibir e administrar anéis do Service Fabric<br><br>Não há mais de proprietário de assinatura de provedor padrão (DPS)|
-|AzureStack\CloudAdmin|Pode acessar e executar os comandos permitidos dentro do ponto de extremidade com privilégios|Pode acessar e executar os comandos permitidos dentro do ponto de extremidade com privilégios<br><br>Não pode fazer logon no host ASDK<br><br>Proprietário da assinatura do provedor padrão (DPS)|
+|AzureStack\AzureStackAdmin|Administrador de host ASDK<br><br>Pode ser usado para entrar no portal de administração do Azure Stack<br><br>Acesso para exibir e administrar anéis do Service Fabric|Administrador de host ASDK<br><br>Nenhum acesso ao portal de administração do Azure Stack<br><br>Acesso para exibir e administrar anéis do Service Fabric<br><br>Não há mais de proprietário de assinatura de provedor padrão (DPS)|
+|AzureStack\CloudAdmin|Pode acessar e executar os comandos permitidos dentro do ponto de extremidade com privilégios|Pode acessar e executar os comandos permitidos dentro do ponto de extremidade com privilégios<br><br>Não consigo entrar para o host ASDK<br><br>Proprietário da assinatura do provedor padrão (DPS)|
 |Administrador Global do AD do Azure|Usado durante a instalação<br><br>Proprietário da assinatura do provedor padrão (DPS)|Não aplicável|
 |
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 47ba057091f0660bf1449f062edfacde710d2f1a
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252227"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428170"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recurso de provedor
 O termo *provedor* aplica-se para o administrador de serviço e quaisquer provedores delegados. Operadores do Azure Stack e provedores delegados podem usar a API de uso do provedor para exibir o uso de seus locatários diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o provedor de API para obter informações de uso do P1 e uso direto do P2 e P1 podem chamar para obter informações de uso sobre P3 e P4.

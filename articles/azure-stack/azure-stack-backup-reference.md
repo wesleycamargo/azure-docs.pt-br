@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201781"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416710"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referência de serviço de Backup de infraestrutura
 
@@ -108,6 +108,23 @@ Controlador de infraestrutura de Backup fará backup de dados sob demanda. A rec
 > [!Note]  
 > Nenhuma porta de entrada precisa ser abertas.
 
+### <a name="encryption-requirements"></a>Requisitos de criptografia
+
+A partir de 1901, o serviço de backup de infraestrutura usarão um certificado com uma chave pública (. CER) para criptografar dados de backup e um certificado com a chave privada (. PFX) para descriptografar os dados de backup durante a recuperação de nuvem.   
+ - O certificado é usado para o transporte de chaves e não é usado para estabelecer uma comunicação autenticada segura. Por esse motivo, o certificado pode ser um certificado autoassinado. O Azure Stack não precisa verificar raiz ou relação de confiança para esse certificado para acesso externo à internet não é necessária.
+ 
+O certificado autoassinado é fornecido em duas partes, uma com a chave pública e outra com a chave privada:
+ - Criptografe dados de backup: Certificado com a chave pública (exportada para. Arquivo CER) é usado para criptografar dados de backup
+ - Descriptografe os dados de backup: Certificado com a chave privada (exportada para. Arquivo PFX) é usado para descriptografar os dados de backup
+
+O certificado com a chave pública (. CER) não é gerenciado por rotação secreta interna. Para girar o certificado, você precisará criar um novo certificado autoassinado e atualizar as configurações de backup com o novo arquivo (. CER).  
+ - Todos os backups existentes permanecerão criptografados usando a chave pública anterior. Novos backups usará a nova chave pública. 
+ 
+O certificado usado durante a recuperação de nuvem com a chave privada (. PFX) não é mantido pela pilha do Azure, por motivos de segurança. Esse arquivo precisará ser fornecido explicitamente durante a recuperação de nuvem.  
+
+**Com versões anteriores modo de compatibilidade** partir 1901, suporte à criptografia de chave é preterida e será removido em uma versão futura. Se você atualizou do 1811 com já habilitada usando uma chave de criptografia de backup, o Azure Stack continuarão a usar a chave de criptografia. Modo de compatibilidade com versões anteriores terão suporte para pelo menos 3 versão. Após esse tempo, será necessário um certificado. 
+ * Atualização de chave de criptografia para o certificado é uma operação unidirecional.  
+ * Todos os backups existentes permanecerão criptografados usando a chave de criptografia. Novos backups usará o certificado. 
 
 ## <a name="infrastructure-backup-limits"></a>Limites de Backup de infraestrutura
 
