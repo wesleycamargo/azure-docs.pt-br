@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114585"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100747"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.
@@ -27,9 +27,18 @@ Este documento descreve os detalhes sobre as atualizações de sistema operacion
 >[!NOTE]
 >A atualização do sistema operacional é de responsabilidade do cliente, o suporte a operações da Microsoft pode orientá-lo para as áreas principais a serem observadas durante a atualização. Antes de planejar uma atualização, você deve consultar o fornecedor do sistema operacional.
 
-No momento do provisionamento da unidade HLI, a equipe de operações da Microsoft instalará o sistema operacional. Ao longo do tempo, você deverá manter o sistema operacional (exemplo: patches, ajustes, atualizações etc.) na unidade HLI.
+No momento do provisionamento da unidade HLI, a equipe de operações da Microsoft instalará o sistema operacional. Ao longo do tempo, você deverá manter o sistema operacional (exemplo: aplicação de patches, ajustes, atualizações, etc.) na unidade HLI.
 
 Antes das principais mudanças do sistema operacional (por exemplo, Atualização SP1 a SP2), você deve contatar a equipe da Microsoft Operations ao abrir m tíquete de suporte para consultar.
+
+Inclua em seu tíquete:
+
+* A ID da assinatura da HLI.
+* O nome do servidor.
+* O nível de patch que você pretende aplicar.
+* A data em que você está planejando essa alteração. 
+
+Recomendamos que você abra esse tíquete pelo menos uma semana antes da data de conclusão da atualização desejável, para que a equipe de operações verifique se uma atualização de firmware é necessária na folha do seu servidor.
 
 
 Para a matriz de suporte das diferentes versões do SAP HANA com as diferentes versões do Linux, consulte [Nota SAP nº 2235581](https://launchpad.support.sap.com/#/notes/2235581).

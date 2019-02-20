@@ -1,5 +1,5 @@
 ---
-title: Automatizar os processos do Azure Log Analytics com o Microsoft Flow
+title: Automatizar processos de log do Azure Monitor com o Microsoft Flow
 description: Saiba como você pode usar o Microsoft Flow para automatizar rapidamente os processos repetidos usando o conector do Azure Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -11,19 +11,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187442"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993768"
 ---
-# <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Log Analytics com o conector para o Microsoft Flow
-O [Microsoft Flow](https://ms.flow.microsoft.com) permite que você crie fluxos de trabalho automatizados usando centenas de ações para vários serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo que você crie a integração entre serviços diferentes.  O conector do Azure Log Analytics para Microsoft Flow permite que você crie fluxos de trabalho que incluem dados recuperados pelas pesquisas de log no Log Analytics.
+# <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de log do Azure Monitor com o conector para Microsoft Flow
+O [Microsoft Flow](https://ms.flow.microsoft.com) permite que você crie fluxos de trabalho automatizados usando centenas de ações para vários serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo que você crie a integração entre serviços diferentes.  O conector do Azure Log Analytics para Microsoft Flow permite que você crie fluxos de trabalho que incluam dados recuperados pelas consultas de log de um workspace do Log Analytics no Azure Monitor.
 
-Por exemplo, você pode utilizar o Microsoft Flow para usar dados do Log Analytics em uma notificação por email do Office 365, criar um bug no Azure DevOps ou postar uma mensagem no Slack.  Você pode disparar um fluxo de trabalho com um agendamento simples ou a partir de alguma ação em um serviço conectado, por exemplo, quando um email ou tweet é recebido.  
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os resultados de uma pesquisa de log do Log Analytics por email, apenas um exemplo de como você pode usar a o Log Analytics no Microsoft Flow. 
+Por exemplo, você pode utilizar o Microsoft Flow para usar dados de log do Azure Monitor em uma notificação por email do Office 365, criar um bug no Azure DevOps ou postar uma mensagem no Slack.  Você pode disparar um fluxo de trabalho com um agendamento simples ou a partir de alguma ação em um serviço conectado, por exemplo, quando um email ou tweet é recebido.  
+
+O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os resultados de uma consulta de logs do Azure Monitor por email, que é um dos exemplos de como você pode usar o conector do Log Analytics no Microsoft Flow. 
 
 
 ## <a name="step-1-create-a-flow"></a>Etapa 1: Criar um fluxo
@@ -45,7 +47,7 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 ## <a name="step-4-configure-the-log-analytics-action"></a>Etapa 4: Configurar a ação do Log Analytics
 
 1. Especifique os detalhes de seu workspace incluindo a ID da Assinatura, o Grupo de Recursos e o Nome do Workspace.
-2. Adicione a seguinte consulta do Log Analytics à janela **Consulta**.  Isso é apenas um exemplo de consulta, e você pode substituir por qualquer outra que retorne dados.
+2. Adicione a consulta de logs a seguir à janela **Consultar**.  Isso é apenas um exemplo de consulta, e você pode substituir por qualquer outra que retorne dados.
 ```
     Event
     | where EventLevelName == "Error" 
@@ -77,7 +79,7 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Pesquisas de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+- Saiba mais sobre [consultas de log no Azure Monitor](../log-query/log-query-overview.md).
 - Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

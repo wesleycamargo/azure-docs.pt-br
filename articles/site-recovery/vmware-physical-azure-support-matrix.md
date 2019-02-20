@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 02/13/2019
 ms.author: raynew
-ms.openlocfilehash: b790cbf6c3c9ec04dfdbf0299e337d32e54e9708
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8115065afcbd81da1527e09c07ca89ce89100d7d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299753"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236984"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -63,7 +63,8 @@ O Site Recovery dá suporte para replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Configurações do computador | Os computadores que são replicados para o Azure precisam atender aos [requisitos do Azure](#azure-vm-requirements).
-Sistema operacional Windows | Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 e 64 bits](migrate-tutorial-windows-server-2008.md) (somente migração). </br></br> Não há suporte para Windows 2016 Nano Server.
+Carga de trabalho do computador | O Site Recovery dá suporte para replicação de qualquer carga de trabalho (no Azure Directory, SQL Server, etc.) em execução em um computador com suporte. Para saber mais, clique [aqui](https://aka.ms/asr_workload).
+Sistema operacional Windows | Windows Server 2019 de 64 bits, Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 e 64 bits](migrate-tutorial-windows-server-2008.md) (somente migração). </br></br> Não há suporte para Windows 2016 Nano Server.
 Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11<b>\*\*</b>, 6.1 a 6.10<b>\*\*</b>, 7.0 a 7.6 <br/><br/>CentOS: 5.2 a 5.11<b>\*\*</b>, 6.1 a 6.10<b>\*\*</b>, 7.0 a 7.6 <br/><br/>Servidor do Ubuntu 14.04 LTS[ (suporte para versões de kernel)](#ubuntu-kernel-versions)<br/><br/>Servidor LTS do Ubuntu 16.04[ (versões de kernel com suporte)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel com suporte)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 executando o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel 3) <br/><br/></br>-A atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para o SP4 não é suportada. Para atualizar, desabilite a replicação e habilite novamente após a atualização.</br></br> - [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre suporte para Linux e tecnologia de código aberto no Azure. O Site Recovery orquestra o failover para executar servidores Linux no Azure. No entanto, os fornecedores de Linux podem limitar o suporte a apenas versões de distribuição que não atingiram o fim da vida útil.<br/><br/> - Nas distribuições do Linux, apenas os kernels de ações que fazem parte da distribuição / versão menor da distribuição são suportados.<br/><br/> - A atualização de máquinas protegidas nas principais versões de distribuição do Linux não é suportada. Para atualizar, desabilite a replicação, atualize o sistema operacional e, em seguida, habilite a replicação novamente.<br/><br/> - Os servidores que executam o Red Hat Enterprise Linux 5.2-5.11 ou o CentOS 5.2-5.11 devem ter os [componentes do Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalados para que as máquinas inicializem no Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Versões de kernel do Ubuntu
@@ -80,28 +81,26 @@ Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11<b>\*\*</b>, 6.1
 16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-generic para 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic para 4.15.0-42-generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1035-azure|
 16.04 LTS | [9.20][9.20 UR] | 4.4.0-21-generic para 4.4.0-138-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic para 4.15.0-38-generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1025-azure|
 16.04 LTS | [9.19][9.19 UR] | 4.4.0-21-generic até 4.4.0-131-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic até 4.15.0-30-generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure até 4.15.0-1019-azure|
-16.04 LTS | [9.18][9.18 UR] | 4.4.0-21-generic a 4.4.0-130-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic |
 
 ### <a name="debian-kernel-versions"></a>Versões de Kernel do Debian
 
 
 **Versão com suporte** | **Serviço de Mobilidade do Azure Site Recovery versão** | **Versão do kernel** |
 --- | --- | --- |
-Debian 7 | [9.18][9.18 UR],[9.19][9.19 UR],[9.20][9.20 UR],[9.21][9.21 UR] | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.19][9.19 UR],[9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR]| 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR] | 3.16.0-4-amd64 a 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR] | 3.16.0-4-amd64 a 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
 Debian 8 | [9.19][9.19 UR] | 3.16.0-4-amd64 até 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 até 4.9.0-0.bpo.7-amd64 |
-Debian 8 | [9.18][9.18 UR] | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 versões de kernel com suporte
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.156-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.156-94.64-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.19][9.19 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default até 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.18][9.18 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de arquivos Linux/armazenamento convidado
 
@@ -145,40 +144,41 @@ Várias NICs da rede do convidado/servidor | Sim.
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | SIM
-ILB | SIM
-ELB | SIM
-Gerenciador de Tráfego do Azure | SIM
-NIC múltipla | SIM
-Endereço IP Reservado | SIM
-IPv4 | SIM
-Manter endereço IP de origem | SIM
-Pontos de extremidade de serviço de Rede Virtual do Azure<br/> (sem Firewalls de Armazenamento do Azure) | SIM
+Azure ExpressRoute | Sim
+ILB | Sim
+ELB | Sim
+Gerenciador de Tráfego do Azure | Sim
+NIC múltipla | Sim
+Endereço IP Reservado | Sim
+IPv4 | Sim
+Manter endereço IP de origem | Sim
+Pontos de extremidade de serviço de Rede Virtual do Azure<br/> (sem Firewalls de Armazenamento do Azure) | Sim
 Rede Acelerada | Não 
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Com suporte**
 --- | ---
 Dados dinâmicos | O disco do Sistema Operacional precisa ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
+Configuração de disco do Docker | Não 
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | SIM
+Host SAN iSCSI/FC) | Sim
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | SIM
+VMDK do convidado/servidor | Sim
 EFI/UEFI do convidado/servidor| Parcial (migração para o Azure para Windows Server 2012 e posterior) <br/><br/> Consulte a observação ao final da tabela
 Disco de cluster compartilhado do convidado/servidor | Não 
 Disco criptografado do convidado/servidor | Não 
 NFS do convidado/servidor | Não 
 SMB 3.0 do convidado/servidor | Não 
-RDM do convidado/servidor | SIM<br/><br/> N/D para servidores físicos
-Disco do convidado/servidor > 1 TB | SIM<br/><br/>Até 4.095 GB<br/><br/> O disco deve ser maior que 1024 MB.
-Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | SIM
-Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | SIM
-Volume do convidado/servidor com discos distribuídos >4 TB <br/><br/>Gerenciamento de volumes lógicos (LVM)| SIM
+RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
+Disco do convidado/servidor > 1 TB | Sim<br/><br/>Até 4.095 GB<br/><br/> O disco deve ser maior que 1024 MB.
+Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Sim
+Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | Sim
+Volume do convidado/servidor com discos distribuídos >4 TB <br/><br/>Gerenciamento de volumes lógicos (LVM)| Sim
 Convidado/servidor - espaços de armazenamento | Não 
 Adicionar/remover disco a quente por convidado/servidor | Não 
-Convidado/servidor - excluir disco | SIM
+Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não 
 
 > [!NOTE]
@@ -192,14 +192,14 @@ MPIO (Múltiplos caminhos) de convidado/servidor | Não
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | SIM
-Armazenamento com redundância geográfica | SIM
-Armazenamento com redundância geográfica com acesso de leitura | SIM
+Armazenamento com redundância local | Sim
+Armazenamento com redundância geográfica | Sim
+Armazenamento com redundância geográfica com acesso de leitura | Sim
 Armazenamento frio | Não 
 Armazenamento quente| Não 
 Blobs de bloco | Não 
-Criptografia em repouso (Criptografia do Serviço de Armazenamento)| SIM
-Armazenamento Premium | SIM
+Criptografia em repouso (Criptografia do Serviço de Armazenamento)| Sim
+Armazenamento Premium | Sim
 Serviço de importação/exportação | Não 
 Firewalls de armazenamento do Azure para redes virtuais configurados na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Não 
 Contas de armazenamento v2 de uso geral (camadas hot e cool) | Não 
@@ -208,9 +208,9 @@ Contas de armazenamento v2 de uso geral (camadas hot e cool) | Não
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | SIM
-HUB | SIM
-Discos gerenciados | SIM
+Conjuntos de disponibilidade | Sim
+HUB | Sim
+Discos gerenciados | Sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -253,7 +253,7 @@ Para saber mais sobre os últimos recursos e correções, clique [aqui](https://
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba como](tutorial-prepare-azure.md) para preparar o Azure para recuperação de desastres de máquinas virtuais da VMware.
 
-[9.22 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
+[9.22 UR]: https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery
 [9.21 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.20 UR]: https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery
 [9.19 UR]: https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30

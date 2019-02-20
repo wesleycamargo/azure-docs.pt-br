@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: dc68f00779d7b06b0498ffddbbee75a8396e952b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f5bc5edaccf07f4840a2db329fb5c3a0c51b7a6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186286"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999429"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um workspace do Log Analytics no Portal do Azure
-No portal do Azure, você pode configurar um workspace do Log Analytics, que é um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções.  As etapas descritas neste artigo serão necessárias se você pretender coletar dados das seguintes fontes:
+Use o menu **Espaços de trabalho do Log Analytics** para criar um espaço de trabalho do Log Analytics usando o portal do Azure. Um espaço de trabalho do Log Analytics é um ambiente exclusivo para os dados de log do Azure Monitor. Cada espaço de trabalho tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado espaço de trabalho. Você precisa de um espaço de trabalho do Log Analytics se pretender coletar dados das seguintes fontes:
 
 * Recursos do Azure em sua assinatura
 * Computadores locais monitorados pelo System Center Operations Manager
@@ -30,8 +30,8 @@ No portal do Azure, você pode configurar um workspace do Log Analytics, que é 
 
 Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu ambiente, veja os tópicos a seguir:
 
-*  [Coletar dados de máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md) 
-*  [Coletar dados de um computador Linux híbrido](../../azure-monitor/learn/quick-collect-linux-computer.md)
+*  [Coletar dados de máquinas virtuais do Azure](../learn/quick-collect-azurevm.md) 
+*  [Coletar dados de um computador Linux híbrido](../learn/quick-collect-linux-computer.md)
 *  [Coletar dados de um computador Windows híbrido](quick-collect-windows-computer.md)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -40,11 +40,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Criar um workspace
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Pesquise **Espaços de trabalho do Log Analytics**.
 
     ![Portal do Azure](media/quick-create-workspace/azure-portal-01.png)
   
-2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
+2. Clique em **Adicionar**e selecione opções para os seguintes itens:
 
   * Forneça um nome para o novo **Workspace do Log Analytics**, como *DefaultLAWorkspace*. 
   * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
@@ -61,7 +61,7 @@ Enquanto as informações são verificadas e o workspace é criado, você pode a
 ## <a name="next-steps"></a>Próximas etapas
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas. 
 
-* Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Adicione o [System Center Operations Manager como uma fonte de dados](../../azure-monitor/platform/om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de workspace do Log Analytics. 
-* Conecte-se ao [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
-* Examine as [soluções de gerenciamento](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) disponíveis e como adicionar ou remover uma solução do workspace.
+* Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Adicione o [System Center Operations Manager como uma fonte de dados](../platform/om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de workspace do Log Analytics. 
+* Conecte-se ao [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
+* Examine as [soluções de monitoramento](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do espaço de trabalho.

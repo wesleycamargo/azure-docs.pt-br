@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: A transcrição de lote é ideal se você quer transcrever uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio por um URI de SAS (assinatura de acesso compartilhado) e transcrições de recebimento de forma assíncrona.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228654"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867113"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
@@ -49,7 +49,7 @@ A API de transcrição de lote dá suporte aos seguintes formatos:
 > [!NOTE]
 > A API de Transcrição em Lote requer uma chave S0 (camada pagadora). Ele não funciona com uma chave gratuita (f0).
 
-Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A amostra JSON a seguir mostra a saída de um canal, incluindo as propriedades para configurar o filtro de profanação e o modelo de pontuação.
+Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A amostra JSON a seguir mostra uma solicitação de amostra, incluindo as propriedades para configurar o filtro de profanação, o modelo de pontuação e os carimbos de data/hora de nível de palavra
 
 ```json
 {
@@ -60,7 +60,8 @@ Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Atualmente, o único armazenamento suportado é o armazenamento do Azure Blob.
 Você pode encontrar a amostra neste artigo no [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Uma transcrição de áudio normalmente requer um intervalo de tempo igual à duração do arquivo de áudio, além de uma sobrecarga de dois a três minutos.
+> Não fornecemos um SLA de tempo a transcrições de áudio por meio do lote. No entanto, quando o trabalho de transcrição é acionado (no estado de execução), ele é normalmente processado mais rapidamente do que em tempo real.
 
 ## <a name="next-steps"></a>Próximas etapas
 

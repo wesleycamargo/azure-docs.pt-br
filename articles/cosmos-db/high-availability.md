@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471310"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109751"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
 
@@ -58,11 +58,25 @@ Interrupções regionais não são incomuns e o Azure Cosmos DB garante que seu 
 
 ## <a name="building-highly-available-applications"></a>Criando aplicativos altamente disponíveis
 
-- Para garantir a alta disponibilidade de leitura e gravação, configure sua conta do Cosmos para abranger pelo menos duas regiões com várias regiões de gravação. Essa configuração fornecerá disponibilidade, latências mais baixas e escalabilidade para leituras e gravações com suporte de SLAs. Para saber mais, confira como [configurar sua conta do Cosmos com várias regiões de gravação](tutorial-global-distribution-sql-api.md).
+- Para garantir a alta disponibilidade de leitura e gravação, configure sua conta do Cosmos para abranger pelo menos duas regiões com várias regiões de gravação. Essa configuração fornecerá disponibilidade, latências mais baixas e escalabilidade para leituras e gravações com suporte de SLAs. Para saber mais, confira como [configurar sua conta do Cosmos com várias regiões de gravação](tutorial-global-distribution-sql-api.md). Para configurar vários mestres nos aplicativos, confira [Como configurar vários mestres](how-to-multi-master.md).
 
 - Para contas do Cosmos de várias regiões configuradas com uma única região de gravação, [habilite o failover automático usando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#automatic-failover). Depois de habilitar o failover automático, sempre que houver um desastre regional, o Cosmos DB fará o failover da sua conta automaticamente.  
 
 - Mesmo se a conta do Cosmos estiver altamente disponível, seu aplicativo poderá não ser corretamente projetado para permanecer altamente disponível. Para testar a alta disponibilidade de ponta a ponta do aplicativo, invoque periodicamente o [failover manual usando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover), como parte de testes de aplicativos ou análises de DR (recuperação de desastre).
+
+
+À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação).
+
+A tabela a seguir mostra o RTO e o RPO para os cenários mais comuns.
+
+|Número de regiões |Configuração |Nível de Consistência|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 minutos | < 1 semana |
+|> 1     | Replicação de mestre único | Sessão, Prefixo Consistente, Eventual | > 15 minutos | > 15 minutos |
+|> 1     | Replicação de mestre único | Bounded staleness | K & T | > 15 minutos |
+|> 1     | Replicação de vários mestres | Sessão, Prefixo Consistente, Eventual | > 15 minutos | 0 |
+|> 1     | Replicação de vários mestres | Bounded staleness | K & T | 0 |
+|> 1     | * | Strong | 0 | > 15 minutos |
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -72,3 +86,4 @@ Em seguida, você pode aprender sobre como dimensionar a taxa de transferência 
 * [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
 * [Distribuição global – nos bastidores](global-dist-under-the-hood.md)
 * [Níveis de coerência no Azure Cosmos DB](consistency-levels.md)
+* [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)

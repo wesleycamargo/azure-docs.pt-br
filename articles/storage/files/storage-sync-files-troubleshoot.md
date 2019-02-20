@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752085"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194224"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -145,12 +145,12 @@ Um status de integridade do ponto de extremidade de servidor de “Sem Atividade
 
 Um ponto de extremidade do servidor não pode registrar a atividade de sincronização em log pelos seguintes motivos:
 
-- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto de extremidade do servidor, outros pontos de extremidade no do mesmo não podem iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
+- Um agente da versão 4.3.0.0 ou anterior é instalado e o servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto de extremidade do servidor, outros pontos de extremidade no do mesmo não podem iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída. Para resolver esse problema, instale o agente da versão 5.0.2.0 ou posterior que dá suporte à sincronização de vários pontos de extremidade de servidor em um volume quando a sessão de sincronização de um VSS está ativa.
 
     Para verificar a atividade de sincronização atual em um servidor, confira [Como fazer para monitorar o andamento de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - O servidor atingiu o número máximo de sessões de sincronização simultâneas. 
-    - Versão do agente 4.x e posterior: O limite varia com base nos recursos de sistema disponíveis.
+    - Agente da versão 4.x e posterior: O limite varia com base nos recursos de sistema disponíveis.
     - Versão do agente 3.x: duas sessões de sincronização ativas por processador ou um máximo de oito sessões de sincronização ativas por servidor.
 
 > [!Note]  
@@ -538,7 +538,7 @@ Esse erro ocorre porque há alterações no compartilhamento de arquivos do Azur
 | **Cadeia de caracteres de erro** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Correção necessária** | Sim |
 
-Nos casos em que há muitos erros de sincronização por arquivo, as sessões de sincronização podem começar a falhar. Para solucionar esse estado, consulte [Solução de problemas por erro de sincronização de arquivo/diretório]().
+Nos casos em que há muitos erros de sincronização por arquivo, as sessões de sincronização podem começar a falhar. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > O Azure File Sync cria um instantâneo temporário do VSS uma vez por dia no servidor para sincronizar arquivos que tenham identificadores abertos.

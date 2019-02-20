@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/12/2018
-ms.openlocfilehash: 8ffda7fd1b987e34dc0e8157b535ccef65571247
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 95a86dafc4705d58ac459ff57e4f221d19fb7a37
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567886"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990284"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de TDE (Transparent Data Encryption) usando PowerShell
 
@@ -25,11 +25,11 @@ ms.locfileid: "55567886"
 
 - É necessário ter uma assinatura do Azure e ser um administrador nessa assinatura
 - É necessário ter o Azure PowerShell versão 4.2.0 ou mais recente instalado e em execução. 
-- Este guia de instruções assume que você já esteja usando uma chave do Azure Key Vault como protetor de TDE para um Data Warehouse ou Banco de Dados SQL do Azure. Consulte [Transparent Data Encryption com suporte de BYOK](transparent-data-encryption-byok-azure-sql.md) para saber mais.
+- Este guia de instruções assume que você já esteja usando uma chave do Azure Key Vault como protetor de TDE para um Data Warehouse ou Banco de Dados SQL do Azure. Consulte [Integração do Transparent Data Encryption com Azure Key Vault - suporte a BYOK](transparent-data-encryption-byok-azure-sql.md) para saber mais.
 
 ## <a name="overview"></a>Visão geral
 
-Este guia de instruções descreve como responder a um protetor de TDE potencialmente comprometido para um Data Warehouse ou Banco de Dados SQL do Azure que esteja usando o TDE com suporte BYOKY (Bring Your Own Key). Para saber mais sobre o suporte BYOK para TDE, consulte a [página de visão geral](transparent-data-encryption-byok-azure-sql.md). 
+Este guia de instruções descreve como responder a um protetor de TDE potencialmente comprometido para um Data Warehouse ou Banco de Dados SQL do Azure que esteja usando o TDE com suporte para chaves gerenciadas pelo cliente no Azure Key Vault - Bring Your Own Key (BYOK). Para saber mais sobre o suporte BYOK para TDE, consulte a [página de visão geral](transparent-data-encryption-byok-azure-sql.md). 
 
 Os procedimentos a seguir devem ser feitos apenas em casos extremos ou em ambientes de teste. Revise cuidadosamente o guia de instruções, pois a exclusão de protetores de TDE ativamente usados do Azure Key Vault pode resultar na **perda de dados**. 
 

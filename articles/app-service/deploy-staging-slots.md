@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 1d0f89285095e7edd67883a2bad1411f6e8942d2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181415"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -163,7 +163,7 @@ Para realizar a alternância com visualização, siga estas etapas.
 
 4. Quando terminar, feche a caixa de diálogo clicando em **Fechar**.
 
-Para automatizar uma alternância de várias fases, confira [Automatização com o PowerShell](#automate-with-azure-powershell).
+Para automatizar uma alternância de várias fases, confira Automatização com o PowerShell.
 
 <a name="Rollback"></a>
 
@@ -204,6 +204,11 @@ Ao usar a [Alternância Automática](#Auto-Swap), alguns aplicativos podem exigi
             <add initializationPage="/Home/About" hostName="[app hostname]" />
         </applicationInitialization>
     </system.webServer>
+
+Você também pode personalizar o comportamento de aquecimento com uma ou mais das seguintes [configurações do aplicativo](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para executar o ping para aquecer seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Por exemplo, `/statuscheck`. O valor padrão é `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Por exemplo: `200,202`. Se o código de status retornado não estiver na lista, as operações de aquecimento e de troca são interrompidas. Por padrão, todos os códigos de resposta são válidos.
 
 ## <a name="monitor-swap"></a>Monitorar a alternância
 
@@ -263,6 +268,8 @@ Navegue para a página de recursos do aplicativo. Selecione **Slots de implanta�
 
 ## <a name="automate-with-powershell"></a>Automatizar com o PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O Azure PowerShell é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte ao gerenciamento de slots de implantação no Serviço de Aplicativo do Azure.
 
 Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](/powershell/azure/overview).  
@@ -270,44 +277,44 @@ Para obter mais informações sobre como instalar e configurar o PowerShell do A
 - - -
 ### <a name="create-web-app"></a>Criar um aplicativo Web
 ```PowerShell
-New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
+New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-slot"></a>Criar um slot
 ```PowerShell
-New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Iniciar uma alternância com visualização (alternância de várias fases) e aplicar a configuração do slot de destino ao slot de origem
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelar uma alternância pendente (alternância com revisão) e restaurar a configuração do slot de origem
 ```PowerShell
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Permute slots de implantação
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 ### <a name="monitor-swap-events-in-the-activity-log"></a>Monitorar eventos de alternância no Log de atividades
 ```PowerShell
-Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
+Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
 ### <a name="delete-slot"></a>Excluir um slot
-```
-Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
+```powershell
+Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
 - - -

@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824778"
+ms.locfileid: "55875596"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Serviços do Machine Learning (com R) no Banco de Dados SQL do Azure (versão prévia)
 
 Os Serviços do Machine Learning são um recurso do Banco de Dados SQL do Azure, usado para executar scripts do R no banco de dados. O recurso inclui pacotes R da Microsoft para análise preditiva de alto desempenho e machine learning. Os dados relacionais podem ser usados em scripts R por meio de procedimentos armazenados, do script T-SQL que contém instruções do R ou do código R que contém o T-SQL.
 
-> [!NOTE]
-> No momento, os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure estão em versão prévia pública. [Inscreva-se na versão prévia](#signup) abaixo.
+> [!IMPORTANT]
+> Os Serviços de Machine Learning (com R) no Banco de Dados SQL do Azure estão disponíveis atualmente apenas em versão prévia pública para pools elásticos e bancos de dados individuais usando o modelo de compra baseado em vCore das camadas de serviço **uso geral** e **comercialmente crítico**. Nesta versão prévia pública inicial, não há suporte para a camada de serviço **hiperescala** e para a opção de implantação **instância gerenciada**. Atualmente, R é a única linguagem com suporte. No momento, não há suporte para Python. 
+>
+> A versão prévia está atualmente disponível nas seguintes regiões: Europa Ocidental, Europa Setentrional, Oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Canadá Central, Sudeste Asiático, Sul da Índia e Sudeste da Austrália. 
+>
+> [Inscreva-se na versão prévia](#signup) abaixo.
 
 ## <a name="what-you-can-do-with-r"></a>O que você pode fazer com o R
 
@@ -55,10 +59,6 @@ Para se inscrever na versão prévia pública, siga estas etapas:
 2. Envie um email para a Microsoft pelo endereço [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) a fim de se inscrever na versão prévia pública. A versão prévia pública dos Serviços de Machine Learning (com R) no Banco de Dados SQL não está habilitada por padrão.
 
 Após se inscrever no programa, a Microsoft integrará você à versão prévia pública e habilitará o R para seu banco de dados novo ou existente.
-
-Os Serviços do Machine Learning (com R) no Banco de Dados SQL estão disponíveis atualmente apenas no modelo de compra baseado em vCore das camadas de serviço **Uso Geral** e **Comercialmente Crítico** para opções de implantação autônomas e de pool elástico. Nesta versão prévia pública inicial, não há suporte para a camada de serviço **Hiperescala** e a opção de implantação **Instância Gerenciada**.
-
-Atualmente, R é a única linguagem com suporte. No momento, não há suporte para Python. A versão prévia está inicialmente disponível nas seguintes regiões: Europa Ocidental, Europa Setentrional, Oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Canadá Central, Sudeste Asiático, Sul da Índia e Sudeste da Austrália. Serão adicionadas mais regiões posteriormente.
 
 Não use os Serviços do Machine Learning com R para cargas de trabalho de produção durante a versão prévia pública.
 

@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820344"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964784"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure. Este artigo se aplica a todos os modelos de implantação do Banco de Dados SQL do Azure (banco de dados individual, pools elásticos, instância gerenciada).
 
 > [!TIP]
-> Examine os guias de introdução de [Banco de dados individual](sql-database-single-database-quickstart-guide.md) e [Instância gerenciada](sql-database-managed-instance-quickstart-guide.md) se precisar configurar o Banco de Dados SQL do Azure.
+> Examine os guias de introdução de [bancos de dados individuais](sql-database-single-database-quickstart-guide.md) e [instâncias gerenciadas](sql-database-managed-instance-quickstart-guide.md) se precisar configurar o Banco de Dados SQL do Azure.
 >
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
@@ -49,14 +49,16 @@ Evite transações de longa execução, pois qualquer falha de infraestrutura ou
 
 ## <a name="resiliency"></a>Resiliência
 
-O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem.
-Embora o Banco de Dados SQL seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
+O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o Banco de Dados SQL seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
+
+Para obter mais informações sobre como se preparar para eventos de manutenção planejada em seu banco de dados SQL do Azure, consulte [planejamento de eventos de manutenção do Azure no Banco de Dados SQL do Azure](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Considerações sobre rede
 
 - No computador que hospeda o programa cliente, certifique-se de que o firewall permite comunicação TCP de saída na porta 1433.  Mais informações: [Configurar um firewall do Banco de Dados SQL do Azure](sql-database-configure-firewall-settings.md).
 - Se o programa cliente se conectar ao Banco de Dados SQL enquanto seu cliente estiver em execução em uma VM (máquina virtual) do Azure, será necessário abrir determinados intervalos de porta na VM. Mais informações: [Portas acima da 1433 para o ADO.NET 4.5 e o Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Para obter mais informações, [Arquitetura de conectividade de Banco de Dados SQL do Azure](sql-database-connectivity-architecture.md) e [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Para configurar a rede para uma instância gerenciada, confira [configuração de rede para instâncias gerenciadas](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Próximas etapas
 

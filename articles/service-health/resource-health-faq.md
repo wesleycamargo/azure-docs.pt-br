@@ -1,25 +1,18 @@
 ---
 title: Perguntas frequentes sobre o Azure Resource Health | Microsoft Docs
 description: Visão geral do Azure Resource Health
-services: Resource health
-documentationcenter: dev-center-name
 author: stephbaron
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
-ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Supportability
-ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.service: service-health
+ms.date: 01/29/2019
+ms.workload: Supportability
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977192"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884525"
 ---
 # <a name="azure-resource-health-faq"></a>Perguntas frequentes sobre o Azure Resource Health
 Conheça as respostas para as perguntas comuns sobre o Azure Resource Health.
@@ -38,9 +31,9 @@ O Resource Health executa várias verificações com base no [tipo de recurso](r
 
 ## <a name="what-does-each-of-the-health-status-mean"></a>O que significa cada status de integridade?
 Há três status de integridade diferentes:
-- Disponível: não há problemas conhecidos na plataforma do Azure que poderiam afetar esse recurso
-- Não disponível: o Resource Health detectou problemas que estão afetando o recurso
-- Desconhecido: o Resource Health não consegue determinar a integridade de um recurso porque parou de receber informações sobre ele. 
+- Disponível: Não há problemas conhecidos na plataforma do Azure que poderiam afetar esse recurso
+- Não disponível: A integridade do recurso detectou problemas que afetam o recurso
+- Desconhecido: A integridade do recurso não consegue determinar a integridade porque parou de receber informações sobre ele. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>O que significa o status desconhecido? Há algo errado com meu recurso?
 O status de integridade é definido como desconhecido quando o Resource Health para de receber informações sobre um recurso específico. Embora esse status não seja uma indicação definitiva do estado do recurso, nos casos em que você estiver enfrentando problemas, isso pode indicar um problema com o Azure.

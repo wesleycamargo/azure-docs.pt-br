@@ -7,21 +7,36 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449547"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860400"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas comuns: Replicação de Azure para Azure
 
 Este artigo fornece respostas a perguntas comuns sobre como implantar a DR (recuperação de desastres) de VMs do Azure para outra região do Azure usando o Azure Site Recovery. Se você tiver dúvidas após a leitura deste artigo, publique-as no [fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
+## <a name="in-this-article"></a>Neste artigo 
+1.  **[Perguntas gerais sobre o Azure para o Azure](#general)** 
+1.  **[Replicação](#replication)** 
+1.  **[Política de replicação](#replication-policy)** 
+1.  **[Consistência de várias VMs](#multi-vm-consistency)** 
+1.  **[Plano de recuperação](#recovery-plan)** 
+1.  **[Nova proteção e failback](#reprotection-and-failback)** 
+1.  **[Segurança](#security)** 
+
+
 ## <a name="general"></a>Geral
+
 ### <a name="how-is-site-recovery-priced"></a>Como é o Site Recovery é precificado?
 Analise os detalhes em [Preços do Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como funciona a camada gratuita do Azure Site Recovery?
+Cada instância protegida pelo Azure Site Recovery é gratuita durante os primeiros 31 dias de proteção. A partir do 32º dia, a proteção da instância é cobrada de acordo com as taxas acima.
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, serei cobrado por outras tarifas do Azure?
+Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá ser cobrado pelo Armazenamento do Azure, por transações de armazenamento e por transferência de dados. Uma máquina virtual recuperada também poderá gerar encargos de computação do Azure. Obtenha detalhes completos sobre preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Quais são as melhores práticas para configurar o Site Recovery em VMs do Azure?
 1. [Entender a arquitetura de Azure para Azure](azure-to-azure-architecture.md)
@@ -59,6 +74,10 @@ Com o Site Recovery, é possível replicar e recuperar VMs entre quaisquer duas 
 
 Não, o Site Recovery não requer conectividade com a Internet. Porém, ele requer acesso aos intervalos de IP e URLs do Site Recovery, conforme mencionado [neste artigo](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>É possível replicar o aplicativo que tem um grupo de recursos separado para camadas separadas? 
+Sim, é possível replicar o aplicativo e manter a configuração de recuperação de desastre em um grupo de recursos separado também.
+Por exemplo, se você tiver um aplicativo com aplicativo, banco de dados e Web de cada camada no grupo de recursos separado, será necessário clicar no [assistente de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes para proteger todas as camadas. O ASR replicará essas três camadas em três grupos de recursos diferentes.
+
 ## <a name="replication-policy"></a>Política de replicação
 
 ### <a name="what-is-a-replication-policy"></a>O que é uma política de replicação?
@@ -78,9 +97,12 @@ Atualmente, a maioria dos aplicativos pode recuperar-se bem de instantâneos con
 O Site Recovery cria um ponto de recuperação consistente em termos de falha a cada 5 minutos.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>O que é ponto de recuperação consistente em termos de aplicativo? 
-Pontos de recuperação consistentes em termos de aplicativo são criados com base em instantâneos consistentes em termos de aplicativo. Instantâneos consistentes em termos de aplicativo capturam os mesmos dados de instantâneos consistentes em termos de falhas, além de todos os dados na memória e todas as transações em andamento. 
+Pontos de recuperação consistentes em termos de aplicativo são criados com base em instantâneos consistentes em termos de aplicativo. Pontos de recuperação consistentes em termos de aplicativo capturam os mesmos dados de instantâneos consistentes em termos de falhas, além de todos os dados na memória e todas as transações em andamento. 
 
 Devido a seu conteúdo extra, instantâneos de aplicativo consistente são os mais envolvidos e levam mais tempo para executar. Recomendamos pontos de recuperação consistentes em termos de aplicativo para sistemas operacionais de banco de dados como o SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual é o impacto de pontos de recuperação consistentes em termos de aplicativo no desempenho do aplicativo?
+Considerando que os pontos de recuperação consistentes em termos de aplicativo capturam todos os dados na memória e no processo, isso requer que a estrutura como VSS na janela desative o aplicativo. Isso, se feito com muita frequência, poderá ter um impacto no desempenho se a carga de trabalho já estiver muito ocupada. Geralmente, sugerimos não usar baixa frequência para pontos de recuperação consistentes em termos de aplicativo para cargas de trabalho que não são de banco de dados e, inclusive para a carga de trabalho de banco de dados, 1 hora é suficiente. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual é a frequência mínima de geração de ponto de recuperação consistente com o aplicativo?
 O Site Recovery consegue criar um ponto de recuperação consistente com o aplicativo com frequência mínima de 1 hora.
@@ -198,7 +220,7 @@ Depende da situação. Por exemplo, se a região de origem da VM existir, apenas
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo demora para fazer failback?
 Após a nova proteção, o tempo para failback geralmente é similar ao tempo para failover da região primária para uma região secundária. 
 
-## <a name="security"></a>Segurança
+## <a name="a-namesecuritysecurity"></a><a name="security">Segurança
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Os dados de replicação são enviados para o serviço de Recuperação de Site?
 Não, o Site Recovery não intercepta dados replicados e não tem informações sobre o que está sendo executado nas máquinas virtuais. Somente os metadados necessários para administrar a replicação e o failover é que são enviados para o serviço de Recuperação de Site.  
 O Site Recovery é certificado pela ISO 27001:2013, 27018, HIPAA, DPA e está em processo de conclusão de avaliação dos padrões SOC2 e FedRAMP JAB.

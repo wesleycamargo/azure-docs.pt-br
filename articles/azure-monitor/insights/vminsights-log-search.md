@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188413"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864410"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (versão prévia)
 O Azure Monitor para VMs coleta métricas de desempenho e conexão, dados de inventário do processo e do computador, informações de estado da integridade e os encaminha para o armazenamento de dados do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
@@ -117,7 +117,7 @@ Os registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário pa
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um computador dentro do workspace |
 | ResourceName_s | O identificador exclusivo para um computador dentro do workspace |
@@ -142,7 +142,7 @@ Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário par
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um processo dentro do workspace |
 | ResourceName_s | O identificador exclusivo para um processo dentro do computador no qual está sendo executado|
@@ -167,6 +167,12 @@ Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário par
 ### <a name="list-all-known-machines"></a>Lista todas as máquinas conhecidas
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
+### <a name="when-was-the-vm-last-rebooted"></a>Quando a VM foi reiniciada pela última vez
+`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+
+### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Resumo das VMs do Azure por imagem, localização e SKU
+`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lista a capacidade de memória física de todos os computadores gerenciados.
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
@@ -185,7 +191,7 @@ Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário par
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Listar todos os processos conhecidos em um computador especificado
 `ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam SQL
+### <a name="list-all-computers-running-sql-server"></a>Listar todos os computadores que executam o SQL Server
 `ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produtos exclusivas de curl no meu datacenter
@@ -193,6 +199,18 @@ Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário par
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computadores de todos os computadores executando CentOS
 `ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+
+### <a name="bytes-sent-and-received-trends"></a>Os bytes enviaram e receberam tendências
+`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+
+### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Quais VMs do Azure transmitem a maioria dos bytes
+`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+
+### <a name="link-status-trends"></a>Vincular tendências de status
+`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+
+### <a name="connection-failures-trend"></a>Tendência com falhas de conexão
+`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as conexões de saída a partir de um grupo de computadores
 ```

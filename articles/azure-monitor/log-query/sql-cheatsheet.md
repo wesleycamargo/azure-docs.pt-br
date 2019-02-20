@@ -1,6 +1,6 @@
 ---
-title: Roteiro da linguagem de consulta de SQL para Azure Log Analytics | Microsoft Docs
-description: Funções comuns a serem usadas para diferentes cenários em consultas do Log Analytics.
+title: Folha de referências de SQL para a consulta de log do Azure Monitor | Microsoft Docs
+description: Ajuda para usuários que estão familiarizados com o SQL para escrever consultas de log no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183040"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993650"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>Roteiro da linguagem de consulta de SQL para Azure Log Analytics 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Folha de referências de SQL para a consulta de log do Azure Monitor 
 
-A tabela a seguir ajuda os usuários que estão familiarizados com SQL a aprender a linguagem de consulta do Log Analytics. Dê uma olhada no comando T-SQL para resolver um cenário comum e o equivalente usando o Log Analytics.
+A tabela abaixo ajuda os usuários que estão familiarizados com o SQL a aprender a linguagem de consulta do Data Explorer para escrever consultas de log no Azure Monitor. Dê uma olhada no comando T-SQL para resolver um cenário comum e o equivalente usando a consulta de log do Azure Monitor.
 
-## <a name="sql-to-log-analytics"></a>SQL para Log Analytics
+## <a name="sql-to-azure-monitor"></a>SQL para Azure Monitor
 
-DESCRIÇÃO                             |Consulta SQL                                                                                          |Consulta do Azure Log Analytics
+DESCRIÇÃO                             |Consulta SQL                                                                                          |Consulta de log do Azure Monitor
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Selecionar todos os dados de uma tabela            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selecionar colunas específicas em uma tabela    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Ingressar                                    |`SELECT * FROM dependencies JOIN e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Percorra uma lição em [escrevendo consultas no Log Analytics](get-started-queries.md).
+- Faça uma lição sobre como [escrever consultas de log no Azure Monitor](get-started-queries.md).

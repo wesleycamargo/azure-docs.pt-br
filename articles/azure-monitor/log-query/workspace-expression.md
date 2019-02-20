@@ -1,6 +1,6 @@
 ---
-title: Expressão workspace() na consulta do Azure Log Analytics | Microsoft Docs
-description: A expressão workspace é usada em uma consulta do Log Analytics para recuperar dados de workspace específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura.
+title: Expressão workspace() nas consultas de log do Azure Monitor | Microsoft Docs
+description: A expressão workspace é usada em uma consulta de log do Azure Monitor para recuperar dados de um workspace específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182937"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992969"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>Expressão workspace() na consulta do Log Analytics
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>Expressão workspace() nas consultas de log do Azure Monitor
 
-A expressão `workspace` é usada em uma consulta do Log Analytics para recuperar dados de workspace específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura. Isso é útil para incluir dados de log em uma consulta do Application Insights e para consultar dados em vários workspaces em uma consulta de log.
+A expressão `workspace` é usada em uma consulta do Azure Monitor para recuperar dados de um workspace específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura. Isso é útil para incluir dados de log em uma consulta do Application Insights e para consultar dados em vários workspaces em uma consulta de log.
 
 
 ## <a name="syntax"></a>Sintaxe
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [expressão aplicativo](workspace-expression.md) para se referir a aplicativo do Application Insights.
-- Leia sobre como os [Dados do Log Analytics](../../azure-monitor/log-query/log-query-overview.md) são armazenados.
+- Confira a [expressão app](app-expression.md) para se referir a um aplicativo do Application Insights.
+- Leia mais sobre como os [dados do Azure Monitor](log-query-overview.md) são armazenados.
+- Acesse a documentação completa da [linguagem de consulta do Data Explorer](/azure/kusto/query/).

@@ -11,19 +11,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/31/2018
+ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b7b362cf711cc6424d1eb3daa19701ee22249741
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151508"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245568"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Aprovar ou negar as solicitações para funções de recurso do Azure no PIM
 
-Com o Gerenciamento de Identidade Privilegiada (PIM) do Azure AD, você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Siga as etapas neste artigo para aprovar ou negar solicitações de funções de recursos do Azure.
+Com o Gerenciamento de Identidade Privilegiada (PIM) do Azure AD, você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores representantes têm 24 horas para aprovar as solicitações. Se a solicitação não for aprovada dentro de 24 horas, o usuário qualificado deverá reenviar outra. A janela de tempo de aprovação de 24 horas não é configurável.
+
+Siga as etapas neste artigo para aprovar ou negar solicitações de funções de recursos do Azure.
 
 ## <a name="view-pending-requests"></a>Exibir solicitações pendentes
 

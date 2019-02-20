@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f11d680330a43dd49b3c36c864f50b9dc869d172
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205579"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211845"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conectar e se comunicar com serviços no Service Fabric
 No Service Fabric, um serviço é executado em algum lugar em um cluster do Service Fabric, normalmente distribuído entre várias VMs. Ele pode ser movido de um local para outro, pelo proprietário do serviço ou automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a um determinado computador ou endereço.
 
 Um aplicativo do Service Fabric geralmente é composto por vários serviços diferentes, em que cada serviço executa uma tarefa específica. Esses serviços podem se comunicar entre si para formar uma função completa, tal como partes diferentes de renderização de um aplicativo Web. Também existem aplicativos cliente que se conectam e se comunicam com os serviços. Este documento aborda como configurar a comunicação com os serviços do Service Fabric e entre eles.
-
-Este vídeo da Microsoft Virtual Academy também discute a comunicação de serviço: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
-<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
 
 ## <a name="bring-your-own-protocol"></a>Trazer seu próprio protocolo
 O Service Fabric ajuda a gerenciar o ciclo de vida dos seus serviços, mas ele não tome decisões sobre o que seus serviços fazem. Isso inclui a comunicação. Quando seu serviço é aberto pelo Service Fabric, que é a oportunidade do serviço de configurar um ponto de extremidade para solicitações de entrada, usando qualquer protocolo ou pilha de comunicação desejados. O serviço escutará um endereço **IP:port** normal usando qualquer esquema de endereçamento, como um URI. Várias instâncias de serviço ou réplicas podem compartilhar um processo de host, quando então eles precisarão usar portas diferentes ou um mecanismo de compartilhamento de porta, como o driver do kernel http.sys no Windows. Em ambos os casos, cada instância de serviço ou réplica em um processo de host deve ser endereçável exclusivamente.
@@ -48,7 +44,7 @@ Resolver e conectar-se aos serviços envolve as seguintes etapas executadas em u
 
 * **Resolver**: obter o ponto de extremidade que um serviço publicou do Serviço de Nomenclatura.
 * **Conectar**: conectar-se ao serviço por meio de qualquer protocolo usado no ponto de extremidade em questão.
-* **Tentar Novamente**: uma tentativa de conexão pode falhar por vários motivos, por exemplo, se o serviço foi movido desde a última vez que o endereço do ponto de extremidade foi resolvido. Nesse caso, as etapas resolver e conectar anteriores precisam ser repetidas e esse ciclo é repetido até que a conexão seja bem-sucedida.
+* **Tentar novamente**: uma tentativa de conexão pode falhar por vários motivos, por exemplo, se o serviço foi movido desde a última vez que o endereço do ponto de extremidade foi resolvido. Nesse caso, as etapas resolver e conectar anteriores precisam ser repetidas e esse ciclo é repetido até que a conexão seja bem-sucedida.
 
 ## <a name="connecting-to-other-services"></a>Conectando a outros serviços
 Geralmente, os serviços que se conectam entre si em um cluster podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós de um cluster estão na mesma rede local. Para facilitar a conexão entre serviços, o Service Fabric oferece serviços adicionais que usam o Serviço de Nomeação. Um serviço DNS e um serviço de proxy reverso.
@@ -82,31 +78,26 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
 
 1. Escreva um serviço que escute na porta 80. Configure a porta 80 no ServiceManifest.xml do serviço e abra um ouvinte no serviço, por exemplo, um servidor Web auto-hospedado.
 
-    ```xml
-    <Resources>
-        <Endpoints>
-            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
-        </Endpoints>
-    </Resources>
+    ```xml    <Resources> <Endpoints> <Endpoint Name="WebEndpoint" Protocol="http" Port="80" /> </Endpoints> </Resources>
     ```
     ```csharp
-        class HttpCommunicationListener : ICommunicationListener
+        class HttpCommunicationListener : ICommunicationListener
         {
             ...
 
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint =
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-                this.httpListener = new HttpListener();
+                this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-                return Task.FromResult(publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -118,7 +109,7 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...
@@ -175,8 +166,8 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: Opções de API de comunicação interna
 A estrutura do Reliable Services vem com várias opções de comunicação predefinidas. A decisão sobre qual uma funcionará melhor para você depende da escolha do modelo de programação, da estrutura de comunicação e da linguagem de programação em que os serviços são escritos.
 
-* **Nenhum protocolo específico:** se você não tiver uma preferência específica de estrutura de comunicação, mas desejar colocar algo em funcionamento rapidamente, a opção ideal para você será a [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md), que possibilita chamadas de procedimento remoto fortemente tipadas para os Reliable Services e Reliable Actors. Essa é a maneira mais fácil e rápida de começar a comunicação de serviço. A comunicação remota do serviço lida com a resolução de endereços de serviço, conexão, repetição e tratamento de erro. Isso está disponível para aplicativos Java e C#.
-* **HTTP**: para comunicação independente de idioma, o HTTP fornece uma opção padrão do setor com ferramentas e servidores HTTP disponíveis em várias linguagens diferentes, tudo isso com suporte no Service Fabric. Os serviços podem usar qualquer pilha HTTP disponível, incluindo [API Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) para aplicativos C#. Clientes escritos em C# podem aproveitar as classes `ICommunicationClient` e `ServicePartitionClient`, enquanto para Java, use as classes `CommunicationClient` e `FabricServicePartitionClient` [para resolução de serviço, conexões HTTP e loops de repetição](service-fabric-reliable-services-communication.md).
+* **Nenhum protocolo específico:**  se você não tiver uma preferência específica de estrutura de comunicação, mas desejar colocar algo em funcionamento rapidamente, a opção ideal para você será a [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md), que possibilita chamadas de procedimento remoto fortemente tipadas para os Reliable Services e Reliable Actors. Essa é a maneira mais fácil e rápida de começar a comunicação de serviço. A comunicação remota do serviço lida com a resolução de endereços de serviço, conexão, repetição e tratamento de erro. Isso está disponível para aplicativos Java e C#.
+* **HTTP**: para comunicação independente de idioma, o HTTP fornece uma opção padrão do setor com ferramentas e servidores HTTP disponíveis em várias linguagens diferentes, tudo isso com suporte no Service Fabric. Os serviços podem usar qualquer pilha HTTP disponível, incluindo [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md) para aplicativos C#. Clientes escritos em C# podem aproveitar as classes `ICommunicationClient` e `ServicePartitionClient`, enquanto para Java, use as classes `CommunicationClient` e `FabricServicePartitionClient` [para resolução de serviço, conexões HTTP e loops de repetição](service-fabric-reliable-services-communication.md).
 * **WCF**: se você tiver um código existente que use WCF como estrutura de comunicação, poderá usar o `WcfCommunicationListener` para o lado do servidor e as classes `WcfCommunicationClient` e `ServicePartitionClient` para o cliente. No entanto, isso só está disponível para aplicativos C# em clusters baseados no Windows. Para obter mais detalhes, consulte este artigo sobre [implementação baseada no WCF da pilha de comunicação](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Usando protocolos personalizados e outras estruturas de comunicação

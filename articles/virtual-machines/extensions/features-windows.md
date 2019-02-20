@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025898"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980460"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -75,12 +75,12 @@ O Agente de Convidado do Windows não tem suporte de servidor proxy para redirec
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
-Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS*:
+Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS*:
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "WestUS" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "WestUS" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>Executar extensões de VM
@@ -91,10 +91,10 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="powershell"></a>PowerShell
 
-Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão*:
+Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão*:
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module AzureRM.Compute
 ```
 
 O resultado é semelhante ao seguinte:
@@ -102,25 +102,25 @@ O resultado é semelhante ao seguinte:
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
 O exemplo a seguir usa a extensão de Script personalizado para baixar um script de um repositório do GitHub para a máquina virtual de destino e, em seguida, executa o script. Para saber mais sobre como usar a extensão de Script personalizado, veja [Visão geral da extensão de Script personalizado](custom-script-windows.md).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
@@ -131,12 +131,12 @@ No seguinte exemplo, a extensão de acesso à VM é usada para redefinir a senha
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O comando `Set-AzureRmVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
+O comando `Set-AzVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -269,7 +269,7 @@ Os editores tornam atualizações disponíveis para regiões em momentos diferen
 #### <a name="listing-extensions-deployed-to-a-vm"></a>Listando extensões implantadas em uma VM
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -310,10 +310,10 @@ Para obter as correções de bug de versão secundária mais recentes, é altame
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identificar se a extensão foi definida com autoUpgradeMinorVersion em uma VM
 
-Você pode ver no modelo da VM se a extensão foi provisionada com 'autoUpgradeMinorVersion'. Para verificar, use [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) e forneça o grupo de recursos e o nome da VM da seguinte maneira:
+Você pode ver no modelo da VM se a extensão foi provisionada com 'autoUpgradeMinorVersion'. Para verificar, use [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) e forneça o grupo de recursos e o nome da VM da seguinte maneira:
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
@@ -366,10 +366,10 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 ### <a name="view-extension-status"></a>Exibir o status da extensão
 
-Depois que uma extensão da VM tiver sido executada em uma VM, use [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
+Depois de uma extensão da VM ter sido executada em uma VM, use [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 A saída é semelhante ao seguinte exemplo de saída:
@@ -402,10 +402,10 @@ O status de execução da extensão também pode ser encontrado no Portal do Azu
 
 ### <a name="rerun-vm-extensions"></a>Executar extensões de VM novamente
 
-Pode haver casos nos quais uma extensão da VM precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, use [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) da seguinte maneira:
+Pode haver casos nos quais uma extensão da VM precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, use [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) da seguinte maneira:
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 Você também pode remover uma extensão no portal do Azure da seguinte maneira:

@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353692"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993904"
 ---
-# <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
+# <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
+
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Ativos e armazenamento
@@ -74,7 +75,7 @@ Um contêiner de blob fornece um agrupamento de um conjunto de blobs. Contêiner
 ### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 Os [localizadores](https://docs.microsoft.com/rest/api/media/operations/locator) fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Uma política de acesso é usada para definir as permissões e a duração pela qual um cliente tem acesso a um determinado ativo. Os localizadores podem ter de uma a muitas relações com uma política de acesso, de modo que diferentes localizadores podem fornecer diferentes horas de início e tipos de conexão para diferentes clientes, ao mesmo tempo usando a mesma permissão e as mesmas configurações de duração; no entanto, devido a uma restrição de política de acesso compartilhado definida pelos serviços de armazenamento do Azure, você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
 
-Os Serviços de Mídia suportam dois tipos de localizadores: localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\do armazenamento do Azure. 
+Os Serviços de Mídia oferecem suporte a dois tipos de localizadores: OnDemandOrigin, usado para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\do armazenamento do Azure. 
 
 >[!NOTE]
 >A permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador OnDemandOrigin. 
@@ -137,7 +138,7 @@ Para obter mais informações, consulte:
 ### <a name="dynamic-encryption"></a>Criptografia dinâmica
 Os Serviços de Mídia do Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (usando chaves de criptografia de 128 bits) e CENC (criptografia comum) usando PlayReady e/ou Widevine DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças do PlayReady aos clientes autorizados.
 
-Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Não é possível criptografar downloads progressivos.
+Observe que, no momento, você pode criptografar os seguintes formatos de streaming: HLS, MPEG DASH e Smooth Streaming. Não é possível criptografar downloads progressivos.
 
 Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
 

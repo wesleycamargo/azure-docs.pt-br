@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658379"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979642"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial na Automação do Azure
 
@@ -209,7 +209,7 @@ A tabela a seguir lista as variáveis criadas na sua conta da Automação. Modif
 |External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo que é aplicado ao tamanho de janela selecionado para avaliar a condição. Os valores aceitáveis são **Médio**, **Mínimo**, **Máximo**, **Total** e **Último**.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa a métrica selecionada para disparar um alerta. Esse parâmetro aceita a entrada no formato Intervalo de tempo. Os valores possíveis são de 5 minutos até 6 horas.|
 |External_EnableClassicVMs| Especifica se a solução destina-se a VMs clássicas. O valor padrão é True. Isso deve ser definido como False para assinaturas CSP.|
-|External_ExcludeVMNames | Insira os nomes das VMs a serem excluídas, separando-os por vírgula, sem espaços.|
+|External_ExcludeVMNames | Insira os nomes das VMs a serem excluídas, separando-os por vírgula, sem espaços. Isso é limitado a 140 VMs. Se você adicionar mais de 140 VMs qualquer VM adicionada que deveria ser excluída pode ser iniciada ou desligada inadvertidamente|
 |External_Start_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando os valores por vírgula, direcionados a ações de iniciar.|
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando os valores por vírgula, direcionados a ações de parar.|
 |Internal_AutomationAccountName | Especifica o nome da conta de Automação.|
@@ -333,7 +333,7 @@ Há algumas opções que você pode usar para ter certeza de que uma VM está in
 
 ### <a name="exclude-a-vm"></a>Excluir uma VM
 
-Para excluir uma VM da solução, você pode adicioná-la à variável **External_ExcludeVMNames**. Essa variável é uma lista separada por vírgulas de VMs específicas a serem excluídas da solução Iniciar/Parar.
+Para excluir uma VM da solução, você pode adicioná-la à variável **External_ExcludeVMNames**. Essa variável é uma lista separada por vírgulas de VMs específicas a serem excluídas da solução Iniciar/Parar. Essa lista é limitada a 140 VMs. Se você adicionar mais de 140 VMs a essa lista separada por vírgulas, as VMs que são definidas para serem excluídos podem ser inadvertidamente iniciadas ou interrompidas.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificar as agendas de inicialização e desligamento
 

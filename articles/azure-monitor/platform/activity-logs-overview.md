@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883765"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002085"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -83,7 +83,7 @@ No Portal do Azure, você pode filtrar seu Log de Atividades por estes campos:
 
 Depois de definir um conjunto de filtros, você pode fixar uma consulta ao seu painel do Azure para sempre ficar de olho em eventos específicos.
 
-Para ainda mais poder, você pode clicar no ícone **Logs**, que exibe os dados do log de atividades na [solução de Análise do Log de Atividades](../../azure-monitor/platform/collect-activity-logs.md). A folha Log de Atividades oferece uma experiência básica de filtro/procura nos logs, mas o Log Analytics permite que você dinamize, consulte e visualize os dados de formas mais eficientes.
+Para ainda mais poder, você pode clicar no ícone **Logs**, que exibe os dados do log de atividades na [solução de Coleta e análise dos Logs de Atividades](../../azure-monitor/platform/collect-activity-logs.md). A folha Log de Atividades oferece uma experiência básica de filtro/procura nos logs, mas o recurso de logs do Azure Monitor permite que você dinamize, consulte e visualize os dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o Log de Atividades com um Perfil de Log
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
@@ -142,11 +142,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| Name |SIM |Nome de seu perfil de log. |
+| Name |Sim |Nome de seu perfil de log. |
 | StorageAccountId |Não  |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
 | serviceBusRuleId |Não  |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Local padrão |SIM |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-| RetentionInDays |SIM |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
+| Local padrão |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
 | Categoria |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de log

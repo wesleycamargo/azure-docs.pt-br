@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104447"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113372"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes da configuração de rede para o Ambiente do Serviço de Aplicativo para o PowerApps com o Azure ExpressRoute
 
@@ -61,7 +61,7 @@ O Ambiente do Serviço de Aplicativo requer as seguintes configurações de cone
 
 Para atender aos requisitos de DNS, certifique-se de que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual. Se a configuração do DNS for alterada após o Ambiente do Serviço de Aplicativo ser criado, os desenvolvedores poderão forçar o Ambiente do Serviço de Aplicativo a captar a nova configuração de DNS. Você pode disparar uma reinicialização do ambiente sem interrupção usando o ícone **Reiniciar** no gerenciamento do Ambiente do Serviço de Aplicativo no [portal do Azure][NewPortal]. A reinicialização faz com que o ambiente capture a nova configuração do DNS.
 
-Para atender aos requisitos de acesso de rede de entrada, configure um [NSG (Grupo de Segurança de Rede)][NetworkSecurityGroups] na sub-rede do Ambiente do Serviço de Aplicativo. O NSG permite que o acesso necessário [controle o tráfego de entrada para o Ambiente do Serviço de Aplicativo][requiredports].
+Para atender aos requisitos de acesso de rede de entrada, configure um [grupo de segurança de rede (NSG)][NetworkSecurityGroups] na sub-rede do Ambiente do Serviço de Aplicativo. O NSG permite que o acesso necessário [controle o tráfego de entrada para o Ambiente do Serviço de Aplicativo][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Conectividade de rede de saída
 
@@ -95,7 +95,7 @@ Esta seção mostra um exemplo de configuração da UDR para um Ambiente do Serv
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instalar o Azure PowerShell da [página Downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior. Em **Ferramentas de linha de comando** > **Windows PowerShell**, selecione **Instalar** para instalar os cmdlets mais recentes do PowerShell.
+* Instale o Azure PowerShell da [página Downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior. Em **Ferramentas de linha de comando** > **Windows PowerShell**, selecione **Instalar** para instalar os cmdlets mais recentes do PowerShell.
 
 * Crie uma sub-rede única para uso exclusivo pelo Ambiente do Serviço de Aplicativo. Essa rede exclusiva garante que as UDRs aplicadas à sub-rede abrirão apenas tráfego de saída para o Ambiente do Serviço de Aplicativo.
 
@@ -148,16 +148,23 @@ Agora você está pronto para implantar o Ambiente do Serviço de Aplicativo!
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para se familiarizar com o Ambiente do Serviço de Aplicativo para o PowerApps, confira [Introdução ao Ambiente do Serviço de Aplicativo][IntroToAppServiceEnvironment].
+Para começar a usar Ambientes de Serviço de Aplicativo para PowerApps, cofira [Introdução ao Ambiente do Serviço de Aplicativo][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
-[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
-[requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]: app-service-app-service-environment-intro.md [NewPortal]: https://portal.azure.com
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/ 
+[requiredports]: app-service-app-service-environment-control-inbound-traffic.md 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/ 
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell 
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md 
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
+[NewPortal]:  https://portal.azure.com 
 
 
 <!-- IMAGES -->

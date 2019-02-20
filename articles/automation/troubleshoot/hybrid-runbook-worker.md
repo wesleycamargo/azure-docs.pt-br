@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434451"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234534"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solucionar problemas de trabalhadores de runbooks híbridos
 
@@ -46,7 +46,7 @@ A seguir estão possíveis causas possíveis:
 
 * Os runbooks não podem autenticar com recursos locais
 
-* O computador configurado para executar o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware.
+* O computador configurado para executar o recurso Hybrid Runbook Worker não atende aos requisitos mínimos de hardware.
 
 #### <a name="resolution"></a>Resolução
 
@@ -87,8 +87,17 @@ O Hybrid Runbook Worker do Linux depende do Agente do OMS para Linux para se com
 
 ### <a name="oms-agent-not-running"></a>Cenário: O Agente do OMS para Linux não está em execução
 
+#### <a name="issue"></a>Problema
 
-Se o Agente do OMS para Linux não estiver em execução, isso impedirá o Hybrid Runbook Worker do Linux de se comunicar com a Automação do Azure. Verifique se o agente está em execução digitando o seguinte comando: `ps -ef | grep python`. Você deverá ver uma saída semelhante à seguinte, os processos de python com conta de usuário **nxautomation**. Se as soluções de Gerenciamento de Atualizações ou de Automação do Azure não estiverem ativadas, nenhum dos processos a seguir estará em execução.
+O Agente do OMS para Linux não está em execução
+
+#### <a name="cause"></a>Causa
+
+Se o Agente do OMS para Linux não estiver em execução, isso impedirá o Hybrid Runbook Worker do Linux de se comunicar com a Automação do Azure. O agente não pode ser executado por vários motivos.
+
+#### <a name="resolution"></a>Resolução
+
+ Verifique se o agente está em execução digitando o seguinte comando: `ps -ef | grep python`. Você deverá ver uma saída semelhante à seguinte, os processos de python com conta de usuário **nxautomation**. Se as soluções de Gerenciamento de Atualizações ou de Automação do Azure não estiverem ativadas, nenhum dos processos a seguir estará em execução.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -178,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Cenário: Não é possível adicionar um Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problema
+
+Você recebe a seguinte mensagem de erro ao tentar adicionar um Hybrid Runbook Worker usando o cmdlet `Add-HybridRunbookWorker`.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>Causa
+
+Isso pode ser causado se o computador já está registrado com uma conta de automação diferente ou se você tentar adicionar novamente o Hybrid Runbook Worker após tê-lo removido de um computador.
+
+#### <a name="resolution"></a>Resolução
+
+Para resolver esse problema, remova a seguinte chave do Registro e experimente o cmdlet `Add-HybridRunbookWorker` novamente:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Próximas etapas
 

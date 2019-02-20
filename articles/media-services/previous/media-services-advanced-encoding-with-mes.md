@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250757"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998698"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
 
@@ -238,14 +238,14 @@ As seguintes considerações se aplicam:
 * O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
 * Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
 
-  * Número de quadro se eles forem números inteiros não negativos, por exemplo, "Início": "120",
-  * Relativos à duração da origem se expressos com sufixo %, por exemplo, "Início": "15%", OU
-  * Carimbo de data/hora se expresso no formato HH:MM:SS… formato, por exemplo "Start" : "00:01:00"
+  * Número de quadro se eles forem números inteiros não negativos, por exemplo, “Início”: "120",
+  * Relativos à duração da origem se expressos com o sufixo %, por exemplo, “Início”: “15%”, OU
+  * Carimbo de data/hora se expresso no formato HH:MM:SS… formato, por exemplo “Início” : "00:01:00"
 
     Você pode combinar as notações como desejar.
 
-    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
-  * Padrões: Start:{Best}
+    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro “interessante” da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+  * Padrões: Início:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
 ## <a id="trim_video"></a>Cortar um vídeo (recorte)
@@ -752,7 +752,7 @@ Você pode desativar o desentrelaçamento automático. No entanto, isso não é 
 
 
 ## <a id="audio_only"></a>Predefinições somente de áudio
-Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e Áudio de Boa Qualidade AAC.
+Esta seção demonstra duas predefinições MES somente de áudio: Áudio AAC e Áudio de Boa Qualidade AAC.
 
 ### <a name="aac-audio"></a>Áudio AAC
     {

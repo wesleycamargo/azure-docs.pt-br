@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259410"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165120"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutorial: integração do Azure Active Directory com o Way We Do
+# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutorial: Integração do Azure Active Directory com o Way We Do
 
 Neste tutorial, você aprenderá a integrar o Way We Do ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao Way We Do, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Way We Do habilitada para logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar o Way We Do da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de URL e Domínio do Way We Do](./media/waywedo-tutorial/tutorial_waywedo_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.waywedo.com`
 
@@ -140,7 +141,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Salvar no Way We Do](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Clique na opção **Ativar logon único** para defini-la como **Sim** para habilitar o Logon Único.
+     a. Clique na opção **Ativar logon único** para defini-la como **Sim** para habilitar o Logon Único.
 
     b. Na caixa de texto **Nome de logon único**, insira seu nome.
 
@@ -198,7 +199,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no Way We Do. O Way We Do dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Way We Do, caso ele ainda não exista.
 
 > [!Note]
-> Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao cliente do Way We Do](mailto:support@waywedo.com).
+> Se você precisar criar um usuário manualmente, contate a  [equipe de suporte ao Cliente do Way We Do](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -235,7 +236,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Way We Do no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Way We Do.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

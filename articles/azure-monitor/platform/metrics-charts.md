@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827441"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991320"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -21,7 +21,7 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
-Métricas no Microsoft Azure são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Por outro lado, as métricas personalizadas são enviadas para o Azure por meio de seus aplicativos usando a [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). As métricas personalizadas são armazenadas nos recursos do Application Insights junto com outras métricas específicas ao aplicativo.
+[Métricas no Azure Monitor](data-collection.md#metrics) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Por outro lado, as métricas personalizadas são enviadas para o Azure por meio de seus aplicativos usando a [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). As métricas personalizadas são armazenadas nos recursos do Application Insights junto com outras métricas específicas ao aplicativo.
 
 ## <a name="create-a-new-chart"></a>Criar um gráfico
 

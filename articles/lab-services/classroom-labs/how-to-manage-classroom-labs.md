@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819987"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962818"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -107,7 +107,12 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 3. Na caixa de diálogo **Excluir laboratório**, selecione **Excluir**. 
 
     ![Caixa de diálogo Excluir](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## <a name="switch-to-another-classroom-lab"></a>Alternar para outro laboratório de sala de aula
+Para alternar do atual laboratório de sala de aula para outro, selecione a lista suspensa de laboratórios na conta de laboratório na parte superior.
+
+![Selecione o laboratório na lista suspensa na parte superior](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos:

@@ -4,7 +4,7 @@ description: Este artigo demonstra como usar o portal do Azure para configurar a
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423525"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996916"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo usando o portal do Azure
  Com os Serviços de Mídia do Azure, você pode proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. É possível usar os Serviços de Mídia para distribuir o conteúdo criptografado dinamicamente com a criptografia AES usando chaves de criptografia de 128 bits. Você também pode usá-los com criptografia comum (CENC) usando o PlayReady e/ou gerenciamento de direitos digitais (DRM) do Widevine e o FairPlay da Apple. 
@@ -90,17 +90,17 @@ Para ver todos os seus ativos, selecione **Configurações** > **Ativos**.
 ![Opção de ativos](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>Criptografar com AES ou DRM
-Quando você seleciona **Encrypt** para um ativo, há duas opções: **AES** ou **DRM**. 
+Quando você seleciona **Criptografar** para um ativo, há duas opções: **AES** ou **DRM**. 
 
 #### <a name="aes"></a>AES
-A criptografia da chave de limpeza do AES é habilitada em todos os protocolos de streaming: Smooth Streaming, HLS e MPEG-DASH.
+A criptografia da chave não criptografada AES é habilitada em todos os protocolos de streaming: Smooth Streaming, HLS e MPEG-DASH.
 
 ![Configuração de criptografia](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
 1. Depois de selecionar o **DRM**, você vê políticas de proteção de conteúdo diferentes (que devem ser configuradas neste ponto) e um conjunto de protocolos de streaming:
 
-    a. **PlayReady e Widevine com o MPEG-DASH** – criptografam dinamicamente seu stream MPEG DASH com os DRMs do PlayReady e do Widevine.
+     a. **PlayReady e Widevine com o MPEG-DASH** – criptografam dinamicamente seu stream MPEG DASH com os DRMs do PlayReady e do Widevine.
 
     b. **PlayReady e Widevine com o MPEG-DASH+ FairPlay com HLS** – criptografam dinamicamente seu stream MPEG DASH com os DRMs do PlayReady e do Widevine. Essa opção também criptografa seus streams HLS com o FairPlay.
 

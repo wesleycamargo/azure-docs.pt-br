@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com My Award Points Top Sub/Top Team | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o My Award Points Top Sub/Top Team | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o My Award Points Top Sub/Top Team.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247747"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210723"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Azure Active Directory com My Award Points Top Sub/Top Team
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Azure Active Directory com o My Award Points Top Sub/Top Team
 
 Neste tutorial, você aprenderá a integrar o My Award Points Top Sub/Top Team ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 
 Para configurar a integração do Azure AD a My Award Points Top Sub/Top Team, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único de My Award Points Top Sub/Top Team
 
 > [!NOTE]
@@ -51,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar My Award Points Top Sub/Top Team da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -161,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>Criar um usuário de teste de My Award Points Top Sub/Top Team
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes em My Award Points Top Sub/Top Team. Trabalhe com a [equipe de suporte de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com) para adicionar os usuários à plataforma My Award Points Top Sub/Top Team. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes em My Award Points Top Sub/Top Team. Trabalhe com a  [equipe de suporte do My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com)  para adicionar os usuários na plataforma do My Award Points Top Sub/Top Team. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -198,7 +199,7 @@ Nesta seção, você deve habilitar Brenda Fernandes a usar logon único do Azur
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica na peça My Award Points Top Sub/Top Team no painel de acesso, deve ser conectado automaticamente ao seu aplicativo My Award Points Top Sub/Top Team.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

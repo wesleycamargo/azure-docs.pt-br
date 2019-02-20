@@ -4,23 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como filtrar e exibir resultados da pesquisa da API de pesquisa da Web do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: c59cb173480fbeefa890317fb4804f07b9f58f76
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158172"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199486"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrar as respostas que a resposta da pesquisa inclui  
 
-Quando você realiza uma consulta na Web, o Bing retorna todo o conteúdo que é relevante para a pesquisa. Por exemplo, se a consulta de pesquisa for "vela+barcos", a resposta poderá conter as seguintes respostas:
+Quando você realiza uma consulta na Web, o Bing retorna todo o conteúdo relevante que ele encontra para a pesquisa. Por exemplo, se a consulta de pesquisa for "vela+barcos", a resposta poderá conter as seguintes respostas:
 
 ```json
 {
@@ -44,8 +44,16 @@ Quando você realiza uma consulta na Web, o Bing retorna todo o conteúdo que é
     }
 }    
 ```
+Você pode filtrar os tipos de conteúdo que receberá (para imagens, vídeos e notícias, por exemplo) usando o parâmetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Se o Bing localizar conteúdo relevante para as respostas especificadas, este conteúdo será retornado. O filtro de respostas é uma lista de respostas delimitada por vírgulas. 
 
-Se você tiver interesse em tipos específicos de conteúdo, como imagens, vídeos e notícias, poderá solicitar apenas essas respostas usando o parâmetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Se o Bing localizar conteúdo relevante para as respostas especificadas, o Bing retornará esse conteúdo. O filtro de respostas é uma lista de respostas delimitada por vírgulas. A seguir, mostramos como usar `responseFilter` para solicitar imagens, vídeos e notícias sobre barcos a vela. Quando você codifica a cadeia de caracteres de consulta, as vírgulas são alteradas para %2C.  
+Para excluir tipos específicos de conteúdo da resposta, como imagens, você pode adicionar um caractere `-` ao início do valor `responseFilter`. Você pode separar os tipos excluídos com uma vírgula (`,`). Por exemplo: 
+
+```
+&responseFilter=-images,-videos
+```
+
+
+A seguir, mostramos como usar `responseFilter` para solicitar imagens, vídeos e notícias sobre barcos a vela. Quando você codifica a cadeia de caracteres de consulta, as vírgulas são alteradas para %2C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-O exemplo a seguir mostra a resposta à solicitação anterior. Como você pode ver, o Bing não encontrou resultados relevantes de vídeo e notícias, portanto, a resposta não os incluiu.
+O exemplo a seguir mostra a resposta à solicitação anterior. Como o Bing não encontrou resultados relevantes de vídeo e notícias a resposta não os incluiu.
 
 ```json
 {
@@ -80,12 +88,6 @@ O exemplo a seguir mostra a resposta à solicitação anterior. Como você pode 
         }
     }
 }
-```
-
-Se você quiser excluir tipos específicos de conteúdo, tais como imagens, da resposta, você poderá excluí-los com o prefixo de hífen (sinal de menos) para o valor de responseFilter. Separe os tipos excluídos com uma vírgula:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Embora o Bing não tenha retornado os resultados de vídeo e notícias na resposta anterior, isso não significa que o conteúdo de vídeo e de notícias não exista. Isso significa apenas que a página não os inclui. No entanto, se você percorresse as [páginas](./paging-webpages.md) através de mais resultados, as páginas subsequentes provavelmente os incluiriam. Além disso, se você chamar os pontos de extremidade [API de Pesquisa de Vídeo](../bing-video-search/search-the-web.md) e [API de Pesquisa de Notícias](../bing-news-search/search-the-web.md) diretamente, a resposta provavelmente conterá resultados.

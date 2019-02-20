@@ -3,8 +3,8 @@ title: Provisionamento de usuário automatizado em aplicativo SaaS no Azure AD |
 description: Uma introdução a como você pode usar o Azure AD para provisionar, desprovisionar e atualizar contínua e automaticamente as contas de usuário em vários aplicativos SaaS de terceiros.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190914"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186345"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 
@@ -39,7 +40,7 @@ O Azure AD (Azure Active Directory) permite que você automatize a criação, a 
 
 * A capacidade de corresponder identidades existentes entre os aplicativos de origem e destino.
 * Os mapeamentos de atributos personalizável que definem quais dados do usuário devem fluir do sistema de origem para o sistema de destino.
-* Alertas de email opcionais para erros de provisionamento
+* Alertas de email opcionais para erros de provisionamento.
 * Logs de relatórios e de registros para ajudá-lo a monitorar e a solucionar problemas.
 
 ## <a name="why-use-automated-provisioning"></a>Por que usar o provisionamento automatizado?
@@ -47,7 +48,7 @@ O Azure AD (Azure Active Directory) permite que você automatize a criação, a 
 Alguns motivos comuns para usar esse recurso incluem:
 
 * Evitando custos, ineficiências e erro humano associados a processos manuais de provisionamento.
-* Evitando os custos associados à hospedagem e manutenção de scripts e soluções de provisionamento personalizadas
+* Evitando os custos associados à hospedagem e à manutenção dos scripts e das soluções de provisionamento personalizadas.
 * Proteger sua organização removendo instantaneamente as identidades dos usuários dos principais aplicativos SaaS quando eles saírem da organização.
 * Importar facilmente uma grande quantidade de usuários em um determinado aplicativo SaaS ou sistema.
 * Para aproveitar ter um único conjunto de políticas para determinar quem é provisionado e quem pode entrar um aplicativo.
@@ -107,7 +108,7 @@ Na tela de gerenciamento de aplicativo, o provisionamento é configurado na guia
 
 ![Configurações](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Filtros de escopo** informam ao serviço de provisionamento quais usuários e grupos no sistema de origem devem ser provisionados e/ou desprovisionados no sistema de destino. Há dois aspectos para a definição de escopo dos filtros que são avaliados em conjunto e determinam quem está no escopo para provisionamento:
+* Os **filtros de escopo** informam ao serviço de provisionamento quais usuários e grupos no sistema de origem devem ser provisionados e/ou desprovisionados no sistema de destino. Há dois aspectos para a definição de escopo dos filtros que são avaliados em conjunto e determinam quem está no escopo para provisionamento:
 
     * **Filtro em valores de atributo** - O menu "Escopo do Objeto de Origem" nos mapeamentos de atributo permitem a filtragem de valores de atributo específicos. Por exemplo, você pode especificar que apenas os usuários com um atributo "Departamento" de "Vendas" devem estar no escopo para provisionamento. Para obter mais informações, consulte [Como usar filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -214,13 +215,13 @@ Para a configuração **Sincronizar apenas usuários e grupos atribuídos**, use
     
 Resumo de fatores que influenciam o tempo necessário para concluir uma **sincronização inicial**:
 
-* O número total de usuários e grupos no escopo para provisionamento
+* O número total de usuários e grupos no escopo para provisionamento.
 
-* O número total de usuários, grupos e membros do grupo presentes no sistema de origem (Azure AD)
+* O número total de usuários, grupos e membros do grupo presentes no sistema de origem (Azure AD).
 
 * Se os usuários em escopo para provisionamento batem com os usuários existentes no aplicativo de destino ou se é necessário criá-los pela primeira vez. Os trabalhos de sincronização para os quais todos os usuários são criados pela primeira vez demoram aproximadamente *duas vezes mais* do que os trabalhos de sincronização para os quais todos os usuários correspondem a usuários existentes.
 
-* Número de erros nos [logs de auditoria](check-status-user-account-provisioning.md). O desempenho será mais lento se houver muitos erros e o serviço de provisionamento tiver entrado em estado de quarentena 
+* Número de erros nos [logs de auditoria](check-status-user-account-provisioning.md). O desempenho será mais lento se houver muitos erros e o serviço de provisionamento tiver entrado em estado de quarentena.    
 
 * Limites de taxa de solicitação implementados pelo sistema de destino. Alguns sistemas de destino implementam limites de taxa de solicitação que pode afetar o desempenho durante operações de sincronização de grande porte. Sob essas condições, um aplicativo que recebe muitas solicitações de forma muito rápida pode reduzir sua taxa de resposta ou fechar a conexão. Para melhorar o desempenho, o conector precisa fazer ajustes para não enviar as solicitações de aplicativo mais rápido do que o aplicativo pode processá-las. Os conectores de provisionamento criados pela Microsoft fazem esse ajuste. 
 

@@ -4,7 +4,7 @@ description: Saiba mais sobre as várias opções de criptografia no Azure
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035089"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114647"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -39,7 +39,7 @@ O Azure dá suporte a vários modelos de criptografia, incluindo criptografia no
 
 ### <a name="client-side-encryption"></a>Criptografia do cliente
 
-A criptografia no cliente é realizada fora do Azure. Ele inclui:
+A criptografia no cliente é realizada fora do Azure.  Ele inclui:
 
 - Dados criptografados por um aplicativo em execução no datacenter do cliente ou por um aplicativo de serviço.
 - Dados já criptografados quando recebidos pelo Azure.
@@ -54,7 +54,7 @@ Os três modelos de criptografia no servidor apresentam características diferen
 
 - **Chaves gerenciadas pelo cliente**: proporcionam controle das chaves, incluindo o suporte a BYOK (Bring Your Own Key), ou permitem a geração de novas.
 
-- **Chaves gerenciadas pelo serviço no hardware controlado pelo cliente**: permitem gerenciar as chaves no repositório proprietário, fora do controle da Microsoft. Essa característica é chamada de HYOK (Host Your Own Key). No entanto, a configuração é complexa e a maioria dos serviços do Azure não dá suporte a esse modelo.
+- **Chaves gerenciadas pelo serviço em hardware controlado pelo cliente**: permitem gerenciar as chaves no repositório proprietário, fora do controle da Microsoft. Essa característica é chamada de HYOK (Host Your Own Key). No entanto, a configuração é complexa e a maioria dos serviços do Azure não dá suporte a esse modelo.
 
 ### <a name="azure-disk-encryption"></a>Criptografia de disco do Azure
 
@@ -78,7 +78,7 @@ Para saber mais sobre a Biblioteca de Clientes do Armazenamento do Azure para pa
 
 Quando você usa a criptografia do lado do cliente com o Key Vault, os dados são criptografados usando uma CEK (chave de criptografia de conteúdo) simétrica avulsa que é gerada pelo SDK cliente do Armazenamento do Azure. A CEK é criptografada usando uma KEK (Chave de Criptografia de Chaves), que pode ser uma chave simétrica ou um par de chaves assimétricas. Você pode gerenciá-la localmente ou armazená-la no Key Vault. Em seguida, os dados criptografados são carregados no Armazenamento do Azure.
 
-Para saber mais sobre a criptografia do lado do cliente com o Key Vault e obter uma introdução com instruções, confira [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Para saber mais sobre a criptografia do lado do cliente com o Key Vault e obter uma introdução com instruções, consulte [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por fim, use também a Biblioteca de Clientes do Armazenamento do Azure para Java para executar a criptografia do lado do cliente antes de fazer upload de dados no Armazenamento do Azure e para descriptografar os dados ao baixá-los no cliente. Essa biblioteca também dá suporte à integração com o [Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
 

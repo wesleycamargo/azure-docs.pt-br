@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745582"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237834"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 
@@ -46,7 +46,7 @@ Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 | parâmetros |Não  |Valores que são fornecidos quando a implantação é executada para personalizar a implantação dos recursos. |
 | variáveis |Não  |Valores que são usados como fragmentos JSON no modelo para simplificar expressões de linguagem do modelo. |
 | funções |Não  |Funções definidas pelo usuário que estão disponíveis no modelo. |
-| recursos |Sim |Tipos de recursos que são implantados ou atualizados em um grupo de recursos. |
+| recursos |Sim |Tipos de recursos que são implantados ou atualizados em um grupo de recursos ou assinatura. |
 | outputs |Não  |Valores que são retornados após a implantação. |
 
 Cada elemento tem propriedades que você pode definir. O seguinte exemplo mostra a sintaxe completa de um modelo:
@@ -217,7 +217,7 @@ Dentro de seu modelo, você pode criar suas próprias funções. Essas funções
 Ao definir uma função de usuário, há algumas restrições:
 
 * A função não pode acessar variáveis.
-* A função não pode acessar os parâmetros do modelo. Ou seja, a [função dos parâmetros](resource-group-template-functions-deployment.md#parameters) está restrita aos parâmetros da função.
+* A função só pode usar os parâmetros que são definidos na função. Quando você usa a [função parâmetros](resource-group-template-functions-deployment.md#parameters) dentro de uma função definida pelo usuário, você está restrito aos parâmetros dessa função.
 * A função não pode chamar outras funções definidas pelo usuário.
 * A função não pode usar a [função de referência](resource-group-template-functions-resource.md#reference).
 * Os parâmetros para a função não podem ter valores padrão.
@@ -298,9 +298,23 @@ Na seção de saídas, você especifica valores que são retornados da implanta�
 
 Para obter mais informações, consulte a [seção Saídas de modelos do Azure Resource Manager](resource-manager-templates-outputs.md).
 
-## <a name="comments"></a>Comentários
+<a id="comments" />
 
-Você tem algumas opções para adicionar comentários ao seu modelo.
+## <a name="comments-and-metadata"></a>Comentários e metadados
+
+Você tem algumas opções para adicionar comentários e metadados ao seu modelo.
+
+Você pode adicionar um objeto `metadata` praticamente em qualquer lugar em seu modelo. O Resource Manager ignora o objeto, mas seu editor de JSON pode avisar você de que a propriedade não é válida. No objeto, defina as propriedades necessárias.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 Para **Parâmetros**, adicione um objeto `metadata` com uma propriedade `description`.
 
@@ -342,18 +356,6 @@ Para **recursos**, adicione um elemento `comments` ou um objeto de metadados. O 
     "properties": {}
   }
 ]
-```
-
-Você pode adicionar um objeto `metadata` praticamente em qualquer lugar em seu modelo. O Resource Manager ignora o objeto, mas seu editor de JSON pode avisar você de que a propriedade não é válida. No objeto, defina as propriedades necessárias.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 Para **saídas**, adicione um objeto de metadados ao valor de saída.

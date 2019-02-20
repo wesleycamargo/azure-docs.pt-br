@@ -1,6 +1,6 @@
 ---
-title: Criando gráficos e diagramas a partir de consultas do Azure Log Analytics | Microsoft Docs
-description: Descreve várias visualizações no Azure Log Analytics para exibir seus dados de maneiras diferentes.
+title: Criar gráficos e diagramas a partir de consultas de log do Azure Monitor | Microsoft Docs
+description: Descreve várias visualizações no Azure Monitor para exibir seus dados de log de maneiras diferentes.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186218"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992970"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Criando gráficos e diagramas a partir de consultas do Log Analytics
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criar gráficos e diagramas a partir de consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [agregações avançadas nas consultas do Log Analytics](advanced-aggregations.md) antes de concluir esta lição.
+> Você deve concluir as [Agregações avançadas nas consultas de log do Azure Monitor](advanced-aggregations.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve várias visualizações no Azure Log Analytics para exibir seus dados de maneiras diferentes.
+Este artigo descreve várias visualizações no Azure Monitor para exibir seus dados de log de maneiras diferentes.
 
 ## <a name="charting-the-results"></a>Colocando os resultados em gráficos
 Comece revisando quantos computadores há por sistema operacional durante a última hora:
@@ -93,7 +93,7 @@ Você pode alternar entre selecionando o menu suspenso com o nome da coluna.
 ![Gráfico de barras AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a linguagem de consulta do Log Analytics:
+Confira outras lições para usar a [linguagem de consulta Data Explorer](/azure/kusto/query/) com dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

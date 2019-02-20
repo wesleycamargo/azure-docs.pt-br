@@ -16,12 +16,13 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077228"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185444"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: fornecer declarações opcionais ao aplicativo do Azure AD (Visualização pública)
 
@@ -76,7 +77,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `ztdid`                    | ID de implantação de zero toque | JWT | | A identidade do dispositivo usada para o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | O email endereçável para este usuário, se o usuário tiver um.  | JWT, SAML | | Esse valor é incluído por padrão, se o usuário é um convidado no locatário.  Para usuários gerenciados (aqueles dentro do Locatário), ele deve ser solicitado por meio dessa declaração opcional ou, na versão 2.0 apenas, com o escopo da OpenID.  Para usuários gerenciados, o endereço de email deve ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Status da conta de usuários no locatário. | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se eles forem convidado, o valor é `1`. |
-| `upn`                      | Declaração UserPrincipalName. | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado. <br> Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | Declaração UserPrincipalName. | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
 
 ### <a name="v20-optional-claims"></a>Declarações opcionais v2.0
 
@@ -85,30 +86,28 @@ Essas declarações são sempre incluídas em tokens da v1.0, mas não em tokens
 **Tabela 3: Declarações opcionais somente V2.0**
 
 | Declaração JWT     | NOME                            | DESCRIÇÃO                                | Observações |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP com o qual o cliente se conectou.   |       |
 | `onprem_sid`  | Identificador de Segurança Local |                                             |       |
 | `pwd_exp`     | Hora da Expiração da Senha        | A data e a hora em que a senha expira. |       |
-| `pwd_url`     | Alterar URL da Senha             | Uma URL que o usuário pode acessar para alterar sua senha.   |       |
-| `in_corp`     | Dentro da Rede Corporativa        | Indica se o cliente está se conectando da rede corporativa. Caso não esteja, a declaração não será incluída.   |       |
-| `nickname`    | Apelido                        | Um nome adicional para o usuário, separado do nome ou sobrenome. |       |                                                                                                                |       |
+| `pwd_url`     | Alterar URL da Senha             | Uma URL que o usuário pode acessar para alterar sua senha.   |   |
+| `in_corp`     | Dentro da Rede Corporativa        | Indica se o cliente está se conectando da rede corporativa. Caso não esteja, a declaração não será incluída.   |  Baseado nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) na Autenticação Multifator.    |
+| `nickname`    | Apelido                        | Um nome adicional para o usuário, separado do nome ou sobrenome. | 
 | `family_name` | Sobrenome                       | Fornece o último nome, o sobrenome ou o nome da família do usuário conforme definido no objeto de usuário do Azure AD. <br>"family_name":"Barros" |       |
 | `given_name`  | Nome                      | Fornece o nome ou nome “determinado” do usuário, como definido no objeto de usuário do Azure AD.<br>"given_name": "Davi"                   |       |
+| `upn`       | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
 
 Algumas declarações opcionais podem ser configuradas para alterar o modo como a declaração é retornada. Essas propriedades adicionais são usadas principalmente para ajudar a migração de aplicativos locais com expectativas de dados diferentes (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não podem manipular marcas (`#`) no UPN)
 
-**Tabela 4: Valores de configuração para declarações opcionais padrão**
+**Tabela 4: Valores de configuração para declarações opcionais**
 
-| Nome da propriedade                                     | Nome de Propriedade Adicional                                                                                                             | DESCRIÇÃO |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Pode ser usada para respostas SAML e JWT.        |
-| | `include_externally_authenticated_upn`              | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Igual ao que é indicado acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Especificar a declaração de upn opcional sem uma propriedade adicional não altera qualquer comportamento. Para ver uma nova declaração emitida no token, pelo menos uma das propriedades adicionais deve ser adicionada. 
+| Nome da propriedade  | Nome de Propriedade Adicional | DESCRIÇÃO |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
+|                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Igual ao que é indicado acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 
@@ -151,12 +150,12 @@ Você pode configurar declarações opcionais para o aplicativo modificando o ma
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

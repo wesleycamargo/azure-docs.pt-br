@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com cadeias de caracteres em consultas de análise de Log do Azure | Microsoft Docs
-description: Descreve as funções de agregação em consultas de análise de Log que oferecem maneiras úteis para analisar seus dados.
+title: Agregações nas consultas de log do Azure Monitor | Microsoft Docs
+description: Descreve as funções de agregação nas consultas de log do Azure Monitor que oferecem maneiras úteis de analisar seus dados.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185742"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000840"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Operadores úteis em consultas do Log Analytics
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações nas consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Primeiros passos com o portal do Google Analytics](get-started-portal.md) e [Primeiros passos com as consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Descreve as funções de agregação em consultas de análise de Log que oferecem maneiras úteis para analisar seus dados. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
+Este artigo descreve as funções de agregação nas consultas de log do Azure Monitor que oferecem maneiras úteis de analisar seus dados. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
 
 ## <a name="counts"></a>Counts
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Consulte outras lições para usar a linguagem de consulta do Log Analytics:
+Consulte outras lições para usar a [linguagem de consulta Data Explorer](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

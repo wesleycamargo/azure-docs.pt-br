@@ -3,8 +3,8 @@ title: Escrevendo expressões para mapeamentos de atributo no Azure Active Direc
 description: Aprenda a usar o mapeamentos de expressão para transformar valores de atributo em um formato aceitável durante o provisionamento automatizado de objetos de aplicativo SaaS no Active Directory do Azure.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179031"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164627"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -34,10 +35,10 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
   1. Atributos, que devem ser colocados entre colchetes. Por exemplo: [attributeName]
   2. Constantes de cadeia de caracteres, que devem ser colocadas entre aspas duplas. Por exemplo:  "Estados Unidos"
   3. Outras funções. Por exemplo:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo:  "Nome da empresa: \"Contoso\""
+* Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo:  "Nome da empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -49,7 +50,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
 
 - - -
@@ -72,7 +73,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
 
-Se um dos valores de source for um atributo com vários valores, todos os valores nesse atributo serão unidos, separados pelo valor de separator.
+Se um dos valores de source for um atributo com vários valores, todos os valores nesse atributo serão unidos, separados pelo valor do separador.
 
 **Parâmetros:**<br> 
 
@@ -105,7 +106,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome |
+| **fonte** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
 
 - - -
 ### <a name="not"></a>não
@@ -167,7 +168,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar |
+| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar. |
 
 
 - - -
@@ -181,6 +182,19 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
+
+- - -
+### <a name="split"></a>Divisão
+**Função:**<br> Split(source, delimiter)
+
+**Descrição:**<br> Divide uma cadeia de caracteres em uma matriz com vários valores, usando o caractere delimitador especificado.
+
+**Parâmetros:**<br> 
+
+| NOME | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
+| **delimiter** |Obrigatório |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -232,7 +246,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ## <a name="examples"></a>Exemplos
@@ -282,8 +296,18 @@ NormalizeDiacritics([givenName])
 * **INPUT** (givenName): "Zoë"
 * **OUTPUT**:  "Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres em uma matriz de vários valores
+É necessário usar uma lista de cadeias de caracteres delimitada por vírgula e dividi-las em uma matriz que possa ser conectada a um atributo com vários valores, como o atributo PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi preenchida em extensionAttribute5 no Azure AD.
 
+**Expressão:** <br>
+Split([extensionAttribute5], ",")
+
+**Entrada/saída de exemplo:** <br>
+
+* **ENTRADA** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **SAÍDA**: ["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
 Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br>
  Por exemplo, você deseja formatar datas para o ServiceNow.
 
@@ -302,7 +326,6 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
  Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
 
 **Expressão:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Entrada/saída de exemplo:**
@@ -310,8 +333,19 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Austrália/Brisbane"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor userPrincipalName (UPN) gerado em letras minúsculas
+### <a name="replace-characters-using-a-regular-expression"></a>Substituir caracteres usando uma expressão regular
+É necessário localizar caracteres que correspondam a um valor de expressão regular e removê-los.
 
+**Expressão:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Entrada/saída de exemplo:**
+
+* **ENTRADA** (mailNickname: "john_doe72"
+* **OUTPUT**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor userPrincipalName (UPN) gerado em letras minúsculas
 No exemplo a seguir, o valor do UPN é gerado pela concatenação dos campos de origem PreferredFirstName e PreferredLastName, e a função ToLower opera na cadeia de caracteres gerada para converter todos os caracteres em letras minúsculas. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +357,6 @@ No exemplo a seguir, o valor do UPN é gerado pela concatenação dos campos de 
 * **OUTPUT**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
-
 Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar um valor para o atributo UPN e procure sua exclusividade no diretório de destino AD antes de atribuir o valor para o atributo UPN.
 
 **Expressão:** <br>
@@ -349,4 +382,3 @@ Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar u
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](use-scim-to-provision-users-and-groups.md)
 * [Notificações de provisionamento de conta](user-provisioning.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
-

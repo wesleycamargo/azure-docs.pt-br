@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265202"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237664"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
-Este artigo descreve como consultar e exibir todos os seus dados de log de aplicativo do Application Insights em um só lugar, mesmo quando eles estiverem em diferentes assinaturas do Azure, como uma substituição para a desativação do Conector do Application Insights.  
+Este artigo descreve como consultar e exibir todos os seus dados de log de aplicativo do Application Insights em um só lugar, mesmo quando eles estiverem em diferentes assinaturas do Azure, como uma substituição para a desativação do Conector do Application Insights. O número de recursos do Application Insights que você pode incluir em uma única consulta está limitado a 100.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Abordagem recomendada para consultar vários recursos do Application Insights 
 Listar vários recursos do Application Insights em uma consulta pode ser complicado e difícil de manter. Em vez disso, você pode aproveitar a função para separar a lógica da consulta do escopo dos aplicativos.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Crie uma função usando o operador de união com a lista de aplicativos e, em seguida, salve a consulta como uma função com o alias *applicationsScoping*.  
+Crie uma função usando o operador de união com a lista de aplicativos e, em seguida, salve a consulta em seu espaço de trabalho como uma função com o alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,13 +45,26 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->Você pode modificar os aplicativos listados a qualquer momento navegando até o gerenciador de consultas no portal de Logs e editando a função ou usando o cmdlet `SavedSearch` do PowerShell. O comando `withsource= SourceApp` adiciona aos resultados uma coluna que designa o aplicativo que enviou o log. 
+>Você pode modificar os aplicativos listados a qualquer momento navegando até o Gerenciador de consultas no seu espaço de trabalho e selecionando a função para editar e salvar, ou então, usando o cmdlet `SavedSearch` do PowerShell. O comando `withsource= SourceApp` adiciona aos resultados uma coluna que designa o aplicativo que enviou o log. 
 >
 >A consulta usa o esquema do Application Insights, embora ela seja executada no workspace, pois a função applicationsScoping retorna a estrutura de dados do Application Insights. 
 >
 >O operador de análise é opcional neste exemplo; ele extrai o nome do aplicativo da propriedade SourceApp. 
 
-Agora você está pronto para usar a função applicationsScoping na consulta entre recursos. O alias de função retorna a união das solicitações de todos os aplicativos definidos. A consulta então filtra solicitações com falha e visualiza as tendências por aplicativo. ![Exemplo de resultados de consulta cruzada](media/unify-app-resource-data/app-insights-query-results.png)
+Agora você pode usar a função applicationsScoping na consulta entre recursos:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+O alias de função retorna a união das solicitações de todos os aplicativos definidos. A consulta então filtra solicitações com falha e visualiza as tendências por aplicativo.
+
+![Exemplo de resultados de consulta cruzada](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Consulta entre dados do workspace e recursos do Application Insights 
 Quando você interrompe o Conector e precisa executar consultas em um intervalo de tempo que foi reduzido pela retenção de dados do Application Insights (90 dias), você precisa realizar [consultas de recursos cruzados](../../azure-monitor/log-query/cross-workspace-query.md) no workspace e nos recursos do Application Insights por um período intermediário. Isso é válido até que os dados de seus aplicativos se acumulem devido à nova retenção de dados do Application Insights mencionada acima. A consulta requer algumas manipulações, pois os esquemas no Application Insights e no workspace são diferentes. Consulte a tabela nesta seção que destaca as diferenças de esquema. 

@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732746"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098350"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de uma Instância do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
-Neste artigo, você aprenderá sobre os métodos para migrar uma Instância do SQL Server 2005 ou versão posterior para uma [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
+Neste artigo, você aprenderá sobre os métodos para migrar uma Instância do SQL Server 2005 ou versão posterior para uma [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). Para obter informações sobre como migrar para um banco de dados individual ou pool elástico, confira [Migrar para um banco de dados individual ou em pool](sql-database-cloud-migrate.md). Para obter informações de migração sobre como migrar de outras plataformas, confira o [Guia de Migração de Banco de Dados do Azure](https://datamigration.microsoft.com/).
 
 Em um nível alto, o processo de migração de banco de dados se parece com:
 
@@ -34,7 +34,7 @@ Em um nível alto, o processo de migração de banco de dados se parece com:
 - [Monitorar aplicativos](#monitor-applications)
 
 > [!NOTE]
-> Para migrar um banco de dados individual para um banco de dados individual ou um pool elástico, confira [Migrar um banco de dados do Microsoft SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+> Para migrar um banco de dados individual para um banco de dados individual ou um pool elástico, confira [Migrar um banco de dados do Microsoft SQL Server para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Avaliar a compatibilidade da instância gerenciada
 
@@ -47,7 +47,7 @@ Se houver problemas de bloqueio relatados que não foram removidos com a opção
 - Se você precisar de acesso direto ao sistema operacional ou ao sistema de arquivos, por exemplo, para instalar agentes personalizados ou de terceiros na mesma máquina virtual com o SQL Server.
 - Se você tiver uma dependência estrita de recursos que ainda não têm suporte, como transações entre instâncias, PolyBase e FileStream/FileTable.
 - Se for absolutamente necessário permanecer em uma versão específica do SQL Server (2012, por instância).
-- Se os requisitos de computação forem muito menores do que o oferecido pela instância gerenciada na versão prévia pública (um vCore, por exemplo) e a fusão de banco de dados não for uma opção aceitável.
+- Se os requisitos de computação forem muito menores do que o oferecido pela instância gerenciada (um vCore, por exemplo) e a fusão de banco de dados não for uma opção aceitável.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implantar em uma instância gerenciada de tamanho ideal
 

@@ -14,44 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ae4c883baa156276646755273547a17d23edc55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427817"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982481"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Windows no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Windows e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para os ambientes de sistema operacional e de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e compilar imagens personalizadas no Azure.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-azure-resource-group"></a>Criar um grupo de recursos do Azure
 Durante o processo de build, o Packer cria recursos temporários do Azure conforme cria a VM de origem. Para capturar essa VM de origem para uso como uma imagem, você precisa definir um grupo de recursos. A saída do processo de build do Packer é armazenada nesse grupo de recursos.
 
-Crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
 $location = "East US"
-New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Criar as credenciais do Azure
 O Packer se autentica no Azure usando uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o Packer. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure.
 
-Crie uma entidade de serviço com [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) e atribua permissões para a entidade de serviço criar e gerenciar recursos com [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Substitua a *&lt;senha&gt;* no exemplo com sua própria senha.  
+Crie uma entidade de serviço com [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) e atribua permissões para a entidade de serviço criar e gerenciar recursos com [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Substitua a *&lt;senha&gt;* no exemplo com sua própria senha.  
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
+$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Para se autenticar no Azure, você também precisa obter suas IDs de locatário e de assinatura do Azure com [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+Para se autenticar no Azure, você também precisa obter suas IDs de locatário e de assinatura do Azure com [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-$sub = Get-AzureRmSubscription
+$sub = Get-AzSubscription
 $sub.TenantId[0]
 $sub.SubscriptionId[0]
 ```
@@ -70,7 +71,6 @@ Crie um arquivo chamado *windows.json* e cole o conteúdo a seguir. Insira seus 
 | *client_secret*                     | Senha especificada em `$securePassword` |
 | *tenant_id*                         | Saída do comando `$sub.TenantId` |
 | *subscription_id*                   | Saída do comando `$sub.SubscriptionId` |
-| *object_id*                         | Exiba a ID de objeto da entidade de serviço com `$sp.Id` |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que você criou na primeira etapa |
 | *managed_image_name*                | Nome da imagem de disco gerenciado que é criada |
 
@@ -83,7 +83,6 @@ Crie um arquivo chamado *windows.json* e cole o conteúdo a seguir. Insira seus 
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
@@ -208,10 +207,10 @@ São necessários alguns minutos para que o Packer crie a VM, execute os provisi
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Criar uma VM a partir da imagem do Packer
-Agora você pode criar uma VM com base na Imagem com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Se ainda não existirem, os recursos de rede de suporte serão criados. Quando solicitado, insira um nome de usuário administrativo e senha a serem criados na VM. O exemplo a seguir cria uma VM nomeada *myVM* com base em *myPackerImage*:
+Agora você pode criar uma VM com base na Imagem com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Se ainda não existirem, os recursos de rede de suporte serão criados. Quando solicitado, insira um nome de usuário administrativo e senha a serem criados na VM. O exemplo a seguir cria uma VM nomeada *myVM* com base em *myPackerImage*:
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -223,16 +222,16 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Se você quiser criar VMs em um grupo de recursos diferente ou a região da imagem Packer, especifique a ID da imagem em vez do nome da imagem. Você pode obter a ID de imagem com [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+Se você quiser criar VMs em um grupo de recursos diferente ou a região da imagem Packer, especifique a ID da imagem em vez do nome da imagem. Você pode obter a ID de imagem com [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage).
 
 A criação da VM a partir da imagem de seu Packer demora alguns minutos.
 
 
 ## <a name="test-vm-and-webserver"></a>Testar a VM e o servidor Web
-Obtenha os endereços IP públicos da VM com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo a seguir obtém o endereço IP para *myPublicIP* criado anteriormente:
+Obtenha o endereço IP público da VM com [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir obtém o endereço IP para *myPublicIP* criado anteriormente:
 
 ```powershell
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```

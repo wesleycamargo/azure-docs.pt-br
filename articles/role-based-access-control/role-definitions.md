@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700716"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991354"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -147,7 +147,7 @@ Colaborador de dados de blob de armazenamento (pré-visualização)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Como Alice tem uma ação curinga (`*`) em um escopo de assinatura, suas permissões são herdadas para permitir que ela execute todas as ações de gerenciamento. No entanto, Alice não pode executar operações de dados. Por exemplo, por padrão, Alice não pode ler os blobs dentro de um contêiner, mas ela pode ler, gravar e exclua os contêineres.
+Como Alice tem uma ação curinga (`*`) em um escopo de assinatura, suas permissões são herdadas para permitir que ela execute todas as ações de gerenciamento. Alice pode ler, gravar e excluir os contêineres. No entanto, Alice não pode executar operações de dados sem realizar etapas adicionais. Por exemplo, por padrão, Alice não pode ler os blobs dentro de um contêiner. Para ler os blobs, Alice teria que recuperar as chaves de acesso de armazenamento e usá-las para acessar os blobs.
 
 Permissões de Bob são restritas a apenas o `Actions` e `DataActions` especificado no [Colaborador de dados de Blob de armazenamento (visualização)](built-in-roles.md#storage-blob-data-contributor-preview) função. Com base na função, Bob pode executar operações de dados e de gerenciamento. Por exemplo, Bob pode ler, gravar e excluir contêineres na conta de armazenamento especificado e ele também pode ler, gravar e excluir os blobs.
 

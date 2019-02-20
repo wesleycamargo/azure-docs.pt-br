@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Sauce Labs - Teste Móvel e da Web | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Sauce Labs - Mobile and Web Testing | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Sauce Labs - Mobile e Web Testing.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266596"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207000"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Active Directory do Azure com o Sauce Labs - Teste Móvel e da Web
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Azure Active Directory com o Sauce Labs - Mobile and Web Testing
 
 Neste tutorial, você aprenderá como integrar o Sauce Labs - Mobile e Web Testing ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Sauce Labs - Mobile e Web Testing, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Um Sauce Labs - Assinatura habilitada para logon único para dispositivos móveis e Web Testing
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Sauce Labs - Mobile e Web Testing na galeria
 2. configurar e testar o logon único do AD do Azure
@@ -133,7 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
 
-    a. Clique em **Procurar** e carregue o arquivo de metadados baixado do AD do Azure.
+     a. Clique em **Procurar** e carregue o arquivo de metadados baixado do AD do Azure.
 
     b. Selecione a caixa de seleção **PERMITE O PROVISIONAMENTO JUST-IN-TIME**.
 
@@ -175,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Sauce Labs - Mobile e Web Testing. O Sauce Labs - Mobile e Web Testing oferece suporte ao provisionamento just-in-time, que é ativado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o Sauce Labs - Mobile e Web Testing, se ele ainda não existir.
 >[!Note]
->Se você precisar criar um usuário manualmente, entre em contato com a equipe de suporte do [Sauce Labs - Mobile e Web Testing](mailto:support@saucelabs.com).
+>Se você precisar criar um usuário manualmente, entre em contato com a  [equipe de suporte do Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -212,7 +213,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Sauce Labs - Mobile e Web Testing no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Sauce Labs - Mobile e Web Testing.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

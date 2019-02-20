@@ -3,8 +3,8 @@ title: Problema ao adicionar um aplicativo da Galeria do Azure AD | Microsoft Do
 description: Entenda os problemas comuns que as pessoas enfrentam durante a adição de aplicativos da Galeria do Azure AD e o que você pode fazer para resolvê-los
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 3621ca390add5c4a50cae6ed8f2baa5e3b1e2339
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173268"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237850"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar um aplicativo da Galeria do Azure AD
 
@@ -27,13 +28,13 @@ Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam 
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e meu aplicativo demorou muito para aparecer
 
-Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada **Criar aplicativo.**
+Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada como **Adicionar aplicativo.**
 
 Se seu aplicativo nunca for adicionado, ou se você encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado de **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "adicionar" e meu aplicativo não apareceu
 
-Às vezes, devido a problemas temporários, problemas de rede ou um bug, a adição de um aplicativo falha. Você sabe que isso aconteceu quando clica no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure e vê um ícone vermelho (!) ao lado de sua notificação **Criar aplicativo**. Isso indica que ocorreu um erro ao criar o aplicativo.
+Às vezes, devido a problemas temporários, problemas de rede ou um bug, a adição de um aplicativo poderá falhar. Você sabe que isso aconteceu quando clica no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure e vê um ícone vermelho (!) ao lado de sua notificação **Adicionar aplicativo**. Isso indica que ocorreu um erro ao criar o aplicativo.
 
 Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
@@ -41,13 +42,13 @@ Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notifi
 
 Se você precisar de ajuda para aprender sobre aplicativos, o artigo [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) é um bom lugar para começar.
 
-Além disso, a [Biblioteca de documentos de aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda você a saber mais sobre logon único com o Azure AD e como ele funciona.
+Além disso, a [Biblioteca de documentos de aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda você a saber mais sobre o logon único com o Azure AD e como ele funciona.
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação no portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1.  Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
+1.  Escolha o ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
 
 2.  Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
@@ -60,9 +61,9 @@ Veja os detalhes de qualquer notificação do portal executando as etapas abaixo
 
 5.  Se ainda precisar de ajuda, você também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
-6.  Clique no **ícone** **cópia** à direita da caixa de texto **Erro de cópia** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
+6.  Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
 É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte caso precise de ajuda, para que ele possa ajudar rapidamente. Faça isso facilmente **tirando uma captura de tela** ou clicando no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
 

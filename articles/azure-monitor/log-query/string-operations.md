@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com cadeias de caracteres em consultas do Azure Log Analytics | Microsoft Docs
-description: Este artigo fornece um tutorial para usar o portal do Google Analytics para escrever consultas no Log Analytics.
+title: Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor | Microsoft Docs
+description: Descreve como editar, comparar, pesquisar e executar uma variedade de outras operações em cadeias de caracteres nas consultas do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186235"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995400"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>Trabalhar com cadeias de caracteres em consultas do Log Analytics
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor
 
 
 > [!NOTE]
-> Você deve concluir [Introdução ao portal do Google Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir este tutorial.
+> Você deve concluir a [Introdução à análise de logs do Azure Monitor](get-started-portal.md) e a [Introdução às consultas de logs do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve como editar, comparar, pesquisar e executar uma variedade de outras operações em cadeias de caracteres. 
+Este artigo descreve como editar, comparar, pesquisar e executar uma variedade de outras operações em cadeias de caracteres.
 
 Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo com o local. O primeiro caractere está no índice 0, o próximo caractere é 1, e assim por diante. Diferentes funções de cadeia de caracteres usam números de índice conforme mostrado nas seções a seguir. Muitos dos exemplos a seguir usam o comando **print** para demonstrar a manipulação da cadeia de caracteres sem usar uma fonte de dados específica.
 
@@ -51,37 +51,37 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 operador       |DESCRIÇÃO                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |É igual a                              |SIM           |`"aBc" == "aBc"`
-`!=`           |Não é igual a                          |SIM           |`"abc" != "ABC"`
+`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
+`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
 `=~`           |É igual a                              |Não             |`"abc" =~ "ABC"`
 `!~`           |Não é igual a                          |Não             |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não |`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não             |`"North America" !has "amer"` 
-`has_cs`       |O lado direito é um termo completo no lado esquerdo |SIM|`"North America" has_cs "America"`
-`!has_cs`      |O lado direito não é um termo completo no lado esquerdo       |SIM            |`"North America" !has_cs "amer"` 
+`has_cs`       |O lado direito é um termo completo no lado esquerdo |Sim|`"North America" has_cs "America"`
+`!has_cs`      |O lado direito não é um termo completo no lado esquerdo       |Sim            |`"North America" !has_cs "amer"` 
 `hasprefix`    |O lado direito é um prefixo de termo no lado esquerdo         |Não             |`"North America" hasprefix "ame"`
 `!hasprefix`   |O lado direito não é um prefixo de termo no lado esquerdo     |Não             |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |O lado direito é um prefixo de termo no lado esquerdo         |SIM            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |O lado direito não é um prefixo de termo no lado esquerdo     |SIM            |`"North America" !hasprefix_cs "CA"` 
+`hasprefix_cs`    |O lado direito é um prefixo de termo no lado esquerdo         |Sim            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |O lado direito não é um prefixo de termo no lado esquerdo     |Sim            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |O lado direito é um sufixo de termo no lado esquerdo         |Não             |`"North America" hassuffix "ica"`
 `!hassuffix`   |O lado direito não é um sufixo de termo no lado esquerdo     |Não             |`"América do Norte" !hassuffix "americ"
-`hassuffix_cs`    |O lado direito é um sufixo de termo no lado esquerdo         |SIM            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |O lado direito não é um sufixo de termo no lado esquerdo     |SIM            |`"América do Norte" !hassuffix_cs "icA"
+`hassuffix_cs`    |O lado direito é um sufixo de termo no lado esquerdo         |Sim            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |O lado direito não é um sufixo de termo no lado esquerdo     |Sim            |`"América do Norte" !hassuffix_cs "icA"
 `contains`     |O lado direito ocorre como uma subsequência do lado esquerdo  |Não             |`"FabriKam" contains "BRik"`
 `!contains`    |O lado direito não ocorre no lado esquerdo           |Não             |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |O lado direito ocorre como uma subsequência do lado esquerdo  |SIM           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |O lado direito não ocorre no lado esquerdo           |SIM           |`"Fabrikam" !contains_cs "Kam"`
+`contains_cs`   |O lado direito ocorre como uma subsequência do lado esquerdo  |Sim           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |O lado direito não ocorre no lado esquerdo           |Sim           |`"Fabrikam" !contains_cs "Kam"`
 `startswith`   |O lado direito é uma subsequência inicial do lado esquerdo|Não             |`"Fabrikam" startswith "fab"`
 `!startswith`  |O lado direito não é uma subsequência inicial do lado esquerdo|Não         |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |O lado direito é uma subsequência inicial do lado esquerdo|SIM            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |O lado direito não é uma subsequência inicial do lado esquerdo|SIM        |`"Fabrikam" !startswith_cs "fab"`
+`startswith_cs`   |O lado direito é uma subsequência inicial do lado esquerdo|Sim            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |O lado direito não é uma subsequência inicial do lado esquerdo|Sim        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |O lado direito é uma subsequência de fechamento do lado esquerdo|Não              |`"Fabrikam" endswith "Kam"`
 `!endswith`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|Não          |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |O lado direito é uma subsequência de fechamento do lado esquerdo|SIM             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|SIM         |`"Fabrikam" !endswith "brik"`
-`matches regex`|O lado esquerdo contém uma correspondência para o lado Direito        |SIM           |`"Fabrikam" matches regex "b.*k"`
-`in`           |Equivale a um dos elementos       |SIM           |`"abc" in ("123", "345", "abc")`
-`!in`          |Não equivale a qualquer um dos elementos   |SIM           |`"bca" !in ("123", "345", "abc")`
+`endswith_cs`     |O lado direito é uma subsequência de fechamento do lado esquerdo|Sim             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|Sim         |`"Fabrikam" !endswith "brik"`
+`matches regex`|O lado esquerdo contém uma correspondência para o lado Direito        |Sim           |`"Fabrikam" matches regex "b.*k"`
+`in`           |Equivale a um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
+`!in`          |Não equivale a qualquer um dos elementos   |Sim           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof

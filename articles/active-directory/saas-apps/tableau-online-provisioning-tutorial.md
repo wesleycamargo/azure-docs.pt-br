@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Tableau Online para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Tableau Online para o provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no Tableau Online.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345855"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194862"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para provisionamento automático de usuário
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para o provisionamento automático do usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no Tableau Online e no Azure AD (Azure Active Directory) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no Tableau Online.
 

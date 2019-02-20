@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810279"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108765"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -28,7 +28,7 @@ O grupo de origem e o grupo de destino ficam bloqueados durante a operação de 
 Mover um recurso só o move para um novo grupo de recursos. A operação move não pode alterar o local do recurso. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
 
 > [!NOTE]
-> Este artigo descreve como mover recursos dentro de uma oferta de conta existente do Azure. Se você quiser alterar sua conta do Azure, oferecendo (por exemplo, a atualização do gratuita para pré-pago), na verdade, você precisará converter sua assinatura.
+> Este artigo descreve como mover recursos entre assinaturas existentes do Azure. Se você realmente quiser atualizar sua assinatura do Azure (por exemplo, mudando de gratuita para pré-paga), você precisará converter sua assinatura.
 > * Para atualizar uma avaliação gratuita, consulte [Faça o upgrade da sua avaliação gratuita ou da assinatura do Microsoft Imagine Azure para o Pague conforme o uso](..//billing/billing-upgrade-azure-subscription.md).
 > * Para alterar uma conta de pagamento conforme o uso, consulte [Alterar sua assinatura do Azure Pay-As-You-Go para uma oferta diferente](../billing/billing-how-to-switch-azure-offer.md).
 > * Se você não conseguir converter a assinatura, [crie uma solicitação de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **Subscription Management** para o tipo de problema.
@@ -102,7 +102,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Painéis do portal do Azure
 * Power BI - tanto o Power BI inserido Embedded como a coleção de workspaces do BI
 * IP público - SKU básica pode ser movido. O IP Público SKU padrão não pode ser movido.
-* Cofre dos Serviços de Recuperação – registrar em uma [versão prévia privada](#recovery-services-limitations).
+* Cofre dos Serviços de Recuperação – registrar em uma [versão prévia](#recovery-services-limitations).
 * Cache do Azure para Redis – se o Cache do Azure para instância do Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Confira [Limitações de redes virtuais](#virtual-networks-limitations).
 * Agendador
 * Pesquisa - não é possível mover vários recursos de Pesquisa em regiões diferentes em uma operação. Em vez disso, mova-os em operações separadas.
@@ -310,7 +310,7 @@ A operação pode executar por vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações dos Serviços de Recuperação
 
- Para mover um cofre dos Serviços de Recuperação, inscreva-se em uma versão prévia privada. Para testar, gravar em AskAzureBackupTeam@microsoft.com.
+ Para mover um cofre dos Serviços de Recuperação, você deve se registrar em uma [versão prévia pública limitada](../backup/backup-azure-move-recovery-services-vault.md).
 
 No momento, você pode mover um cofre dos Serviços de Recuperação por região por vez. Não é possível mover cofres que fazem backup de Azure Files, Sincronização de Arquivos do Azure ou SQL em máquinas virtuais IaaS.
 

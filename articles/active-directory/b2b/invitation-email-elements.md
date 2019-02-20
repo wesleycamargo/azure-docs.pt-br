@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079963"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162993"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
@@ -66,6 +67,14 @@ O rodapé contém a marca da empresa Microsoft e informará ao destinatário se 
 
   ![quando o destinatário não precisa resgatar o convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Como o idioma é determinado
+O idioma apresentado ao usuário convidado no email de convite é determinado pelas configurações a seguir. Elas estão listadas na ordem de precedência. Se uma configuração não estiver definida, a próxima configuração na lista determinará o idioma. 
+- A propriedade **messageLanguage** do objeto [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) quando a API de criação de convite é usada
+-   A propriedade **preferredLanguage** especificada no [objeto de usuário](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) do convidado
+-   O **Idioma de notificação** definido nas propriedades do locatário da página inicial do usuário convidado (somente para locatários do Azure AD)
+-   O **Idioma de notificação** definido nas propriedades do locatário do recurso
+
+Se nenhuma das definições mencionadas estiver configurada, o idioma será inglês (EUA) por padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

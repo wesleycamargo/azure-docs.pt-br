@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297677"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234655"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -41,7 +41,7 @@ A auditoria do [Banco de Dados SQL](sql-database-technical-overview.md) e do [SQ
 - **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
 > [!IMPORTANT]
-> Os logs de auditoria são gravados nos **Blobs Acrescentados** em um armazenamento de Blob do Azure em sua assinatura do Azure.
+> Os logs de auditoria são gravados nos **Blobs de Acréscimo** em um armazenamento de Blob do Azure em sua assinatura do Azure.
 >
 > - O **Armazenamento Premium** atualmente **não tem suporte** por Blobs de Acréscimo.
 > - Atualmente, o **armazenamento na VNet** **não tem suporte**.
@@ -125,6 +125,7 @@ Se você optar por gravar logs de auditoria no Log Analytics:
 Se você tiver escolhido gravar logs de auditoria no Hub de Eventos:
 
 - Para consumir dados de logs de auditoria do Hub de Eventos, você precisará configurar um fluxo para consumir eventos e gravá-las em um destino. Para obter mais informações, veja a [Documentação de Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
+- Os logs de auditoria no Hub de Eventos são capturados no corpo dos eventos do [Apache Avro](http://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar as [Ferramentas Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam esse formato.
 
 Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azure, poderá usar vários métodos para exibir os logs:
 
@@ -251,7 +252,7 @@ Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 
 Você pode gerenciar a auditoria de banco de dados SQL do Azure usando os modelos do[ Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), de acordo com estes exemplos:
 
-- [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria para a conta de armazenamento de BLOb do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Implantar um SQL Server do Azure comauditoria habilitada para gravar logs de auditoria no Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria no Hubs de Eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

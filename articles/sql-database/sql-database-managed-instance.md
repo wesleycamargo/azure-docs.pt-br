@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751541"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964144"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usar segurança de dados avançada do Banco de Dados SQL com as redes virtuais e compatibilidade de quase 100%
 
@@ -93,8 +93,8 @@ Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem que v
 A lista a seguir apresenta a principal característica da camada de serviço de Uso Geral:
 
 - Design para a maioria dos aplicativos de negócios com requisitos de desempenho típicos
-- Armazenamento Premium do Azure de alto desempenho (8 TB)
-- [Alta disponibilidade](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) integrada, baseada no confiável Armazenamento do Azure Premium e no [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Armazenamento de Blobs do Azure de alto desempenho (8 TB)
+- [Alta disponibilidade](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) integrada, baseada no confiável Armazenamento de Blobs do Azure e no [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Para obter mais informações, veja [Camada de armazenamento em Camada de usos gerais](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e [práticas recomendadas de desempenho de armazenamento e considerações para instâncias gerenciadas (uso geral)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -107,9 +107,9 @@ Camada de serviço Comercialmente Crítico desenvolvida para aplicativos com alt
 A lista a seguir apresenta as características principais da camada Comercialmente Crítico:
 
 - Projetada para aplicativos de negócios com requisitos de alta disponibilidade e desempenho mais alto
-- Vem com armazenamento SSD super rápido (até 1 TB no Gen 4 e até 4 TB no Gen 5)
-- Alta disponibilidade [integrada](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) com base nos [Grupos sempre disponíveis de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e no [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
-- Built-in adicional [somente leitura réplica de banco de dados](sql-database-read-scale-out.md) que pode ser usado para relatórios e outras cargas de trabalho somente leitura
+- Vem com armazenamento SSD local super rápido (até 1 TB no Gen 4 e até 4 TB no Gen 5)
+- Alta disponibilidade [integrada](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) com base nos [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e no [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- [Réplica de banco de dados somente leitura](sql-database-read-scale-out.md) adicional integrada que pode ser usada para relatórios e outras cargas de trabalho somente leitura
 - [OLTP In-Memory](sql-database-in-memory.md) que pode ser usado para carga de trabalho com requisitos de alto desempenho  
 
 Encontre mais informações sobre a diferença entre níveis de serviço em [limites de recursos da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
@@ -179,7 +179,7 @@ A opção de implantação de instância gerenciada destina-se a cenários de us
 
 ### <a name="back-up-and-restore"></a>Fazer backup e restauração  
 
-A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Os backups armazenados no blob de armazenamento do Azure podem ser restaurados diretamente na instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs do Azure. Os backups armazenados no blob de armazenamento do Azure podem ser restaurados diretamente na instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
 - Para obter um início rápido mostrando como restaurar a Wide World Importers – Arquivo de backup do banco de dados padrão, consulte [Restaurar um arquivo de backup para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md). Este início rápido mostra que você precisa carregar um arquivo de backup para o armazenamento de blog do Azure e o proteger usando uma chave de SAS (assinatura de acesso compartilhado).
 - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](sql-database-managed-instance-migrate.md#native-restore-from-url).

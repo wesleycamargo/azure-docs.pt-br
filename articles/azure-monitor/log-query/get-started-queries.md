@@ -1,6 +1,6 @@
 ---
-title: Introdução às consultas no Azure Log Analytics | Microsoft Docs
-description: Este artigo fornece um tutorial de Introdução a consultas de começar a desenvolver no Log Analytics.
+title: Introdução às consultas de log no Azure Monitor | Microsoft Docs
+description: Este artigo fornece um tutorial de introdução à programação de consultas de log no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884272"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994868"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Introdução às consultas no Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de log do Azure Monitor
 
 
 > [!NOTE]
-> Você deve concluir [Primeiros passos no portal do Google Analytics](get-started-portal.md) antes de concluir este tutorial.
+> Você deve concluir a [Introdução à análise do log do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial, você aprenderá a escrever consultas do Log Analytics do Azure. Ele irá ensiná-lo como para:
+Neste tutorial, você aprenderá a escrever consultas do Azure Monitor. Ele irá ensiná-lo como para:
 
 - Entender a estrutura de consultas
 - Classificar os resultados de consulta
@@ -43,10 +43,10 @@ Neste tutorial, você aprenderá a escrever consultas do Log Analytics do Azure.
 As consultas podem começar com um nome de tabela ou com o comando *pesquisa*. Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
 
 > [!NOTE]
-> A linguagem de consulta do Log Analytics do Azure diferencia maiusculas de minúsculas. Palavras-chave geralmente são escritas em minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar a capitalização correta, conforme mostrado no painel de esquema.
+> A linguagem de consulta do Data Explorer usada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave geralmente são escritas em minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar a capitalização correta, conforme mostrado no painel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
-O Azure Log Analytics organiza dados em tabelas, cada composta por várias colunas. Todas as tabelas e colunas são mostradas no painel de esquema, no portal do Analytics. Identifica uma tabela que você está interessado e, em seguida, vejamos um pouco de dados:
+O Azure Monitor organiza os dados de log em tabelas, cada uma composta por várias colunas. Todas as tabelas e colunas são mostradas no painel de esquema no Log Analytics, no portal do Analytics. Identifica uma tabela que você está interessado e, em seguida, vejamos um pouco de dados:
 
 ```Kusto
 SecurityEvent
@@ -164,7 +164,7 @@ SecurityEvent
 
 O exemplo anterior gera esta saída:
 
-![Resultados do projeto de análise de log](media/get-started-queries/project.png)
+![Consultar resultados do projeto](media/get-started-queries/project.png)
 
 Você também pode usar **projeto** para renomear colunas e definir novos. O exemplo a seguir usa o projeto para fazer o seguinte:
 
@@ -236,7 +236,7 @@ Perf
 
 Para tornar a saída mais clara, selecione-a como um gráfico de tempo, mostrando a memória disponível ao longo do tempo:
 
-![Memória de análise de log ao longo do tempo](media/get-started-queries/chart.png)
+![Consultar memória ao longo do tempo](media/get-started-queries/chart.png)
 
 
 

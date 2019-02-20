@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao iPass SmartConnect | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o iPass SmartConnect | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o iPass SmartConnect.
 services: active-directory
 documentationCenter: na
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ecfdd3fae1d394e3b57fcd325f44cad0d1a98534
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444887"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: Integração do Azure Active Directory com o iPass SmartConnect
 
 Neste tutorial, você aprenderá a integrar o iPass SmartConnect ao Azure AD (Azure Active Directory).
 
-A integração do iPass SmartConnect ao Azure AD oferece os seguintes benefícios:
+A integração do iPass SmartConnect com o Azure AD oferece os seguintes benefícios:
 
 - No Azure AD, você pode controlar quem tem acesso ao iPass SmartConnect.
 - Você pode permitir que usuários façam logon automaticamente no iPass SmartConnect (Logon Único) com as respectivas contas do Azure AD.
@@ -33,12 +34,12 @@ A integração do iPass SmartConnect ao Azure AD oferece os seguintes benefício
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Para configurar a integração do Azure AD ao iPass SmartConnect, você precisa dos seguintes itens:
+Para configurar a integração do Azure AD com o iPass SmartConnect, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Um iPass SmartConnect o logon único habilitado por assinatura
+- Uma assinatura habilitada por logon único do iPass SmartConnect
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -49,13 +50,13 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando iPass SmartConnect da galeria
 1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-ipass-smartconnect-from-the-gallery"></a>Adicionando iPass SmartConnect da galeria
-Para configurar a integração do iPass SmartConnect ao Azure AD, você precisa adicionar o iPass SmartConnect da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do iPass SmartConnect com o Azure AD, você precisa adicionar o iPass SmartConnect da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o iPass SmartConnect da galeria, execute as seguintes etapas:**
 
@@ -79,7 +80,7 @@ Para configurar a integração do iPass SmartConnect ao Azure AD, você precisa 
 
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o iPass SmartConnect, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do iPass SmartConnect é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no iPass SmartConnect.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do iPass SmartConnect é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no iPass SmartConnect.
 
 Para configurar e testar o logon único do Azure AD com o iPass SmartConnect, você precisa concluir os seguintes blocos de construção:
 
@@ -126,7 +127,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     | email | user.userprincipalname | |
     | Nome de Usuário | user.userprincipalname | |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/ipasssmartconnect-tutorial/tutorial_attribute_04.png)
 
@@ -184,7 +185,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-an-ipass-smartconnect-test-user"></a>Criar um usuário de teste do SmartConnect iPass
 
-Nesta seção, você deve criar um usuário chamado Brenda Fernandes no iPass SmartConnect. Trabalhe com a [equipe de suporte do iPass SmartConnect](mailto:help@ipass.com) para adicionar os usuários ou o domínio que precisa estar na lista de permissões na plataforma SmartConnect iPass. Se o domínio for adicionado pela equipe, os usuários serão automaticamente provisionados à plataforma iPass SmartConnect. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você deve criar um usuário chamado Brenda Fernandes no iPass SmartConnect. Trabalhe com a  [equipe de suporte do iPass SmartConnect](mailto:help@ipass.com)  para adicionar os usuários ou o domínio que precisa estar na lista de permissões na plataforma do iPass SmartConnect. Se o domínio for adicionado pela equipe, os usuários serão automaticamente provisionados à plataforma iPass SmartConnect. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -222,7 +223,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 **Para testar o aplicativo no fluxo iniciado pelo SP, execute as seguintes etapas:**
 
-a. Baixe o cliente windows iPass SmartConnect [aqui](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
+ a. Baixe o cliente windows iPass SmartConnect [aqui](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
 ![O link do iPass SmartConnect na lista de Aplicativos](./media/ipasssmartconnect-tutorial/testing3.png)
 
@@ -240,7 +241,7 @@ e. Após a autenticação bem-sucedida, a ativação do cliente será iniciada. 
 
 **Para testar o aplicativo no fluxo iniciado pelo IdP, execute as seguintes etapas:**
 
-a. Faça logon em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+ a. Faça logon em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 b. Clique no aplicativo iPass SmartConnect.
 

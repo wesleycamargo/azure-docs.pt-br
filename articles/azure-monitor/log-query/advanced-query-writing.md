@@ -1,6 +1,6 @@
 ---
-title: Consultas avançadas no Azure Log Analytics | Microsoft Docs
-description: Este artigo fornece um tutorial para usar o portal do Google Analytics para escrever consultas no Log Analytics.
+title: Consultas avançadas no Azure Monitor | Microsoft Docs
+description: Este artigo fornece um tutorial para usar o portal do Analytics para escrever consultas no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191539"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993207"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Escrever consultas avançadas no Log Analytics
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever consultas avançadas no Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e a [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a linguagem de consulta do Log Analytics:
+Consulte outras lições para usar a [linguagem de consulta Data Explorer](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

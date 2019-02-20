@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564129"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994859"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 
@@ -142,7 +142,7 @@ Se você optar por interromper a proteção de uma máquina virtual, será pergu
 
 Há um custo associado a deixar os pontos de recuperação no armazenamento. No entanto, a vantagem de deixar os pontos de recuperação é que você pode restaurar a máquina virtual mais tarde, se desejado. Para obter informações sobre o custo de deixar os pontos de recuperação, confira os [detalhes de preços](https://azure.microsoft.com/pricing/details/backup/). Se você optar por excluir todos os pontos de recuperação, não poderá restaurar a máquina virtual.
 
-Sempre que você Parar o Backup com retenção de dados, os pontos de recuperação expirarão de acordo com a política de retenção, mas o Backup do Azure sempre manterá um último ponto de recuperação até que você exclua explicitamente os dados de backup. Da mesma forma, se você excluir uma fonte de dados sem executar Parar Backup, os novos backups começarão a falhar e os pontos de recuperação antigos expirarão de acordo com a política de retenção. No entanto, um último ponto de recuperação sempre será retido até que você execute Parar Backup com exclusão de dados.
+O ponto de recuperação será preservado indefinidamente até que o Item de Backup seja protegido novamente com uma política de retenção ou StopProtection com Excluir dados. No caso de nova proteção, a nova política que está sendo associada determinará a retenção dos pontos de recuperação. Da mesma forma, se você excluir uma fonte de dados sem executar Parar Backup, os novos backups começarão a falhar e os pontos de recuperação antigos expirarão de acordo com a política de retenção. No entanto, um último ponto de recuperação sempre será retido até que você execute Parar Backup com exclusão de dados.
 
 Para interromper a proteção para uma máquina virtual:
 

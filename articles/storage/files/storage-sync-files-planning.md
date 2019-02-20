@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751405"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200489"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -167,10 +167,14 @@ O clustering de failover do Windows Server tem suporte pela Sincronização de A
 > O agente de Sincronização de Arquivos do Azure deve ser instalado em cada nó em um Cluster de Failover para a sincronização funcionar corretamente.
 
 ### <a name="data-deduplication"></a>Eliminação de duplicação de dados
-Para volumes que não têm a disposição em camadas de nuvem habilitada, a Sincronização de Arquivos do Azure dá suporte à Eliminação de Duplicação de Dados do Windows Server habilitada no volume. Atualmente, não damos suporte à interoperabilidade entre a Sincronização de Arquivos do Azure com a disposição em camadas de nuvem habilitada e a Eliminação de Duplicação de Dados.
+**Versão do agente 5.0.2.0**   
+A eliminação de duplicação de dados tem suporte em volumes com a camada de nuvem habilitada no Windows Server 2016 e Windows Server 2019. A eliminação de duplicação em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento.
+
+**Windows Server 2012 R2 ou versões mais antigas do agente**  
+Para volumes que não têm a disposição em camadas de nuvem habilitada, a Sincronização de Arquivos do Azure dá suporte à Eliminação de Duplicação de Dados do Windows Server habilitada no volume.
 
 ### <a name="distributed-file-system-dfs"></a>DFS (Sistema de Arquivos Distribuído)
-A Sincronização de arquivos do Azure fornece suporte para interoperabilidade com DFS-N (Namespaces de DFS) e DFS-R (Replicação do DFS) iniciando com o [agente 1.2 de Sincronização de arquivos do Azure](https://go.microsoft.com/fwlink/?linkid=864522).
+A Sincronização de Arquivos do Azure fornece suporte para interoperabilidade com Namespaces de DFS (DFS-N) e Replicação do DFS (DFS-R).
 
 **DFS-N (Namespaces de DFS)**: A Sincronização de Arquivos do Azure é totalmente suportada em servidores DFS-N. É possível instalar o agente Sincronização de arquivos do Azure em um ou mais membros DFS-N para sincronizar dados entre os pontos de extremidade de servidor e o ponto de extremidade da nuvem. Para obter mais informações, consulte [visão geral de Namespaces de DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  

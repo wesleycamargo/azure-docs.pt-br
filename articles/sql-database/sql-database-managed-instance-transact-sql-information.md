@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734599"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894302"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças do T-SQL entre uma instância gerenciada no Banco de Dados SQL do Azure e no SQL Server
 
@@ -27,7 +27,7 @@ A opção de implantação de instância gerenciada fornece alta compatibilidade
 
 Como ainda há algumas diferenças no comportamento e na sintaxe, este artigo resume e explica essas diferenças. <a name="Differences"></a>
 - [Disponibilidade](#availability), incluindo as diferenças no [AlwaysOn](#always-on-availability) e em [Backups](#backup);
-- [Segurança](#security), incluindo as diferenças em [Auditoria](#auditing), [Certificados](#certificates), [Credenciais](#credentials), [Provedores de criptografia](#cryptographic-providers), [Logons/usuários](#logins--users) e [Chave de serviço e chave mestra de serviço](#service-key-and-service-master-key);
+- [Segurança](#security), incluindo as diferenças em [Auditoria](#auditing), [Certificados](#certificates), [Credenciais](#credential), [Provedores de criptografia](#cryptographic-providers), [Logons/usuários](#logins--users) e [Chave de serviço e chave mestra de serviço](#service-key-and-service-master-key);
 - [Configuração](#configuration), incluindo as diferenças em [Extensão do pool de buffers](#buffer-pool-extension), [Ordenação](#collation), [Níveis de compatibilidade](#compatibility-levels), [Espelhamento de banco de dados](#database-mirroring), [Opções de banco de dados](#database-options), [SQL Server Agent](#sql-server-agent) e [Opções de tabela](#tables);
 - [Funcionalidades](#functionalities), incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transações distribuídas](#distributed-transactions), [Eventos estendidos](#extended-events), [Bibliotecas externas](#external-libraries), [Fluxo de arquivos e FileTable](#filestream-and-filetable), [Pesquisa semântica de texto completo](#full-text-semantic-search), [Servidores vinculados](#linked-servers), [PolyBase](#polybase), [Replicação](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker) e [Procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-triggers);
 - [Recursos que têm um comportamento diferente em instâncias gerenciadas](#Changes)
@@ -74,11 +74,11 @@ Para obter informações sobre backups usando o T-SQL, consulte [BACKUP](https:/
 
 As principais diferenças entre a auditoria em bancos de dados no Banco de Dados SQL do Azure e em bancos de dados no SQL Server são:
 
-- Com a opção de implantação de instância gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena arquivos de log `.xel` em uma conta do Armazenamento de Blobs do Azure.
+- Com a opção de implantação de instância gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena arquivos de log `.xel` no Armazenamento de Blobs do Azure.
 - Com as opções de implantação de banco de dados individual e pool elástico no Banco de Dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - No SQL Server local/em máquinas virtuais, a auditoria funciona no nível do servidor, mas armazena os eventos em logs de eventos do Windows/do sistema de arquivos.
   
-A auditoria do XEvent na instância gerenciada dá suporte a destinos do Armazenamento de Blobs do Azure. Não há suporte para logs de arquivo e do Windows.
+A auditoria XEvent na Instância Gerenciada oferece suporte a destinos de armazenamento de blobs do Azure. Não há suporte para logs de arquivo e do Windows.
 
 As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de blobs do Azure são:
 
@@ -170,7 +170,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 - Não há suporte para objetos na memória na camada de serviço de Uso Geral.  
 - Há um limite de 280 arquivos por instância implicando no máximo 280 arquivos por banco de dados. Os arquivos de log e de dados são contados para esse limite.  
 - O banco de dados não pode conter grupos de arquivos que contenham dados de fluxo de arquivos.  A restauração falhará se .bak contiver dados `FILESTREAM`.  
-- Cada arquivo é colocado no Armazenamento Premium do Azure. E/s e taxa de transferência por arquivo dependem do tamanho de cada arquivo individualmente, da mesma forma que para discos de Armazenamento Premium do Azure. Consulte [Desempenho do disco Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Cada arquivo é colocado no Armazenamento de Blobs do Azure. A E/S e a taxa de transferência por arquivo dependem do tamanho de cada arquivo individual.  
 
 #### <a name="create-database-statement"></a>Instrução CRIAR BANCO DE DADOS
 
@@ -305,7 +305,7 @@ Atualmente, não há suporte para o MSDTC e [Transações Elásticas](sql-databa
 
 Não há suporte para alguns destinos específicos do Windows para XEvents:
 
-- Não há suporte para `etw_classic_sync target`. Armazene arquivos `.xel` no armazenamento de blobs do Azure. Consulte [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- Não há suporte para `etw_classic_sync target`. Armazene arquivos `.xel` no armazenamento de blobs do Azure. Consulte [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - Não há suporte para `event_file target`. Armazene arquivos `.xel` no armazenamento de blobs do Azure. Consulte [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
@@ -347,7 +347,7 @@ Operações
 
 ### <a name="polybase"></a>Polybase
 
-Não há suporte para tabelas externas que fazem referência aos arquivos no armazenamento de blobs do Azure ou HDFS. Para obter informações sobre o Polybase, consulte [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Não há suporte para tabelas externas que fazem referência aos arquivos no Armazenamento de Blobs do Azure ou HDFS. Para obter informações sobre o Polybase, consulte [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 
@@ -365,7 +365,7 @@ A replicação está disponível para a versão prévia pública em instâncias 
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Fonte  
-  - `FROM URL` (armazenamento de blobs do Azure) é a única opção compatível.
+  - `FROM URL` (Armazenamento de Blobs do Azure) é a única opção compatível.
   - `FROM DISK`/`TAPE`/dispositivo de backup não é compatível.
   - Conjuntos de backup não são compatíveis.
 - As opções `WITH` não são compatíveis (nº `DIFFERENTIAL`, `STATS`, etc.)

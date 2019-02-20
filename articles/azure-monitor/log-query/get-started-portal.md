@@ -1,30 +1,25 @@
 ---
-title: Comece a usar o Log Analytics no portal do Azure | Microsoft Docs
+title: Introdução à análise do log do Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial para usar o Log Analytics no portal do Azure para escrever consultas.
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000041"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242100"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Comece a usar o Log Analytics no portal do Azure
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução à análise do log do Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial, você aprenderá a usar a página Log Analytics no portal do Azure (atualmente em pré-visualização) para gravar as consultas do Log Analytics. Ele irá ensiná-lo como para:
+Neste tutorial, você aprenderá a usar a análise do log do Azure Monitor no portal do Azure para escrever consultas de log do Azure Monitor. Ele irá ensiná-lo como para:
 
 - Escrever consultas simples
 - Compreender o esquema de seus dados
@@ -35,8 +30,8 @@ Neste tutorial, você aprenderá a usar a página Log Analytics no portal do Azu
 - Exportar e compartilhar consultas
 
 
-## <a name="meet-the-log-analytics-page"></a>Atender a página do Log Analytics 
-Página do Log Analytics é uma ferramenta da web usada para gravar e executar consultas do Log Analytics do Azure. Abra-o, selecionando **Logs (versão prévia)** no menu do Log Analytics. Ele começa com uma nova consulta em branco.
+## <a name="meet-log-analytics"></a>Conheça a análise do log
+A análise do log é uma ferramenta Web usada para escrever e executar consultas de log do Azure Monitor. Abra-a selecionando **Logs** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
 
 ![Página inicial](media/get-started-portal/homepage.png)
 
@@ -83,7 +78,7 @@ Comece obtendo tudo na tabela _Evento_.
 Event
 ```
 
-Página do Log Analytics tem como escopo automaticamente os resultados por:
+A análise do log define o escopo dos resultados automaticamente por:
 
 - Intervalo de tempo:  por padrão, consultas estão limitadas às últimas 24 horas.
 - Número de resultados: os resultados estão limitados a um máximo de 10.000 registros.
@@ -121,7 +116,7 @@ A tabela de resultados geralmente inclui muitas colunas. Você pode achar que al
 
 
 ## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
-Por padrão, a página de análise de Log se aplica a _últimas 24 horas_ intervalo de tempo. Para usar um intervalo diferente, selecione outro valor no seletor de tempo e clique em **Executar**. Além dos valores de predefinição, você pode usar o _intervalo de tempo personalizado_ opção para selecionar um intervalo absoluto para a sua consulta.
+Por padrão, a análise do log aplica o intervalo de tempo das _últimas 24 horas_. Para usar um intervalo diferente, selecione outro valor no seletor de tempo e clique em **Executar**. Além dos valores de predefinição, você pode usar o _intervalo de tempo personalizado_ opção para selecionar um intervalo absoluto para a sua consulta.
 
 ![Seletor de tempo](media/get-started-portal/time-picker.png)
 
@@ -183,12 +178,12 @@ O ícone do Query Explorer está na área superior direita. Isso lista todas as 
 ![Gerenciador de consultas](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportar e compartilhar como link
-Página do Log Analytics dá suporte a vários métodos de exportação:
+A análise do log dá suporte a vários métodos de exportação:
 
 - Excel: salve os resultados como um arquivo CSV.
-- Power BI: exporte os resultados para o Power BI. Ver [dados de importação do Azure Log Analytics no Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.
+- Power BI: exporte os resultados para o Power BI. Para obter mais detalhes, confira [Importar dados de log do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md).
 - Compartilhar um link: a consulta em si pode ser compartilhada como um link, que pode ser enviado e executado por outros usuários que têm acesso ao mesmo espaço de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [como escrever consultas do Log Analytics](get-started-queries.md).
+- Saiba mais sobre [como escrever consultas de log do Azure Monitor](get-started-queries.md).

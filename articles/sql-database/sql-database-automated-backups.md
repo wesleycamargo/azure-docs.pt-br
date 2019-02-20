@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477804"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997102"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
@@ -63,7 +63,7 @@ O período de retenção padrão para um banco de dados criado usando o modelo d
 
 #### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-Se você estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de backup padrão será de 7 dias (para bancos de dados individuais, em pool e em instâncias). Para todos os bancos de dados SQL do Azure (individuais, em pool e em instâncias, é possível [alterar o período de retenção de backup para até 35 dias](#how-to-change-the-pitr-backup-retention-period).
+Se estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de backup padrão será de 7 dias (para bancos de dados individuais, pools de bancos de dados e bancos de dados de instâncias). Para todos os bancos de dados SQL do Azure (individuais, pool de bancos de dados e bancos de dados de instância, é possível [alterar o período de retenção de backup para até 35 dias](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Se você reduzir o período de retenção atual, todos os backups existentes mais antigos do que o novo período de retenção não estarão mais disponíveis. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.

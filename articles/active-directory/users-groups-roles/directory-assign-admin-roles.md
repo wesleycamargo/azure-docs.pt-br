@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/08/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6fc85bd96294650eb2bbf9495642851ade7c7868
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731505"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178933"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
 Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Os administradores podem ser designados no portal do Azure AD para realizar tarefas como adicionar ou alterar os usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário e gerenciando nomes de domínio.
 
-O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Apenas Administradores Globais e Administradores de Funções Privilegiadas podem delegar funções de administrador.
+O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Apenas Administradores Globais e Administradores de Funções Privilegiadas podem delegar funções de administrador. Para reduzir o risco comercial, recomendamos que você atribua essa função apenas a algumas pessoas na empresa.
+
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 
@@ -86,6 +88,9 @@ As seguintes funções de administrador estão disponíveis:
   > [!NOTE]
   > Para implantar a política de acesso condicional do Exchange ActiveSync no Azure, o usuário também deve ser um Administrador Global.
   
+* **[Aprovador de acesso do Sistema de Proteção de Dados do Cliente](#customer-lockbox-access-approver)**: gerencia [solicitações do Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) em sua organização. O aprovador recebe notificações de solicitações do Sistema de Proteção de Dados do Cliente por email e pode aprovar e negar solicitações do Centro de administração do Microsoft 365. Ele também pode ligar ou desligar o recurso Sistema de Proteção de Dados do Cliente. Somente os administradores globais podem redefinir as senhas das pessoas atribuídas à função acima.
+<!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
+
 * **[Administradores de Dispositivo](#device-administrators)**: Essa função está disponível para atribuição apenas como um administrador local adicional em [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory. 
 
 * **[Leitores de Diretório](#directory-readers)**: Essa é uma função herdada que deve ser atribuída a aplicativos que não tenham suporte em [Estrutura de Consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ele não deve ser atribuído a nenhum usuário.
@@ -96,11 +101,12 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador do Dynamics 365/Administrador do CRM](#crm-service-administrator)**: Os usuários com essa função têm permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerenciar tíquete de suporte e monitorar a integridade do serviço. Mais informações em [usar a função de administrador de serviço para gerenciar seu locatário](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
   > [!NOTE] 
-  > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador do Serviço do Dynamics 365". É "Administrador do Dynamics 365" no [portal do Azure](https://portal.azure.com).
+  > Na API do Microsoft Graph, na API do Azure AD Graph e no PowerShell do Azure AD, a função é identificada como "Administrador do Dynamics 365 Service". É "Administrador do Dynamics 365" no [portal do Azure](https://portal.azure.com).
 
-* **[Administrador do Exchange](#exchange-service-administrator)**: Os usuários com essa função têm permissões globais no Microsoft Exchange Online, quando o serviço está presente. bem como a capacidade de criar e gerenciar todos os Grupos do Office 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador do Exchange](#exchange-service-administrator)**: Os usuários com essa função têm permissões globais no Microsoft Exchange Online, quando o serviço está presente. Eles também tem a capacidade de criar e gerenciar todos os Grupos do Office 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Exchange Service Administrator". É "Administrador do Exchange" no [portal do Azure](https://portal.azure.com).
+  > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Exchange Service Administrator". É "Administrador do Exchange" no [portal do Azure](https://portal.azure.com). É o "Administrador do Exchange Online" no [Centro de Administração do Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
+
 
 * **[Administrador Global/Administrador de Empresa](#company-administrator)**: Os usuários com essa função têm acesso a todos os recursos administrativos do Azure Active Directory, bem como aos serviços que usam identidades do Azure Active Directory como centro de segurança do Microsoft 365, centro de conformidade do Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. A pessoa que se inscreve no locatário do Azure Active Directory torna-se um administrador global. Somente os administradores globais podem atribuir outras funções de administrador. Pode haver mais de um administrador global na sua empresa. Administradores globais podem redefinir a senha para qualquer usuário e todos os outros administradores.
 
@@ -511,7 +517,7 @@ Pode gerenciar todos os aspectos do produto Dynamics 365.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
-### <a name="customer-lockbox-access-approver"></a>Aprovador de acesso do cofre do cliente
+### <a name="customer-lockbox-access-approver"></a>Aprovador de acesso do Sistema de Proteção de Dados do Cliente
 Pode aprovar solicitações de suporte da Microsoft para acessar dados organizacionais do cliente. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
   > [!NOTE]

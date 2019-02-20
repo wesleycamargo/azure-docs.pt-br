@@ -1,6 +1,6 @@
 ---
-title: Funções do Azure Log Analytics | Microsoft Docs
-description: Este artigo descreve como usar funções para chamar uma consulta de outra consulta no Log Analytics.
+title: Funções nas consultas de log do Azure Monitor | Microsoft Docs
+description: Este artigo descreve como usar funções para chamar uma consulta de outra consulta de log no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 8f2855ed56d298ec4c6abee02dd59ce9471f0d2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884229"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005090"
 ---
-# <a name="using-functions-in-azure-monitor-log-analytics"></a>Usando funções no Azure Monitor Log Analytics
+# <a name="using-functions-in-azure-monitor-log-queries"></a>Usar funções nas consultas de log no Azure Monitor
 
 > [!NOTE]
 > Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
@@ -28,11 +28,11 @@ ms.locfileid: "52884229"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 
-Para usar uma consulta do Log Analytics com outra consulta, você pode salvar como uma função. Isso permite que você simplifique consultas complexas, dividindo-os em partes e permite a reutilização de código comum com várias consultas.
+Para usar uma consulta de log com outra consulta, você pode salvá-la como uma função. Isso permite que você simplifique consultas complexas, dividindo-os em partes e permite a reutilização de código comum com várias consultas.
 
 ## <a name="create-a-function"></a>Criar uma função
 
-Crie uma função no portal do Azure clicando em **Salvar** e, em seguida, fornecendo as informações na tabela a seguir.
+Crie uma função no Log Analytics no portal do Azure clicando em **Salvar** e, em seguida, fornecendo as informações na tabela a seguir.
 
 | Configuração | DESCRIÇÃO |
 |:---|:---|
@@ -42,10 +42,10 @@ Crie uma função no portal do Azure clicando em **Salvar** e, em seguida, forne
 | Categoria       | Uma categoria para organizar consultas salvas e funções na **Explorador de consultas**. |
 
 > [!NOTE]
-> Uma função no Log Analytics não pode conter outra função.
+> Uma função no Azure Monitor não pode conter outra função.
 
 > [!NOTE]
-> Salvar uma função é possível em consultas do Log Analytics, mas atualmente não para consultas do Application Insights.
+> Salvar uma função é possível em consultas de log do Azure Monitor, mas atualmente não para consultas do Application Insights.
 
 
 
@@ -69,7 +69,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a linguagem de consulta do Log Analytics:
+Confira outras lições para escrever consultas de log no Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819579"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193383"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
 O serviço de Registro de Contêiner do Azure dá suporte a um conjunto de funções do Azure que fornecem níveis diferentes de permissões para um registro de contêiner do Azure. Use o [controle de acesso baseado em função do Azure](../role-based-access-control/index.yml) (RBAC) para atribuir permissões específicas a usuários ou entidades que precisam interagir com um registro de serviço.
 
-| Função/permissão       | Acessar o Resource Manager| Criar/excluir registro | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | Alterar políticas |   [Imagens de entrada](#sign-images)  |
+| Função/permissão       | [Acessar o Resource Manager](#access-resource-manager)| [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietário | X | X | X | X | X |  |  
 | Colaborador | X | X | X | X | X |  |  
@@ -45,19 +45,19 @@ Para ferramentas como o Visual Studio Code [extensão Docker](https://code.visua
 
 ## <a name="access-resource-manager"></a>Acessar o Resource Manager
 
-O Acesso ao Azure Resource Manager é necessário para o portal do Azure e [CLI do Azure](/cli/azure/). Por exemplo, para obter uma lista de registros usando o `az acr list` comando, você precisa dessa permissão definida. 
+O Acesso ao Azure Resource Manager é necessário para o portal do Azure e o gerenciamento de registro com o [CLI do Azure](/cli/azure/). Por exemplo, para obter uma lista de registros usando o `az acr list` comando, você precisa dessa permissão definida. 
 
-## <a name="createdelete-registry"></a>Criar/excluir registro
+## <a name="create-and-delete-registry"></a>Criar e excluir registros
 
 A capacidade de criar e excluir registros de contêiner do Azure.
 
 ## <a name="push-image"></a>Enviar uma imagem por push
 
-A capacidade de `docker push` uma imagem, ou enviar outro artefato com suporte, para um registro. Requer [autenticação](container-registry-authentication.md) com o registro usando a identidade autorizada. 
+A capacidade de `docker push` uma imagem, ou enviar por push outro [artefato com suporte](container-registry-image-formats.md) para um registro, como um gráfico do Helm. Requer [autenticação](container-registry-authentication.md) com o registro usando a identidade autorizada. 
 
 ## <a name="pull-image"></a>Pull de imagem
 
-A capacidade de `docker pull` imagem de não quarentena ou pull de outro artefato com suporte, de um registro. Requer [autenticação](container-registry-authentication.md) com o registro usando a identidade autorizada.
+A capacidade de `docker pull` uma imagem de não quarentena, ou de enviar por push outro [artefato com suporte](container-registry-image-formats.md) de um registro, como um gráfico do Helm. Requer [autenticação](container-registry-authentication.md) com o registro usando a identidade autorizada.
 
 ## <a name="change-policies"></a>Alterar políticas
 

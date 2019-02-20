@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232729"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235482"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
 Você pode usar os [modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar workspaces do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
@@ -54,9 +54,9 @@ Os parâmetros a seguir definem um valor padrão:
 * Local - o padrão é Leste dos EUA
 * SKU - padrão para o novo tipo de preços por GB lançado no modelo de preço de abril de 2018
 
->[!WARNING]
->Se criar ou configurar um workspace do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**. 
->
+> [!NOTE]
+>Se criar ou configurar um workspace do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.  
+>Se existe a chance de você ter algumas assinaturas no (modelo de preços antes de abril de 2018) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], é possível especificar o tipo de preço **Autônomo** e isso funcionará para assinaturas do modelo de preços antes de abril de 2018 e para assinaturas com os novos preços. Para workspaces em assinaturas que já adotaram o novo modelo de preços, o tipo de preço será definido como **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Criar e implantar modelo
 

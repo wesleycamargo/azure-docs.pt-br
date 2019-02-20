@@ -1,19 +1,19 @@
 ---
 title: Perguntas comuns - recuperação de desastre do VMware para Azure com o Azure Site Recovery | Microsoft Docs
 description: Este artigo resume as perguntas comuns ao configurar a recuperação de desastre de VMs do VMware locais no Azure usando o Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212221"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235217"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -31,8 +31,6 @@ Durante a replicação, os dados são replicados para o armazenamento do Azure e
 - **Recuperação de desastre**: É possível configurar a recuperação de desastre completa. Nesse cenário, você replica VMs VMware locais para o armazenamento do Azure. Em seguida, se a infraestrutura local estiver indisponível, será possível fazer failover para o Azure. Ao fazer failover, as VMs do Azure são criadas usando os dados replicados. Você poderá acessar os aplicativos e as cargas de trabalho nas VMs do Azure até que o datacenter local esteja disponível novamente. Em seguida, será possível fazer failback do Azure para o site local.
 - **Migração**: É possível utilizar o Site Recovery para migrar VMs VMware locais para o Azure. Nesse cenário, você replica VMs VMware locais para o armazenamento do Azure. Em seguida, você faz failover do local para o Azure. Após o failover, os aplicativos e as cargas de trabalho estarão disponíveis e em execução nas VMs do Azure.
 
-
-
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>O que é necessário no Azure?
 É necessário uma assinatura do Azure, um cofre do Recovery Services, uma conta de armazenamento e uma rede virtual. O cofre, a conta de armazenamento e a rede devem estar na mesma região.
@@ -44,7 +42,33 @@ Você precisa de uma conta de armazenamento LRS ou GRS. É recomendável usar GR
 Se você é um administrador da assinatura, tem as permissões de replicação necessárias. Caso contrário, precisará de permissões para criar uma VM do Azure no grupo de recursos e na rede virtual especificados durante a configuração do Site Recovery e as permissões para gravar na conta de armazenamento selecionada. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Posso usar a licença de servidor do SO convidado no Azure?
-Sim, os clientes do Microsoft Software Assurance podem usar o Benefício Híbrido do Azure para economizar nos custos de licenciamento para **computadores do Windows Server** que são migrados para o Azure ou usar o Azure para a recuperação de desastre.
+Sim, os clientes do Microsoft Software Assurance podem usar o [Benefício Híbrido do Azure](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) para economizar nos custos de licenciamento para **computadores do Windows Server** que são migrados para o Azure ou usar o Azure para a recuperação de desastre.
+
+## <a name="pricing"></a>Preços
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>Como os preços de licenciamento são manipulados durante a replicação, após o failover?
+
+Veja nossas perguntas frequentes sobre licenciamento [aqui](https://aka.ms/asr_pricing_FAQ) para obter mais informações.
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Como posso calcular preços aproximados durante o uso do Site Recovery?
+
+Você pode usar a [calculadora de preços](https://aka.ms/asr_pricing_calculator) para estimar os custos ao usar o Azure Site Recovery. Para uma estimativa detalhada de custos, execute a ferramenta planejadora de implantação (https://aka.ms/siterecovery_deployment_planner) e analise o [relatório de estimativa de custo](https://aka.ms/asr_DP_costreport).
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Sou usuário do Azure Site Recovery há mais de um mês. Eu ainda terei os primeiros 31 dias gratuitos para todas as instâncias protegidas?
+
+Sim, não importa por quanto tempo você está usando o Azure Site Recovery. Nenhuma instância protegida gera cobranças do Azure Site Recovery durante os primeiros 31 dias. Por exemplo, se você esteve protegendo 10 instâncias nos últimos seis meses e conectar uma 11ª instância ao Azure Site Recovery, não haverá cobranças do Azure Site Recovery para a 11ª instância durante os primeiros 31 dias. As primeiras 10 instâncias continuam gerando encargos do Azure Site Recovery, uma vez que elas foram protegidas por mais de 31 dias.
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, serei cobrado por outras tarifas do Azure?
+
+Sim. Entretanto, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá ser cobrado pelo Armazenamento do Microsoft Azure, por transações de armazenamento e por transferência de dados. Uma máquina virtual recuperada também poderá gerar encargos de computação do Azure.
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Quais encargos serão cobrados quando eu usar o Azure Site Recovery?
+
+Veja nossas [perguntas frequentes sobre custos incorridos](https://aka.ms/asr_pricing_FAQ) para obter informações detalhadas.
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>Há um custo associado para executar análises de recuperação de desastres/failover de teste?
+
+Não há nenhum custo separado para análise de recuperação de desastres. Haverá encargos de computação após a máquina virtual ser criada depois do failover de teste.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Atualização de componentes do Azure Site Recovery
 
@@ -87,8 +111,12 @@ Os dados replicam para o armazenamento do Azure. Ao executar um failover, o Site
 
 ## <a name="replication"></a>Replicação
 
-### <a name="what-apps-can-i-replicate"></a>Quais aplicativos eu posso replicar?
+### <a name="what-applications-can-i-replicate"></a>Quais aplicativos posso replicar?
 É possível replicar qualquer aplicativo ou carga de trabalho em execução em uma VM VMware que esteja em conformidade com os [requisitos de replicação](vmware-physical-azure-support-matrix.md##replicated-machines). O Site Recovery fornece suporte para replicação com reconhecimento de aplicativo, de modo que os aplicativos possam fazer failover e failback para um estado inteligente. O Site Recovery integra-se a aplicativos da Microsoft como SharePoint, Exchange, Dynamics, SQL Server e Active Directory e trabalha em conjunto com os principais fornecedores, incluindo Oracle, SAP, IBM e Red Hat. [Saiba mais](site-recovery-workload.md) sobre a proteção de carga de trabalho.
+
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>Posso proteger uma máquina virtual que tem a configuração de disco do Docker?
+
+Não. Esse é um cenário sem suporte.
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>É possível replicar para o Azure com uma VPN site a site?
 O Site Recovery replica dados do local para o armazenamento do Azure em um ponto de extremidade público ou utilizando o emparelhamento público do ExpressRoute. A replicação de uma rede VPN site a site não tem suportada.
@@ -96,11 +124,13 @@ O Site Recovery replica dados do local para o armazenamento do Azure em um ponto
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>É possível replicar para o Azure com o ExpressRoute?
 Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Recovery replica dados para uma Conta de Armazenamento do Microsoft Azure em um ponto de extremidade público. Você precisa configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para usar o ExpressRoute para replicação de Site Recovery. Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Assegure que os [Requisitos de Rede](vmware-azure-configuration-server-requirements.md#network-requirements) também sejam atendidos para replicação. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Como alterar a conta de armazenamento depois que o computador for protegido?
+
+A conta de armazenamento só pode ser atualizada para Premium. Se quiser usar uma conta de armazenamento diferente, você precisará desabilitar a replicação de seu computador de origem e reabilitar a proteção com a nova conta de armazenamento. Além disso, não há uma nenhuma outra forma de alterar a conta de armazenamento após a proteção ser habilitada.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar em VPN?
 
 Quando você replica para o Azure, o tráfego de replicação atinge os pontos de extremidade públicos de uma conta de Armazenamento do Azure. Assim, você só pode replicar pela Internet pública com o ExpressRoute (emparelhamento público) e a VPN não funciona.
-
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quais são os requisitos de VM replicadas?
 
@@ -108,6 +138,9 @@ Para replicação, uma VM VMware deve estar em execução em um sistema operacio
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
 A replicação é contínua ao replicar VMs VMware para o Azure.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>Posso manter o endereço IP durante o failover?
+Sim, você pode manter o endereço IP durante o failover. Certifique-se de mencionar o endereço IP de destino na folha “Computação e rede” antes do failover. Além disso, certifique-se de desligar os computadores no momento do failover para evitar conflitos de IP no momento de failback.
 
 ### <a name="can-i-extend-replication"></a>É possível estender replicação?
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

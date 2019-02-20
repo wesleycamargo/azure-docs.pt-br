@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237597"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991236"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução ao fornecimento de conteúdo sob demanda usando a REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução ao fornecimento de conteúdo sob demanda usando a REST  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS).
@@ -268,7 +269,7 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, seu valor de StartTime deve estar no seguinte formato de data e hora: AAAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) e localizadores de origem.
 
 O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
@@ -407,7 +408,7 @@ Se for bem-sucedido, será retornado o seguinte:
 
 Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada Trabalho é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo. (Para saber mais, consulte as descrições de [Trabalho](https://docs.microsoft.com/rest/api/media/operations/job), [Tarefa](https://docs.microsoft.com/rest/api/media/operations/task)).
 
-Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxa de bit adaptável em um dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxa de bits adaptável em um dos seguintes formatos: HLS (HTTP Live Streaming), Smooth Streaming e MPEG-DASH.
 
 A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído, você poderá criar localizadores, que serão necessários para acessar seus ativos.
 
@@ -458,7 +459,7 @@ O código a seguir solicita a ID do codificador.
     }
 
 ### <a name="create-a-job"></a>Criar um trabalho
-Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa o processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste artigo, as tarefas serão definidas em linha. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar trabalhos e as tarefas relacionadas em uma das duas maneiras: As tarefas podem ser definidas embutidas por meio da propriedade de navegação de tarefas nas entidades de trabalho, ou através do processamento em lotes do OData. O SDK dos Serviços de Mídia usa o processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste artigo, as tarefas serão definidas em linha. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](https://msdn.microsoft.com/library/mt269960) compatíveis com o processador do Codificador de Mídia Padrão.  
 
@@ -692,7 +693,7 @@ O código a seguir mostra como solicitar a ID do ativo de saída.
 
 ## <a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
 
-Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia. 
+Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores: OnDemandOrigin, usado para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e localizadores de Assinatura de Acesso (SAS), usados para fazer o download de arquivos de mídia. 
 
 Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos.
 
@@ -742,7 +743,7 @@ O exemplo a seguir mostra como especificar o AccessPolicy para permissões de le
 Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade AccessPolicy que você criou. Em seguida, você usará a ID do AccessPolicy com a ID do Ativo que contém o arquivo que você deseja fornecer (como um ativo de saída) para criar a entidade do Localizador.
 
 > [!NOTE]
-> Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir um ativo (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+> Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir um ativo (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de data e hora: AAAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).
 >
 >
 
@@ -915,7 +916,7 @@ Para o fluxo de vídeo, use [Player dos Serviços de Mídia do Azure](http://ams
 
 Para testar o download progressivo, cole uma URL em um navegador (por exemplo, IE, Chrome, Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
+## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

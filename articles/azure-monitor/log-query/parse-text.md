@@ -1,6 +1,6 @@
 ---
-title: Analisar dados de texto no Azure Log Analytics | Microsoft Docs
-description: Descreve as diferentes opções para análise de dados em registros do Log Analytics quando os dados são ingeridos e quando são recuperados em uma consulta, comparando as vantagens relativas de cada uma.
+title: Analisar dados de texto nos logs do Azure Monitor | Microsoft Docs
+description: Descreve as diferentes opções para análise de dados de log em registros do Azure Monitor quando os dados são ingeridos e recuperados em uma consulta, comparando as vantagens relativas de cada uma.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214123"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002169"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Analisar dados de texto no Log Analytics
-Alguns dados coletados pelo Log Analytics incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos logs do Azure Monitor
+Alguns dados de log coletados pelo Azure Monitor incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
 
-Este artigo descreve as diferentes opções para análise de dados em registros do Log Analytics quando os dados são ingeridos e quando são recuperados em uma consulta, comparando as vantagens relativas de cada uma.
+Este artigo descreve diferentes opções para análise de dados de log no Azure Monitor quando os dados são ingeridos e recuperados em uma consulta, comparando as vantagens relativas de cada uma.
 
 
 ## <a name="parsing-methods"></a>Métodos de análise
@@ -60,7 +60,7 @@ As desvantagens desse método incluem as seguintes:
 - Pode criar sobrecarga ao executar uma lógica complexa em conjuntos de registros muito grandes (bilhões de registros).
 
 ## <a name="parse-data-as-its-collected"></a>Analisar dados conforme eles são coletados
-Confira [Criar campos personalizados no Log Analytics](../../log-analytics/log-analytics-custom-fields.md) para obter detalhes sobre a análise de dados conforme eles são coletados. Isso cria propriedades personalizadas na tabela que podem ser usadas pelas consultas como qualquer outra propriedade.
+Para obter detalhes sobre a análise de dados conforme eles são coletados, confira [Criar campos personalizados no Azure Monitor](../platform/custom-fields.md). Isso cria propriedades personalizadas na tabela que podem ser usadas pelas consultas como qualquer outra propriedade.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Analisar dados na consulta usando padrões
 Quando os dados que você deseja analisar podem ser identificados por um padrão repetido nos registros, você pode usar operadores diferentes na [linguagem de consulta do Data Explorer](/azure/kusto/query/) para extrair os dados específicos em uma ou mais propriedades novas.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Para habilitar a análise eficiente em grande escala, o Log Analytics usa a versão re2 de Expressões Regulares, que é semelhante, mas não idêntica, a algumas das outras variantes de expressão regular. Veja a [Sintaxe da expressão re2](https://aka.ms/kql_re2syntax) para obter detalhes.
+Para habilitar a análise eficiente em grande escala, o Azure Monitor usa a versão re2 de Expressões Regulares, que é semelhante, mas não idêntica, a algumas das outras variantes de expressão regular. Veja a [Sintaxe da expressão re2](https://aka.ms/kql_re2syntax) para obter detalhes.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>Analisar dados delimitados em uma consulta

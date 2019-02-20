@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820429"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236967"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -253,3 +253,6 @@ Para limpar manualmente a coleção de pontos de restauração que não está de
 
 5. Clique em **Excluir** para limpar a coleção de pontos de restauração.
 6. Tente a operação de backup novamente.
+
+> [!NOTE]
+ >Se o recurso (coleção de RP) tiver um grande número de pontos de restauração, então exclui-los do portal poderá estourar o tempo limite e falhar. Esse é um problema conhecido do CRP, em que todos os pontos de restauração não são excluídos no tempo determinado e a operação atinge o tempo limite; no entanto, a operação de exclusão geralmente terá êxito após 2 ou 3 tentativas.

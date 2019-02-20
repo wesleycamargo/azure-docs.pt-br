@@ -1,8 +1,21 @@
 ---
-Título: Interpretar os resultados do modelo no Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação.
-serviços: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: artigo
-
-autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
+title: Interpretar os resultados do modelo no Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 11/29/2017
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996998"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio
 Este tópico explica como visualizar e interpretar os resultados de previsão no Azure Machine Learning Studio. Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
@@ -61,7 +74,7 @@ Há seis colunas na tabela de resultados. As quatro colunas à esquerda são os 
 
 **Publicação de serviço Web**
 
-Após a compreensão e aceitação dos resultados da previsão, será possível publicar a experiência como um serviço Web, para que você possa implantá-la em vários aplicativos e chamá-la para obter previsões de classe sobre qualquer flor de íris nova. Para saber como mudar um teste de treinamento para um teste de pontuação e publicá-lo como um serviço Web, consulte [Publicar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md). Esse procedimento fornece um teste de pontuação conforme mostra a Figura 3.
+Após a compreensão e aceitação dos resultados da previsão, será possível publicar a experiência como um serviço Web, para que você possa implantá-la em vários aplicativos e chamá-la para obter previsões de classe sobre qualquer flor de íris nova. Para saber como alterar um teste de treinamento para um teste de pontuação e publicá-lo como um serviço Web, consulte o [Tutorial 3: Implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md). Esse procedimento fornece um teste de pontuação conforme mostra a Figura 3.
 
 ![Captura de tela do teste de pontuação](./media/interpret-model-results/3.png)
 

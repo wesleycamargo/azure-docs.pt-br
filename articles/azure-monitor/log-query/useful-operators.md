@@ -1,6 +1,6 @@
 ---
-title: Operadores úteis em consultas do Azure Log Analytics | Microsoft Docs
-description: Funções comuns a serem usadas para diferentes cenários em consultas do Log Analytics.
+title: Operadores úteis nas consultas de log no Azure Monitor | Microsoft Docs
+description: Funções comuns a serem usadas em diferentes cenários nas consultas do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 060b1e469a31c335f062ccd332157d13e64f9318
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183975"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000141"
 ---
-# <a name="useful-operators-in-log-analytics-queries"></a>Operadores úteis em consultas do Log Analytics
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Operadores úteis nas consultas de log no Azure Monitor
 
-A tabela abaixo fornece algumas funções comuns a serem usadas para diferentes cenários em consultas do Log Analytics.
+A tabela abaixo fornece algumas funções comuns a serem usadas em diferentes cenários nas consultas de log do Azure Monitor.
 
 ## <a name="useful-operators"></a>Operadores úteis
 
@@ -46,4 +46,4 @@ Aprendizado de máquina                        |`evaluate autocluster`, `basket`
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Percorra uma lição em [escrevendo consultas no Log Analytics](get-started-queries.md).
+- Faça uma lição nas [consultas de log de gravação no Azure Monitor](get-started-queries.md).

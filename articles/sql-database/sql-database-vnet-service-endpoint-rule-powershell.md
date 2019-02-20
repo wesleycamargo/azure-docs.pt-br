@@ -1,5 +1,5 @@
 ---
-title: Endpoints e regras do serviço do PowerShell for Virtual Network no SQL do Azure | Microsoft Docs
+title: PowerShell para pontos de extremidade e regras da VNet para bancos de dados individuais e em pool no SQL do Azure | Microsoft Docs
 description: Fornece scripts do PowerShell para criar e gerenciar endpoints do Virtual Service para o Banco de Dados SQL do Azure e o SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566168"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117605"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  criar um ponto de extremidade de Serviço Virtual e uma regra VNet para SQL
 
-O [Banco de Dados](sql-database-technical-overview.md) SQL do Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) do Azure suportam terminais de Serviço Virtual.
+As *regras da rede virtual* são um recurso de segurança do firewall que controla se o servidor do banco de dados para seus bancos de dados individuais e o pool elástico no [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou os bancos de dados no [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceitam comunicações enviadas de sub-redes particulares nas redes virtuais.
 
-> [!NOTE]
-> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Este artigo *não* se aplica a **Instância Gerenciada do Banco de Dados SQL do Azure**, pois você não tem um ponto de extremidade de serviço associado a uma sub-rede de Instância Gerenciada.
+> [!IMPORTANT]
+> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
 
 Este artigo fornece e explica um script do PowerShell que realiza as seguintes ações:
 

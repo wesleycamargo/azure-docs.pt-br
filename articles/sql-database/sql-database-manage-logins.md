@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459223"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164610"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso de banco de dados a Banco de Dados SQL e SQL Data Warehouse
 
@@ -37,11 +37,14 @@ Há duas contas administrativas (**Administrador do servidor** e **Administrador
 
 - **Administrador do servidor**
 
-Quando você cria um servidor SQL no Azure, você deve designar um **Logon de administrador do servidor**. O servidor SQL cria essa conta como um logon no banco de dados mestre. Essa conta é conectada usando a autenticação do SQL Server (nome de usuário e senha). Só pode existir uma dessas contas.   
+  Quando você cria um servidor SQL no Azure, você deve designar um **Logon de administrador do servidor**. O servidor SQL cria essa conta como um logon no banco de dados mestre. Essa conta é conectada usando a autenticação do SQL Server (nome de usuário e senha). Só pode existir uma dessas contas.
 
-- **Administrador do Azure Active Directory**   
+  > [!NOTE]
+  > Para redefinir a senha para o administrador do servidor, vá para o [portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, selecione o servidor na lista e clique em **Redefinir Senha**.
 
-Uma conta do Azure Active Directory, seja ela individual ou de grupo de segurança, também pode ser configurada como um administrador. A configuração de um administrador do Azure AD é opcional, mas é **preciso** configurar um administrador do Azure AD a fim de usar as contas do Azure AD para se conectar ao Banco de Dados SQL. Para saber mais sobre como configurar o acesso ao Azure Active Directory, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md) e [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- **Administrador do Azure Active Directory**
+
+  Uma conta do Azure Active Directory, seja ela individual ou de grupo de segurança, também pode ser configurada como um administrador. A configuração de um administrador do Azure AD é opcional, mas é **preciso** configurar um administrador do Azure AD a fim de usar as contas do Azure AD para se conectar ao Banco de Dados SQL. Para saber mais sobre como configurar o acesso ao Azure Active Directory, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md) e [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 As contas do **Administrador do servidor** e do **Administrador do Azure AD** têm as seguintes características:
 
@@ -49,13 +52,13 @@ As contas do **Administrador do servidor** e do **Administrador do Azure AD** t�
 - Essas contas inserem bancos de dados de usuário, pois o usuário `dbo` e elas têm todas as permissões nos bancos de dados do usuário. (O proprietário de um banco de dados do usuário também insere o banco de dados como o usuário `dbo`.) 
 - Não insira o banco de dados `master` como o usuário `dbo` e tenha permissões limitadas no mestre. 
 - **Não** são membros da função de servidor fixo do SQL Server padrão `sysadmin`, que não está disponível no Banco de Dados SQL.  
-- Podem criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall mestre e de nível de servidor.
+- É possível criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall mestre e de nível de servidor de IP.
 - Podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
 - Podem exibir a tabela do sistema `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configuração do firewall
 
-Quando o firewall no nível do servidor é configurado para um endereço IP individual ou para um intervalo de endereços IP, o **Administrador do servidor SQL** e o **Administrador do Azure Active Directory** podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor inicial pode ser configurado por meio do [portal do Azure](sql-database-get-started-portal.md), usando o [PowerShell](sql-database-powershell-samples.md) ou usando a [API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Depois que uma conexão é estabelecida, as regras de firewall adicionais no nível do servidor também podem ser configuradas usando o [Transact-SQL](sql-database-configure-firewall-settings.md).
+Quando o firewall no nível do servidor é configurado para um endereço IP individual ou para um intervalo de endereços IP, o **Administrador do servidor SQL** e o **Administrador do Azure Active Directory** podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor inicial pode ser configurado por meio do [portal do Azure](sql-database-single-database-get-started.md), usando o [PowerShell](sql-database-powershell-samples.md) ou usando a [API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Depois que uma conexão é estabelecida, as regras de firewall de IP adicionais no nível do servidor também podem ser configuradas usando o [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Caminho de acesso do administrador
 
@@ -67,11 +70,10 @@ Ao usar uma porta aberta no firewall no nível do servidor, os administradores p
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conectar-se a um banco de dados usando o SQL Server Management Studio
 
-Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores, bancos de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started-portal.md).
+Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall de IP no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores, bancos de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-
 
 ## <a name="additional-server-level-administrative-roles"></a>Funções administrativas no nível do servidor adicionais
 
@@ -85,7 +87,7 @@ Além das funções administrativas no nível do servidor discutidas anteriormen
 Uma dessas funções administrativas é a função **dbmanager**. Os membros dessa função podem criar novos bancos de dados. Para usar essa função, você cria um usuário no banco de dados `master` e, em seguida, adiciona o usuário à função de banco de dados **dbmanager**. Para criar um banco de dados, o usuário deve ser um usuário baseado em um logon do SQL Server no banco de dados mestre ou um usuário de banco de dados baseado em um usuário do Azure Active Directory independente.
 
 1. Com uma conta de administrador, conecte-se ao banco de dados mestre.
-2. Etapa opcional: Crie um logon de autenticação do SQL Server usando a instrução [CRIAR LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemplo de instrução:
+2. Crie um logon de autenticação do SQL Server usando a instrução [CRIAR LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemplo de instrução:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

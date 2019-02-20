@@ -17,12 +17,13 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078083"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166022"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Quais são as condições de localização no acesso condicional do Active Directory do Azure? 
 
@@ -34,9 +35,9 @@ Este artigo fornece as informações necessárias para configurar a condição d
 
 O Microsoft Azure AD permite o logon único em dispositivos, aplicativos e serviços de qualquer lugar na internet pública. Com a condição de localização, você pode controlar o acesso aos seus aplicativos na nuvem com base no local de rede de um usuário. Casos de uso comuns para a condição de localização são:
 
-- Exigir autenticação multifator para usuários que acessam um serviço quando estão fora da rede corporativa  
+- Exigir autenticação multifator para usuários que acessam um serviço quando estão fora da rede corporativa.
 
-- Bloqueando o acesso para usuários que acessam um serviço de países e regiões específicas. 
+- Bloqueando o acesso para usuários que acessam um serviço de países e regiões específicas.
 
 Um local é um rótulo para uma rede local que representa uma localização nomeada ou IPs confiáveis de autenticação multifator.
 
@@ -62,9 +63,9 @@ A localização nomeada tem os seguintes componentes:
 
 - **Marcar como local confiável** – Um sinalizador que você pode definir para uma localização nomeada indicar um local confiável. Normalmente, os locais confiáveis são áreas de rede controladas pelo departamento de TI. Além de acesso condicional, localizações nomeadas confiáveis também são usadas por relatórios de segurança de proteção de identidade do Azure e do Microsoft Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **País / regiões** – Esta opção permite que você selecione um ou mais países ou regiões para definir uma localização nomeada. 
+- **Países/regiões** - esta opção permite que você selecione um ou mais países ou regiões para definir uma localização nomeada. 
 
-- **Incluir áreas desconhecidas** – Alguns endereços IP não são mapeados para um país específico. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Eles poderia ser selecionados quando a política usando a localização nomeada deveria aplicar a localizações desconhecidas.
+- **Incluir áreas desconhecidas** – Alguns endereços IP não são mapeados para um país específico. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
 
 O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar:
 
@@ -150,7 +151,7 @@ Quando você cria ou atualiza localizações nomeadas, para atualizações em ma
 
 ### <a name="cloud-proxies-and-vpns"></a>Proxies e VPNs na nuvem 
 
-Quando você usa um proxy ou solução VPN hospedado na nuvem, o endereço IP que o Microsoft Azure AD usa ao avaliar uma política é o endereço IP do proxy. O cabeçalho de X-Forwarded-For (XFF) que contém o endereço IP público dos usuários não é usado porque não há nenhuma validação que venha de uma fonte confiável, portanto apresentaria um método para simular um endereço IP. 
+Quando você usa um proxy ou solução VPN hospedado na nuvem, o endereço IP que o Microsoft Azure AD usa ao avaliar uma política é o endereço IP do proxy. O cabeçalho de X-Forwarded-For (XFF) que contém o endereço IP público dos usuários não é usado porque não há validações que venham de uma fonte confiável, portanto apresentaria um método para simular um endereço IP. 
 
 Quando um proxy na nuvem está em uso, uma política que é usada para solicitar um dispositivo ingressado no domínio pode ser usada, ou a declaração corpnet interna do AD FS.
 

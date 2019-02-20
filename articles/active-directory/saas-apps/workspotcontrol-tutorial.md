@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Work.com | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Workspot Control | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Workrite.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311617"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211148"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o Controle do Workspot
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Azure Active Directory com o Workspot Control
 
 Neste tutorial, você aprenderá a integrar o Controle do Workspot ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o controle Workspot, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Assinatura habilitada para um controle Workspot o logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o controle do workspot da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -103,15 +104,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
-3. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica de SAML**.
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
 
-4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir, se desejar configurar o aplicativo no **modo IDiated**:
+4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir, se desejar configurar o aplicativo no modo **IDP**:
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
-    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
@@ -132,7 +133,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     Observe que a URL pode dizer o seguinte:
 
-    a. URL de logon
+     a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -142,7 +143,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 7. Em uma janela diferente do navegador da Web, efetue login no Workspot Control como um administrador de segurança.
 
-8. Na barra de ferramentas na parte superior da página, clique em **Configuração** e navegue até **SAML**.
+8. Na barra de ferramentas no topo da página, clique em  **Configuração** e navegue até  **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. Na caixa de texto **ID da Entidade**, cole o valor de **Identificador de Anúncio do Azure** que você copiou do portal do Azure.   
+     a. Na caixa de texto **ID da Entidade**, cole o valor de **Identificador de Anúncio do Azure** que você copiou do portal do Azure.   
 
     b.Na caixa de texto **URL do Serviço de Conexão**, cole o valor do **URL de Login** que você copiou do portal do Azure.
 
@@ -164,24 +165,24 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Active Directory do Azure**, selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo usuário** na parte superior da tela.
 
     ![image](./media/workspotcontrol-tutorial/d_adduser.png)
 
-3. Nas propriedades do usuário, execute as seguintes etapas.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
     ![image](./media/workspotcontrol-tutorial/d_userproperties.png)
 
-    a. No **nome** Inserir campo **BrittaSimon**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa Senha.
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
  
@@ -193,7 +194,7 @@ Para permitir que os usuários do AD do Azure façam logon no Controle do Worksp
 
 1. Faça o login no Workspot Control como um administrador de segurança.
 
-2. Na barra de ferramentas na parte superior da página, clique em **os usuários**, em seguida, navegue até **adicionar usuário**.
+2. Na barra de ferramentas no topo da página, clique em  **Usuários** e navegue até  **Adicionar Usuário**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -201,7 +202,7 @@ Para permitir que os usuários do AD do Azure façam logon no Controle do Worksp
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
+     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
     b. Na **Sobrenome** texto, digite o sobrenome do usuário, como **simon**.
 
@@ -217,7 +218,7 @@ Para permitir que os usuários do AD do Azure façam logon no Controle do Worksp
 
 Nesta seção, você permite que Britta Simon use o logon único do Azure, concedendo acesso ao Controle do Workspot.
 
-1. No portal do Azure, selecione **Aplicativos Corporativos**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/workspotcontrol-tutorial/d_all_applications.png)
 
@@ -229,20 +230,20 @@ Nesta seção, você permite que Britta Simon use o logon único do Azure, conce
 
     ![image](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
 
-4. Selecione o **Add** botão e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![image](./media/workspotcontrol-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-5. Na caixa de diálogo **Add Assinatura**, selecione o botão  **Atribuir**.
+5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Controle do Workspot no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Controle de Área de Trabalho.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

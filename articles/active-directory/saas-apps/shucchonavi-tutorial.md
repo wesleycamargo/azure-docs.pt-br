@@ -1,5 +1,5 @@
 ---
-title: 'TutorTutorial: Integração do Azure Active Directory com Shuccho Navi | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Shuccho Navi | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e Shuccho Navi.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311616"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209669"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: Integração do Microsoft Azure Active Directory com Shuccho Navi
+# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: Integração do Azure Active Directory com o Shuccho Navi
 
 Neste tutorial, você aprenderá a integrar o Shuccho Navi ao Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure Active Directory com o Shuccho Navi, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Shuccho Navi habilitada para logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Shuccho Navi da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -99,24 +100,24 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no por
 
     ![image](./media/shucchonavi-tutorial/b1_b2_select_sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de conexão única**, clique em **Selecione** para o modo **SAML** para ativar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
     ![image](./media/shucchonavi-tutorial/b1_b2_saml_sso.png)
 
-3. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica de SAML**.
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/shucchonavi-tutorial/b1-domains_and_urlsedit.png)
 
-4. Na seção **Configuração Básica do SAML**, execute as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
+    Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
 
     ![image](./media/shucchonavi-tutorial/tutorial_shucchonavi_url.png)
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte do Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para obter o valor.
  
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para baixar o **XML de metadados de federação** e salve-o no seu computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
     ![image](./media/shucchonavi-tutorial/tutorial_shucchonavi_certificate.png) 
 
@@ -126,7 +127,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no por
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/shucchonavi-tutorial/d_users_and_groups.png)
 
@@ -134,28 +135,28 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/shucchonavi-tutorial/d_adduser.png)
 
-3. Nas propriedades do Usuário, execute as seguintes etapas.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
     ![image](./media/shucchonavi-tutorial/d_userproperties.png)
 
-    a. No campo **Nome** insira **Brendafernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa Senha.
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
  
 ### <a name="create-a-shuccho-navi-test-user"></a>Criar um usuário de teste Shuccho Navi
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Shuccho Navi. Trabalhe com [equipe de suporte do Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para adicionar os usuários na plataforma do Shuccho Navi. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Shuccho Navi. Trabalhe com a  [equipe de suporte do Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para adicionar os usuários na plataforma do Shuccho Navi. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Shuccho Navi.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/shucchonavi-tutorial/d_all_applications.png)
 
@@ -167,20 +168,20 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![image](./media/shucchonavi-tutorial/d_leftpaneusers.png)
 
-4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar atribuição**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![image](./media/shucchonavi-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-5. Na caixa de diálogo **Adicionar atribuição**, selecione o botão **Atribuir**.
+5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar na peça Shuccho Navi no painel de acesso, obterá o logon automaticamente no seu aplicativo Shuccho Navi.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

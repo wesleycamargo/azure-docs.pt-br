@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e4e935a9c78950517623acdf8196d51793fff18a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462453"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118217"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 
@@ -30,6 +30,7 @@ Há várias vantagens em criar e gerenciar alertas usando a [API scheduledQueryR
 
 - Capacidade de realizar [pesquisa de logs entre workspaces](../log-query/cross-workspace-query.md) em regras de alerta e abranger recursos externos como workspaces do Log Analytics ou até mesmo aplicativos do Application Insights
 - Quando vários campos são usados para Agrupar na consulta usando a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), o usuário pode especificar qual campo agregar no portal do Azure
+- Alertas de log criados usando a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) podem ter um período definido de até 48 horas e buscar dados por um período mais longo que antes
 - Criar regras de alerta de uma só vez como um único recurso sem a necessidade de criar três níveis de recursos como ocorre com a [API herdada de alerta do Log Analytics](api-alerts.md)
 - Interface de programação única para todas as variantes de alertas de log baseados em consulta no Azure – a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) pode ser usada para gerenciar regras do Log Analytics, bem como do Application Insights
 - Todas as novas funcionalidades de alertas de log e de desenvolvimento futuro estarão disponíveis somente por meio da nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
@@ -57,6 +58,13 @@ Com o corpo da solicitação contendo o JSON abaixo.
 }
 ```
 
+A API também pode ser acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. Conforme ilustrado abaixo, na chamada PUT de exemplo, a ferramenta ARMclient é usada para alternar todas as regras de alerta associadas ao workspace do Log Analytics específico.
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 Se a mudança de todas as regras de alerta no workspace do Log Analytics para usar a nova [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) for bem-sucedida, a seguinte resposta será fornecida.
 
 ```json
@@ -70,6 +78,12 @@ Os usuários também podem verificar o status atual do workspace do Log Analytic
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+Para executar os itens acima usando a linha de comando do PowerShell com a ferramenta [ARMClient](https://github.com/projectkudu/ARMClient), confira o exemplo a seguir.
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 Se o workspace do Log Analytics especificado tiver mudado para usar somente a [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), o JSON de resposta será conforme listado abaixo.

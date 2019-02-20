@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Este artigo fornece informações para ajudá-lo a solucionar problemas que você pode encontrar ao usar o SDK do Speech Service.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217136"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859310"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Solucionar problemas do SDK do serviço de fala
 
@@ -67,6 +67,8 @@ Você pode verificar se tem uma chave de assinatura válida executando um dos co
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+Se você inseriu uma chave de assinatura válida, o comando retorna um token de autorização, caso contrário, um erro será retornado.
+
 ### <a name="validate-an-authorization-token"></a>Validar um token de autorização
 
 Se você usar um token de autorização para autenticação, execute um dos comandos a seguir para verificar se o token de autorização ainda é válido. Os tokens são válidos por 10 minutos.
@@ -101,6 +103,8 @@ Se você usar um token de autorização para autenticação, execute um dos coma
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+Se você inseriu um token de autorização válido, o comando retorna a transcrição para o seu arquivo de áudio, caso contrário, um erro será retornado.
 
 ---
 

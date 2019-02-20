@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302114"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883127"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão da versão prévia do Azure Data Box Gateway
 
@@ -52,9 +52,8 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para o Data Box Gat
 | **7.** |Atualizar | As permissões e ACLs (listas de controle de acesso) não são preservadas em uma operação de atualização.  | |
 | **8.** |Copiar | A cópia de dados falha com erro:  Não foi possível concluir a operação solicitada devido a uma limitação do sistema de arquivos.  |Esse erro ocorre quando o ADS (Fluxo de Dados Alternativo) associado ao arquivo excede 128 KB (limite máximo para ReFS).  |
 | **9.** |Links simbólicos |Não há suporte para links simbólicos.  |Links simbólicos para diretórios resultam nos diretórios nunca serem marcados como offline. Como resultado, você não poderá ver a cruz cinza nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente carregado no Azure. |
-| **10.** |Ajuda online |Talvez os links para a Ajuda no portal do Azure não levem à documentação.|Os links para a Ajuda funcionarão na versão de Disponibilidade geral. |
-
-
+| **10.** |Compartilhamentos |Atualizar um contêiner existente com Blobs de páginas, para um compartilhamento de blob de blocos (ou vice-versa) resulta no carregamento de falhas na modificação do arquivo.  |Esse comportamento é visto quando estas etapas são seguidas: <li> Crie um compartilhamento de blob de blocos no dispositivo. </li><li> Associe o compartilhamento de um contêiner de nuvem existente que tenha os Blobs de Páginas.</li><li>Atualize esse compartilhamento. </li><li>Modifique alguns dos arquivos atualizados que já estão armazenados como Blobs de Páginas na nuvem.</li> São vistas falhas de carregamento. |
+| **11.** |Ajuda online |Talvez os links para a Ajuda no portal do Azure não levem à documentação.|Os links para a Ajuda funcionarão na versão de Disponibilidade geral. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

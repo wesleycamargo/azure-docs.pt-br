@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476029"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234179"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes de eventos na Grade de Eventos do Azure
 
@@ -131,6 +131,16 @@ Assine os eventos de Armazenamento de Blobs para responder aos eventos criados e
 | [Modelo do Resource Manager: Criar armazenamento de blobs e assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implanta uma conta de armazenamento de blobs do Azure e assina eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
 | [Visão geral: reagir aos eventos de armazenamento de Blobs](../storage/blobs/storage-blob-event-overview.md) | Visão geral da integração do Armazenamento de Blobs com a Grade de Eventos. |
 | [Esquema do evento](event-schema-blob-storage.md) | Mostra campos nos eventos de Armazenamento de Blobs. |
+
+## <a name="maps"></a>Mapas
+Assine eventos do Azure Mapas para responder a eventos de cerca geográfica. Por exemplo, um aplicativo poderia enviar uma notificação por email sempre que um dispositivo entra ou sai de uma cerca geográfica.
+
+|Title  |DESCRIÇÃO  |
+|---------|---------|
+| [Reagir a eventos do Azure Mapas usando a Grade de Eventos](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração do Azure Mapas com a Grade de Eventos. |
+| [Tutorial: Configurar uma cerca geográfica](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial orienta você pelas etapas básicas para configurar uma cerca geográfica usando o Azure Mapas. Você usa a Grade de Eventos do Azure para transmitir os resultados da cerca geográfica e configurar uma notificação de acordo com os resultados desse limite. |
+| [Esquema do evento](event-schema-azure-maps.md) | Mostra campos nos eventos do Azure Mapas. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com valores de data/hora em consultas do Azure Log Analytics | Microsoft Docs
-description: Descreve como trabalhar com dados de data e hora em consultas do Log Analytics.
+title: Trabalhar com valores de data e hora em consultas de log do Azure Monitor | Microsoft Docs
+description: Descreve como trabalhar com dados de data e hora em consultas de log do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214687"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999242"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Trabalhar com valores de data/hora em consultas do Log Analytics
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de data e hora em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir a [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve como trabalhar com dados de data e hora em consultas do Log Analytics.
+Este artigo descreve como trabalhar com dados de data e hora em consultas de log do Azure Monitor.
 
 
 ## <a name="date-time-basics"></a>Noções básicas de data/hora
-A linguagem de consulta do Log Analytics tem dois tipos de dados principais associados a datas e horas: datetime e timespan. Todas as datas são expressas em UTC. Embora haja suporte para vários formatos de datetime, o formato ISO8601 é preferencial. 
+A linguagem de consulta Data Explorer tem dois tipos de dados principais associados a datas e horas: datetime e timespan. Todas as datas são expressas em UTC. Embora haja suporte para vários formatos de datetime, o formato ISO8601 é preferencial. 
 
 Intervalos de tempo (timespans) são expressos como um decimal seguido por uma unidade de tempo:
 
@@ -161,7 +161,7 @@ Event
 | Obter uma data relativa ao valor  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a linguagem de consulta do Log Analytics:
+Consulte outras lições para usar a [linguagem de consulta Data Explorer](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)

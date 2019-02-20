@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082576"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106454"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitar o log de diagnósticos no Gerenciador de Tráfego do Microsoft Azure
 
@@ -26,29 +26,31 @@ Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer info
 
 ## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell pelo computador, será necessário ter o módulo do PowerShell do *AzureRM*, 6.13.1 ou posterior. É possível executar `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se estiver executando o PowerShell localmente, também será necessário executar `Login-AzureRmAccount` entrar no Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell pelo computador, será necessário ter o módulo do Azure PowerShell do Azure, 1.0.0 ou posterior. É possível executar `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, também será necessário executar `Login-AzAccount` entrar no Azure.
 
 1. **Recuperar o perfil do Gerenciador de Tráfego:**
 
-    Para habilitar o log de diagnósticos, será necessário ter a ID de um perfil do Gerenciador de Tráfego. Recuperar o perfil do Gerenciador de Tráfego para o qual você quer habilitar o log de diagnósticos [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). A saída inclui as informações da ID do perfil do Gerenciador de Tráfego.
+    Para habilitar o log de diagnósticos, será necessário ter a ID de um perfil do Gerenciador de Tráfego. Recuperar o perfil do Gerenciador de Tráfego para o qual você quer habilitar o log de diagnósticos [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). A saída inclui as informações da ID do perfil do Gerenciador de Tráfego.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Habilitar o log de diagnósticos para o perfil do Gerenciador de Tráfego:**
 
-    Habilite o log de diagnósticos para o perfil do Gerenciador de Tráfego, usando a ID obtida na etapa anterior com [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
+    Habilite o log de diagnósticos para o perfil do Gerenciador de Tráfego, usando a ID obtida na etapa anterior com [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verificar configurações de diagnóstico:**
 
-      Verifique as configurações de diagnóstico para o perfil do Gerenciador de Tráfego, usando [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). O comando a seguir exibe as categorias registradas em log para um recurso.
+      Verifique as configurações de diagnóstico para o perfil do Gerenciador de Tráfego, usando [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). O comando a seguir exibe as categorias registradas em log para um recurso.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Assegure-se de que todas as categorias de log associadas ao recurso de perfil do Gerenciador de Tráfego sejam exibidas como habilitadas. Além disso, verifique se a conta de armazenamento está configurada corretamente.
 

@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 35d447fb7024b8be0bd427305b9e43fa60b1a90d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223180"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245126"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
@@ -58,7 +58,7 @@ Ao escolher seu limite, tenha em mente o equilíbrio entre Precisão e Cobertura
 > As versões mais recentes do QnA Maker incluem melhorias na lógica de pontuação e poderão afetar seu limite. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limite, se necessário. Você pode verificar a versão do Serviço QnA [aqui](https://www.qnamaker.ai/UserSettings) e saber como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
-Para melhorar a pontuação de confiança de uma resposta específica a uma consulta de usuário, você poderá adicionar a consulta do usuário à base de dados de conhecimento como uma pergunta alternativa na resposta. Você também pode usar as [alterações do word](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) para adicionar sinônimos a palavras-chave em sua base de conhecimento.
+Para melhorar a pontuação de confiança de uma resposta específica a uma consulta de usuário, você poderá adicionar a consulta do usuário à base de dados de conhecimento como uma pergunta alternativa na resposta. Você também pode usar [alterações de palavra](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) que não diferenciam maiúsculas de minúsculas para adicionar sinônimos a palavras-chave em sua base de conhecimento.
 
 
 ## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes
@@ -66,8 +66,9 @@ Quando várias respostas tiverem uma pontuação de confiança semelhante, é pr
 
 
 ## <a name="confidence-score-differences"></a>Diferenças de pontuação de confiança
-A pontuação de confiança de resposta pode alterar pouco entre o teste e a versão publicada da base de dados de conhecimento, mesmo se o conteúdo for o mesmo. Isso ocorre porque o conteúdo do teste e a base de dados de conhecimento publicada estão localizados em diferentes índices do Azure Search.
-Veja aqui como funciona a operação [publicar](../How-To/publish-knowledge-base.md).
+A pontuação de confiança de resposta pode alterar pouco entre o teste e a versão publicada da base de dados de conhecimento, mesmo se o conteúdo for o mesmo. Isso ocorre porque o conteúdo do teste e a base de dados de conhecimento publicada estão localizados em diferentes índices do Azure Search. Ao publicar uma base de dados de conhecimento, o conteúdo de perguntas e respostas base de dados de conhecimento é movido do índice de teste para um índice de produção no Azure Search. Veja como funciona a operação [publicar](../How-To/publish-knowledge-base.md).
+
+Se você tiver uma base de conhecimento em regiões diferentes, cada região usa seu próprio índice do Azure Search. Como índices diferentes são usados, as pontuações não serão exatamente as mesmas. 
 
 
 ## <a name="no-match-found"></a>Nenhuma correspondência encontrada

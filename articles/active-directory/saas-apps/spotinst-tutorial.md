@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Spotinst | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Spotinst | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Spotinst.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 7edf1cbc5cc351e25a9ae7b319768376ea9968a3
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266678"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173650"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: Integração do Active Directory do Azure com o Spotinst
+# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: Integração do Azure Active Directory com o Spotinst
 
 Neste tutorial, você aprenderá como integrar o Spotinst ao Azure AD (Azure Active Directory).
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com Spotinst, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura habilitada para logon único do Spotinst
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Spotinst da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único Spotinst domínio e URLs](./media/spotinst-tutorial/tutorial_spotinst_url1.png)
 
-    a. Marque **Mostrar configurações de URL avançadas**.
+     a. Marque **Mostrar configurações de URL avançadas**.
 
     b. No **estado de retransmissão** caixa de texto, digite um valor: `<ID>`
 
@@ -128,7 +129,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | Nome | user.givenname |
     | Sobrenome | user.surname |
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/spotinst-tutorial/tutorial_attribute_04.png)
 
@@ -160,7 +161,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Segurança Spotinst](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
-    a. Copie o valor **Estado do retransmissor** da sua instância e cole-o na caixa de texto **Estado do retransmissão** na seção **Domínio Spotinst e URLs** no portal do Azure.
+     a. Copie o valor **Estado do retransmissor** da sua instância e cole-o na caixa de texto **Estado do retransmissão** na seção **Domínio Spotinst e URLs** no portal do Azure.
 
     b. Clique em **PROCURAR** para carregar o arquivo xml de metadados que você baixou do portal do Azure
 
@@ -204,7 +205,7 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Spotinst.
 
 1. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
-   a. Em uma janela diferente do navegador da Web, efetue login no Spotinst como um administrador de segurança.
+    a. Em uma janela diferente do navegador da Web, efetue login no Spotinst como um administrador de segurança.
 
    b. Clique no **ícone do usuário** no canto superior direito da tela e clique **configurações**.
 
@@ -261,7 +262,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Spotinst no Painel de Acesso, você deve entrar automaticamente no aplicativo Spotinst.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

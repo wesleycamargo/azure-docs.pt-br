@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24a12c9144535fecd23be432ee33402eb6528b28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8f18fbabe52c9170cde70900933ce96a3a6400c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410916"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984334"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -54,7 +54,7 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 **Resolução**
 
-Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), disponível localmente, com a mesma configuração usada para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
+Para resolver ambos os erros, use o [Add-AzVhd para carregar o VHD original](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponível localmente, com a mesma configuração usada para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
 
 **Erros de captura:**
 

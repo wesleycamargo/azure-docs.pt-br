@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817615"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242797"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -34,6 +34,10 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="february-2019"></a>fevereiro de 2019
+
+Os Serviços de Mídia v3 agora têm suporte nas nuvens nacionais do Azure. Nem todos os recursos estão disponíveis em todas as nuvens. Para obter mais detalhes, confira [Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem](azure-clouds-regions.md).
+
 ## <a name="january-2019"></a>Janeiro de 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Arquivos do Media Encoder Standard e MPI 
@@ -46,7 +50,7 @@ Você não deve modificar nem remover o arquivo MPI, nem usar qualquer dependên
 
 As atualizações da versão disponível ao público geral da API V3 incluem:
        
-* As propriedades **PresentationTimeRange** não são mais necessárias para **AssetFilters** e **AccountFilters**. 
+* As propriedades **PresentationTimeRange** não são mais “obrigatórias” para **Filtros de Ativo** e **Filtros de Conta**. 
 * As opções de consulta $top e $skip para **Trabalhos** e **Transformações** foram removidas e $orderby foi adicionado. Como parte da adição da nova funcionalidade de ordenação, foi descoberto que as opções $top e $skip acidentalmente tinham sido expostas anteriormente, embora não tenham sido implementadas.
 * A extensibilidade da enumeração foi reabilitada. Esse recurso estava habilitado nas versões prévias do SDK e foi acidentalmente desabilitado na versão disponível ao público geral.
 * Duas políticas predefinidas de transmissão foram renomeadas. **SecureStreaming** agora é **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** agora é **Predefined_MultiDrmStreaming**.
@@ -67,7 +71,7 @@ O módulo de CLI 2.0 agora está disponível para [serviços de mídia do Azure 
 - [ams AZ saída ao vivo](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [AZ ams streaming-ponto de extremidade](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [AZ ams-localizador de streaming](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [mru de conta do ams AZ](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -permite que você gerencie as unidades reservadas de mídia
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – permite que você gerencie Unidades Reservadas para Mídia. Para obter mais informações, confira [Dimensionar Unidades Reservadas para Mídia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Novos recursos e alterações de quebra
 
@@ -141,7 +145,7 @@ As seguintes atualizações de codificação ao vivo são apresentadas:
 - Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
 - Ingestão segura de RTMPS.
 
-    Ao criar um LiveEvent, você recebe 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS. 
+    Ao criar um evento ao vivo, você receberá quatro URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS. 
 - Suporte de transcodificação 24 horas por dia. 
 - Suporte aprimorado de sinalização de anúncio no RTMP via SCTE35.
 
@@ -149,7 +153,7 @@ As seguintes atualizações de codificação ao vivo são apresentadas:
 
 É possível ver os seguintes aprimoramentos de suporte à Grade de Eventos:
 
-- Integração Azure EventGrid para facilitar o desenvolvimento com Aplicativos Lógicos e Azure Functions. 
+- Integração à Grade de Eventos do Azure para facilitar o desenvolvimento com os Aplicativos Lógicos e o Azure Functions. 
 - Inscreva-se para eventos sobre Codificação, Canais ao vivo, e muito mais.
 
 ### <a name="cmaf-support"></a>Suporte CMAF
@@ -179,11 +183,11 @@ Se você criou Ativos ou Filtros de Conta entre 09/28 e 10/12 com CLI ou APIs do
 Os recursos a seguir estão presentes no SDK .NET:
 
 * **Transformações** e **Trabalhos** para codificar ou analisar o conteúdo de mídia. Para obter exemplos, consulte [Transmitir arquivos por stream](stream-files-tutorial-with-api.md) e [Analisar](analyze-videos-tutorial-with-api.md).
-* **StreamingLocators** para publicar e transmitir conteúdo aos dispositivos do usuário final
-* **StreamingPolicies** e **ContentKeyPolicies** para configurar a distribuição de chaves e a proteção de conteúdo (DRM) durante a entrega de conteúdo.
-* **LiveEvents** e **LiveOutputs** para configurar a ingestão e arquivamento de conteúdo de transmissão ao vivo.
+* **Localizadores de streaming** para publicar e transmitir conteúdo aos dispositivos do usuário final
+* **Políticas de streaming** e **Políticas de chave de conteúdo** para configurar a distribuição de chaves e o DRM (gerenciamento de direitos digitais) durante a entrega de conteúdo.
+* **Eventos ao vivo** e **Saídas ao vivo** para configurar a ingestão e o arquivamento de conteúdo de transmissão ao vivo.
 * **Ativos** para armazenar e publicar o conteúdo de mídia no Armazenamento do Azure. 
-* **StreamingEndpoints** para configurar e dimensionar o empacotamento dinâmico, criptografia e streaming de conteúdo de mídia ao vivo e sob demanda.
+* **Pontos de extremidade de streaming** para configurar e dimensionar o empacotamento dinâmico, a criptografia e o streaming de conteúdo de mídia ao vivo e sob demanda.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 

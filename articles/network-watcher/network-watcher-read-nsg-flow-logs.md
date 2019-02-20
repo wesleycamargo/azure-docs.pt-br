@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7c35961894cbc8fb33f15b36910021f8ad38fac8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976385"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112692"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -185,6 +185,6 @@ Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem preci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Acesse [Visualizar logs de fluxo NSG do Observador de rede do Azure usando ferramentas de software livre](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) para saber mais sobre outras maneiras de exibir os logs de fluxo NSG.
+Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem da Função do Azure de Software Livre para consumir os blobs diretamente e emiti-los a vários consumidores de análise de log pode ser encontrada aqui: [Conector de logs de fluxo NSG do Observador de Rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Para saber mais sobre blobs de armazenamento, visite: [Associações de armazenamento de Blobs do Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

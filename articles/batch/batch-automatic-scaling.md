@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729993"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869085"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático para expandir nós de computação em um pool do Lote
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Ao criar um pool habilitado para autoescala não especifique o parâmetro _targetDedicatedComputeNodes_ ou o parâmetro _targetLowPriorityComputeNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** no pool. Os valores para essas propriedades determinam o número de destino de cada tipo de nó. Além disso, para redimensionar manualmente um pool habilitado para autoescala (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primeiro **desabilite** o dimensionamento automático no pool e, em seguida, redimensione-o.
+> Ao criar um pool habilitado para autoescala não especifique o parâmetro _targetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** no pool. Os valores para essas propriedades determinam o número de destino de cada tipo de nó. Além disso, para redimensionar manualmente um pool habilitado para autoescala (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primeiro **desabilite** o dimensionamento automático no pool e, em seguida, redimensione-o.
 >
 >
 
@@ -412,7 +412,7 @@ Ao habilitar o dimensionamento automático em um pool existente, lembre-se dos s
   * Se você omitir a fórmula de autoescala ou o intervalo de avaliação, o serviço de Lote continuará a usar o valor atual da configuração.
 
 > [!NOTE]
-> Se você especificou valores para os parâmetros *targetDedicatedComputeNodes* ou *targetLowPriorityComputeNodes* do método **CreatePool** quando criou o pool em .NET ou para os parâmetros comparáveis em outra linguagem, então, esses valores serão ignorados quando a fórmula de dimensionamento automático for avaliada.
+> Se você especificou valores para os parâmetros *targetDedicatedNodes* ou *targetLowPriorityNodes* do método **CreatePool** quando criou o pool em .NET ou para os parâmetros comparáveis em outra linguagem, então, esses valores serão ignorados quando a fórmula de dimensionamento automático for avaliada.
 >
 >
 

@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901183"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980101"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
+
+> [!IMPORTANT]
+> Os detalhes para a criação de um alerta usando um modelo do Gerenciador de Recursos estão desatualizados, agora que os [alertas do Log Analytics foram estendidos para o Azure Monitor](../platform/alerts-extend.md). Para obter detalhes sobre como criar um alerta de log com um modelo do Gerenciador de Recursos, consulte [Gerenciando alertas de log usando o modelo do Azure Resource](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.
@@ -122,9 +125,9 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Habilitado       | SIM | Especifica se o alerta está habilitado quando ele é criado. |
-| intervalo      | SIM | A frequência com a consulta é executada em minutos. |
-| queryTimeSpan | SIM | Período de tempo em minutos no qual avaliar resultados. |
+| Habilitado       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
+| intervalo      | Sim | A frequência com a consulta é executada em minutos. |
+| queryTimeSpan | Sim | Período de tempo em minutos no qual avaliar resultados. |
 
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
 
@@ -180,10 +183,10 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Type | SIM | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
-| NOME | SIM | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| Type | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
+| NOME | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | DESCRIÇÃO | Não  | Descrição opcional do alerta. |
-| Severidade | SIM | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
+| Severidade | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
 
 
 #### <a name="threshold"></a>Limite
@@ -191,8 +194,8 @@ Esta seção é necessária. Define as propriedades para o limite de alerta.
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Operador | SIM | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | SIM | O valor para comparar os resultados. |
+| Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| Valor | Sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
@@ -202,9 +205,9 @@ Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| TriggerCondition | SIM | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
-| Operador | SIM | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | SIM | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
+| TriggerCondition | Sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
+| Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| Valor | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação
@@ -221,7 +224,7 @@ O usuário que tiver estendido seus alertas ao Azure tem uma agenda que deve ter
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| AzNsNotification | SIM | A ID de recurso do grupo de ações do Azure a ser associada ao alerta para tomar as ações necessárias quando os critérios de alerta são atendidos. |
+| AzNsNotification | Sim | A ID de recurso do grupo de ações do Azure a ser associada ao alerta para tomar as ações necessárias quando os critérios de alerta são atendidos. |
 | CustomEmailSubject | Não  | A linha do assunto personalizada do email enviado para todos os endereços especificados no grupo de ação associado. |
 | CustomWebhookPayload | Não  | Conteúdo personalizado a ser enviado a todos os pontos de extremidade de webhook definidos no grupo de ações associado. O formato depende do que está o webhook está esperando e deve ser um JSON válido serializado. |
 
@@ -237,8 +240,8 @@ Cada agenda tem uma ação **Alerta**. Isso define os detalhes do alerta e, opci
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Destinatários | SIM | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Assunto | SIM | Linha de assunto do email. |
+| Destinatários | Sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Assunto | Sim | Linha de assunto do email. |
 | Anexo | Não  | Anexos não são atualmente suportados. Se este elemento for incluído, ele deve ser **nenhum**. |
 
 ##### <a name="remediation"></a>Correção
@@ -246,8 +249,8 @@ Esta seção é opcional. Inclua-a se desejar que um runbook seja iniciado em re
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| RunbookName | SIM | Nome do runbook para iniciar. |
-| WebhookUri | SIM | URI do webhook para o runbook. |
+| RunbookName | Sim | Nome do runbook para iniciar. |
+| WebhookUri | Sim | URI do webhook para o runbook. |
 | Expiry | Não  | Data e hora em que a correção expira. |
 
 ##### <a name="webhook-actions"></a>Ações de Webhook
@@ -276,9 +279,9 @@ As propriedades de recursos de ação do Webhook são descritas nas tabelas a se
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Tipo | SIM | Tipo da ação. Isso é **Webhook** para ações de webhook. |
-| Nome | SIM | Nome de exibição para a ação. Isso não é exibido no console. |
-| webhookUri | SIM | URI para o webhook. |
+| Tipo | Sim | Tipo da ação. Isso é **Webhook** para ações de webhook. |
+| Nome | Sim | Nome de exibição para a ação. Isso não é exibido no console. |
+| webhookUri | Sim | URI para o webhook. |
 | customPayload | Não  | Carga personalizada a ser enviada para o webhook. O formato depende do que o webhook está esperando. |
 
 ## <a name="sample"></a>Amostra

@@ -4,23 +4,25 @@ description: Use este artigo para ajudá-lo a planejar, gerar e transferir as su
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693877"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238106"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para garantia extra, ao usar o Cofre da Chave do Azure, você pode importar ou gerar chaves em módulos de segurança de hardware (HSM) que nunca extrapolam o limite do HSM. Normalmente, este cenário é conhecido como *Trazer a sua própria chave*ou BYOK. Os HSMs têm certificação FIPS 140-2 Nível 2. O Cofre da Chave do Azure usa a família Thales nShield de HSMs para proteger as suas chaves.
 
@@ -30,7 +32,7 @@ Essa funcionalidade não está disponível para o Azure China.
 
 > [!NOTE]
 > Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)  
-> Para obter um tutorial de Introdução, que inclui a criação de um Cofre da Chave para chaves de HSM protegido, consulte [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
+> Para obter um tutorial de Introdução, que inclui a criação de um cofre da chaves para chaves de HSM protegido, confira [O que é o Azure Key Vault?](key-vault-overview.md).
 
 Para mais informações sobre como gerar e transferir uma chave de HSM protegido pela Internet:
 
@@ -60,7 +62,7 @@ Consulte a tabela a seguir para obter uma lista de pré-requisitos para o Traga 
 | Uma assinatura do Azure |Para criar um Azure Key Vault, você precisa de uma assinatura do Azure: [Inscreva-se em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | A camada de serviço Premium do Cofre de Chaves do Azure dá suporte a chaves protegidas por HSM |Para obter mais informações sobre os recursos e as camadas de serviço para o Cofre da Chave do Azure, consulte o site [Preços do Cofre da Chave do Azure](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | HSM da Thales, smartcards e software de suporte |Você deve ter acesso a um módulo de segurança de Hardware da Thales e conhecimento operacional básico dos HSMs da Thales. Consulte [Módulo de segurança de Hardware da Thales](https://www.thales-esecurity.com/msrms/buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se você não tiver um. |
-| O hardware e o software a seguir:<ol><li>Uma estação de trabalho x64 offline com, no mínimo, um sistema operacional Windows 7 e software Thales nShield, versão 11.50 ou posterior.<br/><br/>Se essa estação de trabalho executa o Windows 7, você deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está conectada à Internet e tem, no mínimo, um sistema de operacional Windows 7 e o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0), **no mínimo, a versão 1.1.0** instalada.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol> |Por motivos de segurança, é recomendável que a primeira estação de trabalho não seja conectada a uma rede. No entanto, essa recomendação não é programaticamente aplicada.<br/><br/>Nas instruções a seguir, essa estação de trabalho é chamada de estação de trabalho desconectada.</p></blockquote><br/>Além disso, se a chave de locatário destina-se a uma rede de produção, recomendamos que você use uma segunda estação de trabalho separada para baixar o conjunto de ferramentas e carregar a chave de locatário. Porém, para fins de teste, você pode usar a mesma estação de trabalho que o primeiro.<br/><br/>Nas instruções a seguir, essa segunda estação de trabalho é chamada de estação de trabalho conectada à Internet.</p></blockquote><br/> |
+| O hardware e o software a seguir:<ol><li>Uma estação de trabalho x64 offline com, no mínimo, um sistema operacional Windows 7 e software Thales nShield, versão 11.50 ou posterior.<br/><br/>Se essa estação de trabalho executa o Windows 7, você deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está conectada à Internet e tem, no mínimo, um sistema de operacional Windows 7 e o [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0), **no mínimo, a versão 1.1.0** instalada.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol> |Por motivos de segurança, é recomendável que a primeira estação de trabalho não seja conectada a uma rede. No entanto, essa recomendação não é programaticamente aplicada.<br/><br/>Nas instruções a seguir, essa estação de trabalho é chamada de estação de trabalho desconectada.</p></blockquote><br/>Além disso, se a chave de locatário destina-se a uma rede de produção, recomendamos que você use uma segunda estação de trabalho separada para baixar o conjunto de ferramentas e carregar a chave de locatário. Porém, para fins de teste, você pode usar a mesma estação de trabalho que o primeiro.<br/><br/>Nas instruções a seguir, essa segunda estação de trabalho é chamada de estação de trabalho conectada à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Gerar e transferir sua chave para o HSM do Cofre da Chave do Azure
 
@@ -78,21 +80,19 @@ Nessa primeira etapa, siga os procedimentos a seguir em sua estação de trabalh
 
 ### <a name="step-11-install-azure-powershell"></a>Etapa 1.1: Instalar o Azure PowerShell
 
-Na estação de trabalho conectada à Internet, baixe e instale o módulo do Azure PowerShell que inclui os cmdlets para gerenciar o Cofre da Chave do Azure. Isso requer uma versão mínima do 0.8.13.
-
-Para obter instruções de instalação, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Na estação de trabalho conectada à Internet, baixe e instale o módulo do Azure PowerShell que inclui os cmdlets para gerenciar o Cofre da Chave do Azure. Para obter instruções de instalação, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Etapa 1.2: Obter sua ID de assinatura do Azure
 
 Inicie uma sessão do Azure PowerShell e entre em sua conta do Azure usando o seguinte comando:
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. Em seguida, use o comando [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) :
+Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. Em seguida, use o comando [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 Na saída, localize a ID para a assinatura que você usará para o Cofre da Chave do Azure. Você precisará dessa ID da assinatura mais tarde.
 
@@ -246,7 +246,6 @@ Copie o pacote do conjunto de ferramentas BYOK da unidade USB ou outro armazenam
 
 Para a terceira etapa, execute os seguintes procedimentos na estação de trabalho desconectada. Para concluir esta etapa, o HSM deve estar no modo de inicialização. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Etapa 3.1: Alterar o modo HSM para 'I'
 
 Se você estiver usando o nShield Edge da Thales, para alterar o modo: 1. Use o botão Modo para realçar o modo solicitado. 2. Em poucos segundos, pressione e mantenha pressionado o botão Limpar por alguns segundos. Se o modo for alterado, o LED do novo modo parará de piscar e permanecerá aceso. O LED de Status poderá piscar de forma irregular por alguns segundos e, em seguida, piscar com regularidade quando o dispositivo estiver pronto. Caso contrário, o dispositivo permanecerá no modo atual, com o LED do modo apropriado aceso.
@@ -256,13 +255,13 @@ Se você estiver usando o nShield Edge da Thales, para alterar o modo: 1. Use o 
 Inicie um prompt de comando e execute o programa do novo universo da Thales.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Este programa cria um arquivo **Universo de Segurança** em %NFAST_KMDATA%\local\world, que corresponde à pasta C:\ProgramData\nCipher\Key Management Data\local. É possível usar valores diferentes para o quorum, mas, no nosso exemplo, você será solicitado a inserir três cartões em branco e pins para cada um deles. Em seguida, os dois cartões darão acesso completo ao universo de segurança. Esses cartões se tornam o **Conjunto de Cartões do Administrador** para o novo universo de segurança.
 
 > [!NOTE]
-> Se o seu HSM dá suporte ao conjunto de codificação mais recente DLf3072s256mRijndael, você pode substituir --cipher-suite=DLf1024s160mRijndael por --cipher-suite=DLf3072s256mRijndael
+> Se o seu HSM não oferece suporte ao conjunto de codificação mais recente DLf3072s256mRijndael, você pode substituir --cipher-suite= DLf3072s256mRijndael por --cipher-suite=DLf1024s160mRijndael
 
 Faremos o seguinte:
 
@@ -493,14 +492,14 @@ Use uma unidade USB ou outro armazenamento portátil para copiar o arquivo de sa
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Etapa 5: Transferir sua chave para o Azure Key Vault
 
-Para essa etapa final, na estação de trabalho conectada à Internet, use o cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) para carregar o pacote de transferência de chave que você copiou da estação de trabalho desconectada para o HSM do Cofre de Chaves do Azure:
+Para essa etapa final, na estação de trabalho conectada à Internet, use o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para carregar o pacote de transferência de chave que você copiou da estação de trabalho desconectada para o HSM do Azure Key Vault:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que você acabou de adicionar.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md) .
+Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-overview.md) .

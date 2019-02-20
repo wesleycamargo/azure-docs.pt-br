@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7801b5ea73cf94439ae2974f91d2032f9bf8a3b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040398"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Azure Active Directory com o Nimblex
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD com o Nimblex, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure AD
 - Uma assinatura do Nimblex habilitada para logon único
 
 > [!NOTE]
@@ -49,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Nimblex da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -107,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de Domínio e URLs do Nimblex para logon único](./media/nimblex-tutorial/tutorial_nimblex_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/`
 
@@ -146,9 +147,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![SAML do Nimblex](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
-    a. Na caixa de texto **Descrição**, digite o nome da instância.
+     a. Na caixa de texto **Descrição**, digite o nome da instância.
 
-    b. No Bloco de Notas, abra o certificado codificado em Base 64 baixado do portal do Azure, copie o conteúdo e cole-o na caixa **Certificado**.
+    b. No Bloco de Notas, abra o certificado codificado em base 64 baixado no portal do Azure, copie o conteúdo e cole-o na caixa **Certificado** .
 
     c. Na caixa de texto **URL de Destino de SSO do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
@@ -191,7 +192,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Nimblex. O Nimblex dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Caso ainda não exista um usuário, ele será criado durante uma tentativa de acessar o Nimblex.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao cliente do Nimblex](mailto:support@ebms.com.au).
+>Se você precisar criar um usuário manualmente, contate a  [equipe de suporte ao Cliente do Nimblex](mailto:support@ebms.com.au).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -228,7 +229,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Nimblex no Painel de Acesso, você será conectado automaticamente ao aplicativo Nimblex.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

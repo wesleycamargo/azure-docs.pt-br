@@ -4,7 +4,7 @@ description: Esta especificação descreve o protocolo e o formato para ingestã
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228871"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984827"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Especificação de ingestão dinâmica de MP4 fragmentada com Serviços de Mídia do Azure (herança)
+
 Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para os Serviços de Mídia do Azure. Os Serviços de Mídia fornecem um serviço de transmissão ao vivo, que os clientes podem usar para transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas para criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
 
 ## <a name="1-conformance-notation"></a>1. Notação de conformidade
@@ -82,17 +83,17 @@ Vídeo – 3000 kbps, 1500 kbps, 750 kbps
 
 Áudio – 128 kbps
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Opção 1: Todas as faixas em um fluxo
+### <a name="option-1-all-tracks-in-one-stream"></a>Opção 1: Todas as faixas em um streaming
 Nessa opção, um único codificador gera todas as faixas de áudio/vídeo e, em seguida, empacota-los em um fluxo de bits MP4 fragmentado. O fluxo de bits MP4 fragmentado é enviado por meio de uma única conexão de HTTP POST. Neste exemplo, há apenas um fluxo para esta apresentação ao vivo.
 
 ![Fluxos de uma faixa][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>Opção 2: Cada faixa em um fluxo separado
+### <a name="option-2-each-track-in-a-separate-stream"></a>Opção 2: Cada faixa em um streaming separado
 Nessa opção, os codificadores colocam uma faixa em cada fluxo de bits MP4 fragmentado e postam todos os fluxos em conexões HTTP separadas. Isso pode ser feito com um codificador ou com vários codificadores. A ingestão dinâmica enxerga esta apresentação ao vivo como sendo composta por quatro fluxos.
 
 ![Fluxos de faixas separadas][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Opção 3: Agrupar faixas de áudio com a faixa de vídeo de taxa de bits mais baixa em um fluxo
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Opção 3: Agrupar faixas de áudio com a faixa de vídeo com menor taxa de bits em um streaming
 Nessa opção, o cliente escolhe agrupar a faixa de áudio com a faixa de vídeo de taxa de bits mais baixa em um único fluxo de bits MP4 fragmentado e deixar as outras duas faixas de vídeo como fluxos separados. 
 
 ![Fluxos com faixas de áudio e vídeo][image4]
@@ -111,7 +112,7 @@ Nesta seção, abordamos os cenários de failover de serviço. Nesse caso, a fal
 1. É recomendável que o codificador NÃO limite o número de tentativas para estabelecer uma conexão ou retomar o streaming após a ocorrência de um erro TCP.
 1. Após um erro TCP:
   
-    a. A conexão atual DEVERÁ ser fechada e uma nova conexão DEVERÁ ser criada para uma nova solicitação HTTP POST.
+     a. A conexão atual DEVERÁ ser fechada e uma nova conexão DEVERÁ ser criada para uma nova solicitação HTTP POST.
 
     b. A nova URL de HTTP POST DEVERÁ ser a mesma URL do POST inicial.
   
@@ -161,7 +162,7 @@ As etapas a seguir são uma implementação recomendada para ingestão de faixa 
 1. Em **Live Server Manifest Box**, **manifestOutput** DEVE ser definido como **true**.
 1. Devido à natureza esparsa do evento de sinalização, recomendamos o seguinte:
    
-    a. No início do evento ao vivo, o codificador envia as caixas de cabeçalho inicial ao serviço, o que permite ao serviço registrar a faixa esparsa no manifesto do cliente.
+     a. No início do evento ao vivo, o codificador envia as caixas de cabeçalho inicial ao serviço, o que permite ao serviço registrar a faixa esparsa no manifesto do cliente.
    
     b. O codificador DEVE encerrar a solicitação HTTP POST quando os dados não estiverem sendo enviados. Um HTTP POST de execução longa que não envia dados pode impedir que os Serviços de Mídia se desconectem rapidamente do codificador no caso de uma atualização de serviço ou reinicialização do servidor. Nesses casos, o servidor de mídia está temporariamente bloqueado em uma operação de recebimento no soquete.
    

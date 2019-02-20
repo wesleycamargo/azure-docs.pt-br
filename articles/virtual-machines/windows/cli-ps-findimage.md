@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
-ms.openlocfilehash: 7a300826db512a813282eea71d2e898f0221a977
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 394cd1d7f6b806a49c2de471647fd16ba4451d5c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077736"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978492"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontre imagens de VMs do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -28,7 +28,7 @@ Este tópico descreve como usar o Azure PowerShell para localizar imagens de VM 
 
 Você também pode procurar imagens e ofertas disponíveis usando a vitrine do [Azure Marketplace](https://azuremarketplace.microsoft.com/), o [portal do Azure](https://portal.azure.com) ou a [CLI do Azure](../linux/cli-ps-findimage.md). 
 
-Verifique se você instalou e configurou o módulo do [Azure PowerShell mais recente](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -53,49 +53,49 @@ Essa tabela mostra um subconjunto do Skus disponível aos Publicadores e Ofertas
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens
 
-Uma maneira de localizar uma imagem em um local é executar os cmdlets [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) e [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) na ordem:
+Uma maneira de localizar uma imagem em um local é executar os cmdlets [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) e [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) na ordem:
 
 1. Liste os editores de imagem.
 2. Para um determinado editor, liste suas ofertas.
 3. Para uma determinada oferta, liste seus SKUs.
 
-Em seguida, para uma SKU selecionada, execute [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) para listar as versões para implantar.
+Em seguida, para uma SKU escolhida, execute [Get-AzVMImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimage) para listar as versões para implantar.
 
 1. Lista os editores:
 
     ```powershell
     $locName="<Azure location, such as West US>"
-    Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+    Get-AzVMImagePublisher -Location $locName | Select PublisherName
     ```
 
 2. Preencha o nome do editor escolhido e liste as ofertas:
 
     ```powershell
     $pubName="<publisher>"
-    Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+    Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
     ```
 
 3. Preencha o nome da oferta escolhida e listar os SKUs:
 
     ```powershell
     $offerName="<offer>"
-    Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+    Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
     ```
 
 4. Preencha o nome da SKU escolhida e obter a versão da imagem:
 
     ```powershell
     $skuName="<SKU>"
-    Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+    Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
-
-Na saída do comando `Get-AzureRMVMImage`, você pode selecionar uma imagem de versão para implantar uma nova máquina virtual.
+    
+Na saída do comando `Get-AzVMImage`, você pode selecionar uma imagem de versão para implantar uma nova máquina virtual.
 
 O exemplo a seguir mostra a sequência completa de comandos e suas saídas:
 
 ```powershell
 $locName="West US"
-Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+Get-AzVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 Resultado parcial:
@@ -126,7 +126,7 @@ Para o editor *MicrosoftWindowsServer*:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
-Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 Saída:
@@ -143,7 +143,7 @@ Para a oferta de *WindowsServer*:
 
 ```powershell
 $offerName="WindowsServer"
-Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
 Resultado parcial:
@@ -173,11 +173,11 @@ Skus
 Em seguida, para a SKU *2019-Datacenter*:
 
 ```powershell
-$skuName="2019-Datacenter"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+$skuName="2016-Datacenter"
+Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Agora você pode combinar o editor, a oferta, a SKU e a versão selecionados em um URN (valores separados por :). Passe esse URN com o parâmetro `--image` quando criar uma VM com o cmdlet [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Opcionalmente, você pode substituir o número da versão no URN por "latest" para obter a versão mais recente da imagem.
+Agora você pode combinar o editor, a oferta, a SKU e a versão selecionados em um URN (valores separados por :). Passe esse URN com o parâmetro `--image` quando criar uma VM com o cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Opcionalmente, você pode substituir o número da versão no URN por "latest" para obter a versão mais recente da imagem.
 
 Se você implantar uma VM com um modelo do Resource Manager, definirá os parâmetros da imagem individualmente nas propriedades `imageReference`. Consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -185,13 +185,13 @@ Se você implantar uma VM com um modelo do Resource Manager, definirá os parâm
 
 ### <a name="view-plan-properties"></a>Exibir propriedades de plano
 
-Para exibir as informações do plano de compra de uma imagem, execute o cmdlet `Get-AzureRMVMImage`. Se a propriedade `PurchasePlan` na saída não for `null`, isso significa que a imagem tem termos que você precisa aceitar antes da implantação programática.  
+Para exibir as informações do plano de compra de uma imagem, execute o cmdlet `Get-AzVMImage`. Se a propriedade `PurchasePlan` na saída não for `null`, isso significa que a imagem tem termos que você precisa aceitar antes da implantação programática.  
 
 Por exemplo, a imagem do *Windows Server 2016 Datacenter* não tem termos adicionais, portanto, as informações de `PurchasePlan`são`null`:
 
 ```powershell
-$version = "2019.0.20190115"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
+$version = "2016.127.20170406"
+Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
 Saída:
@@ -216,7 +216,7 @@ DataDiskImages   : []
 O exemplo abaixo mostra um comando semelhante para a imagem da *Máquina Virtual de Ciência de Dados - Windows 2016*, que possui as seguintes `PurchasePlan` propriedades: `name`, `product` e `publisher`. Algumas imagens também têm um `promotion code` propriedade. Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e ativar a implantação programática.
 
 ```powershell
-Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "19.01.14"
+Get-AzVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
 Saída:
@@ -244,10 +244,10 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>Aceitar os termos
 
-Para exibir os termos da licença, use o cmdlet [Get-AzureRmMarketplacetermsGet-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) e passe os parâmetros do plano de compra. A saída fornece um link para os termos da imagem do Marketplace e mostra se você aceitou os termos anteriormente. Certifique-se de usar todas as letras minúsculas nos valores de parâmetros.
+Para exibir os termos da licença, use o cmdlet [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) e passe os parâmetros do plano de compra. A saída fornece um link para os termos da imagem do Marketplace e mostra se você aceitou os termos anteriormente. Certifique-se de usar todas as letras minúsculas nos valores de parâmetros.
 
 ```powershell
-Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
+Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 ```
 
 Saída:
@@ -263,12 +263,12 @@ Accepted          : False
 Signdate          : 1/25/2019 7:43:00 PM
 ```
 
-Use o cmlet [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) para aceitar ou rejeitar os termos. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Certifique-se de usar todas as letras minúsculas nos valores de parâmetros. 
+Use o cmlet [Set-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/set-azmarketplaceterms) para aceitar ou rejeitar os termos. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Certifique-se de usar todas as letras minúsculas nos valores de parâmetros. 
 
 ```powershell
-$agreementTerms=Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
+$agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 
-Set-AzureRmMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
+Set-AzMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
 ```
 
 Saída:
@@ -287,12 +287,12 @@ Signdate          : 2/23/2018 7:49:31 PM
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Implantar usando os parâmetros de plano de compra
 
-Depois de aceitar os termos de uma imagem, você pode implantar uma VM nessa assinatura. Conforme mostrado no snippet a seguir, use o cmdlet [Set-AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) para definir as informações do plano do Marketplace para o objeto da VM. Para obter um script completo criar configurações de rede para a VM e concluir a implantação, consulte os [exemplos de script do PowerShell](powershell-samples.md).
+Depois de aceitar os termos de uma imagem, você pode implantar uma VM nessa assinatura. Conforme mostrado no snippet a seguir, use o cmdlet [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) para definir as informações do plano do Marketplace para o objeto da VM. Para obter um script completo criar configurações de rede para a VM e concluir a implantação, consulte os [exemplos de script do PowerShell](powershell-samples.md).
 
 ```powershell
 ...
 
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize Standard_D1
+$vmConfig = New-AzVMConfig -VMName "myVM" -VMSize Standard_D1
 
 # Set the Marketplace plan information
 
@@ -302,11 +302,11 @@ $productName = "windows-data-science-vm"
 
 $planName = "windows2016"
 
-$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
+$vmConfig = Set-AzVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
 
 $cred=Get-Credential
 
-$vmConfig = Set-AzureRmVMOperatingSystem -Windows -VM $vmConfig -ComputerName "myVM" -Credential $cred
+$vmConfig = Set-AzVMOperatingSystem -Windows -VM $vmConfig -ComputerName "myVM" -Credential $cred
 
 # Set the Marketplace image
 
@@ -316,14 +316,15 @@ $skuName = "windows2016"
 
 $version = "19.01.14"
 
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
+$vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
 ```
-Em seguida, você passará a configuração da VM junto com os objetos de configuração de rede para o cmdlet `New-AzureRmVM`.
+Em seguida, você passará a configuração da VM junto com os objetos de configuração de rede para o cmdlet `New-AzVM`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para criar uma máquina virtual rapidamente com o cmdlet `New-AzureRmVM` usando informações básicas de imagem, consulte [Criar uma máquina virtual do Windows com o PowerShell](quick-create-powershell.md).
+Para criar uma máquina virtual rapidamente com o cmdlet `New-AzVM` usando informações básicas de imagem, consulte [Criar uma máquina virtual do Windows com o PowerShell](quick-create-powershell.md).
+
 
 Veja um exemplo de script do PowerShell para [criar uma máquina virtual totalmente configurada](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 

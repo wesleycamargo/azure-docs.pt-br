@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/13/2019
+ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511814"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243822"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Níveis de serviço do Banco de Dados SQL do Azure
 
 Banco de dados SQL do Azure baseia-se na arquitetura de mecanismo de banco de dados do SQL Server que é ajustada para o ambiente de nuvem para garantir a disponibilidade de 99,99%, até mesmo no caso de falhas de infraestrutura. Há três modelos de arquitetura que são usados no Banco de Dados SQL do Azure:
+
 - [Uso geral](sql-database-service-tier-general-purpose.md), projetado para a maioria das cargas de trabalho genéricas.
 - [Comercialmente crítico](sql-database-service-tier-business-critical.md), projetado para cargas de trabalho de baixa latência com uma réplica de leitura.
 - [Hiperescala](sql-database-service-tier-hyperscale.md), projetado para bancos de dados muito grandes (até 100 TB) com várias réplicas de leitura.
@@ -29,7 +30,7 @@ Banco de dados SQL do Azure baseia-se na arquitetura de mecanismo de banco de da
 Este artigo discute as considerações de armazenamento e backup para as camadas de serviço General Purpose e Business Critical no modelo de compra baseado em vCore.
 
 > [!NOTE]
-> Para obter detalhes sobre a camada de serviço Hyperscale no modelo de compra baseado no vCore, consulte [Nível de serviço Hyperscale](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+> Para obter detalhes sobre a camada de serviço Hyperscale no modelo de compra baseado no vCore, consulte [Nível de serviço Hyperscale](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Armazenamento de dados e de log
 
@@ -40,8 +41,8 @@ Considere o seguinte:
 - Quando você configura o tamanho desejado do banco de dados individual (tamanho de MDF), 30% do armazenamento adicional é automaticamente adicionado para dar suporte a LDF
 - O tamanho do armazenamento na Instância Gerenciada deve ser especificado em múltiplos de 32 GB.
 - É possível selecionar qualquer tamanho de banco de dados individual entre 10 GB e o máximo compatível
-  - Para armazenamento Standard, aumente ou diminua o tamanho em incrementos de 10 GB
-  - Para armazenamento Premium, aumente ou diminua o tamanho em incrementos de 250 GB
+  - Para armazenamento nas camadas de serviço standard ou de uso geral, aumente ou diminua o tamanho em incrementos de 10 GB
+  - Para armazenamento nas camadas de serviço críticas premium ou empresariais, aumente ou diminua o tamanho em incrementos de 250 GB
 - Na camada de serviço de Uso Geral, `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço do vCore.
 - Na camada de serviço Comercialmente Crítico, `tempdb` compartilha o SSD anexado com os arquivos MDF e LDF e o custo de armazenamento tempDB é incluído no preço vCore.
 

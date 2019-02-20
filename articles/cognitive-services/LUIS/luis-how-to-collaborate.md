@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Um proprietário de aplicativo pode adicionar colaboradores ao aplicativo. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217774"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167552"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerenciar autores e colaboradores 
 
@@ -44,14 +44,13 @@ Embora atualmente o LUIS não dê suporte à transferência de propriedade, voc�
 
 ## <a name="azure-active-directory-resources"></a>Recursos do Azure Active Directory
 
-Se você usar o Azure AD (Azure Active Directory) em sua organização, o LUIS precisará de permissão para acessar as informações sobre seus usuários quando eles quiserem usar o LUIS. Os recursos exigidos pelo LUIS são mínimos. 
+Se você usar o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) em sua organização, o Reconhecimento Vocal (LUIS) precisará de permissão para acessar as informações sobre o acesso de seus usuários quando eles quiserem usar o LUIS. Os recursos exigidos pelo LUIS são mínimos. 
 
 Você vê a descrição detalhada ao tentar se inscrever com uma conta que tem consentimento do administrador ou não precisa dele, como o consentimento do administrador:
 
-* Permite que você entre no aplicativo com sua conta organizacional e permite que o aplicativo leia seu perfil. Ele também permite que o aplicativo leia informações básicas da empresa.
-* Permite que o aplicativo veja e atualize seus dados, mesmo quando não estiver usando o aplicativo no momento.
+* Permite que você entre no aplicativo com sua conta organizacional e permite que o aplicativo leia seu perfil. Ele também permite que o aplicativo leia informações básicas da empresa. Isso permite ao LUIS ler dados de perfil básicos, como ID de usuário, email e nome
+* Permite que o aplicativo veja e atualize seus dados, mesmo quando não estiver usando o aplicativo no momento. A permissão é necessária para atualizar o token de acesso do usuário.
 
-A primeira permissão concede permissão ao LUIS para ler dados de perfil básicos, como ID de usuário, email e nome. A segunda permissão é necessária para atualizar o token de acesso do usuário.
 
 ## <a name="azure-active-directory-tenant-user"></a>Usuário de locatário do Azure Active Directory
 
@@ -59,11 +58,8 @@ LUIS usa o fluxo de autorização padrão do Azure Active Directory (Azure AD).
 
 O administrador do locatário deverá trabalhar diretamente com o usuário que precisa de ter o acesso concedido para usar LUIS no Azure AD. 
 
-Primeiro, o usuário faz logon no LUIS e verá a caixa de diálogo pop-up que necessita de aprovação do administrador. O usuário entra em contato com o administrador do locatário antes de continuar. 
-
-Segundo, o administrador do locatário faz logon no LUIS e verá uma caixa de diálogo de pop-up de fluxo de autorização. Esta é a caixa de diálogo que o administrador deve conceder permissão para o usuário. Depois que o administrador aceita a permissão, o usuário pode continuar com o LUIS.
-
-Se o administrador do locatário não fizer logon no LUIS, o administrador pode acessar [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS. 
+* Primeiro, o usuário faz logon no LUIS e verá a caixa de diálogo pop-up que necessita de aprovação do administrador. O usuário entra em contato com o administrador do locatário antes de continuar. 
+* Segundo, o administrador do locatário faz logon no LUIS e verá uma caixa de diálogo de pop-up de fluxo de autorização. Esta é a caixa de diálogo que o administrador deve conceder permissão para o usuário. Depois que o administrador aceita a permissão, o usuário pode continuar com o LUIS. Se o administrador do locatário não fizer logon no LUIS, o administrador pode acessar [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS, mostrado na captura de tela a seguir. Observe que a lista é filtrada para itens que incluem o nome `LUIS`.
 
 ![Permissão do Azure Active Directory pelo website do aplicativo](./media/luis-how-to-collaborate/tenant-permissions.png)
 

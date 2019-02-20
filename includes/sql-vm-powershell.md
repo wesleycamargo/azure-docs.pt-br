@@ -4,26 +4,25 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: mikeray
-ms.openlocfilehash: e81cdb478a63e1e584aef2c32754bd321d245365
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3dc799ecc75589279c8d1c73062a8f2157761330
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52439964"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212920"
 ---
 ## <a name="start-your-powershell-session"></a>Iniciar sua sessão do PowerShell
-Primeiro, você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) mais recente instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
+ 
 
-> [!NOTE]
-> Os exemplos neste tópico usam o [Modelo de implantação do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) e, portanto, usam [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx). 
-> 
-> 
+Execute o cmdlet [**Connect-Az Account**](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount) e você verá uma tela de entrada para inserir suas credenciais. Use as mesmas credenciais que você usa para entrar no Portal do Azure.
 
-Execute o cmdlet [**Connect-AzureRmAccount**](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) e você verá uma tela de entrada para inserir suas credenciais. Use as mesmas credenciais que você usa para entrar no Portal do Azure.
+```powershell
+Connect-AzAccount
+```
 
-    Connect-AzureRmAccount
+Se você tiver várias assinaturas, use o cmdlet [**Set-AzContext**](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) para selecionar qual assinatura sua sessão do PowerShell deve usar. Para ver qual assinatura a sessão atual do PowerShell está usando, execute [**Get-AzContext**](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext). Para ver todas as suas assinaturas, execute [**Get-AzSubscription**](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription).
 
-Se você tiver várias assinaturas, use o cmdlet [**Set-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext) para selecionar qual assinatura sua sessão do PowerShell deve usar. Para ver qual assinatura a sessão atual do PowerShell está usando, execute [**Get-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermcontext). Para ver todas as suas assinaturas, execute [**Get-AzureRmSubscription**](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/get-azurermsubscription).
-
-    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```powershell
+Set-AzContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```
 

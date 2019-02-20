@@ -1,6 +1,6 @@
 ---
-title: Gerenciar sua conta e suas chaves dos Azure Mapas | Microsoft Docs
-description: Você pode usar o portal do Azure para gerenciar sua conta dos Mapas do Azure e gerenciar suas chaves de acesso.
+title: Gerenciar sua conta do Azure Mapas | Microsoft Docs
+description: Você pode usar o portal do Azure para gerenciar sua conta do Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103037"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113678"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Gerenciar sua conta e suas chaves dos Azure Mapas
+# <a name="manage-your-azure-maps-account"></a>Gerenciar sua conta do Azure Mapas
 
-Você pode gerenciar sua conta e chaves dos Mapas do Azure através do portal do Azure. Depois que você tiver uma conta e uma chave, poderá implementar as APIs em seu site ou aplicativo móvel.
+Você pode gerenciar sua conta Azure Mapas através do portal do Azure. Depois que você tiver uma conta, poderá implementar as APIs em seu site ou aplicativo móvel.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,16 +32,6 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 4. Insira as informações para sua nova conta.
 
 ![Inserir as informações da conta no portal](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>Gerenciar chaves na página da conta
-
-Depois de criar uma conta, você obtém duas chaves geradas aleatoriamente. Para recuperar dados de mapa ou criar uma instância de mapa do JavaScript, use as chaves para se autenticar nas APIs dos Azure Mapas.
-
-É possível encontrar suas chaves no Portal do Azure. Navegue para sua conta. Em seguida, selecione **Chaves** no menu.
-
-![Gerenciar chaves de conta no portal](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-Nessa página, você poderá copiar as chaves ou gerar novas.
 
 ## <a name="delete-an-account"></a>Excluir uma conta
 

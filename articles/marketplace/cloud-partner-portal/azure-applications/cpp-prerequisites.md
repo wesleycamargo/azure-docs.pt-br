@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195214"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097783"
 ---
 # <a name="azure-application-prerequisites"></a>Pré-requisitos do Aplicativo Azure
 
-Esse artigo descreve os pré-requisitos técnicos e comerciais para a publicação de uma oferta de aplicativo gerenciado no Azure Marketplace.
+Esse artigo descreve os pré-requisitos técnicos e comerciais para a publicação de uma oferta de aplicativo gerenciado no Azure Marketplace.  Se você já tiver feito isso, veja o vídeo [Compilar modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -36,6 +37,7 @@ Os requisitos técnicos incluem os seguintes itens:
   * [GitHub: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Esse repositório contém todos os modelos do Azure Resource Manager atualmente disponíveis enviados pela comunidade. Um índice de pesquisa de modelo é mantido no https://azure.microsoft.com/en-us/documentation/templates/.
 * Criar uma definição de interface do usuário<br>
 Para obter mais informações, confira [Criar uma interface do usuário do portal do Azure para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Esse artigo apresenta os conceitos básicos do arquivo createUiDefinition.json. O portal do Azure usa este arquivo para gerar a interface do usuário para a criação de um aplicativo gerenciado.
+
 
 ## <a name="business-requirements"></a>Requisitos de negócios
 
@@ -52,7 +54,8 @@ Os requisitos comerciais incluem as seguintes obrigações contratuais, legais e
 * Você é responsável pelo licenciamento do software e quaisquer dependências de software de terceiros.
 * Você deve fornecer conteúdo que atenda aos critérios da oferta a serem listados no Azure Marketplace e no portal do Azure.
 * Você deve concordar com os termos do Contrato de Publicador e Políticas de Participação do Microsoft Azure Marketplace.
-* Você deve estar em conformidade com os Termos de Uso do Site do Microsoft Azure, Microsoft Privacy Statement e Contrato de Programa de Certificação do Microsoft Azure.
+* Você deve estar em conformidade com os Termos de Uso do Site do Microsoft Azure, Declaração de Privacidade da Microsoft e Contrato de Programa de Certificação do Microsoft Azure.
+
 
 ## <a name="publishing-requirements"></a>Publicação de requisitos
 
@@ -62,10 +65,12 @@ Para publicar uma nova oferta do Aplicativo Azure, você deve cumprir os seguint
   * Um título
   * Uma descrição (no formato HTML)
   * Uma imagem de logotipo (no formato PNG) e nesses tamanhos de imagem fixos: 40 x 40 pixels, 90 x 90 pixels, 115 x 115 pixels e 255 x 115 pixels.
-* Termos de Uso e Política de Privacidade
+* *Termos de Uso* e *Política de Privacidade*
 * Documentação
 * Contatos de suporte
 
+
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar uma oferta do Aplicativo Azure](./cpp-create-offer.md) 
+Depois que você cumpriu todos os requisitos, você estará pronto para [criar uma oferta de aplicativo do Azure](./cpp-create-offer.md). 
+ 
