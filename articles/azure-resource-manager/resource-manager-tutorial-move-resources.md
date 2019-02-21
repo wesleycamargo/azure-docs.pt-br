@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107813"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267693"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Tutorial: Mover recursos do Azure para outro grupo de recursos ou assinatura
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Saiba como mover recursos do Azure de um grupo de recursos para outro. Você também pode mover recursos do Azure de uma assinatura do Azure para outra. Neste tutorial, você pode usar um modelo do Resource Manager para implantar dois grupos de recursos e uma conta de armazenamento. Em seguida, mova a conta de armazenamento de um grupo de recursos para outro.
 
@@ -37,8 +35,6 @@ Este tutorial cobre as seguintes tarefas:
 > * Limpe os recursos.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>Preparar os recursos
 
@@ -98,6 +94,8 @@ A operação de validar movimentação permite que você teste seu cenário de m
 ## <a name="move-the-resource"></a>Mover o recurso
 
 A conta de armazenamento está dentro do grupo de recursos de origem (rg1), executar o seguinte script do PowerShell move o recurso para o grupo de recursos de destino (rg2). Use o mesmo nome de projeto usado ao implantar os recursos.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"
