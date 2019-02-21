@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e Python'
+title: 'Início rápido: Detectar rostos em uma imagem com a API REST do Azure e Python'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com Python para detectar faces em uma imagem.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: e0d810e9b0cfd9bd53239308cfd0b6238b988ecc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: db7c3da7d9fff0aa604a73e541be19afc0033a57
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870564"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309023"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Python
 
 Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com Python para detectar faces humanas em uma imagem. O script desenhará quadros em torno de faces e sobreporá as informações de gênero e idade na imagem.
 

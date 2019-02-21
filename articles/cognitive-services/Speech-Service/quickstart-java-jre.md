@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881498"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447575"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Início Rápido: Reconhecimento de fala com o SDK de Fala para Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você criará um aplicativo de console Java usando o [SDK do Serviço de Fala](speech-sdk.md). Você transcreve a fala em texto em tempo real por meio do microfone do computador. O aplicativo é criado com o pacote do Maven do SDK de Fala e o Java IDE do Eclipse (v4.8) no Windows de 64 bits ou no Ubuntu Linux 16.04/18.04 de 64 bits. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
+Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala](speech-sdk.md). Você transcreve a fala em texto em tempo real por meio do microfone do computador. O aplicativo é criado com o pacote do Maven do SDK de Fala e o Java IDE do Eclipse (v4.8) no Windows de 64 bits ou no Ubuntu Linux 16.04/18.04 de 64 bits. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
 > [!NOTE]
 > Para o SDK dos Dispositivos de Fala e o dispositivo Roobo, confira [SDK dos Dispositivos de Fala](speech-devices-sdk.md).
@@ -39,7 +39,7 @@ Se você estiver executando o Ubuntu 16.04/18.04, garanta que essas dependência
 
 ```console
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Se estiver executando o Windows (64 bits), verifique se você instalou os Pacotes Redistribuíveis do Microsoft Visual C++ para sua plataforma.

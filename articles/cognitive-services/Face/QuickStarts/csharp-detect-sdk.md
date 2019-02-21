@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cad8a01ac70e1f75603d275c621b53cf5595577
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860653"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313306"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início Rápido: Detectar faces em uma imagem usando o SDK do .NET de Detecção Facial
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início rápido: Detectar faces em uma imagem usando o SDK do .NET de Detecção Facial
 
 Neste início rápido, você usará o SDK de Detecção Facial com C# para detectar faces em uma imagem. Para obter um exemplo funcional do código neste início rápido, consulte o projeto de Detecção Facial no repositório [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) no GitHub.
 

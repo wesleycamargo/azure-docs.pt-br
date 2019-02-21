@@ -6,14 +6,14 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/11/2018
+ms.date: 02/14/2019
 ms.author: rogarana
-ms.openlocfilehash: 4a8c3a1291faad6b952b5fddacde1ded1f4be7ca
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: c3a85a668a398047e7daef8a2e07be261ff644c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098061"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447473"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Início Rápido: Carregar, baixar e listar blobs usando o Azure PowerShell
 
@@ -25,7 +25,7 @@ Para acessar o Armazenamento do Azure, você precisará de uma assinatura do Azu
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este início rápido exige o módulo Az do Azure PowerShell versão 0.7 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
+Este início rápido exige o módulo Az do Azure PowerShell versão 0.7 ou posterior. Execute `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
