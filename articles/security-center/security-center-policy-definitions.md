@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbc9fa5586b848de79c52142f75b22b744fdae38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105943"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343010"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Políticas de Central de Segurança do Azure monitoradas pelo Azure Security Center
 Este artigo fornece uma lista de definições de políticas do Azure Policy que podem ser monitoradas na Central de Segurança. Para obter mais informações sobre políticas de segurança, confira [Trabalhando com políticas de segurança](tutorial-security-policy.md).
@@ -96,4 +96,4 @@ Neste artigo, você aprendeu como configurar políticas de segurança na Central
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md): Obtenha respostas para perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): Encontre postagens no blog sobre a conformidade e segurança do Azure.
 
-Para saber mais sobre o Azure Policy, confira [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
+Para saber mais sobre o Azure Policy, confira [O que é o Azure Policy?](../governance/policy/overview.md)

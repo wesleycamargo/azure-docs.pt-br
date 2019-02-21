@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Redefinir sua senha
     href: user-help-reset-password.md
-- name: Ajuda das informações de segurança
-  items:
-  - name: Visão geral
-    href: user-help-security-info-overview.md
-  - name: Configurar um aplicativo autenticador
-    href: security-info-setup-auth-app.md
-  - name: Configurar mensagens de texto
-    href: security-info-setup-text-msg.md
-  - name: Configurar chamadas telefônicas
-    href: security-info-setup-phone-number.md
-  - name: Configurar email
-    href: security-info-setup-email.md
-  - name: Configurar perguntas de segurança
-    href: security-info-setup-questions.md
-  - name: Gerenciar senhas de aplicativo
-    href: security-info-app-passwords.md
-  - name: Gerenciar suas informações de segurança
-    href: security-info-manage-settings.md
-  - name: Como entrar
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Ajuda do aplicativo Microsoft Authenticator
   items:
   - name: Visão geral
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Adicionar uma conta manualmente
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Entrar usando o aplicativo Microsoft Authenticator
     href: user-help-auth-app-sign-in.md
   - name: Fazer backup e recuperar suas contas
     href: user-help-auth-app-backup-recovery.md
   - name: Perguntas frequentes
     href: user-help-auth-app-faq.md
-- name: Ajuda do portal Meus aplicativos
+- name: Ajuda do portal Meu Perfil (versão prévia)
   items:
   - name: Visão geral
-    href: user-help-my-apps-overview.md
-  - name: O que é o portal Meus Aplicativos?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Solucionar problemas
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Gerenciar suas informações de segurança
+    href: user-help-security-info-overview.md
+  - name: Exibir sua atividade de entrada
+    href: myprofile-portal-recent-activity-page.md
+  - name: Gerenciar suas organizações
+    href: myprofile-portal-organizations-page.md
+  - name: Gerenciar seus dispositivos conectados
+    href: myprofile-portal-devices-page.md
+  - name: Exibir suas informações de privacidade
+    href: myprofile-portal-privacy-page.md
+- name: Ajuda das informações de segurança
+  items:
+  - name: Visão geral
+    href: user-help-security-info-overview.md
+  - name: Adicionar informações de segurança durante a entrada
+    href: security-info-setup-signin.md
+  - name: Adicionar ou atualizar visão geral de métodos de informações de segurança
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Configurar um aplicativo autenticador
+      href: security-info-setup-auth-app.md
+    - name: Configurar mensagens de texto
+      href: security-info-setup-text-msg.md
+    - name: Configurar chamadas telefônicas
+      href: security-info-setup-phone-number.md
+    - name: Configurar email
+      href: security-info-setup-email.md
+    - name: Configurar perguntas de segurança
+      href: security-info-setup-questions.md
+  - name: Gerenciar senhas de aplicativo
+    href: security-info-app-passwords.md
+  - name: Como entrar
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Ajuda Gerenciar dispositivos
   items:
   - name: Visão geral
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: Solucionar problema da mensagem "Você não pode chegar lá"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Ajuda do portal Meus aplicativos
+  items:
+  - name: Visão geral
+    href: user-help-my-apps-overview.md
+  - name: O que é o portal Meus Aplicativos?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Solucionar problemas
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816043"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452567"
