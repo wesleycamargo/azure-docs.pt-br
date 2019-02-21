@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a40597178a8267febfd6ad18277d6b865c084d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d656a72e681c8cc73fa8b660684b8c194df3ae48
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180157"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutorial: Integração do Azure Active Directory ao Zendesk
 
@@ -109,12 +109,7 @@ Para configurar o logon único do Azure AD com o Zendesk, execute as seguintes e
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.zendesk.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
-    | |
-    |-|-|
-    | `<subdomain>.zendesk.com` |
-    | `https://<subdomain>.zendesk.com` |
-    | |
+  b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.zendesk.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de atendimento ao cliente do Zendesk](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

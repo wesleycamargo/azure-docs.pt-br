@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037879"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326918"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
 ## <a name="overview"></a>Visão geral
@@ -29,7 +29,7 @@ O StorSimple usa [armazenamento em camadas](#automatic-storage-tiering) para ger
 
 Além do gerenciamento de armazenamento, os recursos de proteção de dados do StorSimple permitem que você crie backups agendados e sob demanda e os armazene localmente ou na nuvem. Os backups são realizados na forma de instantâneos incrementais, o que significa que eles podem ser criados e restaurados rapidamente. Os instantâneos em nuvem podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundário (como backup em fita) e permitem restaurar dados para o data center ou para locais alternativos, se necessário.
 
-![ícone de vídeo](./media/storsimple-overview/video_icon.png) Assista ao vídeo que apresenta uma rápida introdução ao Microsoft Azure StorSimple.
+![ícone de vídeo](./media/storsimple-overview/video_icon.png)  Assista ao vídeo que apresenta uma rápida introdução ao Microsoft Azure StorSimple.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -92,7 +92,7 @@ O dispositivo de nuvem tem os seguintes recursos:
 * Você pode criar um número ilimitado de dispositivos de nuvem na nuvem e ativá-los ou desativá-los conforme necessário.
 * Ele pode ajudar a simular ambientes locais em cenários de recuperação de desastre, de desenvolvimento ou teste, e pode ajudar na recuperação no nível do item de backups.
 
-O Dispositivo de Nuvem StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o dispositivo 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (Em camadas locais, o armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium. Para saber mais sobre o armazenamento premium, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../virtual-machines/windows/premium-storage.md).
+O Dispositivo de Nuvem StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o dispositivo 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (Em camadas locais, o armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium.
 
 Para obter mais informações sobre o Dispositivo de Nuvem StorSimple, acesse [Implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -207,10 +207,10 @@ Confira na tabela abaixo um resumo das cargas de trabalho do StorSimple com supo
 
 | Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Compartilhamento de arquivos |SIM | |Todas as versões |
-| Colaboração |Compartilhamento de arquivos distribuído |SIM | |Todas as versões |
+| Colaboração |Compartilhamento de arquivos |Sim | |Todas as versões |
+| Colaboração |Compartilhamento de arquivos distribuído |Sim | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
-| Arquivamento |Arquivamento de arquivos simples |SIM | |Todas as versões |
+| Arquivamento |Arquivamento de arquivos simples |Sim | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
 | Banco de dados |SQL |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
 | Vigilância em vídeo |Vigilância em vídeo |Sim* |Há suporte quando o dispositivo StorSimple é dedicado somente a essa carga de trabalho |Atualização 2 e posterior |
@@ -234,11 +234,11 @@ Veja a seguir uma lista dos componentes da infraestrutura com suporte do StorSim
 
 | Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |ExpressRoute |SIM | |Todas as versões |
+| Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suporte com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Com suporte somente com volumes afixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes em camadas, somente a indexação de metadados tem suporte (sem dados).<br>Para volumes afixados localmente, a indexação completa tem suporte. |Todas as versões |
-| Geral |Antivírus |Sim* |Para volumes em camadas, há suporte apenas para verificação ao abrir e fechar.<br> Para volumes afixados localmente, há suporte para verificação completa. |Todas as versões |
+| Geral |Antivírus |Sim* |Para volumes em camadas, há suporte apenas para verificação ao abrir e fechar.<br>  Para volumes afixados localmente, há suporte para verificação completa. |Todas as versões |
 
 *Sim&#42; – Diretrizes e restrições da solução devem ser aplicadas.*
 

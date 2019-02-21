@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 46df2d6828cd60aee3c64128197579eb6f51a11a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814982"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340324"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Implantar o Azure Monitor para VMs (versão prévia)
 Este artigo descreve como configurar o Azure Monitor para VMs. O serviço monitora a integridade do sistema operacional de VMs (máquinas virtuais) do Azure e de conjuntos de dimensionamento de máquinas virtuais, bem como as máquinas virtuais no ambiente. Esse monitoramento inclui a descoberta e o mapeamento de dependências de aplicativo que podem ser hospedadas nelas. 
@@ -336,7 +336,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
         provisioningState       : Succeeded
 
 ### Enable by using Azure Policy
-To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../governance/policy/overview.md). These policies:
 
 * Deploy the Log Analytics agent and the Dependency agent.
 * Report on compliance results.

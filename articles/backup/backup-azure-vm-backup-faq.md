@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: 55fbc997f6aaf4cf99bfb8492a2e4ac608c72af8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494894"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310267"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Perguntas frequentes - Backup do Azure
 
@@ -81,7 +81,7 @@ Você pode usar a opção de disco de restauração se você quer:
   * Adicionar definições de configurações que não estavam presentes no momento do backup
   * Controlar a convenção de nomenclatura para os recursos que são criados.
   * Adicionar a VM a um grupo de disponibilidade.
-  * Adicione qualquer outra configuração que deva ser configurada usando o PowerShell ou um modelo.  w
+  * Adicione qualquer outra configuração que deva ser configurada usando o PowerShell ou um modelo.
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Posso restaurar backups de discos de VMs não gerenciadas após o upgrade dos meus discos para discos gerenciados?
 Sim, você pode usar os backups feitos antes de migrar os discos de não gerenciados para gerenciados.
