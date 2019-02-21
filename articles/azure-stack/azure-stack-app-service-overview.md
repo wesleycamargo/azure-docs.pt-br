@@ -3,7 +3,7 @@ title: O serviço de aplicativo na visão geral do Azure Stack | Microsoft Docs
 description: Visão geral do serviço de aplicativo no Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: jeffgilb
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: sethm
+ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: c2fe4f5377bfd73f327ef2d0ba8b5fdfff4fa8af
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243344"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445977"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Serviço de Aplicativo na visão geral do Azure Stack
 

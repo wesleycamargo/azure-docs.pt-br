@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160904"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446317"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planejamento de capacidade de computação do Azure Stack
 O [tamanhos VM com suporte no Azure Stack](./user/azure-stack-vm-sizes.md) são um subconjunto daquelas com suporte no Azure. O Azure impõe limites de recursos ao longo de muitos vetores para evitar o excesso de consumo de recursos (servidor de local e o nível de serviço). Sem impor alguns limites no consumo de locatários, as experiências de locatário serão afetada quando outros locatários overconsume recursos. Para a saída de rede da VM, há limites de largura de banda em vigor no Azure Stack que correspondem à limitações do Azure. Para recursos de armazenamento, limites de IOPs de armazenamento foram implementados no Azure Stack para evitar básico excesso de consumo de recursos por locatários para acesso de armazenamento.  
@@ -43,7 +43,7 @@ Se um servidor falhar, as VMs hospedadas no servidor com falha serão reiniciada
 
 O seguinte cálculo resulta na memória total e disponível que pode ser usada para o posicionamento de VM de locatário. É a capacidade de memória para a totalidade de unidade de escala do Azure Stack.
 
-  Memória disponível para posicionamento de VM = sobrecarga da infraestrutura – reserva da resiliência – Total de memória de servidor do Azure Stack <sup>1</sup>
+  Memória disponível para posicionamento de VM = memória – reserva da resiliência – Total de memória de servidor usada executando VMs - sobrecarga da infraestrutura do Azure Stack <sup>1</sup>
 
   Reserva de resiliência = H + R * (n-1) + V * (n-2)
 

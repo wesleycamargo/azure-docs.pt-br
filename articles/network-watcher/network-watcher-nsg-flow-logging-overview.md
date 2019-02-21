@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097641"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341038"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -72,8 +72,6 @@ Logs de fluxo incluem as seguintes propriedades:
                     * **Bytes enviados - Destino para fonte - Versão 2 Apenas** A quantidade total de bytes de pacotes TCP ou UDP enviados do destino para a fonte desde a última atualização. Os bytes de pacote incluem cabeçalho de pacote e carga útil.
 
 ## <a name="nsg-flow-logs-version-2"></a>Versão 2 de logs do fluxo NSG
-> [!NOTE] 
-> A versão 2 dos Logs do Flow está disponível na região Centro-oeste dos EUA. A ativação dos logs da Versão 2 em uma região não suportada resultará na saída dos registros da Versão 1 para sua conta de armazenamento.
 
 Versão 2 dos logs apresenta o estado de fluxo. Você pode configurar qual versão de logs de fluxo receber. Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 

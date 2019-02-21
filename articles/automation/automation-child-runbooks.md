@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422961"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417424"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
 
@@ -28,7 +28,7 @@ Quando você chama um runbook embutido, ele é executado no mesmo trabalho que o
 
 Quando um runbook é publicado, todos os runbooks filhos que ele chamar já devem ter sido publicados. Isso ocorre porque a Automação do Azure cria uma associação com os runbooks filhos quando um runbook é compilado. Caso contrário, o runbook pai parecerá como se estivesse sendo publicado corretamente, mas gerará uma exceção quando for iniciado. Se isso acontecer, você poderá publicar o runbook pai novamente para referenciar de forma correta os runbooks filho. Você não precisará publicar o runbook pai novamente se um dos runbooks filho forem alterados porque a associação já foi criada.
 
-Os parâmetros de um runbook filho chamado embutido podem ser qualquer tipo de dados, incluindo objetos complexos. Não há nenhuma [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) como quando você inicia o runbook usando o portal do Azure ou com o cmdlet Start-AzureRmAutomationRunbook.
+Os parâmetros de um runbook filho chamado embutido podem ser qualquer tipo de dados, incluindo objetos complexos. Não há nenhuma [serialização JSON](start-runbooks.md#runbook-parameters) como quando você inicia o runbook usando o portal do Azure ou com o cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbook
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Se você estiver invocando um runbook filho com o cmdlet `Start-AzureRmAutomationRunbook` e a opção `-Wait` e os resultados do runbook filho forem um objeto, poderá encontrar erros. Para resolver o erro, confira [Runbooks filho com a saída de objeto](troubleshoot/runbooks.md#child-runbook-object) para saber como implementar a lógica para sondar os resultados e usar o [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-Você pode usar o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) para iniciar um runbook, como descrito em [Para iniciar um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Há dois modos de uso para esse cmdlet.  Em um modo, o cmdlet retorna a ID do trabalho quando o trabalho filho é criado para o runbook filho.  No outro modo, habilitado pela especificação do parâmetro **-wait**, o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
+Você pode usar o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) para iniciar um runbook, como descrito em [Para iniciar um runbook com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Há dois modos de uso para esse cmdlet.  Em um modo, o cmdlet retorna a ID do trabalho quando o trabalho filho é criado para o runbook filho.  No outro modo, habilitado pela especificação do parâmetro **-wait**, o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
 
 O trabalho de um runbook filho iniciado com um cmdlet executa um trabalho separado do runbook pai. Esse comportamento resulta em mais trabalhos do que iniciar o runbook embutido e dificulta seu acompanhamento. O pai pode iniciar mais de um runbook filho de forma assíncrona sem aguardar a conclusão de cada um. Para a mesma variante de execução paralela que chama runbooks filho embutidos, o runbook pai precisaria usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ A saída dos runbooks filho não é retornada para o runbook pai de modo confiá
 
 Caso não deseje que o runbook pai seja bloqueado na espera, inicie o runbook filho usando o cmdlet `Start-AzureRmAutomationRunbook` sem a opção `-Wait`. É necessário usar `Get-AzureRmAutomationJob` para aguardar a conclusão do trabalho e `Get-AzureRmAutomationJobOutput` e `Get-AzureRmAutomationJobOutputRecord` para recuperar os resultados.
 
-Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [Parâmetros de Runbook](automation-starting-a-runbook.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tiver um parâmetro com um tipo de dados complexos, ele deve ser chamado embutido.
+Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [Parâmetros de Runbook](start-runbooks.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tiver um parâmetro com um tipo de dados complexos, ele deve ser chamado embutido.
 
 O contexto da assinatura pode ser perdido ao iniciar runbooks filho como trabalhos separados. Para que o runbook filho execute cmdlets do Azure RM em uma assinatura específica do Azure, o runbook filho precisa se autenticar nessa assinatura independentemente do runbook pai.
 
@@ -120,6 +120,6 @@ A tabela a seguir resume as diferenças entre os dois métodos para chamar um ru
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
+* [Como iniciar um Runbook na Automação do Azure](start-runbooks.md)
 * [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: 1a291a54389b678647f4a08ea03ec8c2f85a5917
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c9e72ea2762af0d9a4c47ca5b23fe4bdbe53b968
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872826"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447541"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do Serviço de Fala
 
@@ -26,7 +26,7 @@ Certifique-se de que você use o ponto de extremidade que corresponde à região
 
 ## <a name="speech-sdk"></a>SDK de fala
 
-Na [SDK do serviço de Fala](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` na SDK de fala para C#).
+No [SDK de Fala](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK de Fala para C#).
 
 ### <a name="speech-recognition-and-translation"></a>Reconhecimento de Fala e tradução
 

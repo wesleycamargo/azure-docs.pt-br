@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820786"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339509"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -113,7 +113,7 @@ O Azure utiliza o [controle de acesso com base na regra](../role-based-access-co
 
 O Azure Policy habilita que você crie, atribua ou gerencie definições de política. As definições de políticas impõem regras diferentes sobre os recursos, portanto, os recursos permanecem em conformidade com os padrões organizacionais e contratos de nível de serviço. O Azure Policy executa uma avaliação dos recursos, verificando os recursos que não estão em conformidade com as definições de política que você tem. Por exemplo, é possível definir e aplicar uma política que permita a criação de redes virtuais em apenas um grupo ou região de recursos específicos. Outra política pode exigir que cada sub-rede tenha um grupo de segurança de rede associado a ela. As políticas então são avaliadas durante a criação e a atualização de recursos.
 
-As políticas são aplicadas para a hierarquia a seguir: Assinatura, grupo de gerenciamento e grupo de recursos. Saiba mais sobre os modelos da [política do Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implantar uma rede virtual [modelo de política](policy-samples.md).
+As políticas são aplicadas para a hierarquia a seguir: Assinatura, grupo de gerenciamento e grupo de recursos. Saiba mais sobre os modelos da [política do Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implantar uma rede virtual [modelo de política](policy-samples.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492276"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310959"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 
@@ -31,7 +31,7 @@ Se você já tiver o cofre dos Serviços de Recuperação aberto, vá para a seg
 
    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   A lista de cofres dos Serviços de Recuperação é exibida. 
+   A lista de cofres dos Serviços de Recuperação é exibida.
 
    ![escolher o cofre na lista](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Se você já tiver o cofre dos Serviços de Recuperação aberto, vá para a seg
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Excluir o cofre dos Serviços de Recuperação à força
 
-Você pode usar o PowerShell para excluir um cofre dos Serviços de Recuperação à força. À força significa que o cofre dos Serviços de Recuperação e todos os dados de backup associados são excluídos permanentemente. 
+Você pode usar o PowerShell para excluir um cofre dos Serviços de Recuperação à força. À força significa que o cofre dos Serviços de Recuperação e todos os dados de backup associados são excluídos permanentemente.
 
 > [!Warning]
 > Ao usar o PowerShell para excluir um cofre dos Serviços de Recuperação, certifique-se de que deseja excluir permanentemente todos os dados de backup no cofre.
@@ -95,7 +95,7 @@ Para excluir um cofre dos Serviços de Recuperação:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Entre na sua assinatura no portal do Azure e verifique se o cofre foi excluído.
 
 
@@ -106,7 +106,6 @@ Para remover manualmente as dependências do cofre, exclua a configuração entr
 * Backups do Armazenamento do Azure (Arquivos do Azure)
 * SQL Server em backups de VM do Azure
 * Backups de máquinas virtuais do Azure
-* Backups de agente dos Serviços de Recuperação do Microsoft Azure
 
 Use o menu **Backup de Infraestrutura** (confira a imagem) para:
 
@@ -125,7 +124,7 @@ Use o menu **Backup de Infraestrutura** (confira a imagem) para:
 
 1. Para todos os itens na lista, clique com o botão direito do mouse no item e, no menu de contexto, selecione **Parar backup**.
 
-    ![selecione o tipo de backup](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![selecione o tipo de backup](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     O menu Parar Backup é aberto.
 
@@ -154,9 +153,9 @@ Use o menu **Backup de Infraestrutura** (confira a imagem) para:
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Removendo o Servidor de Backup do Azure ou o DPM
 
-1. No menu do painel do cofre, role até a seção Gerenciar e clique em **Backup de Infraestrutura**. 
+1. No menu do painel do cofre, role até a seção Gerenciar e clique em **Backup de Infraestrutura**.
 
-1. No submenu, clique em **Servidores de Gerenciamento de Backup** para exibir os Servidores de Backup do Azure e o servidor System Center DPM. Você pode parar e excluir Servidores de Arquivos do Azure, SQL Servers em VMs do Azure e máquinas virtuais do Azure. 
+1. No submenu, clique em **Servidores de Gerenciamento de Backup** para exibir os Servidores de Backup do Azure e o servidor System Center DPM. Você pode parar e excluir Servidores de Arquivos do Azure, SQL Servers em VMs do Azure e máquinas virtuais do Azure.
 
     ![selecione seu cofre para abrir o painel dele](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

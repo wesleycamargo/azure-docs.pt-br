@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765783"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456989"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -73,7 +73,7 @@ As seguintes informações são necessárias como entradas para os parâmetros d
 
 Para implantações do Active Directory tendo vários sites, configure o Site do Active Directory mais próximo à sua implantação do Azure Stack. A configuração evita a necessidade do serviço do Graph do Azure Stack resolver consultas usando um servidor de Catálogo Global em um site remoto.
 
-Adicionar o Azure Stack [rede VIP pública](azure-stack-network.md#public-vip-network) sub-rede para o Site do AD do Azure mais próxima para o Azure Stack. Por exemplo, se o Active Directory tem dois sites de Seattle e Redmond com o Azure Stack implantado no site de Seattle, você adicionaria a sub-rede de rede do VIP público do Azure Stack para o site do Azure AD de Seattle.
+Adicionar o Azure Stack [rede VIP pública](azure-stack-network.md#public-vip-network) sub-rede para o Site do Active Directory mais próximo ao Azure Stack. Por exemplo, se o Active Directory tem dois sites de Seattle e Redmond com o Azure Stack implantado no site de Seattle, você adicionaria a sub-rede de rede do VIP público do Azure Stack para o site do Active Directory de Seattle.
 
 Para obter mais informações sobre Sites do Active Directory, consulte [Projetando a topologia de site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

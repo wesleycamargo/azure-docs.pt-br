@@ -1,5 +1,5 @@
 ---
-title: Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure por meio de um ISE (Ambiente de Serviço de Integração)
+title: Conectar redes virtuais do Azure de Aplicativos Lógicos do Azure por meio de um ambiente do serviço de integração (ISE)
 description: Criar um ISE (Ambiente de Serviço de Integração) para que os aplicativos lógicos e contas de integração possam acessar as VNets (redes virtuais) do Azure, enquanto permanecem privados e isolados do Azure público ou “global”
 services: logic-apps
 ms.service: logic-apps
@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176196"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311895"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -31,7 +31,7 @@ Este artigo mostra como concluir essas tarefas:
 
 * Configure permissões em sua rede virtual do Azure para que a instância privada dos Aplicativos Lógicos possa acessar sua rede virtual.
 
-* Crie seu ISE (Ambiente de Serviço de Integração).
+* Crie seu ISE (ambiente de serviço de integração).
 
 * Crie um aplicativo lógico que pode ser executado no ISE.
 
@@ -67,9 +67,10 @@ Para controlar o tráfego de entrada e saída nas sub-redes da rede virtual onde
 | Comunicação para Aplicativos Lógicos do Azure <br>Comunicação a partir do Aplicativos Lógicos do Azure | Entrada <br>Saída | * <br>80 & 443 | INTERNET <br>REDE_VIRTUAL |
 | Azure Active Directory | Saída | * <br>80 e 443 | REDE_VIRTUAL <br>AzureActiveDirectory |
 | Dependência de Armazenamento do Azure | Saída | * <br>80 e 443 | REDE_VIRTUAL <br>Armazenamento |
+| O histórico de execuções do aplicativo lógico | Entrada | * <br>443 | INTERNET <br>REDE_VIRTUAL |
 | Gerenciamento de Conexão | Saída | * <br>443 | REDE_VIRTUAL <br>INTERNET |
 | Publicar métricas e logs de diagnóstico | Saída | * <br>443 | REDE_VIRTUAL <br>AzureMonitor |
-| Designer de Aplicativos Lógicos - propriedades dinâmicas <br>O histórico de execuções do aplicativo lógico <br>Implantação do conector <br>Ponto de extremidade de gatilho de solicitação | Entrada | * <br>454 | INTERNET <br>REDE_VIRTUAL |
+| Designer de Aplicativos Lógicos - propriedades dinâmicas <br>Implantação do conector <br>Ponto de extremidade de gatilho de solicitação | Entrada | * <br>454 | INTERNET <br>REDE_VIRTUAL |
 | Dependência de Gerenciamento de Serviço de Aplicativo | Entrada | * <br>454 e 455 | AppServiceManagement <br>REDE_VIRTUAL |
 | Gerenciamento de API - ponto de extremidade de gerenciamento | Entrada | * <br>3443 | APIManagement <br>REDE_VIRTUAL |
 | Dependência do Log para agente de monitoramento e política do Hub de Eventos | Saída | * <br>5672 | REDE_VIRTUAL <br>EventHub |

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 1b58401a6697cdc80acc9badaf018923c5a9a980
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660282"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416098"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 
@@ -73,7 +73,7 @@ A próxima etapa é criar um Runbook na Automação do Azure no qual reside o sc
 Siga as etapas a seguir para criar um novo runbook da Automação do Azure:
 
 - Acesse a conta de Automação do Azure que você criou na etapa anterior
-- Uma vez no painel da conta de automação, clique no item de menu “**Runbooks**” à esquerda para criar um novo runbook de Automação do Azure com o script de PowerShell. Para saber mais sobre a criação de runbooks de automação, consulte [Criar um novo runbook](../automation/automation-creating-importing-runbook.md).
+- Uma vez no painel da conta de automação, clique no item de menu “**Runbooks**” à esquerda para criar um novo runbook de Automação do Azure com o script de PowerShell. Para saber mais sobre a criação de runbooks de automação, consulte [Criar um novo runbook](../automation/manage-runbooks.md#create-a-runbook).
 - Para adicionar um novo runbook, clique na opção de menu “**+ Adicionar um runbook**” e, em seguida, clique em “**Criação rápida – criar um novo runbook**”.
 - No painel Runbook, digite o nome do seu runbook (nesse exemplo, “**AutomaticTuningEmailAutomation**” é usado), selecione o tipo de runbook como **PowerShell** e escreva uma descrição deste runbook para descrever sua finalidade.
 - Clique no botão **Criar** para concluir a criação de um novo runbook

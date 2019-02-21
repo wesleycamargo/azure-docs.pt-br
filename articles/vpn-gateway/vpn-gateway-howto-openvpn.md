@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07dae60d1d4ab43194f88f44bde498d9fa19ce81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 50a8c30831ba806d0ea02d4f67b4e672e71e6325
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508531"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415078"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Configurar OpenVPN para o Gateway de VPN ponto a site do Azure (versão prévia)
 
@@ -20,6 +20,8 @@ Este artigo ajuda você a configurar o OpenVPN no Gateway de VPN do Azure. O art
 
 > [!IMPORTANT]
 > Essa versão prévia pública é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="register"></a>Registrar este recurso
 
@@ -32,17 +34,17 @@ Clique em **TryIt** nestas etapas para registrar esse recurso com facilidade usa
 Depois de clicar em **TryIt** para abrir o Azure Cloud Shell, copie e cole os seguintes comandos:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
  
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 Depois que o recurso for mostrado como registrado, registre novamente a assinatura no namespace Microsoft.Network.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Criar uma VPN ponto a site
@@ -61,8 +63,8 @@ Instale a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recur
 Habilite o OpenVPN no gateway. Verifique se o gateway já está configurado para ponto a site (IKEv2 ou SSTP) antes de executar os comandos a seguir:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $rgname -name $name
-Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
+$gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

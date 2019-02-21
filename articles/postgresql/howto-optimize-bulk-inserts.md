@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810229"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310284"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Otimizar inserções em massa e usar dados temporários em um servidor do Banco de Dados do Azure para PostgreSQL 
 Este artigo descreve como você pode otimizar operações de inserção em massa e usar dados temporários em um servidor do Banco de Dados do Azure para PostgreSQL.
@@ -25,9 +25,9 @@ Inseri-las em uma tabela não registrada significa que o PostgreSQL faz inserç�
 
 Use as seguintes opções para criar uma tabela não registrada:
 - Crie uma nova tabela não registrada usando a sintaxe `CREATE UNLOGGED TABLE <tableName>`.
-- Converta uma tabela registrada existente em uma tabela não registrada usando a sintaxe `ALTER <tableName> SET UNLOGGED`.  
+- Converta uma tabela registrada existente em uma tabela não registrada usando a sintaxe `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Para reverter o processo, use a sintaxe `ALTER <tableName> SET LOGGED`.
+Para reverter o processo, use a sintaxe `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Troca de tabela sem registro
 Tabelas não registradas não estão livres de falhas. Uma tabela não registrada é automaticamente truncada após uma falha ou sujeita a um desligamento não limpo. O conteúdo de uma tabela não registrada também não é replicado para servidores em espera. Quaisquer índices criados em uma tabela não registrada também são descompactados automaticamente. Após a conclusão da operação de inserção, converta a tabela para registrada para que a inserção seja durável.

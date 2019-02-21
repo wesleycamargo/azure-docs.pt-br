@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eebd695cbbc1e29ea7d2647b5955bcc2e3cfe4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175907"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415639"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -82,8 +82,8 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.
 - Certifique-se de que o dispositivo esteja conectado à rede corporativa.
 - Certifique-se de que a hora do dispositivo esteja sincronizada com a hora do Active Directory e dos Controladores de Domínio, e que tenham cinco minutos ou menos de diferença.
-- Certifique-se de que a conta do computador `AZUREADSSOACCT` está presente e habilitada em cada floresta do AD que você deseja que o SSO contínuo habilitado. Se a conta de computador tiver sido excluída ou estiver ausente, você poderá usar os [cmdlets do PowerShell](#manual-reset-of-the-feature) para recriá-las.
-- Liste os tíquetes Kerberos existentes no dispositivo usando o comando `klist` em um prompt de comando. Certifique-se de que os tíquetes emitidos para a conta do computador `AZUREADSSOACCT` estejam presentes. Os tíquetes Kerberos dos usuários são normalmente válidos durante 10 horas. Você pode ter configurações diferentes no Active Directory.
+- Certifique-se de que a conta do computador `AZUREADSSOACC` está presente e habilitada em cada floresta do AD que você deseja que o SSO contínuo habilitado. Se a conta de computador tiver sido excluída ou estiver ausente, você poderá usar os [cmdlets do PowerShell](#manual-reset-of-the-feature) para recriá-las.
+- Liste os tíquetes Kerberos existentes no dispositivo usando o comando `klist` em um prompt de comando. Certifique-se de que os tíquetes emitidos para a conta do computador `AZUREADSSOACC` estejam presentes. Os tíquetes Kerberos dos usuários são normalmente válidos durante 10 horas. Você pode ter configurações diferentes no Active Directory.
 - Se você desabilitou e habilitou novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache tenham se expirado.
 - Limpe os tíquetes Kerberos existentes do dispositivo usando o comando `klist purge` e tente novamente.
 - Para determinar se há problemas relacionados a JavaScript, examine os logs do console do navegador (em **Ferramentas do Desenvolvedor**).
@@ -123,7 +123,7 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
     >[!NOTE]
     >Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
 
-2. Chame `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove a conta do computador `AZUREADSSOACCT` do controlador de domínio local dessa floresta do Active Directory específica.
+2. Chame `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove a conta do computador `AZUREADSSOACC` do controlador de domínio local dessa floresta do Active Directory específica.
 3. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Etapa 4: Habilitar o SSO Contínuo para cada floresta do Active Directory

@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8cc253f751b209332ee890c0ebc9b6846d4feab5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f93d9eaefe18dd012a639cd26636b56b9eb09249
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749825"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427629"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -113,7 +113,6 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
    }
    ```
 
-
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos usando marcações
 
 Antes de criar uma implantação, você precisa conseguir especificar quais dispositivos você deseja afetar. O Azure IoT Edge identifica os dispositivos usando **marcações** no dispositivo gêmeo. Cada dispositivo pode ter várias marcações e você pode defini-las que qualquer modo que faça sentido para sua solução. Por exemplo, se você gerencia um campus de edifícios inteligentes, poderá adicionar as seguintes marcações a um dispositivo:
@@ -155,10 +154,12 @@ Use o comando a seguir para exibir o conteúdo de uma implantação:
    ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
    ```
+
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
 Inspecione a implantação na janela de comando. A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
+
 * **targetedCount** - Uma métrica do sistema que especifica o número de dispositivos gêmeos no Hub IoT que correspondem à condição de direcionamento.
 * **appliedCount** - Uma métrica de sistema especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos módulos gêmeos no Hub IoT.
 * **reportedSuccessfulCount** - Uma métrica de dispositivo que especifica o número de dispositivos do Edge no êxito do relatório de implantação do tempo de execução do cliente do IoT Edge.
@@ -179,6 +180,7 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 Quando você modifica uma implantação, as alterações são replicadas imediatamente para todos os dispositivos direcionados. 
 
 Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
+
 * Caso um dispositivo não tenha atendido à condição de destino antiga, mas atenda à nova condição de destino e essa implantação tiver a prioridade mais alta para o dispositivo, essa implantação será aplicada ao dispositivo. 
 * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino, ele desinstalará essa implantação e usará a próxima implantação com a prioridade mais alta. 
 * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino e não atenda à condição de destino de todas as outras implantações, nenhuma alteração ocorrerá no dispositivo. O dispositivo continua executando seus módulos atuais em seu estado atual, mas não é mais gerenciado como parte dessa implantação. Depois que ele atende à condição de destino de qualquer outra implantação, ele desinstala essa implantação e usa a nova. 
@@ -188,12 +190,13 @@ Use o comando a seguir para atualizar uma implantação:
    ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
    ```
+
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 * **--set** - Atualize uma propriedade na implantação. Você pode atualizar as seguintes propriedades:
-    * targetCondition - por exemplo `targetCondition=tags.location.state='Oregon'`
-    * rótulos 
-    * prioridade
+  * targetCondition - por exemplo `targetCondition=tags.location.state='Oregon'`
+  * rótulos 
+  * prioridade
 
 
 ## <a name="delete-a-deployment"></a>Excluir uma implantação
@@ -205,6 +208,7 @@ Use o comando a seguir para excluir uma implantação:
    ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
    ```
+
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 

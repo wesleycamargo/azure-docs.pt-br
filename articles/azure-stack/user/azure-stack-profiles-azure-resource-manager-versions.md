@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f7d82b8cb609b390275617509946d640720f2dda
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248462"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456938"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do provedor de recursos com suporte pelos perfis no Azure Stack
 
@@ -57,28 +57,6 @@ Para obter uma explicação dos perfis de API e a cadência de lançamento de ve
 | Assinaturas | 2016-10-01 |
 
 Para mais de uma lista das versões para cada tipo de recurso para os provedores no perfil de API, consulte [detalhes de 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) perfil.
-
-## <a name="overview-of-2018-03-01-hybrid"></a>Visão geral de 2018-03-01-hybrid
-
-| Provedor de recursos | A versão de API |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft. Storage (plano de dados) | 2015-04-05  |
-| Microsoft. Storage (plano de controle) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(Não alterar) |
-| Microsoft.Resources<br>(Azure Resource Manager em si) | 2016-02-01 |
-| Microsoft.Authorization<Br>(operações de política) | 2015-11-01 |
-| Microsoft.insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Política | 2015-10-01-preview |
-| Recursos | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Assinaturas | 2016-06-1 |
-
-Para obter uma lista das versões de cada tipo de recurso para os provedores no perfil de API, consulte a próxima seção.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes de 2018-03-01-hybrid
 

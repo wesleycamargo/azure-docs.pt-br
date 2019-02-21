@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c27c32f19dac4e5394ca5e2f3e3722eccffb49b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165103"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415860"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: Início rápido
 
@@ -54,7 +54,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
 3. Identifique um ou mais servidores adicionais (que execute o Windows Server 2012 R2 ou posterior, com o TLS 1.2 habilitado) no qual você possa executar Agentes de Autenticação autônomos. Esses servidores adicionais são necessários para garantir a alta disponibilidade de solicitações de entrada. Adicione os servidores à mesma floresta do Active Directory dos usuários cujas senhas você precisa validar.
 
     >[!IMPORTANT]
-    >Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 12 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 40 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Se houver um firewall entre os servidores e o Azure AD, configure os seguintes itens:
    - Certifique-se de que os Agentes de Autenticação podem fazer solicitações de *saída* ao Azure AD sobre as seguintes portas:
@@ -109,7 +109,7 @@ Nesse momento, os usuários de todos os domínios gerenciados no seu locatário 
 Se você planeja implantar autenticação de passagem em um ambiente de produção, instale um Agente de Autenticação autônomo. Instale esses Agentes de Autenticação no(s) servidor(es) _diferente(s)_ do que está executando o Azure AD Connect. Esta configuração fornece alta disponibilidade para solicitações de entrada de usuário.
 
 >[!IMPORTANT]
->Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 12 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 40 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Siga estas instruções para fazer o download do software do Agente de Autenticação:
 

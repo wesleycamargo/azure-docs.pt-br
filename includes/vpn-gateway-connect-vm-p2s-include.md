@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4999868170b73493f601f06e114a233a0f88fa35
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 35814de74fa03f9969cdd48882a5f672cfe306a1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53443960"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418052"
 ---
 Você pode se conectar a uma VM que é implantada em sua rede virtual criando uma Conexão de Área de trabalho remota para a sua VM. É a melhor maneira de verificar inicialmente se você pode se conectar à sua VM usando seu endereço IP privado, em vez do nome do computador. Dessa forma, você está testando para ver se você pode se conectar, não se a resolução de nomes está configurada corretamente.
 
@@ -24,8 +24,8 @@ Você pode se conectar a uma VM que é implantada em sua rede virtual criando um
    - PowerShell - Use o exemplo para exibir uma lista de VMs e endereços de IP privados dos seus grupos de recursos. Você não precisa modificar esse exemplo antes de usá-lo.
 
      ```powershell
-     $VMs = Get-AzureRmVM
-     $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
+     $VMs = Get-AzVM
+     $Nics = Get-AzNetworkInterface | Where VirtualMachine -ne $null
 
      foreach($Nic in $Nics)
      {

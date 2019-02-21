@@ -16,21 +16,19 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: df50f1ad4fc12926016b3e22669be474f4aa995f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b6fda5d16b3f694cb1d0a1a9407cda5c2a73fcbc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461369"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330623"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
 Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. Neste artigo, estamos trabalhando com uma distribuição do Ubuntu LTS 16.04. Se estiver usando uma distribuição diferente, as instruções para desmontar o disco poderão ser diferentes.
 
 > [!WARNING]
-> Se você desanexar um disco, ele não será excluído automaticamente. Se você se inscreveu para o armazenamento Premium, você continuará incorrendo em encargos de armazenamento para o disco. Para obter mais informações, consulte [Preços e cobrança ao usar o Armazenamento Premium](../windows/premium-storage.md#pricing-and-billing). 
-> 
-> 
+> Se você desanexar um disco, ele não será excluído automaticamente. Se você se inscreveu para o armazenamento Premium, você continuará incorrendo em encargos de armazenamento para o disco. Para obter mais informações, consulte [Preços e cobrança ao usar o Armazenamento Premium](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.  
 

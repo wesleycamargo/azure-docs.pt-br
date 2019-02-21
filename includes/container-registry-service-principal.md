@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: fe0a4c51c4f762d866d572e0cdbd84d9e1c626b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 69951693f9d3bacb556453aba954620815884d43
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246696"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334054"
 ---
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
@@ -21,7 +21,7 @@ Para criar uma entidade de serviço com acesso ao registro de contêiner, execut
 
 Antes de executar o script, atualize a variável `ACR_NAME` com o nome do registro de contêiner. O valor `SERVICE_PRINCIPAL_NAME` deve ser exclusivo dentro do seu locatário do Azure Active Directory. Se você receber um erro "`'http://acr-service-principal' already exists.`", especifique um nome diferente para a entidade de serviço.
 
-Como opção, modifique o valor `--role` no comando [az ad sp create-for-rbac][/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac] se quiser conceder permissões diferentes. Para obter uma lista completa de funções, consulte [Funções e permissões do ACR](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
+Como opção, modifique o valor `--role` no comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] se quiser conceder permissões diferentes. Para obter uma lista completa de funções, consulte [Funções e permissões do ACR](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 
 Depois de executar o script, anote a **ID** e a **senha** da entidade de serviço. Quando você tiver suas credenciais, poderá configurar os aplicativos e serviços para se autenticarem no registro de contêiner como a entidade de serviço.
 
@@ -31,11 +31,11 @@ Depois de executar o script, anote a **ID** e a **senha** da entidade de serviç
 
 Para conceder acesso de registro a uma entidade de serviço existente, você precisa atribuir uma nova função à entidade de serviço. Assim como ocorre ao criar uma nova entidade de serviço, é possível conceder acesso de proprietário, pull, push e pull, dentre outros.
 
-O script a seguir usa o comando [az role assignment create][/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create] para conceder permissões *pull* a uma entidade de serviço especificada na variável `SERVICE_PRINCIPAL_ID`. Ajuste o valor `--role` se você desejar conceder um nível diferente de acesso.
+O script a seguir usa o comando [az role assignment create][az-role-assignment-create] para conceder permissões *pull* a uma entidade de serviço especificada na variável `SERVICE_PRINCIPAL_ID`. Ajuste o valor `--role` se você desejar conceder um nível diferente de acesso.
 
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh --> [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create

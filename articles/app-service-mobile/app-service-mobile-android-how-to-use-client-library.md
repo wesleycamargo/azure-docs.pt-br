@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 11eb06c77fec29bef5329b143fecdfa4bb938d6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965147"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328395"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
 
@@ -427,7 +427,7 @@ List<ToDoItem> result = mToDoTable
 Se você quiser obter todos os registros em uma tabela, implemente o código para iterar por todas as páginas:
 
 ```java
-List<MyDataModel> results = new List<MyDataModel>();
+List<MyDataModel> results = new ArrayList<>();
 int nResults;
 do {
     int currentCount = results.size();

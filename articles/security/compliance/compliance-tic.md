@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751915"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341702"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Diretrizes de Conexão Confiável com a Internet
 
@@ -198,7 +198,7 @@ O Azure fornece ferramentas nativas de nuvem para ajudar a garantir que você te
 
 ### <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) é um serviço do Azure que oferece à sua organização uma melhor capacidade de auditar e impor as iniciativas de conformidade. A Azure Policy está disponível atualmente em visualização pública nos serviços do Azure que estão disponíveis no mercado. A Azure Policy ainda não está disponível no Azure Governamental. Os clientes podem planejar e testar suas regras do Azure Policy agora para garantir a conformidade de TIC futuras. 
+[Azure Policy](../../governance/policy/overview.md) é um serviço do Azure que oferece à sua organização uma melhor capacidade de auditar e impor as iniciativas de conformidade. Os clientes podem planejar e testar suas regras do Azure Policy agora para garantir a conformidade de TIC futuras.
 
 A Azure Policy destina-se no nível da assinatura. O serviço fornece uma interface centralizada em que você pode executar tarefas de conformidade, incluindo:
 - Gerenciar iniciativas
@@ -213,13 +213,13 @@ As seguintes políticas de exemplo podem ser usadas para cenários de conformida
 
 |Política  |Cenário de exemplo  |Modelo  |
 |---------|---------|---------|
-|Impor a tabela de rotas definidas pelo usuário. | Garantir que a rota padrão em todos os pontos de redes virtuais seja direcionada a um Gateway de rede virtual aprovada para o roteamento local.    | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Auditar se o Observador de Rede não está habilitado para a região.  | Garantir que o Observador de Rede esteja habilitado para todas as regiões usadas.  | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG X em cada sub-rede.  | Garantir que um NSG (ou um conjunto de NSGs aprovados) com o tráfego da Internet bloqueado seja aplicado a todas as sub-redes em cada rede virtual. | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG X em cada NIC. | Garantir que um NSG com o tráfego da Internet bloqueado seja aplicado a todas as NICs em todas as máquinas virtuais. | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Use uma rede virtual aprovada para as interfaces de rede de máquina virtual.  | Garantir que todas as NICs estejam em uma rede virtual aprovada. | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Locais permitidos. | Garantir que todos os recursos sejam implantados em regiões com uma configuração de redes virtuais e do Observador de Rede em conformidade.  | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Tipos de recurso não permitidos, como **PublicIPs**. | Proibir a implantação de tipos de recurso que não têm um plano de conformidade. Use esta política para proibir a implantar dos recursos de endereço IP públicos. Embora as regras do NSG possam ser usadas para bloquear o tráfego da Internet com eficiência, evitar o uso de IPs Públicos reduz ainda mais a superfície de ataque.   | Introdução com este [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Impor a tabela de rotas definidas pelo usuário. | Garantir que a rota padrão em todos os pontos de redes virtuais seja direcionada a um Gateway de rede virtual aprovada para o roteamento local.    | Introdução com este [modelo](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Auditar se o Observador de Rede não está habilitado para a região.  | Garantir que o Observador de Rede esteja habilitado para todas as regiões usadas.  | Introdução com este [modelo](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG X em cada sub-rede.  | Garantir que um NSG (ou um conjunto de NSGs aprovados) com o tráfego da Internet bloqueado seja aplicado a todas as sub-redes em cada rede virtual. | Introdução com este [modelo](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG X em cada NIC. | Garantir que um NSG com o tráfego da Internet bloqueado seja aplicado a todas as NICs em todas as máquinas virtuais. | Introdução com este [modelo](../../governance/policy/samples/nsg-on-nic.md). |
+|Use uma rede virtual aprovada para as interfaces de rede de máquina virtual.  | Garantir que todas as NICs estejam em uma rede virtual aprovada. | Introdução com este [modelo](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Locais permitidos. | Garantir que todos os recursos sejam implantados em regiões com uma configuração de redes virtuais e do Observador de Rede em conformidade.  | Introdução com este [modelo](../../governance/policy/samples/allowed-locations.md). |
+|Tipos de recurso não permitidos, como **PublicIPs**. | Proibir a implantação de tipos de recurso que não têm um plano de conformidade. Use esta política para proibir a implantar dos recursos de endereço IP públicos. Embora as regras do NSG possam ser usadas para bloquear o tráfego da Internet com eficiência, evitar o uso de IPs Públicos reduz ainda mais a superfície de ataque.   | Introdução com este [modelo](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Análise de tráfego do Observador de Rede
 

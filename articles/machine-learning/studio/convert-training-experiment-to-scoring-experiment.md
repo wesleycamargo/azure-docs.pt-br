@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001690"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455102"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio
 
@@ -50,11 +50,11 @@ Depois de executar o teste (clique em **EXECUTAR** na parte inferior da tela do 
 
 Por exemplo, o seguinte experimento treina um modelo de árvore de decisão de duas classes aumentada usando dados de censo de exemplo:
 
-![experimento de treinamento][figure1]
+![experimento de treinamento](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 Os módulos nesse experimento executam basicamente quatro funções diferentes:
 
-![Funções de módulo][figure2]
+![Funções de módulo](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 Ao converter esse teste de treinamento em um teste preditivo, alguns desses módulos não serão mais necessários ou agora terão outra finalidade:
 
@@ -70,7 +70,7 @@ Ao converter esse teste de treinamento em um teste preditivo, alguns desses mód
 
 Veja como fica nosso exemplo depois do clique em **Configurar Serviço Web**:
 
-![Teste preditivo convertido][figure3]
+![Teste preditivo convertido](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 O trabalho feito pelo botão **Configurar Serviço Web** pode ser suficiente para preparar o teste para implantação como um serviço Web. No entanto, convém trabalhar nos detalhes específicos do seu experimento.
 
@@ -79,7 +79,7 @@ No seu experimento de treinamento, você usou um conjunto de dados de treinament
 
 Por exemplo, por padrão, **Configurar Serviço Web** coloca o **módulo de entrada do serviço Web** na parte superior do fluxo de dados, como mostrado na figura acima. Porém, podemos posicionar manualmente a **Entrada do serviço Web** depois dos módulos de processamento de dados:
 
-![Movendo a entrada do serviço Web][figure4]
+![Movendo a entrada do serviço Web](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 Os dados de entrada fornecidos pelo serviço Web agora passarão diretamente para o módulo do Modelo de Pontuação sem qualquer pré-processamento.
 
@@ -88,14 +88,14 @@ No entanto, se preferir retornar algo diferente, você poderá adicionar outros 
 
 Por exemplo, para retornar apenas os resultados da pontuação, e não todo o vetor de dados de entrada, adicione um módulo [Selecionar Colunas do Conjunto de Dados][select-columns] para excluir todas as colunas, exceto os resultados da pontuação. Em seguida, mova o módulo **Saída do serviço Web** para a saída do módulo [Selecionar Colunas do Conjunto de Dados][select-columns]. O teste tem esta aparência:
 
-![Movendo a saída do serviço Web][figure5]
+![Movendo a saída do serviço Web](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Adicionar ou remover módulos de processamento de dados adicionais
 Se houver mais módulos no seu experimento que você sabe que não será necessário durante a pontuação, eles podem ser removidos. Por exemplo, como movemos o módulo **Entrada do serviço Web** para um ponto após os módulos de processamento de dados, podemos remover o módulo [Limpar Dados Ausentes][clean-missing-data] do teste preditivo.
 
 Nosso teste preditivo ficou assim:
 
-![Removendo o módulo adicional][figure6]
+![Removendo o módulo adicional](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>Adicionar parâmetros de serviço Web opcionais
@@ -116,16 +116,6 @@ Agora que o teste preditivo foi devidamente preparado, você pode implantá-lo c
 Para saber mais sobre o processo completo de implantação, consulte [Implantar um Serviço Web do Azure Machine Learning][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

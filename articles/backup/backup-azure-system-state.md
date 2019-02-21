@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255857"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268716"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
 Este artigo explica como fazer backup do estado do sistema Windows Server para o Azure. É um tutorial que pretende explicar os conceitos básicos.
 
-Se você quiser saber mais sobre o Backup do Azure, leia esta [visão geral](backup-introduction-to-azure-backup.md).
+Se você quiser saber mais sobre o Backup do Azure, leia esta [visão geral](backup-overview.md).
 
 Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) , que permitirá o acesso a qualquer serviço do Azure.
 
@@ -131,7 +131,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> As credenciais do cofre devem ser salvas apenas em um local do Windows Server no qual você pretende usar o agente. 
+> As credenciais do cofre devem ser salvas apenas em um local do Windows Server no qual você pretende usar o agente.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
 Agora, o agente está instalado e seu computador está registrado no cofre. Você está pronto para configurar e agendar o backup.
 
-## <a name="back-up-windows-server-system-state"></a>Fazer backup do Estado do Sistema do Windows Server 
+## <a name="back-up-windows-server-system-state"></a>Fazer backup do Estado do Sistema do Windows Server
 O backup inicial inclui duas tarefas:
 
 * Agendar o backup
@@ -194,7 +194,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 6. Clique em **Próximo**.
 
-7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas. 
+7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas.
 
 8. Na página Confirmação, examine as informações e clique em **Concluir**.
 

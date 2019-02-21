@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869238"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328190"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 
@@ -30,7 +30,7 @@ O conteúdo do cliente foi armazenado criptografado no armazenamento do Azure re
 - Conteúdo da conta de usuário coletado no momento do registro
 - Dados de treinamento necessários para compilar modelos (ou seja, intenção e entidades)
 - Consultas do usuário registradas em log em tempo de execução para ajudar a melhorar os modelos do usuário
-  - Os usuários podem desligar o registro em log de consulta anexando `&log=false` à solicitação; detalhes [aqui](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - Os usuários podem desligar o registro em log de consulta anexando `&log=false` à solicitação; detalhes [aqui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 Os usuários do LUIS têm controle total para excluir qualquer conteúdo de usuário, seja por meio do portal da Web do LUIS, seja pelas APIs Programáticas do LUIS. A tabela a seguir exibe links para ajudar a ajudar com ambos:

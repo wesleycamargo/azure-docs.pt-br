@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 58ee4b7d615c70845e1239d4ee98b086b2124c77
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f3ec10a970406cbb1bb6a1a52ffa8508e37fc516
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874168"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414160"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights
 
@@ -25,8 +25,8 @@ Atualmente, o Profiler funciona para aplicativos do ASP.NET e ASP.NET Core em ap
 
 ## <a id="installation"></a> Habilitar o Profiler em seu aplicativo
 Para habilitar o Profiler em um aplicativo, siga as instruções abaixo. Se você estiver executando um tipo diferente de serviço do Azure, aqui estão as instruções para ativar o Profiler em outras plataformas suportadas:
-* [Serviços de Nuvem](../../azure-monitor/app/profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Aplicativos do Service Fabric](../../azure-monitor/app/profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Serviços de Nuvem](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Aplicativos do Service Fabric](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 O Application Insights Profiler vem pré-instalado como parte do tempo de execução do Serviços de Aplicativos, mas é necessário ativá-lo para obter perfis para os seus aplicativos do Serviço de Aplicativo. Depois de implantar um aplicativo, mesmo que você tenha incluído o SDK do App Insights no código-fonte, execute as etapas abaixo para habilitar o criador de perfil.

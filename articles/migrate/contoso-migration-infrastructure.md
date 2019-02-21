@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726977"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340120"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implantar uma infraestrutura de migração
 
@@ -646,7 +646,7 @@ O Azure fornece uma variedade de controles de governança entre os serviços e a
 
 O serviço de Política do Azure avalia seus recursos, procurando aqueles que não estão em conformidade com as definições de política que você tem em vigor. Por exemplo, pode haver uma política que permita apenas determinados tipos de VMs ou exija que os recursos tenham uma marca específica. 
 
-As políticas do Azure especificam uma definição de política, e uma atribuição de política especifica o escopo no qual uma política deve ser aplicada. O escopo pode variar de um grupo de gerenciamento para um grupo de recursos. [ Aprenda ](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) sobre como criar e gerenciar políticas.
+As políticas do Azure especificam uma definição de política, e uma atribuição de política especifica o escopo no qual uma política deve ser aplicada. O escopo pode variar de um grupo de gerenciamento para um grupo de recursos. [ Aprenda ](../governance/policy/tutorials/create-and-manage.md) sobre como criar e gerenciar políticas.
 
 A Contoso deseja começar com duas políticas:
 

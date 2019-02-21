@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 074f090d295ef5eafad48e57f68dad019bf7eab9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470028"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415435"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.
@@ -48,9 +48,9 @@ Neste passo a passo, usamos [Azure Resource Manager](https://resources.azure.com
 4. Eis um cenário hipotético de dimensionamento que usaremos para este passo a passo.
 
     * **Baseado em carga** ‑ Desejo escalar ou reduzir horizontalmente com base na carga do aplicativo hospedado no conjunto de dimensionamento.*
-    * **Tamanho da Fila de Mensagens** ‑ Uso uma Fila do Barramento de Serviço para as mensagens recebidas pelo meu aplicativo. Uso contagem de mensagens da fila e o percentual de CPU e configuro um perfil padrão para disparar uma ação de escala se a contagem de mensagens ou CPU atingir o limite.*
-    * **Dia e hora da semana** ‑ Desejo ter um perfil baseado na “hora do dia” recorrente semanal chamado “Horas da manhã de dias da semana”. Com base nos dados históricos, sei que é melhor ter determinado número de instâncias de VM para lidar com a carga do meu aplicativo durante esse período.*
-    * **Datas especiais** ‑ Adicionei um perfil de “Dia de lançamento de produto”. Planejo com antecedência em relação a datas específicas para que meu aplicativo esteja pronto para lidar com a carga devido a anúncios de marketing e quando colocamos um novo produto no aplicativo.*
+    * **Tamanho da Fila de Mensagens** ‑ Uso uma Fila do Barramento de Serviço para as mensagens recebidas pelo meu aplicativo. Uso contagem de mensagens da fila e o percentual de CPU e configuro um perfil padrão para disparar uma ação de escala se a contagem de mensagens ou CPU atingir o limite.\*
+    * **Dia e hora da semana** ‑ Desejo ter um perfil baseado na “hora do dia” recorrente semanal chamado “Horas da manhã de dias da semana”. Com base nos dados históricos, sei que é melhor ter determinado número de instâncias de VM para lidar com a carga do meu aplicativo durante esse período.\*
+    * **Datas especiais** ‑ Adicionei um perfil de “Dia de lançamento de produto”. Planejo com antecedência em relação a datas específicas para que meu aplicativo esteja pronto para lidar com a carga devido a anúncios de marketing e quando colocamos um novo produto no aplicativo.\*
     * *Os últimos dois perfis também podem ter outras regras com base em métrica de desempenho dentro deles. Nesse caso, decidi por não ter um e, em vez disso, contar com as regras com base em métricas de desempenho padrão. As regras são opcionais para perfis baseados em recorrência e data.*
 
     A priorização de perfis e regras do mecanismo de dimensionamento automático também é vista no artigo [Práticas recomendadas de dimensionamento automático](autoscale-best-practices.md).

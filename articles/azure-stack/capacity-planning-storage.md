@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176333"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445994"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planejamento de capacidade de armazenamento de pilha do Azure
 As seções a seguir fornecem a capacidade de armazenamento do Azure Stack informações de planejamento para ajudar no planejamento de necessidades de armazenamento de soluções.
@@ -38,7 +38,9 @@ Operadores podem escolher entre um todos os flash ou uma configuração de armaz
 
 ![Planejamento de capacidade de armazenamento do Azure](media/azure-stack-capacity-planning/storage.png)
 
-Na configuração de todos os flash, o cache é NVMe com uma opção de SSD SATA ou NVMe para capacidade. Na configuração híbrida, o cache é uma escolha entre NVMe e SATA SSD, enquanto a capacidade é a unidade de disco rígido.
+Na configuração de todos os flash, a configuração pode ser uma configuração de camada única ou de duas camadas.  Se a configuração é a única camada, todos os dispositivos de capacidade será do mesmo tipo (por exemplo, NVMe ou SSD SATA ou SAS SSD) e dispositivos de cache não são usados. Em um todos de duas camadas flash configuração, a configuração típica é NVMe como os dispositivos de cache e, em seguida, ambos SATA ou SAS SSDs como os dispositivos de capacidade.
+
+Em híbrida, configuração de duas camadas, o cache é uma escolha entre NVMe, SATA ou SAS SSD e a capacidade de HDD. 
 
 Um breve resumo dos espaços de armazenamento diretos e configuração de armazenamento do Azure Stack é o seguinte:
 - Um Pool de espaços de armazenamento por unidade de escala (todos os dispositivos de armazenamento são configurados com um único pool)

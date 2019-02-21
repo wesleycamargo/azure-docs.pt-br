@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118217"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341004"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 
@@ -61,7 +61,7 @@ Com o corpo da solicitação contendo o JSON abaixo.
 A API também pode ser acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. Conforme ilustrado abaixo, na chamada PUT de exemplo, a ferramenta ARMclient é usada para alternar todas as regras de alerta associadas ao workspace do Log Analytics específico.
 
 ```PowerShell
-$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+$switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 

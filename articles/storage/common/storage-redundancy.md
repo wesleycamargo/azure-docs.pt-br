@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506780"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330776"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -48,7 +48,7 @@ Para obter informações sobre cada opção de redundância de preços, consulte
 Para obter informações sobre o armazenamento do Azure garante para durabilidade e disponibilidade, consulte o [SLA do armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> O Armazenamento Premium dá suporte apenas ao LRS (armazenamento com redundância local). Para obter informações sobre o Armazenamento Premium, confira [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../../virtual-machines/windows/premium-storage.md).
+> O Armazenamento Premium dá suporte apenas ao LRS (armazenamento com redundância local).
 
 ## <a name="changing-replication-strategy"></a>Alterar estratégia de replicação
 É possível alterar a estratégia de replicação da sua conta de armazenamento usando o [Portal do Azure](https://portal.azure.com/), [Microsoft Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou uma das muitas [Bibliotecas de cliente do Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da sua conta de armazenamento não resulta em tempo de inatividade.

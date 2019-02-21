@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 3fb11ad74e3d1628cbf3f00e2aae648be3eea437
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107677"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301223"
 ---
 # <a name="common-parameters-and-headers"></a>Parâmetros e cabeçalhos comuns
 
@@ -34,12 +34,14 @@ As informações a seguir são comuns a todas as operações que você pode exec
 ## <a name="common-error-response"></a>Resposta de erro comum
 O serviço usará códigos de status HTTP para indicar êxito ou falha. Além disso, as falhas contêm uma resposta no seguinte formato:
 
+```
    {  
      "error": {  
      "code": "BadRequest",  
-     "message": "O sku do cofre de chaves é inválido."  
+     "message": "The key vault sku is invalid."  
      }  
    }  
+```
 
 |Nome do elemento | Type | DESCRIÇÃO |
 |---|---|---|

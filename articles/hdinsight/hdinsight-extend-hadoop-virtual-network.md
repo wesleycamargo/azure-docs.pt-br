@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169965"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447405"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -221,8 +221,6 @@ O tráfego de rede em Redes Virtuais do Azure pode ser controlado com os seguint
 
 Como um serviço gerenciado, o HDInsight exige acesso irrestrito para a integridade do HDinsight e gerenciamento de serviços para tráfego de entrada e saída da rede virtual. Ao usar NSGs e UDRs, você deve garantir que esses serviços ainda possam se comunicar com o cluster HDInsight.
 
-O HDInsight expõe serviços em várias portas. Ao usar um firewall de solução de virtualização, você deve permitir o tráfego nas portas usadas para esses serviços. Para obter mais informações, consulte a seção [Portas necessárias].
-
 ### <a id="hdinsight-ip"></a> HDInsight com grupos de segurança de rede e rotas definidas pelo usuário
 
 Se você pretende usar **grupos de segurança de rede** ou **rotas definidas pelo usuário** para controlar o tráfego de rede, execute as seguintes ações antes de instalar o HDInsight:
@@ -305,8 +303,6 @@ Se você usar grupos de segurança de rede, deverá permitir o tráfego dos serv
 3. Você também deve permitir o acesso de __168.63.129.16__. Esse endereço é o resolvedor recursivo do Azure. Para obter mais informações, consulte o documento [Resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Para obter mais informações, consulte a seção [Controlando o tráfego de rede](#networktraffic).
-
-Para regras de NSG de saída, permita o tráfego de qualquer origem dentro da VNET para acessar os endereços acima como "Endereços IP de destino".
 
 Se você estiver usando UDRs (rotas definidas pelo usuário), especifique uma rota e permita o tráfego de saída da VNET para o IPs acima com o próximo salto definido como "Internet".
     

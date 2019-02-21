@@ -2,25 +2,16 @@
 title: 'Excluir um gateway da rede virtual: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Exclua um gateway de rede virtual usando o PowerShell no modelo de implantação do Resource Manager.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 02/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: a0fc21c469658da637f15c820c105ec3ff31a04e
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 922aa739a42eddbe8cd7e3cabe46681c0c2c6d46
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507919"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417067"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Excluir um gateway de rede virtual usando o PowerShell
 > [!div class="op_single_selector"]
@@ -38,6 +29,8 @@ Há duas abordagens diferentes que podem ser executadas quando você deseja excl
 
 ## <a name="before-beginning"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Baixe a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager.
 
 Baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações sobre como baixar e instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
@@ -47,19 +40,19 @@ Baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Resour
 Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Verificar as assinaturas da conta.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Se você tiver mais de uma assinatura, especifique a assinatura que deseja usar.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
 ## <a name="S2S"></a>Excluir um Gateway de VPN site a site
@@ -75,14 +68,14 @@ As etapas a seguir se aplicam ao modelo de implantação do Resource Manager.
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenha o gateway de rede virtual que você deseja excluir.
 
 ```powershell
-$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Verifique se o gateway de rede virtual tem alguma conexão.
 
 ```powershell
-get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
-$Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+$Conns=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
 
 ### <a name="3-delete-all-connections"></a>3. Exclua todas as conexões.
@@ -90,7 +83,7 @@ $Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | whe
 Talvez seja solicitado que você confirme a exclusão de cada uma das conexões.
 
 ```powershell
-$Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
+$Conns | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
 ### <a name="4-delete-the-virtual-network-gateway"></a>4. Exclua o gateway de rede virtual.
@@ -99,7 +92,7 @@ Talvez seja solicitado que você confirme a exclusão do gateway. Se você tiver
 
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 Neste ponto, o gateway de rede virtual foi excluído. Você pode usar as próximas etapas para excluir todos os recursos que não estão sendo usados.
@@ -109,13 +102,13 @@ Neste ponto, o gateway de rede virtual foi excluído. Você pode usar as próxim
 Obtenha a lista de gateways de rede local correspondentes.
 
 ```powershell
-$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
+$LNG=Get-AzLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
 ```
 
 Exclua os gateways de rede local. Talvez seja solicitado que você confirme a exclusão de cada um dos gateways de rede local.
 
 ```powershell
-$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
+$LNG | ForEach-Object {Remove-AzLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
 ```
 
 ### <a name="6-delete-the-public-ip-address-resources"></a>6. Exclua os recursos do endereço IP Público.
@@ -129,20 +122,20 @@ $GWIpConfigs = $Gateway.IpConfigurations
 Obtenha a lista de recursos de endereços IP Públicos usados para este gateway de rede virtual. Se o gateway de rede virtual estava ativo-ativo, você verá dois endereços IP públicos.
 
 ```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+$PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
 Exclua os recursos IP Públicos.
 
 ```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
+$PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
 ### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Exclua a sub-rede do gateway e defina a configuração.
 
 ```powershell
-$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
-Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
+$GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
 ## <a name="v2v"></a>Excluir um Gateway de VPN de VNet para VNet
@@ -158,19 +151,19 @@ As etapas a seguir se aplicam ao modelo de implantação do Resource Manager.
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenha o gateway de rede virtual que você deseja excluir.
 
 ```powershell
-$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Verifique se o gateway de rede virtual tem alguma conexão.
 
 ```powershell
-get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
 Pode haver outras conexões com o gateway de rede virtual que fazem parte de um grupo de recursos diferente. Verifique se há conexões adicionais em cada grupo de recursos adicional. Neste exemplo, estamos verificando se há conexões de RG2. Execute isso para cada grupo de recursos que você tem e que pode ter uma conexão para o gateway de rede virtual.
 
 ```powershell
-get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
+get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
 ```
 
 ### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. Obtenha a lista de conexões em ambas as direções.
@@ -178,13 +171,13 @@ get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-obje
 Já que essa é uma configuração de VNet para VNet, você precisa da lista de conexões em ambas as direções.
 
 ```powershell
-$ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+$ConnsL=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
 Neste exemplo, estamos verificando se há conexões de RG2. Execute isso para cada grupo de recursos que você tem e que pode ter uma conexão para o gateway de rede virtual.
 
 ```powershell
- $ConnsR=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
+ $ConnsR=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
  ```
 
 ### <a name="4-delete-all-connections"></a>4. Exclua todas as conexões.
@@ -192,8 +185,8 @@ Neste exemplo, estamos verificando se há conexões de RG2. Execute isso para ca
 Talvez seja solicitado que você confirme a exclusão de cada uma das conexões.
 
 ```powershell
-$ConnsL | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
-$ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
+$ConnsL | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
+$ConnsR | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
 ### <a name="5-delete-the-virtual-network-gateway"></a>5. Exclua o gateway de rede virtual.
@@ -201,7 +194,7 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 Talvez seja solicitado que você confirme a exclusão de cada um dos gateways de rede virtual. Se você tiver configurações de P2S nas Vnets além da configuração de V2V, a exclusão dos gateways de rede virtual desconectará automaticamente todos os clientes de P2S sem aviso.
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 Neste ponto, o gateway de rede virtual foi excluído. Você pode usar as próximas etapas para excluir todos os recursos que não estão sendo usados.
@@ -217,20 +210,20 @@ $GWIpConfigs = $Gateway.IpConfigurations
 Obtenha a lista de recursos de endereços IP Públicos usados para este gateway de rede virtual. Se o gateway de rede virtual estava ativo-ativo, você verá dois endereços IP públicos.
 
 ```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+$PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
 Exclua os recursos IP Públicos. Talvez seja solicitado que você confirme a exclusão do IP público.
 
 ```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+$PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
 ### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Exclua a sub-rede do gateway e defina a configuração.
 
 ```powershell
-$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
-Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
+$GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
 ## <a name="deletep2s"></a>Excluir um gateway de VPN ponto a site
@@ -252,7 +245,7 @@ As etapas a seguir se aplicam ao modelo de implantação do Resource Manager.
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenha o gateway de rede virtual que você deseja excluir.
 
 ```powershell
-$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2. Exclua o gateway de rede virtual.
@@ -260,7 +253,7 @@ $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 Talvez seja solicitado que você confirme a exclusão de cada um dos gateways de rede virtual.
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 Neste ponto, o gateway de rede virtual foi excluído. Você pode usar as próximas etapas para excluir todos os recursos que não estão sendo usados.
@@ -276,20 +269,20 @@ $GWIpConfigs = $Gateway.IpConfigurations
 Obtenha a lista de endereços IP públicos usados para esse gateway de rede virtual. Se o gateway de rede virtual estava ativo-ativo, você verá dois endereços IP públicos.
 
 ```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+$PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
 Exclua os IPs públicos. Talvez seja solicitado que você confirme a exclusão do IP público.
 
 ```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+$PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
 ### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Exclua a sub-rede do gateway e defina a configuração.
 
 ```powershell
-$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
-Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
+$GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
 ## <a name="delete"></a>Excluir um Gateway de VPN por meio da exclusão do grupo de recursos
@@ -299,7 +292,7 @@ Se você não estiver preocupado em manter nenhum de seus recursos no grupo de r
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Obtenha uma lista de todos os grupos de recursos em sua assinatura.
 
 ```powershell
-Get-AzureRmResourceGroup
+Get-AzResourceGroup
 ```
 
 ### <a name="2-locate-the-resource-group-that-you-want-to-delete"></a>2. Localize o grupo de recursos que você deseja excluir.
@@ -307,7 +300,7 @@ Get-AzureRmResourceGroup
 Localize o grupo de recursos que você deseja excluir e exiba a lista de recursos nesse grupo de recursos. Neste exemplo, o nome do grupo de recursos é RG1. Modificar o exemplo para recuperar uma lista de todos os recursos.
 
 ```powershell
-Find-AzureRmResource -ResourceGroupNameContains RG1
+Find-AzResource -ResourceGroupNameContains RG1
 ```
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. Verificar os recursos na lista.
@@ -319,7 +312,7 @@ Quando a lista for retornada, examine-a para verificar que você deseja excluir 
 Para excluir o grupo de recursos e todos os recursos contidos nele, modifique o exemplo e execute-o.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name RG1
+Remove-AzResourceGroup -Name RG1
 ```
 
 ### <a name="5-check-the-status"></a>5. Verifique o status.
@@ -327,7 +320,7 @@ Remove-AzureRmResourceGroup -Name RG1
 Leva algum tempo para o Azure excluir todos os recursos. Você pode verificar o status do seu grupo de recursos usando esse cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -ResourceGroupName RG1
+Get-AzResourceGroup -ResourceGroupName RG1
 ```
 
 O resultado retornado mostra 'Êxito'.

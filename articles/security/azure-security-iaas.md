@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116489"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341209"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 
@@ -39,7 +39,7 @@ As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos 
 A primeira etapa na proteção de VMs é garantir que apenas usuários autorizados possam configurar novas VMs e acessar VMs.
 
 **Melhor prática**: controlar o acesso à VM.   
-**Detalhes**: use as [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer convenções para recursos na organização e criar políticas personalizadas. Aplique essas políticas a recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). VMs que pertencem a um grupo de recursos herdam suas políticas.
+**Detalhes**: use as [políticas do Azure](../governance/policy/overview.md) para estabelecer convenções para recursos na organização e criar políticas personalizadas. Aplique essas políticas a recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). VMs que pertencem a um grupo de recursos herdam suas políticas.
 
 Se a organização tiver muitas assinaturas, talvez seja necessário gerenciar de maneira eficiente o acesso, as políticas e a conformidade dessas assinaturas. [Os grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md) fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em grupos de gerenciamento (contêineres) e aplica as condições de governança a esses grupos. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo. Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.
 
