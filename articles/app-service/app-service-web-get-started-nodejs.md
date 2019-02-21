@@ -3,7 +3,7 @@ title: Criar um aplicativo Web Node.js – Serviço de Aplicativo do Azure | Mic
 description: Implante seu primeiro Olá, Mundo em Node.js nos Aplicativos Web do Serviço de Aplicativo do Azure em minutos.
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: cephalin
 manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2018
-ms.author: cephalin;msangapu
+ms.date: 02/15/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5223a60663e05747b58aa04e7a102f1d350badd4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8d7bd808540ac697bde073201e88f49ace8b527a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632290"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308665"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -182,12 +182,6 @@ A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executa
 ![Página Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
-
-## <a name="video"></a>Vídeo
-
-Assista ao vídeo para ver este início rápido em ação e, depois, execute as etapas para publicar seu primeiro aplicativo Node.js no Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

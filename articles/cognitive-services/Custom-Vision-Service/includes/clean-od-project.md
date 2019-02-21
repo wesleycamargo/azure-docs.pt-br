@@ -1,15 +1,16 @@
 ---
 author: PatrickFarley
 ms.service: cognitive-services
+ms.subservice: custom-vision
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 920f2186bc7944f2db6ebbf848c63f720fceef69
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6387fd963e5e069f9cff3e4f91c2aba72370abc8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283900"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56323367"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se você deseja implementar seu próprio projeto de detecção de objeto (ou experimentar um projeto de [classificação de imagens](../csharp-tutorial.md) em vez disso), você talvez queira excluir o projeto de detecção de garfo/tesoura deste exemplo. Uma avaliação gratuita permite dois projetos de Visão Personalizada.

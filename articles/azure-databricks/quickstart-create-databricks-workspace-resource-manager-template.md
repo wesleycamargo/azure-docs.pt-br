@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 179bb4586ce7d6b306decfcf4d312d541dc9232e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054479"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330470"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Azure Resource Manager
 
@@ -51,7 +51,7 @@ Nesta seção, você criará um workspace do Azure Databricks usando o modelo do
 
 4. A criação do workspace leva alguns minutos. Durante a criação do workspace, o portal exibe o bloco **Enviando a implantação para o Azure Databricks** no lado direito. Talvez seja necessário rolar diretamente no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento.
 
-   ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Bloco de implantação do Databricks")
+   ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Bloco de implantação do Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 
@@ -59,11 +59,11 @@ Nesta seção, você criará um workspace do Azure Databricks usando o modelo do
 
 2. Você é redirecionado para o portal do Azure Databricks. No portal, clique em **Cluster**.
 
-   ![Databricks no Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks no Azure")
+   ![Databricks no Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Databricks no Azure")
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-   ![Criar cluster do Databricks Spark no Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+   ![Criar cluster do Databricks Spark no Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
 
    Aceite todos os outros valores padrão que não sejam o seguinte:
 
@@ -87,11 +87,11 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
 
 1. No painel esquerdo, clique em **Workspace**. Na lista suspensa do **Workspace**, clique em **Criar** e depois em **Bloco de notas**.
 
-   ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Criar bloco de notas em Databricks")
+   ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Criar bloco de notas em Databricks")
 
 2. Na caixa de diálogo **Criar Bloco de Notas**, insira um nome, selecione **Scala** como a linguagem e selecione o cluster Spark criado anteriormente.
 
-   ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Criar bloco de notas em Databricks")
+   ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Criar bloco de notas em Databricks")
 
    Clique em **Criar**.
 
@@ -145,17 +145,17 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
 
 6. Você verá uma saída tabular como mostrado na seguinte captura de tela (somente algumas colunas são mostradas):
 
-   ![Dados JSON de exemplo](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Dados JSON de exemplo")
+   ![Dados JSON de exemplo](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "Dados JSON de exemplo")
 
    Entre outros detalhes, os dados de exemplo capturam o gênero do público de um canal de rádio (nome da coluna: **gênero**) e se a sua assinatura é gratuita ou paga (nome da coluna: **nível**).
 
 7. Agora crie uma representação visual dos dados para mostrar quantos usuários têm contas gratuitas e quantos são assinantes pagantes para cada gênero. Na parte inferior da saída tabular, clique no ícone de **Gráfico de barras** e depois em **Opções de plotagem**.
 
-   ![Criar gráfico de barras](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Criar gráfico de barras")
+   ![Criar gráfico de barras](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Criar gráfico de barras")
 
 8. Em **Personalizar plotagem**, arraste e solte valores conforme mostrado na captura de tela.
 
-   ![Personalizar o gráfico de barras](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizar o gráfico de barras")
+   ![Personalizar o gráfico de barras](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Personalizar o gráfico de barras")
 
    * Definir **Chaves** como **gênero**.
    * Definir **Agrupamentos de série** como **nível**.
@@ -166,13 +166,13 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
 
 9. A saída mostra a representação visual, conforme ilustrado na seguinte captura de tela:
 
-   ![Personalizar o gráfico de barras](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Personalizar o gráfico de barras")
+   ![Personalizar o gráfico de barras](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Personalizar o gráfico de barras")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de terminar o artigo, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
-![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
 Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **Terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster é interrompido automaticamente se ficar inativo durante o tempo especificado.
 

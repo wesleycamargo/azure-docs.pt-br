@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243681"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455646"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Machine Learning Studio publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel.
@@ -37,7 +37,7 @@ Para desenvolver um modelo de análise preditiva, normalmente você usa dados de
 
 Não há necessidade de programação, basta conectar visualmente os conjuntos de dados e módulos para construir seu modelo de análise preditivo.
 
-![Diagrama do Azure Machine Learning Studio: crie experimentos, leia dados de várias fontes, grave dados de pontuação, grave modelos.][ml-studio-overview]
+![Diagrama do Azure Machine Learning Studio: crie experimentos, leia dados de várias fontes, grave dados de pontuação, grave modelos.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Machine Learning Studio
 Ao entrar pela primeira vez no [Machine Learning Studio,](https://studio.azureml.net) você verá a página **Inicial** . Aqui você pode exibir a documentação, vídeos, seminários na Web e obter outros recursos valiosos.
@@ -107,9 +107,6 @@ Para obter ajuda sobre navegação através da biblioteca grande dos algoritmos 
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implantando um serviço Web de análise preditiva
 Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo como um serviço Web diretamente no Machine Learning Studio. Para obter mais detalhes sobre esse processo, consulte [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
-
-[ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
-
 
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Principais termos e conceitos do aprendizado de máquina

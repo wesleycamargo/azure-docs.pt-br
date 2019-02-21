@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar rostos em uma imagem com a API REST do Azure e Java'
+title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e Java'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usará a API de Detecção Facial do Azure com Java para detectar faces em uma imagem.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 53a21977ecfae5ac7d39d670fa5f3ca62f939770
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b82f230c790f0615077cc96e83ece823713b0a73
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866892"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308971"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Java
 

@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238951"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310348"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Usar o SDK do Python para começar a usar o Azure Machine Learning
 
@@ -89,7 +89,7 @@ Antes de instalar o SDK, recomendamos que você crie um ambiente de Python isola
 1. Instale um servidor do Jupyter Notebook no ambiente do Conda.
 
   ```shell
-    conda install nb_conda
+    conda install -y nb_conda
     ```
 
 1. Para usar esse ambiente para os tutoriais do Azure Machine Learning, instale esses pacotes.

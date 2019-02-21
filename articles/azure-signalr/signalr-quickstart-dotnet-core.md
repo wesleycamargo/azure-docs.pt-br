@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731267"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267743"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início Rápido: criar uma sala de chat com o Serviço do SignalR
 
@@ -79,7 +79,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
 
 1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.SignalR` executando o seguinte comando:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
+        dotnet add package Microsoft.Azure.SignalR
 
 2. Execute o seguinte comando para restaurar os pacotes para o seu projeto.
 
@@ -92,7 +92,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
     Este comando deve ser executado no mesmo diretório que o arquivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
     O Gerenciador de Segredos só será usado para testar o aplicativo Web enquanto ele estiver hospedado localmente. Em um tutorial posterior, você implantará o aplicativo Web de chat no Azure. Após a implantação do aplicativo Web no Azure, você usará uma configuração de aplicativo em vez de armazenar a cadeia de conexão com o Gerenciador de Segredos.
