@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3a9ee66907b51a40e9f4b0871d9f6ba6e29763a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242392"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594042"
 ---
 # <a name="validate-oem-packages"></a>Validar pacotes de OEM
 
@@ -35,7 +35,7 @@ Você pode testar um novo pacote de OEM quando houve uma alteração no firmware
 
 ## <a name="managing-packages-for-validation"></a>Gerenciamento de pacotes para validação
 
-Ao usar o **validação do pacote** fluxo de trabalho para validar um pacote, você precisará fornecer uma URL para um **Azure Storage blob**. Esse blob é o pacote de OEM que foi instalado na solução no momento da implantação. Criar o blob usando a conta de armazenamento do Azure criada durante a instalação (consulte [configurar a validação como um serviço de recursos](azure-stack-vaas-set-up-resources.md)).
+Ao usar o **validação do pacote** fluxo de trabalho para validar um pacote, você precisará fornecer uma URL para um **Azure Storage blob**. Esse blob é que o teste assinou o pacote de OEM que será instalado como parte do processo de atualização. Criar o blob usando a conta de armazenamento do Azure criada durante a instalação (consulte [configurar a validação como um serviço de recursos](azure-stack-vaas-set-up-resources.md)).
 
 ### <a name="prerequisite-provision-a-storage-container"></a>Pré-requisito: Provisionar um contêiner de armazenamento
 
@@ -58,7 +58,9 @@ Crie um contêiner na conta de armazenamento de blobs do pacote. Esse contêiner
 
 Ao criar uma **validação de pacote** fluxo de trabalho no portal do VaaS, você precisará fornecer uma URL para o blob de armazenamento do Azure que contém o pacote.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Opção 1: Gerando uma URL SAS de conta
+#### <a name="option-1-generating-a-blob-sas-url"></a>Opção 1: Gerando um URL SAS do blob
+
+Use esta opção se você não quiser habilitar o acesso de leitura público ao contêiner de armazenamento ou blobs.
 
 1. No [portal do Azure](https://portal.azure.com/), vá para sua conta de armazenamento e navegue até o arquivo. zip que contém o pacote
 
@@ -68,20 +70,23 @@ Ao criar uma **validação de pacote** fluxo de trabalho no portal do VaaS, voc�
 
 4. Definir **hora de início** para a hora atual, e **hora de término** pelo menos de 48 horas da **hora de início**. Se você for executar outros testes com o mesmo pacote, considere aumentar **hora de término** para a duração do teste. Todos os testes agendados pelo VaaS após **hora de término** falham e uma nova SAS será precisará ser gerado.
 
-5. Selecione **gerar a URL e o token SAS do blob**
+5. Selecione **Gerar URL e token SAS do blob**.
 
-Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo de trabalho no portal do VaaS.
+Use o **URL de SAS do Blob** quando fornecendo pacote blob URLs para o portal.
 
-#### <a name="option-2-using-public-read-container"></a>Opção 2: Usando um contêiner público de leitura
+#### <a name="option-2-grant-public-read-access"></a>Opção 2: Conceder acesso de leitura público
 
 > [!CAUTION]
-> Essa opção abre o contêiner para acesso anônimo de somente leitura.
+> Essa opção abre o blob (s) para acesso anônimo de somente leitura.
 
 1. Grant **acesso somente para blobs de leitura público** ao contêiner de pacote, seguindo as instruções na seção [conceder permissões a usuários anônimos a contêineres e blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-2. No contêiner do pacote, selecione no blob no contêiner de pacote para abrir o painel Propriedades.
+> [!NOTE]
+> Se você estiver fornecendo uma URL de pacote para um *teste interativa* (por exemplo, verificação de atualização mensal AzureStack ou verificação de pacote de extensão do OEM), você deve conceder **acesso de leitura público completo** para Continue com testes.
 
-3. Cópia de **URL**. Use esse valor ao iniciar uma nova **validação de pacote** fluxo de trabalho no portal do VaaS.
+2. No contêiner do pacote, selecione o blob de pacote para abrir o painel Propriedades.
+
+3. Cópia de **URL**. Use esse valor quando fornecendo pacote blob URLs para o portal.
 
 ## <a name="apply-monthly-update"></a>Aplicar atualização mensal
 
@@ -99,7 +104,7 @@ Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo d
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Insira a URL do blob de armazenamento do Azure para o pacote de OEM foi instalado na solução no momento da implantação. Para obter instruções, consulte [gerar a URL do blob de pacote para VaaS](#generate-package-blob-url-for-vaas).
+5. Insira o armazenamento do Azure para o teste de URL do blob assinou o pacote de OEM que exigem uma assinatura da Microsoft. Para obter instruções, consulte [gerar a URL do blob de pacote para VaaS](#generate-package-blob-url-for-vaas).
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -113,9 +118,16 @@ Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo d
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Você será redirecionado à página de resumo de testes.
 
+## <a name="required-tests"></a>Testes necessários
+
+Testes a seguir são necessários para validação do pacote de OEM:
+
+- Verificação do pacote de extensão de OEM
+- Mecanismo de simulação de nuvem
+
 ## <a name="run-package-validation-tests"></a>Executar testes de validação de pacote
 
-1. No **resumo de testes de validação do pacote** página, você verá uma lista dos testes são necessárias para concluir a validação. Executar testes nesse fluxo de trabalho por aproximadamente 24 horas.
+1. No **resumo de testes de validação do pacote** página, você executará um subconjunto dos testes listados apropriados para seu cenário.
 
     Nos fluxos de trabalho validação **agendamento** um teste usa os parâmetros comuns de nível de fluxo de trabalho que você especificou durante a criação de fluxo de trabalho (consulte [parâmetros comuns de fluxo de trabalho para validação de pilha do Azure como um serviço](azure-stack-vaas-parameters.md)). Se qualquer um dos valores de parâmetro de teste se tornar inválido, deve resupply-las conforme as instruções [modifique os parâmetros de fluxo de trabalho](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
@@ -125,13 +137,11 @@ Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo d
 
 2. Selecione o agente que executará o teste. Para obter informações sobre como adicionar locais agentes de execução de teste, consulte [implantar o agente local](azure-stack-vaas-local-agent.md).
 
-3. Para cada um dos testes a seguir, a etapa quatro e cinco:
-    - Verificação do pacote de extensão de OEM
-    - Mecanismo de simulação de nuvem
+3. Selecione completa de verificação do pacote de extensão de OEM **agendamento** no menu de contexto para abrir um prompt para agendar a instância de teste.
 
-4. Selecione **agendamento** no menu de contexto para abrir um prompt para agendar a instância de teste.
+4. Revise os parâmetros de teste e, em seguida, selecione **enviar** para agendar a verificação do pacote de extensão de OEM para execução.
 
-5. Revise os parâmetros de teste e, em seguida, selecione **enviar** para agendar o teste para execução.
+5. Examine o resultado de verificação do pacote de extensão de OEM. Depois que o teste tiver sido bem-sucedido, agende o mecanismo de simulação de nuvem para execução.
 
 Quando todos os testes foi concluído com êxito, envie o nome da sua solução VaaS e validação de pacote para [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) para solicitar a assinatura do pacote.
 

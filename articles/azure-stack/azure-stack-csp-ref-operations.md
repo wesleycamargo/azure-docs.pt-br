@@ -15,12 +15,12 @@ ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6f2a2eb9902e8567b5fa27ed93dd8be2fe3a01b3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002031"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587065"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro de locatário no Azure Stack
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre perfis de API e o Azure Stack, consulte [per
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet New-AzureRmResource para adicionar um locatário. [Conectar-se ao Azure Stack](/azure-stack-powershell-configure-admin.md)e, em seguida, em um prompt elevado, use o seguinte cmdlet:
+Use o cmdlet New-AzureRmResource para adicionar um locatário. [Conectar-se ao Azure Stack](azure-stack-powershell-configure-admin.md)e, em seguida, em um prompt elevado, use o seguinte cmdlet:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ Obtenha uma lista de todos os locatários que foram adicionados a um registro.
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet Get-AzureRmResource para listar todos os locatários. [Conectar-se ao Azure Stack](/azure-stack-powershell-configure-admin.md)e, em seguida, em um prompt elevado, use o seguinte cmdlet:
+Use o cmdlet Get-AzureRmResource para listar todos os locatários. [Conectar-se ao Azure Stack](azure-stack-powershell-configure-admin.md)e, em seguida, em um prompt elevado, use o seguinte cmdlet:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -142,7 +142,7 @@ Você pode remover um locatário que tenha sido adicionado a um registro. Se ess
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet Remove-AzureRmResource para remover um locatário. [Conectar-se ao Azure Stack](/azure-stack-powershell-configure-admin.md)e, em seguida, em um prompt elevado, use o seguinte cmdlet:
+Use o cmdlet Remove-AzureRmResource para remover um locatário. [Conectar-se ao Azure Stack](azure-stack-powershell-configure-admin.md)e, em seguida, em um prompt elevado, use o seguinte cmdlet:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

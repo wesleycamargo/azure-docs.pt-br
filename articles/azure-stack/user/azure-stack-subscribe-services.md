@@ -13,23 +13,23 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981274"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649077"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: criar e testar uma assinatura
 
 Este tutorial mostra como criar uma assinatura que contém uma oferta e, em seguida, testá-lo. Para o teste, você entrar no portal do usuário do Azure Stack como administrador de nuvem, assine a oferta e, em seguida, criar uma máquina virtual.
 
 > [!TIP]
-> Mais uma mais avançada experiência de avaliação, você pode [criar uma assinatura para um determinado usuário](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e faça logon como esse usuário no portal do usuário. 
+> Mais uma mais avançada experiência de avaliação, você pode [criar uma assinatura para um determinado usuário](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e faça logon como esse usuário no portal do usuário.
 
 Este tutorial mostra como assinar uma oferta do Azure Stack.
 
@@ -60,10 +60,10 @@ Para assinar uma oferta como um usuário, você entrar no portal do usuário do 
 
 ## <a name="test-the-offer"></a>Testar a oferta
 
-Enquanto estiver conectado ao portal do usuário, você pode testar a oferta Provisionando uma máquina virtual usando os novos recursos de assinatura. 
+Enquanto estiver conectado ao portal do usuário, você pode testar a oferta Provisionando uma máquina virtual usando os novos recursos de assinatura.
 
 > [!NOTE]
-> Este teste requer que uma VM do Windows Server 2016 Datacenter foi adicionada pela primeira vez no Marketplace do Azure Stack. 
+> Este teste requer que uma VM do Windows Server 2016 Datacenter foi adicionada pela primeira vez no Marketplace do Azure Stack.
 
 1. Entrar no portal do usuário.
 
@@ -84,7 +84,6 @@ Enquanto estiver conectado ao portal do usuário, você pode testar a oferta Pro
 > [!NOTE]
 > A implantação de máquina virtual leva alguns minutos para ser concluída.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
 O que você aprendeu neste tutorial:
@@ -92,7 +91,6 @@ O que você aprendeu neste tutorial:
 > [!div class="checklist"]
 > * Assinar uma oferta 
 > * Testar a oferta
-
 
 > [!div class="nextstepaction"]
 > [Criar uma VM a partir de um modelo da comunidade](azure-stack-create-vm-template.md)

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/20/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9ce21a6b01dc4f4a99e5c70faf1e004bf7918dad
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658412"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594110"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
 
@@ -39,7 +39,7 @@ Você pode usar o Kubernetes para:
 
 - Desenvolva aplicativos massivamente escalonáveis, pode ser atualizados, que podem ser implantados em segundos. 
 - Simplifique o design do seu aplicativo e melhorar sua confiabilidade por aplicativos diferentes do Helm. [Helm](https://github.com/kubernetes/helm) é uma ferramenta de empacotamento de software livre que ajuda a instalar e gerenciar o ciclo de vida de aplicativos Kubernetes.
-- Com facilidade, monitorar e diagnosticar a integridade de seus aplicativos com a escala e funcionalidade de atualização.
+- Monitorar e diagnosticar a integridade de seus aplicativos facilmente.
 
 Você será cobrado somente para o uso de computação necessário para os nós que dão suporte a seu cluster. Para obter mais informações, consulte [uso e cobrança do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
@@ -53,7 +53,7 @@ Para obter instruções sobre como instalar o cluster ao usar o AD do Azure, con
 - **Active Directory Federated Services (AD FS)**  
 Para obter instruções sobre como instalar o cluster ao usar o AD FS, consulte [implantar Kubernetes para o Azure Stack usando o Active Directory Federated Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md).
 
-## <a name="connect-to-your-cluster"></a>Conectar ao cluster
+## <a name="connect-to-your-cluster"></a>Conectar-se ao seu cluster
 
 Agora você está pronto para se conectar ao seu cluster. O mestre pode ser encontrado no seu grupo de recursos de cluster e é denominado `k8s-master-<sequence-of-numbers>`. Use um cliente SSH para se conectar ao mestre. No mestre, você pode usar **kubectl**, o cliente de linha de comando para gerenciar o cluster do Kubernetes. Para obter instruções, consulte [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240685"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594348"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conectar o Azure Stack ao Azure usando VPN
 
@@ -70,7 +70,7 @@ Primeiro, crie os recursos de rede do Azure. As instruções a seguir mostram co
 8. Selecione **Fixar no painel**.
 9. Selecione **Criar**.
 
-### <a name="create-the-gateway-subnet"></a>Criar a Sub-rede de Gateway
+### <a name="create-the-gateway-subnet"></a>Criar a sub-rede de Gateway
 
 1. Abra o recurso de rede virtual que você criou (**AzureVNet**) do painel.
 2. Sobre o **as configurações** seção, selecione **sub-redes**.
@@ -305,4 +305,4 @@ Se você quiser saber a quantidade de dados passa por meio de sua conexão site 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar aplicativos no Azure e o Azure Stack](azure-stack-solution-pipeline.md)
+* [Implantar aplicativos no Azure e o Azure Stack](azure-stack-solution-pipeline.md)

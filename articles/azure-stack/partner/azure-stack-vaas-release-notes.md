@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/19/2019
+ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247809"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593328"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de versão para a validação como um serviço
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247809"
 Este artigo apresenta as notas de versão para a validação de pilha do Azure como um serviço.
 
 ## <a name="version-405"></a>Versão 4.0.5
+
 17 de janeiro de 2019
 
--  Teste de identificação de disco atualizado para inconsistências de pool de armazenamento do endereço. Versão: 5.1.14.0  -> 5.1.15.0
--  Azure Stack mensal verificação de atualização atualizado para o endereço aprovado inconsistências de validação de software e conteúdo. Versão: 5.1.14.0  -> 5.1.15.0
--  Verificação do pacote de extensão de OEM atualizado para executar as verificações necessárias *antes de* a etapa de atualização do Azure Stack. Versão: 5.1.14.0  -> 5.1.15.0
--  Correções de bugs internas
-
-
+- Teste de identificação de disco atualizado para inconsistências de pool de armazenamento do endereço. Versão: 5.1.14.0 -> 5.1.15.0
+- Azure Stack mensal verificação de atualização atualizado para o endereço aprovado inconsistências de validação de software e conteúdo. Versão: 5.1.14.0 -> 5.1.17.0
+- Verificação do pacote de extensão de OEM atualizado para executar as verificações necessárias antes da etapa de atualização do Azure Stack. Versão: 5.1.14.0 -> 5.1.16.0
+- Correções de bugs internas
 
 ## <a name="version-402"></a>Versão 4.0.2
 
@@ -77,7 +76,7 @@ Se você estiver executando o fluxo de trabalho do Azure Stack mensal atualizar 
 
 - Pré-requisitos de VaaS e o VHD de atualizações
 
-    `Install-VaaSPrerequisites` Agora exige credenciais de administrador de nuvem para resolver um problema durante a validação da solução. A documentação em [Baixe e instale o agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) foi atualizado com o seguinte:
+    `Install-VaaSPrerequisites` Agora exige credenciais de administrador de nuvem para resolver um problema durante a validação de pacote. A documentação em [Baixe e instale o agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) foi atualizado com o seguinte:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,7 +103,7 @@ Se você estiver executando o fluxo de trabalho do Azure Stack mensal atualizar 
 
   - Notificações de assinatura de pacote
 
-    Quando um pacote de personalização de OEM é enviado como parte do fluxo de trabalho de validação de soluções, o formato de pacote será validado para garantir que ela segue a especificação publicada. Se o pacote não estiver em conformidade, a execução falhará. Notificações por email serão enviadas ao endereço de email do contato do Active Directory do Azure registrado para o locatário.
+    Quando um pacote de personalização de OEM é enviado como parte do fluxo de trabalho de validação do pacote, o formato de pacote será validado para garantir que ela segue a especificação publicada. Se o pacote não estiver em conformidade, a execução falhará. Notificações por email serão enviadas ao endereço de email do contato do Active Directory do Azure registrado para o locatário.
 
   - Categoria de teste interativa
 
