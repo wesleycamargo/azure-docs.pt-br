@@ -16,17 +16,17 @@ ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1545fa3c1c94edc98e53b3579e5617a6bf16461c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f6230dd3fe59e2aa34e358bfa9133f736d17f36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238850"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732442"
 ---
 # <a name="azure-stack-validation-report"></a>Relatório de validação de pilha do Azure
 Use o verificador de preparação de pilha do Azure para executar validações que dão suporte à implantação e manutenção de um ambiente do Azure Stack. A ferramenta grava os resultados em um arquivo de relatório. JSON. O relatório exibe dados resumidos e detalhados sobre o estado de pré-requisitos para implantação do Azure Stack. O relatório também exibe informações sobre a rotação de segredos para implantações de pilha do Azure existente.  
 
- ## <a name="where-to-find-the-report"></a>Onde encontrar o relatório
+## <a name="where-to-find-the-report"></a>Onde encontrar o relatório
 Quando a ferramenta é executada, ele registra resultados a serem **AzsReadinessCheckerReport.json**. A ferramenta também cria um log chamado **AzsReadinessChecker.log**. Exibe o local desses arquivos com os resultados de validação no PowerShell.
 
 ![executar a validação](./media/azure-stack-validation-report/validation.png)

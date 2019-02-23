@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312847"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733692"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Fornecer aos aplicativos acesso aos recursos do Azure Stack, Criando entidades de serviço
 
@@ -75,7 +75,7 @@ Ao fazer logon por meio de programação, use a ID para seu aplicativo e uma cha
 
 2. Copie a **ID do aplicativo** e armazene-a no código do aplicativo. Os aplicativos em aplicativos de exemplo usam **id do cliente** ao fazer referência à **ID do aplicativo**.
 
-     ![ID do aplicativo para o aplicativo](./media/azure-stack-create-service-principal/image12.png)
+     ![ID do aplicativo para o aplicativo](./media/azure-stack-create-service-principals/image12.png)
 3. Para gerar uma chave de autenticação, selecione **Chaves**.
 
 4. Forneça uma descrição da chave e uma duração para a chave. Ao terminar, escolha **Salvar**.
@@ -83,7 +83,7 @@ Ao fazer logon por meio de programação, use a ID para seu aplicativo e uma cha
 >[!IMPORTANT]
 Depois de salvar a chave, a chave **valor** é exibida. Anote esse valor, porque você não pode recuperar a chave mais tarde. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
 
-![Aviso de valor de chave para a chave salva.](./media/azure-stack-create-service-principal/image15.png)
+![Aviso de valor de chave para a chave salva.](./media/azure-stack-create-service-principals/image15.png)
 
 A etapa final é [atribuindo uma função de seu aplicativo](azure-stack-create-service-principals.md).
 
@@ -110,7 +110,7 @@ Use as etapas a seguir como um guia para atribuir uma função a uma entidade de
 
 2. Selecione a assinatura para atribuir o aplicativo. Neste exemplo, a assinatura é o Visual Studio Enterprise.
 
-     ![Selecione a assinatura do Visual Studio Enterprise para atribuição](./media/azure-stack-create-service-principal/image16.png)
+     ![Selecione a assinatura do Visual Studio Enterprise para atribuição](./media/azure-stack-create-service-principals/image16.png)
 
 3. Selecione **controle de acesso (IAM)** para a assinatura.
 

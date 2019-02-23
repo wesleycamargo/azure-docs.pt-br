@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447439"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737477"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -307,6 +307,16 @@ Instância do SQL Server para o serviço de aplicativo do Azure no Azure Stack d
 > Um número de imagens de máquina virtual de IaaS do SQL está disponível por meio do recurso de gerenciamento do Marketplace. Verifique se você sempre baixar a versão mais recente da extensão SQL IaaS antes de implantar uma VM usando um item do Marketplace. As imagens do SQL são o mesmo que as VMs do SQL que estão disponíveis no Azure. Para VMs criadas a partir dessas imagens, a extensão IaaS e correspondente aprimoramentos do portal do SQL fornecem recursos como recursos de backup e aplicação de patch automática.
 >
 Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. Se você usar uma instância nomeada, certifique-se de iniciar o serviço navegador do SQL Server e abra a porta 1434 manualmente.
+
+O instalador do serviço de aplicativo verificará para garantir que o SQL Server tem de contenção do banco de dados habilitada. Para habilitar a contenção do banco de dados no SQL Server que hospedará os bancos de dados do serviço de aplicativo, execute estes comandos do SQL:
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > Se você optar por implantar o serviço de aplicativo em uma rede Virtual existente do SQL Server devem ser implantado em uma sub-rede separada do serviço de aplicativo e o servidor de arquivos.
