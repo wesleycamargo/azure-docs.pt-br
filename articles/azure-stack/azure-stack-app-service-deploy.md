@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445927"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732765"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -132,22 +132,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Instalador do serviço de aplicativo][10]
 
-11. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, selecione **próxima**. O instalador valida as propriedades de conexão SQL.
-
-    > [!NOTE]
-    > O instalador tentará testar a conectividade com o SQL Server antes de continuar. Mas, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode falhar. Você recebe um aviso e um prompt para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
-    >
-    > Do serviço de aplicativo do Azure no Azure Stack 1.3 em diante, o instalador verificará se o SQL Server tem a contenção de banco de dados habilitada no nível do SQL Server.  Se não for, você será solicitado com a seguinte exceção:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Consulte a [notas de versão do serviço de aplicativo do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
+11. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, selecione **próxima**. O instalador valida as propriedades de conexão SQL.<br><br>O instalador do serviço de aplicativo tenta testar a conectividade com o SQL Server antes de continuar. Se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode falhar. Você recebe um aviso e um prompt para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
 
     ![Instalador do serviço de aplicativo][11]
 
