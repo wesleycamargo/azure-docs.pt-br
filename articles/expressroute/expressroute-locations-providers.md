@@ -45,7 +45,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Governo da Austrália** | 1 | Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
 | **Europa** | 1 |França Central, Sul da França, Norte da Europa, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Amsterdã2, Dublin, Londres, Londres2, Marselha, Newport (Gales), Paris |
 | **América do Norte** | 1 |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, Vale do Silício, Washington D.C., Washington DC2, Montreal, Cidade de Quebec, Toronto |
-| **Ásia** | 2 |Ásia Oriental, Sudeste Asiático |Hong Kong, Kuala Lumpur, Singapura, Singapura2, Taipé |
+| **Ásia** | 2 |Ásia Oriental, Sudeste Asiático |RAE de Hong Kong, Kuala Lumpur, Singapura, Singapura2, Taipé |
 | **Austrália** | 2 |Sudeste da Austrália, Leste da Austrália |Melbourne, Perth, Sydney | 
 | **Índia** | 2 |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | 2 |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
