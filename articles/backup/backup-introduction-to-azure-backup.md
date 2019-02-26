@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487873"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447354"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -33,7 +33,7 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 * O Armazenamento com redundância local (LRS) replica seus dados três vezes (ele cria três cópias de seus dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
 
-* Armazenamento com redundância geográfica (GRS) é o padrão e opção de replicação recomendada. O GRS replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
+* Armazenamento com redundância geográfica (GRS) é o padrão e opção de replicação recomendada. O GRS replica seus dados para uma região secundária que é uma das [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md) (a centenas de quilômetros da localização primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
 
 **Transferência de dados ilimitada** - o Backup do Azure não limita a quantidade de dados de entrada ou saída que você transfere. O Backup do Azure também não cobra pelos dados que são transferidos. No entanto, se você usar o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada. Para obter mais informações sobre esse custo, confira o [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md). Os dados de saída são aqueles transferidos de um cofre dos Serviços de Recuperação durante uma operação de restauração.
 
@@ -44,7 +44,7 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 **Retenção de longo prazo** - Você pode usar os cofres de Serviços de Recuperação para retenção de dados de curto e longo prazo. O Azure não limita o período de tempo que os dados podem ser mantidos em um cofre de Serviços de Recuperação. Você pode manter dados em um cofre para como desejar. O Backup do Azure tem um limite de pontos de recuperação 9999 por instância protegidos. Consulte o [Backup e retenção](backup-introduction-to-azure-backup.md#backup-and-retention) neste artigo para obter uma explicação de como esse limite pode afetar suas necessidades de backup.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quais componentes do Backup do Azure devo usar?
-Use a tabela a seguir para obter informações sobre o que você pode proteger com cada componente do Backup do Azure. 
+Use a tabela a seguir para obter informações sobre o que você pode proteger com cada componente do Backup do Azure.
 
 | Componente | Benefícios | limites | O que é protegido? | Onde os backups são armazenados? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Use a tabela a seguir para obter informações sobre o que você pode proteger c
 | Backup de VM IaaS do Azure |<p>**Sim**</p><p>Parte da malha do Azure</p><p>Especializado para [backup de máquinas virtuais IaaS (infraestrutura do Azure como serviço)](backup-azure-vms-introduction.md).</p> |<p>**Não**</p> <p>Use o System Center DPM para fazer backup de máquinas virtuais em seu datacenter.</p> |<p>Cofre dos Serviços de Recuperação</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Quais aplicativos e cargas de trabalho podem passar por backup?
-A tabela a seguir fornece uma matriz de dados e cargas de trabalho que podem ser protegidos usando o Backup do Azure. A coluna de solução do Backup do Azure tem links para a documentação de implantação da solução. 
+A tabela a seguir fornece uma matriz de dados e cargas de trabalho que podem ser protegidos usando o Backup do Azure. A coluna de solução do Backup do Azure tem links para a documentação de implantação da solução.
 
 | Dados ou carga de trabalho | Ambiente de origem | Solução de Backup do Azure |
 | --- | --- | --- |
@@ -81,24 +81,24 @@ A tabela a seguir fornece uma matriz de dados e cargas de trabalho que podem ser
 A tabela a seguir mostra os componentes do Backup do Azure compatíveis com Linux.  
 
 **Componente** | **Linux (endossado pelo Azure)**
---- | --- 
-Agente de Backup do Azure (MARS) | Não (somente agente baseado no Windows) 
+--- | ---
+Agente de Backup do Azure (MARS) | Não (somente agente baseado no Windows)
 System Center DPM | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
-Servidor de Backup do Azure | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure 
+Servidor de Backup do Azure | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
 Backup de VM IaaS do Azure | Backup consistente de aplicativos usando a [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação em nível de arquivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM com base em um disco restaurado](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Criar uma VM com base em um ponto de recuperação](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>Usando máquinas virtuais de Armazenamento Premium com o Backup do Azure
-O Backup do Azure protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvida para dar suporte a cargas de trabalho com E/S intenso. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o Armazenamento Premium, confira o artigo [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../virtual-machines/windows/premium-storage.md).
+## <a name="using-premium-storage-vms-with-azure-backup"></a>Usando VMs do Armazenamento Premium com o Backup do Azure
+O Backup do Azure protege VMs do Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvido para dar suporte a cargas de trabalho de E/S intensiva. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o Armazenamento Premium e outros tipos de disco, confira o artigo [Selecionar um tipo de disco](../virtual-machines/windows/disks-types.md).
 
-### <a name="back-up-premium-storage-vms"></a>Backup de VMs de Armazenamento Premium
-Durante o backup de VMs do Armazenamento Premium, o serviço de Backup cria um local de preparo temporário, chamado "AzureBackup-", na conta do Armazenamento Premium. O tamanho do local de preparo é igual ao tamanho do instantâneo de ponto de recuperação. Verifique se a conta de armazenamento Premium tem espaço livre suficiente para acomodar o local de preparo temporário. Para obter mais informações, confira o artigo [Limitações do Armazenamento Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Quando o trabalho de backup for concluído, o local de preparo será excluído. O preço do armazenamento usada para o local de preparo é consistente com todos os [preços de armazenamento Premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+### <a name="back-up-premium-storage-vms"></a>Fazer backup de VMs do Armazenamento Premium
+Durante o backup de VMs do Armazenamento Premium, o serviço de Backup cria uma localização de preparo temporário, chamada "AzureBackup-", na conta de Armazenamento Premium. O tamanho do local de preparo é igual ao tamanho do instantâneo de ponto de recuperação. Garanta que a conta de Armazenamento Premium tenha espaço livre suficiente para acomodar a localização de preparo temporário. Para obter mais informações, confira o artigo sobre [Metas de escalabilidade do Armazenamento do Azure](../storage/common/storage-scalability-targets.md). Quando o trabalho de backup for concluído, o local de preparo será excluído. O preço do armazenamento usada para o local de preparo é consistente com todos os [preços de armazenamento Premium](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Não modifique nem edite o local de preparo.
 >
 >
 
-### <a name="restore-premium-storage-vms"></a>Restaurar VMs de Armazenamento Premium
+### <a name="restore-premium-storage-vms"></a>Restaurar VMs do Armazenamento Premium
 Você pode restaurar VMs de Armazenamento Premium para o Armazenamento Premium ou Standard. A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico. No entanto, pode ser econômico restaurar um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Standard caso você precise de um subconjunto de arquivos da VM.
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>Uso de VMs de disco gerenciado no Backup do Azure

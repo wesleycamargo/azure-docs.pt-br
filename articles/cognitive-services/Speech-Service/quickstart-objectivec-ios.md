@@ -1,23 +1,23 @@
 ---
 title: 'Início Rápido: reconhecer API de Fala, Objective-C – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala
+description: Saiba como reconhecer fala em Objective-C no iOS usando o SDK de Fala
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878095"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447235"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Antes de começar, aqui está uma lista de pré-requisitos:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.2.0`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.3.0`.
 
 O SDK de Fala dos Serviços Cognitivos para Mac e iOS atualmente é distribuído como uma Cocoa Framework.
 Ele pode ser baixado de https://aka.ms/csspeech/iosbinary. Baixe o arquivo para seu diretório inicial.

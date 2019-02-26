@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891650"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452585"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados de Data Lake Storage Gen2 com o Azure Databricks usando o Spark
 
@@ -38,6 +38,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Instale o AzCopy v10. Confira [Transferir dados com o AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  Crie uma entidade de serviço. Confira [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
+
+   :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
+
+   > [!IMPORTANT]
+   > Atribua a função no escopo da conta de armazenamento do Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos pai ou à assinatura, mas receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
+
+   :heavy_check_mark: Ao executar as etapas da seção [Obter valores para conexão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores de chave de autenticação em um arquivo de texto. Você precisará deles em breve.
+
 ### <a name="download-the-flight-data"></a>Baixar os dados de voos
 
 Este tutorial usa dados de voo do Bureau of Transportation Statistics (Departamento de Estatísticas de Transporte dos EUA) para demonstrar como executar uma operação de ETL. Você precisa baixar esses dados para concluir o tutorial.
@@ -49,24 +60,6 @@ Este tutorial usa dados de voo do Bureau of Transportation Statistics (Departame
 3. Selecione o botão **Baixar** e salve os resultados no computador. 
 
 4. Descompacte o conteúdo do arquivo compactado e anote o nome e o caminho do arquivo. Você precisará dessas informações em uma etapa posterior.
-
-## <a name="get-your-storage-account-name"></a>Obter o nome da conta de armazenamento
-
-Você precisará do nome de sua conta de armazenamento. Para obtê-la, faça logon no [portal do Azure](https://portal.azure.com/), escolha **Todos os Serviços** e filtre o termo *armazenamento*. Em seguida, selecione **Contas de armazenamento** e localize sua conta de armazenamento.
-
-Cole o nome em um arquivo de texto. Você precisará dele em breve.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
-
-Crie uma entidade de serviço seguindo as diretrizes deste tópico: [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Há algumas tarefas que você precisará realizar conforme executar as etapas deste artigo.
-
-:heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua o aplicativo à **Função Colaborador do Armazenamento de Blobs**.
-
-:heavy_check_mark: Ao executar as etapas da seção [Obter valores para conexão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores de chave de autenticação em um arquivo de texto. Você precisará deles em breve.
 
 ## <a name="create-an-azure-databricks-service"></a>Criar um serviço do Azure Databricks
 
@@ -145,9 +138,16 @@ Nesta seção, você criará um sistema de arquivos e uma pasta em sua conta de 
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` nesse bloco de código pelos valores coletados quando você concluiu as etapas das seções [Reservar a configuração da conta de armazenamento](#service-principal) e Criar uma entidade de serviço deste artigo. Substitua o espaço reservado `file-system-name` por qualquer nome que deseje fornecer ao sistema de arquivos.
 
-19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco. 
+18. Neste bloco de código, substitua os valores de espaço reservado `application-id`, `authentication-id`, `tenant-id` e `storage-account-name` pelos valores coletados ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `file-system-name` por qualquer nome que deseje fornecer ao sistema de arquivos.
+
+   * A `application-id` e a `authentication-id` são provenientes do aplicativo que você registrou no Active Directory como parte da criação de uma entidade de serviço.
+
+   * A `tenant-id` é proveniente de sua assinatura.
+
+   * O `storage-account-name` é o nome de sua conta de armazenamento do Azure Data Lake Storage Gen2.
+
+19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 
     Mantenha esse notebook aberto, pois você adicionará comandos a ele mais tarde.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemplo – usar sub-rede aprovada para adaptadores de rede de VMs
-description: Essa política de exemplo requer que os adaptadores de rede usem uma sub-rede aprovada.
+description: Esta definição de política de exemplo exige que os adaptadores de rede usem uma sub-rede aprovada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d4f27b98581f7ea2adbbb69d6041e6ad190cc0e7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 854dbb6d3743c0e8af8a267a425286624453b688
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242729"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341089"
 ---
-# <a name="use-approved-subnet-for-vm-network-interfaces"></a>Usar sub-rede aprovada para adaptadores de rede de VM
+# <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>Exemplo – usar sub-rede aprovada para adaptadores de rede de VMs
 
 Essa política requer que os adaptadores de rede usem uma sub-rede aprovada. Especifique a ID da sub-rede aprovada.
 

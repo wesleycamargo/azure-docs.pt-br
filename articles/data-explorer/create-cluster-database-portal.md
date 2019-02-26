@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um cluster e banco de dados do Azure Data Explorer'
+title: 'Início Rápido: Criar um cluster e um banco de dados do Azure Data Explorer'
 description: Neste início rápido, você aprenderá a criar um e o banco de dados e cluster do Azure Data Explorer e ingerir (carregar) dados.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214810"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408826"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster e banco de dados do Azure Data Explorer
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster e um banco de dados do Azure Data Explorer
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Para usar o Azure Data Explorer, primeiro crie um *cluster* e um ou mais *bancos de dados* nesse cluster. Em seguida, você *ingere* (carrega) dados em um banco de dados para que possa executar consultas em relação a ele. Neste início rápido, você pode criar um cluster e um banco de dados. Nos artigos subsequentes, mostramos a você como realizar a ingestão de dados.
 
@@ -77,8 +77,8 @@ Agora você está pronto para a segunda etapa no processo: criação de banco de
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome do banco de dados | *TestDatabase* | O nome do banco de dados deve ser exclusivo dentro do cluster.
-    | Período de retenção | *3650* | O período de tempo para o qual é garantido que os dados sejam mantidos disponíveis para consulta. O período é medido a partir do momento em que os dados são incluídos.
-    | Período de cache | *31* | O período pelo qual manter dados consultados frequentemente disponíveis no armazenamento SSD ou RAM, em vez de no armazenamento de longo prazo.
+    | Período de retenção | *3650* | O período de tempo (em dias) durante o qual há a garantia de que os dados serão mantidos disponíveis para consulta. O período é medido a partir do momento em que os dados são incluídos.
+    | Período de cache | *31* | O período de tempo (em dias) durante o qual os dados consultados com frequência devem ser mantidos disponíveis no armazenamento SSD ou RAM, em vez de no armazenamento de longo prazo.
     | | | |
 
 1. Selecione **Salvar** para criar o banco de dados. A criação geralmente leva menos de um minuto. Quando o processo for concluído, você estará novamente de volta na guia **Visão geral** do cluster.
@@ -130,6 +130,6 @@ Caso você planeje seguir nossos outros guias de início rápido e tutoriais, ma
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início rápido: inserir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
+> [Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
 

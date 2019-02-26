@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875664"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268916"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
-Se enviar consultas para qualquer uma das APIs de Pesquisa do Bing, você poderá usar a API de Sugestão Automática do Bing para aprimorar sua experiência de caixa de pesquisa. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial inserida pelo usuário na caixa de pesquisa. Exiba as sugestões na lista suspensa da caixa de pesquisa. Os termos sugeridos são baseados em consultas sugeridas que outros usuários pesquisaram e na intenção do usuário.
+Se o aplicativo enviar consultas para uma das APIs de Pesquisa do Bing, você poderá usar a API de Sugestão Automática do Bing para aprimorar a experiência de pesquisa dos usuários. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial da caixa de pesquisa. Como os caracteres são inseridos na caixa de pesquisa, você pode exibir as sugestões em uma lista suspensa.
 
-Normalmente, você chamaria essa API toda vez que o usuário digitasse um novo caractere na caixa de pesquisa. A integridade da cadeia de caracteres de consulta afeta a relevância dos termos de consulta sugeridos que a API retorna. Quanto mais completa a cadeia de caracteres de consulta, mais relevante é a lista de termos de consulta sugeridos. Por exemplo, as sugestões que a API pode retornar para *s*, provavelmente serão menos relevantes que as consultas que retorna para *barcos à vela*.
+## <a name="bing-autosuggest-api-features"></a>Recursos da API de Sugestão Automática do Bing
 
-## <a name="getting-suggested-search-terms"></a>Obtendo termos de pesquisa sugeridos
+| Recurso                                                                                                                                                                                 | DESCRIÇÃO                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Sugerir os termos de pesquisa em tempo real](concepts/get-suggestions.md) | Aprimore a experiência de seu aplicativo usando a API de Sugestão Automática para exibir termos de pesquisa sugeridos à medida que eles são digitados. |
 
-O exemplo a seguir mostra uma solicitação que retorna as cadeias de caracteres de consulta sugeridas para *navegar*. Lembre-se de codificar a URL do termo de consulta parcial do usuário quando você definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query). Por exemplo, se o usuário inserir *sailing les*, defina `q` como `sailing+les` ou `sailing%20les`.
+## <a name="workflow"></a>Fluxo de trabalho
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+A API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de ser chamado em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON. 
 
-A resposta a seguir contém uma lista de objetos de [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) que contêm os termos de consulta sugeridos.
+1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitamente.
+2. Envie uma solicitação a essa API sempre que um usuário digitar um novo caractere na caixa de pesquisa de seu aplicativo.
+3. Processe a resposta da API analisando a mensagem JSON retornada.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+Normalmente, você chamará essa API sempre que o usuário digitar um novo caractere na caixa de pesquisa do aplicativo. Conforme mais caracteres forem inseridos, a API retornará consultas de pesquisa sugeridas mais relevantes. Por exemplo, as sugestões que a API poderá retornar para um único `s` provavelmente serão menos relevantes do que aquelas para `sail`.
 
-Cada sugestão inclui um campo `displayText`, `query` e `url`. O campo `displayText` contém a consulta sugerida que você usa para preencher a lista suspensa de sua caixa de pesquisa. Exiba todas as sugestões incluídas na resposta e na ordem determinada.
-
-O exemplo a seguir mostra um exemplo de caixa de pesquisa com lista suspensa com os termos de consulta sugeridos.
+O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consulta sugeridos pela API de Sugestão Automática do Bing.
 
 ![Lista suspensa da caixa de pesquisa com sugestão automática](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Se o usuário selecionar uma consulta sugerida na lista suspensa, você poderá usar o termo de consulta no campo `query` para chamar a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md) e exibir os resultados por conta própria. Ou você pode usar a URL no campo `url` para enviar o usuário à página de resultados da pesquisa do Bing.
-
-## <a name="throttling-requests"></a>Solicitações de limitação
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+Quando um usuário seleciona uma sugestão na lista suspensa, você pode usá-la para iniciar a pesquisa com uma das APIs de Pesquisa do Bing ou acessar diretamente a página de resultados da pesquisa do Bing.
 
 ## <a name="next-steps"></a>Próximas etapas
 

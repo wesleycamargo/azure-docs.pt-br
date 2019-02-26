@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Impor tag e seu valor
-description: Esta política de exemplo exige um nome e valor de marca especificados.
+description: Esta definição de política de exemplo exige um nome e um valor de marca, cada um definido como um parâmetro.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 952f932d850806553b6e7e2f9efad2643a2ecdf3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0524c0e9e67cd477b8aa8ba8005cf8ebcce3f1da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242627"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337828"
 ---
-# <a name="enforce-tag-and-its-value"></a>Impor marca e seu valor
+# <a name="sample---enforce-tag-and-its-value"></a>Exemplo – Impor tag e seu valor
 
 Esta política exige um nome e valor de marca especificados. Especifique o nome e o valor da marca a serem impostos.
 

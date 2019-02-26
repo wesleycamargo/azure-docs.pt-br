@@ -12,26 +12,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: af3738849382317eeddf8bce3d2f87e38e0fb583
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412904"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427778"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um pool de capacidade
+
 Como configurar um pool de capacidade permite que você crie volumes dentro dele.  
 
 ## <a name="before-you-begin"></a>Antes de começar 
+
 Você já deve ter criado uma conta do NetApp.   
 
 [Criar uma conta do NetApp](azure-netapp-files-create-netapp-account.md)
 
 ## <a name="steps"></a>Etapas 
 
-1. Vá para a folha de gerenciamento para sua conta do NetApp e, em seguida, no painel de navegação, selecione **Pools de capacidade**.
+1. Acesse a folha de gerenciamento de sua conta do NetApp e, em seguida, no painel de navegação, clique em **Pools de capacidade**.  
+    
+    ![Navegar para o pool de capacidade](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
 2. Clique em **+ Adicionar pools** para criar um novo pool de capacidade.   
     A janela Novo Pool de Capacidade é exibida.
@@ -43,18 +47,18 @@ Você já deve ter criado uma conta do NetApp.
 
   * **Nível de serviço**   
     Esse campo mostra o desempenho de destino para o pool de capacidade.  
-    Atualmente, apenas o nível de serviço Premium está disponível. 
+    Especifique o nível de serviço para o pool de capacidade: [**Premium**](azure-netapp-files-service-levels.md#Premium) ou [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-  *  **Tamanho**     
-      Especifique o tamanho do pool de capacidade que você está adquirindo.        
-      O tamanho do pool de capacidade mínima é de 4 TiB. Você pode criar um pool com um tamanho de múltiplos de 4 TiB.   
+  * **Tamanho**     
+    Especifique o tamanho do pool de capacidade que você está adquirindo.        
+    O tamanho do pool de capacidade mínima é de 4 TiB. Você pode criar um pool com um tamanho de múltiplos de 4 TiB.   
       
-      ![Novo pool de capacidade](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+    ![Novo pool de capacidade](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Clique em **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-[Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
-
-
+- [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)
+- Confira a [página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para obter o preço de diferentes níveis de serviço
+- [Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

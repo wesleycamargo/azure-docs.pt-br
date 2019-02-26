@@ -1,6 +1,6 @@
 ---
 title: Exemplo – auditar o Transparent Data Encryption para o Banco de Dados SQL
-description: Essa amostra de auditoria de política se o banco de dados SQL não tiver a criptografia de dados transparente ativada.
+description: Esta definição de política de exemplo audita se o Banco de Dados SQL não tem a Transparent Data Encryption habilitada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 98d86d721f028a32d65ab4d336cc5579a0845607
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a35c7045f132b23dbe23978118d0c1cf865f9bab
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244684"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342584"
 ---
-# <a name="audit-sql-database-encryption"></a>Auditar a criptografia do banco de dados SQL
+# <a name="sample---audit-sql-database-encryption"></a>Amostra – Auditar a criptografia do Banco de Dados SQL
 
 Essa política interna audita se o banco de dados SQL não tem a Transparent Data Encryption habilitada.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Auditar configurações de auditoria do SQL Server
-description: Esta política de amostra audita as configurações de auditoria do servidor SQL.
+description: Esta definição de política de exemplo audita as configurações de auditoria do SQL Server com auditIfNotExists.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 761cef1421f8a0dca84f4142c6ae9ae1b45f33c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242015"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338165"
 ---
-# <a name="audit-sql-server-audit-settings"></a>Auditar as configurações de auditoria do SQL Server
+# <a name="sample---audit-sql-server-audit-settings"></a>Amostra – Auditar configurações de auditoria do SQL Server
 
 Essa política interna audita o SQL Server para verificar se as configurações de auditoria estão habilitadas.
 

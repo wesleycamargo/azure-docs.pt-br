@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Exigir criptografia para o Data Lake Storage
-description: Essa política de exemplo requer criptografia para o Data Lake Store.
+description: Esta definição de política de exemplo exige que a criptografia do Data Lake Storage seja habilitada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 557198fcdc2c191986cedf4b384e0bf117dfa86d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e4de4c78bec9f4ffa6c4e2711a2d4260279ca559
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241675"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340596"
 ---
-# <a name="require-data-lake-store-encryption"></a>Exigir a criptografia do Data Lake Store
+# <a name="sample---require-data-lake-store-encryption"></a>Amostra – Exigir a criptografia do Data Lake Storage
 
 Essa política interna nega as contas do Data Lake Store que não tem a criptografia habilitada.
 

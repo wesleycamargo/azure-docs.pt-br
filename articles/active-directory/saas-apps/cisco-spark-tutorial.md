@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Cisco Spark | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Spark.
+title: 'Tutorial: Integração do Azure Active Directory ao Cisco Webex | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a1460fba4d6897dfcc6bf40b6e02ab856ffe8456
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191547"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340460"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutorial: Integração do Azure Active Directory ao Cisco Spark
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integração do Azure Active Directory ao Cisco Webex
 
-Neste tutorial, você aprenderá como integrar o Cisco Spark ao Azure AD (Azure Active Directory).
-A integração do Cisco Spark ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá como integrar o Cisco Webex ao Azure AD (Azure Active Directory).
+A integração do Cisco Webex ao Azure Active Directory oferece os seguintes benefícios:
 
-* Você pode controlar no Azure AD quem terá acesso ao Cisco Spark.
-* Você pode permitir que os usuários sejam conectados automaticamente ao Cisco Spark (Logon Único) com suas contas do Azure AD.
+* Você pode controlar no Azure Active Directory quem tem acesso ao Cisco Webex.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Cisco Webex (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Cisco Spark, você precisará dos seguintes itens:
+Para configurar a integração do Azure Active Directory ao Cisco Webex, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Cisco Spark
+* Assinatura habilitada para logon único do Cisco Webex
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O Cisco Spark dá suporte ao SSO iniciado por **SP**
+* O Cisco Webex dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Adicionando o Cisco Spark da galeria
+## <a name="adding-cisco-webex-from-the-gallery"></a>Adicionando o Cisco Webex da galeria
 
-Para configurar a integração do Cisco Spark ao Azure AD, você precisa adicionar o Cisco Spark da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Cisco Webex ao Azure Active Directory, você precisa adicionar o Cisco Webex da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Cisco Spark da galeria, execute as seguintes etapas:**
+**Para adicionar o Cisco Webex por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Para configurar a integração do Cisco Spark ao Azure AD, você precisa adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Cisco Spark**, selecione **Cisco Spark** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Cisco Webex**, selecione **Cisco Webex** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Cisco Spark na lista de resultados](common/search-new-app.png)
+     ![Cisco Webex na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Cisco Spark, com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Cisco Spark.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Cisco Webex, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Cisco Webex.
 
-Para configurar e testar o logon único do Azure AD com o Cisco Spark, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o Cisco Webex, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o Logon Único do Cisco Spark](#configure-cisco-spark-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
+2. **[Configurar o Logon Único do Cisco Webex](#configure-cisco-webex-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Cisco Spark](#create-cisco-spark-test-user)** – para ter um equivalente de Brenda Fernandes no Cisco Spark que esteja vinculado à representação de usuário do Azure AD.
+5. **[Criar um usuário de teste do Cisco Webex](#create-cisco-webex-test-user)** – para ter um equivalente de Brenda Fernandes no Cisco Webex que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguintes etapas:
+Para configurar o logon único do Azure AD com o Cisco Webex, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cisco Spark**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cisco Webex**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -103,24 +103,24 @@ Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguint
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do Cisco Spark](common/sp-identifier.png)
+    ![Informações de logon único em Domínio e URLs do Cisco Webex](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://web.ciscospark.com/#/signin`
+     a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://web.ciscospark.com/#/signin`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://idbroker.webex.com/<companyname>`
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
-    > O valor de Identificador não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte ao Cliente do Cisco Spark](https://support.ciscospark.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor de Identificador não é real. Atualize esse valor com o Identificador real. Se você tiver os Metadados do Provedor de Serviços, carregue-os na seção **Configuração Básica do SAML** e, em seguida, o valor do **Identificador (ID da Entidade)** será populado automaticamente.
 
-5. O aplicativo Cisco Spark espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
+5. O aplicativo Cisco Webex espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para adicionar os atributos.
 
     ![image](common/edit-attribute.png)
 
-6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
+6. Além do indicado acima, o aplicativo Cisco Webex espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
     | NOME |  Atributo de Origem|
     | ---------------|--------- |
-    | uid | user.userprincipalname |
+    | UID | user.userprincipalname |
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguint
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-8. Na seção **Configurar o Cisco Spark**, copie as URLs apropriadas de acordo com suas necessidades.
+8. Na seção **Configurar o Cisco Webex**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguint
 
     c. URL de logoff
 
-### <a name="configure-cisco-spark-single-sign-on"></a>Configurar o Logon Único do Cisco Spark
+### <a name="configure-cisco-webex-single-sign-on"></a>Configurar o Logon Único do Cisco Webex
 
 1. Entre no [Gerenciamento de Colaboração de Nuvem da Cisco](https://admin.ciscospark.com/) com suas credenciais completas de administrador.
 
@@ -199,15 +199,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Cisco Spark.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela o acesso ao Cisco Webex.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Cisco Spark**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Cisco Webex**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escolha **Cisco Spark**.
+2. Na lista de aplicativos, escolha **Cisco Webex**.
 
-    ![O link do Cisco Spark na lista Aplicativos](common/all-applications.png)
+    ![O link do Cisco Webex na lista de Aplicativos](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
 
@@ -223,9 +223,9 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-cisco-spark-test-user"></a>Criar um usuário de teste do Cisco Spark
+### <a name="create-cisco-webex-test-user"></a>Criar um usuário de teste do Cisco Webex
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Spark. Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Spark.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Webex. Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Webex.
 
 1. Acesse o [Gerenciamento de Colaboração de Nuvem da Cisco](https://admin.ciscospark.com/) com suas credenciais completas de administrador.
 
@@ -253,7 +253,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Spark
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Cisco Spark no Painel de Acesso, você deverá ser conectado automaticamente ao Cisco Spark, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Cisco Webex no Painel de Acesso, você deverá ser conectado automaticamente ao Cisco Webex, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

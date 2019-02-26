@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443110"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454797"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -40,7 +40,7 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -124,7 +124,7 @@ Para configurar logs de diagnóstico:
 
     ![logs de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de diagnóstico junto com a métrica em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para o Log Analytics. 
+3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de diagnóstico junto com as métricas em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para os logs do Azure Monitor. 
 
 No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por hora) sobre solicitações de API individuais em que cada entrada tem o seguinte esquema:
 
@@ -173,7 +173,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 }  
 ```
 
-| Propriedade  | Tipo | DESCRIÇÃO |
+| Propriedade  | Type | DESCRIÇÃO |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | tempo real | date-time | Carimbo de data/hora de recebimento da solicitação HTTP pelo gateway |
@@ -183,7 +183,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
-| httpStatusCodeCategory | string | Categoria do código de status de resposta HTTP: Bem-sucedida (301 ou menos ou 304 ou 307), Não autorizada (401, 403, 429), Com erro (400, entre 500 e 600), outros |
+| httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
 | ResourceId | string | "ID do recurso Gerenciamento de API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<grupo-de-recursos>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | propriedades | objeto | Propriedades da solicitação atual |
 | estático | string | Método HTTP da solicitação de entrada |

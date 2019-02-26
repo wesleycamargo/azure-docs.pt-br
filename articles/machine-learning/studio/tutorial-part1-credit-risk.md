@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243715"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453606"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Prever risco de crédito – Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvi
 
 Suponha que você precisa prever o risco de crédito de uma pessoa com base nas informações dadas em um aplicativo de crédito.  
 
-A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como um exemplo de como criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning. Você usará o Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução.  
+A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como exemplo de como criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning Studio. Você usará o Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução.  
 
 Neste tutorial de três partes, você começará com os dados de risco de crédito disponíveis publicamente.  Em seguida, você desenvolverá e treinará um modelo preditivo.  Por fim, você implantará o modelo como um serviço Web.
 
@@ -55,7 +55,7 @@ Se você nunca usou **Azure Machine Learning Studio** antes, inicie pelo guia de
 
 Para usar o Machine Learning Studio, você precisa ter um workspace do Microsoft Azure Machine Learning Studio. Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.  
 
-Para criar um workspace, confira [Criar e compartilhar um Workspace do Azure Machine Learning](create-workspace.md).
+Para criar um workspace, confira [Criar e compartilhar um workspace do Azure Machine Learning Studio](create-workspace.md).
 
 Após criar o workspace, abra o Microsoft Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se você tiver mais de um workspace, poderá selecionar o workspace na barra de ferramentas no canto superior direito da janela.
 

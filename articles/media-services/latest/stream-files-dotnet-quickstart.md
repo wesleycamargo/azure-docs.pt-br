@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162711"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417271"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmitir arquivos de vídeo – .NET
 
@@ -81,6 +81,8 @@ Para testar o streaming, este artigo usa o Player de Mídia do Azure.
 
 1. Abra um navegador da Web e navegue até [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Na caixa **URL:**, cole um dos valores de URL de streaming que você obteve ao executar o aplicativo. 
+ 
+     Você poderá colar a URL no formato HLS, Dash ou Smooth e o Player de Mídia do Azure alternará para um protocolo de streaming apropriado para reprodução em seu dispositivo automaticamente.
 3. Pressione **Atualizar Player**.
 
 O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado em um ambiente de produção. 
@@ -100,6 +102,10 @@ az group delete --name amsResourceGroup
 Para obter explicações sobre cada função no exemplo, examine o código e os comentários neste [arquivo de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 O tutorial [carregar, codificar e transmitir arquivos por streaming](stream-files-tutorial-with-api.md) fornece um exemplo mais avançado de streaming com explicações detalhadas. 
+
+### <a name="job-error-codes"></a>Códigos de erro do trabalho
+
+Confira [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="multithreading"></a>Multithreading
 

@@ -4,59 +4,50 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2018
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7de6d0416c60f33f57fd83768fd23b0a09e0f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 25171a2d455bda3f6a3c0ee85bad47c44820110c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184866"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Azure Active Directory ao Fidelity NetBenefits
 
 Neste tutorial, você aprenderá a integrar o Fidelity NetBenefits ao Azure AD (Azure Active Directory).
-
 A integração do Fidelity NetBenefits ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso ao Fidelity NetBenefits.
-- Você pode permitir que os usuários façam logon automaticamente no Fidelity NetBenefits (Logon Único) com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao Fidelity NetBenefits.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Fidelity NetBenefits (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Fidelity NetBenefits, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único do Fidelity NetBenefits
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do Fidelity NetBenefits
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
- O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-1. Adicionando o Fidelity NetBenefits da galeria
-2. configurar e testar o logon único do AD do Azure
+* O Fidelity NetBenefits dá suporte ao SSO iniciado por **IDP**
+
+* O Fidelity NetBenefits dá suporte ao provisionamento de usuário **Just-In-Time**
 
 ## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Adicionando o Fidelity NetBenefits da galeria
 
@@ -66,173 +57,157 @@ Para configurar a integração do Fidelity NetBenefits ao Azure AD, você precis
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **Fidelity NetBenefits**, selecione **Fidelity NetBenefits** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Fidelity NetBenefits na lista de resultados](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_addfromgallery.png)
+     ![Fidelity NetBenefits na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Fidelity NetBenefits, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Fidelity NetBenefits é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Fidelity NetBenefits.
-
-No Fidelity NetBenefits, o mapeamento de **usuário** deve ser feito com o **usuário do Azure AD** para estabelecer a relação de vínculo.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Fidelity NetBenefits, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Fidelity NetBenefits.
 
 Para configurar e testar o logon único do Azure AD com o Fidelity NetBenefits, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Fidelity NetBenefits](#create-a-fidelity-netbenefits-test-user)** – para ter um equivalente de Brenda Fernandes no Fidelity NetBenefits que esteja vinculado à representação de usuário do Azure AD.
+2. **[Configurar o logon único do Fidelity NetBenefits](#configure-fidelity-netbenefits-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+5. **[Criar um usuário de teste do Fidelity NetBenefits](#create-fidelity-netbenefits-test-user)** – para ter um equivalente de Brenda Fernandes no Fidelity NetBenefits que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Fidelity NetBenefits.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o Fidelity NetBenefits, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o Fidelity NetBenefits, execute as seguintes etapas:
 
-1. No Portal do Azure, na página de integração de aplicativos do **Fidelity NetBenefits**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Fidelity NetBenefits**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-    ![Caixa de diálogo Logon único](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_samlbase.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na seção **URLs e Domínio do Fidelity NetBenefits**, siga as etapas abaixo:
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Informações de logon único de Domínio e URLs do Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_url.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL:
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
+
+    ![Informações de logon único de Domínio e URLs do Fidelity NetBenefits](common/idp-intiated.png)
+
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     Para o ambiente de teste: `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 
     Para o ambiente de produção: `urn:sp:fidelity:geninbndnbparts20`
 
-    b. Na caixa de texto **Reply URL**, insira uma URL a ser fornecida pela Fidelity no momento da implementação ou entre em contato com o Fidelity Client Service Manager atribuído.
+    b. Na caixa de texto **URL de Resposta**, digite uma URL a ser fornecida pelo Fidelity no momento da implementação ou contate o Gerente de Atendimento ao Cliente do Fidelity atribuído.
 
-4. O aplicativo Fidelity NetBenefits espera que as declarações SAML estejam em um formato específico. Mapeamos o **Identificador de usuário** com **user.principalname**. Você pode mapeá-lo com **employeeid** ou qualquer outra declaração aplicável à sua organização como um **Identificador de usuário**. A captura de tela a seguir mostra apenas um exemplo disso.
+5. O aplicativo Fidelity NetBenefits espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Fidelity NetBenefits espera que **nameidentifier** seja mapeado com **employeeid** ou com qualquer outra declaração aplicável à sua Organização como **nameidentifier**; portanto, é necessário editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-    ![Atributo do Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
+    ![image](common/edit-attribute.png)
 
     >[!Note]
     >O Fidelity NetBenefits dá suporte a federação estática e dinâmica. Estática significa que não usará o provisionamento de usuário just in time baseado em SAML, e dinâmico significa que há compatibilidade apenas com o provisionamento just in time. Para usar o provisionamento baseado JIT, os clientes precisam adicionar mais algumas declarações ao Azure AD, como a data de nascimento do usuário etc. Esses detalhes são fornecidos pelo **Fidelity Client Service Manager** atribuído e devem ativar essa federação dinâmica para sua instância.
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-    ![O link de download do Certificado](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png)
+    ![O link de download do Certificado](common/metadataxml.png)
 
-6. Clique no botão **Salvar** .
+7. Na seção **Configurar o Fidelity NetBenefits**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Botão Salvar em Configurar Logon Único](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-7. Na seção **Configuração do Fidelity NetBenefits**, clique em **Configurar Fidelity NetBenefits** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+    a. URL de logon
 
-    ![Configuração do Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
+    b. Identificador do Azure Ad
 
-8. Para configurar o single sign-on no lado do **Fidelity NetBenefits**, você precisa enviar o **XML de metadados**, **URL SAML Single Sign-On Service** e **SAML ID de entidade** a seu **Fidelity Client Service Manager designado**. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+    c. URL de logoff
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="configure-fidelity-netbenefits-single-sign-on"></a>Configurar o logon único do Fidelity NetBenefits
+
+Para configurar o logon único no lado do **Fidelity NetBenefits**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/fidelitynetbenefits-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/fidelitynetbenefits-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/fidelitynetbenefits-tutorial/create_aaduser_03.png)
-
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/fidelitynetbenefits-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
-  
-### <a name="create-a-fidelity-netbenefits-test-user"></a>Criar um usuário de teste do Fidelity NetBenefits
-
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Fidelity NetBenefits. Se você estiver criando uma federação estática, trabalhe com o **Fidelity Client Service Manager** designado para criar usuários na plataforma Fidelity NetBenefits. Esses usuários devem ser criados e ativados antes de usar o logon único.
-
-Para a federação dinâmica, os usuários são criados usando apenas o provisionamento do usuário just in time. Para usar o provisionamento baseado JIT, os clientes precisam adicionar mais algumas declarações ao Azure AD, como a data de nascimento do usuário etc. Esses detalhes são fornecidos pelo **Fidelity Client Service Manager** atribuído e devem ativar essa federação dinâmica para sua instância.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao conceder acesso ao Fidelity NetBenefits.
 
-![Atribuir a função de usuário][200]
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Fidelity NetBenefits**.
 
-**Para atribuir Brenda Fernandes ao Fidelity NetBenefits, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201]
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, escolha **Fidelity NetBenefits**.
 
-    ![O link do Fidelity NetBenefits na lista de aplicativos](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_app.png)  
+    ![O link do Fidelity NetBenefits na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O painel Adicionar Atribuição][203]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="test-single-sign-on"></a>Testar logon único
+### <a name="create-fidelity-netbenefits-test-user"></a>Criar um usuário de teste do Fidelity NetBenefits
+
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Fidelity NetBenefits. Se você estiver criando uma federação estática, trabalhe com o **Fidelity Client Service Manager** designado para criar usuários na plataforma Fidelity NetBenefits. Esses usuários devem ser criados e ativados antes de usar o logon único.
+
+Para a federação dinâmica, os usuários são criados usando apenas o provisionamento do usuário just in time. Para usar o provisionamento baseado JIT, os clientes precisam adicionar mais algumas declarações ao Azure AD, como a data de nascimento do usuário etc. Esses detalhes são fornecidos pelo **Fidelity Client Service Manager** atribuído e devem ativar essa federação dinâmica para sua instância.
+
+### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco Fidelity NetBenefits no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Fidelity NetBenefits.
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco do Fidelity NetBenefits no Painel de Acesso, você deverá ser conectado automaticamente ao Fidelity NetBenefits, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/fidelitynetbenefits-tutorial/tutorial_general_01.png
-[2]: ./media/fidelitynetbenefits-tutorial/tutorial_general_02.png
-[3]: ./media/fidelitynetbenefits-tutorial/tutorial_general_03.png
-[4]: ./media/fidelitynetbenefits-tutorial/tutorial_general_04.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/fidelitynetbenefits-tutorial/tutorial_general_100.png
-
-[200]: ./media/fidelitynetbenefits-tutorial/tutorial_general_200.png
-[201]: ./media/fidelitynetbenefits-tutorial/tutorial_general_201.png
-[202]: ./media/fidelitynetbenefits-tutorial/tutorial_general_202.png
-[203]: ./media/fidelitynetbenefits-tutorial/tutorial_general_203.png

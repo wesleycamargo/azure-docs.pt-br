@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem local – REST, C#'
+title: 'Início Rápido: Analisar uma imagem local – REST, C#'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem local usando a API da Pesquisa Visual Computacional com C#.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8e974852c0394eb7fd9e3e13eb8cde42a23977a6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 40145ee0e284f90dc1cf231db01d02219a58eeda
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862081"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313136"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c35-in-computer-vision"></a>Início Rápido: Analisar uma imagem local usando a API REST e C&#35; na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>Início Rápido: Analisar uma imagem local usando a API REST e o C# na Pesquisa Visual Computacional
 
-Neste início rápido, você analisará uma imagem armazenada localmente para extrair recursos visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
+Neste Início Rápido, você analisará uma imagem armazenada localmente para extrair características visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), você pode extrair informações de características visuais com base no conteúdo da imagem.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
@@ -253,7 +253,7 @@ Quando não for mais necessário, exclua a solução do Visual Studio. Para faze
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo do Windows que usa a Pesquisa Visual Computacional para executar o OCR (reconhecimento óptico de caracteres), criar miniaturas com recorte inteligente e detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo do Windows que usa a Pesquisa Visual Computacional para executar o OCR (reconhecimento óptico de caracteres), criar miniaturas com recorte inteligente e detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem.
 
 > [!div class="nextstepaction"]
-> [API da Pesquisa Visual Computacional C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
+> [Tutorial do C# da API da Pesquisa Visual Computacional](../Tutorials/CSharpTutorial.md)

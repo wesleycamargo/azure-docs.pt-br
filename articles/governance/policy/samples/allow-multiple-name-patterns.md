@@ -1,6 +1,6 @@
 ---
 title: Exemplo – vários padrões de nome
-description: Essa política de exemplo requer que um dos padrões de nome fornecido corresponda com um dos recursos.
+description: Esta definição de política de exemplo exige que o recurso corresponda a um dos padrões de nome fornecidos.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2e424b7ff79aab36a50e9b44436295cf4ff3d447
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2c77edfcb8dbf777a14e3a5ffa5b78a5689dbcbc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242967"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342517"
 ---
-# <a name="allow-multiple-name-patterns"></a>Permite vários padrões de nome
+# <a name="sample---allow-multiple-name-patterns"></a>Amostra – Permitir vários padrões de nome
 
 Permite um dos vários padrões de nome a ser usado para recursos. Especifica os padrões de nome permitido na regra de política.
 

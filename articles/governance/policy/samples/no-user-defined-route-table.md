@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Nenhuma tabela de rotas definida pelo usuário
-description: Essa política de exemplo proíbe que redes virtuais sejam implantadas com uma tabela de rotas definida pelo usuário.
+description: Esta definição de política de exemplo proíbe a implantação de redes virtuais com uma tabela de rotas definida pelo usuário.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: db0e7ec5d684f71b3a8426cdf5256adaa8467383
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6155477f7ff70544032e4890cae215fb68523a11
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242865"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341412"
 ---
-# <a name="no-user-defined-route-table"></a>Nenhuma tabela de rotas definida pelo usuário
+# <a name="sample---no-user-defined-route-table"></a>Exemplo – Nenhuma tabela de rotas definida pelo usuário
 
 Essa política proíbe que redes virtuais sejam implantadas com uma tabela de rotas definida pelo usuário.
 

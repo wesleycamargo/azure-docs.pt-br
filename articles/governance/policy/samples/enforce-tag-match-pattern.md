@@ -1,6 +1,6 @@
 ---
 title: Exemplo – impor padrão de correspondência de tags
-description: Esta política de exemplo exige que os recursos atendam ao padrão de semelhança dos valores de marca.
+description: Esta definição de política de exemplo exige que os recursos atendam ao padrão de correspondência dos valores de marca.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f3e4246141a9d9de1a7d6451422e1e55a4c3545f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9510bb147a8eb9687e074191e8fcc404c847dc0a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244412"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342653"
 ---
-# <a name="enforce-tag-match-pattern-for-tag-values"></a>Imponha um padrão de correspondência de marca para valores de marca
+# <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Amostra – Impor um padrão de correspondência de marca para valores de marca
 
 Exija que um valor de marca atenda a um padrão de correspondência. Especifique os padrões permitidos na regra de política.
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Conceder acesso a um grupo usando o RBAC e o Azure PowerShell | Microsoft Docs
-description: Use o controle de acesso baseado em função (RBAC) para conceder acesso a um grupo para exibir tudo em uma assinatura e gerenciar tudo em um grupo de recursos usando o Azure PowerShell.
+title: Tutorial – Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell | Microsoft Docs
+description: Saiba como permitir acesso a um grupo aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105664"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343682"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um grupo usando o RBAC e o Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
 
-O [Controle de acesso baseado em função (RBAC)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Neste tutorial, você concede acesso a um grupo para exibir tudo em uma assinatura e gerenciar tudo em um grupo de recursos usando o Azure PowerShell.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste tutorial, você concede acesso a um grupo para exibir tudo em uma assinatura e gerenciar tudo em um grupo de recursos usando o Azure PowerShell.
 
 Neste tutorial, você aprenderá como:
 
@@ -70,7 +70,7 @@ Para atribuir uma função, você precisa de um usuário, grupo ou entidade de s
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Se você não tiver permissões para criar grupos, poderá experimentar o [Tutorial: Permitir acesso a um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md).
+Se você não tiver permissões para criar grupos, poderá experimentar o [Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -294,4 +294,4 @@ Para limpar os recursos criados por este tutorial, exclua o grupo de recursos e 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Gerenciar o acesso usando o RBAC e o PowerShell](role-assignments-powershell.md)
+> [Gerenciar o acesso aos recursos do Azure usando o RBAC e o Azure PowerShell](role-assignments-powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby'
+title: 'Início rápido: Detectar rostos em uma imagem usando a API REST e Ruby'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces em uma imagem usando a API de Detecção Facial com Ruby.
 services: cognitive-services
@@ -8,40 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: b7dbbc328f61b47cb89af2974ad3c428d868d465
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857117"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312388"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby
 
-Neste início rápido, você detecta rostos humanos em uma imagem usando a API de Detecção Facial.
+Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com o Ruby para detectar rostos humanos em uma imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma chave de assinatura para executar o exemplo. É possível obter chaves de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Uma chave de assinatura da API de Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço API de Detecção Facial e obter sua chave.
+- Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Solicitação de Detecção Facial
+## <a name="write-the-script"></a>Escrever o script
 
-Use o método [Face – Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar faces em uma imagem e retornar atributos de detecção facial, incluindo:
-
-* ID de Detecção Facial: ID exclusiva usada em vários cenários de API de Detecção Facial.
-* Retângulo de Detecção Facial: o lado esquerdo, a parte superior, a largura e a altura que indicam a localização do rosto na imagem.
-* Pontos de Referência: uma matriz de 27 pontos de referência de detecção facial que aponta para as posições importantes dos componentes de detecção facial.
-* Atributos faciais, incluindo idade, gênero, intensidade do sorriso, pose da cabeça e pelos faciais.
-
-Para executar a amostra, siga estas etapas:
-
-1. Copie o seguinte código para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `uri` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Opcionalmente, defina `imageUri` para a imagem que você deseja analisar.
-1. Salve o arquivo com uma extensão `.rb`.
-1. Abra o Prompt de Comando do Ruby e execute o arquivo, por exemplo: `ruby myfile.rb`.
+Crie um arquivo, _faceDetection.rb_ e adicione o código a seguir. Isso chamará a API de Detecção Facial para uma URL de imagem especificada.
 
 ```ruby
 require 'net/http'
@@ -75,9 +62,19 @@ end
 puts response.body
 ```
 
-## <a name="face---detect-response"></a>Resposta de Face – Detect
+Você precisará atualizar o valor `request['Ocp-Apim-Subscription-Key']` com a chave de assinatura e talvez precise alterar a cadeia de caracteres `uri` para que ela contenha o identificador de região correto (confira os [documentos sobre a API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos de extremidade de região). 
 
-Uma resposta bem-sucedida é retornada em JSON, por exemplo:
+Talvez você também deseje alterar o campo `imageUri` para que ele aponte para sua própria imagem de entrada. Além disso, talvez você deseje alterar o campo `returnFaceAttributes`, que especifica quais atributos faciais devem ser recuperados.
+
+## <a name="run-the-script"></a>Execute o script
+
+Execute o script Ruby com o seguinte comando:
+
+```shell
+ruby faceDetection.rb
+```
+
+Você deverá ver uma cadeia de caracteres JSON dos dados faciais detectados impressos no console. Veja a seguir um exemplo de uma resposta JSON bem-sucedida.
 
 ```json
 [
@@ -260,7 +257,7 @@ Uma resposta bem-sucedida é retornada em JSON, por exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore a API de Detecção Facial usada para detectar rostos humanos em uma imagem, demarcar as faces com retângulos e retornar atributos como idade e gênero.
+Neste Início Rápido, você escreveu um script Ruby que chama a API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência de API de Detecção Facial para saber mais.
 
 > [!div class="nextstepaction"]
-> [APIs de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

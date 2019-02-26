@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387677"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330589"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -45,7 +45,7 @@ O Dispositivo de nuvem StorSimple está disponível em dois modelos, o padrão 8
 | **Capacidade máxima** |30 TB |64 TB |
 | **VM do Azure** |Standard_A3 (4 núcleos, 7 GB de memória)| Standard_DS3 (4 núcleos, 14 GB de memória)|
 | **Disponibilidade de região** |Todas as regiões do Azure |Regiões do Azure que dão suporte ao Armazenamento Premium e às VMs DS3 do Azure<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver se as **Máquinas Virtuais > série DS** e o **Armazenamento > Armazenamento em disco** estão disponíveis em sua região. |
-| **Tipo de armazenamento** |Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard](../storage/common/storage-create-storage-account.md) |Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Armazenamento Premium](../virtual-machines/windows/premium-storage.md) |
+| **Tipo de armazenamento** |Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard](../storage/common/storage-create-storage-account.md) |Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br> |
 | **Diretrizes sobre carga de trabalho** |Recuperação no nível de item de arquivos de backups |Cenários de desenvolvimento e teste de nuvem <br></br>Baixa latência e cargas de trabalho com alto desempenho<br></br>Dispositivo secundário para recuperação de desastre |
 
 <sup>1</sup> *Conhecido anteriormente como 1100*.
@@ -63,7 +63,7 @@ A tabela abaixo mostra algumas das principais diferenças entre o Dispositivo de
 |  | Dispositivo físico | Dispositivo de nuvem |
 | --- | --- | --- |
 | **Localidade** |Reside no datacenter. |É executado no Azure. |
-| **Interfaces de rede** |Tem seis interfaces de rede: DATA 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
+| **Interfaces de rede** |Tem seis adaptadores de rede: DATA 0 a DATA 5. |Tem apenas um adaptador de rede: DATA 0. |
 | **Registro** |Registrado durante a etapa de configuração inicial. |O registro é uma tarefa separada. |
 | **Chave de criptografia de dados do serviço** |Com a chave nova, gere no dispositivo físico e, em seguida, atualize o dispositivo de nuvem. |Não é possível gerar novamente do dispositivo de nuvem. |
 | **Tipos de volume com suporte** |Dá suporte aos volumes fixados localmente e em camadas. |Oferece suporte apenas a volumes em camadas. |
@@ -94,7 +94,7 @@ Antes de provisionar o dispositivo de nuvem, você precisa fazer as seguintes pr
 Faça as seguintes atualizações para o serviço do gerenciador de dispositivos StorSimple antes de criar um dispositivo de nuvem:
 
 * Adicione [registros de controle de acesso](storsimple-8000-manage-acrs.md) às Vms que serão os servidores de host para seu dispositivo de nuvem.
-* Use uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo de nuvem. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de armazenamento Premium ou Standard com o dispositivo de nuvem. Mais informações sobre como criar uma conta do [Armazenamento Standard](../storage/common/storage-create-storage-account.md) ou uma conta do [Armazenamento Premium](../virtual-machines/windows/premium-storage.md)
+* Use uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo de nuvem. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de armazenamento Premium ou Standard com o dispositivo de nuvem. Mais informações sobre como criar uma [conta de Armazenamento Standard](../storage/common/storage-create-storage-account.md).
 * Ao criar um dispositivo de nuvem, use uma conta de armazenamento diferente da conta usada para os seus dados. O uso da mesma conta de armazenamento pode resultar em baixo desempenho.
 
 Certifique-se de ter as seguintes informações antes de começar:
@@ -108,7 +108,7 @@ Antes de executar esses procedimentos, certifique-se de que você atenda aos [pr
 
 Execute as seguintes etapas para criar um Dispositivo de nuvem StorSimple.
 
-### <a name="step-1-create-a-cloud-appliance"></a>Etapa 1: criação do dispositivo de nuvem
+### <a name="step-1-create-a-cloud-appliance"></a>Etapa 1: Criar um dispositivo de nuvem
 
 Execute as seguintes etapas para criar o Dispositivo de nuvem StorSimple.
 
@@ -116,7 +116,7 @@ Execute as seguintes etapas para criar o Dispositivo de nuvem StorSimple.
 
 Se a criação do dispositivo de nuvem falhar nesta etapa, talvez você não tenha conectividade com a Internet. Para obter mais informações, acesse [como solucionar problemas de falhas de conectividade com a Internet](#troubleshoot-internet-connectivity-errors) ao criar um dispositivo de nuvem.
 
-### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Etapa 2: configuração e registro do dispositivo de nuvem
+### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Etapa 2: Configurar e registrar o dispositivo de nuvem
 
 Antes de iniciar este procedimento, verifique se você tem uma cópia da chave de criptografia de dados de serviço. A chave de criptografia de dados de serviço foi criada quando você registrou o seu primeiro dispositivo físico StorSimple com o serviço do gerenciador de dispositivos StorSimple. Você foi orientado a salvá-la em um local seguro. Se você não tiver uma cópia da chave de criptografia dos dados de serviço, deverá contatar o Suporte da Microsoft para obter assistência.
 
@@ -124,7 +124,7 @@ Execute as seguintes etapas para configurar e registrar o Dispositivo de nuvem S
 
 [!INCLUDE [Configure and register a cloud appliance](../../includes/storsimple-8000-configure-register-cloud-appliance.md)]
 
-### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Etapa 3: (opcional) Modificar as definições de configuração do dispositivo
+### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Etapa 3: (Opcional) Modificar as definições de configuração do dispositivo
 
 A seção a seguir descreve as definições de configuração de dispositivo necessárias para o Dispositivo de nuvem StorSimple se você desejar usar o CHAP, o StorSimple Snapshot Manager ou alterar a senha do administrador do dispositivo.
 
@@ -160,13 +160,13 @@ O acesso remoto ao seu dispositivo de nuvem por meio da interface do Windows Pow
 
 O procedimento de duas etapas a seguir descreve como se conectar remotamente ao seu dispositivo de nuvem.
 
-### <a name="step-1-configure-remote-management"></a>Etapa 1: configurar o gerenciamento remoto
+### <a name="step-1-configure-remote-management"></a>Etapa 1: Configurar o gerenciamento remoto
 
 Execute as etapas a seguir para configurar o gerenciamento remoto para o seu Dispositivo de nuvem StorSimple.
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Etapa 2: acesso remoto ao dispositivo de nuvem
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Etapa 2: Acessar o dispositivo de nuvem remotamente
 
 Depois de habilitar o gerenciamento remoto do dispositivo de nuvem, use o Windows PowerShell remotamente para se conectar ao dispositivo de outra máquina virtual dentro da mesma rede virtual. Por exemplo, você pode se conectar da VM host configurada e usada para conectar ao iSCSI. Na maioria das implantações, você abrirá um ponto de extremidade público para acessar sua VM host, que pode usada para acessar o dispositivo de nuvem.
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872634"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453045"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
-O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornar informações. Para analisar uma imagem, você pode carregar uma imagem ou especificar uma URL de imagem. As imagens de algoritmos de processamento podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais em que você está interessado. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo adulto ou erótico ou localizar todos os rostos em uma imagem.
+O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações. Para analisar uma imagem, você pode carregar uma imagem ou especificar uma URL de imagem. As imagens de algoritmos de processamento podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais em que você está interessado. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo adulto ou erótico ou localizar todos os rostos em uma imagem.
 
 Você pode usar Pesquisa Visual Computacional em seu aplicativo usando um SDK nativo ou invocando a API REST diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
 
@@ -45,17 +45,17 @@ Você pode analisar imagens para detectar e fornecer informações sobre seus re
 
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Você pode usar a Pesquisa Visual Computacional para [extrair texto usando OCR](concept-extracting-text-ocr.md) de uma imagem em um fluxo de caracteres legíveis por computador. Se necessário, o OCR corrige a rotação do texto reconhecido, em graus, no eixo horizontal da imagem e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto extraído.
+Use a Pesquisa Visual Computacional para [extrair o texto usando o OCR (reconhecimento óptico de caracteres)](concept-extracting-text-ocr.md) de uma imagem em um fluxo de caracteres legíveis por computador. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
 
-Você também pode [reconhecer texto impresso e manuscrito](concept-recognizing-text.md) de uma imagem. A Pesquisa Visual Computacional pode detectar e extrair texto impresso e manuscrito das imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, o reconhecimento de texto manuscrito e impresso está em versão prévia e inglês é o único idioma com suporte.  
+Você também pode [reconhecer o texto impresso e manuscrito](concept-recognizing-text.md) em uma imagem. A Pesquisa Visual Computacional pode detectar e extrair texto impresso e manuscrito das imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, o reconhecimento de texto impresso e manuscrito está em versão prévia, sendo o inglês é o único idioma com suporte. 
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 
-Você pode usar a Pesquisa Visual Computacional para [detectar conteúdo adulto e erótico](concept-detecting-adult-content.md) em uma imagem, classificar a probabilidade de que a imagem contenha conteúdo adulto ou erótico e gerar uma pontuação de confiança para ambos. O filtro para detecção de conteúdo para adulto pode ser definido em uma escala deslizante para atender a suas preferências.
+Use a Pesquisa Visual Computacional para [detectar conteúdo para adulto e erótico](concept-detecting-adult-content.md) em uma imagem e retornar uma pontuação de confiança para ambos. O filtro para detecção de conteúdo para adulto pode ser definido em uma escala deslizante para atender a suas preferências.
 
 ## <a name="use-containers"></a>Usar contêineres
 
-[Use os contêineres de Pesquisa Visual Computacional](computer-vision-how-to-install-containers.md) para reconhecer texto impresso e manuscrito localmente, por meio da instalação de um contêiner do Docker padronizado mais próximos aos seus dados.
+[Use contêineres da Pesquisa Visual Computacional](computer-vision-how-to-install-containers.md) para reconhecer um texto impresso e manuscrito localmente pela instalação de um contêiner do Docker padronizado mais próximo aos dados.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 

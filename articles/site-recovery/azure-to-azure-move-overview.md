@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112539"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309855"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -51,7 +51,7 @@ A movimentação das VMs envolve as seguintes etapas:
 > Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra, mas não dá suporte à movimentação dentro de uma região. 
 
 > [!NOTE]
-> Diretrizes detalhadas sobre essas etapas são fornecidas na documentação de cada cenário, conforme mencionado aqui
+> Diretrizes detalhadas sobre essas etapas são fornecidas na documentação de cada cenário, conforme mencionado [aqui](#next-steps)
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Arquiteturas típicas para uma implantação de várias camadas
 A seção abaixo descreve as arquiteturas de implantação mais comuns adotadas pelos clientes, para um aplicativo de várias camadas no Azure. O exemplo que estamos usando aqui é de um aplicativo de três camadas com um IP público. Cada uma das camadas – Web, Aplicativo e Banco de Dados – tem 2 VMs e é conectada por um Balanceador de Carga às outras camadas. A camada de Banco de Dados tem a replicação do SQL AlwaysOn entre as VMs para HA (alta disponibilidade).

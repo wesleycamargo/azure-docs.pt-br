@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691550"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268114"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 
 O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento uniforme que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Você pode usar seus recursos de controle de acesso, auditoria e marcação para proteger e organizar seus recursos após a implantação.
 
-Quando você executa ações por meio do portal, do PowerShell, da CLI do Azure, de APIs REST ou de SDKs do cliente, a API do Azure Resource Manager lida com sua solicitação. Como todas as solicitações são manipuladas por meio da mesma API, você verá funcionalidades e resultados uniformes em todas as diferentes ferramentas.
+Quando você executa ações por meio do portal, do PowerShell, da CLI do Azure, de APIs REST ou de SDKs do cliente, a API do Azure Resource Manager lida com sua solicitação. Como todas as solicitações são manipuladas por meio da mesma API, você verá funcionalidades e resultados uniformes em todas as diferentes ferramentas. Todos as funcionalidades disponíveis no portal também estão disponíveis por meio do PowerShell, da CLI do Azure, das APIs REST e dos SDKs de cliente. A funcionalidade inicialmente lançada por meio de APIs será representada no portal em até 180 dias depois da versão inicial.
 
 A imagem a seguir mostra como todas as ferramentas interagem com a API do Azure Resource Manager. A API passa as solicitações para o serviço do Gerenciador de Recursos, que autentica e autoriza as solicitações. O Resource Manager, em seguida, encaminha as solicitações para o serviço apropriado.
 

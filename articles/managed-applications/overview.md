@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800937"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341940"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -73,11 +73,11 @@ Quando o consumidor exclui o aplicativo gerenciado, o grupo de recursos gerencia
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Você pode aplicar uma [política do Azure](../azure-policy/azure-policy-introduction.md) ao seu aplicativo gerenciado. Aplique políticas para garantir que instâncias implantadas de seu aplicativo gerenciado atendam requisitos de segurança e de dados. Se o aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se seu aplicativo interage com os dados do Office 365, aplique uma política para garantir que a criptografia de dados esteja habilitada.
+Você pode aplicar uma [política do Azure](../governance/policy/overview.md) ao seu aplicativo gerenciado. Aplique políticas para garantir que instâncias implantadas de seu aplicativo gerenciado atendam requisitos de segurança e de dados. Se o aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se seu aplicativo interage com os dados do Office 365, aplique uma política para garantir que a criptografia de dados esteja habilitada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre os benefícios do uso de aplicativos gerenciados. Va até o próximo artigo para criar uma definição de aplicativo gerenciado.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: publicar uma definição de aplicativo gerenciado do Azure](publish-managed-app-definition-quickstart.md)
+> [Início Rápido: Publicar uma definição de aplicativo gerenciado do Azure](publish-managed-app-definition-quickstart.md)

@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740409"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329595"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são conjuntos de escala de máquina virtual?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure lhe permitem criar e gerenciar um grupo de VMs idênticas e com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente em resposta à demanda ou a um agendamento definido. Os conjuntos de dimensionamento fornecem alta disponibilidade para seus aplicativos e permitem que você gerencie, configure e atualize um grande número de máquinas virtuais de forma centralizada. Com conjuntos de dimensionamento de máquinas virtuais, você pode criar serviços em grande escala para áreas como computação, big data e cargas de trabalho de contêiner.
@@ -47,7 +47,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem os recursos de ge
 
 - **Funciona em larga escala**
     - Os conjuntos de dimensionamento dão suporte a até mil instâncias de VM. Se você criar e carregar suas próprias imagens VM personalizadas, o limite será de 300 instâncias de VM.
-    - Para obter o melhor desempenho com cargas de trabalho de produção, use o [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) e o [Armazenamento Premium](../virtual-machines/windows/premium-storage.md).
+    - Para obter o melhor desempenho com cargas de trabalho de produção, use o [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Diferenças entre máquinas virtuais e conjuntos de dimensionamento

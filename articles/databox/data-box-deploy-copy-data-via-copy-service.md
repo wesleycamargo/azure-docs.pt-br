@@ -1,6 +1,6 @@
 ---
-title: Copiar dados para o Microsoft Azure Data Box por SMB | Microsoft Docs
-description: Saiba como copiar dados para o Azure Data Box por meio do Serviço de cópia de dados
+title: 'Tutorial: Copiar dados para o dispositivo Microsoft Azure Data Box por meio do serviço de cópia de dados | Microsoft Docs'
+description: Neste tutorial, você aprenderá a copiar dados para o dispositivo Azure Data Box por meio do serviço de cópia de dados
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,106 +8,106 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902372"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343520"
 ---
-# <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Tutorial: Usar o serviço de cópia de dados para ingerir dados diretamente no Azure Data Box (versão prévia)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box (versão prévia)
 
-Este tutorial descreve como ingerir dados usando o serviço de cópia de dados sem a necessidade de um host intermediário. O serviço de cópia de dados é executado localmente no Data Box, conecta-se ao dispositivo NAS por meio do SMB e copia os dados para o Data Box.
+Este tutorial descreve como ingerir dados usando o serviço de cópia de dados sem um host intermediário. O serviço de cópia de dados é executado localmente no Microsoft Azure Data Box, conecta-se ao dispositivo NAS por meio do SMB e copia os dados para o Data Box.
 
 Use o serviço de cópia de dados:
 
-- Nos ambientes NAS (armazenamento conectado à rede) em que os hosts intermediários podem não estar disponíveis.
-- Com arquivos pequenos que levam semanas para a ingestão e para o upload dos dados. Esse serviço melhora significativamente o tempo de upload e de ingestão.
+- Em ambientes NAS, nos quais os hosts intermediários podem não estar disponíveis.
+- Com arquivos pequenos que levam semanas para a ingestão e para o upload dos dados. O serviço de cópia de dados melhora consideravelmente o tempo de ingestão e upload de arquivos pequenos.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
 > * Copiar dados para caixa de dados
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
-2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
-3. Você tem as credenciais do dispositivo NAS de origem ao qual você se conecta para cópia de dados.
-4. Você está conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se não houver uma conexão de 10 GbE disponível, use um link de dados de 1 GbE, mas as velocidades de cópia serão afetadas.
+1. Você concluiu este tutorial: [Configurar o Azure Data Box](data-box-deploy-set-up.md).
+2. Você recebeu seu dispositivo Data Box e o status do pedido no portal está como **Entregue**.
+3. Você tem as credenciais do dispositivo NAS de origem ao qual se conectará para a cópia de dados.
+4. Você está conectado a uma rede de alta velocidade. Recomendamos expressamente que você tenha, pelo menos, uma conexão de 10 GbE (Gigabits Ethernet). Se uma conexão de 10 GbE não estiver disponível, você poderá usar um vínculo de dados de 1 GbE, mas as velocidades de cópia serão afetadas.
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para caixa de dados
 
-Quando você estiver conectado ao NAS, a próxima etapa será copiar dados. Antes de começar a cópia de dados, examine as considerações a seguir:
+Depois que você estiver conectado ao dispositivo NAS, a próxima etapa será copiar os dados. Antes de começar a cópia de dados, examine as considerações a seguir:
 
-- Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [Limites do Armazenamento do Azure e do Data Box](data-box-limits.md).
-- Se os dados carregados pelo Data Box forem carregados simultaneamente por outros aplicativos fora do Data Box, então isso poderá causar falhas no trabalho de upload e dados corrompidos.
-- Se os dados forem movidos à medida que o serviço de cópia de dados os lê, você poderá enfrentar falhas ou corrupção de dados.
+- Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos no artigo [Armazenamento do Azure e limites do Data Box](data-box-limits.md).
+- Se os dados carregados pelo Data Box forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas no trabalho de upload e em dados corrompidos.
+- Se os dados estiverem sendo modificados enquanto o serviço de cópia de dados os estiver lendo, poderão ocorrer falhas ou dados corrompidos.
 
-Para copiar dados usando o serviço de cópia de dados, é necessário criar um trabalho. Siga estas etapas para criar um trabalho para copiar dados.
+Para copiar dados usando o serviço de cópia de dados, é necessário criar um trabalho:
 
-1. Na IU da Web local do Data Box, acesse **Gerenciar > Copiar dados**.
-2. Na página **Copiar dados**, clique em **Criar**.
+1. Na IU da Web local do dispositivo Data Box, acesse **Gerenciar** > **Copiar dados**.
+2. Na página **Copiar dados**, selecione **Criar**.
 
-    ![Clique em **Criar** na página **Copiar dados**](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
+    ![Selecionar Criar na página "Copiar dados"](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
 
-3. Na caixa de diálogo **Configurar e iniciar**, forneça as entradas a seguir.
+3. Na caixa de diálogo **Configurar trabalho e iniciar**, preencha os seguintes campos:
     
     |Campo                          |Valor    |
     |-------------------------------|---------|
-    |Nome do trabalho                       |Um único nome com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho – \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
-    |Local de origem                |Forneça o caminho do SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |Nome de Usuário                       |Nome de usuário no formato `\\<DomainName><UserName>` para acessar a fonte de dados.        |
-    |Senha                       |A senha para acessar a fonte de dados.           |
-    |Conta de armazenamento de destino    |Na lista suspensa, selecione a conta de armazenamento de destino para a qual carregar os dados.         |
-    |Tipo de armazenamento de destino       |Selecione o tipo de armazenamento de destino do blob de blocos, blob de páginas ou Arquivos do Azure.        |
-    |Compartilhamento/contêiner de destino    |Insira o nome do contêiner ou do compartilhamento para carregar dados na conta de armazenamento de destino. O nome pode ser um nome do compartilhamento ou um nome de contêiner. Por exemplo, `myshare` ou `mycontainer`. Também é possível inserir no formato `sharename\directory_name` ou `containername\virtual_directory_name` na nuvem.        |
-    |Copiar arquivos que correspondem a um padrão    | Insira o nome do arquivo que corresponde a um padrão das duas maneiras a seguir.<ul><li>**Usar expressões curinga** Apenas `*` e `?` são compatíveis com expressões curinga. Por exemplo, essa expressão `*.vhd` corresponde a todos os arquivos que têm a extensão .vhd. Da mesma forma, `*.dl?` corresponde a todos os arquivos cuja extensão é `.dl` ou `.dll`. Além disso, `*foo` corresponderá a todos os arquivos cujos nomes terminam com `foo`.<br>É possível inserir diretamente a expressão curinga no campo. Por padrão, o valor inserido no campo é tratado como expressão curinga.</li><li>**Usar expressões regulares** – há suporte para expressões regulares baseadas em POSIX. Por exemplo, uma expressão regular `.*\.vhd` corresponderá a todos os arquivos que têm a extensão `.vhd`. Para a expressão regular, forneça o `<pattern>` diretamente como `regex(<pattern>)`. <li>Para saber mais sobre expressões regulares, acesse [Linguagem de expressões regulares – referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |Otimização de arquivos              |Quando habilitado, arquivos de menos de 1 MB são empacotados na ingestão. Isso agiliza a cópia de dados para arquivos pequenos. Economias de tempo significativas são observadas quando o número de arquivos excede muito o número de diretórios.        |
+    |**Nome do trabalho**                       |Um único nome com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho: \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
+    |**Localização de origem**                |Forneça o caminho do SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
+    |**Nome de Usuário**                       |Nome de usuário no formato `\\<DomainName><UserName>` para acessar a fonte de dados.        |
+    |**Senha**                       |A senha para acessar a fonte de dados.           |
+    |**Conta de armazenamento de destino**    |Selecione na lista a conta de armazenamento de destino na qual os dados serão carregados.         |
+    |**Tipo de destino**       |Selecione o tipo de armazenamento de destino na lista: **Blob de Blocos**, **Blob de Páginas** ou **Arquivos do Azure**.        |
+    |**Contêiner/compartilhamento de destino**    |Insira o nome do contêiner ou do compartilhamento no qual deseja carregar os dados em sua conta de armazenamento de destino. O nome pode ser um nome do compartilhamento ou um nome de contêiner. Por exemplo, use `myshare` ou `mycontainer`. Insira também o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name`.        |
+    |**Copiar arquivos que correspondem a um padrão**    | Você pode inserir o nome do arquivo que corresponde a um padrão das duas seguintes maneiras:<ul><li>**Usar expressões curinga:** Há suporte apenas para `*` e `?` em expressões curinga. Por exemplo, a expressão `*.vhd` corresponde a todos os arquivos que têm a extensão `.vhd`. Da mesma forma, `*.dl?` corresponde a todos os arquivos com a extensão `.dl` ou que começam com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os arquivos cujos nomes terminam com `foo`.<br>É possível inserir a expressão curinga diretamente no campo. Por padrão, o valor inserido no campo é tratado como uma expressão curinga.</li><li>**Usar expressões regulares:** Há suporte para expressões regulares baseadas em POSIX. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os arquivos que têm a extensão `.vhd`. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para obter mais informações sobre expressões regulares, acesse [Linguagem de expressões regulares – referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Otimização de arquivo**              |Quando esse recurso é habilitado, os arquivos menores que 1 MB são empacotados durante a ingestão. Esse empacotamento agiliza a cópia de dados para arquivos pequenos. Ele também economiza uma quantidade de tempo significativa quando o número de arquivos é muito maior do que o número de diretórios.        |
  
-4. Clique em **Iniciar**. As entradas são validadas e, se a validação for bem-sucedida, um trabalho será iniciado. Talvez demore alguns minutos para o trabalho iniciar.
+4. Selecione **Iniciar**. As entradas são validadas e, se a validação é bem-sucedida, o trabalho é iniciado. Poderá levar alguns minutos para o trabalho ser iniciado.
 
-    ![Iniciar um trabalho da caixa de diálogo Configurar trabalho e iniciar](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
+    ![Iniciar um trabalho por meio da caixa de diálogo "Configurar trabalho e iniciar"](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
 
-5. É criado um trabalho com as configurações especificadas. Marque a caixa de seleção e, em seguida, será possível pausar, retomar, cancelar ou reiniciar um trabalho.
+5. É criado um trabalho com as configurações especificadas. Você pode pausar, retomar, cancelar ou reiniciar um trabalho. Marque a caixa de seleção ao lado do nome do trabalho e, em seguida, selecione o botão apropriado.
 
-    ![Gerenciar um trabalho por meio da página copiar dados](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
+    ![Gerenciar um trabalho na página "Copiar dados"](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
     
-    - Será possível pausar este trabalho se ele estiver afetando os recursos NAS durante os horários de pico.
+    - Você pode pausar um trabalho se ele está afetando os recursos do dispositivo NAS durante o horário de pico:
 
-        ![Pausar um trabalho](media/data-box-deploy-copy-data-via-copy-service/pause-job.png)
+        ![Pausar um trabalho na página "Copiar dados"](media/data-box-deploy-copy-data-via-copy-service/pause-job.png)
 
-        É possível retomar o trabalho posteriormente, fora do horário de pico.
+        Você pode retomar o trabalho posteriormente, fora do horário de pico:
 
-        ![Retomar um trabalho](media/data-box-deploy-copy-data-via-copy-service/resume-job.png)
+        ![Retomar um trabalho na página "Copiar dados"](media/data-box-deploy-copy-data-via-copy-service/resume-job.png)
 
-    - É possível cancelar um trabalho a qualquer momento.
+    - Você pode cancelar um trabalho a qualquer momento:
 
-        ![Cancelar um trabalho](media/data-box-deploy-copy-data-via-copy-service/cancel-job.png) É necessária uma confirmação ao cancelar um trabalho.
+        ![Cancelar um trabalho na página "Copiar dados"](media/data-box-deploy-copy-data-via-copy-service/cancel-job.png)
+        
+        Quando você cancela um trabalho, uma confirmação é necessária:
 
         ![Confirmar cancelamento do trabalho](media/data-box-deploy-copy-data-via-copy-service/confirm-cancel-job.png)
 
-        Se você decidir cancelar um trabalho, os dados já copiados não serão excluídos. Para excluir quaisquer dados copiados em seu Data Box, redefina o dispositivo.
+        Se você decidir cancelar um trabalho, os dados que já foram copiados não serão excluídos. Para excluir os dados copiados para o dispositivo Data Box, redefina o dispositivo.
 
-        ![Redefinir dispositivo](media/data-box-deploy-copy-data-via-copy-service/reset-device.png)
+        ![Redefinir um dispositivo](media/data-box-deploy-copy-data-via-copy-service/reset-device.png)
 
         >[!NOTE]
-        > Se você cancelar ou pausar um trabalho, os grandes arquivos que estão sendo copiados poderão ser copiados pela metade. Esses arquivos são carregados no mesmo estado para o Azure. Ao tentar cancelar ou pausar, valide que seus arquivos foram corretamente copiados. Para validar os arquivos, examine os compartilhamentos SMB ou baixe o arquivo BOM.
+        > Se você cancelar ou pausar um trabalho, os arquivos grandes poderão ser apenas parcialmente copiados. Esses arquivos parcialmente copiados são carregados no mesmo estado para o Azure. Ao cancelar ou pausar um trabalho, verifique se os arquivos foram copiados corretamente. Para validar os arquivos, examine os compartilhamentos SMB ou baixe o arquivo BOM.
 
-    - Será possível reiniciar um trabalho se ele tiver falhado abruptamente devido a um erro transitório, como uma falha de rede. Não será possível reiniciar um trabalho se ele tiver atingido um estado terminal, como concluído com êxito ou concluído com erros. As falhas poderão ocorrer devido a problemas de tamanho do arquivo ou de nomenclatura do arquivo. Esses erros são registrados, mas o trabalho não poderá ser reiniciado depois de concluído.
+    - Você pode reiniciar um trabalho em caso de falha devido a um erro transitório, como uma falha de rede. No entanto, você não poderá reiniciar um trabalho se ele tiver atingido um status de terminal, como **Com êxito** ou **Concluído com erros**. Falhas de trabalho podem ser causadas por problemas de nomenclatura ou de tamanho do arquivo. Esses erros são registrados em log, mas o trabalho não pode ser reiniciado depois de concluído.
 
         ![Reiniciar um trabalho com falha](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
 
-        Se você enfrentar uma falha e o trabalho não puder ser reiniciado, baixe os logs de erros e examine a falha nos arquivos de log. Depois de corrigir o problema, será possível criar um trabalho para copiar os arquivos. Também é possível [copiar os arquivos via SMB](data-box-deploy-copy-data.md).
+        Se ocorrer uma falha e você não puder reiniciar o trabalho, baixe os logs de erros e examine a falha nos arquivos de log. Depois de corrigir o problema, crie um trabalho para copiar os arquivos. Também é possível [copiar os arquivos via SMB](data-box-deploy-copy-data.md).
     
     - Nesta versão, não é possível excluir um trabalho.
     
-    - É possível criar trabalhos ilimitados, mas executar no máximo 10 trabalhos em paralelo em determinado momento.
-    - Se a otimização do arquivo estiver ativada, os arquivos pequenos serão incluídos na ingestão para aprimorar o desempenho da cópia. Nesses casos, você verá um arquivo empacotado (com GUID como nome). Não exclua esse arquivo, pois ele será desempacotado durante o upload.
+    - Você pode criar trabalhos ilimitados, mas só pode executar um máximo de 10 trabalhos em paralelo por vez.
+    - Se a **Otimização de arquivo** estiver ativada, os arquivos pequenos serão empacotados na ingestão para melhorar o desempenho da cópia. Nesses casos, você verá um arquivo empacotado (ele terá um GUID como o nome de arquivo). Não exclua esse arquivo. Ele será desempacotado durante o upload.
 
 6. Enquanto o trabalho está em andamento, na página **Copiar dados**:
 
@@ -120,35 +120,28 @@ Para copiar dados usando o serviço de cópia de dados, é necessário criar um 
         - **Cancelando**
         - **Cancelado**
         - **Concluído com erros**
-    - Na coluna **Arquivos**, é possível ver o número e o tamanho do total de arquivos que está sendo copiado.
-    - Na coluna **Processados**, é possível ver o número e o tamanho dos arquivos processados.
-    - Na coluna **Detalhes**, clique em **Exibir** para ver os detalhes do trabalho.
-    - Se você tiver quaisquer erros durante o processo de cópia, conforme mostrado na coluna **N º de erros**, acesse a coluna **Log de erros** e baixe os logs de erros para solucionar problemas.
+    - Na coluna **Arquivos**, é possível ver o número e o tamanho total dos arquivos que estão sendo copiados.
+    - Na coluna **Processados**, é possível ver o número e o tamanho total dos arquivos processados.
+    - Na coluna **Detalhes do trabalho**, selecione **Exibir** para ver os detalhes do trabalho.
+    - Se ocorrerem erros durante o processo de cópia, conforme mostrado na coluna **Nº de Erros**, acesse a coluna **Log de erros** e baixe os logs de erros para solução de problemas.
 
-Aguarde a conclusão dos trabalhos de cópia. Conforme alguns erros são registrados apenas na página **Conectar e copiar**, certifique-se de que os trabalhos de cópia foram concluídos sem erro antes de passar para a próxima etapa.
+Aguarde a conclusão do trabalho de cópia. Como alguns erros são registrados em log apenas na página **Conectar e copiar**, verifique se os trabalhos de cópia foram concluídos sem erros antes de passar para a próxima etapa.
 
-![Nenhum erro na página **Conectar e copiar**](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
+![Nenhum erro na página "Conectar e copiar"](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
 
-Para garantir a integridade dos dados, a soma de verificação é computada em linha à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço usado e o espaço livre no seu dispositivo.
+Para garantir a integridade dos dados, uma soma de verificação é computada embutida à medida que os dados são copiados. Depois que a cópia for concluída, selecione **Exibir painel** para verificar o espaço usado e o espaço livre no dispositivo.
     
 ![Verificar o espaço livre e usado no painel](media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard.png)
 
-Após a conclusão do trabalho de cópia, será possível acessar **Preparar para o envio**.
+Após a conclusão do trabalho de cópia, você poderá selecionar **Preparar para o envio**.
 
 >[!NOTE]
-> A Preparação para o envio não poderá ser executada enquanto os trabalhos de cópia estiverem em andamento.
+> A **Preparação para o envio** não poderá ser executada enquanto os trabalhos de cópia estiverem em andamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
-
-> [!div class="checklist"]
-> * Pré-requisitos
-> * Copiar dados para caixa de dados
-
-
-Avance para o próximo tutorial para saber como enviar o Data Box novamente à Microsoft.
+Avance para o próximo tutorial para saber como enviar o dispositivo Data Box novamente à Microsoft.
 
 > [!div class="nextstepaction"]
-> [Envie o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
+> [Enviar o dispositivo Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
 

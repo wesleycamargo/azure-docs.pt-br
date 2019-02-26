@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Criar uma função personalizada usando a CLI do Azure | Microsoft Docs
-description: Introdução à criação de uma função personalizada usando a CLI do Azure.
+title: Tutorial – Criar uma função personalizada para recursos do Azure usando a CLI do Azure | Microsoft Docs
+description: Comece a criar uma função personalizada para recursos do Azure usando a CLI do Azure.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698005"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340205"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Tutorial: Criar uma função personalizada usando a CLI do Azure
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando a CLI do Azure
 
-Se as [funções internas](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando a CLI do Azure. A função personalizada permite que o usuário veja tudo na assinatura e também os tíquetes de suporte abertos.
+Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando a CLI do Azure. A função personalizada permite que o usuário veja tudo na assinatura e também os tíquetes de suporte abertos.
 
 Neste tutorial, você aprenderá como:
 
@@ -269,4 +269,4 @@ Para atualizar a função personalizada, atualize o arquivo JSON e, em seguida, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar funções personalizadas usando a CLI do Azure](custom-roles-cli.md)
+> [Criar funções personalizadas para recursos do Azure usando a CLI do Azure](custom-roles-cli.md)

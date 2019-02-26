@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Largura de banda permitida do ExpressRoute
-description: Essa política de exemplo exige que o ExpressRoute use um conjunto especificado de larguras de banda.
+description: Esta definição de política de exemplo exige que o ExpressRoute use um conjunto especificado de larguras de banda.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc98e9085844749153ee6f45466cc367eef2ffff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eacd2dd7ddecba47d00ea09cb45f99e991bfd2dc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244736"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341599"
 ---
-# <a name="allowed-expressroute-bandwidth"></a>Largura de banda do ExpressRoute permitida
+# <a name="sample---allowed-expressroute-bandwidth"></a>Exemplo – Largura de banda permitida do ExpressRoute
 
 Essa política requer que o ExpressRoute use um conjunto de larguras de bandas especificado. Você especifica uma matriz de SKUs que pode ser definida para o Express Route.
 

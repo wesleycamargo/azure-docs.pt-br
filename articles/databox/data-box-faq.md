@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077447"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268389"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -70,7 +70,7 @@ a.  Para obter o Azure Data Box, entre no portal do Azure e crie um pedido do Da
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>P. Não consegui criar um pedido do Data Box no portal do Azure. Por que isso ocorre?
 a. Se você não conseguiu criar um pedido do Data Box, há um problema com seu tipo de assinatura ou acesso. 
 
-Verifique sua assinatura. O Data Box só está disponível para as ofertas EA (Contrato Enterprise), CSP (Provedor de Soluções na Nuvem) ou assinaturas pagas conforme o uso. Caso sua assinatura não se enquadre em nenhum dos tipos acima, contate o Suporte da Microsoft para atualizá-la.
+Verifique sua assinatura. O Data Box só está disponível para as ofertas de assinatura EA (Contrato Enterprise) e CSP (Provedor de Soluções na Nuvem). Caso sua assinatura não se enquadre em nenhum dos tipos acima, contate o Suporte da Microsoft para atualizá-la.
 
 Se você tiver um tipo de oferta compatível com a assinatura, verifique o nível de acesso da assinatura. Você precisa ser um colaborador ou proprietário em sua assinatura para criar um pedido.
 

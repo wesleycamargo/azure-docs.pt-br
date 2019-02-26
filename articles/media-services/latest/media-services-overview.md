@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 1911b851e4e219ec4c6d2d4872b75e9c18706feb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893316"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337554"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Mídia v3 do Azure?
 
@@ -62,7 +62,7 @@ Nomes de recurso dos Serviços de Mídia não podem incluir: '<', '>', '%', '&',
 
 Para obter mais informações sobre a atribuição de nome do Azure Resource Manager, confira: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## <a name="media-services-v3-api-design-principles"></a>Princípios de design de API dos Serviços de Mídia v3
+## <a name="v3-api-design-principles"></a>Princípios de design da API v3
 
 Um dos princípios de design de chave da API v3 é tornar a API mais segura. As APIs v3 não retornam segredos ou as credenciais em uma operação **Get** ou **List**. As chaves são sempre nulas, vazias ou corrigidas na resposta. Você precisa chamar um método de ação separada para obter as credenciais ou segredos. As ações separadas permitem que você defina permissões de segurança RBAC diferentes no caso de algumas APIs recuperar/exibir segredos enquanto outras APIs, não. Para saber mais sobre como gerenciar o acesso usando o RBAC, veja [Usar RBAC para gerenciar o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -76,25 +76,20 @@ Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3?
 
-Como desenvolvedor, você pode usar a [API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) dos Serviços de Mídia ou bibliotecas de clientes que permitem interagir com a API REST para criar, gerenciar e manter fluxos de trabalho de mídia personalizados com facilidade. A API dos Serviços de Mídia v3 se baseia na [especificação do OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (anteriormente conhecida como um Swagger).
+Para obter informações sobre como iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando uma variedade de ferramentas e SDKs, confira [Começar o desenvolvimento](developers-guide.md).
 
-O [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) (Gerenciador dos Serviços de Mídia do Azure) é uma ferramenta disponível para clientes do Windows que desejam saber mais sobre os Serviços de Mídia. O AMSE é um aplicativo do WinForms/C# que carrega, baixa, codifica e transmite VoD e conteúdo ao vivo com os Serviços de Mídia. A ferramenta AMSE destina-se aos clientes que desejam testar os Serviços de Mídia sem escrever nenhum código. O código AMSE é fornecido como um recurso para clientes que desejam desenvolver com os Serviços de Mídia.
+## <a name="v3-content-map"></a>Mapa de conteúdo da v3
 
-O AMSE é um projeto de software livre, cujo suporte é fornecido pela comunidade (os problemas podem ser relatados a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, confira as [Perguntas frequentes sobre o Código de Conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate opencode@microsoft.com para enviar outras perguntas ou comentários.
- 
-Os Serviços de Mídia do Azure dão suporte às seguintes bibliotecas de clientes: 
+O conteúdo dos Serviços de Mídia v3 é organizado de acordo com a seguinte estrutura (também refletida no sumário):
 
-|Referências de API|SDKs/Ferramentas|Exemplos|
-|---|---|---|---|
-|[Referência REST](https://aka.ms/ams-v3-rest-ref)|[SDK do REST](https://aka.ms/ams-v3-rest-sdk)|[Exemplos de Postman REST](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Referência da CLI do Azure](https://aka.ms/ams-v3-cli-ref)|[CLI do Azure](https://aka.ms/ams-v3-cli)|[Exemplos da CLI do Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[Referência do .NET](https://aka.ms/ams-v3-dotnet-ref)|[SDK .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Exemplos do .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[SDK do .NET Core](https://aka.ms/ams-v3-dotnet-sdk) (escolha a guia **.NET CLI**)|[Exemplos do .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Referência de Java](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Referência do Node.js](https://aka.ms/ams-v3-nodejs-ref)|[SDK do Node.js](https://aka.ms/ams-v3-nodejs-sdk)|[Exemplos do Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Referência do Python](https://aka.ms/ams-v3-python-ref)|[SDK do Python](https://aka.ms/ams-v3-python-sdk)||
-|[Referência do Go](https://aka.ms/ams-v3-go-ref)|[SDK do Go](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[SDK do Ruby](https://aka.ms/ams-v3-ruby-sdk)||
+|Seções| DESCRIÇÃO|
+|---|---|
+| Visão geral | Explica as funcionalidades dos Serviços de Mídia e o que é possível fazer com o serviço.|
+| Guia de início rápido | Mostra instruções iniciais básicas para que os novos clientes experimentem os Serviços de Mídia rapidamente.|
+| Tutoriais | Mostra procedimentos baseados em cenário para algumas das principais tarefas dos Serviços de Mídia.|
+| Exemplos | Links para exemplos de código. |
+| Conceitos | Contém explicações detalhadas sobre a funcionalidade e diagramas dos Serviços de Mídia v3. Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.<br/><br/>* Upload e armazenamento na nuvem<br/>* Codificação<br/>* Análise de mídia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão ao vivo<br/>* Monitoramento contínuo<br/>* Clientes de player<br/><br/>e mais. |
+| Guias de instruções | Demonstra como concluir uma tarefa.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed159decb51d71e8c0beddb285f6c01ae264ed2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206660"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416761"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início Rápido: proteger uma API Web com o Azure Active Directory
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início rápido: proteger uma API Web com o Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -45,21 +45,20 @@ Para começar, adicione o código a seguir em um arquivo chamado `package.json`:
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-Uma vez que `package.json` é criado, execute `npm install` no prompt de comando para instalar as dependências do pacote. 
+Uma vez que `package.json` é criado, execute `npm install` no prompt de comando para instalar as dependências do pacote.
 
 #### <a name="configure-the-project-to-use-active-directory"></a>Configure o projeto para usar o Active Directory
 
@@ -116,7 +115,7 @@ Crie um novo arquivo chamado `app.js` e cole o texto a seguir:
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -127,7 +126,7 @@ const
 
 Nesta seção de código:
 
-- Os módulos `restify` e `restify-plugins` são referenciados para configurar um servidor Restify.
+- Os módulos `restify` e de plug-ins são referenciados para a configuração de um servidor Restify.
 - Os módulos `passport` e `passport-azure-ad` são responsáveis pela comunicação com o Azure AD.
 - A variável `config` é inicializada com valores do arquivo `config.js` criado na etapa anterior.
 - Uma matriz é criada para `authenticatedUserTokens` para armazenar os tokens de usuário conforme eles são passados para pontos de extremidade protegidos.

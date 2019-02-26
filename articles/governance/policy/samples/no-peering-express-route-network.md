@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Nenhum emparelhamento de rede para a rede do Express Route
-description: Essa política de exemplo proíbe associar um emparelhamento de rede a uma rede em um grupo de recursos especificado.
+description: Esta definição de política de exemplo proíbe a associação de um emparelhamento de rede a uma rede em um grupo de recursos especificado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dbd7494b5104482624448fc0525a58d68138a833
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c06e750c19227d245fcf8eaeb077691ef2c8a675
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245636"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337588"
 ---
-# <a name="no-network-peering-to-express-route-network"></a>Nenhum emparelhamento de rede para a rede do Express Route
+# <a name="sample---no-network-peering-to-express-route-network"></a>Exemplo – Nenhum emparelhamento de rede para a rede do Express Route
 
 Essa política proíbe associar um emparelhamento de rede a uma rede em um grupo de recursos especificado. Use para impedir a conexão à infraestrutura de rede gerenciada central. Especifique o nome do grupo de recursos para impedir a associação.
 

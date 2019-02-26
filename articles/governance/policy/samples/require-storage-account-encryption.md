@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Exigir criptografia de conta de armazenamento
-description: Esta política de exemplo exige que a conta de armazenamento use criptografia de blobs.
+description: Esta definição de política de exemplo exige que a conta de armazenamento use criptografia de blob.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 067fab9baa2890aa2630c513fd4e6319bd40f709
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b1afa4ce154153d97a9d7401765cd9c129009ceb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244650"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342687"
 ---
-# <a name="require-storage-account-encryption"></a>Exigir criptografia de conta de armazenamento
+# <a name="sample---require-storage-account-encryption"></a>Exemplo – Exigir criptografia de conta de armazenamento
 
 Essa política exige que contas de armazenamento usem criptografia de blobs.
 

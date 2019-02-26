@@ -1,6 +1,6 @@
 ---
 title: Exemplo – impor padrão de semelhança
-description: Esta política de exemplo exige que os recursos atendam ao padrão de semelhança das convenções de nomenclatura.
+description: Esta definição de política de exemplo exige que os recursos atendam ao padrão de semelhança das convenções de nomenclatura.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243021"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338471"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>Impor padrão de semelhança das convenções de nomenclatura
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Amostra – Impor padrão de semelhança das convenções de nomenclatura
 
 Exija que os nomes de recurso atendam a um padrão de semelhança das convenções de nomenclatura. Especifique o padrão de semelhança permitido como um parâmetro.
 

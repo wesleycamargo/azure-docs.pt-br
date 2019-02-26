@@ -4,252 +4,232 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd7b23416e723d9c51cc065e61cfd7a1b3aaa9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89745bd38efae931136e347a47941b5204daf8ca
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198823"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Tutorial: Integração do Azure Active Directory ao FiscalNote
 
 Neste tutorial, você aprenderá a integrar o FiscalNote ao Azure AD (Azure Active Directory).
-
 A integração do FiscalNote ao AD do Azure oferece os seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso ao FiscalNote.
-- Você pode habilitar seus usuários a fazerem logon automaticamente no FiscalNote (logon único) com suas contas do AD do Azure.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao FiscalNote.
+* Você pode permitir que os usuários sejam conectados automaticamente ao FiscalNote (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o FiscalNote, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura do FiscalNote habilitada para logon único
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do FiscalNote
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adição do FiscalNote da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+
+* O FiscalNote dá suporte ao SSO iniciado por **SP**
+
+* O FiscalNote dá suporte ao provisionamento de usuário **Just-In-Time**
 
 ## <a name="adding-fiscalnote-from-the-gallery"></a>Adição do FiscalNote da galeria
+
 Para configurar a integração do FiscalNote ao Azure AD, você precisará adicionar o FiscalNote da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o FiscalNote a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![O botão Novo aplicativo][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **FiscalNote**, selecione **FiscalNote** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![FiscalNote na lista de resultados](./media/fiscalnote-tutorial/tutorial_fiscalnote_addfromgallery.png)
+4. Na caixa de pesquisa, digite **FiscalNote**, selecione **FiscalNote** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+
+     ![FiscalNote na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você vai configurar e testar o logon único do Azure AD com o FiscalNote, com base em um usuário de teste chamado "Brenda Fernandes".
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do FiscalNote é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no FiscalNote.
+Nesta seção, você configurará e testará o logon único do Azure AD com o FiscalNote, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do FiscalNote.
 
 Para configurar e testar o logon único do AD do Azure com o FiscalNote, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar de um usuário de teste do FiscalNote](#create-a-fiscalnote-test-user)** – para ter um equivalente de Brenda Fernandes no FiscalNote vinculado à representação do usuário no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Configurar o logon único do FiscalNote](#configure-fiscalnote-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do FiscalNote](#create-fiscalnote-test-user)** – para ter um equivalente de Brenda Fernandes no FiscalNote que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo portal FiscalNote.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do AD do Azure com o FiscalNote, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o FiscalNote, execute as seguintes etapas:
 
-1. No portal do Azure, na página de integração do aplicativo **FiscalNote**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **FiscalNote**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-    ![Caixa de diálogo Logon único](./media/fiscalnote-tutorial/tutorial_fiscalnote_samlbase.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-1. Na seção **URLs e Domínio do FiscalNote**, execute as seguintes etapas:
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Informações de logon único de URLs e Domínio do FiscalNote](./media/fiscalnote-tutorial/tutorial_fiscalnote_url.png)
-    
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+
+    ![Informações de logon único de URLs e Domínio do FiscalNote](common/sp-identifier.png)
+
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente FiscalNote](mailto:support@fiscalnote.com) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente FiscalNote](mailto:support@fiscalnote.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Bruto)** e, em seguida, salve o arquivo de certificado no computador.
+5. O aplicativo FiscalNote espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone Editar para adicionar os atributos.
 
-    ![O link de download do Certificado](./media/fiscalnote-tutorial/tutorial_fiscalnote_certificate.png)
+    ![image](common/edit-attribute.png)
 
-1. Seu aplicativo FiscalNote espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo.
+6. Além do indicado acima, o aplicativo FiscalNote espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    ![Configurar o logon único](./media/fiscalnote-tutorial/tutorial_attribute.png)
-
-1. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
-           
-    | Nome do atributo | Valor do atributo |
+    | NOME | Atributo de Origem|
     | ---------------| ----------------|
-    | Nome | user.userprincipalname|
-    | givenName| user.givenname|
     | familyName| user.surname|
     | email| user.mail|
-    
-     a. Remova os atributos existentes e adicione novos atributos. Clique em **Adicionar Atributo** para abrir a caixa de diálogo **Adicionar Atributo**.
 
-    ![Configurar o logon único](./media/fiscalnote-tutorial/tutorial_attribute_04.png)
-    
-    ![Configurar o logon único](./media/fiscalnote-tutorial/tutorial_attribute_05.png)
+     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+    c. Deixe o **Namespace** em branco.
 
-    d. Deixe o namespace em branco.
-    
-    e. Clique em **OK**.
+    d. Escolha Origem como **Atributo**.
 
-1. Clique no botão **Salvar** .
+    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    ![Botão Salvar em Configurar Logon Único](./media/fiscalnote-tutorial/tutorial_general_400.png)
+    f. Clique em **Ok**
 
-1. Na seção **Configuração do FiscalNote**, clique em **Configurar o FiscalNote** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+    g. Clique em **Salvar**.
 
-    ![Configuração do FiscalNote](./media/fiscalnote-tutorial/tutorial_fiscalnote_configure.png) 
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Bruto)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-1. Para configurar o logon único no lado do **FiscalNote**, é necessário enviar o **Certificado (Bruto) baixado, a URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML**para a [equipe de suporte do FiscalNote](mailto:support@fiscalnote.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+    ![O link de download do Certificado](common/certificateraw.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+8. Na seção **Configurar o FiscalNote**, copie as URLs apropriadas de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+    a. URL de logon
+
+    b. Identificador do Azure Ad
+
+    c. URL de logoff
+
+### <a name="configure-fiscalnote-single-sign-on"></a>Configurar o logon único do FiscalNote
+
+Para configurar o logon único no lado do **FiscalNote**, é necessário enviar o **Certificado (Bruto)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do FiscalNote](mailto:support@fiscalnote.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/fiscalnote-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/fiscalnote-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/fiscalnote-tutorial/create_aaduser_03.png)
-
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/fiscalnote-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-fiscalnote-test-user"></a>Criar um usuário de teste do FiscalNote
-
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no FiscalNote. O FiscalNote dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o FiscalNote, caso ele ainda não exista.
->[!Note]
->Se precisar criar um usuário manualmente, contate a  [equipe de suporte do FiscalNote](mailto:support@fiscalnote.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao FiscalNote.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **FiscalNote**.
 
-**Para atribuir Brenda Fernandes ao FiscalNote, execute as seguintes etapas:**
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, escolha **FiscalNote**.
 
-    ![Atribuir usuário][201] 
+    ![O link do FiscalNote na lista de Aplicativos](common/all-applications.png)
 
-1. Na lista de aplicativos, escolha **FiscalNote**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link do FiscalNote na lista de Aplicativos](./media/fiscalnote-tutorial/tutorial_fiscalnote_app.png)  
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link “Usuários e grupos”][202]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![O painel Adicionar Atribuição][203]
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+### <a name="create-fiscalnote-test-user"></a>Criar um usuário de teste do FiscalNote
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar logon único
+Nesta seção, um usuário chamado Brenda Fernandes será criado no FiscalNote. O FiscalNote dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no FiscalNote, um novo será criado após a autenticação.
+
+>[!Note]
+>Se você precisar criar um usuário manualmente, contate a [equipe de suporte do FiscalNote](mailto:support@fiscalnote.com).
+
+### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco FiscalNote no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo FiscalNote.
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Ao clicar no bloco do FiscalNote no Painel de Acesso, você deverá ser conectado automaticamente ao FiscalNote, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/fiscalnote-tutorial/tutorial_general_01.png
-[2]: ./media/fiscalnote-tutorial/tutorial_general_02.png
-[3]: ./media/fiscalnote-tutorial/tutorial_general_03.png
-[4]: ./media/fiscalnote-tutorial/tutorial_general_04.png
-
-[100]: ./media/fiscalnote-tutorial/tutorial_general_100.png
-
-[200]: ./media/fiscalnote-tutorial/tutorial_general_200.png
-[201]: ./media/fiscalnote-tutorial/tutorial_general_201.png
-[202]: ./media/fiscalnote-tutorial/tutorial_general_202.png
-[203]: ./media/fiscalnote-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

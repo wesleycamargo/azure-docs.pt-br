@@ -1,28 +1,28 @@
 ---
 title: 'Início Rápido: Reconhecimento de fala, JavaScript (navegador) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
+description: Saiba como reconhecer fala em JavaScript em um navegador usando o SDK de Fala
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872163"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448034"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: Reconhecer fala em JavaScript em um navegador usando o SDK de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá como criar um site usando a associação JavaScript do SDK de Fala de Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo baseia-se no SDK de Fala dos Serviços Cognitivos da Microsoft ([Baixar a versão 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
+O aplicativo baseia-se no SDK de Fala dos Serviços Cognitivos da Microsoft ([Baixar a versão 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

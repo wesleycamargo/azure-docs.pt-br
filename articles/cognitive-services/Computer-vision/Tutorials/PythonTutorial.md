@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: afb937f1be780c35ef44023acfedeb38a6b6a877
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b55b1fdf3b93d3865bdb115e43ff8583af61b45d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875063"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326418"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Tutorial: API da Pesquisa Visual Computacional Python
 
-Este tutorial mostra como usar a API da Pesquisa Visual Computacional no Python e como visualizar os resultados usando bibliotecas populares. Você usará o Jupyter para executar o tutorial. Para saber como começar a usar os notebooks interativos do Jupyter, veja: [Documentação do Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
+Este tutorial mostra como usar a API da Pesquisa Visual Computacional no Python e como visualizar os resultados usando bibliotecas populares. Você usará o Jupyter para executar o tutorial. Para saber como começar a usar Jupyter Notebooks interativos, confira a [Documentação do Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

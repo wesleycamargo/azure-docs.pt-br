@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994040"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429410"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de Pesquisa Cognitiva (Versão Prévia)
 
@@ -403,9 +403,7 @@ O script define ```"maxFailedItems"``` como -1, que instrui o mecanismo de index
 
 Observe também o ```"dataToExtract":"contentAndMetadata"``` instrução nos parâmetros de configuração. Essa instrução informa o indexador para extrair automaticamente o conteúdo de diferentes formatos de arquivo, como também os metadados relacionados a cada arquivo. 
 
-Quando o conteúdo é extraído, você pode definir ```ImageAction``` para extrair o texto da imagem foi encontrada na fonte de dados. O ```"ImageAction":"generateNormalizedImages"``` informa o indexador para extrair texto de imagens (por exemplo, a palavra "stop" de um sinal de parada de tráfego) e incorporá-lo como parte do campo de conteúdo. Esse comportamento se aplica a ambas as imagens inseridas nos documentos (imagine uma imagem dentro de um PDF), bem como imagens encontradas na fonte de dados, por exemplo um arquivo JPG.
-
-Nesta visualização, ```"generateNormalizedImages"``` é o único valor válido para ```"ImageAction"```.
+Quando o conteúdo é extraído, você pode definir ```imageAction``` para extrair o texto da imagem foi encontrada na fonte de dados. A configuração ```"imageAction":"generateNormalizedImages"```, combinada com a Habilidade de OCR e a Habilidade de Mesclagem de Texto, instrui o indexador a extrair o texto das imagens (por exemplo, a palavra "pare" de uma placa de trânsito "Pare") e inseri-la como parte do campo de conteúdo. Esse comportamento se aplica a ambas as imagens inseridas nos documentos (imagine uma imagem dentro de um PDF), bem como imagens encontradas na fonte de dados, por exemplo um arquivo JPG.
 
 ## <a name="check-indexer-status"></a>Checar o status do indexador
 

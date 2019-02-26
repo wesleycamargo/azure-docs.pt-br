@@ -1,38 +1,49 @@
 ---
 title: Cotas para Instâncias de Contêiner do Azure e disponibilidade de região
-description: As cotas padrão e a disponibilidade de região do serviço de Instâncias de Contêiner do Azure.
+description: Cotas, limites e disponibilidade de região do serviço das Instâncias de Contêiner do Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/15/2019
 ms.author: danlep
-ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c676989b4b882f2b1887a1b6a5091b60027f61d0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160570"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328394"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
 
-Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. As seções a seguir detalham os limites de recursos padrão de vários recursos de Instâncias de Contêiner do Azure (ACI), bem como a disponibilidade do serviço ACI em regiões do Azure.
+Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. As seções a seguir fornecem detalhes dos limites de recursos padrão de vários recursos das Instâncias de Contêiner do Azure, bem como a disponibilidade do serviço nas regiões do Azure.
 
 ## <a name="service-quotas-and-limits"></a>Cotas e limites de serviço
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
+## <a name="feature-availability"></a>Disponibilidade de recursos
+
+As Instâncias de Contêiner do Azure podem agendar contêineres do Windows e do Linux com a mesma API. No entanto, os recursos a seguir estão atualmente disponíveis somente em grupos de contêineres do Linux. O suporte para Windows está planejado.
+
+* Vários contêineres por grupo de contêineres
+* Montagem de volume (Arquivos do Azure, emptyDir, GitRepo, segredo)
+* Rede virtual (versão prévia)
+* Recursos da GPU (versão prévia)
+
 ## <a name="region-availability"></a>Disponibilidade de região
 
-As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões com os limites de memória e CPU especificados. Os valores estavam atualizados no momento da publicação. Para obter informações atualizadas, use a API de [Funcionalidades de Lista](/rest/api/container-instances/listcapabilities/listcapabilities). A disponibilidade e os limites de recursos podem ser diferentes ao usar instâncias de contêiner do Azure com uma [rede virtual](container-instances-vnet.md) (versão prévia) ou com [recursos de GPU](container-instances-gpu.md) (versão prévia).
+As Instâncias de Contêiner do Azure estão disponíveis nas regiões a seguir com os limites de memória e da CPU especificados para cada grupo de contêineres. Os valores estavam atualizados no momento da publicação. Para obter informações atualizadas, use a API de [Funcionalidades de Lista](/rest/api/container-instances/listcapabilities/listcapabilities). 
+
+A disponibilidade e os limites de recursos podem ser diferentes ao usar instâncias de contêiner do Azure com uma [rede virtual](container-instances-vnet.md) (versão prévia) ou com [recursos de GPU](container-instances-gpu.md) (versão prévia).
 
 | Local padrão | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canadá Central, Centro dos EUA, Leste dos EUA 2 | Linux | 4 | 16 |
+| Canadá Central, EUA Central, Leste dos EUA 2 e Centro-Sul dos EUA | Linux | 4 | 16 |
 | Leste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA, Oeste dos EUA 2 | Linux | 4 | 14 |
 | Leste do Japão | Linux | 2 | 8 |
 | Leste da Austrália, Sudeste Asiático | Linux | 2 | 7 |
-| Índia Central, Ásia Oriental, Centro-Norte dos EUA, Centro-Sul dos EUA, Sul da Índia | Linux | 2 | 3,5 |
+| Índia Central, Ásia Oriental, Centro-Norte dos EUA e Sul da Índia | Linux | 2 | 3,5 |
 | Leste dos EUA, Europa Ocidental, Oeste dos EUA |  Windows | 4 | 14 |
 | Leste da Austrália, Canadá Central, Índia Central, EUA Central, Ásia Oriental, Leste dos EUA 2, Leste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sul da Índia, Sudeste Asiático, Oeste dos EUA 2 |  Windows | 2 | 3,5 |
 

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881699"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309634"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -228,7 +228,7 @@ Quando estiver executando `kes.exe` fora do Azure, o índice será limitado a 10
 
 Para permitir o acesso `kes.exe` a uma conta do Azure, [baixe o arquivo de Configurações de Publicação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) do portal do Azure. Se solicitado, entre na conta do Azure. Salve o arquivo como *AzurePublishSettings.xml* no diretório de trabalho de onde `kes.exe` está em execução.
 
-Há duas maneiras de compilar e hospedar grandes índices. A primeira é preparar os arquivos de esquema e dados em uma VM do Windows no Azure. Em seguida, execute [`kes.exe build_index`](#building-index) para compilar o índice localmente na VM, sem restrições de tamanho. O índice resultante pode ser hospedado localmente na VM, usando [`kes.exe host_service`](#hosting-service) para prototipagem rápida, novamente sem quaisquer restrições. Para obter etapas detalhadas, consulte o [tutorial da VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Há duas maneiras de compilar e hospedar grandes índices. A primeira é preparar os arquivos de esquema e dados em uma VM do Windows no Azure. Em seguida, execute `kes.exe build_index` para compilar o índice localmente na VM, sem restrições de tamanho. O índice resultante pode ser hospedado localmente na VM usando `kes.exe host_service` para prototipagem rápida, novamente sem restrições. Para obter etapas detalhadas, consulte o [tutorial da VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 O segundo método é executar uma compilação remota do Azure, usando [`kes.exe build_index`](CommandLine.md#build_index-command) com o parâmetro `--remote`. Isso especifica um tamanho de VM do Azure. Quando o parâmetro `--remote` é especificado, o comando cria uma VM do Azure temporária desse tamanho. Em seguida, ele cria o índice na VM, carrega o índice no armazenamento de blobs de destino e exclui a VM após a conclusão. Sua assinatura do Azure será cobrada pelo custo da VM, enquanto o índice estiver sendo criado.
 

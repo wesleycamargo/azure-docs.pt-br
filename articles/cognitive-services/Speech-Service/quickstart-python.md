@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859533"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447100"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Python
 
@@ -26,16 +26,16 @@ Este artigo mostra como usar o serviço de Fala por meio do SDK de Fala para Pyt
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
-* [Python 3.5 ou posterior](https://www.python.org/downloads/), 64 bits.
+* [Python 3.5 ou posterior](https://www.python.org/downloads/).
 * O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais: 
-    * Windows: x64.
+    * Windows: x64 e x86.
     * Mac: macOS X versão 10.12 ou mais recente.
     * Linux: Ubuntu 16.04 ou 18.04 em x64.
 * No Ubuntu, execute estes comandos para instalar os pacotes necessários:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * No Windows, você também precisa de [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para sua plataforma.

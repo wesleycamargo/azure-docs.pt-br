@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093033"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429240"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre duas máquinas virtuais usando o portal do Azure
 
 Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremidade como outra VM, pode ser importante para sua organização. Às vezes, as alterações de configuração são introduzidas o que pode interromper a comunicação. Neste tutorial, você aprenderá como:
 
@@ -73,11 +73,11 @@ Conclua as etapas em [Criar a primeira VM](#create-the-first-vm) novamente, com 
 
 |Etapa|Configuração|Valor|
 |---|---|---|
-| 1 | Selecione **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | NOME                              | myVm2                                                                   |
-| 3 | Tipo de autenticação               | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
-| 3 | Grupo de recursos                    | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
-| 6 | Extensões                        | **Agente de Rede para Linux**                                             |
+| 1 | Selecionar uma versão do **Ubuntu Server** |                                                                         |
+| 3 | NOME                                  | myVm2                                                                   |
+| 3 | Tipo de autenticação                   | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
+| 3 | Grupo de recursos                        | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
+| 6 | Extensões                            | **Agente de Rede para Linux**                                             |
 
 A VM demora alguns minutos para implantar. Aguarde até que a VM conclua a implantação antes de continuar com as etapas restantes.
 
@@ -160,7 +160,7 @@ Por padrão, o Azure permite comunicação por todas as portas entre VMs na mesm
 
     Você pode ver que há um ícone de ponto de exclamação vermelho na coluna status para o **myvm2529** interface de rede.
 
-6. Para saber por que o status foi alterado, selecione 10.0.0.5, na figura anterior. Monitor de Conexão informa que o motivo da falha de comunicação é: *Tráfego bloqueado devido a seguinte regra de grupo de segurança de rede: UserRule_DenySshInbound*.
+6. Para saber por que o status foi alterado, selecione 10.0.0.5, na figura anterior. O monitor de conexão informa que o motivo da falha de comunicação é: *O tráfego foi bloqueado devido à seguinte regra do Grupo de Segurança de Rede: UserRule_DenySshInbound*.
 
     Se você não souber que alguém tinha implementado a regra de segurança que você criou na etapa 4, você deve saber de monitor de conexão que a regra está causando o problema de comunicação. Você pode alterar, substituir ou remover a regra, para restaurar a comunicação entre as máquinas virtuais.
 

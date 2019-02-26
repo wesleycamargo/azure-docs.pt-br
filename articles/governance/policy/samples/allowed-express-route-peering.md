@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Localizações de emparelhamento permitidas do ExpressRoute
-description: Essa política requer que o ExpressRoute use locais de emparelhamentos especificados.
+description: Esta definição de política de exemplo exige que o ExpressRoute use as localizações de emparelhamento especificadas.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 10e2ccb6d19872413a94dceb1438319afe57976a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3c0fd08e5b01776454e1f4bbf1c4e837ce35e0d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245993"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339049"
 ---
-# <a name="allowed-peering-location-for-expressroute"></a>Local de emparelhamento permitido para ExpressRoute
+# <a name="sample---allowed-peering-location-for-expressroute"></a>Amostra – Localização de emparelhamento permitida para o ExpressRoute
 
 Essa política requer que o ExpressRoute use locais de emparelhamentos especificados. Especifique uma matriz de locais de emparelhamentos permitidos.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemplo – auditar a configuração de auditoria no nível do BD SQL
-description: Essa política de exemplo auditará as configurações de auditoria do Banco de Dados SQL se elas não corresponderem a uma configuração especificada.
+description: Esta definição de política de exemplo audita as configurações de auditoria do Banco de Dados SQL se elas não correspondem a uma configuração especificada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e9eae6d2b9768436eb838945af32df63be160bb8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e319886333a0270bc9535607a40d73944d1e78f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242695"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338182"
 ---
-# <a name="audit-sql-db-level-audit-setting"></a>Auditar a configuração de auditoria no nível do BD SQL
+# <a name="sample---audit-sql-db-level-audit-setting"></a>Amostra – Auditar a configuração de auditoria no nível do BD SQL
 
 Essa política auditará as configurações de auditoria de banco de dados SQL se essas configurações não corresponderem a uma configuração especificada. Especifique um valor que indica se as configurações de auditoria devem ser habilitadas ou desabilitadas.
 

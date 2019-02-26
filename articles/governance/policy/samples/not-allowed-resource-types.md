@@ -1,6 +1,6 @@
 ---
 title: Exemplo – Tipos de recursos não permitidos
-description: Essa política de exemplo proíbe a implantação dos tipos de recursos especificados.
+description: Esta definição de política de exemplo proíbe a implantação dos tipos de recursos especificados.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e310cba1db2816b9d87b211d455c03aafc6bb110
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 159cc4e33df6ed86d21a6ed362087163200720f8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244582"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338148"
 ---
-# <a name="not-allowed-resource-types"></a>Tipos de recursos não permitidos
+# <a name="sample---not-allowed-resource-types"></a>Exemplo – Tipos de recursos não permitidos
 
 Essa política proíbe a implantação dos tipos de recursos especificados. Especifique uma matriz de tipos de recursos a ser bloqueada.
 

@@ -1,6 +1,6 @@
 ---
 title: Amostra – NSG X em cada NIC
-description: Essa política de amostra requer que um grupo de segurança de rede específico seja usado com todas as interfaces de rede virtual.
+description: Esta definição de política de exemplo exige o uso de um Grupo de Segurança de Rede específico com cada adaptador de rede virtual.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 37701a2240f5b017efdbd051972952c9f0449d69
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d297d296f8b33122ce2b8079c5ee6c79705bcc55
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245959"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342551"
 ---
-# <a name="nsg-x-on-every-nic"></a>NSG x em cada NIC
+# <a name="sample---network-security-group-x-on-every-nic"></a>Amostra – Grupo de Segurança de Rede X em cada NIC
 
 Esta política requer que um grupo de segurança de rede específico seja usado com cada adaptador de rede virtual. Você especifica a ID do grupo de segurança de rede a ser usada.
 

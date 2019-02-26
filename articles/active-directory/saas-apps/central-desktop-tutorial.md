@@ -4,204 +4,221 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d389a9675f7d4de56a03026c0d392b9988f6b0da
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa1771366efba82fc00886581dac77295e68f9f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201663"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Azure Active Directory ao Central Desktop
 
 Neste tutorial, você aprenderá a integrar a Área de Trabalho Central ao Azure AD (Azure Active Directory).
-
 A integração da Área de Trabalho Central ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso à Área de Trabalho Central.
-- Você pode permitir que os usuários façam logon automaticamente na Área de Trabalho Central com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso à Área de Trabalho Central.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Central Desktop (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD à Área de Trabalho Central, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura da Área de Trabalho Central habilitada para logon único
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas neste tutorial, siga estas recomendações:
-
-- Não use o ambiente de produção a menos que seja necessário.
-- Se você ainda não tem um ambiente de avaliação do Azure AD, [obtenha uma versão de avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do Central Desktop
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar a Área de Trabalho Central da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-## <a name="add-central-desktop-from-the-gallery"></a>Adicionar a Área de Trabalho Central da galeria
+* O Central Desktop dá suporte ao SSO iniciado por **SP**
+
+## <a name="adding-central-desktop-from-the-gallery"></a>Adicionar a Área de Trabalho Central da galeria
+
 Para configurar a integração da Área de Trabalho Central ao Azure AD, você precisa adicionar a Área de Trabalho Central da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar a Área de Trabalho Central da galeria, execute as seguintes etapas:**
+**Para adicionar o Central Desktop por meio da galeria, execute as seguintes etapas:**
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o ícone do **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Executar **Aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
-1. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da caixa de diálogo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![O botão Novo aplicativo][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **Área de Trabalho Central**. Selecione **Área de Trabalho Central** do painel de resultados e, em seguida, selecione o botão **Adicionar** para adicionar o aplicativo.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![Área de Trabalho Central na lista de resultados](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
+4. Na caixa de pesquisa, digite **Central Desktop**, selecione **Central Desktop** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+
+     ![Área de Trabalho Central na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com a área de Trabalho Central, com base em um usuário de teste chamado "Brenda Fernandes".
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário na Área de Trabalho Central é equivalente a um usuário do Azure AD. Em outras palavras, você precisa estabelecer um vínculo entre um usuário do AD do Azure e um usuário relacionado na Área de Trabalho Central.
-
-Na Área de Trabalho Central, dê ao **Username** o mesmo valor que o **nome de usuário** no Azure AD. Agora, você estabeleceu o vínculo entre os dois usuários.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Central Desktop, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Central Desktop.
 
 Para configurar e testar o logon único do Azure AD com a Área de Trabalho Central, você precisa concluir os blocos de construção a seguir:
 
-1. [Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on) para habilitar seus usuários a usar esse recurso.
-1. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user) para testar o logon único do Azure AD com Brenda Fernandes.
-1. [Criar um usuário de teste da Área de Trabalho Central ](#create-a-central-desktop-test-user) para ter um equivalente de Brenda Fernandes na Área de Trabalho Central que esteja vinculado à representação de usuário do Azure AD.
-1. [Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user) para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. [Teste o logon único](#test-single-sign-on) para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do Central Desktop](#configure-central-desktop-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Central Desktop](#create-central-desktop-test-user)** – para ter um equivalente de Brenda Fernandes no Central Desktop que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo da Área de Trabalho Central.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com a Área de Trabalho Central, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o Central Desktop, execute as seguintes etapas:
 
-1. No Portal do Azure, na página de integração de aplicativos da **Área de Trabalho Central**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Central Desktop**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, na caixa **Modo**, selecione **Logon com base em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-1. Na seção **URLs e domínio de Área de Trabalho Central**, execute as seguintes etapas:
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    ![Informações de logon único de domínio e URLs da Área de Trabalho Central](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-     a. Na caixa **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-    b. Na caixa **Identificador**, digite uma URL com o seguinte padrão:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+
+    ![Informações de logon único de Domínio e URLs do Central Desktop](common/sp-identifier-reply.png)
+
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
+
+    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
+    | |
 
-    c. Na caixa de **URL de Resposta**, digite uma URL com o seguinte padrão: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
-     
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente da Área de Trabalho Central](https://imeetcentral.com/contact-us) para obter esses valores. 
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com/saml2-assertion.php`
 
-1. Na seção **Certificado de Autenticação SAML**, selecione **Certificados**. Em seguida, salve o arquivo de certificado em seu computador.
+    > [!NOTE]
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do Central Desktop](https://imeetcentral.com/contact-us) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-    ![O link de download do Certificado](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Bruto)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-1. Selecione o botão **Salvar**.
+    ![O link de download do Certificado](common/certificateraw.png)
 
-    ![Botão Salvar em Configurar Logon Único](./media/central-desktop-tutorial/tutorial_general_400.png)
-    
-1. Na seção **Configuração da Área de Trabalho Central**, selecione **Configurar Área de Trabalho Central** para abrir a janela **Configurar logon**. Copie a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da seção **Referência Rápida**.
+6. Na seção **Configurar o Central Desktop**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Configuração da Área de Trabalho Central](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+    a. URL de logon
+
+    b. Identificador do Azure Ad
+
+    c. URL de logoff
+
+### <a name="configure-central-desktop-single-sign-on"></a>Configurar o logon único do Central Desktop
 
 1. Faça logon no locatário da sua **Área de Trabalho Central**.
 
-1. Vá para **Configurações**. Selecione **Avançado** e, em seguida, selecione **Logon Único**.
+2. Vá para **Configurações**. Selecione **Avançado** e, em seguida, selecione **Logon Único**.
 
     ![Configuração – Avançada](./media/central-desktop-tutorial/ic769563.png "Configuração – Avançada")
 
-1. Na página **Configurações de Logon Único** , execute as seguintes etapas:
+3. Na página **Configurações de Logon Único** , execute as seguintes etapas:
 
     ![Configurações de logon único](./media/central-desktop-tutorial/ic769564.png "Configurações de Logon Único")
-    
+
      a. Selecione **Habilitar Logon Único do SAML v2**.
-    
-    b. Na caixa **URL SSO**, cole o valor da **ID da Entidade SAML** que você copiou do Portal do Azure.
-    
-    c. Na caixa **URL de logon SSO**, cole o valor da **URL de Serviço de Logon Único SAML** que você copiou do Portal do Azure.
-    
-    d. Na caixa **URL de Logoff SSO**, cole o valor da **URL de Logout** que você copiou do Portal do Azure.
 
-1. Na seção **Método de Verificação de Assinatura de Mensagem**, execute as seguintes etapas:
+    b. Na caixa **URL do SSO**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    ![Método de verificação de assinatura de mensagem](./media/central-desktop-tutorial/ic769565.png "Método de verificação de assinatura de mensagem") a. Selecione **Certificado**.
+    c. Na caixa **URL de Logon SSO**, cole o valor da **URL de Logon** copiado do portal do Azure.
+
+    d. Na caixa **URL de Logoff SSO**, cole o valor da **URL de Logoff** copiado do portal do Azure.
+
+4. Na seção **Método de Verificação de Assinatura de Mensagem**, execute as seguintes etapas:
+
+    ![Método de verificação da assinatura da mensagem](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
     
+     a. Selecione **Certificado**.
+
     b. Na lista **Certificado de SSO**, selecione **RSH SHA256**.
-    
-    c. Abra seu certificado baixado no Bloco de Notas. Em seguida, copie o conteúdo do certificado e cole-o no campo **Certificado SSO**.
-        
-    d. Selecione **Exibir um link para a sua página de logon do SAMLv2**.
-    
-    e. Selecione **Atualização**.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com) enquanto você estiver configurando o aplicativo. Depois de adicionar este aplicativo da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e, em seguida, acesse a documentação inserida por meio da seção **Configuração** na parte inferior. Você pode ler mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+    c. Abra seu certificado baixado no Bloco de Notas. Em seguida, copie o conteúdo do certificado e cole-o no campo **Certificado SSO**.
+
+    d. Selecione **Exibir um link para a sua página de logon do SAMLv2**.
+
+    e. Selecione **Atualização**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No Portal do Azure, no painel esquerdo, selecione o botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/central-desktop-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Para exibir uma lista de usuários, vá para **Usuários e grupos**. Selecione **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/central-desktop-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar** na parte superior da caixa de diálogo **Todos os usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/central-desktop-tutorial/create_aaduser_03.png)
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+    d. Clique em **Criar**.
 
-    ![A caixa de diálogo Usuário](./media/central-desktop-tutorial/create_aaduser_04.png)
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Central Desktop.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Central Desktop**.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-    d. Selecione **Criar**.
- 
-### <a name="create-a-central-desktop-test-user"></a>Criar um usuário de teste da Área de Trabalho Central
+2. Na lista de aplicativos, selecione **Área de Trabalho Central**.
+
+    ![O link do Central Desktop na lista Aplicativos](common/all-applications.png)
+
+3. No menu à esquerda, selecione **Usuários e grupos**.
+
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
+
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-central-desktop-test-user"></a>Criar um usuário de teste do Central Desktop
 
 Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no aplicativo da Área de Trabalho Central. Esta seção descreve como criar contas de usuário do Azure AD na Área de Trabalho Central.
 
@@ -212,78 +229,31 @@ Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no 
 
 1. Entre no locatário da sua Área de Trabalho Central.
 
-1. Vá para **Pessoas** > **Membros Internos**.
-
-1. Selecione **Adicionar Membros Internos**.
+2. Selecione **Pessoas** e, em seguida, **Adicionar Membros Internos**.
 
     ![Pessoas](./media/central-desktop-tutorial/ic781051.png "Pessoas")
-    
-1. Na caixa **Endereço de Email de Novos Membros**, digite uma conta do Azure AD que você deseja provisionar e, em seguida, selecione **Próximo**.
+
+3. Na caixa **Endereço de Email de Novos Membros**, digite uma conta do Azure AD que você deseja provisionar e, em seguida, selecione **Próximo**.
 
     ![Endereços de Email de Novos Membros](./media/central-desktop-tutorial/ic781052.png "Endereços de Email de Novos Membros")
 
-1. Selecione **Adicionar Membro(s) Interno(s)**.
+4. Selecione **Adicionar Membro(s) Interno(s)**.
 
     ![Adicionar membro interno](./media/central-desktop-tutorial/ic781053.png "Adicionar membro interno")
-   
-   >[!NOTE]
-   >Os usuários que você adicionar recebem um email que inclui um link de confirmação para ativar suas contas.
-   
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+  
+   > [!NOTE]
+   > Os usuários que você adicionar recebem um email que inclui um link de confirmação para ativar suas contas.
 
-Nesta seção, você permitirá que o usuário Brenda Fernandes use o logon único do Azure, concedendo acesso à Área de Trabalho Central.
-
-![Atribuir a função de usuário][200] 
-
-**Para atribuir o usuário Brenda Fernandes à Área de Trabalho Central, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra o modo de exibição de aplicativos. Vá para a exibição de diretório e, em seguida, vá para **Aplicativos empresariais**.
-
-1. Selecione **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
-
-1. Na lista de aplicativos, selecione **Área de Trabalho Central**.
-
-    ![O link da Área de Trabalho Central na lista de aplicativos](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
-
-1. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”][202]
-
-1. Selecione o botão **Adicionar**. Em seguida, selecione **Usuários e grupos**, na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição][203]
-
-1. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de **Usuários**.
-
-1. Na caixa de diálogo **Usuários e grupos**, clique no botão **Selecionar**.
-
-1. Na caixa de diálogo **Adicionar Atribuição**, selecione o botão **Atribuir**.
-    
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, teste a configuração de logon único do seu Azure AD usando o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você seleciona o bloco Área de Trabalho Central no painel de acesso, você entra automaticamente em seu aplicativo da Área de Trabalho Central.
-Para obter mais informações sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Ao clicar no bloco do Central Desktop no Painel de Acesso, você deverá ser conectado automaticamente ao Central Desktop, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/central-desktop-tutorial/tutorial_general_01.png
-[2]: ./media/central-desktop-tutorial/tutorial_general_02.png
-[3]: ./media/central-desktop-tutorial/tutorial_general_03.png
-[4]: ./media/central-desktop-tutorial/tutorial_general_04.png
-
-[100]: ./media/central-desktop-tutorial/tutorial_general_100.png
-
-[200]: ./media/central-desktop-tutorial/tutorial_general_200.png
-[201]: ./media/central-desktop-tutorial/tutorial_general_201.png
-[202]: ./media/central-desktop-tutorial/tutorial_general_202.png
-[203]: ./media/central-desktop-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

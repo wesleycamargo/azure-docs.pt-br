@@ -1,6 +1,6 @@
 ---
-title: O que é o controle de acesso baseado em função (RBAC) no Azure? | Microsoft Docs
-description: Obtenha uma visão geral do controle de acesso baseado em função (RBAC) no Azure. Use as atribuições de função para controlar o acesso aos recursos no Azure.
+title: O que é o RBAC (controle de acesso baseado em função) para recursos do Azure? | Microsoft Docs
+description: Obtenha uma visão geral do RBAC (controle de acesso baseado em função) para recursos do Azure. Use atribuições de função para controlar o acesso aos recursos no Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303293"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338624"
 ---
-# <a name="what-is-role-based-access-control-rbac"></a>O que é o controle de acesso baseado em função (RBAC)?
+# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
 
 O gerenciamento de acesso para recursos de nuvem é uma função crítica para qualquer organização que esteja usando a nuvem. O controle de acesso baseado em funções (RBAC) ajuda a gerenciar quem tem acesso aos recursos do Azure, o que pode fazer com esses recursos e a quais áreas tem acesso.
 
-O RBAC é um sistema de autorização baseado no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que fornece gerenciamento de acesso refinado aos recursos no Azure.
+O RBAC é um sistema de autorização baseado no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que fornece gerenciamento de acesso refinado dos recursos do Azure.
 
 ## <a name="what-can-i-do-with-rbac"></a>O que posso fazer com o RBAC?
 
@@ -72,15 +72,15 @@ O Azure inclui várias [funções internas](built-in-roles.md) que você pode us
 - [Leitor](built-in-roles.md#reader) - Pode exibir os recursos existentes do Azure.
 - [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) - Permite gerenciar o acesso do usuário aos recursos do Azure.
 
-As demais funções internas permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite que um usuário crie e gerencie máquinas virtuais. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas](custom-roles.md).
+As demais funções internas permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite que um usuário crie e gerencie máquinas virtuais. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas para recursos do Azure](custom-roles.md).
 
-O Azure introduziu as operações de dados (atualmente em versão prévia) que permitem que você conceda acesso a dados dentro de um objeto. Por exemplo, se um usuário tem acesso de leitura de dados para uma conta de armazenamento, eles podem ler blobs ou mensagens dentro dessa conta de armazenamento. Para saber mais, veja [Noções básicas sobre definições de função](role-definitions.md).
+O Azure introduziu as operações de dados (atualmente em versão prévia) que permitem que você conceda acesso a dados dentro de um objeto. Por exemplo, se um usuário tem acesso de leitura de dados para uma conta de armazenamento, eles podem ler blobs ou mensagens dentro dessa conta de armazenamento. Para obter mais informações, confira [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md).
 
 ### <a name="scope"></a>Escopo
 
 *Escopo* é o conjunto de recursos ao qual o acesso se aplica. Quando você atribui uma função, você pode limitar ainda mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um [colaborador do site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
-No Azure, você pode especificar um escopo em vários níveis: [grupo de gerenciamento](../azure-resource-manager/management-groups-overview.md), assinatura, grupo de recursos ou recurso. Os escopos são estruturados em uma relação pai-filho.
+No Azure, você pode especificar um escopo em vários níveis: [grupo de gerenciamento](../governance/management-groups/index.md), assinatura, grupo de recursos ou recurso. Os escopos são estruturados em uma relação pai-filho.
 
 ![Escopo para uma atribuição de função](./media/overview/rbac-scope.png)
 
@@ -108,7 +108,7 @@ O que acontece se você tem várias atribuições de função sobrepostas? O RBA
 
 ## <a name="deny-assignments"></a>Negar atribuições
 
-Anteriormente, o RBAC era um modelo somente de permissão, sem negação, mas agora ele dá suporte a atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações de negação a um usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico com o objetivo de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função. Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure. Para obter mais informações, confira [Compreender atribuições de negação](deny-assignments.md) e [Ver atribuições de negação usando o portal do Azure](deny-assignments-portal.md).
+Anteriormente, o RBAC era um modelo somente de permissão, sem negação, mas agora ele dá suporte a atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações de negação a um usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico com o objetivo de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função. Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure. Para obter mais informações, confira [Noções básicas sobre atribuições de negação para recursos do Azure](deny-assignments.md) e [Exibir atribuições de negação para recursos do Azure usando o portal do Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Como o RBAC determina se um usuário tem acesso a um recurso
 
@@ -132,7 +132,7 @@ A seguir estão as etapas gerais que o RBAC usa para determinar se você tem ace
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido: Conceder acesso a um usuário usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
-- [Gerenciar acesso usando o RBAC e o Portal do Azure](role-assignments-portal.md)
+- [Início Rápido: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure](check-access.md)
+- [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](role-assignments-portal.md)
 - [Entender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
 - [Adoção da Nuvem Empresarial: Gerenciamento de acesso aos recursos no Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

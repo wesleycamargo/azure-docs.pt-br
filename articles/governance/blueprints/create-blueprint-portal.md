@@ -1,6 +1,6 @@
 ---
 title: Criar um blueprint no portal
-description: Use o Blueprint do Azure para criar, definir e implantar artefatos.
+description: Use o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0a41f038595524a9ffaa5134ca2fe53fc0ae83af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566305"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338369"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um Azure Blueprint no portal
 

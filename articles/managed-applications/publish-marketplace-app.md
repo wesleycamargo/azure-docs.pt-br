@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989778"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343954"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
 
@@ -64,9 +64,9 @@ A oferta para um aplicativo gerenciado corresponde a uma classe de oferta de pro
 
 Os campos para o formulário **Configurações da Oferta** são:
 
-* **ID da Oferta**: esse identificador exclusivo identifica a oferta em um perfil de publicador. Essa ID está visível em URLs de produto, modelos do Resource Manager e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço. Ela tem um limite máximo de 50 caracteres. Após a ativação da oferta, esse campo é bloqueado.
-* **ID do Publicador**: use essa lista suspensa para escolher o perfil de publicador no qual você deseja publicar essa oferta. Após a ativação da oferta, esse campo é bloqueado.
-* **Nome**: este nome de exibição de sua oferta aparece no Marketplace e no portal. Ele pode ter um máximo de 50 caracteres. Inclua um nome de marca reconhecível para o seu produto. Não inclua o nome de sua empresa aqui, a menos que seja a maneira como ela é comercializada. Se você estiver comercializando essa oferta em seu próprio site, certifique-se de que o nome seja exatamente como aparece em seu site.
+* **ID da Oferta**: Esse identificador exclusivo identifica a oferta em um perfil de editor. Essa ID está visível em URLs de produto, modelos do Resource Manager e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço. Ela tem um limite máximo de 50 caracteres. Após a ativação da oferta, esse campo é bloqueado.
+* **ID do Editor**: Use essa lista suspensa para escolher o perfil de editor no qual deseja publicar essa oferta. Após a ativação da oferta, esse campo é bloqueado.
+* **Nome**: O nome de exibição da oferta é exibido no Marketplace e no portal. Ele pode ter um máximo de 50 caracteres. Inclua um nome de marca reconhecível para o seu produto. Não inclua o nome de sua empresa aqui, a menos que seja a maneira como ela é comercializada. Se você estiver comercializando essa oferta em seu próprio site, certifique-se de que o nome seja exatamente como aparece em seu site.
 
 Quando terminar, selecione **Salvar** para salvar o progresso.
 
@@ -90,22 +90,22 @@ Um SKU aparece sob a oferta pai no marketplace. Ele aparece como sua própria en
 
    Preencha os campos a seguir:
 
-   * **Título**: insira um título para esse SKU. Esse título aparecerá na galeria para este item.
-   * **Resumo**: insira um breve resumo para esse SKU. Esse texto aparece abaixo do título.
-   * **Descrição**: insira uma descrição detalhada sobre a SKU.
-   * **Tipo de SKU**: os valores permitidos são *Aplicativo Gerenciado* e *Modelos de Solução*. Nesse caso, selecione *Aplicativo Gerenciado*.
-   * **Disponibilidade de país/região**: selecione os países nos quais o aplicativo gerenciado está disponível.
-   * **Preço**: informe um preço para o gerenciamento do aplicativo. Selecione os países disponíveis antes de configurar o preço.
+   * **Título**: Insira um título para esse SKU. Esse título aparecerá na galeria para este item.
+   * **Resumo**: Insira um breve resumo para esse SKU. Esse texto aparece abaixo do título.
+   * **Descrição**: Insira uma descrição detalhada sobre o SKU.
+   * **Tipo de SKU**: Os valores permitidos são *Aplicativo Gerenciado* e *Modelos de Solução*. Nesse caso, selecione *Aplicativo Gerenciado*.
+   * **Disponibilidade por País/Região**: Selecione os países no quais o aplicativo gerenciado está disponível.
+   * **Preço**: Forneça um preço para o gerenciamento do aplicativo. Selecione os países disponíveis antes de configurar o preço.
 
 1. Adicione um novo pacote. Preencha a seção **Detalhes do Pacote** no seguinte formulário:
 
    Preencha os campos a seguir:
 
-   * **Versão**: insira uma versão para o pacote que você carregar. Ela deve estar no formato `{number}.{number}.{number}{number}`.
-   * **Arquivo de pacote (.zip)**: esse pacote contém dois arquivos necessários compactados em um arquivo .zip. Um arquivo é um modelo do Resource Manager que define os recursos para implantar o aplicativo gerenciado. O outro arquivo define a [interface do usuário](create-uidefinition-overview.md) para os consumidores implantarem o aplicativo gerenciado por meio do portal. Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
-   * **PrincipalId**: essa propriedade é o identificador do Azure AD (Azure Active Directory) de um usuário, grupo de usuários ou aplicativo que recebeu determinadas permissões de acesso aos recursos na assinatura do cliente. A Definição de Função descreve as permissões.
-   * **Definição de Função**: essa propriedade é uma lista de todas as funções RBAC (Controle de acesso baseado em função) internas fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
-   * **Configurações de política**: aplique uma [Azure Policy](../azure-policy/azure-policy-introduction.md) ao seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implantadas. Entre as opções disponíveis, selecione as políticas a serem aplicadas. Para **Parâmetros de Política**, forneça uma cadeia de caracteres JSON com os valores de parâmetro. Para definições de política e o formato dos valores de parâmetro, veja [Exemplos de Azure Policy](../azure-policy/json-samples.md).
+   * **Versão**: Insira uma versão para o pacote carregado. Ela deve estar no formato `{number}.{number}.{number}{number}`.
+   * **Arquivo de pacote (.zip)**: Esse pacote contém dois arquivos necessários compactados em um arquivo .zip. Um arquivo é um modelo do Resource Manager que define os recursos para implantar o aplicativo gerenciado. O outro arquivo define a [interface do usuário](create-uidefinition-overview.md) para os consumidores implantarem o aplicativo gerenciado por meio do portal. Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
+   * **PrincipalId**: Essa propriedade é o identificador do Azure AD (Azure Active Directory) de um usuário, um grupo de usuários ou um aplicativo que recebeu o acesso aos recursos na assinatura do cliente. A Definição de Função descreve as permissões.
+   * **Definição de Função**: Essa propriedade é uma lista de todas as funções internas do RBAC (controle de acesso baseado em função) fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
+   * **Configurações de Política**: Aplique um [Azure Policy](../governance/policy/overview.md) ao aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implantadas. Entre as opções disponíveis, selecione as políticas a serem aplicadas. Para **Parâmetros de Política**, forneça uma cadeia de caracteres JSON com os valores de parâmetro. Para definições de política e o formato dos valores de parâmetro, veja [Exemplos de Azure Policy](../governance/policy/samples/index.md).
 
 Você pode adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais usuários ao grupo de usuários sem a necessidade de atualizar o SKU.
 
