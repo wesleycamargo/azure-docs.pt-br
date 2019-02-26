@@ -11,7 +11,7 @@
 ### [Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego](disaster-recovery-dns-traffic-manager.md)
 ## Planejar e projetar
 ### [Redes virtuais](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Conectividade entre locais - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Conectividade entre locais - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectividade entre locais - privada dedicada](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Interoperabilidade da conectividade de back-end
 #### [Prefácio e Configuração de Teste](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

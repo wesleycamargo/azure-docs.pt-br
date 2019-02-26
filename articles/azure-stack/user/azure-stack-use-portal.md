@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252040"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819353"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack
 
@@ -40,6 +40,10 @@ O operador do Azure Stack (um provedor de serviços ou um administrador em sua o
 O painel contém um conjunto padrão de blocos. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para criar um painel personalizado. Você pode personalizar facilmente um painel, adicionando ou removendo os blocos. Por exemplo, para adicionar um bloco de computação, selecione **+ criar um recurso**. Clique com botão direito **Compute**e, em seguida, selecione **fixar no painel**.
 
 ![Captura de tela do portal do usuário do Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Para restaurar o painel para as configurações originais:
+1.  Selecione **Editar painel**. 
+2.  Clique com botão direito e selecione **retornarão ao estado padrão**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Criar a assinatura e procurar recursos disponíveis
 

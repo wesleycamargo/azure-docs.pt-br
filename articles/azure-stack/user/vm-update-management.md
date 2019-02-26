@@ -16,19 +16,19 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4683b6f63af9fe0081911db9914f04b1c90f9d23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168129"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819438"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Atualização de VM de pilha e gerenciamento do Azure
 Você pode usar os seguintes recursos de solução de automação do Azure para gerenciar o Windows e VMs do Linux que são implantados usando o Azure Stack:
 
 - **[Gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management)**. Com a solução de gerenciamento de atualizações, você pode rapidamente avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar o processo de instalação de atualizações necessárias para essas VMs do Linux e Windows.
 
-- **[O controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Alterações no software instalado, nos serviços Windows, nos arquivos e registros do Windows e daemons do Linux nos servidores monitorados são enviadas ao serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+- **[O controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. As alterações ao software instalado, serviços do Windows, do registro do Windows e arquivos e daemons do Linux nos servidores monitorados são enviadas para o serviço do Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
 - **[Estoque](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. O acompanhamento de inventário para uma máquina de virtual do Azure Stack fornece uma interface de usuário baseada em navegador para instalar e configurar a coleta de inventário. 
 
@@ -44,7 +44,7 @@ Para usar o inventário, o controle de alterações e os recursos de automação
 > [!TIP]
 > Se você já tiver esses recursos habilitados para VMs do Azure, você pode usar suas credenciais do espaço de trabalho LogAnalytics já existentes. Se você já tiver um LogAnalytics WorkspaceID e a chave primária que você deseja usar, pule para [a próxima seção](./vm-update-management.md#in-the-azure-stack-administration-portal). Caso contrário, prossiga nesta seção para criar uma nova conta de automação e espaço de trabalho LogAnalytics.
 
-A primeira etapa na habilitação dessas soluções é [criar um espaço de trabalho LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) em sua assinatura do Azure. Um espaço de trabalho do Log Analytics é um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Depois de criar um espaço de trabalho, observe a WorkspaceID e a chave. Para exibir essas informações, vá até a folha do espaço de trabalho, clique em **configurações avançadas**e examine o **ID do espaço de trabalho** e **chave primária** valores. 
+A primeira etapa na habilitação dessas soluções é [criar um espaço de trabalho LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) em sua assinatura do Azure. Um espaço de trabalho do Log Analytics é um ambiente de logs do Azure Monitor exclusivo com seu próprio repositório de dados, fontes de dados e soluções. Depois de criar um espaço de trabalho, observe a WorkspaceID e a chave. Para exibir essas informações, vá até a folha do espaço de trabalho, clique em **configurações avançadas**e examine o **ID do espaço de trabalho** e **chave primária** valores. 
 
 Em seguida, você deve [criar uma conta de automação](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Uma conta de automação é um contêiner para os seus recursos de automação do Azure. Ele fornece uma maneira de separar seus ambientes ou organizar ainda mais seus fluxos de trabalho de automação e recursos. Depois de criar a conta de automação, você precisa para habilitar o inventário, o controle de alterações e atualizar recursos de gerenciamento. Para fazer isso, siga estas etapas para habilitar cada recurso:
 
@@ -52,7 +52,7 @@ Em seguida, você deve [criar uma conta de automação](https://docs.microsoft.c
 
 2. Selecione a solução para habilitar (qualquer um dos **estoque**, **o controle de alterações**, ou **gerenciamento de atualizações**).
 
-3. Use o **selecionar espaço de trabalho...**  lista suspensa para selecionar o espaço de trabalho de análise de Log para usar.
+3. Use o **selecionar espaço de trabalho...**  lista suspensa para selecionar o espaço de trabalho do Log Analytics para usar.
 
 4. Verifique se todas as informações restantes estão corretas e, em seguida, clique em **habilitar** para habilitar a solução.
 
