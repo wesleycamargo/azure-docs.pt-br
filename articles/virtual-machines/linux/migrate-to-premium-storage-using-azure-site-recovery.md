@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6b5605a8e3a80d597a4a4a78d015fa556c282357
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3a4304301b99369426aa985508d6cabd26ba2c9f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465717"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326952"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
-O [Armazenamento Premium do Azure](premium-storage.md) dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão executando cargas de trabalho intensivas para entradas e saídas. Este guia ajuda você a migrar os discos de VM de uma conta de armazenamento Standard para uma conta de armazenamento Premium usando o [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Os [SSDs Premium do Azure](disks-types.md) oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão executando cargas de trabalho intensivas para entradas e saídas. Este guia ajuda você a migrar os discos de VM de uma conta de armazenamento Standard para uma conta de armazenamento Premium usando o [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 O Site Recovery é um serviço do Azure que colabora com sua estratégia de continuidade dos negócios e de recuperação de desastre por meio da coordenação da replicação de servidores físicos locais e VMs na nuvem (Azure) ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você realiza o failover em um local secundário a fim de manter aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você realiza o failback. 
 
@@ -220,7 +220,7 @@ Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azur
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](premium-storage.md)
+* [Selecione um tipo de disco para VMs IaaS](disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png
