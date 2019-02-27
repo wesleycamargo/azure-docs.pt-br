@@ -1,5 +1,6 @@
 # [Documentação do Azure Marketplace e do AppSource](index.md)
 ## [Roteiro do Azure Marketplace e do AppSource](./marketplace-roadmap.md)
+## [Políticas e termos do Azure Marketplace](./policies-terms.md)
 
 ## [Visão geral e benefícios do Marketplace e do AppSource](./marketplace-publishers-guide.md)  
 ### [Torne-se um editor no Marketplace](./become-publisher.md)  
@@ -29,7 +30,6 @@
 #### [Práticas recomendadas de listagem de ofertas](./gtm-offer-listing-best-practices.md)
 #### [Como obter destaque](./gtm-how-to-get-featured.md)
 #### [Validação de conteúdo do Marketplace](./marketplace-criteria-content-validation.md)
-#### [Políticas de revisão e de classificação](./rating-review-policies.md)   
 
 ### [Seus benefícios do Marketplace](./gtm-your-marketplace-benefits.md)
 #### [Promover seus negócios com a Microsoft](./gtm-promote-your-business.md)
@@ -37,9 +37,6 @@
 
 ### [Suporte para o Azure Marketplace e AppSource](./support-azure-marketplace.md)
 #### [Perguntas frequentes do Marketplace](./marketplace-faq-publisher-guide.md)
-#### [Termos do Marketplace](./marketplace-terms.md)
-#### [Política de participação do Marketplace](./marketplace-participation-policy.md)
-
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

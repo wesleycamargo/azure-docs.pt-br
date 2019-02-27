@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28172ed2309c1e97fe6dafa46cf055862a894cee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: daf643a96195bc5f8f30652eaf1e7b071d63fa87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730334"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888229"
 documentType: LandingData
 title: Documentação da API de verificação ortográfica do Bing
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Documentação da API de Verificação Ortográfica do Bing - Tutoriais, Referência de API - Serviços Cognitivos do Azure  | Microsoft Docs
   description: Saiba como usar a API de Verificação Ortográfica do Bing para obter correções sugeridas para documentos de texto. Tutoriais mostram como criar aplicativos que usam a API.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: aahill
+  manager: cgronlun
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/09/2018
-  ms.author: nolachar
+  ms.date: 02/19/2019
+  ms.author: aahi
 abstract:
   description: A API de Verificação Ortográfica do Bing permite fazer verificações contextuais de gramática e ortografia. O Bing desenvolveu um corretor ortográfico baseado na web que aproveita o aprendizado de máquina e a tradução automática estatística para treinar dinamicamente um algoritmo em constante evolução e altamente contextual. O verificador ortográfico é baseado em um grande volume de documentos e pesquisas da Web. Aprenda a analisar o conteúdo de diferentes maneiras com nossos tutoriais, tutoriais e exemplos.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-spell-check/overview
+      html: <p>Saiba mais sobre a API de Verificação Ortográfica do Bing.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: O que é API de Verificação Ortográfica do Bing?
+    - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+      html: <p>Saiba como enviar solicitações de verificação ortográfica para a API de Verificação Ortográfica do Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Solicitações de verificação ortográfica
+    - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+      html: <p>Saiba como usar os diferentes modos de verificação ortográfica da API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Resposta da Pesquisa de Imagem
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
@@ -63,7 +84,6 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorials/spellcheck.md">Aplicativo Web de página única</a>
-    - html: <a href="tutorials/spellcheck-source.md">Aplicativo Web de página única (código-fonte)</a>
 - title: Exemplos
   items:
   - type: paragraph

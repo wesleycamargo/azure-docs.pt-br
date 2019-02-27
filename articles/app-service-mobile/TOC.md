@@ -126,7 +126,7 @@
 #### [Autenticação do Twitter](../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
-#### [Configurar a Autenticação Mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Comprar um certificado SSL no Azure](../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Usar um certificado SSL obtido em outro lugar](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
