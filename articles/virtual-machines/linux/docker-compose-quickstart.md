@@ -1,6 +1,6 @@
 ---
 title: Usar o Docker Compose em uma VM Linux no Azure | Microsoft Docs
-description: Como usar o Docker e o Compose em máquinas virtuais Linux com a CLI do Azure
+description: Como instalar e usar o Docker e o Compose em máquinas virtuais Linux com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,86 +13,82 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 257083e1ae0c3c1cb3c5421882ffd0e06e2d1f5c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3aa3b29ef44d3efb21237dc0d82a1ee6e99e729b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752136"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328938"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres no Azure
 Com o [Compose](http://github.com/docker/compose), você usa um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para implantar o ambiente definido. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end em uma VM Ubuntu. Você também pode usar o Redigir para configurar aplicativos mais complexos.
 
+Este artigo foi testado pela última vez em 14/02/2019 usando o [Azure Cloud Shell](https://shell.azure.com/bash) e a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) versão 2.0.58.
 
-## <a name="set-up-a-linux-vm-as-a-docker-host"></a>Configurar uma VM Linux como um host do Docker
-Você pode usar vários procedimentos do Azure e imagens disponíveis ou modelos do Resource Manager no Azure Marketplace para criar uma VM do Linux e configurá-la como um host do Docker. Por exemplo, veja [Uso da extensão de VM do Docker para implantar seu ambiente](dockerextension.md) para criar rapidamente uma VM do Ubuntu com a extensão de VM do Docker do Azure usando um [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
-
-Quando você usa a extensão da VM do Docker, sua VM é configurada automaticamente como um host do Docker e o Redigir já está instalado.
-
-
-### <a name="create-docker-host-with-azure-cli"></a>Criar host do Docker com o CLI do Azure
+## <a name="create-docker-host-with-azure-cli"></a>Criar host do Docker com o CLI do Azure
 Instale a [CLI do Azure](/cli/azure/install-az-cli2) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index).
 
 Primeiro, crie um grupo de recursos para seu ambiente do Docker com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
-```azurecli
-az group create --name myResourceGroup --location eastus
+```azurecli-interactive
+az group create --name myDockerGroup --location eastus
 ```
 
-Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment), o que inclui a extensão da VM do Docker do Azure [deste modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Mediante solicitação, forneça seus próprios valores exclusivos para *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP*:
+Crie um arquivo chamado *cloud-init.txt* e cole a seguinte configuração. Insira `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. 
 
-```azurecli
-az group deployment create --resource-group myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```yaml
+#include https://get.docker.com
 ```
 
-Leva alguns minutos para a conclusão da implantação.
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utiçize o `--custom-data` parâmetro para passar no arquivo de configuração de inicialização de nuvem. Forneça o caminho completo para a configuração *cloud-init.txt* se você salvou o arquivo fora do seu diretório de trabalho atual. O exemplo a seguir cria uma VM denominada *myDockerVM* e abre a porta 80 para tráfego da web.
 
-
-## <a name="verify-that-compose-is-installed"></a>Verificar se o Compose está instalado
-Para exibir detalhes de sua VM, incluindo o nome DNS, use [az vm show](/cli/azure/vm):
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
+```azurecli-interactive
+az vm create \
+    --resource-group myDockerGroup \
     --name myDockerVM \
-    --show-details \
-    --query [fqdns] \
-    --output tsv
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+az vm open-port --port 80 \
+    --resource-group myDockerGroup \
+    --name myDockerVM
 ```
 
-SSH para seu novo host do Docker. Fornece seu próprio nome de usuário e nome DNS das etapas anteriores:
+Demora alguns minutos para que a VM seja criada, os pacotes para instalar e iniciar o aplicativo. Há tarefas em segundo plano que continuarão em execução depois que a CLI do Azure faz você voltar para o prompt. Quando a VM tiver sido criada, observe o `publicIpAddress` exibido pela CLI do Azure. 
+
+                 
+
+## <a name="install-compose"></a>Instalar o Compose
+
+
+SSH para a nova VM host do Docker. Forneça seu próprio endereço IP.
 
 ```bash
-ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+ssh azureuser@10.10.111.11
 ```
 
-Para verificar se o Redigir está instalado na VM, execute o seguinte comando:
+Instalar o Compose na VM.
 
 ```bash
-docker-compose --version
+sudo apt install docker-compose
 ```
-
-Você ver uma saída semelhante a *docker-compose 1.6.2, build 4d72027*.
-
-> [!TIP]
-> Se você usou outro método para criar um host do Docker e precisa instalar o Redigir por conta própria, veja a [documentação do Redigir](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
 
 
 ## <a name="create-a-docker-composeyml-configuration-file"></a>Criar um arquivo de configuração docker-compose.yml
-Em seguida, você criará um arquivo `docker-compose.yml` , que é apenas um arquivo de configuração de texto, para definir os contêineres de Docker a serem executados na VM. O arquivo especifica a imagem a ser executada em cada contêiner (ou pode ser um build de um Dockerfile), as variáveis de ambiente e as dependências necessárias, as portas e os links entre contêineres. Para obter detalhes sobre a sintaxe do arquivo yml, veja a [referência de arquivo do Redigir](https://docs.docker.com/compose/compose-file/).
+Criar um arquivo de configuração `docker-compose.yml`para definir os contêineres Docker a serem executados na VM. O arquivo especifica a imagem a ser executada em cada contêiner, as variáveis de ambiente e as dependências necessárias, as portas e os links entre contêineres. Para obter detalhes sobre a sintaxe do arquivo yml, veja a [referência de arquivo do Redigir](https://docs.docker.com/compose/compose-file/).
 
-Crie um arquivo *docker-compose.yml*. Use seu editor de texto favorito para adicionar alguns dados ao arquivo. O exemplo a seguir cria o arquivo com um prompt para `sensible-editor` escolher um editor que você deseja usar:
+Crie um arquivo *docker-compose.yml*. Use seu editor de texto favorito para adicionar alguns dados ao arquivo. O exemplo a seguir cria o arquivo com um prompt para `sensible-editor` escolher um editor que você queira usar.
 
 ```bash
 sensible-editor docker-compose.yml
 ```
 
-Cole o exemplo a seguir em seu arquivo do Docker Compose. Essa configuração usa imagens do [Registro do DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar o WordPress (o sistema de blog e gerenciamento de conteúdo de software livre) e um banco de dados SQL MariaDB de back-end vinculado. Insira seu próprio *MYSQL_ROOT_PASSWORD* da seguinte maneira:
+Cole o exemplo a seguir em seu arquivo do Docker Compose. Essa configuração usa imagens do [Registro do DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar o WordPress (o sistema de blog e gerenciamento de conteúdo de software livre) e um banco de dados SQL MariaDB de back-end vinculado. Insira seu próprio *MYSQL_ROOT_PASSWORD*.
 
-```sh
+```yml
 wordpress:
   image: wordpress
   links:
@@ -110,40 +106,33 @@ db:
 No mesmo diretório que seu arquivo *docker-compose.yml*, execute o comando a seguir (dependendo do seu ambiente, talvez seja necessário executar `docker-compose` usando `sudo`):
 
 ```bash
-docker-compose up -d
+sudo docker-compose up -d
 ```
 
-Esse comando inicia os contêineres do Docker especificados em *docker-compose.yml*. Leva um ou dois minutos para concluir esta etapa. Você verá uma saída semelhante ao seguinte exemplo:
+Esse comando inicia os contêineres do Docker especificados em *docker-compose.yml*. Leva um ou dois minutos para concluir esta etapa. Você verá uma saída semelhante ao seguinte:
 
-```bash
+```
 Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ...
 ```
 
-> [!NOTE]
-> Não se esqueça de usar a opção **-d** na inicialização para que os contêineres sejam executados continuamente em segundo plano.
 
+Para verificar se os contêineres estão ativos, digite `sudo docker-compose ps`. Você deve ver algo como:
 
-Para verificar se os contêineres estão ativos, digite `docker-compose ps`. Você deve ver algo como:
-
-```bash
+```
         Name                       Command               State         Ports
 -----------------------------------------------------------------------------------
 azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-Agora você pode conectar o WordPress diretamente na VM na porta 80. Abra um navegador da Web e digite o nome DNS da VM (como `http://mypublicdns.eastus.cloudapp.azure.com`). Agora você deve ver a tela inicial do WordPress, na qual você pode concluir a instalação e começar a usar o aplicativo.
+Agora você pode conectar o WordPress diretamente na VM na porta 80. Abra um navegador da Web e digite o nome do endereço IP de sua VM. Agora você deve ver a tela inicial do WordPress, na qual você pode concluir a instalação e começar a usar o aplicativo.
 
-![Tela inicial do WordPress][wordpress_start]
+![Tela inicial do WordPress](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Vá para o [Guia do usuário da extensão da VM do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) para obter mais opções para configurar o Docker e o Redigir em sua VM do Docker. Por exemplo, uma opção é colocar o arquivo yml do Compose (convertido em JSON) diretamente na configuração da extensão da VM do Docker.
 * Confira a [referência da linha de comando do Compose](http://docs.docker.com/compose/reference/) e o [guia do usuário](http://docs.docker.com/compose/) para obter mais exemplos de criação e implantação de aplicativos com vários contêineres.
 * Use um modelo do Gerenciador de Recursos do Azure, seu ou da do [comunidade](https://azure.microsoft.com/documentation/templates/), para implantar uma VM do Azure com Docker e um aplicativo configurado com o Redigir. Por exemplo, o modelo [Implantar um blog WordPress com Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) usa Docker e Redigir para implantar rapidamente o WordPress com um back-end do MySQL em uma VM do Ubuntu.
 * Tente integrar o Docker Compose com um cluster do Docker Swarm. Veja [Using Compose with Swarm (Uso do Redigir com o Swarm)](https://docs.docker.com/compose/swarm/) para obter os cenários.
 
-<!--Image references-->
-
-[wordpress_start]: media/docker-compose-quickstart/WordPress.png

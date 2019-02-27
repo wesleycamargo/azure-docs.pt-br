@@ -3,17 +3,17 @@ title: Solucionar problemas do Agente de Backup do Azure
 description: Solucionar problemas de instalação e registro do Azure Backup Agent
 services: backup
 author: saurabhsensharma
-manager: shreeshd
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 65eb6ef088c9baae67d65607ede771f3c9d11a41
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ce6293e63e672df9683ab607a304f8c7275911c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114132"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446606"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente do MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -24,8 +24,13 @@ Veja como resolver possíveis erros durante a configuração, registro, backup e
 | ---     | ---     | ---    |
 | **Erro** </br> *Credenciais do cofre inválidas fornecidas. O arquivo está corrompido ou não possui as credenciais mais recentes associadas ao serviço de recuperação. (ID: 34513)* | <ul><li> As credenciais do cofre são inválidas (ou seja, elas são baixadas mais de 48 horas antes da hora de registro).<li>MARS Agent não consegue fazer o download de arquivos para o diretório Temp do Windows. <li>As credenciais do cofre estão em um local de rede. <li>TLS 1.0 está desabilitado<li> Um servidor proxy configurado está bloqueando a conexão. <br> |  <ul><li>Faça o download das novas credenciais do cofre. (**Observação**: Se vários arquivos de credenciais do cofre forem baixados anteriormente, somente o último arquivo baixado será válido dentro de 48 horas.) <li>Inicie **IE** > **Configuração** > **Opções da Internet** > **Segurança** > **Internet**. Em seguida, selecione **Nível personalizado** e role até encontrar a seção de download de arquivo. Em seguida, selecione **Habilitar**.<li>Você também precisará adicionar esses sites no IE [sites confiáveis](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy. <li> Sincronize a data e a hora com as de seu computador.<li>Se você receber um erro informando que os downloads de arquivos não são permitidos, é provável que haja um grande número de arquivos no diretório C: / Windows / Temp directory.<li>Vá para C:/Windows/Temp e verifique se há mais de 60.000 ou 65.000 arquivos com a extensão .tmp. Se houver, exclua esses arquivos.<li>Certifique-se de que tenha o .NET Framework 4.6.2 instalado. <li>Se você desabilitou o TLS 1.0 devido à conformidade de PCI, consulte esta [página de solução de problemas](https://support.microsoft.com/help/4022913). <li>Se você tiver um antivírus instalado no servidor, exclua os seguintes arquivos da verificação de antivírus: <ul><li>CBengine.exe<li>CSC.exe, relacionado ao .NET Framework. Há um CSC.exe para cada versão .NET instalada no servidor. Exclua os arquivos CSC.exe vinculados a todas as versões do .NET Framework no servidor afetado. <li>Pasta de Rascunho ou local do cache. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>A pasta bin C: \ Arquivos de Programas \ Microsoft Agente dos Serviços de Recuperação do Azure \ Bin
 
+## <a name="unable-to-download-vault-credential-file"></a>Não é possível baixar o arquivo de credenciais do cofre
 
-## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>O agente de MARS não conseguiu se conectar ao Backup do Azure
+| Detalhes do erro | Ações recomendadas |
+| ---     | ---    |
+|Falha ao baixar o arquivo de credenciais do cofre. (ID: 403) | <ul><li> Tente baixar as credenciais do cofre usando um navegador diferente ou execute as etapas a seguir: <ul><li> Inicie o Internet Explorer, pressione F12. </li><li> Vá até a guia **Rede** para limpar o cache e os cookies do IE </li> <li> Atualize a página<br>(OU)</li></ul> <li> Verifique se a assinatura está desabilitada/expirada<br>(OU)</li> <li> Verifique se alguma regra de firewall está bloqueando o download do arquivo de credenciais do cofre <br>(OU)</li> <li> Verifique se você não esgotou o limite do cofre (50 computadores por cofre)<br>(OU)</li>  <li> Verifique se o usuário obteve permissão de Backup do Azure para baixar as credenciais do cofre e registrar o servidor com o cofre, confira o  [artigo](backup-rbac-rs-vault.md)</li></ul> | 
+
+## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure
 
 | Detalhes do erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
@@ -54,6 +59,9 @@ Veja como resolver possíveis erros durante a configuração, registro, backup e
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Os backups não são executados de acordo com o agendamento
 Se os backups agendados não forem acionados automaticamente, mas os backups manuais funcionarem sem problemas, tente estas ações:
 
+- Certifique-se de que o agendamento de backup do Windows Server não está em conflito com o agendamento de backup de Pastas e Arquivos do Azure.
+- Acesse o **Painel de Controle** > **Ferramentas Administrativas** > **Agendador de Tarefas**. Expanda **Microsoft** e selecione **Backup Online**. Clique duas vezes em **Microsoft-OnlineBackup** e acesse a guia **Gatilhos**. Certifique-se de que o status esteja definido como **Habilitado**. Se não estiver, selecione **Editar**, selecione a caixa de seleção **Habilitado** e clique em **OK**. Na guia **Geral**, vá até **Opções de segurança** e certifique-se de que a conta de usuário selecionada para execução da tarefa seja **SYSTEM** ou o **grupo de Administradores Locais** no servidor.
+
 - Verifique se o PowerShell 3.0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute o seguinte comando e verifique se o número da versão *Principal* é igual ou maior do que 3.
 
   `$PSVersionTable.PSVersion`
@@ -67,9 +75,6 @@ Se os backups agendados não forem acionados automaticamente, mas os backups man
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
-
-- Acesse o **Painel de Controle** > **Ferramentas Administrativas** > **Agendador de Tarefas**. Expanda **Microsoft** e selecione **Backup Online**. Clique duas vezes em **Microsoft-OnlineBackup** e acesse a guia **Gatilhos**. Certifique-se de que o status esteja definido como **Habilitado**. Se não estiver, selecione **Editar** e marque a caixa de seleção **Habilitado**. Na guia **Geral**, acesse **Opções de segurança**. Certifique-se de que a conta de usuário selecionada para execução da tarefa seja **SYSTEM** ou o **grupo de Administradores Locais** no servidor.
-
 
 > [!TIP]
 > Para garantir a aplicação consistente das alterações, reinicie o servidor após executar as etapas acima.
@@ -99,7 +104,7 @@ O Backup do Azure pode não montar com êxito o volume de recuperação, mesmo d
 
 8.  Reinicie o serviço Iniciador do Microsoft iSCSI. Para fazer isso, clique com botão direito no serviço, selecione **Parar**, clique novamente com botão direito e selecione **Iniciar**.
 
-9.  Repita a recuperação usando a **Restauração Instantânea**.
+9.  Repita a recuperação usando a [**Restauração Instantânea**](backup-instant-restore-capability.md).
 
 Se a recuperação ainda falhar, reinicie o servidor ou o cliente. Se você não quiser reinicializar, ou a recuperação ainda falhar mesmo após a reinicialização do servidor, tente recuperar de uma máquina alternativa. Execute as etapas [deste artigo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 

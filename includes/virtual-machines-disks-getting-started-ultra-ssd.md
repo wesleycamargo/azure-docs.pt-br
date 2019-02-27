@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985362"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443433"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>Habilitando os SSDs Ultra do Azure
+# <a name="enabling-azure-ultra-ssd"></a>Habilitando o Ultra SSD do Azure
 
-O SSD Ultra do Azure proporciona alta taxa de transferência, alta IOPS e armazenamento em disco de baixa latência consistente para VMs de IaaS do Azure. Essa nova oferta fornece o melhor em desempenho de linha, nos mesmos níveis de disponibilidade que nossas ofertas de discos atuais. Os benefícios adicionais do SSD Ultra incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. O SSD Ultra é adequado para cargas de trabalho de grande volume de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho de transações pesadas.
+O ultra SSD do Azure proporciona uma alta taxa de transferência, alta IOPS e armazenamento em disco de baixa latência e consistente para as VMs de IaaS do Azure. Essa nova oferta fornece o melhor em desempenho de linha, nos mesmos níveis de disponibilidade que nossas ofertas de discos atuais. Os benefícios adicionais do ultra SSD incluem a capacidade de alterar dinamicamente o desempenho do disco, junto com suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. O ultra SSD é adequado a cargas de trabalho de grande volume de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho de transações pesadas.
 
-No momento, os SSds Ultra estão em versão prévia e é necessário [registrar-se](https://aka.ms/UltraSSDPreviewSignUp) nela para acessá-los.
+No momento, o ultra SSD está na versão prévia e é necessário [registrar-se](https://aka.ms/UltraSSDPreviewSignUp) para acessá-lo.
 
-Após a aprovação, execute um dos seguintes comandos para determinar em qual zona no Leste dos EUA 2 você deseja implantar seu SSD Ultra:
+Após a aprovação, execute um dos seguintes comandos para determinar em qual zona no Leste dos EUA 2 implantar o ultradisco:
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
@@ -35,16 +35,16 @@ A resposta será semelhante à forma abaixo, em que X é a zona a ser usada para
 
 Se não houve resposta do comando, significa que seu registro no recurso ainda está pendente ou não foi aprovado ainda.
 
-Agora que você sabe em qual zona implantar, siga as etapas de implantação neste artigo para implantar suas primeiras VMs com discos SSD Ultra.
+Agora que você sabe em qual zona implantar, siga as etapas neste artigo para fazer sua primeira implantação de VMs com o ultra SSD.
 
-## <a name="deploying-an-ultra-ssd"></a>Implantando um SSD Ultra
+## <a name="deploying-an-ultra-ssd"></a>Implantando um ultra SSD
 
 Primeiro, determine o tamanho da VM a ser implantada. Como parte dessa versão prévia, há suporte apenas para as famílias de VM DsV3 e EsV3. Confira a segunda tabela neste [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) para obter mais detalhes sobre esses tamanhos de VM.
-Confira também o [Create a VM with multiple Ultra SSD disks](https://aka.ms/UltraSSDTemplate) (Criar uma VM com vários discos SSD Ultra) de exemplo, que mostra como criar uma VM com vários discos SSD Ultra.
+Consulte também o exemplo em [Criar uma VM com um ultra SSD múltiplo](https://aka.ms/UltraSSDTemplate), que mostra como criar uma VM com um ultra SSD múltiplo.
 
 A seguir, são descritas as alterações novas/modificadas no modelo do Resource Manager: **apiVersion** para `Microsoft.Compute/virtualMachines` e `Microsoft.Compute/Disks` deve ser definido como `2018-06-01` (ou posterior).
 
-Especifique o Sku do disco UltraSSD_LRS, a capacidade do disco, IOPS e taxa de transferência em MBps para criar um disco SSD Ultra. A seguir há um exemplo que cria um disco com 1.024 GiB (GiB = 2^30 bytes), 80.000 IOPS e 1.200 MBps (MBps = 10^6 Bytes por segundo):
+Especifique o Sku do Disco UltraSSD_LRS, a capacidade do disco, a IOPS e a taxa de transferência em MBps para criar um ultradisco. A seguir há um exemplo que cria um disco com 1.024 GiB (GiB = 2^30 bytes), 80.000 IOPS e 1.200 MBps (MBps = 10^6 Bytes por segundo):
 
 ```json
 "properties": {  
@@ -57,7 +57,7 @@ Especifique o Sku do disco UltraSSD_LRS, a capacidade do disco, IOPS e taxa de t
 }
 ```
 
-Adicione uma funcionalidade adicional nas propriedades da VM para indicar seu SSD Ultra Habilitado (consulte o [exemplo](https://aka.ms/UltraSSDTemplate) para obter o modelo do Resource Manager completo):
+Adicione uma funcionalidade extra nas propriedades da VM para indicar seu ultra SSD habilitado (consulte o [exemplo](https://aka.ms/UltraSSDTemplate) para obter o modelo do Resource Manager completo):
 
 ```json
 {
@@ -77,11 +77,11 @@ Adicione uma funcionalidade adicional nas propriedades da VM para indicar seu SS
 
 Depois que a VM for provisionada, será possível particionar e formatar os discos de dados e configurá-los para suas cargas de trabalho.
 
-## <a name="additional-ultra-ssd-scenarios"></a>Outros cenários de SSD Ultra
+## <a name="additional-ultra-ssd-scenarios"></a>Outros cenários do ultra SSD
 
-- Durante a criação da VM, os SSDs Ultra podem ser criados implicitamente também. No entanto, esses discos receberão um valor padrão de IOPS (500) e taxa de transferência (8 MiB/s).
-- Outros SSDs Ultra podem ser anexados às VMs compatíveis com o SSD Ultra.
-- O SSD Ultra dá suporte ao ajuste dos atributos de desempenho do disco (IOPS e taxa de transferência) em tempo de execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento de desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração entre em vigor efetivamente.
+- Durante a Criação da VM, o ultra SSD pode ser criado implicitamente também. No entanto, esses discos receberão um valor padrão de IOPS (500) e taxa de transferência (8 MiB/s).
+- Outro ultra SSD pode ser anexado às VMs compatíveis.
+- O ultra SSD dá suporte ao ajuste dos atributos de desempenho do disco (IOPS e taxa de transferência) durante a execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento de desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração entre em vigor efetivamente.
 - O aumento da capacidade do disco requer que uma máquina virtual seja desalocada.
 
 ## <a name="next-steps"></a>Próximas etapas

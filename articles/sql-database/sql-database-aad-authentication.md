@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217144"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453130"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Use a Autenticação do Azure Active Directory para autenticar com SQL
 
@@ -101,16 +101,16 @@ Para criar um usuário de banco de dados independente no Banco de Dados SQL do A
 
 ### <a name="manage-instances"></a>Gerenciar instâncias
 
-- Há suporte para logons e usuários do Azure AD como versão prévia do recurso nas [Instâncias Gerenciadas](sql-database-managed-instance.md).
-- Não há suporte para a definição de logons do Azure AD mapeados para um grupo do Azure AD como proprietário do banco de dados nas [Instâncias Gerenciadas](sql-database-managed-instance.md).
+- As entidades de segurança do servidor do Azure AD (logons) e usuários têm suporte como uma versão prévia do recurso para as [Instâncias Gerenciadas](sql-database-managed-instance.md).
+- Definir entidades de segurança do servidor do Azure AD (logons) mapeadas para um grupo do Azure AD como proprietário do banco de dados não tem suporte nas [Instâncias Gerenciadas](sql-database-managed-instance.md).
     - Uma extensão disso é que, quando um grupo é adicionado como parte da função de servidor `dbcreator`, os usuários desse grupo podem se conectar à Instância Gerenciada e criar bancos de dados, mas não poderão acessar o banco de dados. Isso ocorre porque o novo proprietário do banco de dados é SA e não o usuário do Azure AD. Esse problema não se manifesta se o usuário individual é adicionado à função de servidor `dbcreator`.
-- Há suporte para a execução de trabalhos e o gerenciamento do SQL Agent em logons do Azure AD.
-- Operações de restauração e backup de banco de dados podem ser executadas por logons do Azure AD.
-- Há suporte para a auditoria de todas as instruções relacionadas a logons do Azure AD e a eventos de autenticação.
-- Há suporte para a conexão de administrador dedicada em logons do Azure AD que são membros da função de servidor sysadmin.
+- A execução de trabalhos e o gerenciamento do SQL Agent têm suporte para as entidades de segurança do servidor do Azure AD (logons).
+- As operações de restauração e backup do banco de dados podem ser executadas pelas entidades de segurança do servidor do Azure AD (logons).
+- A auditoria de todas as instruções relacionadas às entidades de segurança do servidor do Azure AD (logons) e aos eventos de autenticação tem suporte.
+- Há suporte para a conexão de administrador dedicada para as entidades de segurança do servidor do Azure AD (logons) que são membros da função do servidor sysadmin.
     - Compatível por meio do utilitário sqlcmd e do SQL Server Management Studio.
-- Há suporte para gatilhos de logon em eventos de logon provenientes de logons do Azure AD.
-- Emails do BD e do Service Broker podem ser configurados usando o logon do Azure AD.
+- Os gatilhos de logon têm suporte para os eventos de logon que vêm das entidades de segurança do servidor do Azure AD (logons).
+- Os emails do Service Broker e do banco de dados podem ser configurados usando uma entidade de segurança do servidor do Azure AD (logon).
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Conectar-se usando as identidades do Azure AD
@@ -121,7 +121,7 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 - Uso de um nome principal e de uma senha do Azure AD
 - Uso da autenticação de token do aplicativo
 
-Há suporte para os seguintes métodos de autenticação em logons do Azure AD (**versão prévia pública**):
+Os métodos de autenticação a seguir têm suporte para as entidades de segurança do servidor do Azure AD (logons) (**visualização pública**):
 
 - Senha do Azure Active Directory
 - Integrada do Azure Active Directory
@@ -133,7 +133,7 @@ Há suporte para os seguintes métodos de autenticação em logons do Azure AD (
 
 - Para aumentar a capacidade de gerenciamento, é recomendável que você provisione um grupo dedicado do Microsoft Azure AD como administrador.   
 - Somente um administrador do Azure AD (um usuário ou um grupo) pode ser configurado em um servidor do Banco de Dados SQL do Azure ou no SQL Data Warehouse do Azure a qualquer momento.
-  - A adição de logons do Azure AD às Instâncias Gerenciadas (**versão prévia pública**) possibilita criar vários logons do Azure AD que podem ser adicionados à função `sysadmin`.
+  - O acréscimo de entidades de segurança do servidor do Azure AD (logons) para as Instâncias Gerenciadas (**visualização pública**) permite a possibilidade de criar várias dessas entidades que podem ser adicionadas à função `sysadmin`.
 - Somente um administrador do Azure AD para o SQL Server pode se conectar inicialmente ao servidor do Banco de Dados SQL do Azure, à Instância Gerenciada ou ao SQL Data Warehouse do Azure usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.   
 - É recomendável configurar o tempo limite da conexão para 30 segundos.   
 - O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer**; é necessária, no mínimo, a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e desses aplicativos da camada de dados (DAC e .BACPAC) podem usar a autenticação do Azure AD.   
@@ -147,12 +147,12 @@ Há suporte para os seguintes métodos de autenticação em logons do Azure AD (
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure, consulte [Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse](sql-database-aad-authentication-configure.md).
-- Para obter um tutorial de como usar logons do Azure AD com Instâncias Gerenciadas, confira [Logons do Azure AD com Instâncias Gerenciadas](sql-database-managed-instance-aad-security-tutorial.md)
+- Para ver um tutorial de como usar as entidades de segurança do servidor do Azure AD (logons) com Instâncias Gerenciadas, confira [Entidades de segurança do servidor do Azure AD (logons) com Instâncias Gerenciadas](sql-database-managed-instance-aad-security-tutorial.md)
 - Para obter uma visão geral de acesso e controle no Banco de Dados SQL, confira [Acesso e controle de Banco de Dados SQL](sql-database-control-access.md).
 - Para obter uma visão geral de logons, usuários e funções de banco de dados no Banco de Dados SQL, confira [Logons, usuários e funções de banco de dados](sql-database-manage-logins.md).
 - Para obter mais informações sobre objetos de banco de dados, confira [Entidades](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para obter a sintaxe de criação de logons do Azure AD para Instâncias Gerenciadas, confira [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para ver a sintaxe de criação das entidades de segurança do servidor do Azure AD (logons) para Instâncias Gerenciadas, confira [CRIAR LOGON](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](sql-database-firewall-configure.md).
 
 <!--Image references-->

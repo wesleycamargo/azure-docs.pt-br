@@ -7,34 +7,34 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230587"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455986"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitar e revisar os logs do nó mestre do Kubernetes no Azure Kubernetes Service (AKS)
 
-Com o Serviço Azerbas do Kubernetes (AKS), os componentes principais, como o *kube-apiserver* e o *kube-controller-manager*, são fornecidos como um serviço gerenciado. Você cria e gerencia os nós que executam o *kubelet* e o tempo de execução do contêiner e implementa seus aplicativos por meio do servidor gerenciado do Kubernetes API. Para ajudar a solucionar problemas de seu aplicativo e serviços, talvez seja necessário visualizar os logs gerados por esses componentes principais. Este artigo mostra como usar o Log do Azure Analytics para ativar e consultar os logs dos componentes principais do Kubernetes.
+Com o Serviço Azerbas do Kubernetes (AKS), os componentes principais, como o *kube-apiserver* e o *kube-controller-manager*, são fornecidos como um serviço gerenciado. Você cria e gerencia os nós que executam o *kubelet* e o tempo de execução do contêiner e implementa seus aplicativos por meio do servidor gerenciado do Kubernetes API. Para ajudar a solucionar problemas de seu aplicativo e serviços, talvez seja necessário visualizar os logs gerados por esses componentes principais. Este artigo mostra como usar os logs do Azure Monitor para ativar e consultar os logs dos componentes principais do Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer um cluster AKS existente em execução na sua conta do Azure. Se você ainda não tiver um cluster AKS, crie um usando o [Portal do Azure][cli-quickstart] ou [do Portal do Azure][portal-quickstart]. O Log Analytics trabalha com clusters AKS habilitados para RBAC e não RBAC.
+Este artigo requer um cluster AKS existente em execução na sua conta do Azure. Se você ainda não tiver um cluster AKS, crie um usando o [Portal do Azure][cli-quickstart] ou [do Portal do Azure][portal-quickstart]. Os logs do Azure Monitor trabalham com clusters AKS habilitados para RBAC e não RBAC.
 
 ## <a name="enable-diagnostics-logs"></a>Habilitar logs de diagnóstico
 
-Para ajudar a coletar e analisar dados de várias origens, o Log Analytics fornece um mecanismo de análise e linguagem de consulta que fornece insights para seu ambiente. Um workspace é usado para agrupar e analisar os dados e pode se integrar a outros serviços do Azure, como o Application Insights e o Security Center. Para usar uma plataforma diferente para analisar os logs, você pode optar por enviar logs de diagnóstico para uma conta de armazenamento do Azure ou um hub de eventos. Para obter mais informações, consulte [O que é o Log Analytics do Azure?][log-analytics-overview].
+Para ajudar a coletar e analisar dados de várias origens, os logs do Azure Monitor disponibilizam uma linguagem de consulta e um mecanismo de análise que fornecem insights ao ambiente. Um workspace é usado para agrupar e analisar os dados e pode se integrar a outros serviços do Azure, como o Application Insights e o Security Center. Para usar uma plataforma diferente para analisar os logs, você pode optar por enviar logs de diagnóstico para uma conta de armazenamento do Azure ou um hub de eventos. Para obter mais informações, veja [O que são os logs do Azure Monitor?][log-analytics-overview].
 
-O Log Analytics está habilitado e gerenciado no portal do Azure. Para habilitar a coleta de log para os componentes principais do Kubernetes no seu cluster AKS, abra o portal do Azure em um navegador da Web e conclua as etapas a seguir:
+Os logs do Azure Monitor são habilitados e gerenciados no portal do Azure. Para habilitar a coleta de log para os componentes principais do Kubernetes no seu cluster AKS, abra o portal do Azure em um navegador da Web e conclua as etapas a seguir:
 
 1. Selecione o grupo de recursos para seu cluster AKS, como *myResourceGroup*. Não selecione o grupo de recursos que contém seus recursos individuais de cluster do AKS, como *MC_myResourceGroup_myAKSCluster_eastus*.
 1. No lado esquerdo, escolha **Diagnostic settings**.
 1. Selecione seu cluster AKS, como *myAKSCluster*, depois escolha **Ativar diagnósticos**.
-1. Digite um nome, assim como *myAKSClusterLogs*, e selecione a opção para **Enviar para o Log Analytics**.
-    * Escolha *Configurar* Log Analytics e, em seguida, selecione um workspace existente ou **Criar novo workspace**.
+1. Digite um nome, como *myAKSClusterLogs*, e selecione a opção para **Enviar para o workspace do Log Analytics**.
+    * Escolha *Configurar* o workspace do Log Analytics e, em seguida, selecione um workspace existente ou **Criar novo workspace**.
     * Se você precisar criar um workspace, forneça um nome, um grupo de recursos e um local.
-1. Na lista de logs disponíveis, selecione os logs que deseja habilitar. Por padrão, os logs *kube-apiserver*, *kube-controller-manager* e *kube-scheduler* são habilitados. Você pode habilitar logs adicionais, tais como *kube-audit* e *cluster-autoscaler*. Você pode retornar e alterar os registros coletados depois que o Log Analytics estiver ativado.
+1. Na lista de logs disponíveis, selecione os logs que deseja habilitar. Por padrão, os logs *kube-apiserver*, *kube-controller-manager* e *kube-scheduler* são habilitados. Você pode habilitar logs adicionais, tais como *kube-audit* e *cluster-autoscaler*. Você pode retornar e alterar os registros coletados depois que os workspaces do Log Analytics estiverem ativados.
 1. Quando estiver pronto, selecione **Salvar** para ativar a coleta dos registros selecionados.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ O Log Analytics está habilitado e gerenciado no portal do Azure. Para habilitar
 
 A captura de tela do exemplo a seguir mostra a janela *Diagnostics settings* e, em seguida, a opção para criar um workspace do Log Analytics:
 
-![Habilitar o workspace do Log Analytics para Log Analytics de cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Habilitar o workspace do Log Analytics para os logs do Azure Monitor de cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -115,7 +115,7 @@ Os registros específicos do seu pod NGINX são exibidos, conforme mostrado na c
 
 Para visualizar logs adicionais, é possível atualizar a consulta do nome *Categoria* para *kube-controller-manager* ou *kube-scheduler*, dependendo de quais logs adicionais você ativar . *adicional, onde as declarações* podem ser usadas para refinar os eventos que você está procurando.
 
-Para obter mais informações sobre como consultar e filtrar seus dados de registro, consulte [Visualizar ou analisar dados coletados com a pesquisa de registros do Log Analytics ][analyze-log-analytics].
+Para obter mais informações sobre como consultar e filtrar seus dados de log, consulte [Visualizar ou analisar dados coletados com a pesquisa de registros da análise de logs][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Esquema do log de eventos
 

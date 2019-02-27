@@ -1,5 +1,5 @@
 ---
-title: Gerenciar após a migração - Banco de Dados SQL do Azure | Microsoft Docs
+title: Gerenciar bancos de dados individuais e em pool após a migração - Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba como gerenciar o banco de dados após a migração para o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099727"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417628"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
-Mover do ambiente autogerenciado autocontrolado tradicional para um ambiente PaaS pode parecer um pouco difícil primeiro. Como desenvolvedor de aplicativos ou um DBA, você deseja saber os principais recursos da plataforma que ajudam a manter seu aplicativo disponível, com bom desempenho, seguro e flexível – sempre. Este artigo visa fazer exatamente isso. O artigo organiza sucintamente os recursos e fornece algumas orientações sobre como usar melhor os principais recursos do Banco de Dados SQL para gerenciar e fazer a manutenção de seu aplicativo em execução com eficiência e obter os melhores resultados na nuvem. O público-alvo típico para este artigo seria aqueles que:
+Mover do ambiente autogerenciado autocontrolado tradicional para um ambiente PaaS pode parecer um pouco difícil primeiro. Como desenvolvedor de aplicativos ou um DBA, você deseja saber os principais recursos da plataforma que ajudam a manter seu aplicativo disponível, com bom desempenho, seguro e flexível – sempre. Este artigo visa fazer exatamente isso. O artigo organiza sucintamente os recursos e fornece algumas orientações sobre como usar melhor os principais recursos do Banco de Dados SQL com bancos de dados individuais e em pool para gerenciar e fazer a manutenção de seu aplicativo em execução com eficiência e obter os melhores resultados na nuvem. O público-alvo típico para este artigo seria aqueles que:
 
-- Estão avaliando a migração de seus aplicativos do Azure SQL DB – modernizando seus aplicativos.
+- Esteja avaliando a migração de seu(s) aplicativo(s) para o Banco de Dados SQL do Azure – Modernizando seu(s) aplicativo(s).
 - Estão no processo de migração de seus aplicativos – cenário de migração em andamento.
 - Recentemente concluiram a migração para o Azure SQL DB – DBA novo na nuvem.
 
-Este artigo aborda algumas das principais características do Banco de Dados de SQL do Azure como uma plataforma que você pode aproveitar prontamente. Eles são os seguintes:
+Este artigo discute algumas das principais características do Banco de Dados SQL do Azure como uma plataforma da qual você pode se beneficiar prontamente ao trabalhar com bancos de dados individuais e em pools elásticos. Eles são os seguintes:
 
 - BCDR (continuidade de negócios e recuperação de desastres)
 - Segurança e conformidade
 - Monitoramento e manutenção de banco de dados inteligente
 - Movimentação de dados
+
+> [!NOTE]
+> Este artigo se aplica às seguintes opções de implantação do Banco de Dados SQL do Azure: bancos de dados individuais e pools elásticos. Ele não se aplica à opção de implantação de instância gerenciada do Banco de Dados SQL.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>BCDR (continuidade de negócios e recuperação de desastres)
 
@@ -299,11 +302,11 @@ O Banco de Dados SQL usa algumas técnicas inteligentes que permitem manipular d
 
 - **Exportar**: É possível exportar o Banco de Dados SQL do Azure como um arquivo BACPAC no portal do Azure
 
-   ![exportação de banco de dados](./media/sql-database-export/database-export.png)
+   ![exportação de banco de dados](./media/sql-database-export/database-export1.png)
 
 - **Importar**: Também é possível importar dados em um arquivo BACPAC para o banco de dados usando o portal do Azure.
 
-   ![importação de dados](./media/sql-database-import/import.png)
+   ![importação de dados](./media/sql-database-import/import1.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Como fazer para sincronizar dados entre o Banco de Dados SQL e o SQL Server?
 

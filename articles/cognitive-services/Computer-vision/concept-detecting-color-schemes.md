@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880862"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313068"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detectar esquemas de cores em imagens
 
-A Visão por Computador extrai cores de uma imagem. As cores são então analisadas em três contextos diferentes: a cor dominante no primeiro plano, a cor dominante no plano de fundo e as cores dominantes na imagem como um todo. Eles são agrupados em 12 cores de destaque dominantes. Essas cores de destaque são preto, azul, marrom, cinza, verde, laranja, rosa, roxo, vermelho, azul-petróleo, branco e amarelo. O Computer Vision analisa as cores extraídas de uma imagem para retornar uma cor de destaque que representa a cor mais vibrante da imagem para os espectadores, por meio de uma combinação de cores dominantes e saturação. Dependendo das cores de uma imagem, as cores preto e branco simples ou cores de destaque podem ser retornadas em códigos de cores hexadecimais. O Computer Vision também retorna um valor booleano que indica se uma imagem é em preto e branco.
+A Pesquisa Visual Computacional analisa as cores em uma imagem para fornecer três atributos diferentes: a cor de primeiro plano predominante, a cor da tela de fundo predominante e o conjunto de cores predominantes da imagem inteira. As cores retornadas pertencem ao conjunto: preto, azul, marrom, cinza, verde, laranja, rosa, roxo, vermelho, azul-petróleo, branco e amarelo. 
+
+A Pesquisa Visual Computacional extrai também uma cor de destaque, que representa a cor mais vibrante na imagem, com base em uma combinação de cores predominantes e saturação. A cor de destaque é retornada como um código hexadecimal de cor HTML. 
+
+A Pesquisa Visual Computacional também retorna um valor booliano que indica se uma imagem é em preto e branco.
 
 ## <a name="color-scheme-detection-examples"></a>Exemplos de detecção do esquema de cores
 
-O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador ao detectar o esquema de cores da imagem de exemplo. Nesse caso, a imagem de exemplo não é uma imagem de preta e branca, mas as cores de primeiro plano e plano de fundo dominantes são pretas e as cores dominantes para a imagem como um todo são preto e branco.
+O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador ao detectar o esquema de cores da imagem de exemplo. Nesse caso, a imagem de exemplo não é em preto e branco, mas as cores de primeiro plano e da tela de fundo predominantes são pretas e as cores predominantes da imagem inteira são em preto e branco.
 
 ![Montanha ao ar livre](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador a
 
 ### <a name="dominant-color-examples"></a>Exemplos de cor predominante
 
-A tabela a seguir descreve as cores predominantes de primeiro plano, plano de fundo e imagem para cada imagem de exemplo, conforme retornado pela Computer Vision.
+A tabela a seguir mostra o primeiro plano, a tela de fundo e as cores da imagem retornados para cada imagem de exemplo.
 
 | Imagem | Cores predominantes |
 |-------|-----------------|
@@ -57,7 +61,7 @@ A tabela a seguir descreve as cores predominantes de primeiro plano, plano de fu
 
 ### <a name="accent-color-examples"></a>Exemplos de cor de ênfase
 
- A tabela a seguir descreve a cor de destaque, como um valor hexadecimal de cor HTML, para cada imagem de exemplo conforme retornados pela pesquisa Visual computacional.
+ A tabela a seguir mostra a cor de ênfase retornada, como um valor hexadecimal de cor HTML, para cada imagem de exemplo.
 
 | Imagem | Cor de destaque |
 |-------|--------------|
@@ -67,7 +71,7 @@ A tabela a seguir descreve as cores predominantes de primeiro plano, plano de fu
 
 ### <a name="black--white-detection-examples"></a>Exemplos de detecção de preto e branco
 
-A tabela a seguir indica se cada imagem de exemplo é em preto e branco, conforme retornado por Computer Vision.
+A tabela a seguir mostra a avaliação de preto e branco da Pesquisa Visual Computacional nas imagens de exemplo.
 
 | Imagem | Preto e branco? |
 |-------|----------------|

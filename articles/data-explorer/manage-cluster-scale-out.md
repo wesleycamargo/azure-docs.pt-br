@@ -7,17 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 38dc7b70630276d51c75ca7e87f0b69ea7fe040a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/18/2019
+ms.openlocfilehash: 15ef5282e0a073e870f2ac12b5fc442407535770
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735119"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408435"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerenciar a expansão do cluster para acomodar as mudanças de demanda
 
-Dimensionar um cluster apropriadamente é essencial para o desempenho do Azure Data Explorer. Contudo, não é possível prever a demanda em um cluster com 100% de precisão. Um tamanho de cluster estático pode levar a subutilização ou superutilização, e nenhuma dessas condições é a ideal. Uma abordagem melhor é a *escala* de um cluster, adicionando e removendo a capacidade confirme as mudanças na demanda. Este artigo mostra como gerenciar a expansão do cluster.
+Dimensionar um cluster apropriadamente é essencial para o desempenho do Azure Data Explorer. Contudo, não é possível prever a demanda em um cluster com 100% de precisão. Um tamanho de cluster estático pode levar a subutilização ou superutilização, e nenhuma dessas condições é a ideal. Uma abordagem melhor é a *escala* de um cluster, adicionando e removendo a capacidade confirme as mudanças na demanda. Há dois fluxos de trabalho para o dimensionamento, escalar verticalmente e escalar horizontalmente. Este artigo explica o fluxo de trabalho de dimensionamento horizontal.
+
+Ele mostra como gerenciar o dimensionamento horizontal do cluster, também conhecido como dimensionamento automático. O dimensionamento automático permite dimensionar horizontalmente a contagem de instâncias com base em regras e agendamentos predefinidos. Determine as configurações de dimensionamento automático para seu cluster no portal do Azure, conforme descrito abaixo.
 
 Navegue para seu cluster e, em **Configurações**, selecione **Escalar horizontalmente**. Em **Configurar**, selecione **Habilitar dimensionamento automático**.
 
@@ -35,6 +37,8 @@ O gráfico a seguir mostra o fluxo das próximas etapas. Fornecemos mais detalhe
 
 1. Na seção **Regra de escala** à direita, informe os valores para cada configuração.
 
+    **Critérios**
+
     | Configuração | Descrição e valor |
     | --- | --- | --- |
     | **Agregação de tempo** | Selecione um critério de agregação, como **Média**. |
@@ -42,7 +46,13 @@ O gráfico a seguir mostra o fluxo das próximas etapas. Fornecemos mais detalhe
     | **Estatística de intervalo de agregação** | Escolha entre **Média**, **Mínima**, **Máxima** e **Soma**. |
     | **Operador** | Escolha a opção apropriada, como **Maior que ou igual a**. |
     | **Limite** | Escolha um valor apropriado. Por exemplo, para a utilização de cache, 80% é um bom ponto de partida. |
-    | **Duração** | Escolha um período apropriado para o sistema retroceder ao calcular métricas. Comece com o padrão de dez minutos. |
+    | **Duração (em minutos)** | Escolha um período apropriado para o sistema retroceder ao calcular métricas. Comece com o padrão de dez minutos. |
+    |  |  |
+
+    **Ação**
+
+    | Configuração | Descrição e valor |
+    | --- | --- | --- |
     | **Operação** | Escolha a opção apropriada para reduzir ou escalar horizontalmente. |
     | **Contagem de instâncias** | Escolha o número de nós ou instâncias que você deseja adicionar ou remover quando uma condição de métrica for atendida. |
     | **Tempo de resfriamento (minutos)** | Escolha um intervalo de tempo apropriado de espera entre as operações de escala. Comece com o padrão de cinco minutos. |
@@ -54,13 +64,15 @@ O gráfico a seguir mostra o fluxo das próximas etapas. Fornecemos mais detalhe
 
     | Configuração | Descrição e valor |
     | --- | --- | --- |
-    | *Mínimo* | Este é o número mínimo de instâncias abaixo do qual o cluster não será escalado, independentemente da utilização. |
-    | *Máximo* | Este é o número máximo de instâncias acima do qual o cluster não será escalado, independentemente da utilização. |
+    | *Mínimo* | É o número de instâncias para baixo do qual o cluster não será reduzido, independentemente da utilização. |
+    | *Máximo* | É o número de instâncias para acima do qual o cluster não será aumentado, independentemente da utilização. |
     | *Padrão* | O número padrão de instâncias, usado em caso de problema ao ler as métricas de recursos. |
     |  |  |
 
 1. Clique em **Salvar**.
 
 Agora, você configurou uma operação de expansão para o cluster do Azure Data Explorer. Adicione outra regra para uma operação de redução. Isso permite que seu cluster se expanda dinamicamente conforme as métricas de utilização que você especificar.
+
+Você também pode executar o [aumento de cluster](manage-cluster-scale-up.md) para o tamanho apropriado de um cluster.
 
 Se você precisar de auxílio com problemas de escala, abra uma solicitação de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

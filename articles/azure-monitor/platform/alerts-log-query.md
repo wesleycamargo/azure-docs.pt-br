@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429779"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447207"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de log no Azure Monitor
 [As regras de alerta baseadas em logs do Azure Monitor](alerts-unified-log.md) são executadas em intervalos regulares. Portanto, você deve garantir que sejam escritas para minimizar a sobrecarga e a latência. Este artigo fornece recomendações sobre como escrever consultas eficientes para alertas de log e um processo de conversão de consultas existentes. 
@@ -31,16 +31,11 @@ As consultas que começam com `search` ou `union` permitem pesquisar em várias 
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Embora `search` e `union` sejam úteis durante a exploração de dados, pesquisando termos no modelo de dados inteiro, são menos eficientes do que o uso de uma tabela, pois devem examinar várias tabelas. Como as consultas nas regras de alerta são executadas em intervalos regulares, isso pode resultar em sobrecarga excessiva, acrescentando latência ao alerta. Devido a essa sobrecarga, as consultas de regras de alerta de log no Azure sempre devem começar com uma tabela para definir um escopo evidente, o que melhora o desempenho da consulta e a relevância dos resultados.
 
@@ -55,7 +50,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>A [consulta de recursos cruzados](../log-query/cross-workspace-query.md) nos alertas de log é suportada na nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada Log Analytics Alert](api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada Log Alerts](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite a criação de regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta de log de [consulta de recursos cruzados](../log-query/cross-workspace-query.md) sem fazer a mudança usando o [modelo do ARM para a API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável na [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
 
 ## <a name="examples"></a>Exemplos
 Os exemplos a seguir incluem consultas de log que usam `search` e `union` e fornecem etapas que podem ser usadas para modificar essas consultas para uso com as regras de alerta.

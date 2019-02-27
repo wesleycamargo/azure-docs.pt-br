@@ -1,20 +1,18 @@
 ---
 title: Visão geral da extensão do Diagnóstico do Azure
 description: Usar o diagnóstico do Azure para depurar, medir o desempenho, monitorar e analisar o tráfego em serviços de nuvem, em máquinas virtuais e no Service Fabric
-services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470503"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310450"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão Diagnóstico do Azure
 A extensão Diagnóstico do Azure é um agente no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem do Azure (clássico), as Máquinas Virtuais, os conjuntos de dimensionamento de Máquinas Virtuais e o Service Fabric. Outros serviços do Azure têm métodos diferentes de diagnósticos. Consulte [Visão geral do monitoramento no Azure](../../azure-monitor/overview.md).
@@ -27,28 +25,29 @@ A extensão Diagnóstico do Azure pode coletar os seguintes tipos de dados:
 
 | Fonte de dados | DESCRIÇÃO |
 | --- | --- |
-| contadores de desempenho |Contadores de desempenho personalizados e do Sistema Operacional |
+| Métricas do contador de desempenho |Contadores de desempenho personalizados e do Sistema Operacional |
 | Logs de aplicativo |Rastreio de mensagens gravadas pelo seu aplicativo |
 | Logs de Eventos do Windows |Informações enviadas ao sistema de log de eventos do Windows |
-| Fonte de evento do .NET |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .NET |
+| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .NET |
 | Logs IIS |Informações sobre sites do IIS |
-| Manifesto com base no ETW |Rastreamento de Eventos para eventos do Windows gerados por qualquer processo.(1) |
-| Despejos de falhas |Informações sobre o estado do processo no caso de uma falha do aplicativo |
+| [Logs do ETW baseados no manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Rastreamento de Eventos para eventos do Windows gerados por qualquer processo.(1) |
+| Despejos de memória (logs) |Informações sobre o estado do processo se um aplicativo falhar |
 | Logs de erros personalizados |Logs criados por seu aplicativo ou serviço |
-| Logs de infraestrutura do Diagnóstico do Azure |Informações sobre o próprio Diagnóstico |
+| Logs de infraestrutura do Diagnóstico do Azure |Informações sobre o próprio Diagnóstico do Azure |
 
 (1) para obter uma lista de provedores ETW, execute `c:\Windows\System32\logman.exe query providers` em uma janela de console no computador do qual você gostaria de coletar informações.
 
 ## <a name="data-storage"></a>Armazenamento de dados
 A extensão armazena seus dados em uma [conta do Armazenamento do Azure](diagnostics-extension-to-storage.md) especificada.
 
-Você também pode enviá-los para o [Application Insights](../../azure-monitor/app/cloudservices.md). Outra opção é transmiti-los para o [Hub de Eventos](../../event-hubs/event-hubs-about.md), que permite o envio dos dados para serviços de monitoramento que não fazem parte do Azure.
+Você também pode enviá-los para o [Application Insights](../../azure-monitor/app/cloudservices.md). 
 
-### <a name="azure-monitor"></a>Azure Monitor
-Você também tem a opção de envio de dados para o Azure Monitor. Neste momento, esse coletor só é aplicável aos Contadores de Desempenho. Ele permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para o Azure Monitor como métricas personalizadas. O coletor do Azure Monitor dá suporte a:
+Outra opção é transmiti-los para o [Hub de Eventos](../../event-hubs/event-hubs-about.md), que permite o envio dos dados para serviços de monitoramento que não fazem parte do Azure.
+
+Você também tem a opção de envio de dados para o banco de dados de série temporal de métricas do Azure Monitor. Neste momento, esse coletor só é aplicável aos Contadores de Desempenho. Ele permite que você envie os contadores de desempenho como métricas personalizadas. Esse recurso está em Preview. O coletor do Azure Monitor dá suporte a:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor por meio de [APIs de métrica do Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/)
-* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
-* Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica.  Por exemplo, se você tiver coletado o contador "LogicalDisk(\*)/DiskWrites/sec", seria capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada Disco Lógico na VM (C:, D: etc.)
+* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio dos [alertas de métrica](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
+* Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica.  Por exemplo, se você tiver coletado o contador “LogicalDisk(\*)/DiskWrites/sec”, seria capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada Disco Lógico na VM (C:, por exemplo)
 
 Para saber mais sobre como configurar esse coletor, confira a [documentação do esquema de diagnóstico do Azure.](diagnostics-extension-schema-1dot3.md)
 

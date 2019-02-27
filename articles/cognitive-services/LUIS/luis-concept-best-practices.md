@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243409"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428900"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS. 
@@ -77,23 +77,32 @@ Para mais informações:
 * Conceito: [Ciclo de criação de seu aplicativo LUIS](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Adicione listas de frase e padrões em iterações posteriores
-As [listas de frase](luis-concept-feature.md) permitem que você defina dicionários de palavras relacionadas ao seu domínio de aplicativo. Propague sua lista de frase com poucas palavras e use o recurso de sugestão para que o LUIS conheça mais palavras no vocabulário específico para o seu aplicativo. Não adicione toda palavra ao vocabulário, pois a lista de frases não é uma correspondência exata. 
+
+Recomenda-se não aplicar essas práticas antes de seu aplicativo ser testado. Você deve compreender como o aplicativo se comporta antes de adicionar listas de frases e padrões. Depois de compreender como o seu aplicativo se comporta sem elas, adicione cada um desses recursos que se aplicam ao seu aplicativo. Você não precisa adicionar esses recursos a cada [iteração](luis-concept-app-iteration.md) nem alterá-los a cada versão. 
+
+Não há nenhum problema em adicioná-los no início do design de seu modelo, mas é mais fácil ver como cada recurso altera os resultados depois que o modelo for testado com expressões vocais. 
+
+Uma boa prática é testar por meio do [ponto de extremidade](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) para que você obtenha o benefício adicional do [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O [painel de teste interativo](luis-interactive-test.md) também é uma metodologia de teste válida. 
+ 
+
+### <a name="phrase-lists"></a>Listas de frase
+
+As [listas de frase](luis-concept-feature.md) permitem que você defina dicionários de palavras relacionadas ao seu domínio de aplicativo. Propague sua lista de frase com poucas palavras e use o recurso de sugestão para que o LUIS conheça mais palavras no vocabulário específico para o seu aplicativo. Uma lista de frases melhora a detecção da intenção e a classificação da entidade, aumentando o sinal associado a palavras ou frases que sejam significativas para seu aplicativo. 
+
+Não adicione toda palavra ao vocabulário, pois a lista de frases não é uma correspondência exata. 
+
+Para mais informações:
+* Conceito: [Recurso de lista de frases em seu aplicativo LUIS](luis-concept-feature.md)
+* Instruções: [Usar listas de frases para melhorar o sinal da lista de palavras](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>Padrões
 
 Declarações de usuário real do ponto de extremidade, muito semelhantes umas às outras, podem revelar padrões de escolha e de posicionamento de palavras. O recurso [padrão](luis-concept-patterns.md) usa esta escolha e posicionamento de palavras junto com expressões regulares para melhorar a precisão da previsão. Uma expressão regular no padrão possibilita palavras e pontuação que você pretende ignorar enquanto ainda estiver fazendo correspondência com o padrão. 
 
 Use a [sintaxe opcional](luis-concept-patterns.md) do padrão para pontuação para que a pontuação possa ser ignorada. Use a [lista explícita](luis-concept-patterns.md#explicit-lists) para compensar os problemas de sintaxe pattern.any. 
 
-Não aplique essas práticas antes de o seu aplicativo receber solicitações de ponto de extremidade. Você deve compreender como o aplicativo se comporta antes de adicionar listas de frases e padrões. Depois de compreender como o seu aplicativo se comporta sem elas, adicione cada um desses recursos que se aplicam ao seu aplicativo. 
-
-Não há nenhum problema em adicioná-los no início do design de seu modelo, mas é mais fácil ver como cada recurso altera os resultados se você adicioná-los depois de usar o aplicativo com o tráfego real. 
-
-Você não precisa adicionar esses recursos com cada iteração nem alterar os recursos com cada versão. 
-
 Para mais informações:
-* Conceito: [Ciclo de criação de seu aplicativo LUIS](luis-concept-app-iteration.md)
-* Conceito: [Recurso de lista de frases em seu aplicativo LUIS](luis-concept-feature.md)
 * Conceito: [Padrões aumentam a precisão da previsão](luis-concept-patterns.md)
-* Instruções: [Usar listas de frases para melhorar o sinal da lista de palavras](luis-how-to-add-features.md)
 * Instruções: [Como adicionar Padrões para aumentar a precisão da previsão](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Equilibrar suas declarações em todas as intenções
