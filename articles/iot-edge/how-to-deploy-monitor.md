@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083913"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428770"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -53,19 +53,20 @@ Há cinco etapas para criar uma implantação. As seções a seguir explicam cad
 ### <a name="step-1-name-and-label"></a>Etapa 1: Nome e rótulo
 
 1. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
-1. Adicione rótulos para ajudar a acompanhar as implantações. Rótulos são pares de **Nome** e **Valor** que descrevem a implantação. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`.
+1. Você pode adicionar rótulos como pares chave-valor para ajudar a acompanhar suas implantações. Por exemplo, **HostPlatform** e **Linux** ou **Versão** e **3.0.1**.
 1. Selecione **Avançar** para ir para a etapa 2. 
 
 ### <a name="step-2-add-modules-optional"></a>Etapa 2: Adicionar módulos (opcional)
 
-Há dois tipos de módulos que podem ser adicionados a uma implantação. O primeiro é um módulo baseado em um serviço do Azure, como a Conta de Armazenamento ou o Stream Analytics. O segundo é um módulo baseado em seu próprio código. Adicione vários módulos de um desses tipos a uma implantação. 
+Há dois tipos de módulos que podem ser adicionados a uma implantação. O primeiro é um módulo baseado em um serviço do Azure, como a Conta de Armazenamento ou o Stream Analytics. O segundo é um módulo que usa seu próprio código. Adicione vários módulos de um desses tipos a uma implantação. 
 
 Se você criar uma implantação sem módulos, ela remove todos os módulos atuais dos dispositivos. 
 
 >[!NOTE]
->O Azure Machine Learning e o Azure Functions ainda não dão suporte à implantação automatizada do serviço do Azure. Use a implantação de módulo personalizado para adicionar esses serviços manualmente à implantação. 
+>O Azure Functions ainda não é compatível com a implantação automatizada do serviço do Azure. Use a implantação de módulo personalizado para adicionar esse serviço manualmente à implantação. 
 
 Para adicionar um módulo do Azure Stream Analytics, siga estas etapas:
+
 1. Na seção **Módulos de Implantação** da página, clique em **Adicionar**.
 1. Selecione **módulo do Azure Stream Analytics**.
 1. Escolha uma **Assinatura** no menu de lista suspensa.
@@ -73,7 +74,8 @@ Para adicionar um módulo do Azure Stream Analytics, siga estas etapas:
 1. Selecione **Salvar** para adicionar o módulo à implantação. 
 
 Para adicionar um código personalizado como um módulo ou para adicionar um módulo de serviço do Azure manualmente, siga estas etapas:
-1. No **as configurações do registro** seção da página, forneça os nomes e as credenciais para quaisquer registros de contêiner privado que contêm as imagens de módulo para essa implantação. O Agente Edge reportará erro 500 se ele não conseguir achar a credencial de registro de contêiner para uma imagem de docker.
+
+1. Na seção **Configurações de Registro de Contêiner** da página, forneça os nomes e as credenciais para os registros de contêiner privados que contêm as imagens de módulo dessa implantação. O Agente Edge reportará erro 500 se ele não conseguir encontrar a credencial de registro de contêiner de uma imagem do Docker.
 1. Na seção **Módulos de Implantação** da página, clique em **Adicionar**.
 1. Selecione **Módulo IoT Edge**.
 1. Dê um **Nome** ao módulo.
@@ -87,8 +89,8 @@ Para adicionar um código personalizado como um módulo ou para adicionar um mó
 1. Use o menu suspenso para selecionar o **Status** desejado do módulo. Escolha uma das seguintes opções:
    * **Em Execução** – essa é a opção padrão. O módulo será iniciado imediatamente depois de ser implantado.
    * **Parado** – depois de ser implantado, o módulo permanecerá ocioso até que seja chamado para ser iniciado por você ou por outro módulo.
-1. Selecione **Habilitar** se desejar adicionar marcações ou as propriedades desejadas ao módulo gêmeo. 
-1. Entre **variáveis Ambientais** para este módulo. Variáveis ambientais fornecem informação suplementar a um módulo facilitando o processo de configuração.
+1. Selecione **Definir propriedades desejadas do módulo gêmeo** se você quiser adicionar marcas ou outras propriedades ao módulo gêmeo.
+1. Insira **Variáveis de Ambiente** para este módulo. Variáveis ambientais fornecem informação suplementar a um módulo facilitando o processo de configuração.
 1. Selecione **Salvar** para adicionar o módulo à implantação. 
 
 Depois de configurar todos os módulos para uma implantação, selecione **Avançar** para ir para a etapa 3.
@@ -99,8 +101,22 @@ As rotas definem como os módulos se comunicam entre si em uma implantação. Po
 
 Adicionar ou atualizar as rotas com informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próximo** para continuar para a seção de revisão.
 
+### <a name="step-4-specify-metrics-optional"></a>Etapa 4: Especificar as métricas (opcionais)
 
-### <a name="step-4-target-devices"></a>Etapa 4: Dispositivos de destino
+As métricas fornecem contagens de resumos de vários estados em que um dispositivo pode relatar como resultado da aplicação de conteúdo da configuração.
+
+1. Insira um nome para **nome da métrica**.
+
+1. Insira uma consulta para **Critérios da métrica**. A consulta é baseada nas [propriedades relatadas](module-edgeagent-edgehub.md#edgehub-reported-properties) do módulo gêmeo do hub do IoT Edge. A métrica representa o número de linhas retornadas pela consulta.
+
+Por exemplo: 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+### <a name="step-5-target-devices"></a>Etapa 5: Dispositivos de destino
 
 Use a propriedade tags dos dispositivos para direcionar os dispositivos específicos que devem receber essa implantação. 
 
@@ -110,9 +126,32 @@ Como várias implantações podem direcionar o mesmo dispositivo, você deve atr
 1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Selecione **Avançar** para ir para a etapa final.
 
-### <a name="step-5-review-template"></a>Etapa 5: Examinar modelo
+### <a name="step-6-review-deployment"></a>Etapa 6: Examinar implantação
 
 Examine as informações da implantação e, em seguida, selecione **Enviar**.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Implantar módulos do Azure Marketplace
+
+O Azure Marketplace é um marketplace online de aplicativos e serviços em que você pode procurar em uma ampla variedade de aplicativos e soluções empresariais que são certificadas e otimizadas para execução no Azure, incluindo [módulos do IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acessado pelo portal do Azure em **Criar um Recurso**.
+
+Você pode instalar um módulo do IoT Edge por meio do Azure Marketplace ou do portal do Azure:
+
+1. Localize um módulo e inicie o processo de implantação.
+
+   * Portal do Azure: Encontre um módulo e selecione **Criar**.
+
+   * Azure Marketplace:
+
+     1. Encontre um módulo e selecione **Obter agora**.
+     1. Reconheça os termos de uso e a política de privacidade do provedor selecionando **Continuar**.
+
+1. Escolha sua assinatura e o Hub IoT ao qual o dispositivo de destino está anexado.
+
+1. Escolha **Implantar em Escala**.
+
+1. Escolha se deseja adicionar o módulo a uma nova implantação ou a um clone de uma implantação existente; se for usar o clone, selecione a implantação existente na lista.
+
+1. Selecione **Criar** para continuar o processo de criação de uma implantação em escala. Você poderá especificar os mesmos detalhes como faria em qualquer implantação.
 
 ## <a name="monitor-a-deployment"></a>Monitorar uma implantação
 
@@ -130,15 +169,17 @@ Para exibir os detalhes de uma implantação e monitorar os dispositivos que a e
    * **Prioridade** – o número de prioridade atribuído à implantação.
    * **Métricas de sistema** - **Desejados** especifica o número de dispositivos gêmeos em Hub IoT que batem com a condição desejada, e **Aplicados** especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos seus módulos gêmeos no Hub IoT. 
    * **Métricas de dispositivo** - Uma métrica de dispositivo que especifica o número de dispositivos do Edge no êxito do relatório de implantação do tempo de execução ou erros do cliente do IoT Edge.
+   * **Métricas personalizadas** – o número de dispositivos de Borda na implantação que relata dados de métricas que você definiu para a implantação.
    * **Hora de criação** – o carimbo de data/hora de quando a implantação foi criada. Esse carimbo de data/hora é usado para desempate quando duas implantações têm a mesma prioridade. 
-2. Selecione a implantação que deseja monitorar.  
-3. Inspecione os detalhes da implantação. Você pode usar guias para revisar os detalhes da implantação.
+1. Selecione a implantação que deseja monitorar.  
+1. Inspecione os detalhes da implantação. Você pode usar guias para revisar os detalhes da implantação.
 
 ## <a name="modify-a-deployment"></a>Modificar uma implantação
 
 Quando você modifica uma implantação, as alterações são replicadas imediatamente para todos os dispositivos direcionados. 
 
 Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
+
 * Caso um dispositivo não tenha atendido à condição de destino antiga, mas atenda à nova condição de destino e essa implantação tiver a prioridade mais alta para o dispositivo, essa implantação será aplicada ao dispositivo. 
 * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino, ele desinstalará essa implantação e usará a próxima implantação com a prioridade mais alta. 
 * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino e não atenda à condição de destino de todas as outras implantações, nenhuma alteração ocorrerá no dispositivo. O dispositivo continua executando seus módulos atuais em seu estado atual, mas não é mais gerenciado como parte dessa implantação. Depois que ele atende à condição de destino de qualquer outra implantação, ele desinstala essa implantação e usa a nova. 
@@ -153,9 +194,10 @@ Para modificar uma implantação, use as seguintes etapas:
 
 1. Selecione a implantação que deseja modificar. 
 1. Faça atualizações nos seguintes campos: 
-   * Condição de destino 
-   * Rótulos 
-   * Prioridade 
+   * Condição de destino
+   * Métricas – você pode modificar ou excluir as métricas que definiu ou adicionar novas métricas.
+   * Rótulos
+   * Prioridade
 1. Clique em **Salvar**.
 1. Siga as etapas em [monitorar uma implantação](#monitor-a-deployment) para observar as alterações a distribuir. 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850995"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456224"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para ADE (Azure Disk Encryption) para outra região do Azure
 
@@ -24,6 +24,7 @@ Este artigo descreve como habilitar a replicação de VMs habilitadas para ADE (
 >
 
 ## <a name="required-user-permissions"></a>Permissões de usuário exigidas
+O Azure Site Recovery exige que o usuário tenha permissão para criar o cofre de chaves nas regiões de destino e para copiar as chaves para a região.
 
 O usuário deve ter as seguintes permissões para habilitar a replicação de VMs de ADE no portal.
 - Permissões de cofre de chave
@@ -43,12 +44,22 @@ O usuário deve ter as seguintes permissões para habilitar a replicação de VM
     - Criptografar
     - Descriptografar
 
-Para gerenciar as permissões, navegue para o recurso de cofre de chaves no portal e adicione as permissões necessárias ao usuário.
+Para gerenciar as permissões, navegue para o recurso de cofre de chaves no portal e adicione as permissões necessárias ao usuário. Por exemplo: o guia passo a passo abaixo mostra como habilitá-la para o cofre de chaves "ContosoWeb2Keyvault", que está na região de origem.
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  Navegue até "Página Inicial > Cofres de chaves > ContosoWeb2KeyVault > Políticas de acesso"
+
+![Permissões de cofre de chaves](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- Não há nenhuma permissão de usuário, portanto, adicione a permissão mencionada acima clicando em "Adicionar novo" e o usuário e as permissões
+
+![Permissões de cofre de chaves](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 Se o usuário que estiver habilitando a recuperação de desastre (DR) não tiver as permissões necessárias para copiar as chaves, o script abaixo poderá ser fornecido ao administrador de segurança com as permissões apropriadas para copiar os segredos e as chaves de criptografia para a região de destino.
 
+Veja [este artigo](#trusted-root-certificates-error-code-151066) para ver a solução de problemas de permissão.
 >[!NOTE]
 >Para habilitar a replicação de VMs de ADE do portal, você precisa, pelo menos, de permissões de "Lista" nas chaves, segredos e cofres de chaves
 >
@@ -73,27 +84,27 @@ Este procedimento pressupõe que a região do Azure primária seja Leste da Ási
 
 1. No cofre, clique em **+Replicar**.
 2. Observe os seguintes campos:
-    - **Fonte**: o ponto de origem das VMs que, neste caso, é o **Azure**.
-    - **Local de origem**: a região do Azure na qual você deseja proteger as máquinas virtuais. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
-    - **Modelo de implantação**: o modelo de implantação do Azure para os computadores de origem.
-    - **Assinatura do Azure**: a assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
-    - **Grupo de recursos**: o grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.
+    - **Fonte**: O ponto de origem das VMs que, neste caso, é o **Azure**.
+    - **Local de origem**: A região do Azure na qual você deseja proteger as máquinas virtuais. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
+    - **Modelo de implantação**: O modelo de implantação do Azure para os computadores de origem.
+    - **Assinatura do Azure**: A assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
+    - **Grupo de Recursos**: O grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.
 
 3. Em **Máquinas Virtuais > Escolher máquinas virtuais**, clique e escolha cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
 4. Em **Configurações**, você também pode definir configurações do site de destino:
 
-    - **Local de Destino**: o local no qual seus dados de máquina virtual de origem serão replicados. Dependendo de seu local de máquinas selecionadas, a recuperação de Site fornece a lista de regiões de destino adequado. É recomendável que você mantenha o local de destino o mesmo do local do cofre dos Serviços de Recuperação.
-    - **Assinatura de destino**: a assinatura de destino usada na recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem.
-    - **Grupo de recursos de destino**: o grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas. Por padrão, o Azure Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". Caso o grupo de recursos criado pelo Azure Site Recovery já exista, ele é reutilizado. Você também poderá escolher personalizá-lo conforme mostrado na seção abaixo. O local do grupo de recursos pode ser qualquer região do Azure exceto a região em que as máquinas virtuais de origem estão hospedadas.
+    - **Local de Destino**: O local no qual seus dados de máquina virtual de origem serão replicados. Dependendo de seu local de máquinas selecionadas, a recuperação de Site fornece a lista de regiões de destino adequado. É recomendável que você mantenha o local de destino o mesmo do local do cofre dos Serviços de Recuperação.
+    - **Assinatura de destino**: A assinatura de destino usada na recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem.
+    - **Grupo de recursos de destino**: O grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas. Por padrão, o Azure Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". Caso o grupo de recursos criado pelo Azure Site Recovery já exista, ele é reutilizado. Você também poderá escolher personalizá-lo conforme mostrado na seção abaixo. O local do grupo de recursos pode ser qualquer região do Azure exceto a região em que as máquinas virtuais de origem estão hospedadas.
     - **Rede virtual de destino**: Por padrão, o Site Recovery cria uma nova rede virtual na região de destino com o sufixo "asr". Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
-    - **Contas de armazenamento de destino** (se a VM de origem não usa discos gerenciados): por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando suas configurações de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
-    - **Discos gerenciados de réplica** (se a VM de origem usar discos gerenciados): o Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerenciado da VM de origem.
-    - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento adicional, chamada de armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
+    - **Contas de armazenamento de destino** (se a VM de origem não usa discos gerenciados): Por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando suas configurações de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
+    - **Discos gerenciados de réplica** (se a VM de origem usar discos gerenciados): O Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerenciado da VM de origem.
+    - **Contas de armazenamento em cache**: O Site Recovery precisa de uma conta de armazenamento adicional, chamada de armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
     - **Conjunto de disponibilidade**: por padrão, o Azure Site Recovery cria uma nova configuração de disponibilidade na região de destino com o sufixo "asr". Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.
     - **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", baseado nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
     - **Cofres de chaves de criptografia de chave**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
-    - **Política de replicação**: define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
+    - **Política de replicação**: Define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
 
 
 
@@ -124,12 +135,26 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
 
 ## <a name="update-target-vm-encryption-settings"></a>Atualizar configurações de criptografia da VM de destino
 Nos cenários abaixo, você será solicitado a atualizar as configurações de criptografia da VM de destino.
-  - Você habilitou a replicação da recuperação de site na VM e ativou a ADE (Azure Disk Encryption) na VM de origem em uma data posterior
-  - Você habilitou a replicação da recuperação de site na VM e alterou a chave de criptografia de disco e/ou a chave de criptografia de chaves na VM de origem em uma data posterior
+  - Você habilitou a replicação do Site Recovery na VM e habilitou o ADE (Azure Disk Encryption) na VM de origem em uma data posterior
+  - Você habilitou a replicação do Site Recovery na VM e alterou a chave de criptografia de disco e/ou a chave de criptografia de chaves na VM de origem em uma data posterior
 
 Você pode usar [o script](#copy-ade-keys-to-dr-region-using-powershell-script) para copiar as chaves de criptografia para a região de destino e atualizar as configurações de criptografia de destino em **Cofre dos serviços de recuperação -> item replicado -> Propriedades -> Computação e Rede.**
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Solucionar problemas de permissões de cofre de chaves durante a replicação de VM do Azure para o Azure
+
+**Causa 1:** Talvez você tenha selecionado um cofre de chaves já criado da região de destino que não tem as permissões necessárias.
+Você pode estar selecionando um cofre de chaves já criado na região de destino em vez de permitir a criação pelo Azure Site Recovery. Verifique se o cofre de chaves tem as permissões necessárias, conforme mencionado acima.</br>
+*Por exemplo*: Um usuário tenta replicar uma VM que tem um cofre de chaves na região de origem, o "ContososourceKeyvault".
+O usuário tem todas as permissões sobre o cofre de chaves da região de origem, mas durante a proteção, ele seleciona um cofre de chaves já criado, "ContosotargetKeyvault", para o qual ele não tem permissão. Então, a proteção gera um erro.</br>
+**Como corrigir:** Vá para "Página Inicial > Cofres de chaves > ContososourceKeyvault > Políticas de acesso" e adicione as permissões conforme mostrado acima. 
+
+**Causa 2:** Talvez você tenha selecionado um cofre de chaves já criado da região de destino que não tem as permissões de descriptografar-criptografar.
+Você pode estar selecionando um cofre de chaves já criado na região de destino em vez de permitir a criação pelo Azure Site Recovery. Verifique se o usuário tem as permissões de descriptografar-criptografar caso você também esteja criptografando a chave na região de origem.</br>
+*Por exemplo*: Um usuário tenta replicar uma VM que tem um cofre de chaves na região de origem, o "ContososourceKeyvault".
+O usuário tem todas as permissões sobre o cofre de chaves da região de origem, mas durante a proteção, ele seleciona um cofre de chaves já criado, "ContosotargetKeyvault", para o qual ele não tem permissão para descriptografar e criptografar.</br>
+**Como corrigir:** Vá para "Página Inicial > Cofres de chaves > ContososourceKeyvault > Políticas de acesso" e adicione as permissões em Permissões de chave > Operações criptográficas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

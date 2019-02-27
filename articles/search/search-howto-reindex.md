@@ -6,21 +6,21 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745084"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341633"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como recompilar um índice do Azure Search
 
 Este artigo explica como recriar um índice de Azure Search, as circunstâncias sob as quais as recompilações são necessárias e recomendações para atenuar o impacto de recompilações em solicitações de consulta em andamento.
 
-Um *recompilar* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices invertidos com base no campo. No Azure Search, você não pode remover e recriar campos específicos. Para recompilar um índice, todo o armazenamento de campo deve ser excluído, recriado com base em um esquema de índice existente ou revisado e, em seguida, novamente preenchido com os dados enviados por push para o índice ou extraídos de fontes externas. É comum recriar índices durante o desenvolvimento, mas você também precisará recriar um índice de nível de produção para acomodar alterações estruturais, como a adição de tipos complexos.
+Um *recompilar* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices invertidos com base no campo. No Azure Search, não é possível remover nem recriar campos individuais. Para recompilar um índice, todo o armazenamento de campo deve ser excluído, recriado com base em um esquema de índice existente ou revisado e, em seguida, novamente preenchido com os dados enviados por push para o índice ou extraídos de fontes externas. É comum recompilar índices durante o desenvolvimento, mas você também precisará recompilar um índice de nível de produção para acomodar alterações estruturais, como a adição de tipos complexos ou de campos a sugestores.
 
 Em contraste com as recompilações que recebem um índice offline, a *atualização de dados* é executada como uma tarefa em segundo plano. Você pode adicionar, remover e substituir documentos com interrupção mínima para cargas de trabalho de consulta, embora as consultas normalmente demoram mais tempo para serem concluídas. Para obter mais informações sobre como atualizar o conteúdo do índice, consulte [Adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -28,21 +28,24 @@ Em contraste com as recompilações que recebem um índice offline, a *atualiza�
 
 | Condição | DESCRIÇÃO |
 |-----------|-------------|
-| Alterando uma definição de campo | A revisão de um nome, tipo de dados ou [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) específicos (pesquisável, filtrável, classificável, com faceta) exige uma recompilação completa. |
-| Excluindo um campo | Para remover fisicamente todos os rastreamentos de um campo, você precisa recriar o índice. Quando uma recompilação imediata não é prática, a maioria dos desenvolvedores modifica o código do aplicativo para desabilitar o acesso ao campo "excluído". Fisicamente, a definição e o conteúdo do campo permanecem no índice até a próxima recompilação, usando um esquema que omite o campo em questão. |
-| Alterando camadas | Se você precisar de mais capacidade, não há nenhuma atualização in-loco. Um novo serviço será criado no novo ponto de capacidade e os índices precisarão ser compilados desde o início no novo serviço. |
+| Alterar uma definição de campo | A revisão de um nome de campo, de um tipo de dados ou de [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) específicos (pesquisáveis, filtráveis, classificáveis, com faceta) exige uma recompilação completa. |
+| Atribuir um analisador a um campo | Os [analisadores](search-analyzers.md) são definidos em um índice e, em seguida, são atribuídos aos campos. É possível adicionar uma nova definição de analisador a um índice a qualquer momento, mas só é possível *atribuir* um analisador quando o campo é criado. Isso é verdadeiro para as propriedades **analyzer** e **indexAnalyzer**. A propriedade **searchAnalyzer** é uma exceção (é possível atribuir essa propriedade a um campo existente). |
+| Atualizar ou excluir uma definição de analisador em um índice | Não é possível excluir nem alterar uma configuração de analisador existente (analisador, gerador de token, filtro de token ou filtro de caracteres) no índice, a menos que você recompile todo o índice. |
+| Adicionar um campo a um sugestor | Se um campo já existir e você desejar adicioná-lo a um constructo [Sugestores](index-add-suggesters.md), será necessário recompilar o índice. |
+| Excluir um campo | Para remover fisicamente todos os rastreamentos de um campo, você precisa recriar o índice. Quando uma recompilação imediata não é prática, é possível modificar o código do aplicativo para desabilitar o acesso ao campo "excluído". Fisicamente, a definição e o conteúdo do campo permanecem no índice até a próxima recompilação, quando você aplica um esquema que omite o campo em questão. |
+| Alternar camadas | Se você precisar de mais capacidade, não há nenhuma atualização in-loco. Um novo serviço será criado no novo ponto de capacidade e os índices precisarão ser compilados desde o início no novo serviço. |
 
-Quaisquer outras modificações podem ser feitas sem afetar as estruturas físicas existentes. Especificamente, as alterações a seguir *não* indicam uma recompilação de índice:
+Quaisquer outras modificações podem ser feitas sem afetar as estruturas físicas existentes. Especificamente, as alterações a seguir *não* exigem uma recompilação de índice:
 
 + Adicionar um novo campo
 + Definir o atributo **recuperável** em um campo existente
-+ Definir um analisador em um campo existente
++ Definir **searchAnalyzer** em um campo existente
++ Adicionar uma nova definição de analisador em um índice
 + Adicionar, atualizar ou excluir perfis de pontuação
 + Adicionar, atualizar ou excluir configurações de CORS
-+ Adicionar, atualizar ou excluir sugestores
 + Adicionar, atualizar ou excluir synonymMaps
 
-Quando você adiciona um novo campo, os documentos indexados existentes recebem um valor nulo para o novo campo. Em uma futura atualização de dados, os valores da fonte de dados externa substituirão os nulos adicionados pelo Azure Search.
+Quando você adiciona um novo campo, os documentos indexados existentes recebem um valor nulo para o novo campo. Em uma futura atualização de dados, os valores da fonte de dados externa substituirão os nulos adicionados pelo Azure Search. Para obter mais informações sobre como atualizar o conteúdo do índice, consulte [Adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Indexação parcial ou incremental
 
@@ -62,23 +65,30 @@ Para obter mais informações sobre indexadores, confira a [Visão geral do inde
 
 Planeje recompilações completas frequentes durante o desenvolvimento ativo, quando o esquema de índice está no estado de fluxo. Para aplicativos já em produção, é recomendável criar um novo índice que é executado lado a lado de um índice existente para evitar a inatividade de consulta.
 
-Se você tiver rigorosos requisitos de SLA, você pode considerar o provisionamento de um novo serviço especificamente para esse trabalho, com o desenvolvimento e indexação ocorrendo em isolamento completo de um índice de produção. Um serviço separado é executado em seu próprio hardware, eliminando qualquer possibilidade de contenção de recursos. Quando o desenvolvimento for concluído, você pode deixar o novo índice em vigor, redirecionar consultas para o novo ponto de extremidade e o índice, ou você executa o código concluído para publicar um índice revisado em seu serviço de Azure Search original. Atualmente, não há nenhum mecanismo para mover um índice pronto para uso para outro serviço.
+Permissões de leitura/gravação no nível de serviço são necessárias para atualizações de índice. 
 
-Permissões de leitura/gravação no nível de serviço são necessárias para atualizações de índice. Programaticamente, você pode chamar a [API REST do índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) ou as APIs do .NET para uma recompilação completa. A solicitação é idêntica a [Criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index), mas tem um contexto diferente.
+Não é possível recompilar um índice no portal. Programaticamente, é possível chamar a [API REST Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) ou as [APIs equivalentes do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) para obter uma recompilação completa. Uma solicitação de atualização de índice é idêntica à [API REST Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index), mas tem um contexto diferente.
 
-1. Se você estiver reutilizando o nome do índice [descarte o índice existente](https://docs.microsoft.com/rest/api/searchservice/delete-index). Todas as consultas que direcionam esse índice são descartadas imediatamente. Excluir um índice é irreversível, destruindo o armazenamento físico para a coleção de campos e outros constructos. Certifique-se de que você tem certeza sobre as implicações de excluir um índice antes de descartá-lo. 
+O fluxo de trabalho a seguir é tendencioso em relação à API REST, mas aplica-se igualmente ao SDK do .NET.
 
-2. Forneça um esquema de índice com as definições de campo alterado ou modificado. Os requisitos de esquema estão documentados em [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+1. Ao reutilizar um nome de índice, [remova o índice existente](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
 
-3. Forneça uma [chave de administração](https://docs.microsoft.com/azure/search/search-security-api-keys) na solicitação.
+   Todas as consultas que direcionam esse índice são descartadas imediatamente. Excluir um índice é irreversível, destruindo o armazenamento físico para a coleção de campos e outros constructos. Certifique-se de que você tem certeza sobre as implicações de excluir um índice antes de descartá-lo. 
 
-4. Envie um comando [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para recompilar a expressão física do índice no Azure Search. O corpo da solicitação contém o esquema de índice, bem como os constructos para as opções de CORS, analisadores, sugestores e perfis de pontuação.
+2. Formule uma solicitação [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) com o ponto de extremidade de serviço, chave de API e uma [chave de administrador](https://docs.microsoft.com/azure/search/search-security-api-keys). Uma chave de administrador é necessária para operações de gravação.
 
-5. [Carregue o índice com documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de uma fonte externa. Você também pode usar essa API se estiver atualizando um esquema de índice existente e inalterado com documentos atualizados.
+3. No corpo da solicitação, forneça um esquema de índice com as definições de campo alteradas ou modificadas. O corpo da solicitação contém o esquema de índice, bem como os constructos para as opções de CORS, analisadores, sugestores e perfis de pontuação. Os requisitos de esquema estão documentados em [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-Quando você cria o índice, o armazenamento físico é alocado para cada campo no esquema de índice, com um índice invertido criado para cada campo pesquisável. Os campos que não são pesquisáveis podem ser usados em filtros ou expressões, mas não têm índices invertidos e não são pesquisáveis de texto completo. Em uma recompilação de índice, esses índices invertidos são excluídos e recriados com base no esquema de índice que você fornecer.
+4. Envie uma solicitação [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para recompilar a expressão física do índice no Azure Search. 
+
+5. [Carregue o índice com documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de uma fonte externa.
+
+Quando você cria o índice, o armazenamento físico é alocado para cada campo no esquema de índice, com um índice invertido criado para cada campo pesquisável. Os campos não pesquisáveis podem ser usados em filtros ou expressões, mas não têm índices invertidos e não são pesquisáveis de texto completo ou de difuso. Em uma recompilação de índice, esses índices invertidos são excluídos e recriados com base no esquema de índice que você fornecer.
 
 Quando você carrega o índice, o índice invertido de cada campo é preenchido com todas as palavras exclusivas, indexadas de cada documento, com um mapa das IDs do documento correspondentes. Por exemplo, durante a indexação de um conjunto de dados de hotéis, um índice invertido criado para um campo de cidade pode conter os termos para Seattle, Portland e assim por diante. Documentos que incluem Seattle ou Portland no campo Cidade teriam sua ID de documento listada juntamente com o termo. Em qualquer operação [Adicionar, atualizar ou excluir](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), os termos e a lista de IDs de documento são atualizadas de acordo.
+
+> [!NOTE]
+> Se você tiver rigorosos requisitos de SLA, você pode considerar o provisionamento de um novo serviço especificamente para esse trabalho, com o desenvolvimento e indexação ocorrendo em isolamento completo de um índice de produção. Um serviço separado é executado em seu próprio hardware, eliminando qualquer possibilidade de contenção de recursos. Quando o desenvolvimento for concluído, você pode deixar o novo índice em vigor, redirecionar consultas para o novo ponto de extremidade e o índice, ou você executa o código concluído para publicar um índice revisado em seu serviço de Azure Search original. Atualmente, não há nenhum mecanismo para mover um índice pronto para uso para outro serviço.
 
 ## <a name="view-updates"></a>Exibir atualizações
 

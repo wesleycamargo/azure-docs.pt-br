@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56212919"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333941"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Design para Alto Desempenho
+# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
 Este artigo fornece diretrizes para a criação de aplicativos de alto desempenho usando o Armazenamento Premium do Azure. Você pode usar as instruções fornecidas neste documento combinadas com as práticas recomendadas de desempenho aplicáveis às tecnologias usadas pelo aplicativo. Para ilustrar as diretrizes, usamos o SQL Server em execução no Armazenamento Premium como exemplo em todo este documento.
 
@@ -35,7 +35,7 @@ Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as
 > Às vezes, o que parece ser um problema de desempenho de disco é, na verdade, um gargalo de rede. Nessas situações, você deve otimizar seu [desempenho de rede](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Se sua VM oferecer suporte a rede acelerada, verifique se ela está ativada. Se não estiver ativado, você poderá ativá-lo em VMs já implementadas nos [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Antes de começar, se nunca tiver usado o Armazenamento Premium, leia primeiro o [ Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho da máquina virtual do Azure](../articles/virtual-machines/windows/premium-storage.md) e [Metas de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../articles/storage/common/storage-scalability-targets.md).
+Antes de começar, se você não estiver familiarizado com o Armazenamento Premium, primeiramente leia os artigos [Select an Azure disk type for IaaS VMs](../articles/virtual-machines/windows/disks-types.md) (Selecionar um tipo de disco do Azure para VMs IaaS) e [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) (Metas de desempenho e de escalabilidade do Armazenamento do Azure).
 
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 
@@ -45,45 +45,37 @@ Nesta seção, discutiremos os indicadores comuns de desempenho no contexto do A
 
 ## <a name="iops"></a>IOPS
 
-O IOPS é o número de solicitações que seu aplicativo está enviando para os discos de armazenamento em um segundo. Uma operação de entrada/saída pode ser de leitura ou gravação, sequencial ou aleatória. Os aplicativos OLTP, como um site varejista online, precisam processar muitas solicitações simultâneas de usuários instantaneamente. As solicitações do usuário são transações de banco de dados com inserções e atualizações intensas, que o aplicativo deve processar rapidamente. Desse modo, os aplicativos OLTP exigem IOPS bastante alta. Tais aplicativos tratam milhões de solicitações de E/S aleatórias e pequenas. Se você tiver um aplicativo desse tipo, será preciso projetar a infraestrutura do aplicativo para otimização de IOPS. Na seção posterior, *Otimizando o desempenho do aplicativo*, vamos abordar em detalhes os fatores que devem ser considerados para obter IOPS alta.
+O IOPS ou Operações de Entrada/Saída por Segundo é o número de solicitações que seu aplicativo está enviando para os discos de armazenamento em um segundo. Uma operação de entrada/saída pode ser de leitura ou gravação, sequencial ou aleatória. Os aplicativos OLTP (Processamento de Transações Online), como um site varejista online, precisam processar muitas solicitações simultâneas de usuários instantaneamente. As solicitações do usuário são transações de banco de dados com inserções e atualizações intensas, que o aplicativo deve processar rapidamente. Desse modo, os aplicativos OLTP exigem IOPS bastante alta. Tais aplicativos tratam milhões de solicitações de E/S aleatórias e pequenas. Se você tiver um aplicativo desse tipo, será preciso projetar a infraestrutura do aplicativo para otimização de IOPS. Na seção posterior, *Otimizando o desempenho do aplicativo*, vamos abordar em detalhes os fatores que devem ser considerados para obter IOPS alta.
 
 Quando você anexa um disco do armazenamento premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de alta escala também tem um limite específico de IOPS que ela pode manter. Por exemplo, uma VM GS5 Padrão tem um limite de 80.000 IOPS.
 
 ## <a name="throughput"></a>Produtividade
 
-A Taxa de Transferência ou Largura de Banda é o volume de dados que o aplicativo está enviando aos discos de armazenamento em um intervalo especificado. Se o aplicativo estiver executando operações de entrada/saída com tamanhos grandes de unidade de E/S, ele exigirá Taxa de Transferência alta. Os aplicativos de data warehouse tendem a emitir operações de alta verificação que acessam grandes partes de dados por vez e geralmente executam operações em massa. Em outras palavras, tais aplicativos exigem Taxa de Transferência mais alta. Caso você tenha um aplicativo desse tipo, será preciso projetar sua infraestrutura para otimização da Taxa de Transferência. Na próxima seção, abordaremos em detalhes os fatores que você deve ajustar para conseguir isso.
+A taxa de transferência ou largura de banda é o volume de dados que o aplicativo está enviando aos discos de armazenamento em um intervalo especificado. Se o aplicativo estiver executando operações de entrada/saída com tamanhos grandes de unidade de E/S, ele exigirá uma taxa de transferência alta. Os aplicativos de data warehouse tendem a emitir operações de alta verificação que acessam grandes partes de dados por vez e geralmente executam operações em massa. Em outras palavras, esses aplicativos exigem uma taxa de transferência mais alta. Caso você tenha um aplicativo desse tipo, será preciso projetar sua infraestrutura para otimização da taxa de transferência. Na próxima seção, abordaremos em detalhes os fatores que você deve ajustar para conseguir isso.
 
-Quando você anexa um disco do armazenamento premium a uma VM de alta escala, o Azure provisiona Taxa de Transferência de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona Taxa de Transferência de disco de 250 MB por segundo. Cada tamanho de VM de alta escala também tem um limite específico de Taxa de Transferência que ela pode manter. Por exemplo, a VM GS5 padrão tem uma Taxa de Transferência máxima de 2.000 MB por segundo. 
+Quando você anexa um disco do armazenamento Premium a uma VM de alta escala, o Azure provisiona a taxa de transferência de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona taxas de transferência de disco de 250 MB por segundo. Cada tamanho de VM de alta escala também tem um limite específico de taxa de transferência que ela pode manter. Por exemplo, a VM GS5 padrão tem uma Taxa de Transferência máxima de 2.000 MB por segundo.
 
-Há uma relação entre a Taxa de Transferência e a IOPS, como mostrado na fórmula abaixo.
+Há uma relação entre a taxa de transferência e a IOPS, como mostrado na fórmula abaixo.
 
-![](media/premium-storage-performance/image1.png)
+![Relação de IOPS e taxa de transferência](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-Portanto, é importante determinar os valores ideais de Taxa de Transferência e IOPS que o aplicativo exige. Ao tentar otimizar um deles, o outro também é afetado. Em uma seção mais adiante, *Otimizando o desempenho do aplicativo*, abordaremos em mais detalhes como otimizar a IOPS e Taxa de Transferência.
+Portanto, é importante determinar os valores ideais de taxa de transferência e de IOPS que o aplicativo exige. Ao tentar otimizar um deles, o outro também é afetado. Em uma seção mais adiante, *Otimizando o desempenho do aplicativo*, abordaremos em mais detalhes como otimizar a IOPS e Taxa de Transferência.
 
 ## <a name="latency"></a>Latency
 
 A Latência é o tempo que leva para um aplicativo receber uma única solicitação, enviá-la aos discos de armazenamento e enviar a resposta ao cliente. Essa é uma medida essencial do desempenho de um aplicativo, além de IOPS e da Taxa de Transferência. A Latência de um disco do Armazenamento Premium é o tempo que se leva para recuperar informações de uma solicitação e comunicá-la de volta ao aplicativo. O Armazenamento Premium fornece baixas latências consistentes. Discos Premium são projetados para fornecer latências de dígito único em milissegundos para a maioria das operações de E/S. Ao habilitar o cache do host ReadOnly nos discos do Armazenamento Premium, você obtém latência de leitura mais baixa. Abordaremos o Cache de Disco em mais detalhes na seção *Otimizando o desempenho do aplicativo*.
 
-Quando você otimiza o aplicativo para obter IOPS e Taxa de Transferência mais altas, a Latência do aplicativo também é afetada. Depois de ajustar o desempenho do aplicativo, sempre avalie a latência do aplicativo para evitar comportamento inesperado de alta latência.
+Quando você otimizar o aplicativo para obter IOPS e taxa de transferência mais altas, a latência do aplicativo também será afetada. Após ajustar o desempenho do aplicativo, sempre avalie a latência dele pare evitar comportamento inesperado de alta latência.
 
-Essas operações de plano de controle em discos gerenciados podem envolver a movimentação do disco de um local de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que pode levar várias horas para ser concluída, geralmente menor que 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo seu aplicativo pode apresentar latência de leitura maior do que o normal uma vez que as leituras podem ser redirecionadas para o local original e podem demorar para serem concluídas. Não há nenhum impacto na latência de gravação durante esse período.  
+# <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicativo de desempenho para discos
 
-1.  [Atualizar a Chave de Armazenamento](../articles/virtual-machines/windows/convert-disk-storage.md)
-2.  [Desanexar e anexar um disco de uma VM para outra](../articles/virtual-machines/windows/attach-disk-ps.md)
-3.  [Criar um disco gerenciado com base em um VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
-4.  [Criar um disco gerenciado com base em uma cópia instantânea](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.  [Converter uma VM de discos não gerenciados em discos gerenciados](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+A primeira etapa na criação de aplicativos de alto desempenho executados no Armazenamento Premium do Azure é entender os requisitos de desempenho do aplicativo. Depois de entender os requisitos de desempenho, será possível otimizar o aplicativo para obter o desempenho ideal.
 
-## <a name="gather-application-performance-requirements"></a>Entender os requisitos de desempenho do aplicativo
-
-A primeira etapa na criação de aplicativos de alto desempenho a serem executados no Armazenamento Premium do Azure é entender os requisitos de desempenho do aplicativo. Depois de entender os requisitos de desempenho, você pode otimizar o aplicativo para obter o desempenho ideal.
-
-Na seção anterior, explicamos os indicadores comuns de desempenho: IOPS, Taxa de Transferência e Latência. Você deve identificar quais desses indicadores de desempenho são essenciais para o aplicativo proporcionar a experiência desejada ao usuário. Por exemplo, a IOPS alta é mais importante para aplicativos OLTP que processam milhões de transações em um segundo. Já a Taxa de Transferência alta é essencial para aplicativos de data warehouse que processam grandes volumes de dados em um segundo. A Latência extremamente baixa é essencial para aplicativos em tempo real, como sites de streaming de vídeo ao vivo.
+Na seção anterior, explicamos os indicadores comuns de desempenho: IOPS, taxa de transferência e latência. Você deve identificar quais desses indicadores de desempenho são essenciais para o aplicativo proporcionar a experiência desejada ao usuário. Por exemplo, a IOPS alta é mais importante para aplicativos OLTP que processam milhões de transações em um segundo. Já a Taxa de Transferência alta é essencial para aplicativos de data warehouse que processam grandes volumes de dados em um segundo. A Latência extremamente baixa é essencial para aplicativos em tempo real, como sites de streaming de vídeo ao vivo.
 
 Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante todo o seu ciclo de vida. Use a lista de verificação de exemplo como ponto de partida. Registre os requisitos de desempenho máximo durante os períodos de carga de trabalho normais, de pico e fora do horário de expediente. Ao identificar os requisitos para todos os níveis de cargas de trabalho, você poderá determinar o requisito de desempenho geral do aplicativo. Por exemplo, a carga de trabalho normal de um site de comércio eletrônico serão as transações feitas durante a maioria dos dias em um ano. A carga de trabalho de pico do site será composta das transações atendidas no fim do ano ou em datas especiais. A carga de trabalho de pico geralmente ocorre por um tempo limitado, mas pode exigir que o aplicativo seja dimensionado para duas ou três vezes de sua operação normal. Descubra os requisitos de percentil 50, percentil 90 e percentil 99. Isso ajuda a filtrar as exceções nos requisitos de desempenho e você pode concentrar seus esforços na otimização dos valores certos.
 
-### <a name="application-performance-requirements-checklist"></a>Lista de verificação dos requisitos de desempenho do aplicativo
+## <a name="application-performance-requirements-checklist"></a>Lista de verificação dos requisitos de desempenho do aplicativo
 
 | **Requisitos de desempenho** | **Percentil 50** | **Percentil 90** | **Percentil 99** |
 | --- | --- | --- | --- |
@@ -106,9 +98,7 @@ Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante tod
 > [!NOTE]
 >  você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho posteriormente.
 
-Se você já tiver um aplicativo e deseja passar para o Armazenamento Premium, antes de qualquer coisa, crie a lista de verificação acima para o aplicativo. Em seguida, crie um protótipo do aplicativo no Armazenamento Premium e projete o aplicativo com base nas diretrizes descritas em *Otimizando o desempenho do aplicativo* em uma seção posterior deste documento. A próxima seção descreve as ferramentas que você pode usar para entender as medições de desempenho.
-
-Crie uma lista de verificação semelhante para o aplicativo existente do protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Consulte a seção [Parâmetros de comparação](#benchmarking) para saber mais. Com isso, você pode determinar se o Armazenamento Premium pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.
+Se você já tiver um aplicativo e deseja passar para o Armazenamento Premium, antes de qualquer coisa, crie a lista de verificação acima para o aplicativo. Em seguida, crie um protótipo do aplicativo no Armazenamento Premium e projete o aplicativo com base nas diretrizes descritas em *Otimizando o desempenho do aplicativo* em uma seção posterior deste documento. O próximo artigo descreve as ferramentas podem ser usadas para entender as medições de desempenho.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Contadores para avaliar requisitos de desempenho do aplicativo
 
@@ -129,13 +119,15 @@ Os contadores do PerfMon estão disponíveis para processador, memória e cada d
 
 Saiba mais sobre o [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
-## <a name="optimizing-application-performance"></a>Otimizando o desempenho do aplicativo
+
+
+## <a name="optimize-application-performance"></a>Otimizar o desempenho do aplicativo
 
 Os principais fatores que influenciam o desempenho de um aplicativo em execução no Armazenamento Premium são nativos das solicitações de E/S, do tamanho da VM, do tamanho do disco, do número de discos, do cache do disco, do multithreading e da profundidade da fila. Você pode controlar alguns desses fatores com botões fornecidos pelo sistema. A maioria dos aplicativos talvez não apresente uma opção para alterar o tamanho de E/S e a profundidade da fila diretamente. Por exemplo, se você estiver usando o SQL Server, não será possível escolher a profundidade de fila e o tamanho de E/S. O SQL Server escolhe os valores ideais do tamanho de E/S e da profundidade da fila para obter o melhor desempenho. É importante compreender os efeitos de ambos os tipos de fator no desempenho do aplicativo para que você possa provisionar recursos apropriados que atendam às necessidades de desempenho.
 
 Ao longo desta seção, consulte a lista de verificação de requisitos de aplicativo que você criou para identificar quanto você precisa para otimizar o desempenho do aplicativo. Com base nisso, você poderá determinar quais fatores dessa seção será preciso ajustar. Para ver os efeitos de cada fator no desempenho do aplicativo, execute os parâmetros de comparação na configuração do aplicativo. Consulte a seção [Parâmetros de comparação](#Benchmarking) no fim deste artigo para ver as etapas para executar ferramentas comuns de comparação em VMs do Windows e do Linux.
 
-### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Otimizando a IOPS, a Taxa de Transferência e a latência em segundos
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Otimizar a IOPS, a taxa de transferência e a latência em segundos
 
 A tabela abaixo resume os fatores de desempenho e as etapas necessárias para otimizar a IOPS, taxa de transferência e latência. As seções a seguir deste resumo descreverão cada fator mais detalhadamente.
 
@@ -229,7 +221,7 @@ Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho 
 
 Ao executar Linux com Armazenamento Premium, verifique as últimas atualizações dos drivers necessários para garantir alto desempenho.
 
-## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco do Armazenamento Premium
+## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco do armazenamento Premium
 
 O Armazenamento Premium do Azure oferece oito tamanhos de disco de GA e três tamanhos de disco que estão em visualização, no momento. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os onze tamanhos de disco e seus recursos. Atualmente, os tamanhos de disco 4, P6, P15, P60, P70, e P80 têm suporte apenas para o Managed Disks.
 
@@ -275,7 +267,7 @@ Para saber mais sobre como o BlobCache funciona, consulte a postagem do blog int
 
 Veja a seguir as configurações recomendadas de cache de disco para discos de dados:
 
-| **Configuração do cache de disco** | **Recomendação sobre quando usar essa configuração** |
+| **Configuração do cache de disco** | **recomendação sobre quando usar essa configuração** |
 | --- | --- |
 | Nenhum |Configure o cache do host como None para discos de gravação pesada e somente gravação. |
 | ReadOnly |Configure o cache do host como ReadOnly para discos de leitura/gravação e somente leitura. |
@@ -298,7 +290,47 @@ Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no 
 1. Configure o cache "None" nos discos do Armazenamento Premium que hospedam os arquivos de log.  
     a.  Os arquivos de log têm basicamente operações pesadas de gravação. Sendo assim, eles não se beneficiam do cache ReadOnly.
 
-## <a name="disk-striping"></a>Distribuição de disco
+### <a name="optimize-performance-on-linux-vms"></a>Otimizar o desempenho em VMs Linux
+
+Para todos os SSDs Premium ou Discos Ultra com cache definido como **ReadOnly** ou **nenhum**, é necessário desabilitar "barreiras" ao montar o sistema de arquivos. Você não precisa de barreiras para esse cenário, pois as gravações em discos de Armazenamento Premium são duráveis para essas configurações de cache. Quando a solicitação de gravação for concluída, os dados terão sido gravados no armazenamento persistente. Para desabilitar "barreiras", use um dos seguintes métodos. Escolha o seguinte para o sistema de arquivos:
+  
+* Para **reiserFS**, para desabilitar as barreiras, use a opção de montagem `barrier=none`. (Para habilitar as barreiras, use `barrier=flush`.)
+* Para **ext3/ext4**, para desabilitar as barreiras, use a opção de montagem `barrier=0`. (Para habilitar as barreiras, use `barrier=1`.)
+* Para **XFS**, para desabilitar as barreiras, use a opção de montagem `nobarrier`. (Para habilitar as barreiras, use `barrier`.)
+* Para discos de armazenamento premium com cache definido como **ReadWrite**, habilite as barreiras para durabilidade de gravação.
+* Para que rótulos de volume persistam depois de reiniciar a máquina virtual, você deve atualizar /etc/fstab com as referências do identificador universalmente exclusivo (UUID) nos discos. Para obter mais informações, confira [Adicionar um disco gerenciado a uma VM Linux](../articles/virtual-machines/linux/add-disk.md).
+
+As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter melhor desempenho e estabilidade com SSDs Premium, recomendamos que você atualize suas VMs para uma dessas versões ou versões posteriores. 
+
+Algumas das versões exigem um LIS (Serviços de Integração do Linux) v4.0 para Azure mais recente. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Podemos adicionar imagens à lista à medida que concluímos a validação. Nossas validações mostram que o desempenho varia para cada imagem. O desempenho depende da carga de trabalho e das configurações de imagem. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
+
+| Distribuição | Versão | Kernel com suporte | Detalhes |
+| --- | --- | --- | --- |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 obrigatório](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Confira a observação na próxima seção* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Confira a observação na próxima seção* |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+
+## <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para Openlogic CentOS
+
+Se você estiver executando VMs com o OpenLogic CentOS, execute o comando a seguir para instalar os drivers mais recentes:
+
+```
+sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum install microsoft-hyper-v
+```
+
+Para ativar os novos drivers, reinicie a VM.
+
+## <a name="disk-striping"></a>Distribuição de discos
 
 Quando uma VM de alta escala é anexada aos vários discos persistentes do Armazenamento Premium, os discos podem ser divididos em conjunto para agregar a respectiva capacidade de armazenamento, IOPS e largura de banda.
 
@@ -332,7 +364,7 @@ Por exemplo, digamos que seu aplicativo que usa SQL Server está executando uma 
 
 Saiba mais sobre [Graus de Paralelismo](https://technet.microsoft.com/library/ms188611.aspx) no SQL Server. Descubra as configurações que influenciam o multithreading em seu aplicativo e as respectivas configurações para otimizar o desempenho.
 
-## <a name="queue-depth"></a>Profundidade da Fila
+## <a name="queue-depth"></a>Profundidade da fila
 
 A Profundidade da Fila, ou Comprimento da Fila, ou Tamanho da Fila é o número de solicitações de E/S pendentes no sistema. O valor da profundidade da fila determina quantas operações de E/S o aplicativo pode alinhar, as quais os discos de armazenamento processarão. Isso afeta os três indicadores de desempenho de aplicativo que abordamos neste artigo: IOPS, Taxa de Transferência e latência.
 
@@ -363,249 +395,11 @@ Para um volume distribuído, mantenha uma profundidade de fila alta o suficiente
 
 O Armazenamento Premium do Azure provisiona um número especificado de IOPS e Taxa de Transferência, dependendo dos tamanhos da VM e do disco que você escolhe. Sempre que o aplicativo tentar impulsionar IOPS ou Taxa de Transferência acima desses limites com os quais a VM ou o disco podem lidar, o Armazenamento Premium será restrito. Isso se manifesta na forma de degradação de desempenho do aplicativo. Isso pode significar latência mais alta, Taxa de Transferência mais baixa ou IOPS mais baixa. Se o Armazenamento Premium não for restrito, o aplicativo poderá falhar completamente, excedendo o que seus recursos são capazes de alcançar. Portanto, para evitar problemas de desempenho devido à limitação, sempre provisione recursos suficientes ao aplicativo. Leve em consideração o que abordamos nas seções acima sobre tamanhos de disco e VM  Os parâmetros de comparação são a melhor maneira de entender de quais recursos você precisará para hospedar o aplicativo.
 
-## <a name="benchmarking"></a>Parâmetros de comparação
-
-Os parâmetros de comparação são o processo de simular diferentes cargas de trabalho no aplicativo e avaliar o desempenho do aplicativo para cada carga de trabalho. Usando as etapas descritas em uma seção anterior, você entendeu os requisitos de desempenho do aplicativo. Ao executar ferramentas de parâmetros de comparação nas VMs que hospedam o aplicativo, você poderá determinar os níveis de desempenho que o aplicativo pode atingir com o Armazenamento Premium. Nesta seção, forneceremos exemplos de parâmetros de comparação de uma VM DS14 padrão provisionada com discos do Armazenamento Premium do Azure.
-
-Usamos ferramentas comuns de parâmetros de comparação, Iometer e FIO, para Windows e Linux, respectivamente. Essas ferramentas geram vários threads que simulam uma carga de trabalho parecida com uma produção e avaliam o desempenho do sistema. Usando as ferramentas, você pode configurar parâmetros como tamanho do bloco e profundidade da fila, que normalmente você não pode mudar para um aplicativo. Isso proporciona mais flexibilidade para impulsionar o desempenho máximo em uma VM de alta escala provisionada com discos premium para diferentes tipos de carga de trabalho de aplicativo. Para saber mais sobre cada ferramenta de parâmetro de comparação, acesse [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
-
-Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Armazenamento Premium à VM. Dos 11 discos, configure dez discos com cache de host como "None" e distribua-os em um volume chamado NoCacheWrites. Configure o cache de host como "ReadOnly" no disco restante e crie um volume chamado CacheReads com esse disco. Usando essa configuração, você poderá ver o desempenho máximo de Leitura e Gravação de uma VM DS14 padrão. Para obter as etapas detalhadas sobre como criar uma VM DS14 com discos premium, acesse [Criar e usar uma conta de Armazenamento Premium para um disco de dados da máquina virtual](../articles/virtual-machines/windows/premium-storage.md).
-
-*Aquecendo o cache*  
- O disco com o cache de host ReadOnly poderá oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso garante que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente atinjam o cache, e não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
-
-> **Importante:**  
->  você deve aquecer o cache antes de executar os parâmetros de comparação, toda vez que a VM é reinicializada.
-
-#### <a name="iometer"></a>Iometer
-
-[Baixe a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
-
-*Arquivo de teste*  
- O Iometer usa um arquivo de teste que é armazenado no volume no qual você executará o teste de parâmetros de comparação. Ele orienta as leituras e gravações nesse arquivo de teste para avaliar a IOPS e a Taxa de Transferência do disco. O Iometer criará esse arquivo de teste caso você não tenha fornecido um. Crie um arquivo de teste de 200 GB chamado iobw.tst nos volumes CacheReads e NoCacheWrites.
-
-*Especificações de Acesso*  
-As especificações, o tamanho da E/S de solicitação, a % de leitura/gravação, a % aleatória/sequencial são configurados usando a guia "Especificações de Acesso" no Iometer. Crie uma especificação de acesso para cada um dos cenários descritos abaixo. Crie as especificações de acesso e "Salve" com um nome apropriado como – RandomWrites\_8K, RandomReads\_8K. Selecione a especificação correspondente ao executar o cenário de teste.
-
-Um exemplo de especificações de acesso para o cenário de IOPS de gravação máxima é mostrado abaixo,   
-    ![](media/premium-storage-performance/image8.png)
-
-*Especificações de teste de IOPS máxima*  
- Para demonstrar a IOPS máxima, use o tamanho de solicitação menor. Use o tamanho de solicitação de 8 K e crie especificações para gravações e leituras aleatórias.
-
-| Especificação de acesso | Tamanho da solicitação | Aleatório % | Leitura % |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8 K |100 |0 |
-| RandomReads\_8K |8 K |100 |100 |
-
-*Especificações de Teste de Taxa de Transferência Máxima*  
- Para demonstrar a Taxa de Transferência máxima, use o tamanho de solicitação maior. Use o tamanho de solicitação de 64 K e crie especificações para gravações e leituras aleatórias.
-
-| Especificação de acesso | Tamanho da solicitação | Aleatório % | Leitura % |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 K |100 |0 |
-| RandomReads\_64K |64 K |100 |100 |
-
-*Executando o Teste Iometer*  
- Execute as etapas abaixo para aquecer o cache
-
-1. Crie duas especificações de acesso com os valores mostrados abaixo:
-
-   | NOME | Tamanho da solicitação | Aleatório % | Leitura % |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1 MB |100 |0 |
-   | RandomReads\_1MB |1 MB |100 |100 |
-1. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
-
-   | Cenário | Volume de destino | NOME | Duration |
-   | --- | --- | --- | --- |
-   | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
-1. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
-
-   | Cenário | Volume de destino | NOME | Duração |
-   | --- | --- | --- | --- |
-   | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
-
-Depois de aquecer o disco do cache, prossiga com os cenários de teste listados abaixo. Para executar o teste Iometer, use pelo menos três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade da fila e selecione uma das especificações de teste salvas, conforme mostrado na tabela a seguir, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e Taxa de Transferência ao executar esses testes. Em todos os cenários são usados um tamanho pequeno de 8 KB de E/S e uma profundidade de fila alta de 128.
-
-| Cenário de teste | Volume de destino | NOME | Result |
-| --- | --- | --- | --- |
-| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
-| Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
-| Máx. IOPS combinada |CacheReads |RandomWrites\_8K |100.000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Máx. MB/s de leitura |CacheReads |RandomWrites\_64K |524 MB/s |
-| Máx. MB/s de gravação |NoCacheWrites |RandomReads\_64K |524 MB/s |
-| MB/s combinado |CacheReads |RandomWrites\_64K |1000 MB/s |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Veja abaixo as capturas de tela dos resultado do teste Iometer para cenários combinados de IOPS e Taxa de Transferência.
-
-*IOPS Máxima de Leituras e Gravações Combinadas*  
-![](media/premium-storage-performance/image9.png)
-
-*Taxa de Transferência Máxima de Leituras e Gravações Combinadas*  
-![](media/premium-storage-performance/image10.png)
-
-### <a name="fio"></a>FIO
-
-FIO é uma ferramenta popular para o armazenamento de parâmetros de comparação em VMs Linux. Ela tem a flexibilidade para selecionar diferentes tamanhos de E/S, leituras e gravações sequenciais ou aleatórias. Ela gera threads ou processos de trabalho para executar as operações de E/S especificadas. Você pode especificar o tipo de operação de E/S que cada thread de trabalho deve executar usando arquivos de trabalho. Criamos um arquivo de trabalho por cenário ilustrado nos exemplos abaixo. É possível alterar as especificações nesses arquivos de trabalho para comparar diferentes cargas de trabalho em execução no Armazenamento Premium. Nos exemplos, estamos usando uma VM DS14 padrão executando o **Ubuntu**. Use a mesma configuração descrita no início da [seção Parâmetros de comparação](#Benchmarking) e aqueça o cache antes de executar os testes de parâmetros de comparação.
-
-Antes de começar, [baixe o FIO](https://github.com/axboe/fio) e instale-o em sua máquina virtual.
-
-Execute o comando a seguir para o Ubuntu,
-
-```
-apt-get install fio
-```
-
-Usaremos quatro threads de trabalho para impulsionar operações de gravação e quatro threads de trabalho para impulsionar as operações de leitura nos discos. Os trabalhos de gravação orientarão o tráfego no volume "nocache", que tem 10 discos com o cache definido como "None". Os trabalhos de leitura orientarão o tráfego no volume "readcache", que tem um disco com o cache definido como "ReadOnly".
-
-*IOPS máxima de gravação*  
- Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de gravação. Dê o nome de "fiowrite.ini".
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-```
-
-Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Estas especificações são essenciais para impulsionar a IOPS máxima:  
-
-* Uma profundidade de fila alta de 256.  
-* Um bloco pequeno de 8 KB.  
-* Vários threads que executam gravações aleatórias.
-
-Execute o seguinte comando para iniciar o teste FIO por 30 segundos:  
-
-```
-sudo fio --runtime 30 fiowrite.ini
-```
-
-Enquanto o teste é executado, você poderá ver o número de IOPS de gravação fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo seu limite máximo de IOPS de gravação, isto é, 50.000 IOPS.  
-    ![](media/premium-storage-performance/image11.png)
-
-*IOPS máxima de leitura*  
- Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de leitura. Dê o nome de "fioread.ini".
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-```
-
-Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Estas especificações são essenciais para impulsionar a IOPS máxima:
-
-* Uma profundidade de fila alta de 256.  
-* Um bloco pequeno de 8 KB.  
-* Vários threads que executam gravações aleatórias.
-
-Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
-
-```
-sudo fio --runtime 30 fioread.ini
-```
-
-Enquanto o teste for executado, você poderá ver o número de IOPS de leitura fornecido pela VM e pelos discos premium. Conforme mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 64.000 IOPS de leitura. Essa é uma combinação do desempenho do cache e do disco.  
-    ![](media/premium-storage-performance/image12.png)
-
-*IOPS Máxima de Leitura e Gravação*  
- Crie o arquivo de trabalho com as especificações a seguir para obter a IOPS Máxima de Leitura e Gravação. Dê o nome de "fioreadwrite.ini".
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=128
-ioengine=libaio
-bs=4k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-```
-
-Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Estas especificações são essenciais para impulsionar a IOPS máxima:
-
-* Uma profundidade alta de fila de 128.  
-* Um bloco pequeno de 4 KB.  
-* Vários threads que executam leituras e gravações aleatórias.
-
-Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
-
-```
-sudo fio --runtime 30 fioreadwrite.ini
-```
-
-Enquanto o teste for executado, você poderá ver o número de IOPS de leitura e gravação combinadas fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 100.000 IOPS de leitura e gravação combinadas. Essa é uma combinação do desempenho do cache e do disco.  
-    ![](media/premium-storage-performance/image13.png)
-
-*Taxa de Transferência Máxima Combinada*  
- Para atingir a Taxa de Transferência máxima de Leitura e Gravação combinadas, use um tamanho de bloco maior e uma profundidade de fila grande com vários threads executando leituras e gravações. É possível usar um tamanho de bloco de 64 KB e uma profundidade de fila de 128.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o Armazenamento Premium do Azure:
+Saiba mais sobre os tipos de disco disponíveis:
 
-* [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Selecione um tipo de disco](../articles/virtual-machines/windows/disks-types.md)  
 
 Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de desempenho para o SQL Server:
 

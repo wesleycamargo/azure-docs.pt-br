@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f80f0870400fa7fb46b7787c6c257255a780cf3b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c3c577ce2483c5de3aa458c7fe4b6fced418f684
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244106"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882936"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Baixar itens do marketplace do Azure para o Azure Stack
 
@@ -50,20 +50,20 @@ Sua implantação do Azure Stack deve ter conectividade com a internet e ser [re
 
     Para examinar o espaço disponível, em **gerenciamento de região** selecione a região que você deseja explorar e, em seguida, vá para **provedores de recursos** > **armazenamento**.
 
-    [ ![Examine o espaço de armazenamento](media/azure-stack-download-azure-marketplace-item/storagesm.png "examine o espaço de armazenamento") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
+    [![Examine o espaço de armazenamento](media/azure-stack-download-azure-marketplace-item/storagesm.png "examine o espaço de armazenamento")](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Abra o Azure Stack Marketplace e se conectar ao Azure. Para fazer isso, selecione **gerenciamento do Marketplace**e, em seguida, selecione **Add do Azure**.
 
-    [ ![Adicionar a partir do Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "adicione do Azure") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
+    [![Adicionar a partir do Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "adicione do Azure")](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     O portal exibe a lista de itens disponíveis para download do Azure Marketplace. Você pode clicar em cada item para exibir sua descrição e informações adicionais sobre ele, incluindo o tamanho do download. 
 
-    [ ![Marketplace list](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace list") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
+    [![Marketplace list](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace list")](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Selecione o item que você deseja e, em seguida, selecione **baixar**. Tempos de download variam de acordo.
 
-    [ ![Baixar mensagem](media/azure-stack-download-azure-marketplace-item/image04.png "mensagem de Download") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
+    [![Baixar mensagem](media/azure-stack-download-azure-marketplace-item/image04.png "mensagem de Download")](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     Após a conclusão do download, você pode implantar o novo item do marketplace como um usuário ou operador do Azure Stack.
 
@@ -134,7 +134,7 @@ Há duas partes que compõem esse cenário:
 
 6. Quando a ferramenta é executada, você verá uma tela semelhante à imagem a seguir, com a lista de itens do marketplace disponíveis:
 
-   [ ![Pop-up itens do Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "itens do Marketplace do Azure") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Pop-up itens do Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "itens do Marketplace do Azure")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
 7. Selecione o item que você deseja baixar e anote o *versão*. Você pode manter o *Ctrl* tecla para selecionar várias imagens. Você faz referência a *versão* quando você importa o item no próximo procedimento. 
    
@@ -158,7 +158,7 @@ Há duas partes que compõem esse cenário:
 
    A imagem a seguir mostra um exemplo de estrutura de pasta. `D:\downloadfolder` contém todos os itens do marketplace baixado. Cada subpasta é um item do marketplace (por exemplo, `microsoft.custom-script-linux-arm-2.0.3`), denominado pela ID do produto. Dentro de cada subpasta é o conteúdo baixado do item do marketplace.
 
-   [ ![Estrutura de diretório de download do Marketplace](media/azure-stack-download-azure-marketplace-item/mp1sm.png "estrutura de diretório de download do Marketplace") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Estrutura de diretório de download do Marketplace](media/azure-stack-download-azure-marketplace-item/mp1sm.png "estrutura de diretório de download do Marketplace")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. Siga as instruções em [deste artigo](azure-stack-powershell-configure-admin.md) para configurar a sessão do PowerShell de operador do Azure Stack. 
 
@@ -188,15 +188,15 @@ Há duas partes que compõem esse cenário:
    1. No portal de administração do Azure Stack, acesse **todos os serviços** e, em seguida, sob o **dados + armazenamento** categoria, selecione **contas de armazenamento**.  
    
    2. Selecione uma conta de armazenamento de sua assinatura e, em seguida, em **serviço BLOB**, selecione **contêineres**.  
-      [ ![Serviço BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png "serviço Blob") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
+      [![Serviço BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png "serviço Blob")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Selecione o contêiner que você deseja usar e, em seguida, selecione **carregue** para abrir o **carregar blob** painel.  
-      [ ![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+      [![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. No painel de Upload de blob, navegue até os arquivos de pacote e o disco para carregar no armazenamento e, em seguida, selecione **carregar**: [ ![Carregue](media/azure-stack-download-azure-marketplace-item/uploadsm.png "carregar") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. No painel de Upload de blob, navegue até os arquivos de pacote e o disco para carregar no armazenamento e, em seguida, selecione **carregar**: [![Carregue](media/azure-stack-download-azure-marketplace-item/uploadsm.png "carregar")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Os arquivos carregados são exibidos no painel de contêiner. Selecione um arquivo e, em seguida, copie a URL dos **propriedades do Blob** painel. Você usará essa URL na próxima etapa, quando você importa o item do marketplace para o Azure Stack.  Na imagem a seguir, o contêiner estiver *test-blob-storage* e o arquivo estiver *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  O arquivo é a URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-      [ ![Propriedades de blob](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "propriedades de Blob") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
+      [![Propriedades de blob](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "propriedades de Blob")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importar a imagem VHD para o Azure Stack usando o **AzsPlatformimage adicionar** cmdlet. Quando você usa esse cmdlet, substitua os *publisher*, *oferecem*e outros valores de parâmetro com os valores da imagem que você está importando. 
 
@@ -235,7 +235,7 @@ Há duas partes que compõem esse cenário:
      –Verbose
     ```
 5. Depois de publicar um item da galeria, agora está disponível para uso. Para confirmar se o item da Galeria é publicado, vá para **todos os serviços**e, em seguida, sob o **gerais** categoria, selecione **Marketplace**.  Se o download está um modelo de solução, verifique se que você adicionar qualquer imagem VHD dependente desse modelo de solução.  
-  [ ![Marketplace de exibição](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "marketplace do modo de exibição") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
+  [![Marketplace de exibição](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "marketplace do modo de exibição")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
 Com o lançamento do Azure Stack PowerShell 1.3.0, agora você pode adicionar extensões de máquina Virtual. Por exemplo: 
 

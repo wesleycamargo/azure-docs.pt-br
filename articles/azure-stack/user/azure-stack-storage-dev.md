@@ -4,18 +4,17 @@ description: Diretrizes para obter uma introdução usando ferramentas de desenv
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 12/03/2018
+ms.date: 11/05/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 857e12664defb1fc0106dd0d3012b77a89f826c2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aa044ba9a7fcb66b5314144dd77bdd3435488218
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495098"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877583"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introdução às ferramentas de desenvolvimento de armazenamento do Azure Stack
 
@@ -30,9 +29,9 @@ Use este artigo como um guia para começar a usar as ferramentas de desenvolvime
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de cliente do Azure
 
-Para as bibliotecas de cliente de armazenamento, lembre-se da versão que é compatível com a API REST. Você também deve especificar o ponto de extremidade do Azure Stack em seu código.
+As versões com suporte da API REST para o armazenamento do Azure Stack são 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 para a atualização 1802 ou versões mais recentes e 2015-04-05 para versões anteriores. Os pontos de extremidade do Azure Stack não tem paridade completa com a versão mais recente da API REST do armazenamento do Azure. Para as bibliotecas de cliente de armazenamento, é necessário estar ciente da versão que é compatível com a API REST.
 
-### <a name="1811-update-or-newer-versions"></a>1811 atualização ou versões mais recentes
+### <a name="1802-update-or-newer-versions"></a>1802 atualização ou versões mais recentes
 
 | Biblioteca do cliente | Versão com suporte do Azure Stack | Link | Especificação do ponto de extremidade |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -46,22 +45,22 @@ Para as bibliotecas de cliente de armazenamento, lembre-se da versão que é com
 
 #### <a name="install-php-client-via-composer---current"></a>Instalar o cliente PHP por meio do Composer - atual
 
-Para instalar por meio do compositor: (levar o blob como um exemplo).
+Para instalar por meio do Compoer: (tome blob como exemplo).
 
 1. Crie um arquivo chamado **Composer. JSON** na raiz do projeto com o código a seguir:
 
-    ```json
+  ```php
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.2.0"
+      "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-    ```
+  ```
 
 2. Baixe [Phar](http://getcomposer.org/composer.phar) à raiz do projeto.
 3. Execute: `php composer.phar install`.
 
-### <a name="previous-versions-1802-to-1809-update"></a>Versões anteriores (atualização 1802 para 1809)
+### <a name="previous-versions"></a>Versões anteriores
 
 |Biblioteca do cliente|Versão com suporte do Azure Stack|Link|Especificação do ponto de extremidade|
 |---------|---------|---------|---------|
@@ -75,19 +74,19 @@ Para instalar por meio do compositor: (levar o blob como um exemplo).
 
 #### <a name="install-php-client-via-composer---previous"></a>Instalar o cliente PHP por meio do compositor - anterior
 
-Para instalar por meio do Compoer: (tome blob como exemplo).
+Para instalar por meio do compositor:
 
 1. Crie um arquivo chamado **Composer. JSON** na raiz do projeto com o código a seguir:
 
-  ```json
+  ```php
     {
-      "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
-      }
+          "require":{
+          "Microsoft/azure-storage":"0.15.0"
+          }
     }
   ```
 
-2. Baixe [Phar](http://getcomposer.org/composer.phar) à raiz do projeto.
+2. Baixe [Phar](http://getcomposer.org/composer.phar) na raiz do projeto.
 3. Execute: `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Declaração de ponto de extremidade
@@ -102,7 +101,7 @@ Se você não tiver certeza sobre o ponto de extremidade, entre em contato com s
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado no arquivo App. config:
 
-```xml
+```
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -112,7 +111,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
 
-```java
+```
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -124,7 +123,7 @@ public static final String storageConnectionString =
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado na instância de declaração:
 
-```javascript
+```
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -133,7 +132,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
 
-```cpp
+```
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -144,7 +143,7 @@ EndpointSuffix=local.azurestack.external"));
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
 
-```php
+```
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -155,7 +154,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado na instância de declaração:
 
-```python
+```
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -165,7 +164,7 @@ endpoint_suffix='local.azurestack.external')
 
 Para o Azure Stack, o sufixo de ponto de extremidade é especificado na configuração de cadeia de caracteres de conexão:
 
-```ruby
+```
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

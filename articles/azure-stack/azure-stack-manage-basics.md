@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164015"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867313"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
 Há várias coisas que você precisa saber se você é novo para a administração do Azure Stack. Este artigo fornece uma visão geral de sua função como um operador do Azure Stack e o que é preciso dizer que os usuários para que eles se tornarem rapidamente produtivos.
@@ -119,7 +119,7 @@ As informações neste artigo resumem as diferenças entre um serviço no Azure 
 
 Em um ambiente do kit de desenvolvimento, se um usuário não tem acesso de área de trabalho remota para o host do kit de desenvolvimento, eles devem configurar uma conexão de rede virtual privada (VPN) antes que possam acessar o Azure Stack. Ver [conectar-se ao Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Os usuários vão querer saber como [acessar o portal do usuário ](user/azure-stack-use-portal.md) ou como se conectar por meio do PowerShell. Em um ambiente de sistemas integrados, o endereço de portal do usuário varia por implantação. Você precisará fornecer aos usuários com a URL correta.
+Os usuários vão querer saber como [acessar o portal do usuário](user/azure-stack-use-portal.md) ou como se conectar por meio do PowerShell. Em um ambiente de sistemas integrados, o endereço de portal do usuário varia por implantação. Você precisará fornecer aos usuários com a URL correta.
 
 Se estiver usando o PowerShell, os usuários precisam registrar os provedores de recursos antes de poderem usar os serviços. (Um provedor de recursos gerencia um serviço. Por exemplo, o provedor de recursos de rede gerencia recursos como redes virtuais, adaptadores de rede e balanceadores de carga.) Eles devem [instale](user/azure-stack-powershell-install.md) PowerShell, [baixar](user/azure-stack-powershell-download.md) módulos adicionais, e [configurar](user/azure-stack-powershell-configure-user.md) PowerShell (que inclui o registro do provedor de recursos).
 

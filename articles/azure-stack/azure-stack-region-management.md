@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244956"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871036"
 ---
 # <a name="region-management-in-azure-stack"></a>Gerenciamento de região no Azure Stack
 
@@ -39,7 +39,7 @@ O Azure Stack tem um conjunto de recursos de gerenciamento de região disponíve
 
 Se você clicar em uma região na **gerenciamento de região** lado a lado, você pode acessar as informações a seguir:
 
-[ ![Descrição dos painéis na folha de gerenciamento de região](media/azure-stack-region-management/regionssm.png "folha de gerenciamento de região") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Descrição dos painéis na folha de gerenciamento de região](media/azure-stack-region-management/regionssm.png "folha de gerenciamento de região")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Menu de recursos**. Acessar áreas de gerenciamento de infraestrutura específicos e exibir e gerenciar recursos do usuário como contas de armazenamento e redes virtuais.
 
@@ -55,5 +55,5 @@ Se você clicar em uma região na **gerenciamento de região** lado a lado, voc�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Monitorar a integridade e alertas no Azure Stack](azure-stack-monitor-health.md)
+- [Monitorar integridade e alertas no Azure Stack](azure-stack-monitor-health.md)
 - [Gerenciar atualizações no Azure Stack](azure-stack-updates.md)

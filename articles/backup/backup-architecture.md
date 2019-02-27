@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4be483994bd7bc5bd97b1e59df230f66e9b4e24e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812549"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430332"
 ---
 # <a name="azure-backup-architecture"></a>Arquitetura de Backup do Azure
 
@@ -24,12 +24,17 @@ Use o [serviço de Backup do Azure](backup-overview.md) para fazer backup de dad
 
 O Backup do Azure faz backup de dados, do estado da máquina e das cargas de trabalho em execução nas máquinas locais e VMs do Azure. Há vários cenários de Backup do Azure.
 
+## <a name="how-does-azure-backup-work"></a>Como funciona o Backup do Azure?
+
+Você pode fazer backup de computadores e dados usando vários métodos.
+
 - **Fazer backup dos computadores locais**:
-    - Você pode fazer o backup dos computadores locais diretamente no Azure usando o Backup do Azure.
-    - Proteja os computadores locais com o System Center Data Protection Manager (DPM) ou o Servidor de Backup do Microsoft Azure (MABS) e, em seguida, faça backup dos dados protegidos no DPM/MABS para o Azure usando o Backup do Azure.
+    - Você pode fazer backup de computadores Windows locais diretamente no Azure usando o agente MARS (Serviços de Recuperação do Microsoft Azure) do Backup do Azure. Computadores Linux não tem suporte.
+    - Você pode fazer backup de computadores locais em um servidor de backup (System Center DPM (Data Protection Manager) ou MABS (Servidor de Backup do Microsoft Azure)) e, por outro lado, fazer backup do servidor de backup em um cofre dos Serviços de Recuperação do Backup do Azure no Azure.
 - **Fazer backup de VMs do Azure**:
-    - Você pode fazer backup de VMs do Azure diretamente com o Backup do Azure.
-    - Proteja as VMs do Azure com o DPM ou MABS em execução no Azure e, em seguida, faça o backup dos dados protegidos no MABS/DPM com o Backup do Azure.
+    - Você pode fazer backup de VMs do Azure diretamente. O Backup do Azure instala uma extensão de backup no agente de VM do Azure em execução na VM para fazer isso. Isso faz backup de toda a VM.
+    - Você pode fazer backup de arquivos e pastas específicos na VM do Azure executando o agente MARS.
+    - Você pode fazer backup de VMs do Azure no MABS em execução no Azure e, depois, fazer backup do MABS no cofre.
 
 Saiba mais sobre [quais itens podem ser submetidos a backup](backup-overview.md) e [cenários de backup com suporte](backup-support-matrix.md).
 
@@ -38,8 +43,8 @@ Saiba mais sobre [quais itens podem ser submetidos a backup](backup-overview.md)
 
 O Backup do Azure armazena os dados em um cofre dos Serviços de Recuperação. Um cofre é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup.
 
-- Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento.
-- Em cada assinatura do Azure, você pode criar até 500 cofres de Serviços de Recuperação. 
+- Os cofres facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento.
+- Em cada assinatura do Azure, você pode criar até 500 cofres.
 - É possível monitorar os itens submetidos a backup em um cofre, incluindo as máquinas locais e as VMs do Azure.
 - É possível gerenciar o acesso ao cofre com o [controle de acesso baseado em função (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) do Azure.
 - Você especifica como os dados no cofre são replicados para redundância:
@@ -49,18 +54,6 @@ O Backup do Azure armazena os dados em um cofre dos Serviços de Recuperação. 
 
 
 
-## <a name="how-does-azure-backup-work"></a>Como funciona o Backup do Azure?
-
-O Backup do Azure executa trabalhos de backup com base em uma política de backup padrão ou personalizada. A forma como o Backup do Azure usa o backup depende do cenário.
-
-**Cenário** | **Detalhes** 
---- | ---
-**Fazer backup diretamente dos computadores locais** | Para fazer o backup diretamente dos computadores locais, o Backup do Azure usa o agente do MARS (Serviços de Recuperação do Microsoft Azure). O agente é instalado nos computadores que você deseja fazer backup. <br/><br/> Esse tipo de backup não está disponível para máquinas locais do Linux. 
-**Fazer o backup diretamente das VMs do Azure** | Para fazer o backup diretamente das VMs do Azure, uma extensão de VM do Azure será instalada na VM na primeira vez que o backup for executado. 
-**Fazer backup de máquinas e aplicativos protegidos pelo DPM ou MABS** | Nesse cenário, primeiro o backup do computador/aplicativo é feito no armazenamento local do DPM ou do MABS. Em seguida, é feito backup dos dados no MABS/DPM no cofre de Backup do Azure. As máquinas locais podem ser protegidas pelo MABS/DPM em execução no local. As VMs do Azure podem ser protegidas pelo MABS/DPM em execução no Azure.
-
-[Obtenha uma visão geral](backup-overview.md) e confira [quais itens têm suporte](backup-support-matrix.md) para cada cenário.
-
 
 ### <a name="backup-agents"></a>Agentes de backup
 
@@ -68,17 +61,26 @@ O Backup do Azure fornece agentes diferentes, dependendo do tipo de backup.
 
 **Agente** | **Detalhes** 
 --- | --- 
-**Agente de MARS (Serviços de Recuperação do Microsoft Azure)** | Esse agente é executado em Servidores do Windows locais individuais para fazer backup de arquivos, pastas e estado do sistema<br/><br/> Esse agente é executado em servidores do MABS/DPM para fazer backup do disco de armazenamento local do MABS/DPM. As máquinas e aplicativos passam por backup localmente nesse disco do MABS/DPM.
-**Extensão da VM do Azure** | Para fazer backup das VMs do Azure, uma extensão de backup é adicionada ao agente de VM do Azure em execução nas VMs. 
+**Agente de MARS (Serviços de Recuperação do Microsoft Azure)** | 1) É executado em Servidores do Windows locais individuais para fazer backup de arquivos, pastas e estado do sistema<br/><br/> 2) É executado em VMs do Azure para fazer backup de arquivos, pastas e estado do sistema.<br/><br/>  3) É executado em servidores MABS/DPM para fazer backup do disco de armazenamento local do MABS/DPM no Azure. 
+**Extensão da VM do Azure** | É executado em VMs do Azure para fazer backup delas em um cofre.
 
 
 ## <a name="backup-types"></a>Tipos de backup
 
 **Tipo de backup** | **Detalhes** | **Uso**
 --- | --- | ---
-**Full** | Um backup contém toda a fonte de dados.<br/><br/> O backup completo ocupa mais largura de banda da rede. | Usado no backup inicial.
+**Full** | Um backup contém toda a fonte de dados. O backup completo ocupa mais largura de banda da rede. | Usado no backup inicial.
 **Differential** |  Armazena os blocos que foram alterados desde o backup completo inicial. Usa uma quantidade menor de armazenamento e rede, e não mantém cópias redundantes dos dados inalterados.<br/><br/> Ineficiente porque os blocos de dados inalterados entre os backups subsequentes são transferidos e armazenados. | Não é usada pelo Backup do Azure.
 **Incremental** | Alto armazenamento e eficiência de rede. Armazena somente os blocos de dados que foram alterados desde o backup anterior. <br/><br/> Não é necessário Com o backup incremental, não há necessidade de complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure.
+
+## <a name="sql-server-backup-types"></a>Tipos de backup do SQL Server
+
+**Tipo de backup** | **Detalhes** | **Uso**
+--- | --- | ---
+**Backup completo** | Um backup completo do banco de dados faz backup do banco de dados inteiro. Ele contém todos os dados em um banco de dados específico ou um conjunto de arquivos ou grupos de arquivos e log suficiente para recuperar esses dados. | No máximo, você pode acionar um backup completo por dia.<br/><br/> Você pode optar por fazer um backup completo em um intervalo diário ou semanal.
+**Backup diferencial** | Um backup diferencial é baseado no backup de dados completo anterior mais recente.<br/><br/> Ele captura apenas os dados que foram alterados desde o backup completo. |  No máximo, você pode acionar um backup diferencial por dia.<br/><br/> Você não pode configurar um backup completo e um backup diferencial no mesmo dia.
+**Backup de log de transações** | Um backup de log permite a restauração pontual até um determinado segundo. | No máximo, você pode configurar backups de log de transações a cada 15 minutos.
+
 
 ### <a name="comparison"></a>Comparação
 
@@ -96,28 +98,16 @@ A tabela a seguir resume os recursos para diferentes tipos de backup.
 
 **Recurso** | **Máquinas locais do Windows (direto)** | **VMs do Azure** | **Máquinas/aplicativos com o MABS/DPM**
 --- | --- | --- | ---
-Fazer backup para o cofre | ![SIM][green] | ![sim][green] | ![SIM][green] 
-Backup em disco do MABS/DPM e, em seguida, no Azure | | | ![SIM][green] 
-Compactar os dados enviados para backup | ![SIM][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![SIM][green] 
-Executa o backup incremental |![SIM][green] |![sim][green] |![SIM][green] 
+Fazer backup para o cofre | ![Sim][green] | ![sim][green] | ![Sim][green] 
+Backup em disco do MABS/DPM e, em seguida, no Azure | | | ![Sim][green] 
+Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Sim][green] 
+Executa o backup incremental |![Sim][green] |![sim][green] |![Sim][green] 
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente. 
 
 ![chave de tabela](./media/backup-architecture/table-key.png)
 
 
-## <a name="architecture-direct-backup-of-on-premises-windows-machines"></a>Arquitetura: Backup direto em máquinas locais do Windows
 
-1. Para configurar o cenário, baixe e instale o agente do MARS (Serviços de Recuperação do Microsoft Azure) no computador, escolha os itens para fazer o backup, quando os backups serão executados e por quanto tempo serão mantidos no Azure.
-2. O backup inicial é executado seguindo suas configurações de backup.
-3. O agente do MARS usa o VSS (Serviço de Cópias de Sombra de Volume) do Windows para obter um instantâneo do ponto de tempo dos volumes escolhidos para backup.
-    - O agente do MARS usa apenas a Gravação do Sistema do Windows para capturar o instantâneo.
-    - O agente não usa todos os gravadores VSS do aplicativo e, portanto, não captura instantâneos consistentes com os aplicativos.
-3. Depois de obter o instantâneo com o VSS, o agente do MARS cria um VHD na pasta de cache que você especificou ao configurar o backup e armazena as somas de verificação de cada bloco de dados. 
-4. Os backups incrementais são executados de acordo com a programação que você especificar, a menos que você execute um backup ad hoc.
-5. Nos backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. Ele é compactado, criptografado e enviado para o cofre.
-6. Após o backup incremental terminar, o novo VHD será mesclado com o VHD criado após a replicação inicial fornecendo o estado mais recente a ser usado na comparação do backup em andamento. 
-
-![Backup do servidor local do Windows com o agente MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
 
 ## <a name="architecture-direct-backup-of-azure-vms"></a>Arquitetura: Backup direto de VMs do Azure
@@ -136,19 +126,33 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
     - Dados de instantâneo não podem ser imediatamente copiados no cofre. Esse processo pode levar algumas horas em horários de pico. O tempo total de backup da VM será de menos de 24 horas para políticas de backup diárias.
 5. Após o envio dos dados para o cofre, o instantâneo é removido e um ponto de recuperação é criado.
 
+Observe que as VMs do Azure precisam de acesso à Internet para comandos de controle. Se você estiver fazendo backup em cargas de trabalho dentro da VM (por exemplo, backup do SQL Server), os dados de backup também precisarão de acesso à Internet. 
 
 ![Backup de VMs do Azure](./media/backup-architecture/architecture-azure-vm.png)
 
+## <a name="architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders"></a>Arquitetura: Backup direto de arquivos/pastas de computadores Windows/VM do Azure locais
+
+1. Para configurar o cenário, baixe e instale o agente do MARS (Serviços de Recuperação do Microsoft Azure) no computador, escolha os itens para fazer o backup, quando os backups serão executados e por quanto tempo serão mantidos no Azure.
+2. O backup inicial é executado seguindo suas configurações de backup.
+3. O agente do MARS usa o VSS (Serviço de Cópias de Sombra de Volume) do Windows para obter um instantâneo do ponto de tempo dos volumes escolhidos para backup.
+    - O agente do MARS usa apenas a Gravação do Sistema do Windows para capturar o instantâneo.
+    - O agente não usa todos os gravadores VSS do aplicativo e, portanto, não captura instantâneos consistentes com os aplicativos.
+3. Depois de obter o instantâneo com o VSS, o agente do MARS cria um VHD na pasta de cache que você especificou ao configurar o backup e armazena as somas de verificação de cada bloco de dados. 
+4. Os backups incrementais são executados de acordo com a programação que você especificar, a menos que você execute um backup ad hoc.
+5. Nos backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. Ele é compactado, criptografado e enviado para o cofre.
+6. Após o backup incremental terminar, o novo VHD será mesclado com o VHD criado após a replicação inicial fornecendo o estado mais recente a ser usado na comparação do backup em andamento. 
+
+![Backup do servidor local do Windows com o agente MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
 ## <a name="architecture-back-up-to-dpmmabs"></a>Arquitetura: Fazer backup para o DPM/MABS
 
 1. Instale o agente de proteção do DPM ou MABS em computadores que você deseja proteger, e adicione computadores a um grupo de proteção do DPM.
     - Para proteger as máquinas locais, o servidor do DPM ou MABS deverá ser local.
-    - Para proteger as VMs do Azure, o servidor do DPM ou MABS deverá estar no Azure, em execução como uma VM do Azure.
+    - Para proteger as VMs do Azure, o servidor do MABS deverá estar no Azure, em execução como uma VM do Azure.
     - A utilização do MABS/DPM pode proteger o backup de volumes, compartilhamentos, arquivos e pastas. Você pode proteger as máquinas com ou sem sistema operacional e aplicativos específicos com configurações de backup de reconhecimento de aplicativo.
-2. Ao configurar a proteção de uma máquina ou aplicativo no DPM, você escolhe se vai fazer o backup no disco local do DPM, para armazenamento de curto prazo, e no Azure (proteção online). Você também especifica quando o backup no armazenamento local do MABS/DPM e o backup online no Azure deverão ser executados.
-3. É feito o backup do disco da carga de trabalho protegida nos discos locais do DPM e no Azure seguindo a programação especificada.
-4. O backup online para o cofre é manipulado pelo agente do MARS em execução no servidor do DPM/MABS.
+2. Ao configurar a proteção de um computador ou aplicativo no DPM/MABS, você escolhe se vai fazer o backup no disco local do MABS/DPM, para armazenamento de curto prazo e no Azure (proteção online). Você também especifica quando o backup no armazenamento local do MABS/DPM e o backup online no Azure deverão ser executados.
+3. É feito o backup do disco da carga de trabalho protegida nos discos locais do MABS/DPM de acordo com o agendamento especificado.
+4. Os discos do MABS/DPM passam por backup para o cofre pelo agente MARS em execução no servidor DPM/MABS.
 
 ![Backup de máquinas/cargas de trabalho protegidas pelo DPM ou MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 
@@ -175,8 +179,8 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
 
 Leia mais:
 
-- saiba mais sobre o armazenamento em disco para VMs do [Windows](../virtual-machines/windows/about-disks-and-vhds.md) e do [Linux](../virtual-machines/linux/about-disks-and-vhds.md).
-- Saiba mais sobre contas de armazenamento [standard](../virtual-machines/windows/standard-storage.md) e [premium](../virtual-machines/windows/premium-storage.md).
+- saiba mais sobre o armazenamento em disco para VMs do [Windows](../virtual-machines/windows/managed-disks-overview.md) e do [Linux](../virtual-machines/linux/managed-disks-overview.md).
+- Saiba mais sobre os [tipos de disco](../virtual-machines/windows/disks-types.md) disponíveis, como Standard e Premium.
 
 
 ### <a name="backing-up-and-restoring-azure-vms-with-premium-storage"></a>Backup e restauração de VMs do Azure com o armazenamento premium 
@@ -184,9 +188,9 @@ Leia mais:
 Você pode fazer backup de VMs do Azure usando o armazenamento premium com o Backup do Azure:
 
 - Ao fazer o backup de VMs do armazenamento premium, o serviço de Backup criará um local de preparo temporário, chamado "AzureBackup-", na conta do armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo de ponto de recuperação.
-- Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. [Saiba mais](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Não modifique o local de preparo.
+- Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
-- O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/windows/disks-types.md#billing).
 
 Ao restaurar VMs do Azure usando o armazenamento premium, você pode restaurá-las no armazenamento standard ou premium. Normalmente, você poderia restaurá-las no armazenamento premium, mas seria mais econômico restaurar como standard se apenas um subconjunto de arquivos da VM fosse necessário.
 

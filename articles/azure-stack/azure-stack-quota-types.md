@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239087"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877938"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cotas no Azure Stack
 
@@ -74,7 +74,7 @@ Há duas maneiras diferentes para exibir uma cota existente:
 3.  Na folha que é aberta, selecione **serviços e cotas**.
 4.  Selecione a cota que você deseja ver clicando na **nome** coluna.
 
-    [ ![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Provedores de recursos
 
@@ -92,7 +92,7 @@ Há duas maneiras diferentes para editar uma cota:
 2.  Selecione o plano para o qual você deseja editar uma cota, clicando em seu nome.
 3.  Na folha que é aberta, selecione **serviços e cotas**.
 4.  Selecione a cota que você deseja editar clicando na **nome** coluna.
-    [ ![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  Na folha que é aberta, selecione **Editar na computação**, **Editar na rede**, ou **Editar no armazenamento**.
     ![Cotas](media/azure-stack-quota-types/quotas3.png "exibir cotas")    

@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694373"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887889"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -77,7 +77,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 ### <a name="changes"></a>Alterações
 
 <!-- 2635202 - IS, ASDK -->
-- Move de serviço de backup de infraestrutura do [rede de infraestrutura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes precisarão garantir que o serviço tem acesso a localização de armazenamento de backup da rede VIP pública.  
+- Move de serviço de backup de infraestrutura do [rede de infraestrutura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes precisarão garantir que o serviço tem acesso a localização de armazenamento de backup da rede VIP pública.  
 
 > [!IMPORTANT]  
 > Se você tiver um firewall que não permite conexões de rede VIP pública para o servidor de arquivos, essa alteração fará com que os backups de infraestrutura para falhar com "Erro 53 o caminho de rede não foi encontrado." Isso é uma alteração significativa que não tenha nenhuma alternativa razoável. Com base nos comentários dos clientes, a Microsoft reverterá essa alteração em um hotfix. Examine os [postar a seção de etapas de atualização](#post-update-steps) para obter mais informações sobre hotfixes disponíveis para 1809. Depois que o hotfix está disponível, certifique-se para aplicá-la após a atualização para 1809 somente se suas políticas de rede não permitir a rede VIP público para acessar os recursos de infraestrutura. 1811, esta alteração será aplicada a todos os sistemas. Se você aplicou o hotfix em 1809, não há nenhuma ação adicional é necessária.  

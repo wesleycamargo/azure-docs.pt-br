@@ -14,12 +14,12 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ea36dbe30eddc3d503631c31e46291101ea175d4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0860552f78e428f5b452aea6bcebe7f6a3a886a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239529"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881695"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usar ferramentas de transferência de dados para o armazenamento do Azure Stack
 
@@ -45,7 +45,7 @@ Seus requisitos de determinam quais das ferramentas a seguir funcionariam melhor
 
     Um aplicativo autônomo fácil de usar com uma interface do usuário.
 
-* [Blobfuse ](#blobfuse)
+* [Blobfuse](#blobfuse)
 
     Um driver de sistema de arquivos virtual para o armazenamento de BLOBs do Azure, que permite que você acesse seus dados de blob de bloco existentes em sua conta de armazenamento por meio do sistema de arquivos Linux. 
 

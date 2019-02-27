@@ -1,6 +1,6 @@
 ---
-title: Configurar senhas de aplicativos usando informações de segurança - Azure Active Directory | Microsoft Docs
-description: Configure senhas geradas automaticamente (senhas de aplicativo) para usar com cada aplicativo sem navegador, separado de uma senha normal, usando informações de segurança.
+title: Configurar senhas de aplicativos pela página de informações de segurança (versão prévia) – Azure Active Directory | Microsoft Docs
+description: Configure as senhas geradas automaticamente (senhas de aplicativos) para uso com qualquer aplicativo que não use navegador ou qualquer aplicativo que não dê suporte para verificação em duas etapas em sua organização. Essa senha de aplicativo é separada da senha normal e pode ser configurada na página de informações de segurança.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211879"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456802"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Gerenciar senhas de aplicativos usando informações de segurança (visualização)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerenciar senhas de aplicativos usando a página de informações de segurança (versão prévia)
+Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas, o aplicativo não funcionará. Para contornar este problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo que não seja o navegador, separado da sua senha normal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Determinados aplicativos que não são de navegador, como o Outlook 2010, não oferecem suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas, o aplicativo não funcionará. Para contornar este problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo que não seja o navegador, separado da sua senha normal.
+>[!Important]
+>O administrador pode não permitir que você use senhas de aplicativo. Caso você não veja a opção **Senhas de aplicativos**, elas não estão disponíveis em sua organização.
 
 Ao usar senhas de aplicativos, é importante lembrar:
 
@@ -36,52 +38,48 @@ Ao usar senhas de aplicativos, é importante lembrar:
     >[!Note]
     >Os clientes do Office 2013 (incluindo Outlook) são compatíveis com novos protocolos de autenticação e podem ser usados com a verificação em duas etapas. Esse suporte significa que, depois que a verificação em duas etapas estiver ativada, você não precisará mais de senhas de aplicativos para clientes do Office 2013. Para obter mais informações, consulte o artigo [Como funciona a autenticação moderna para os aplicativos cliente do Office 2013 e do Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Criar e excluir senhas de aplicativos usando informações de segurança
+## <a name="create-new-app-passwords"></a>Criar novas senhas de aplicativos
+Se você usa a verificação em duas etapas com sua conta corporativa ou de estudante e o administrador ativou a experiência de informações de segurança, é possível criar e excluir suas senhas de aplicativos usando a página **Informações de segurança**.
 
-Se você usa a verificação em duas etapas com sua conta do trabalho ou da escola e o administrador ativou a experiência de informações de segurança, você pode criar e excluir suas senhas de aplicativos usando o portal Meus aplicativos.
+>[!Note]
+>Se o administrador não tiver ativado a experiência de informações de segurança, você deverá seguir as instruções e as informações na seção [Gerenciar senhas de aplicativo para verificação em duas etapas](multi-factor-authentication-end-user-app-passwords.md).
 
-Se o administrador não tiver ativado a experiência de informações de segurança, você deverá seguir as instruções e as informações na seção [Gerenciar senhas de aplicativo para verificação em duas etapas](multi-factor-authentication-end-user-app-passwords.md).
+### <a name="to-create-a-new-app-password"></a>Criar uma nova senha de aplicativo
+1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Para criar senhas de aplicativos usando o portal Meus aplicativos
+    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile.png)
 
-1. Entre sua conta corporativa ou de estudante.
+2. Selecione **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Depois, selecione **Adicionar método** na página **Informações de segurança**.
 
-2. Vá para myapps.microsoft.com, selecione seu nome no canto superior direito da página e selecione **Profile**.
+    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. No **Gerenciar conta** área, selecione **editar informações de segurança**.
+3. Na página **Adicionar método**, selecione **Senha de aplicativo** na lista suspensa e selecione **Adicionar**.
 
-    ![Tela de perfil com o link Editar informações de segurança realçado](media/security-info/security-info-profile.png)
+    ![Caixa Adicionar método, com Senha de aplicativo selecionada](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. Na tela **Manter sua conta segura**, selecione **Adicionar informações de segurança**.
+4. Digite o nome do aplicativo que exige a senha de aplicativo e, em seguida, selecione **Avançar**.
 
-    ![Tela de informações de segurança com informações editáveis existentes](media/security-info/security-info-edit-add-info.png)
+    ![Página Senha de aplicativo, com o nome do aplicativo](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. Na tela **Adicionar informações de segurança**, selecione **Senha do aplicativo**.
+5. Copie o texto da caixa **Senha**, cole a senha na área de senha do aplicativo (no exemplo, Outlook 2010) e, em seguida, selecione **Concluído**.
 
-6. Na tela **Criar sua senha do aplicativo**, digite um nome para a senha do seu aplicativo e, em seguida, selecione **Próximo**.
-
-    ![Tela em que você nomeia a senha do seu aplicativo](media/security-info/security-info-name-app-password.png)
-
-7. Selecione **Copiar** para copiar a senha para a área de transferência e, em seguida, selecione **Próximo**.
-
-    ![Tela com a senha de aplicativo para a cópia](media/security-info/security-info-create-app-password.png)
+    ![Página Senha de aplicativo, com o nome do aplicativo](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Certifique-se de que a senha da aplicação aparece no ecrã **Manter a sua conta segura**.
+    A senha é adicionada e você poderá acessar seu aplicativo no futuro.
 
-    ![Manter a tela segura, com uma senha de aplicativo](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Excluir senhas de aplicativos
+Se você não precisar mais usar um aplicativo que exija uma senha de aplicativo, poderá excluir a senha de aplicativo associada. Excluir a senha de aplicativo libera um dos pontos de senha de aplicativo disponíveis para uso futuro.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Para excluir senhas de aplicativos usando o portal Meus aplicativos
+>[!Important]
+>Ao excluir uma senha de aplicativo por engano, não será possível desfazer essa ação. Você precisará criar uma nova senha de aplicativo e inseri-la novamente no aplicativo, seguindo as etapas da seção [Criar novas senhas de aplicativo](#create-new-app-passwords) deste artigo.
 
-1. Na tela **Manter sua conta segura**, selecione **X** ao lado da senha do aplicativo a ser excluída.
+### <a name="to-delete-an-app-password"></a>Excluir uma senha de aplicativo
 
-    ![Mantenha a tela segura, exclua a senha do aplicativo](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. Na página **Informações de segurança**, selecione o link **Excluir** próximo à opção **Senha de aplicativo** do aplicativo desejado.
 
-2. Na tela **Excluir senha do aplicativo**, selecione **Excluir**.
+    ![Link para excluir o método de senha de aplicativo em informações de segurança](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Excluir a tela de senha de aplicativo](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Selecione **Sim** na caixa de confirmação para excluir a **Senha de aplicativo**. Depois que a senha de aplicativo for excluída, ela será removida das suas informações de segurança e desaparecerá da página **Informações de segurança**.
 
-## <a name="next-steps"></a>Próximas etapas
-
-- Se você precisar atualizar suas informações de segurança, siga as instruções no artigo [Gerenciar informações de segurança](security-info-manage-settings.md).
-
-- Para mais informações gerais sobre informações de segurança e o que você pode fazer, consulte [Visão geral das informações de segurança](user-help-security-info-overview.md) 
+## <a name="for-more-information"></a>Para obter mais informações
+- Para obter mais informações sobre a página de **Informações de segurança** e como configurá-la, confira [Visão geral das informações de segurança](user-help-security-info-overview.md)
