@@ -1,5 +1,5 @@
 ---
-title: Criar uma política para identificar recursos sem conformidade
+title: Criar uma política para recursos fora de conformidade
 description: Este artigo orienta você quanto às etapas para criar uma definição de política para identificar recursos sem conformidade.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ddf30f6a7bc00be9ac24952adf0ba41e6151bd10
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311160"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342704"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Criar uma atribuição de política para identificar recursos sem conformidade
 
@@ -90,7 +90,7 @@ Quando uma condição é avaliada em relação a seus recursos existentes e resu
 
 Para remover a atribuição criada, siga estas etapas:
 
-1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página e localize as VMs de auditoria que não usam a atribuição  de política de discos gerenciados que você criou.
+1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página e localize as **VMs de auditoria que não usam a atribuição  de política de discos gerenciados** que você criou.
 
 1. Clique com o botão direito na atribuição de política de **VMs de auditoria que não usam discos gerenciados** e selecione **Excluir atribuição**
 
