@@ -4,17 +4,17 @@ description: Descreve como a definição de diretiva de recurso é usada pela Po
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237410"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447779"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -80,7 +80,7 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md).
+`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>parâmetros
 
@@ -215,7 +215,9 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
 O valor não deve ter mais de um curinga `*`.
 
-Ao usar as condições **match** e **notMatch**, forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a todos os caracteres e qualquer outro caractere para corresponder ao caractere real. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
+Ao usar as condições **match** e **notMatch**, forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a todos os caracteres e qualquer outro caractere para corresponder ao caractere real.
+As condições **corresponder** e **notMatch** diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos
 
@@ -245,15 +248,41 @@ Há suporte para os seguintes campos:
 - `identity.type`
   - Retorna o tipo de [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitada no recurso.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Essa sintaxe de colchete dá suporte a nomes de marca que tem pontuação, como hífen, ponto ou espaço.
   - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
-  - Exemplo: `tags.CostCenter` em que **CostCenter** é o nome da marca.
-- `tags[<tagName>]`
-  - Essa sintaxe de colchete é compatível com nomes de marca com um ponto.
-  - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
-  - Exemplo: `tags[Acct.CostCenter]` em que **Acct.CostCenter** é o nome da marca.
-
+  - Exemplos: `tags['Acct.CostCenter']` em que **Acct.CostCenter** é o nome da marca.
+- `tags['''<tagName>''']`
+  - Essa sintaxe de colchete dá suporte a nomes de marca contendo apóstrofos, evitando os apóstrofos duplos.
+  - Em que **'\<tagName\>'** é o nome da marca para a qual validar a condição.
+  - Exemplo: `tags['''My.Apostrophe.Tag''']` em que **'\<tagName\>'** é o nome da marca.
 - aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda são maneiras aceitáveis de declarar um campo de marcas.
+> No entanto, as expressões preferenciais são aquelas listadas acima.
+
+#### <a name="use-tags-with-parameters"></a>Usar marcas com parâmetros
+
+Um valor de parâmetro pode ser passado para um campo de marca. Passando um parâmetro para um campo de marca aumenta a flexibilidade da definição de política durante a atribuição de política.
+
+No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marcas para a marca que nomeou o valor do parâmetro **tagName**. Se essa marca não existir, o efeito de **acrescentar** é usado para adicionar a marca usando o valor da mesma marca nomeada definida no grupo de recursos pai dos recursos auditados usando a função de pesquisa `resourcegroup()`.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Valor
 
@@ -341,7 +370,7 @@ Para obter detalhes completos sobre cada efeito, ordem de avaliação, proprieda
 
 ### <a name="policy-functions"></a>Funções de política
 
-Exceto para a implantação seguinte e as funções de recurso, todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso em uma regra de política:
+Todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política, exceto as funções a seguir:
 
 - copyIndex()
 - deployment()
@@ -353,7 +382,7 @@ Exceto para a implantação seguinte e as funções de recurso, todas as [funç�
 
 Além disso, a função `field` está disponível para as regras de política. `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Exemplos de função de política
+#### <a name="policy-function-example"></a>Exemplo de função de política
 
 Este exemplo de regra de política usa a função de recurso `resourceGroup` para obter a propriedade **name**, combinada com a matriz `concat` e o objeto de função para criar uma condição `like` que impõe o nome do recurso para iniciar com o nome do grupo de recursos.
 
@@ -367,24 +396,6 @@ Este exemplo de regra de política usa a função de recurso `resourceGroup` par
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Este exemplo de regra de política usa a função de recurso `resourceGroup` para obter o valor de matriz de propriedade **tags** da marca **CostCenter** no grupo de recursos e acrescentá-lo à marca **CostCenter** no novo recurso.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

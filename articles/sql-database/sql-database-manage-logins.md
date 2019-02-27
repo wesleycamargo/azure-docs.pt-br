@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164610"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301750"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso de banco de dados a Banco de Dados SQL e SQL Data Warehouse
 
@@ -84,9 +84,9 @@ Além das funções administrativas no nível do servidor discutidas anteriormen
 
 ### <a name="database-creators"></a>Criadores de Banco de Dados
 
-Uma dessas funções administrativas é a função **dbmanager**. Os membros dessa função podem criar novos bancos de dados. Para usar essa função, você cria um usuário no banco de dados `master` e, em seguida, adiciona o usuário à função de banco de dados **dbmanager**. Para criar um banco de dados, o usuário deve ser um usuário baseado em um logon do SQL Server no banco de dados mestre ou um usuário de banco de dados baseado em um usuário do Azure Active Directory independente.
+Uma dessas funções administrativas é a função **dbmanager**. Os membros dessa função podem criar novos bancos de dados. Para usar essa função, você cria um usuário no banco de dados `master` e, em seguida, adiciona o usuário à função de banco de dados **dbmanager**. Para criar um banco de dados, o usuário deve ser um usuário baseado em um logon do SQL Server no banco de dados `master` ou um usuário de banco de dados baseado em um usuário do Azure Active Directory independente.
 
-1. Com uma conta de administrador, conecte-se ao banco de dados mestre.
+1. Com uma conta de administrador, conecte-se ao banco de dados `master`.
 2. Crie um logon de autenticação do SQL Server usando a instrução [CRIAR LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemplo de instrução:
 
    ```sql
@@ -98,7 +98,7 @@ Uma dessas funções administrativas é a função **dbmanager**. Os membros des
 
    Para melhorar o desempenho, logons (entidades de nível de servidor) são temporariamente armazenados em cache no nível do banco de dados. Para atualizar o cache de autenticação, veja [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. No banco de dados mestre, crie um usuário usando a instrução [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), ou um usuário de banco de dados independente de autenticação do SQL Server, ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior). Exemplo de instruções:
+3. No banco de dados `master`, crie um usuário usando a instrução [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), ou um usuário de banco de dados independente de autenticação do SQL Server, ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior). Exemplo de instruções:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ Uma dessas funções administrativas é a função **dbmanager**. Os membros des
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo usuário à função do banco de dados **dbmanager** usando a instrução [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) . Exemplo de instruções:
+4. Adicione o novo usuário à função do banco de dados **dbmanager** no `master` usando a instrução [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Exemplo de instruções:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ Uma dessas funções administrativas é a função **dbmanager**. Os membros des
 
 5. Se for necessário, configure uma regra de firewall para permitir que o novo usuário se conecte. (O novo usuário poderá ser coberto por uma regra de firewall existente.)
 
-Agora, o usuário pode se conectar ao banco de dados mestre e criar novos bancos de dados. A conta de criação do banco de dados se torna o proprietário do banco de dados.
+Agora, o usuário pode se conectar ao banco de dados `master` e criar novos bancos de dados. A conta de criação do banco de dados se torna o proprietário do banco de dados.
 
 ### <a name="login-managers"></a>Gerentes de logon
 
@@ -141,11 +141,19 @@ Inicialmente, apenas um dos administradores ou o proprietário do banco de dados
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Para conceder a outros usuários o controle total do banco de dados, torne-os membros da função do banco de dados fixa **db_owner** usando a instrução `ALTER ROLE`.
+Para conceder a outros usuários o controle total do banco de dados, torne-os membros da função do banco de dados fixa **db_owner**.
+
+No Banco de Dados SQL do Azure, use a instrução `ALTER ROLE`.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+No SQL Data Warehouse do Azure, use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > Um motivo comum para criar um usuário de banco de dados com base em um logon de servidor do Banco de Dados SQL é para usuários que precisam de acesso a vários bancos de dados. Como os usuários de banco de dados contidos são entidades individuais, cada banco de dados mantém seu próprio usuário e sua própria senha. Isso pode causar sobrecarga, já que o usuário deve lembrar-se de cada senha para cada banco de dados e isso poderá tornar-se insustentável quando for necessário alterar várias senhas para muitos bancos de dados. No entanto, ao usar Logons do SQL Server e alta disponibilidade (grupos de replicação geográfica ativa e failover), os logons do SQL Server deverão ser definidos manualmente em cada servidor. Caso contrário, o usuário de banco de dados não será mais mapeado para o logon do servidor após a ocorrência de um failover e não poderá acessar o failover de postagem do banco de dados. Para obter mais informações sobre a configuração de logons para a replicação geográfica, consulte [Configurar e gerenciar a segurança do Banco de Dados SQL do Azure para restauração geográfica ou failover](sql-database-geo-replication-security-config.md).

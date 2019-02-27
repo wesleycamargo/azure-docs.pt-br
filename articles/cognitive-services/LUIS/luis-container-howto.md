@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982379"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328207"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -358,5 +358,5 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 ## <a name="next-steps"></a>Próximas etapas
 
 * Revise [Configurar contêineres](luis-container-configuration.md) para configurações
-* Consulte [Perguntas frequentes (FAQ)](luis-resources-faq.md) para resolver problemas relacionados à funcionalidade LUIS.
-* Usar mais [Contêineres dos Serviços Cognitivos](../cognitive-services-container-support.md)
+* Consulte a [Solução de problemas](troubleshooting.md) para resolver problemas relacionados à funcionalidade LUIS.
+* Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

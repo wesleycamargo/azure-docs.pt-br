@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819154"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428787"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Escreva para o Apache Hadoop HDFS do Apache Storm no HDInsight
 
@@ -50,15 +50,18 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 O HdfsBolt usa o esquema de arquivo que você fornece para compreender como gravar no HDFS. Com o HDInsight, use um dos seguintes esquemas:
 
 * `wasb://`: Usado com uma conta de Armazenamento do Microsoft Azure.
-* `adl://`: Usado com o Azure Data Lake Storage.
+* `abfs://`: Usado com um Azure Data Lake Storage Gen2.
+* `adl://`: Usado com um Azure Data Lake Storage Gen1.
 
 A tabela a seguir fornece exemplos de como usar o esquema de arquivos para cenários diferentes:
 
 | Esquema | Observações |
 | ----- | ----- |
 | `wasb:///` | A conta de armazenamento padrão é um contêiner de blob em uma conta de armazenamento do Azure |
-| `adl:///` | A conta de armazenamento padrão é um diretório no Azure Data Lake Storage. Durante a criação do cluster, você pode especificar o diretório no Data Lake Storage que é a raiz do HDFS do cluster. Por exemplo, o diretório `/clusters/myclustername/`. |
+| `abfs:///` | A conta de armazenamento padrão é um diretório em uma conta do Azure Data Lake Storage Gen2 |
+| `adl:///` | A conta de armazenamento padrão é um diretório no Azure Data Lake Storage Gen1. Durante a criação do cluster, você pode especificar o diretório no Data Lake Storage que é a raiz do HDFS do cluster. Por exemplo, o diretório `/clusters/myclustername/`. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Uma conta de armazenamento do Azure não padrão (adicional) associada ao cluster. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | Uma conta de armazenamento do Azure não padrão (adicional) associada ao cluster. |
 | `adl://STORENAME/` | A raiz do Data Lake Storage usada pelo cluster. Esse esquema permite que você acesse dados localizados fora do diretório que contém o sistema de arquivos do cluster. |
 
 Para obter mais informações, consulte a referência [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) em Apache.org.
@@ -180,7 +183,7 @@ Para obter informações sobre como usar esse script com o cluster, consulte o d
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > Esse exemplo presume que o cluster usa uma conta de Armazenamento do Azure como armazenamento padrão. Se o cluster usar o Azure Data Lake Storage, use `hdfs.url: adl:///`.
+    > Esse exemplo presume que o cluster usa uma conta de Armazenamento do Azure como armazenamento padrão. Se o cluster usar o Azure Data Lake Storage Gen2, use `hdfs.url: abfs:///`. Se o cluster usar o Azure Data Lake Storage Gen1, use `hdfs.url: adl:///`.
     
     Para salvar o arquivo, use __Ctrl + X__, em seguida, __Y__ e, por fim, __Enter__. Os valores desse arquivo definem a URL do Data Lake Storage e o nome do diretório no qual os dados são gravados.
 

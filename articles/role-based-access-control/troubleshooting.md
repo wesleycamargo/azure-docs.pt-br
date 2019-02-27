@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas do RBAC no Azure | Microsoft Docs
-description: Solucionar problemas com RBAC (controle de acesso baseado em função) do Azure.
+title: Solução de problemas com o RBAC para recursos do Azure | Microsoft Docs
+description: Solucione problemas com RBAC (controle de acesso baseado em função) para recursos do Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411230"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342466"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Solucionar problemas de RBAC no Azure
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Solução de problemas com o RBAC para recursos do Azure
 
-Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado em função), para que você saiba o que esperar ao usar as funções no portal do Azure e possa solucionar problemas de acesso.
+Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado em função) para recursos do Azure, para que você saiba o que esperar ao usar as funções no portal do Azure e possa solucionar problemas de acesso.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas com as atribuições de função RBAC
 
@@ -119,6 +119,6 @@ Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) e
 Um leitor pode clicar na guia **Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não pode modificar essas configurações.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Gerenciar acesso usando o RBAC e o Portal do Azure](role-assignments-portal.md)
-* [Exibir logs de atividades para alterações de RBAC](change-history-report.md)
+* [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](role-assignments-portal.md)
+* [Exibir logs de atividades para alterações de RBAC para recursos do Azure](change-history-report.md)
 

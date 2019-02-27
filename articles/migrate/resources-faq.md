@@ -4,14 +4,14 @@ description: Apresenta respostas para perguntas frequentes sobre Migrações par
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746300"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416183"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -118,6 +118,10 @@ Os dados coletados pelo dispositivo coletor são armazenados no local do Azure q
 
 Para a visualização de dependência, se você instalar agentes nas VMs, os dados coletados pelos agentes de dependência serão armazenados nos EUA em uma área de trabalho do Log Analytics criada na assinatura do usuário. Esses dados são excluídos quando você exclui o espaço de trabalho do Log Analytics na sua assinatura. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Qual é o volume de dados carregado pelo Migrações para Azure no caso de criação de perfil contínua?
+
+O volume de dados que é enviado para o Migrações para Azure varia de acordo com vários parâmetros. Para fornecer um número indicativo, um projeto com dez máquinas (cada uma tendo um disco e uma NIC), enviaria cerca de 50 MB por dia. Esse é um valor aproximado e mudaria com base no número de pontos de dados para as NICs e discos (os dados enviados seriam não-lineares se aumentasse o número de máquinas, NICs ou discos). 
+
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são criptografados em repouso e em trânsito?
 
 Sim, os dados coletados são criptografados em repouso e em trânsito. Os metadados coletados pelo dispositivo são enviados para o serviço do Migrações para Azure pela internet por meio de https. Os metadados coletados são armazenados no [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e no [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) em uma assinatura Microsoft e são criptografados em repouso.
@@ -130,7 +134,7 @@ O dispositivo coletor se conecta ao vCenter Server (porta 443) usando as credenc
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Posso conectar o mesmo dispositivo coletor em vários servidores do vCenter?
 
-Sim, um único dispositivo coletor pode ser usado para descobrir vários servidores vCenter, mas não ao mesmo tempo. Você precisará executar as descobertas uma após a outra.
+Sim, um único dispositivo coletor pode ser usado para descobrir vários servidores vCenter, mas não ao mesmo tempo. Você precisa executar as descobertas uma após a outra.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>O modelo OVA usado pelo Site Recovery é integrado ao OVA usado pelas Migrações para Azure?
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 6f34e1a611ddb477f38a703a49aeb8a178157671
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120267"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301767"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -35,7 +35,7 @@ Se você ainda não tem o Application Insights adicionado ao seu projeto (ou sej
 * [Aplicativos Web ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Adicionar monitoramento de exceção](../../azure-monitor/app/asp-net-exceptions.md)
   * [Adicionar monitoramento de dependência](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicativos Web J2EE](../../azure-monitor/app/java-get-started.md)
+* [Aplicativos da web de Java EE](../../azure-monitor/app/java-get-started.md)
   * [Adicionar monitoramento de dependência](../../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>Explorando métricas de desempenho

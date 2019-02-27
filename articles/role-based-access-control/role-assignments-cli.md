@@ -1,6 +1,6 @@
 ---
-title: Gerenciar acesso usando RBAC e CLI do Azure| Microsoft Docs
-description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e CLI do Azure. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
+title: Gerenciar o acesso aos recursos do Azure usando o RBAC e a CLI do Azure | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure de usuários, grupos e aplicativos que usam o controle de acesso baseado em função (RBAC) e a CLI do Azure. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437092"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341701"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>Gerenciar o acesso usando RBAC e CLI do Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e a CLI do Azure
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e a CLI do Azure.
+O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenciar o acesso aos recursos do Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e a CLI do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para gerenciar o acesso, é necessário um dos seguintes itens:
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Criar uma função personalizada usando a CLI do Azure](tutorial-custom-role-cli.md)
-- [Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Tutorial: Criar uma função personalizada para recursos do Azure usando a CLI do Azure](tutorial-custom-role-cli.md)
+- [Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/cli-azure-resource-manager.md)

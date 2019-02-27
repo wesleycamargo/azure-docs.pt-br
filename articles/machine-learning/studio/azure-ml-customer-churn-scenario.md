@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243528"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453980"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar a rotatividade de clientes usando o Azure Machine Learning Studio
 ## <a name="overview"></a>Visão geral
-Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando-se o Azure Machine Learning. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado com o Azure Machine Learning Studio. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
-Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Microsoft Azure Machine Learning. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
+Esse teste foi desenvolvido e testado por Serge Berger, principal cientista de dados da Microsoft, e Roger Barga, ex-gerente de produto do Microsoft Azure Machine Learning Studio. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
 > Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de rotatividade, confira: [Modelo de rotatividade de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) na [Galeria de IA do Azure](http://gallery.azure.ai/)
@@ -54,11 +54,11 @@ Um processo comum de solução de problemas para resolver variação do cliente 
 2. Um modelo de intervenção permite que você considere como o nível de intervenção poderia afetar a probabilidade de variação e a quantidade de CLV (valor de vida útil do cliente).
 3. Essa análise se presta a uma análise qualitativa que será escalada para uma campanha de marketing proativa destinada a segmentos de clientes para oferecer a oferta ideal.  
 
-![][1]
+![Diagrama que mostra como a tolerância a riscos, combinada com os modelos de decisão, produz insights acionáveis](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 Essa abordagem visionária é a melhor maneira de tratar a variação, mas ela traz complexidade: precisamos desenvolver um arquétipo de vários modelos e rastrear dependências entre os modelos. A interação entre os modelos pode ser encapsulada conforme mostrado no diagrama a seguir:  
 
-![][2]
+![Diagrama de interação do modelo de variação](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Figura 4: Arquétipo multimodelo unificado*  
 
@@ -77,18 +77,18 @@ A abordagem multimodelo é essencial ao projetar um arquétipo global para varia
 
 O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritmos de pontuação no Machine Learning Studio para prever a variação. O motivo para usar uma abordagem multimodelo não é somente criar um classificador de conjunto para aumentar a precisão, mas também proteger contra over-fitting e aprimorar a seleção prescritiva de recursos.  
 
-![][3]
+![Captura de tela que descreve um workspace do Studio complexo com vários módulos interconectados](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figura 5: Protótipo de uma abordagem de modelagem de rotatividade*  
 
 As seções a seguir fornecem mais detalhes sobre o protótipo de modelo de pontuação que implementamos usando o Machine Learning Studio.  
 
 ### <a name="data-selection-and-preparation"></a>Seleção e preparação de dados
-Os dados usados para criar os modelos e atribuir pontuação aos clientes foram obtidos por meio de uma solução vertical de CRM, com os dados ofuscados para proteger a privacidade dos clientes. Os dados contém informações sobre 8.000 assinaturas nos EUA e combinam três fontes: dados de provisionamento (metadados de assinatura), dados de atividade (uso do sistema) e dados de atendimento ao cliente. Os dados não incluem nenhuma informação relacionada à empresa sobre os clientes; por exemplo, não inclui metadados de fidelidade ou pontuação de crédito.  
+Os dados usados para criar os modelos e atribuir pontuação aos clientes foram obtidos por meio de uma solução vertical de CRM, com os dados ofuscados para proteger a privacidade dos clientes. Os dados contém informações sobre 8.000 assinaturas nos EUA e combinam três fontes: dados de provisionamento (metadados de assinatura), dados de atividade (uso do sistema) e dados de atendimento ao cliente. Os dados não incluem informações relacionadas à empresa sobre os clientes. Por exemplo, não inclui metadados de fidelidade ou pontuação de crédito.  
 
-Para simplificar, os processos de ETL e limpeza dos dados estão fora do escopo porque presumimos que a preparação dos dados já foi realizada em outra instância.   
+Para simplificar, os processos de ETL e limpeza dos dados estão fora do escopo porque presumimos que a preparação dos dados já foi realizada em outra instância.
 
-A seleção de recursos para modelagem baseia-se na importância preliminar da pontuação do conjunto de prognosticadores, incluídos no processo que usa o módulo de floresta aleatório. Para a implementação no Machine Learning Studio, calculamos a média, mediana e intervalos de recursos relevantes. Por exemplo, adicionamos agregações aos dados qualitativos, tais como os valores mínimo e máximo para a atividade do usuário.    
+A seleção de recursos para modelagem baseia-se na importância preliminar da pontuação do conjunto de prognosticadores, incluídos no processo que usa o módulo de floresta aleatório. Para a implementação no Machine Learning Studio, calculamos a média, mediana e intervalos de recursos relevantes. Por exemplo, adicionamos agregações aos dados qualitativos, tais como os valores mínimo e máximo para a atividade do usuário.
 
 Também capturamos informações temporais para os últimos seis meses. Analisamos dados por um ano e estabelecemos que mesmo que houvesse tendências estatisticamente significativas, o efeito sobre a variação é bastante reduzido depois de seis meses.  
 
@@ -96,11 +96,11 @@ O ponto mais importante é que o processo inteiro, incluindo ETL, a seleção de
 
 Os diagramas a seguir ilustram os dados que foram usados.  
 
-![][4]
+![Captura de tela mostrando um exemplo dos dados usados com valores brutos](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Figura 6: Trecho de fonte de dados (ofuscado)*  
 
-![][5]
+![Captura de tela mostrando recursos estatísticos extraídos da fonte de dados](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Figura 7: Recursos extraídos da fonte de dados*
  
@@ -122,7 +122,7 @@ Usamos os quatro algoritmos de aprendizado de máquina a seguir para criar o pro
 
 O diagrama a seguir ilustra uma parte da superfície de design do teste, que indica a sequência na qual os modelos foram criados:  
 
-![][6]  
+![Captura de tela de uma pequena seção da tela do teste do Studio](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Figura 8: Criando modelos no Machine Learning Studio*  
 
@@ -135,18 +135,18 @@ Também enviamos o conjunto de dados para um modelo comparável criado usando a 
 Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Precisão e exatidão da pontuação
-Em geral, a implementação no Azure Machine Learning é inferior ao SAS em precisão em aproximadamente 10% a 15% (Área sob a Curva ou AUC).  
+Em geral, a implementação no Azure Machine Learning Studio é inferior ao SAS, em termos de precisão, em aproximadamente 10% a 15% (AUC, ou Área sob a Curva).  
 
 No entanto, a métrica mais importante na variação é a taxa de classificação incorreta, ou seja, dos maiores N variantes previstos pelo classificador, quais deles **não** variaram de fato e ainda assim receberam tratamento especial? O diagrama a seguir compara essa taxa de classificação incorreta em todos os modelos:  
 
-![][7]
+![Gráfico de área sob a curva comparando o desempenho dos quatro algoritmos](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Figura 9: Área do protótipo de Passau sob a curva*
 
 ### <a name="using-auc-to-compare-results"></a>Usando AUC para comparar resultados
 A área sob a curva (AUC) é uma métrica que representa uma medição global da *separabilidade* entre as distribuições de pontos para populações positivas e negativas. É semelhante ao grafo ROC (Característica de Operador do Receptor) tradicional, mas uma diferença importante é que a métrica AUC não exige que você escolha um valor de limite. Em vez disso, ela resume os resultados relativos a **todas** as escolhas possíveis. Em contraste, o grafo ROC tradicional exibe a taxa de resultados positivos no eixo vertical e a taxa de falsos positivos no eixo horizontal, sendo que o limite de classificação varia.   
 
-AUC geralmente é usada como uma medida de valor para algoritmos diferentes (ou sistemas diferentes), porque permite que os modelos sejam comparados por meio do valor de AUC que apresentam. Essa é uma abordagem popular em setores como meteorologia e biociência. Assim, a AUC representa uma ferramenta popular para avaliar o desempenho de um classificador.  
+A AUC é usada como uma medida de valor para algoritmos diferentes (ou sistemas diferentes) já que permite que os modelos sejam comparados por meio do valor de AUC que apresentam. Essa é uma abordagem popular em setores como meteorologia e biociência. Assim, a AUC representa uma ferramenta popular para avaliar o desempenho de um classificador.  
 
 ### <a name="comparing-misclassification-rates"></a>Comparando as taxas de classificação incorreta
 Comparamos as taxas de erro na classificação no conjunto de dados em questão usando os dados de CRM de aproximadamente 8.000 assinaturas.  
@@ -160,14 +160,14 @@ Pelo mesmo token, a exatidão é mais importante que a precisão, porque estamos
 
 O diagrama a seguir, da Wikipédia, representa a relação em um gráfico vívido, fácil de entender:  
 
-![][8]
+![Dois destinos. Um destino mostra marcas de ocorrência agrupadas flexivelmente perto do alvo marcado como "Baixa precisão: alta veracidade, baixa exatidão. Outro destino rigidamente agrupado, mas longe do alvo marcado como "Baixa precisão: baixa veracidade, boa exatidão"](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Figura 10: Troca entre exatidão e precisão*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisão e exatidão para modelo de árvore de decisão aprimorado
 O gráfico a seguir exibe os resultados brutos de pontuação usando o protótipo de Machine Learning para o modelo de árvore de decisão aprimorado, que vem a ser o mais preciso dentre os quatro modelos:  
 
-![][9]
+![Trecho de tabela que mostra Exatidão, Precisão, Recall, Pontuação F, AUC, Perda Média de Log e Perda de Log de Treinamento para quatro algoritmos](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Figura 11: Características do modelo de árvore de decisão aprimorado*
 
@@ -200,18 +200,18 @@ Essa observação importante muitas vezes é ignorada pela empresa, que geralmen
 
 No entanto, a promessa de análises de autoatendimento usando Machine Learning Studio significa que as quatro categorias de informação, classificadas por divisão ou departamento, tornam-se uma fonte valiosa de aprendizado de máquina sobre variação.  
 
-Outro recurso interessante do Azure Machine Learning é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. Ela é um diferencial importante do Azure Machine Learning no mercado.  
+Outro recurso interessante do Azure Machine Learning Studio é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. Ela é um diferencial de mercado importante do Azure Machine Learning Studio.  
 
 Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.
   
 
 ## <a name="conclusion"></a>Conclusão
-Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de pontuação e o implementamos usando o Azure Machine Learning. Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
+Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de pontuação e o implementamos usando o Azure Machine Learning Studio. Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
 
  
 
 ## <a name="references"></a>Referências
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, págs. 18 a 20.  
+[1] Análise Preditiva: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, págs. 18 a 20.  
 
 [2] Artigo da Wikipedia: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
@@ -223,17 +223,6 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
  
 
 ## <a name="appendix"></a>Apêndice
-![][10]
+![Instantâneo de uma apresentação do protótipo de variação](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Figura 12: Instantâneo de uma apresentação de protótipo de rotatividade*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

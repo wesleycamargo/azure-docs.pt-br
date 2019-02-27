@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468828"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327547"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -34,7 +34,11 @@ A configuração máxima de pods por nó é 110 por padrão, se você implantar 
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo o erro “insuficienteSubnetSize” ao implantar um cluster AKS com a rede avançada. O que devo fazer?
 
-A opção de Rede Virtual personalizada do Azure para a rede durante a criação do AKS, a Interface de Rede de Contêiner do Azure (CNI) é usada para gerenciamento de endereço IP (IPAM). O número de nós em um cluster AKS pode estar em qualquer lugar entre 1 e 100. Com base na seção anterior, o tamanho da sub-rede deve ser maior que o produto do número de nós e o máximo de pods por nó. A relação pode ser expressa dessa forma: tamanho da sub-rede > número de nós no cluster * máximo pods por nó.
+Se o CNI (rede avançada) do Azure for usado, o AKS pré-aloca o endereço IP com base no máximo de pods por nó configurado. O número de nós em um cluster AKS pode estar em qualquer lugar entre 1 e 110. Com base no máximo de pods por nó, o tamanho da sub-rede deve ser maior que o "produto do número de nós e o máximo de pods por nó". A seguinte equação básica descreve isso:
+
+Tamanho da sub-rede > número de nós no cluster (levando em consideração os futuros requisitos de escala) * máximo de pods por nó.
+
+Para saber mais, confira [Planejar o endereçamento IP para o cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Meu pod está preso no modo CrashLoopBackOff. O que devo fazer?
 

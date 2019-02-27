@@ -1,6 +1,6 @@
 ---
-title: Gerenciar acesso usando o RBAC e o Portal do Azure | Microsoft Docs
-description: Aprenda a gerenciar o acesso de usuários, grupos, entidades de serviço e identidades gerenciadas, usando o controle de acesso baseado em função (RBAC) e o portal do Azure. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
+title: Gerenciar acesso aos recursos do Azure usando o RBAC e o Portal do Azure | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos, entidades de serviço e identidades gerenciadas usando o controle de acesso baseado em função (RBAC) e o portal do Azure. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412301"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342330"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerenciar acesso usando o RBAC e o Portal do Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure
 
-O [Controle de acesso baseado em função (RBAC)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Este artigo descreve como você gerencia o acesso de usuários, grupos, entidades de serviço e identidades gerenciadas usando o RBAC e o portal do Azure.
+O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenciar o acesso aos recursos do Azure. Este artigo descreve como você gerencia o acesso de usuários, grupos, entidades de serviço e identidades gerenciadas usando o RBAC e o portal do Azure.
 
 ## <a name="open-access-control-iam"></a>Abra o controle de acesso (IAM)
 
@@ -41,7 +41,7 @@ O **blade de controle de acesso (IAM)**, também conhecido como gerenciamento de
 
 ## <a name="view-roles-and-permissions"></a>Modo de exibição de funções e permissões
 
-Uma definição de função é uma coleção de permissões que podem ser usadas para atribuições de função. O Azure tem mais de 70 [funções internas](built-in-roles.md). Siga estas etapas para visualizar as funções e permissões que podem ser executadas no plano de gerenciamento e dados.
+Uma definição de função é uma coleção de permissões que podem ser usadas para atribuições de função. O Azure tem mais de 70 [funções internas para recursos do Azure](built-in-roles.md). Siga estas etapas para visualizar as funções e permissões que podem ser executadas no plano de gerenciamento e dados.
 
 1. Abra **Controle de acesso (IAM)** em um escopo, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso, onde você deseja visualizar funções e permissões.
 
@@ -165,7 +165,7 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Conceder acesso a um usuário usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
-* [Tutorial: Permitir acesso a um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Solução de problemas do RBAC no Azure](troubleshooting.md)
-* [Organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md)
+* [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
+* [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Solução de problemas com o RBAC para recursos do Azure](troubleshooting.md)
+* [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/index.md)

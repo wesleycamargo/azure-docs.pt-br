@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389243"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453844"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -75,18 +75,18 @@ Esse uso do Gateway de Aplicativo é apenas um exemplo de como configurar o sist
 
 ## <a name="logging"></a>Registro em log 
 
-O Firewall do Azure pode enviar logs para o Armazenamento do Azure, o Hub de Eventos ou o Log Analytics. Para integrar seu aplicativo com qualquer destino compatível, acesse o portal do Firewall do Azure > Logs de Diagnóstico e habilite os logs para o destino desejado. Se você fizer a integração ao Log Analytics, poderá ver o log para qualquer tráfego enviado para o Firewall do Azure. Para ver o tráfego que está sendo negado, abra o portal do Log Analytics > Logs e insira uma consulta como 
+O Firewall do Azure pode enviar logs para o Armazenamento do Azure, o Hub de Eventos ou os Logs do Azure Monitor. Para integrar seu aplicativo com qualquer destino compatível, acesse o portal do Firewall do Azure > Logs de Diagnóstico e habilite os logs para o destino desejado. Se você fizer a integração com os logs do Azure Monitor, poderá ver os logs de qualquer tráfego enviado para o Firewall do Azure. Para ver o tráfego que está sendo negado, abra o portal de workspaces do Log Analytics > Logs e insira uma consulta como 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-A integração do Firewall do Azure ao Log Analytics é muito útil ao tornar o aplicativo funcional pela primeira vez, quando você não está ciente de todas as dependências de aplicativo. Saiba mais sobre o Log Analytics em [Analisar dados do Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+A integração do Firewall do Azure aos logs do Azure Monitor é muito útil ao tornar o aplicativo funcional pela primeira vez, quando você não está ciente de todas as dependências de aplicativo. Saiba mais sobre os logs do Azure Monitor em [Analisar dados de log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## <a name="dependencies"></a>Dependências
 
 As informações a seguir só são necessárias se você deseja configurar um dispositivo de firewall diferente do Firewall do Azure. 
 
 - Os serviços compatíveis com o Ponto de Extremidade de Serviço devem ser configurados com pontos de extremidade de serviço.
-- As dependências de Endereço IP são para o tráfego não HTTP/S
+- As dependências de Endereço IP são para o tráfego não HTTP/S (tráfego TCP e UDP)
 - Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
 - Pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar de acordo com seu ASE com base em vários qualificadores. 
 - As dependências do Linux serão uma preocupação apenas se você estiver implantando aplicativos Linux em seu ASE. Se você não estiver implantando aplicativos Linux em seu ASE, esses endereços não precisarão ser adicionados ao firewall. 

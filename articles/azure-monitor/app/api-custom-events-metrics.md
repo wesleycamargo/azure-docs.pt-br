@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895985"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268950"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -508,7 +508,7 @@ catch (ex)
 Os SDKs capturam muitas exceções automaticamente; portanto, você não precisa chamar sempre explicitamente o TrackException.
 
 * ASP.NET: [Escrever código para detectar exceções](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Exceções são capturadas automaticamente](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Exceções são capturadas automaticamente](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Exceções são capturadas automaticamente. Se quiser desabilitar a coleta automática, adicione uma linha ao snippet de código que você insere em suas páginas da Web:
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-Observe que a função é assíncrona para o [canal de telemetria do servidor](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+A função é assíncrona para o [canal de telemetria do servidor](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 Idealmente, o método flush () deve ser usado na atividade de desligamento do Aplicativo.
 
@@ -1144,7 +1144,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **InstrumentationKey**: O recurso do Application Insights no Azure onde a telemetria é exibida. Normalmente, escolhido no Applicationinsights.config.
 * **Localização**: A localização geográfica do dispositivo.
 * **Operação**: Em aplicativos Web, a solicitação HTTP atual. Em outros tipos de aplicativos, você pode definir isso para agrupar eventos juntos.
-  * **Id**: Um valor gerado que correlaciona eventos diferentes, para que, ao inspecionar qualquer evento na Pesquisa de Diagnóstico você possa encontrar itens relacionados.
+  * **ID**: Um valor gerado que correlaciona eventos diferentes, para que, ao inspecionar qualquer evento na Pesquisa de Diagnóstico você possa encontrar itens relacionados.
   * **Nome**: Um identificador, geralmente a URL da solicitação HTTP.
   * **SyntheticSource**: Se não for nulo ou vazio, uma cadeia de caracteres que indica que a origem da solicitação foi identificada como um robô ou teste na Web. Por padrão, ela é excluída dos cálculos no Metrics Explorer.
 * **Propriedades**: Propriedades que são enviadas com todos os dados telemétricos. Pode ser substituído nas chamadas individuais de Track*.

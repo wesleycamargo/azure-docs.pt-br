@@ -1,6 +1,6 @@
 ---
-title: Gerenciar acesso para usuários externos usando RBAC no Azure| Microsoft Docs
-description: Saiba como gerenciar o acesso de usuários externos para uma organização usando RBAC (controle de acesso baseado em função) no Azure.
+title: Gerenciar o acesso de usuários externos a recursos do Azure usando RBAC | Microsoft Docs
+description: Saiba como gerenciar o acesso de usuários externos a recursos do Azure para uma organização usando RBAC (controle de acesso baseado em função).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284516"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343853"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>Gerenciar acesso para usuários externos usando RBAC
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gerenciar o acesso de usuários externos a recursos do Azure usando RBAC
 
 O controle de acesso baseado em função (RBAC) permite um melhor gerenciamento de segurança para grandes empresas e SMBs que trabalham com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente a toda a infraestrutura nem nenhum escopo relacionado à cobrança. O RBAC proporciona a flexibilidade de ter uma assinatura do Azure gerenciada pela conta de administrador (função de administrador de serviços no nível da assinatura) e ter vários usuários convidados para trabalhar na mesma assinatura, mas sem os direitos administrativos para ela.
 
 > [!NOTE]
-> As assinaturas do Office 365 ou licenças do Azure Active Directory (por exemplo: Acesso ao Azure Active Directory) provisionadas no centro do Office 365 Admin não se qualificam para uso do RBAC.
+> Assinaturas do Office 365 ou licenças do Azure Active Directory (por exemplo: Acesso ao Azure Active Directory) provisionadas no Centro de administração do Office 365 não estão qualificadas para uso do RBAC.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Atribuir funções de RBAC no escopo de assinatura
 
@@ -55,7 +55,7 @@ Depois de selecionar a assinatura, o usuário administrador deve clicar em **Con
 
 ![adicionar novo usuário no recurso IAM de controle de acesso no portal do Azure](./media/role-assignments-external-users/2.png)
 
-A próxima etapa é selecionar a função a ser atribuída e o usuário ao qual a função de RBAC será atribuída. No menu suspenso **Função**, o usuário administrador vê apenas as funções RBAC internas que estão disponíveis no Azure. Para obter explicações mais detalhadas sobre cada função e seus escopos atribuíveis, consulte [Funções internas](built-in-roles.md).
+A próxima etapa é selecionar a função a ser atribuída e o usuário ao qual a função de RBAC será atribuída. No menu suspenso **Função**, o usuário administrador vê apenas as funções RBAC internas que estão disponíveis no Azure. Para obter explicações mais detalhadas sobre cada função e seus escopos atribuíveis, consulte [Funções internas para recursos do Azure](built-in-roles.md).
 
 Em seguida, o usuário administrador precisa adicionar o endereço de email do usuário externo. O comportamento esperado para o usuário externo é não aparecer no locatário existente. Depois de ser convidado, o usuário externo fica visível em **Assinaturas > Controle de Acesso (IAM)** com todos os usuários atuais que são atribuídos a uma função RBAC no escopo de Assinatura no momento.
 

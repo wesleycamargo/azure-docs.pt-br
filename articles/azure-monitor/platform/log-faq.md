@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564945"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313026"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -51,7 +51,7 @@ R: A exibição de Lista não está disponível nos novos Logs. Há uma seta à 
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>P. Depois de executar uma consulta, uma lista de filtros sugeridos está disponível. Como posso ver filtros? 
 
-R: Clique em "Filtros"' na panorâmica à esquerda para ver uma versão prévia da nova implementação de Filtros. Agora, isso tem base em seu conjunto completo de resultados, em vez de ficar limitado a 10.000 registros da interface do usuário. Atualmente, essa é uma lista dos filtros mais populares e dos 10 valores mais comuns para cada filtro. 
+R: Clique em "Filtros"' no painel à esquerda para ver uma versão prévia da nova implementação de Filtros. Agora, isso tem base em seu conjunto completo de resultados, em vez de ficar limitado a 10.000 registros da interface do usuário. Atualmente, essa é uma lista dos filtros mais populares e dos 10 valores mais comuns para cada filtro. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou recebendo o erro: "Registre o provedor de recursos 'Microsoft.Insights' para esta assinatura para habilitar essa consulta" nos Logs, após realizar o drilling in da VM? 
 

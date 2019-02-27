@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657018"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311556"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades gerenciadas com Instâncias de Contêiner do Azure
 
@@ -27,6 +27,9 @@ Neste artigo, você aprenderá mais sobre identidades gerenciadas nas Instância
 > * Usar a identidade gerenciada para acessar um Key Vault de um contêiner em execução
 
 Adapte os exemplos para habilitar e usar identidades em Instâncias de Contêiner do Azure para acessar outros serviços do Azure. Esses exemplos são interativos. No entanto, na prática as imagens de contêiner executariam o código para acessar os serviços do Azure.
+
+> [!NOTE]
+> Atualmente, não é possível usar uma identidade gerenciada em um grupo de contêineres implantados em uma rede virtual.
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerenciada?
 

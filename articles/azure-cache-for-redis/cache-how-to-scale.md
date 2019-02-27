@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235565"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313425"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -115,7 +115,7 @@ A lista a seguir contém respostas para perguntas frequentes sobre o dimensionam
 * [Perderei dados de meu cache durante o dimensionamento?](#will-i-lose-data-from-my-cache-during-scaling)
 * [A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
 * [O cache estará disponível durante o dimensionamento?](#will-my-cache-be-available-during-scaling)
-* [Com a replicação geográfica configurada, por que não consigo dimensionar o cache ou alterar os fragmentos em um cluster?](#scaling-limitations-with-geo-relication)
+* Com a replicação geográfica configurada, por que não consigo dimensionar o cache ou alterar os fragmentos em um cluster?
 * [Operações que não têm suporte](#operations-that-are-not-supported)
 * [Quanto tempo o dimensionamento leva?](#how-long-does-scaling-take)
 * [Como saber quando o dimensionamento é concluído?](#how-can-i-tell-when-scaling-is-complete)

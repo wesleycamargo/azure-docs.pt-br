@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234655"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339780"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -43,8 +43,11 @@ A auditoria do [Banco de Dados SQL](sql-database-technical-overview.md) e do [SQ
 > [!IMPORTANT]
 > Os logs de auditoria são gravados nos **Blobs de Acréscimo** em um armazenamento de Blob do Azure em sua assinatura do Azure.
 >
-> - O **Armazenamento Premium** atualmente **não tem suporte** por Blobs de Acréscimo.
+> - Há suporte para todos os tipos de armazenamento (v1, v2, blob).
+> - Há suporte para todas as configurações de replicação de armazenamento.
+> - Atualmente, **não há suporte** para o **Armazenamento Premium**.
 > - Atualmente, o **armazenamento na VNet** **não tem suporte**.
+> - Atualmente, **não há suporte** para o **Armazenamento atrás de um firewall**
 
 ## <a id="subheading-8"></a>Definir a política de auditoria no nível do servidor versus no nível do banco de dados
 

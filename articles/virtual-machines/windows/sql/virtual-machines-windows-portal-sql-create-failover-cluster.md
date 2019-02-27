@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359928"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328545"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -180,7 +180,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente.
    | Investigação de integridade | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.  
 
-1. Adicione armazenamento à máquina virtual. Para obter informações detalhadas, confira [adicionar armazenamento](../premium-storage.md).
+1. Adicione armazenamento à máquina virtual. Para obter informações detalhadas, confira [adicionar armazenamento](../disks-types.md).
 
    As duas máquinas virtuais precisam de pelo menos dois discos de dados.
 
@@ -188,7 +188,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
       >[!NOTE]
       >Se anexar discos formatados com NTFS, você só poderá habilitar S2D sem verificação de qualificação do disco.  
 
-   Anexe no mínimo dois Armazenamentos Premium (discos SSD) a cada VM. É recomendável ter pelo menos discos P30 (1 TB).
+   Anexe no mínimo dois SSDs premium a cada VM. É recomendável ter pelo menos discos P30 (1 TB).
 
    Defina o cache de host como **Somente leitura**.
 

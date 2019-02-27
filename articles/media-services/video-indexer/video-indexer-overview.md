@@ -7,47 +7,59 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: 78b362eb75ab4e0ca17045f8c32761a65897d449
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000175"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417373"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
-O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise de Mídia do Azure, no Azure Search, nos Serviços Cognitivos (como a API de Detecção Facial, o Microsoft Translator, a API da Pesquisa Visual Computacional e o Serviço de Fala Personalizado). Ele permite que você extraia os insights de seus vídeos usando os modelos do Video Indexer descritos abaixo:
- 
+O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise de Mídia do Azure, no Azure Search, nos Serviços Cognitivos (como a API de Detecção Facial, o Microsoft Translator, a API da Pesquisa Visual Computacional e o Serviço de Fala Personalizado). Ele permite que você extraia os insights de seus vídeos usando os modelos de áudio e vídeo do Video Indexer descritos abaixo:
+  
+## <a name="video-insights"></a>Insights para vídeos
+
+- **Detecção facial**: Detecta e agrupa rostos que aparecem no vídeo.
+- **Identificação de celebridade**: O Video Indexer identifica automaticamente mais de 1 milhão de celebridades, tais como líderes mundiais, atores e atrizes, atletas, pesquisadores, líderes dos negócios e do setor de tecnologia em todo o mundo. Os dados sobre esses celebridades também podem ser encontrados em diversos sites famosos, assim como IMDB e Wikipédia.
+- **Identificação de face baseada em conta**: O Video Indexer treina um modelo para uma conta específica. Em seguida, ele reconhece rostos no vídeo com base no modelo treinado especificamente para vídeos nessa conta.
+- **Extração em miniatura para rosto** ("melhor rosto"): Identifica automaticamente o melhor rosto capturado em cada grupo de rostos (com base na qualidade, no tamanho e na posição frontal) e o extrai como um ativo de imagem.
+- **Reconhecimento de texto visual** (OCR): Extrai o texto que é exibido visualmente no vídeo.
+- **Moderação de conteúdo visual**: Detecta visuais somente para adultos e/ou eróticos.
+- **Identificação de rótulos**: Identifica objetos visuais e ações exibidas.
+- **Detecção de captura**: Determina quando uma cena é alterada no vídeo.
+- **Detecção de quadro preto**: Identifica quadros pretos apresentados no vídeo.
+- **Extração de quadro-chave**: Detecta quadros-chave estáveis em um vídeo.
+
+## <a name="audio-insights"></a>Insights de áudio
+
 - **Detecção automática de idioma**: Identifica automaticamente o idioma falado dominante. Os idiomas com suporte incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (brasileiro). Fará fallback para o inglês quando o idioma não puder ser detectado.
 - **Transcrição de áudio**: Conversão de fala em texto em 12 idiomas e permite extensões. Os idiomas com suporte incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo e português (brasileiro), hindi e coreano.
 - **Legendagem oculta**: Cria legendas ocultas em três formatos: VTT, TTML, SRT.
 - **Processamento de dois canais**: Detecta automaticamente, separa a transcrição e mescla em uma única linha do tempo.
-- **Redução de ruído**:  Limpa gravações com ruídos ou áudio com telefonia (com base nos filtros do Skype).
-- **Personalização de transcrição (CRIS)**: Treina e executa modelos personalizados estendidos de conversão de fala em texto para criar transcrições específicas do setor.
-- **Enumeração de alto-falante**:  Mapeia e entende qual locutor disse quais palavras e quando.
+- **Redução de ruído**: Limpa gravações com ruídos ou áudio com telefonia (com base nos filtros do Skype).
+- **Personalização de transcrição** (CRIS): Treina e executa modelos personalizados estendidos de conversão de fala em texto para criar transcrições específicas do setor.
+- **Enumeração de alto-falante**: Mapeia e entende qual locutor disse quais palavras e quando.
 - **Estatísticas de alto-falante**: Fornece estatísticas das taxas de fala dos alto-falantes.
-- **Reconhecimento de texto visual (OCR)**: Extrai o texto que é exibido visualmente no vídeo.
-- **Extração de quadro-chave**: Detecta quadros-chave estáveis em um vídeo.
-- **Análise de Sentimento**: Identifica sentimentos positivos, negativos e neutros de falas e de textos visuais.
-- **Moderação de conteúdo visual**: Detecta visuais somente para adultos e/ou eróticos.
-- **Extração de palavra-chave**: Extrai palavras-chave de falas e de textos visuais.
-- **Identificação de rótulos**: Identifica objetos visuais e ações exibidas.
-- **Extração de marcas**: Extrai marcas de falas e de textos visuais.
-- **Detecção facial**: Detecta e agrupa rostos que aparecem no vídeo.
-- **Extração em miniatura para rosto (“melhor rosto”)**: Identifica automaticamente o melhor rosto capturado em cada grupo de rostos (com base na qualidade, no tamanho e na posição frontal) e o extrai como um ativo de imagem.
-- **Identificação de celebridade**: O Video Indexer identifica automaticamente mais de 1 milhão de celebridades, tais como líderes mundiais, atores e atrizes, atletas, pesquisadores, líderes dos negócios e do setor de tecnologia em todo o mundo. Os dados sobre esses celebridades também podem ser encontrados em diversos sites famosos, assim como IMDB e Wikipédia.
-- **Identificação de face baseada em conta**: O Video Indexer treina um modelo para uma conta específica. Em seguida, ele reconhece rostos no vídeo com base no modelo treinado especificamente para vídeos nessa conta.
 - **Moderação de conteúdo visual**: Detecta texto explícito na transcrição de áudio.
-- **Detecção de captura**: Determina quando uma cena é alterada no vídeo.
-- **Detecção de quadro preto**: Identifica quadros pretos apresentados no vídeo.
 - **Efeitos de áudio**: Identifica efeitos de áudio como palmas, fala e silêncio.
-- **Inferência do tópico**: Faz inferências dos principais tópicos das transcrições. A taxonomia de [IPTC](https://iptc.org/standards/media-topics/) de 1º nível é incluída.
 - **Detecção de emoções**: Identifica emoções com base em indicações de fala e de áudio. A emoção pode ser: alegria, tristeza, raiva ou medo.
-- **Artefatos**: Extrai um conjunto avançado de artefatos com o "próximo nível de detalhes" para cada um dos modelos.
 - **Tradução**: Cria traduções da transcrição de áudio em 54 idiomas diferentes.
 
+## <a name="audio-and-video-insights-multi-channels"></a>Insights de áudio e vídeo (vários canais)
+
+Ao fazer a indexação por um canal, o resultado parcial desses modelos estará disponível
+
+- **Extração de palavra-chave**: Extrai palavras-chave de falas e de textos visuais.
+- **Extração de marcas**: Extrai marcas de falas e de textos visuais.
+- **Inferência do tópico**: Faz inferências dos principais tópicos das transcrições. A taxonomia de IPTC de 1º nível está incluída.
+- **Artefatos**: Extrai um conjunto avançado de artefatos com o "próximo nível de detalhes" para cada um dos modelos.
+- **Análise de Sentimento**: Identifica sentimentos positivos, negativos e neutros de falas e de textos visuais.
+ 
+  
+ 
 Depois que o Video Indexer terminar de processar e analisar, você poderá examinar, coletar, pesquisar e publicar as informações do vídeo.
 
 Se sua função for um gerenciador de conteúdo ou um desenvolvedor, o serviço do Video Indexer poderá atender às suas necessidades. Os gerenciadores de conteúdo podem usar o portal da Web do Video Indexer para consumir o serviço sem escrever uma única linha de código; confira [Começar a usar o site do Video Indexer](video-indexer-get-started.md). Os desenvolvedores podem aproveitar as APIs para processar o conteúdo em grande escala; consulte [Usar API REST do Video Indexer](video-indexer-use-apis.md). O serviço também permite que os clientes usem widgets para publicar transmissões de vídeo e informações extraídas em seus próprios aplicativos; consulte [Inserir widgets visuais em seu aplicativo](video-indexer-embed-widgets.md).

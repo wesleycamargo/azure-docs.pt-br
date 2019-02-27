@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994936"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453351"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar e excluir dados do usuário no produto do Azure Machine Learning Studio
 
@@ -70,8 +70,8 @@ Os usuários também podem excluir o workspace inteiro:
 ![Excluir um workspace gratuito no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>Exportar dados do Studio com o PowerShell
-Use o PowerShell para exportar todas as informações para um formato portátil do Azure Machine Learning Studio usando comandos. Para obter mais informações, consulte o artigo [Módulo do PowerShell para Azure Machine Learning](powershell-module.md).
+Use o PowerShell para exportar todas as informações para um formato portátil do Azure Machine Learning Studio usando comandos. Para obter mais informações, confira o artigo [Módulo do PowerShell para Azure Machine Learning Studio](powershell-module.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para documentação abrangendo serviços web e cobrança do plano de compromisso, consulte [Referência da API REST do Azure Machine Learning](https://docs.microsoft.com/rest/api/machinelearning/). 
+Para ter acesso a documentação que abrange serviços Web e cobrança do plano de compromisso, confira [Referência da API REST do Azure Machine Learning Studio](https://docs.microsoft.com/rest/api/machinelearning/). 

@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de negação usando RBAC e API REST – Azure | Microsoft Docs
-description: Saiba como listar atribuições de negação para usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e API REST.
+title: Listar atribuições de negação para recursos do Azure usando a API REST – Microsoft Azure | Microsoft Docs
+description: Saiba como listar atribuições de negação para usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) para recursos do Azure e API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975574"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341616"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Listar atribuições de negação usando RBAC e a API REST
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Listar atribuições de negação para recursos do Azure usando a API REST
 
 Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure. Mesmo que você não possa criar suas próprias atribuições de negação, é possível listar as atribuições de negação, porque elas poderiam afetar suas permissões efetivas. Este artigo descreve como listar atribuições de negação usando RBAC e API REST.
 
@@ -36,7 +36,7 @@ Atualmente as atribuições de negação são **somente leitura** e só podem se
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de negação.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -60,7 +60,7 @@ Atualmente as atribuições de negação são **somente leitura** e só podem se
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de negação.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -95,6 +95,6 @@ Atualmente as atribuições de negação são **somente leitura** e só podem se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Compreender atribuições de negação](deny-assignments.md)
+- [Compreender atribuições de negação dos recursos do Azure](deny-assignments.md)
 - [Elevar o acesso de um Administrador Global no Azure Active Directory](elevate-access-global-admin.md)
 - [Referência de API REST do Azure](/rest/api/azure/)

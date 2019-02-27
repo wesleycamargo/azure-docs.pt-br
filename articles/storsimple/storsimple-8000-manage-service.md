@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701913"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310050"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
 
@@ -32,7 +32,7 @@ Este tutorial descreve as etapas necessárias para a criação, exclusão e migr
 > [!NOTE]
 > -  O Portal do Azure dá suporte a dispositivos que executam a Atualização 5.0 ou posterior. Se seu dispositivo não for atualizado, instale a Atualização 5 imediatamente. Para saber mais, vá para [Instalar a Atualização 5](storsimple-8000-install-update-5.md). 
 > - Se você estiver usando um Dispositivo de Nuvem StorSimple (8010/8020), você não poderá atualizar um dispositivo de nuvem. Use a versão mais recente do software para criar um novo dispositivo de nuvem com Atualização 5.0 e, em seguida, faça failover para o novo dispositivo de nuvem criado. 
-> - Todos os dispositivos que executam a atualização 4.0 ou anterior terão [funcionalidade de gerenciamento reduzida](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - Todos os dispositivos que executam a versão 4.0 ou anterior terão funcionalidade de gerenciamento reduzida. 
 
 ## <a name="create-a-service"></a>Criar um serviço
 Para criar um serviço do Gerenciador de Dispositivos do StorSimple, você precisa ter:
@@ -93,7 +93,7 @@ Execute as etapas a seguir para obter a chave de registro do serviço.
 
 Mantenha a chave de registro do serviço em local seguro. Você precisará dessa chave, bem como da chave de criptografia dos dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você deverá configurar o dispositivo usando a Interface do Windows PowerShell para StorSimple.
 
-Para obter detalhes sobre como usar essa chave de registro, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Para saber mais sobre como usar essa chave de registro, consulte a [Etapa 3: configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registro do serviço
 Você precisará regenerar uma chave de registro do serviço se for necessário realizar a rotação de chave ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar dispositivos subsequentes. Os dispositivos que já foram registrados não serão afetados por esse processo.
@@ -127,7 +127,7 @@ A alteração da chave de criptografia de dados de serviço é um processo de tr
 2. Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço.
 3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço nos outros dispositivos.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Etapa 1: use um script do Windows PowerShell para autorizar um dispositivo a alterar a chave de criptografia de dados de serviço
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Etapa 1: usar um script do Windows PowerShell para autorizar um dispositivo a alterar a chave de criptografia de dados de serviço
 Normalmente, o administrador do dispositivo solicita que o administrador do serviço autorize um dispositivo a alterar as chaves de criptografia de dados de serviço. O administrador do serviço então autoriza o dispositivo a alterar a chave.
 
 Esta etapa é executada usando o script baseado no Azure Resource Manager. O administrador de serviços pode selecionar um dispositivo qualificado para receber a autorização. O dispositivo é então autorizado a iniciar o processo de alteração da chave de criptografia de dados de serviço. 
@@ -143,7 +143,7 @@ Um dispositivo deve atender aos seguintes critérios para que possa ser autoriza
 * Não é possível autorizar um dispositivo enquanto a substituição da chave de criptografia de dados de serviço estiver em andamento.
 * Você pode autorizar um dispositivo quando alguns dos dispositivos registrados no serviço tiverem substituído a criptografia, enquanto outros não. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Etapa 2: usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço
 Essa etapa é executada na interface do Windows PowerShell para StorSimple no dispositivo StorSimple autorizado.
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Se você estiver usando o console serial do dispositivo para se conectar à inte
    
    Se você tiver um único dispositivo registrado no serviço, o processo de substituição agora está concluído e a próxima etapa poderá ser ignorada. Se você tiver vários dispositivos registrados em seu serviço, passe para a etapa 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: Atualizar a chave de criptografia de dados de serviço em outros dispositivos StorSimple
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: atualizar a chave de criptografia de dados de serviço em outros dispositivos StorSimple
 Essas etapas devem ser executadas na interface do Windows PowerShell de seu dispositivo StorSimple, caso você tenha vários dispositivos registrados no serviço StorSimple Manager. A chave que você obteve na Etapa 2 deve ser usada para atualizar todos os demais dispositivos StorSimple registrados com o serviço do StorSimple Manager.
 
 Execute as etapas a seguir para atualizar a criptografia de dados de serviço no seu dispositivo.
@@ -176,7 +176,7 @@ Execute as etapas a seguir para atualizar a criptografia de dados de serviço no
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Para atualizar a chave de criptografia de dados de serviço em dispositivos físicos
 1. Use o Windows PowerShell para StorSimple para se conectar ao console. Selecione a Opção 1 para fazer logon com acesso completo.
 2. No prompt de comando, digite: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
+3. Forneça a chave de criptografia de dados de serviço obtida na [Etapa 2: usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Para atualizar a chave de criptografia de dados de serviço em todos os dispositivos de nuvem 8010/8020
 1. Baixe e instale o script do PowerShell [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1). 
@@ -189,24 +189,24 @@ No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam
 
 | Operação                                                                                                                       | Com suporte      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrar um dispositivo                                                                                                               | sim            |
-| Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | sim            |
-| Examinar, baixar e instalar atualizações                                                                                             | sim            |
-| Desativar um dispositivo                                                                                                               | sim            |
-| Excluir um dispositivo                                                                                                                   | sim            |
+| Registrar um dispositivo                                                                                                               | Sim            |
+| Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | Sim            |
+| Examinar, baixar e instalar atualizações                                                                                             | Sim            |
+| Desativar um dispositivo                                                                                                               | Sim            |
+| Excluir um dispositivo                                                                                                                   | Sim            |
 | Criar, modificar e excluir um contêiner de volume                                                                                   | Não              |
 | Criar, modificar e excluir um volume                                                                                             | Não              |
 | Criar, modificar e excluir uma política de backup                                                                                      | Não              |
 | Fazer um backup manual                                                                                                            | Não              |
 | Realizar um backup agendado                                                                                                         | Não aplicável |
 | Restaurar de um conjunto de backup                                                                                                        | Não              |
-| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | sim            |
+| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | Sim            |
 | Clonar para um dispositivo que executa uma versão anterior à Atualização 3.0                                                                          | Não              |
-| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | sim            |
+| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | Sim            |
 | Failover como dispositivo de destino <br> (para um dispositivo que executa uma versão de software anterior à Atualização 3.0)                                                                                   | Não              |
-| Limpar um alerta                                                                                                                  | sim            |
-| Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | sim            |
-| Ativar e desativar controladores de dispositivo                                                                                              | sim            |
+| Limpar um alerta                                                                                                                  | Sim            |
+| Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | Sim            |
+| Ativar e desativar controladores de dispositivo                                                                                              | Sim            |
 
 
 ## <a name="next-steps"></a>Próximas etapas

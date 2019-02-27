@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172639"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446368"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
@@ -91,10 +91,10 @@ A API Web pode usar o token para verificar a identidade do chamador da API e ext
 Uma API Web pode receber tokens de muitos tipos de clientes, incluindo aplicativos Web, aplicativos móveis e da área de trabalho, aplicativos de página única, daemons do lado do servidor e até outras APIs Web. Veja um exemplo do fluxo completo de um aplicativo Web que chama uma API Web:
 
 1. O aplicativo web executa uma política e o usuário conclui a experiência do usuário.
-2. Azure Active Directory B2C retorna um `access_token` e um código de autorização para o navegador.
-3. As postagens de navegador a `access_token` e código de autorização ao URI de redirecionamento.
-4. O servidor web valida o `access token` e define um cookie de sessão.
-5. O `access_token` é fornecido para o Azure AD B2C com o código de autorização, ID de cliente do aplicativo e as credenciais.
+2. O Azure AD B2C retorna um (OpenID Connect) `id_token` e um código de autorização para o navegador.
+3. As postagens de navegador a `id_token` e código de autorização ao URI de redirecionamento.
+4. O servidor web valida o `id_token` e define um cookie de sessão.
+5. O servidor web solicita ao Azure AD B2C um `access_token`, fornecendo a ele o código de autorização, a ID de cliente do aplicativo e as credenciais do cliente.
 6. O `access_token` e `refresh_token` são retornados para o servidor web.
 7. A API da web é chamada com o `access_token` em um cabeçalho de autorização.
 8. A API da Web valida o token.

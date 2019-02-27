@@ -8,53 +8,132 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871992"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312509"
 ---
-# <a name="detecting-domain-specific-content"></a>Detectar conteúdo específico de domínio
+# <a name="detect-domain-specific-content"></a>Detectar conteúdo específico de um domínio
 
-Além da marcação e da categorização de nível superior, o Computer Vision também oferece suporte a informações especializadas (ou de domínio específico). Informações especializadas podem ser implementadas como um método autônomo ou com a categorização de nível superior. Elas funcionam como um meio de refinar ainda mais a taxonomia de 86 categorias por meio da adição de modelos específicos a um domínio.
+Além de marcação e categorização de alto nível, a Pesquisa Visual Computacional também suporta uma análise específica de domínio mais detalhada usando modelos treinados em dados especializados. 
 
-Há duas opções para usar os modelos específicos a um domínio:
+Há duas maneiras de usar os modelos de domínio específico: por si só (análise com escopo) ou como um aprimoramento do recurso de categorização.
 
-* Análise de escopo  
-  Analise apenas um modelo escolhido, invocando uma chamada HTTP POST. Se você souber qual modelo deseja usar, especifique o nome do modelo. Você só obtém informações relevantes para esse modelo. Por exemplo, você pode usar essa opção para procurar somente o reconhecimento de celebridades. A resposta contém uma lista de possíveis correspondências de celebridades, acompanhadas por suas pontuações de confiança.
-* Análise aprimorada  
-  Análise para fornecer detalhes adicionais relacionados às categorias da taxonomia de 86 categorias. Essa opção está disponível para uso em aplicativos em que os usuários desejam obter uma análise de imagem genérica, além dos detalhes de um ou mais modelos específicos a um domínio. Quando esse método é invocado, o classificador da taxonomia de 86 categorias é chamado primeiro. Se alguma das categorias corresponder à de modelos conhecidos ou correspondentes, uma segunda passagem de invocações de classificador será exibida. Por exemplo, se o parâmetro `details` da chamada HTTP POST for definido como "todos" ou incluir "celebridades", o método chamará o classificador de celebridade depois que o classificador de 86 categorias for chamado. Se a imagem for classificada como `people_` ou uma subcategoria dessa categoria, o classificador de celebridade será chamado.
+### <a name="scoped-analysis"></a>Análise de escopo
 
-## <a name="listing-domain-specific-models"></a>Listagem de modelos específicos de domínio
+Você pode analisar uma imagem usando apenas o modelo de domínio específico escolhido, chamando a API [Modelos/\<modelo\>/Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200). 
 
-Você pode listar os modelos específicos de domínio compatíveis com a visão do computador. Atualmente, o Computer Vision suporta os seguintes modelos específicos de domínio para detectar conteúdo específico de domínio:
+A seguir está um exemplo de resposta JSON retornada pela API **modelos/celebridades/analisar** para determinada imagem:
+
+![Satya Nadella em pé](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>Análise aprimorada de categorização  
+
+Você também pode usar modelos de domínio específico para complementar a análise de imagem geral. Isso é feito como parte da [categorização de alto nível](concept-categorizing-images.md) através da especificação de modelos de domínio específico no parâmetro *details* da chamada à API [Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). 
+
+Neste caso, o classificador da taxonomia de 86 categorias é chamado primeiro. Se qualquer uma das categorias detectadas tiver um modelo de domínio específico correspondente, a imagem é passada por meio deste modelo também e os resultados são adicionados. 
+
+A resposta JSON a seguir mostra como a análise de domínio específico pode ser incluída como o nó `detail` em uma análise mais abrangente de categorização.
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>Lista de modelos de domínio específico
+
+Atualmente, a Pesquisa Visual Computacional suporta os seguintes modelos de domínio específico para detectar conteúdo de domínio específico:
 
 | NOME | DESCRIÇÃO |
 |------|-------------|
 | Celebridades | Reconhecimento de celebridades, compatível com imagens classificadas na categoria `people_` |
 | Pontos de referência | Reconhecimento de pontos de referência, com suporte para imagens classificado na `outdoor_` ou `building_` categorias |
 
-### <a name="domain-model-list-example"></a>Exemplo de lista de modelos de domínio
-
-A seguinte resposta JSON lista os modelos específicos de domínio suportados pelo Computer Vision.
+Chamar a API [Modelos](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) retornará essa informação junto com as categorias para as quais cada modelo é aplicável:
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 

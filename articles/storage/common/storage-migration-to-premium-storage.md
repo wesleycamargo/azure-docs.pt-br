@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564826"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330572"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrando para o Armazenamento Premium do Azure (Discos não gerenciados)
 
@@ -32,7 +32,7 @@ O objetivo deste guia é ajudar novos usuários do Armazenamento Premium do Azur
 Você pode migrar VMs de outras plataformas para o Armazenamento do Azure Premium ou migrar VMs do Azure existentes do Armazenamento Standard para o Armazenamento Premium. Este guia aborda as etapas para os dois cenários. Siga as etapas especificadas na seção relevante, dependendo do cenário.
 
 > [!NOTE]
-> Você pode encontrar uma visão geral dos recursos e preços do armazenamento Premium no Armazenamento Premium: [Armazenamento de alto desempenho para cargas de trabalho de Máquina Virtual do Azure](../../virtual-machines/windows/premium-storage.md). É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
+> Você pode encontrar uma visão geral dos recursos e preços do SDDs premium em: [Selecione um tipo de disco para VMs IaaS](../../virtual-machines/windows/disks-types.md#premium-ssd). É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
 >
 
 A conclusão do processo de migração em sua totalidade pode exigir ações adicionais antes e depois das etapas fornecidas neste guia. Os exemplos incluem a configuração pontos de extremidade ou redes virtuais ou alterações de código no próprio aplicativo, o que pode exigir algum tempo de inatividade no aplicativo. Essas ações são exclusivas para cada aplicativo e devem ser concluídas junto com as etapas fornecidas neste guia para fazer a transição completa para o Armazenamento Premium da maneira mais simples possível.
@@ -69,7 +69,7 @@ As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, al
 |:--- |:--- |
 | Capacidade do disco: 35TB<br />Capacidade do instantâneo: 10 TB |Até 50 gigabits para Entrada + Saída |
 
-Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+Para saber mais sobre as especificações do Armazenamento Premium, consulte as [Metas de escalabilidade e desempenho do Armazenamento do Azure](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Política de cache de disco
 Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de E/Ss dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o [Portal do Azure](https://portal.azure.com) ou o parâmetro *-HostCaching* do cmdlet *Set-AzureDataDisk*.
@@ -748,7 +748,7 @@ A configuração atual da VM pode ser personalizada especificamente para funcion
 2. Faça logon na VM e copie os dados do volume atual para o novo disco que está mapeado para esse volume. Faça isso para todos os volumes atuais que precisam ser mapeados para um novo disco.
 3. Em seguida, altere as configurações de aplicativo para alternar para os novos discos e desanexe os volumes antigos.
 
-Para ajustar o aplicativo para melhorar o desempenho de disco, confira [Otimizar o desempenho do aplicativo](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+Para ajustar o aplicativo a fim de melhorar o desempenho do disco, consulte a seção sobre como otimizar o desempenho do aplicativo em nosso artigo [Projetar para alto desempenho](../../virtual-machines/windows/premium-storage-performance.md).
 
 ### <a name="application-migrations"></a>Migrações de aplicativos
 Bancos de dados e outros aplicativos complexos podem exigir etapas especiais, conforme definido pelo provedor do aplicativo para a migração. Consulte a documentação do respectivo aplicativo. Por exemplo , normalmente, bancos de dados podem ser migrados por meio de backup e restauração.
@@ -765,7 +765,7 @@ Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azur
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../../virtual-machines/windows/premium-storage.md)
+* [Selecione um tipo de disco para VMs IaaS](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

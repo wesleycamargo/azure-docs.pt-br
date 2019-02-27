@@ -5,57 +5,69 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 58acd2d0ed422f296e82cae5a30c79b339a66e01
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: da351942ae4e53fa48ae20616b5ea480d4fe03e4
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53443951"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418256"
 ---
 ### <a name="noconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - sem conexão de gateway
 
 Para adicionar prefixos de endereço adicional:
 
-```azurepowershell-interactive
-$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
-```
+1. Defina a variável para LocalNetworkGateway.
 
-Para remover os prefixo de endereço:<br>
-Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 10.101.2.0/24 (do exemplo anterior) e, portanto, atualizaremos o gateway de rede local e excluiremos o prefixo.
+   ```azurepowershell-interactive
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
+2. Modifique os prefixos.
 
-```azurepowershell-interactive
-$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-```
+  ```azurepowershell-interactive
+  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
+  ```
+
+Para remover os prefixo de endereço:
+
+  Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 10.101.2.0/24 (do exemplo anterior) e, portanto, atualizaremos o gateway de rede local e excluiremos o prefixo.
+
+1. Defina a variável para LocalNetworkGateway.
+
+  ```azurepowershell-interactive
+  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+  ```
+2. Defina o gateway com os prefixos atualizados.
+
+  ```azurepowershell-interactive
+  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+  ```
 
 ### <a name="withconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - conexão de gateway existente
 
 Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixos do endereço IP contidos no gateway de rede local, você precisará executar as etapas a seguir nessa ordem. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar prefixos de endereço IP, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
 
-
 1. Remova a conexão.
 
    ```azurepowershell-interactive
-   Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
+   Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
    ```
-2. Modifique os prefixos do endereço para seu gateway de rede local.
+2. Defina o gateway de rede local com os prefixos de endereço modificados.
    
    Defina a variável para LocalNetworkGateway.
 
    ```azurepowershell-interactive
-   $local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
    
    Modifique os prefixos.
    
    ```azurepowershell-interactive
-   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
    -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
    ```
 3. Crie a conexão. Neste exemplo, configuramos um tipo de conexão IPsec. Quando você recriar a conexão, use o tipo de conexão especificado para sua configuração. Para outros tipos de conexão, consulte a página [Cmdlet do PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .
@@ -63,13 +75,13 @@ Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixo
    Defina a variável para VirtualNetworkGateway.
 
    ```azurepowershell-interactive
-   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW  -ResourceGroupName TestRG1
+   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW  -ResourceGroupName TestRG1
    ```
    
    Crie a conexão. Este exemplo usa a variável $local que você definiu na etapa 2.
 
    ```azurepowershell-interactive
-   New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
    -ResourceGroupName TestRG1 -Location 'East US' `
    -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
    -ConnectionType IPsec `

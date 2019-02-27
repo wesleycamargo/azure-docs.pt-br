@@ -4,14 +4,14 @@ description: Entenda como alterar a delegação de domínio e usar os servidores
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461018"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417881"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegação de zonas DNS com o DNS do Azure
 
@@ -27,7 +27,7 @@ O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia come
 
 **Registrador de domínio** - Um registrador de domínio é uma empresa que pode fornecer nomes de domínio da Internet. A empresa verifica se o domínio de Internet que você deseja usar está disponível e permite que você o compre. Uma vez registrado o nome de domínio, você passa a ser seu o proprietário legal. Se você já tiver um domínio da Internet, usará o registrador de domínio atual para delegar ao Azure DNS.
 
-Para saber mais sobre quem possui um nome de domínio específico ou sobre como comprar um domínio, veja [Gerenciamento de domínio de Internet no Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+Para obter mais informações sobre registradores de domínios reconhecidos, confira [Registradores reconhecidos pelo ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### <a name="resolution-and-delegation"></a>Resolução e delegação
 

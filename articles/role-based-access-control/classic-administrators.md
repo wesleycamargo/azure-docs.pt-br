@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101262"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447507"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
-A Microsoft recomenda que você gerencie o acesso aos recursos usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, será necessário usar uma função de administrador da assinatura clássica: Administrador de Serviços e Coadministrador. Para obter mais informações, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, será necessário usar uma função de administrador da assinatura clássica: Administrador de Serviços e Coadministrador. Para obter mais informações, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Este artigo descreve como adicionar ou alterar as funções Administrador de Serviços e Coadministrador e como exibir o Administrador da Conta.
 
 ## <a name="add-a-co-administrator"></a>Adicionar um Coadministrador
 
 > [!TIP]
-> Será necessário adicionar um Coadministrador, somente se o usuário precisar gerenciar implantações clássicas do Azure. É recomendável usar o RBAC para todas as outras finalidades.
+> É necessário adicionar um Coadministrador somente se o usuário precisar gerenciar implantações clássicas do Azure usando o [Módulo do PowerShell para Gerenciamento de Serviços do Azure](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Se o usuário usa apenas o portal do Azure para gerenciar os recursos clássicos, não é preciso adicionar o administrador clássico para ele.
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um Administrador de Serviços.
 
@@ -155,4 +155,4 @@ Siga estas etapas para exibir o Administrador da Conta.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Gerenciar acesso usando o RBAC e o Portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)

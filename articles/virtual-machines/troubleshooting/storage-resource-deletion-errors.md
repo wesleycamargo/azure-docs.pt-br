@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816179"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326816"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 
@@ -28,7 +28,7 @@ Em determinados cenários, você pode encontrar um dos seguintes erros ocorre qu
 
 >**Falha ao excluir # de # blobs:<br>NomeDoBlob.vhd: Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação.**
 
-Os VHDs usados em VMs do Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para obter mais informações sobre os discos do Azure, consulte [Sobre armazenamento em disco não gerenciado e gerenciado para VMs do Linux do Microsoft Azure](../linux/about-disks-and-vhds.md). 
+Os VHDs usados em VMs do Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para saber mais sobre os discos do Azure, confira [Introdução aos discos gerenciados](../linux/managed-disks-overview.md).
 
 O Azure evita a exclusão de um disco que está anexado a uma VM para evitar a corrupção. Isso também impedirá a exclusão de contêineres e contas de armazenamento que têm um blob de páginas que está anexado a uma VM. 
 

@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245745"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456700"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o código do Visual Studio Code para desenvolver e depurar módulos para o Azure IoT Edge
 
@@ -262,6 +262,7 @@ Durante a depuração de módulos usando esse método, seus módulos são execut
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Adicione a seguinte linha única de código para o retorno de chamada que você deseja depurar:
 
       ```python
@@ -350,6 +351,12 @@ Você poderá ignorar esta seção se os módulos estiverem em execução no mes
 
 > [!NOTE]
 > O exemplo anterior mostra como depurar os módulos IoT Edge nos contêineres. Ele adicionou portas expostas às configurações `createOptions` de contêiner do módulo. Após concluir a depuração dos módulos, é recomendável remover essas portas expostas de módulos do IoT Edge prontos para produção.
+
+## <a name="build-and-debug-a-module-remotely"></a>Compilar e depurar um módulo remotamente
+
+Com as alterações recentes nos mecanismos do Docker e do Moby para oferecer suporte a conexões SSH e uma nova configuração nas Ferramentas IoT do Azure que permite a injeção de configurações de ambiente nas paletas de comandos do Visual Studio Code e nos terminais do Azure IoT Edge, agora você pode compilar e depurar módulos em dispositivos remotos.
+
+Consulte esta [entrada do blog do desenvolvedor de IoT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para saber mais e obter instruções passo a passo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

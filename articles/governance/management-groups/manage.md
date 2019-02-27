@@ -1,6 +1,6 @@
 ---
-title: Como alterar, excluir ou gerenciar seus grupos de gerenciamento no Azure
-description: Saiba como manter e atualizar sua hierarquia de grupos de gerenciamento.
+title: Como alterar, excluir ou gerenciar seus grupos de gerenciamento no Azure – Azure Governance
+description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582404"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342568"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -39,11 +39,11 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
 1. Selecione a opção **Renomear grupo** na parte superior da página.
 
-   ![Renomear Grupo](./media/detail_action_small.png)
+   ![Renomear opção de grupo](./media/detail_action_small.png)
 
 1. Quando o menu for aberto, digite o novo nome que gostaria de exibir.
 
-   ![Renomear Grupo](./media/rename_context.png)
+   ![Renomear painel de grupo](./media/rename_context.png)
 
 1. Clique em **Salvar**.
 
@@ -87,11 +87,11 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
    - Se o ícone estiver desativado, passar o seletor de mouse sobre o ícone mostrará o motivo.
 
-   ![Excluir Grupo](./media/delete.png)
+   ![Excluir opção de grupo](./media/delete.png)
 
 1. Há uma janela que abre confirmando que deseja excluir o grupo de gerenciamento.
 
-   ![Excluir Grupo](./media/delete_confirm.png)
+   ![Janela de confirmação de exclusão de grupo](./media/delete_confirm.png)
 
 1. Selecione **Sim**.
 
@@ -195,13 +195,13 @@ Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em s
 
 1. Selecione a elipse no final da linha da assinatura na lista que você deseja mover.
 
-   ![Mover](./media/move_small.png)
+   ![Opção de mover](./media/move_small.png)
 
 1. Selecione **Mover**.
 
 1. No menu aberto, selecione o **Grupo de gerenciamento pai**.
 
-   ![Mover](./media/move_small_context.png)
+   ![Mover painel](./media/move_small_context.png)
 
 1. Clique em **Salvar**.
 

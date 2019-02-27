@@ -1,26 +1,19 @@
 ---
-title: Guia de solução de problemas do Backup do Azure para VMs do SQL Server | Microsoft Docs
-description: Informações de solução de problemas para fazer backup de VMs do SQL Server no Azure.
+title: Solução de problemas de backup de banco de dados do SQL Server com o Backup do Azure| Microsoft Docs
+description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296114"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428612"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solucionar problemas de backup do SQL Server no Azure
 
@@ -28,11 +21,11 @@ Este artigo fornece informações sobre solução de problemas para proteger VM 
 
 ## <a name="public-preview-limitations"></a>Limitações da visualização pública
 
-Para exibir as limitações da Visualização Pública, consulte o artigo, [Fazer backup do banco de dados do SQL Server no Azure](backup-azure-sql-database.md#public-preview-limitations).
+Para exibir as limitações da Visualização Pública, consulte o artigo, [Fazer backup do banco de dados do SQL Server no Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## <a name="sql-server-permissions"></a>Permissões do SQL Server
 
-Para configurar a proteção de um banco de dados do SQL Server em uma máquina virtual, a extensão **AzureBackupWindowsWorkload** deverá estar instalada nessa máquina virtual. Se você receber o erro, **UserErrorSQLNoSysadminMembership**, isso significa que a Instância do SQL não possui as permissões de backup necessárias. Para corrigir esse erro, siga as etapas em [Definir permissões para VMs do SQL que não são do marketplace](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+Para configurar a proteção de um banco de dados do SQL Server em uma máquina virtual, a extensão **AzureBackupWindowsWorkload** deverá estar instalada nessa máquina virtual. Se você receber o erro, **UserErrorSQLNoSysadminMembership**, isso significa que a Instância do SQL não possui as permissões de backup necessárias. Para corrigir esse erro, siga as etapas em [Definir permissões para VMs do SQL que não são do marketplace](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## <a name="troubleshooting-errors"></a>Solucionar erros
 
@@ -56,13 +49,13 @@ As tabelas a seguir são organizadas por código de erro.
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Este banco de dados SQL não dá suporte para o tipo de backup solicitado. | Ocorre quando o modelo de recuperação de banco de dados não permite o tipo de backup solicitado. O erro pode ocorrer nas seguintes situações: <br/><ul><li>Um banco de dados usando um modelo de recuperação simples não permite backup de log.</li><li>Não são permitidos backups de log e diferenciais para um banco de dados mestre.</li></ul>Para mais detalhes, consulte a documentação [Modelos de recuperação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Se o backup de log falhar para o BD no modelo de recuperação simples, tente uma destas opções:<ul><li>Se o banco de dados estiver no modo de recuperação simples, desabilite os backups de log.</li><li>Use a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para alterar o modelo de recuperação do banco de dados para Full ou Bulk Logged. </li><li> Se você não quiser alterar o modelo de recuperação e tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. Os backups diferenciais e completos funcionarão por agendamento. Os backups de log serão ignorados, o que é esperado neste caso.</li></ul>Se for um banco de dados mestre e você tiver configurado o backup de log ou diferencial, use uma das etapas a seguir:<ul><li>Use o portal para alterar o agendamento da política de backup do banco de dados mestre para Full.</li><li>Se você tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. O backup completo funcionará por agendamento. Backups de log ou diferenciais não ocorrerão, o que é esperado neste caso.</li></ul> |
-| Operação cancelada como uma operação conflitante já em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre backup e restauração de limitações](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que executam simultaneamente.| [Use o SSMS (SQL Server Management Studio) para monitorar os trabalhos de backup.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) Depois que a operação conflitante falhar, reinicie a operação.|
+| Operação cancelada como uma operação conflitante já em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre backup e restauração de limitações](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que executam simultaneamente.| [Use o SSMS (SQL Server Management Studio) para monitorar os trabalhos de backup.](manage-monitor-sql-database-backup.md) Depois que a operação conflitante falhar, reinicie a operação.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| Banco de dados SQL não existe. | O banco de dados foi excluído ou renomeado. | <ul><li>Verifique se o banco de dados foi excluído ou renomeado acidentalmente.</li><li>Se o banco de dados foi excluído acidentalmente, para continuar os backups, restaure o banco de dados para o local original.</li><li>Se você excluiu o banco de dados e não precisa de backups futuros, no cofre dos Serviços de Recuperação, clique em [parar backup com "Excluir/Manter dados"](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms).</li>|
+| Banco de dados SQL não existe. | O banco de dados foi excluído ou renomeado. | Verifique se o banco de dados foi excluído ou renomeado acidentalmente.<br/><br/> Se o banco de dados foi excluído acidentalmente, para continuar os backups, restaure o banco de dados para o local original.<br/><br/> Se você excluiu o banco de dados e não precisa de backups futuros, no cofre dos Serviços de Recuperação, clique em [parar backup com "Excluir/Manter dados"](manage-monitor-sql-database-backup.md).
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

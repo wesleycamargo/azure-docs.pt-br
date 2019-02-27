@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6eb759928d504bf1a3ccac4bc1aa983bb6a47979
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820854"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339356"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Apache Ambari
 
@@ -255,7 +255,9 @@ O valor de retorno é semelhante a um dos exemplos a seguir:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão. O valor `ACCOUNTNAME` é o nome da conta de armazenamento. O `CONTAINER` parte é o nome do contêiner de blob na conta de armazenamento. O contêiner é a raiz de armazenamento compatível com HDFS para o cluster.
 
-* `adl://home` - Este valor indica que o cluster está usando um Azure Data Lake Storage para armazenamento padrão.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – Este valor indica que o cluster está usando um Azure Data Lake Storage Gen2 para armazenamento padrão. O `ACCOUNTNAME` e `CONTAINER` valores têm os mesmos significados que para o Armazenamento do Microsoft Azure mencionados anteriormente.
+
+* `adl://home`: este valor indica que o cluster está usando um Azure Data Lake Storage Gen1 para armazenamento padrão.
 
     Para localizar o nome da conta do Data Lake Storage, use os exemplos a seguir:
 

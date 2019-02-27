@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238378"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454678"
 documentType: LandingData
 title: Instância Gerenciada do Banco de Dados SQL do Azure
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Camada Comercialmente Crítico</a> agora está na <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">Disponibilidade Geral (GA)</a>.
-    - html: (Versão prévia) Crie <a href="https://aka.ms/managed-instance-aadlogins">Logons do Azure Active Directory em nível de instância</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CRIAR LOGON DO PROVEDOR EXTERNO</a> .
+    - html: (Versão prévia) Crie <a href="https://aka.ms/managed-instance-aadlogins">Entidades de segurança do servidor do Azure AD (logons) em nível de instância</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
     - html: (Versão prévia) Criar instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento em nível de servidor de sua escolha</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configurar retenção de backup de 35 dias</a> para restauração Ponto no tempo. Observe que a retenção de longo prazo (até 10 anos) ainda não está habilitada, você pode usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backups somente cópia</a> como uma alternativa.
     - html: (versão prévia) Use <a href="https://aka.ms/managed-instance-failover-groups">Grupos de failover distribuídos geograficamente</a> para manter uma cópia da instância em outra região e assegurar que seus dados estejam disponíveis até mesmo no cenário de desastre regional.

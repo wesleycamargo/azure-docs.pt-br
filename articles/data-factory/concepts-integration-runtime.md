@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959658"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344022"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -69,7 +69,7 @@ Para obter informações sobre como criar e configurar um IR do Azure, consulte 
 Um IR auto-hospedado é capaz de:
 
 - Executar a atividade de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados na rede privada.
-- Distribua as atividades de transformação a seguir contra os recursos do computador no local ou Rede Virtual do Microsoft Azure: Atividade de Hive do HDInsight (BYOC), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade de Spark do HDInsight (BYOC), atividade de Streaming do HDInsight (BYOC), atividade de execução em lote do Machine Learning, atividades de recurso de atualização do Machine Learning, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .Net, atividade de pesquisa e atividade de obtenção de metadados.
+- Distribua as atividades de transformação a seguir contra os recursos do computador no local ou Rede Virtual do Microsoft Azure: Atividade de Hive do HDInsight (BYOC-Bring Your Own Cluster), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade de Spark do HDInsight (BYOC), atividade de Streaming do HDInsight (BYOC), atividade de execução em lote do Machine Learning, atividades de recurso de atualização do Machine Learning, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .Net, atividade de pesquisa e atividade de obtenção de metadados.
 
 > [!NOTE] 
 > Use o Integration Runtime auto-hospedado para dar suporte a armazenamentos de dados que requer traga seu próprio driver como SAP Hana, MySQL, etc.  Para obter mais informações, consulte [fontes de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

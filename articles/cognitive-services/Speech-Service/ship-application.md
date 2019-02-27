@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857933"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445110"
 ---
 # <a name="ship-an-application"></a>Enviar um aplicativo
 
@@ -47,19 +47,19 @@ Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretóri
 
 ## <a name="linux"></a>Linux
 
+O SDK de Fala atualmente é compatível com as distribuições do Ubuntu 16.04 e 18.04.
 Para um aplicativo nativo, você precisa enviar a biblioteca do SDK de Fala, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Selecione a versão (x86/x64) que corresponde ao seu aplicativo. Dependendo da versão do Linux, talvez você também precise incluir as seguintes dependências:
 
 * As bibliotecas compartilhadas da biblioteca GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
 * A biblioteca OpenSSL (`libssl.so.1.0.0`)
-* A biblioteca cURL (`libcurl.so.4`)
 * A biblioteca compartilhada para aplicativos ALSA (`libasound.so.2`)
 
-No Ubuntu 16.04 ou 18.04, por exemplo, as bibliotecas GNU C já devem estar instaladas por padrão. Os três últimos podem ser instalados usando estes comandos:
+No Ubuntu, as bibliotecas de GNU C já devem estar instaladas por padrão. Os três últimos podem ser instalados usando estes comandos:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

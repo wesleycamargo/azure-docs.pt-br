@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198104"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418257"
 ---
 **Para fazer o download de scripts de configuração do dispositivo VPN**
 
@@ -27,7 +27,7 @@ Dependendo do seu dispositivo VPN, será possível baixar um script de configura
 
 - Para obter links para as configurações do dispositivo, consulte [Dispositivos VPN Validados](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Os links de configuração do dispositivo são fornecidos em uma base de melhor esforço. Sempre é melhor verificar com o fabricante do dispositivo para obter as últimas informações de configuração. A lista mostra as versões que testamos. Se seu sistema operacional não estiver na lista, ainda é possível que a versão seja compatível. Verifique com o fabricante do seu dispositivo se a versão do sistema operacional do seu dispositivo VPN é compatível.
 
-- Para obter uma visão geral da configuração de dispositivo VPN, consulte [Visão geral das configurações de dispositivo VPN de terceiros](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
+- Para obter uma visão geral da configuração de dispositivo VPN, consulte [Visão geral das configurações de dispositivo VPN](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Para obter informações sobre a edição dos exemplos de configuração do dispositivo, consulte [Edição de exemplos](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
 

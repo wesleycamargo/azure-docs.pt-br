@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638818"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327299"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (Perguntas Frequentes)
 
@@ -27,7 +27,7 @@ As perguntas frequentes cobrem problemas comuns encontrados durante a criação 
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Como criar uma VM no portal do Microsoft Azure usando o VHD carregado no armazenamento premium?
 
-O Azure Marketplace atualmente não oferece suporte para criar ofertas VM de imagens que residem no armazenamento gerenciado ou de Armazenamento Premium do Azure.  Para obter mais informações sobre essas opções de armazenamento, consulte [Visão geral do Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) e [Armazenamento Premium de Alto desempenho e discos gerenciados para VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+O Azure Marketplace atualmente não oferece suporte para criar ofertas VM de imagens que residem no armazenamento gerenciado ou de Armazenamento Premium do Azure.  Para saber mais sobre as opções de armazenamento, confira a [Visão geral do Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>É possível usar VMs de geração 2 para as ofertas?
@@ -73,7 +73,7 @@ Sim, se hospedados no Azure.  O Azure atribui um identificador exclusivo, chamad
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Em uma VM, como posso gerenciar a extensão de script personalizado na tarefa de inicialização?
 
-O artigo a seguir fornece detalhes sobre como usar a extensão de Script personalizada usando o módulo Microsoft Azure PowerShell, modelos do Azure Resource Manager e detalhes de etapas em sistemas Windows para solucionar problemas: [Extensão Personalizada de Script para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+O artigo a seguir detalha como usar a Extensão de Script Personalizado usando o módulo do Azure PowerShell e modelos do Azure Resource Manager, além de detalhar as etapas da solução de problemas em sistemas Windows: [Extensão de script personalizado para o Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>São aplicativos de 32 bits ou serviços com suporte no Azure Marketplace?

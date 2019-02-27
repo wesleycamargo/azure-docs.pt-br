@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dispositivos usando o portal do Azure | Microsoft Docs
-description: Aprenda a exibir os usuários, grupos, entidades de serviço e identidades gerenciadas que tiveram acesso negado a ações específicas em determinado escopo usando o portal do Azure.
+title: Exibir atribuições de negação para recursos do Azure usando o portal do Azure | Microsoft Docs
+description: Saiba como exibir usuários, grupos, entidades de serviço e identidades gerenciadas que tiveram acesso negado a ações específicas de recursos do Azure em determinado escopo usando o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637721"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343231"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Ver negação de atribuições usando o portal do Azure
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Exibir atribuições de negação para recursos do Azure usando o portal do Azure
 
-[Negar designações](deny-assignments.md) impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda a eles acesso. Mesmo que você não possa criar suas próprias atribuições de negação, ainda será necessário visualizar as atribuições de negação, pois elas podem afetar suas permissões gerais. Para obter informações sobre uma atribuição de negação, você precisa ter a permissão `Microsoft.Authorization/denyAssignments/read`, que está incluída na maioria das [funções internas](built-in-roles.md).
+As [atribuições de negação](deny-assignments.md) impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda o acesso a elas. Mesmo que você não possa criar suas próprias atribuições de negação, ainda será necessário visualizar as atribuições de negação, pois elas podem afetar suas permissões gerais. Para saber mais sobre uma atribuição de negação, você precisa ter a permissão `Microsoft.Authorization/denyAssignments/read`, que está inclusa na maioria das [funções internas para recursos do Azure](built-in-roles.md).
 
 Este artigo descreve como usar o portal do Azure para exibir atribuições de negação.
 
@@ -105,5 +105,5 @@ Siga estas etapas para visualizar detalhes adicionais sobre uma atribuição de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Compreender atribuições de negação](deny-assignments.md)
-* [Listar atribuições de negação usando RBAC e a API REST](deny-assignments-rest.md)
+* [Compreender atribuições de negação dos recursos do Azure](deny-assignments.md)
+* [Listar atribuições de negação para recursos do Azure usando a API REST](deny-assignments-rest.md)

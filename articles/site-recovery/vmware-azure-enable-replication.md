@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822775"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329938"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -88,7 +88,7 @@ Em seguida, verifique as propriedades do computador de origem. Lembre-se de que 
 2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
 3. Em **Computação e Rede** > **propriedades de Computação**, você pode alterar várias propriedades da VM:
 * Nome da VM do Azure – modifique o nome para que ele fique em conformidade com os requisitos do Azure se necessário
-* Tamanho ou tipo da VM de destino – o tamanho padrão da VM é escolhido de acordo com o tamanho da VM de origem. Selecione outro tamanho de VM, conforme a necessidade, a qualquer momento antes do failover. Observe que o tamanho do disco de VM também se baseia no tamanho do disco de origem e só pode ser alterado pós-failover. Saiba mais sobre os tamanhos de disco [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) e [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) e a IOPS.
+* Tamanho ou tipo da VM de destino – o tamanho padrão da VM é escolhido de acordo com o tamanho da VM de origem. Selecione outro tamanho de VM, conforme a necessidade, a qualquer momento antes do failover. Observe que o tamanho do disco de VM também se baseia no tamanho do disco de origem e só pode ser alterado pós-failover. Saiba mais sobre tamanhos de disco e IOPS no artigo [Metas de escalabilidade para discos](../virtual-machines/windows/disk-scalability-targets.md).
 
     ![Propriedades de Computação e Rede](./media/vmware-azure-enable-replication/vmproperties.png)
 

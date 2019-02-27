@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600622"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301126"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 
 O roteamento online fornece um conjunto de parâmetros para uma descrição detalhada do modelo de consumo específico do veículo.
-Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo principais: _Combustion_ e _Electric_. Especificar parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
+Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo principais: _Combustão_ e _Elétrico_. Especificar parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
 O modelo de consumo não pode ser usado com os valores de **travelMode** _bicycle_ e _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Restrições de parâmetro de modelo de consumo
 
 Em ambos os modelos de consumo, especificar explicitamente alguns parâmetros requer a especificação de alguns outros também. Essas dependências são:
 
-* Todos os parâmetros exigem que **constantSpeedConsumption** seja especificado pelo usuário. É um erro especificar qualquer outro parâmetro de modelo de consumo, com exceção de **vehicleWeight**, se **constantSpeedConsumption*** não for especificado.
+* Todos os parâmetros exigem que **constantSpeedConsumption** seja especificado pelo usuário. É um erro especificar qualquer outro parâmetro de modelo de consumo, com exceção de **vehicleWeight**, se **constantSpeedConsumption** não for especificado.
 * **accelerationEfficiency** e **decelerationEfficiency** sempre deve ser especificados como um par (ou seja, ambos ou nenhum).
 * Se **accelerationEfficiency** e **decelerationEfficiency** forem especificados, o produto de seus valores não deve ser maior que 1 (para evitar um movimento perpétuo).
 * **uphillEfficiency** e **downhillEfficiency** sempre deve ser especificados como um par (ou seja, ambos ou nenhum).
 * Se **uphillEfficiency** e **downhillEfficiency** forem especificados, o produto de seus valores não deve ser maior que 1 (para evitar um movimento perpétuo).
-* Se os parâmetros de \***Efficiency** são especificados pelo usuário, então, **vehicleWeight** também deve ser especificado. Quando **vehicleEngineType** for _combustão_, **fuelEnergyDensityInMJoulesPerLiter** também deve ser especificado.
+* Se os parâmetros de \*__Efficiency__ são especificados pelo usuário, então, **vehicleWeight** também deve ser especificado. Quando **vehicleEngineType** for _combustão_, **fuelEnergyDensityInMJoulesPerLiter** também deve ser especificado.
 * **maxChargeInkWh** e **currentChargeInkWh** sempre devem ser especificados como um par (ou seja, ambos ou nenhum).
 
 > [!NOTE]

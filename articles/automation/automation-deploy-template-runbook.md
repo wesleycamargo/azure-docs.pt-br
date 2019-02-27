@@ -10,24 +10,24 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421804"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416100"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
 Você pode escrever um [runbook do PowerShell de Automação do Azure](automation-first-runbook-textual-powershell.md) que implanta um recurso do Azure usando um [modelo do Azure Resource Management](../azure-resource-manager/resource-manager-create-first-template.md).
 
-Ao fazer isso, você pode automatizar a implantação de recursos do Azure. Você pode manter seus modelos do Resource Manager em um local central seguro, como no Armazenamento do Azure.
+Ao fazer isso, você pode automatizar a implantação de recursos do Azure. Você pode manter seus modelos do Gerenciador de Recursos em um local central seguro, como no Armazenamento do Azure.
 
-Neste tópico, criamos um runbook do PowerShell que usa um modelo do Resource Manager armazenado no [Armazenamento do Azure](../storage/common/storage-introduction.md) para implantar uma nova conta de Armazenamento do Azure.
+Neste artigo, criamos um runbook do PowerShell que usa um modelo do Gerenciador de Recursos armazenado no [Armazenamento do Azure](../storage/common/storage-introduction.md) para implantar uma nova conta de Armazenamento do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, você precisará dos seguintes itens:
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
 * [Conta de automação](automation-sec-configure-azure-runas-account.md) para manter o runbook e se autenticar nos recursos do Azure.  Esta conta deve ter permissão para iniciar e parar a máquina virtual.
@@ -36,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Gerenciador de Recursos
 
-Para este exemplo, usamos um modelo do Resource Manager que implanta uma nova conta de Armazenamento do Azure.
+Para este exemplo, usamos um modelo do Gerenciador de Recursos que implanta uma nova conta de Armazenamento do Azure.
 
 Em um editor de texto, copie o seguinte texto:
 
@@ -176,7 +176,7 @@ Salve o arquivo localmente como `DeployTemplate.ps1`.
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importar e publicar o runbook em sua conta de Automação do Azure
 
 Agora podemos usar o PowerShell para importar o runbook para sua conta de Automação do Azure e, em seguida, publicar o runbook.
-Para obter informações sobre como importar e publicar um runbook no portal do Azure, consulte [Criar ou importar um runbook na Automação do Azure](automation-creating-importing-runbook.md).
+Para obter informações sobre como importar e publicar um runbook no portal do Azure, confira [Gerenciar runbooks na Automação do Azure](manage-runbooks.md).
 
 Para importar `DeployTemplate.ps1` para sua conta de Automação como runbook do PowerShell, execute os seguintes comandos do PowerShell:
 

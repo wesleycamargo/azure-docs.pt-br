@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157132"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453249"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web usando o portal do Azure
 
@@ -130,9 +130,9 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Neste tutorial, o gateway de aplicativo usa uma conta de armazenamento para armazenar dados para fins de detecção e prevenção. Você também pode usar o Log Analytics ou Hub de eventos para registrar os dados.
+Neste tutorial, o gateway de aplicativo usa uma conta de armazenamento para armazenar dados para fins de detecção e prevenção. Use também os logs do Azure Monitor ou o Hub de Eventos para registrar dados.
 
-1. Clique no botão **Novo** encontrado no canto superior esquerdo do portal do Azure.
+1. Clique em **Novo** no canto superior esquerdo do portal do Azure.
 2. Selecione **Armazenamento** e, em seguida, selecione **Conta de armazenamento - blob, arquivo, tabela, fila**.
 3. Insira o nome da conta de armazenamento, selecione **Usar existente** para o grupo de recursos e, em seguida, selecione **myResourceGroupAG**. Neste exemplo, o nome da conta de armazenamento é *myagstore1*. Aceite os valores padrão para as outras configurações e clique em **Criar**.
 

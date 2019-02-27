@@ -1,7 +1,7 @@
 ---
 title: Gerenciar um workspace do Machine Learning Studio
 titleSuffix: Azure Machine Learning Studio
-description: Gerencie o acesso aos workspace de Azure Machine Learning e implante e gerencie serviços Web da API ML
+description: Gerenciar o acesso aos workspaces do Azure Machine Learning Studio e implantar e gerenciar serviços Web da API Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: f1904552b6c43cadd611659ed544b9f4bafcb465
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f792c2b23c8d36225b4c05cf7a334721bd08272a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487262"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269018"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Gerenciar um workspace do Azure Machine Learning Studio
 
@@ -24,16 +24,16 @@ ms.locfileid: "55487262"
 > 
 > 
 
-Você pode gerenciar os workspaces do Machine Learning no Portal do Azure.
+Você pode gerenciar os workspaces do Machine Learning Studio no portal do Azure.
 
 
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
-Para gerenciar um workspace no portal do Azure:
+Para gerenciar um workspace do Studio no portal do Azure:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) usando uma conta de administrador de assinatura do Azure.
-2. Na caixa de pesquisa na parte superior da página, insira "workspaces do machine learning" e, em seguida, escolha **Workspace do Machine Learning**.
+2. Na caixa de pesquisa na parte superior da página, insira "workspaces do machine learning Studio" e selecione **Workspaces do Machine Learning Studio**.
 3. Clique no workspace que você deseja gerenciar.
 
 Além das informações de gerenciamento de recursos padrão e das opções disponíveis, você pode:
@@ -41,10 +41,10 @@ Além das informações de gerenciamento de recursos padrão e das opções disp
 - Exibir **Propriedades** - essa página exibe as informações do workspace e dos recursos e você pode alterar o assinatura e o grupo de recursos aos quais esse workspace está conectado.
 - **Ressincronizar as Chaves de Armazenamento** - o workspace mantém chaves para a conta de armazenamento. Se a conta de armazenamento alterar as chaves, clique em **Ressincronizar chaves** para sincronizar as chaves com o workspace.
 
-Para gerenciar os serviços Web associados a esse workspace, use o Portal de Serviços Web do Machine Learning. Consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md) para obter informações completas.
+Para gerenciar os serviços Web associados a esse workspace do Studio, use o Portal de Serviços Web do Machine Learning. Consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md) para obter informações completas.
 
 > [!NOTE]
-> Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função de colaborador ou de administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um workspace do Machine Learning, deverá atribuí-lo a uma função colaborador ou administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
+> Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função de colaborador ou de administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um workspace do Machine Learning Studio, deverá atribuí-lo a uma função colaborador ou administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
 > 
 >Para obter mais informações sobre como definir permissões de acesso, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 

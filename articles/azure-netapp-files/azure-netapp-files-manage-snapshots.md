@@ -1,6 +1,6 @@
 ---
 title: Gerenciar instantâneos por meio do Azure NetApp Files | Microsoft Docs
-description: Descreve como criar um instantâneo sob demanda para um volume ou restaurar de um instantâneo para um novo volume por meio do Azure NetApp Files.
+description: Descreve como criar um instantâneo para um volume ou restaurar de um instantâneo para um novo volume por meio do Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412921"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430192"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
+
 Você pode usar o Azure NetApp Files para criar um instantâneo sob demanda para um volume ou restaurar de um instantâneo para um novo volume.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo sob demanda para um volume
-Você pode criar instantâneos somente sob demanda.  Políticas de instantâneo não são compatíveis atualmente.  
-1.  Da folha Gerenciar Volume, clique em **Instantâneos**, depois clique em **+ Adicionar instantâneo** para criar um instantâneo sob demanda para um volume.
 
-2.  Na janela Novo Instantâneo, forneça um nome para o novo instantâneo que você está criando.   
+Você pode criar instantâneos somente sob demanda. Políticas de instantâneo não são compatíveis atualmente.
 
-3. Clique em **OK**. 
+1.  Na folha Volume, clique em **Instantâneos**.
 
+    ![Navegar para instantâneos](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+
+2.  Clique em **+ Adicionar instantâneo** para criar um instantâneo sob demanda para um volume.
+
+    ![Adicionar instantâneo](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+
+3.  Na janela Novo Instantâneo, forneça um nome para o novo instantâneo que você está criando.   
+
+    ![Novo instantâneo](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+
+4. Clique em **OK**. 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurar um instantâneo para um novo volume
+
 No momento, você pode restaurar um instantâneo somente para um novo volume. 
 1. Vá para a folha **Gerenciar Instantâneos** da folha do Volume para exibir a lista de instantâneos. 
 2. Selecione um instantâneo para restaurar.  
@@ -61,7 +72,7 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
 
     *   **Rede virtual**  
         Especifique a rede virtual (VNet) do Azure da qual você deseja acessar o volume.  
-        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. O serviço Azure NetApp Files pode ser acessado somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Também é possível acessar o volume na rede local por meio do ExpressRoute. 
+        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. Você pode acessar o Azure NetApp Files somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. É possível acessar o volume na rede local por meio do ExpressRoute. 
 
     * **Sub-rede**  
         Especifique a sub-rede que você deseja usar para o volume.  
@@ -73,3 +84,6 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
 5. Clique em **OK**.   
     O novo volume para o qual o instantâneo é restaurado é exibido na folha Volumes.
 
+## <a name="next-steps"></a>Próximas etapas
+
+[Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

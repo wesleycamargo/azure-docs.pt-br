@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232167"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447167"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -27,21 +27,7 @@ Este artigo mostra como usar políticas de rede para controlar o fluxo de tráfe
 
 Você precisará da CLI do Azure versão 2.0.56 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Visão geral da política de rede
-
-Por padrão, todos os pods em um cluster do AKS podem enviar e receber tráfego sem limitações. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Por exemplo, os aplicativos de back-end geralmente são expostos somente aos serviços de front-end necessários ou os componentes de banco de dados são acessíveis somente para as camadas de aplicativos que se conectam a eles.
-
-As políticas de rede são recursos do Kubernetes que possibilitam controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. As políticas de rede são definidas como manifestos YAML e podem ser incluídas como parte de um manifesto mais amplo que também cria uma implantação ou serviço.
-
-Para ver as políticas de rede em ação, vamos criar e, em seguida, expandir uma política que define o fluxo de tráfego da seguinte maneira:
-
-* Nega todo o tráfego ao pod.
-* Permite o tráfego com base nos rótulos do pod.
-* Permite o tráfego com base no namespace.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
-
-A política de rede só pode ser habilitada ao criar o cluster. Você não pode habilitar a política de rede em um cluster existente do AKS. Para criar um AKS com a política de rede, primeiro habilite um sinalizador de recurso na sua assinatura. Para registrar o sinalizador de recurso *EnableNetworkPolicy*, use o comando [az feature register][az-feature-register] como mostrado no exemplo a seguir:
+Para criar um AKS com a política de rede, primeiro habilite um sinalizador de recurso na sua assinatura. Para registrar o sinalizador de recurso *EnableNetworkPolicy*, use o comando [az feature register][az-feature-register] como mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft.Co
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Para usar a política de rede com um cluster do AKS, você deve usar o [Plug-in CNI do Azure][azure-cni] e definir sua própria rede virtual e sub-redes. Para saber mais sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking]. O exemplo de script a seguir:
+## <a name="overview-of-network-policy"></a>Visão geral da política de rede
+
+Por padrão, todos os pods em um cluster do AKS podem enviar e receber tráfego sem limitações. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Por exemplo, os aplicativos de back-end geralmente são expostos somente aos serviços de front-end necessários ou os componentes de banco de dados são acessíveis somente para as camadas de aplicativos que se conectam a eles.
+
+As políticas de rede são recursos do Kubernetes que possibilitam controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. As políticas de rede são definidas como manifestos YAML e podem ser incluídas como parte de um manifesto mais amplo que também cria uma implantação ou serviço.
+
+Para ver as políticas de rede em ação, vamos criar e, em seguida, expandir uma política que define o fluxo de tráfego da seguinte maneira:
+
+* Nega todo o tráfego ao pod.
+* Permite o tráfego com base nos rótulos do pod.
+* Permite o tráfego com base no namespace.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
+
+A política de rede só pode ser habilitada ao criar o cluster. Não é possível habilitar a política de rede em um cluster AKS existente. 
+
+Para usar a política de rede com um cluster do AKS, você deve usar o [Plug-in CNI do Azure][azure-cni] e definir sua própria rede virtual e sub-redes. Para saber mais sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking].
+
+O exemplo de script a seguir:
 
 * Cria uma rede virtual e uma sub-rede.
 * Cria uma entidade de serviço do AAD (Azure Active Directory) para uso com o cluster do AKS.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -241,6 +245,9 @@ spec:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> Esta política de rede usa *namespaceSelector* e um elemento *podSelector* para a regra de entrada. A sintaxe YAML é importante para que as regras de entrada sejam aditivas ou não. Neste exemplo, os dois elementos devem corresponder à regra de entrada a ser aplicada. As versões do Kubernetes anteriores à *1.12* podem não interpretar corretamente esses elementos e restringir o tráfego de rede, conforme o esperado. Para saber mais, confira [Comportamento de e para seletores][policy-rules].
 
 Aplique a política de rede atualizada usando o comando [kubectl apply][kubectl-apply] e especifique o nome do manifesto YAML:
 
@@ -442,6 +449,7 @@ Para saber mais sobre como usar as políticas, consulte [Políticas de rede do K
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b663177a07446b888bc7bf9e919bf180458d36bc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487001"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453946"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio
 
@@ -29,7 +29,7 @@ Este tópico demonstra como avaliar o desempenho de um modelo no Azure Machine L
 
 Avaliar o desempenho de um modelo é um dos estágios principais do processo de ciência de dados. Indica o êxito da pontuação (previsões) de um conjunto de dados feitas por meio de um modelo treinado. 
 
-O Azure Machine Learning dá suporte à avaliação do modelo por meio de dois dos seus principais módulos de aprendizado de máquina: [Modelo de Avaliação][evaluate-model] e [Modelo de Validação Cruzada][cross-validate-model]. Esses módulos permitem que você veja como o seu modelo é executado em termos de um número de métricas que são usados normalmente em estatísticas e aprendizado de máquina.
+O Azure Machine Learning Studio oferece suporte à avaliação do modelo por meio de dois dos seus principais módulos de aprendizado de máquina: [Modelo de Avaliação][evaluate-model] e [Modelo de Validação Cruzada][cross-validate-model]. Esses módulos permitem que você veja como o seu modelo é executado em termos de um número de métricas que são usados normalmente em estatísticas e aprendizado de máquina.
 
 ## <a name="evaluation-vs-cross-validation"></a>Avaliação versus Validação cruzada
 Avaliação e Validação cruzada são as formas padrão de medir o desempenho do seu modelo. Ambas geram métricas de avaliação que você pode inspecionar ou comparar com os outros modelos.
@@ -83,7 +83,7 @@ Depois de executar o experimento, você pode inspecionar os resultados da avalia
 Figura 4. Resultados de Validação cruzada de um modelo de regressão.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Avaliar um modelo de classificação binária
-Em um cenário de classificação binária, a variável de destino tem somente dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Suponha que você terá um conjunto de dados de funcionários adultos com algumas variáveis demográficas e de emprego e que você será solicitado a prever o nível de renda, uma variável binária com os valores {“<=50 K”, “>50 K”}. Em outras palavras, a classe negativa representa os funcionários que recebem um valor menor ou igual a 50 mil por ano, e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, podemos treinar um modelo, pontuar alguns dados e avaliar os resultados. A principal diferença é a opção de métricas que o Azure Machine Learning computa e as saídas. Para ilustrar o cenário de previsão de nível de renda, utilizaremos o conjunto de dados [Adulto](http://archive.ics.uci.edu/ml/datasets/Adult) para criar um experimento de Azure Machine Learning e avaliar o desempenho de um modelo de regressão logística de duas classes, uma classificação binária tipicamente usada.
+Em um cenário de classificação binária, a variável de destino tem somente dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Suponha que você terá um conjunto de dados de funcionários adultos com algumas variáveis demográficas e de emprego e que você será solicitado a prever o nível de renda, uma variável binária com os valores {“<=50 K”, “>50 K”}. Em outras palavras, a classe negativa representa os funcionários que recebem um valor menor ou igual a 50 mil por ano, e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, podemos treinar um modelo, pontuar alguns dados e avaliar os resultados. As principais diferenças são a opção de métricas que o Azure Machine Learning Studio computa e as saídas. Para ilustrar o cenário de previsão de nível de renda, utilizaremos o conjunto de dados [Adulto](http://archive.ics.uci.edu/ml/datasets/Adult) para criar um experimento do Studio e avaliar o desempenho de um modelo de regressão logística de duas classes, uma classificação binária tipicamente usada.
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
 Adicione os seguintes módulos ao seu workspace no Machine Learning Studio do Microsoft Azure:
@@ -105,7 +105,7 @@ Depois de executar o experimento, você pode clicar na porta de saída do módul
 
 A precisão é simplesmente a proporção das instâncias classificadas corretamente. Geralmente, ela é a primeira métrica a observar ao avaliar um classificador. No entanto, quando os dados de teste não estão desbalanceados (em que a maioria das instâncias pertence a uma das classes), ou você está mais interessado no desempenho em qualquer uma das classes, a precisão realmente não captura a eficácia de um classificador. No cenário de classificação de nível de renda, suponha que você esteja testando em alguns dados em que 99% das instâncias representam pessoas que ganham um valor menor ou igual a 50 mil por ano. É possível obter uma precisão de 0,99 prevendo a classe “<=50K” para todas as instâncias. O classificador parece estar fazendo um bom trabalho em geral nesse caso, mas na realidade, ele não consegue classificar qualquer uma das pessoas com um recebimento mais elevado (% 1) corretamente.
 
-Por esse motivo, é útil computar métricas adicionais que capturam aspectos mais específicos da avaliação. Antes de entrar em detalhes sobre essas métricas, é importante compreender a matriz de confusão de uma avaliação de classificação binária. Os rótulos de classe no conjunto de treinamento podem assumir apenas 2 valores possíveis, o que normalmente chamamos como positivo ou negativo. As instâncias positivas e negativas que um classificador prevê corretamente são chamadas verdadeiros positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas de falsos positivos (FP) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de instâncias que se enquadram em cada uma dessas 4 categorias. O Azure Machine Learning decide automaticamente qual das duas classes no conjunto de dados é a classe positiva. Se os rótulos de classe forem inteiros ou boolianos, as instâncias de rotuladas como 'true' ou '1' serão atribuídas à classe positiva. Se os rótulos forem cadeias de caracteres, como no caso do conjunto de dados de renda, os rótulos serão classificados em ordem alfabética e o primeiro nível será escolhido para ser a classe negativa, enquanto o segundo nível será a classe positiva.
+Por esse motivo, é útil computar métricas adicionais que capturam aspectos mais específicos da avaliação. Antes de entrar em detalhes sobre essas métricas, é importante compreender a matriz de confusão de uma avaliação de classificação binária. Os rótulos de classe no conjunto de treinamento podem assumir apenas 2 valores possíveis, o que normalmente chamamos como positivo ou negativo. As instâncias positivas e negativas que um classificador prevê corretamente são chamadas verdadeiros positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas de falsos positivos (FP) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de instâncias que se enquadram em cada uma dessas 4 categorias. O Azure Machine Learning Studio decide automaticamente qual das duas classes no conjunto de dados é a classe positiva. Se os rótulos de classe forem inteiros ou boolianos, as instâncias de rotuladas como 'true' ou '1' serão atribuídas à classe positiva. Se os rótulos forem cadeias de caracteres, como no caso do conjunto de dados de renda, os rótulos serão classificados em ordem alfabética e o primeiro nível será escolhido para ser a classe negativa, enquanto o segundo nível será a classe positiva.
 
 ![Matriz de confusão de classificação binária](./media/evaluate-model-performance/6a.png)
 

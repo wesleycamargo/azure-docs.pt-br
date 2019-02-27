@@ -1,6 +1,6 @@
 ---
-title: Exibir logs de atividade para alterações RBAC no Azure | Microsoft Docs
-description: Exibir logs de atividades para alterações RBAC (controle de acesso baseado em função) dos últimos 90 dias.
+title: Exibir logs de atividades para alterações de RBAC para recursos do Azure | Microsoft Docs
+description: Exibir logs de atividades para alterações de RBAC (controle de acesso baseado em função) para recursos do Azure nos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117641"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338795"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Exibir logs de atividades para alterações de RBAC
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Exibir logs de atividades para alterações de RBAC para recursos do Azure
 
-Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função), como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações em definições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Log de Atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC dos últimos 90 dias.
+Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função) para recursos do Azure, como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações em definições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Log de Atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC dos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações registradas em log
 

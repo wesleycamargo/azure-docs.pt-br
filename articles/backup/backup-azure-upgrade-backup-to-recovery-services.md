@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880039"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313353"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 
@@ -98,13 +98,13 @@ A segunda tela mostra os links de ajuda disponíveis para ajudá-lo a começar a
 ![links de ajuda na folha Início Rápido](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Etapas de pós-atualização
-O cofre do Serviços de Recuperação dá suporte à especificação de informações de fuso horário na política de backup. Depois que o cofre for atualizado com êxito, acesse as políticas do Backup no menu de configurações do cofre e atualize as informações de fuso horário de cada uma das políticas configuradas no cofre. Esta tela já mostra a hora do agendamento de backup especificado por fuso horário local usado quando você criou a política. 
+O cofre do Serviços de Recuperação dá suporte à especificação de informações de fuso horário na política de backup. Depois que o cofre for atualizado com êxito, acesse as políticas do Backup no menu de configurações do cofre e atualize as informações de fuso horário de cada uma das políticas configuradas no cofre. Esta tela já mostra a hora do agendamento de backup especificado por fuso horário local usado quando você criou a política.
 
 ## <a name="enhanced-security"></a>Segurança aprimorada
 
-Quando um cofre de Backup é atualizado para um cofre dos Serviços de Recuperação, as configurações de segurança desse cofre são automaticamente ativadas. Quando as configurações de segurança estão ativadas, determinadas operações, como excluir backups ou alterar uma frase secreta, exigem um PIN da [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md). Para obter mais informações sobre a segurança aprimorada, consulte o artigo [Recursos de segurança para proteger os backups híbridos](backup-azure-security-feature.md). 
+Quando um cofre de Backup é atualizado para um cofre dos Serviços de Recuperação, as configurações de segurança desse cofre são automaticamente ativadas. Quando as configurações de segurança estão ativadas, determinadas operações, como excluir backups ou alterar uma frase secreta, exigem um PIN da [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md). Para obter mais informações sobre a segurança aprimorada, consulte o artigo [Recursos de segurança para proteger os backups híbridos](backup-azure-security-feature.md).
 
-Quando a segurança aprimorada é ativada, os dados são retidos por até 14 dias após as informações de ponto de recuperação serem excluídas do cofre. Os clientes são cobrados pelo armazenamento de dados de segurança. A retenção de dados de segurança aplica-se aos pontos de recuperação tomados pelo agente do Backup do Azure, o Servidor de Backup do Azure e o System Center Data Protection Manager. 
+Quando a segurança aprimorada é ativada, os dados são retidos por até 14 dias após as informações de ponto de recuperação serem excluídas do cofre. Os clientes são cobrados pelo armazenamento de dados de segurança. A retenção de dados de segurança aplica-se aos pontos de recuperação tomados pelo agente do Backup do Azure, o Servidor de Backup do Azure e o System Center Data Protection Manager.
 
 ## <a name="gather-data-on-your-vault"></a>Reunir dados no cofre
 
@@ -112,38 +112,38 @@ Depois de atualizar para um cofre dos Serviços de Recuperação, configure rela
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-**O plano de atualização afeta meus backups em andamento?**</br>
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>O plano de atualização afeta meus backups em andamento?
  Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
 
-**Se eu não planejo atualizar em breve, o que acontecerá com meus cofres?**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>O que acontecerá com meus cofres se eu não planejar atualizar em breve?
 Como todos os novos recursos se aplicam apenas aos cofres dos Serviços de Recuperação, insistimos que você atualize seus cofres. A partir de 1º de setembro de 2017, a Microsoft começará a atualização automática dos cofres de backup para cofres dos Serviços de Recuperação. Após 30 de novembro de 2017, você não poderá mais criar cofres de backup usando o PowerShell. Seu cofre pode ser atualizado automaticamente a qualquer momento até esse prazo. A Microsoft recomenda que você atualize seu cofre assim que possível.
 
-**O que esta atualização significa para as minhas ferramentas existentes?**</br>
-Atualize suas ferramentas para o modelo de implantação do Resource Manager. Os cofres dos Serviços de Recuperação foram criados para serem usados no modelo de implantação do Resource Manager. É importante o planejamento para o modelo de implantação do Resource Manager, bem como é importante levar em conta as diferenças em seus cofres. 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>O que esta atualização significa para as minhas ferramentas existentes?
+Atualize suas ferramentas para o modelo de implantação do Resource Manager. Os cofres dos Serviços de Recuperação foram criados para serem usados no modelo de implantação do Resource Manager. É importante o planejamento para o modelo de implantação do Resource Manager, bem como é importante levar em conta as diferenças em seus cofres.
 
-**Durante a atualização, haverá muito tempo de inatividade?**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>Durante a atualização, haverá muito tempo de inatividade?
 Isso depende do número de recursos que estão sendo atualizados. Para implantações menores (algumas dezenas de instâncias protegidas), a atualização inteira deve levar menos de 20 minutos. Para implantações maiores, deve levar um máximo de uma hora.
 
-**Posso reverter após a atualização?**</br>
+### <a name="can-i-roll-back-after-upgrading"></a>Posso reverter após a atualização?
  Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
-**Posso validar minha assinatura ou meus recursos para ver se eles podem ser atualizados?**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>Posso validar minha assinatura ou recursos para ver se eles podem ser atualizados?
 Sim. A primeira etapa na atualização valida se os recursos podem ser atualizados. No caso de falha na validação dos pré-requisitos, você recebe mensagens para todos os motivos pelos quais a atualização não pode ser concluída.
 
-**Posso atualizar meu cofre de Backup baseado em CSP?**</br>
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>Posso atualizar meu cofre de Backup baseado em CSP?
  Não. No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
 
-**Posso exibir meu cofre clássico após a atualização?**</br>
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>Posso exibir meu cofre clássico após a atualização?
  Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
 
-**Ocorreu falha na minha atualização, mas o computador que mantinha o agente que exigia a atualização não existe mais. O que devo fazer nesse caso?**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>Ocorreu falha na minha atualização, mas o computador que mantinha o agente que exigia a atualização não existe mais. O que devo fazer nesse caso?
 Se você precisar usar o armazenamento, os backups desse computador para retenção de longo prazo, você não poderá atualizar o cofre. Nas versões futuras, adicionaremos suporte para atualizar esse cofre.
 Se você não precisar mais armazenar os backups desse computador, cancele o registro desse computador do cofre e tente realizar a atualização novamente.
 
-**Por que não consigo ver as informações de trabalhos de meus recursos após a atualização?**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>Por que não consigo ver as informações de trabalhos de meus recursos após a atualização?
 O Monitoramento de backups (agente MARS e IaaS) é um novo recurso que você obtém ao atualizar seu cofre de Backup para o cofre de Serviços de Recuperação. As informações de monitoramento levam até 12 horas para serem sincronizadas com o serviço.
 
-**Como faço para relatar um problema?**</br>
+### <a name="how-do-i-report-an-issue"></a>Como faço para relatar um problema?
 Se qualquer parte da atualização do cofre falhar, observe a OperationId listada no erro. O Suporte da Microsoft trabalhará de forma proativa para resolver o problema. Você pode contatar o Suporte ou enviar um email para nós no endereço rsvaultupgrade@service.microsoft.com com sua ID de Assinatura, nome do cofre e OperationId. Tentaremos resolver o problema o mais rápido possível. Não repita a operação, a menos que seja explicitamente instruído a fazer isso pela Microsoft.
 
 

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744391"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343027"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
 Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar grupos de recursos do Azure e criar recursos do Azure em nível de assinatura. Para implantar modelos em nível de assinatura, você pode usar a CLI do Azure e o Azure PowerShell. O portal do Azure não dá suporte à implantação em nível de assinatura.
 
-Para criar um grupo de recursos em um modelo do Azure Resource Manager, defina um recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) com um nome e localização para o grupo de recursos. Crie um grupo de recursos e implante recursos nesse grupo de recursos no mesmo modelo. Os recursos que podem ser implantados em nível de assinatura incluem: [Políticas](../azure-policy/azure-policy-introduction.md) e [controle de acesso baseado em função](../role-based-access-control/overview.md).
+Para criar um grupo de recursos em um modelo do Azure Resource Manager, defina um recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) com um nome e localização para o grupo de recursos. Crie um grupo de recursos e implante recursos nesse grupo de recursos no mesmo modelo. Os recursos que podem ser implantados em nível de assinatura incluem: [Políticas](../governance/policy/overview.md) e [controle de acesso baseado em função](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Definir e atribuir política
 
-Você pode [definir](../azure-policy/policy-definition.md) e atribuir uma política no mesmo modelo.
+Você pode [definir](../governance/policy/concepts/definition-structure.md) e atribuir uma política no mesmo modelo.
 
 ```json
 {

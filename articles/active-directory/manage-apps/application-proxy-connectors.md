@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c48bbffd6a6312588d071841000b9211266285e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163029"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301461"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -25,14 +25,14 @@ Os conectores são o que torna o Proxy de Aplicativo Azure AD possível. Eles s�
 
 ## <a name="what-is-an-application-proxy-connector"></a>O que é um conector do Proxy de Aplicativo?
 
-Conectores são agentes leves que ficam no local e facilitam a conexão de saída para o serviço Proxy de Aplicativo. Os conectores devem ser instalados em um servidor Windows que tenha acesso ao aplicativo de back-end. Você pode organizar os conectores em grupos de conector, com cada grupo tratando o tráfego de aplicativos específicos. Os conectores fazem o balanceamento de carga automaticamente e podem ajudar a otimizar sua estrutura de rede. 
+Conectores são agentes leves que ficam no local e facilitam a conexão de saída para o serviço Proxy de Aplicativo. Os conectores devem ser instalados em um servidor Windows que tenha acesso ao aplicativo de back-end. Você pode organizar os conectores em grupos de conector, com cada grupo tratando o tráfego de aplicativos específicos.
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implantação
 
-Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um Windows Server 2012 R2 ou em uma computador de 2016. O conector deve ser capaz de se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. 
+Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um Windows Server 2012 R2 ou em uma computador de 2016. O conector precisa se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. 
 
 ### <a name="windows-server"></a>Windows Server
-Você precisa de um servidor executando o Windows Server 2012 R2 ou posterior no qual possa instalar o conector do Proxy de Aplicativo. O servidor precisa se conectar aos serviços do Application Proxy no Azure e aos aplicativos locais que você está publicando.
+Você precisa de um servidor executando o Windows Server 2012 R2 ou posterior no qual possa instalar o conector do Proxy de Aplicativo. O servidor precisa se conectar aos serviços de Proxy de Aplicativo no Azure e aos aplicativos locais que você está publicando.
 
 O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector do Proxy de Aplicativo. Os conectores existentes com versões abaixo de 1.5.612.0 continuarão funcionando nas versões anteriores do TLS até novo aviso. Para habilitar o TLS 1.2:
 
@@ -67,12 +67,12 @@ Não é necessário excluir manualmente os conectores que não foram utilizados.
 
 O Azure AD fornece atualizações automáticas para todos conectores que você implanta. Desde que o serviço Atualizador do Conector de Proxy de Aplicativo esteja em execução, os conectores são atualizados automaticamente. Caso você não veja o serviço Atualizador do Conector no servidor, precisará [reinstalar o conector](application-proxy-add-on-premises-application.md) para obter todas as atualizações. 
 
-Se você não quiser aguardar uma atualização automática chegar a seu conector, você poderá executar uma atualização manual. Vá para o [página de download do conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) no servidor em que o conector está localizado e selecione **Baixar**. Esse processo inicia uma atualização do conector local. 
+Se você não quiser aguardar uma atualização automática chegar ao seu conector, você poderá fazer uma atualização manual. Vá para o [página de download do conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) no servidor em que o conector está localizado e selecione **Baixar**. Esse processo inicia uma atualização do conector local. 
 
 Para locatários com vários conectores, as atualizações automáticas destinam-se a um conector de cada vez em cada grupo para evitar tempo de inatividade em seu ambiente. 
 
 Poderá ocorrer tempo de inatividade quando o conector for atualizado se:  
-- Você só tiver um conector. Para evitar esse tempo de inatividade e melhorar a alta disponibilidade, recomendamos instalar um segundo conector e [criar um grupo de conectores](application-proxy-connector-groups.md).  
+- você possui somente um conector, recomendamos que instale um segundo conector e [crie um grupo de conectores](application-proxy-connector-groups.md). Isso evitará tempo de inatividade e oferece maior disponibilidade.  
 - Um conector estava no meio de uma transação quando a atualização foi iniciada. Embora a transação inicial seja perdida, o navegador deverá repetir a operação automaticamente ou você poderá atualizar a página. Quando a solicitação é enviada novamente, o tráfego é direcionado para um conector de backup.
 
 ## <a name="creating-connector-groups"></a>Criando grupos de conector
@@ -85,7 +85,7 @@ Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em 
 
 ## <a name="capacity-planning"></a>Planejamento da capacidade 
 
-Embora os conectores façam automaticamente o balanceamento de carga dentro de um grupo de conectores, também é importante planejar capacidade suficiente entre os conectores para lidar com o volume de tráfego esperado. Em geral, quanto mais usuários você tiver, maior será o computador necessário. Abaixo está uma tabela que apresenta o volume que diferentes computadores podem processar. Observe que isso é baseado TPS (Transações por Segundo) esperadas e não em usuário, já que os padrões de uso variam e não podem ser usados para prever a carga.  Observe também que haverá algumas diferenças com base no tamanho das respostas e no tempo de resposta do aplicativo de back-end. Tamanhos de resposta maiores e tempos de resposta mais lentos resultarão em uma menor TPS máxima.
+É importante você confirmar se planejou capacidade suficiente entre os conectores para lidar com o volume de tráfego esperado. Em geral, quanto mais usuários você tiver, maior será o computador necessário. Abaixo está uma tabela que apresenta o volume que diferentes computadores podem processar. Observe que isso é baseado em Transações por Segundo (TPS) esperadas e não em usuário, já que os padrões de uso variam e não podem ser usados para prever a carga. Haverá também algumas diferenças com base no tamanho das respostas e no tempo de resposta do aplicativo de back-end. Tamanhos de resposta maiores e tempos de resposta mais lentos resultarão em uma menor TPS máxima. É recomendável ter máquinas adicionais para que a carga distribuída entre as máquinas seja de cerca de 50%. A capacidade extra garantirá que você tenha alta disponibilidade e resiliência.
 
 |Núcleos|RAM|Latência esperada (MS)-P99|TPS máximo|
 | ----- | ----- | ----- | ----- |
@@ -102,28 +102,26 @@ Embora os conectores façam automaticamente o balanceamento de carga dentro de u
 
 Os conectores podem ser instalados em qualquer lugar na rede que permite que eles enviem solicitações para o serviço de Proxy de aplicativo. O importante é que o computador que executa o conector também tenha acesso aos aplicativos. Você pode instalar conectores dentro de sua rede corporativa ou em uma máquina virtual que é executada na nuvem. Os conectores podem ser executados em uma DMZ (zona desmilitarizada), mas não é necessário porque todo o tráfego é de saída e, portanto, sua rede fica segura.
 
-Os conectores só enviam solicitações de saída. O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. Você não precisa abrir portas de entrada porque o tráfego flui nos dois sentidos quando uma sessão é estabelecida. Você não precisa configurar o balanceamento de carga entre os conectores ou configurar o acesso de entrada por meio dos firewalls. 
+Os conectores só enviam solicitações de saída. O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. Você não precisa abrir portas de entrada porque o tráfego flui nos dois sentidos quando uma sessão é estabelecida. Você também não precisa configurar o acesso de entrada por meio de firewalls. 
 
 Para saber mais sobre como configurar regras de firewall de saída, confira [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md).
 
 
 ## <a name="performance-and-scalability"></a>Desempenho e escala
 
-A escala para o serviço Proxy de Aplicativo é transparente, mas a escala é uma questão para conectores. Você precisa ter conectores suficientes para tratar do pico de tráfego. No entanto, você não precisa configurar o balanceamento de carga, pois todos os conectores dentro de um grupo de conector fazem o balanceamento de carga automaticamente.
-
-Como os conectores não têm estado, eles não são afetados pelo número de usuários ou sessões. Em vez disso, eles respondem ao número de solicitações e a seu tamanho do conteúdo. Com o tráfego padrão da Web, um computador médio pode manipular milhares de solicitações por segundo. A capacidade específica depende das características exatas do computador. 
+A escala para o serviço Proxy de Aplicativo é transparente, mas a escala é uma questão para conectores. Você precisa ter conectores suficientes para tratar do pico de tráfego. Como os conectores não têm estado, eles não são afetados pelo número de usuários ou sessões. Em vez disso, eles respondem ao número de solicitações e a seu tamanho do conteúdo. Com o tráfego padrão da Web, um computador médio pode manipular milhares de solicitações por segundo. A capacidade específica depende das características exatas do computador. 
 
 O desempenho do conector está vinculado à CPU e rede. O desempenho da CPU é necessário para criptografia e descriptografia SSL, enquanto a rede é importante para obter conectividade rápida com os aplicativos e com o serviço online no Azure.
 
 Por outro lado, a memória é uma questão menos significativa para os conectores. O serviço online cuida de grande parte do processamento e de todo o tráfego não autenticado. Tudo o que pode ser feito na nuvem é feito na nuvem. 
 
-O balanceamento de carga ocorre entre conectores de um determinado grupo de conectores. Fazemos uma variação de um round robin para determinar qual conector no grupo atende a uma determinada solicitação. Se por algum motivo aquele conector ou computador ficar indisponível, o tráfego começará a ir para outro conector no grupo. Essa resiliência também é o motivo para recomendarmos ter vários conectores.
+Se por algum motivo aquele conector ou computador ficar indisponível, o tráfego começará a ir para outro conector no grupo. Essa resiliência também é o motivo para recomendarmos ter vários conectores.
 
 Outro fator que afeta o desempenho é a qualidade da rede entre os conectores, incluindo: 
 
 * **O serviço online**: Conexões lentas ou de alta latência para o serviço Proxy de Aplicativo no Azure influenciam o desempenho do conector. Para obter o melhor desempenho, conecte sua organização ao Azure com o ExpressRoute. Caso contrário, faça com que a equipe de rede garanta que as conexões com o Azure são tratadas da maneira mais eficiente possível. 
 * **Os aplicativos de back-end**: Em alguns casos, há outros proxies entre o conector e os aplicativos de back-end que podem retardar ou impedir as conexões. Para solucionar problemas nesse cenário, abra um navegador no servidor de conector e tente acessar o aplicativo. Se você executar os conectores no Azure, mas os aplicativos forem locais, a experiência poderá não ocorrer como esperado pelos usuários.
-* **Os controladores de domínio**: Se os conectores executarem SSO usando a Delegação Restrita de Kerberos, eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em um ambiente ocupado, a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Esse problema é mais comum em conectores executados no Azure, mas que se comunicam com os controladores de domínio locais. 
+* **Os controladores de domínio**: Se os conectores executarem logon único (SSO) usando a Delegação Restrita de Kerberos, eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em um ambiente ocupado, a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Esse problema é mais comum em conectores executados no Azure, mas que se comunicam com os controladores de domínio locais. 
 
 Para saber mais sobre como otimizar sua rede, confira [Considerações sobre a topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory](application-proxy-network-topology.md).
 

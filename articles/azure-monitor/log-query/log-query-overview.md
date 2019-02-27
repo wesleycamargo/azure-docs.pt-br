@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002258"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269953"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de log no Azure Monitor
 
-Os dados de log coletados pelo Monitor do Azure são armazenados em um espaço de trabalho do Log Analytics, que é baseado no [Azure Data Explorer](/azure/data-explorer). Ele coleta a telemetria de várias origens e usa a linguagem de consulta do [Data Explorer](/azure/kusto/query) para recuperar e analisar dados.
+Os dados de log coletados pelo Monitor do Azure são armazenados em um espaço de trabalho do Log Analytics, que é baseado no [Azure Data Explorer](/azure/data-explorer). Ele coleta a telemetria de várias origens e usa a [linguagem de consulta Kusto](/azure/kusto/query) usada pelo Data Explorer para recuperar e analisar dados.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ As diferentes maneiras de usar consultas de log no Azure Monitor incluem:
 ![Pesquisas de log](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Escreva uma consulta
-O Azure Monitor usa [uma versão do idioma de consulta do Data Explorer](get-started-queries.md) para recuperar e analisar dados de registro de várias maneiras.  Normalmente, você começa com consultas básicas e, depois, progride para utilizar funções mais avançadas na medida em que seus requisitos se tornam mais complexos.
+O Azure Monitor usa [uma versão da linguagem de consulta Kusto](get-started-queries.md) para recuperar e analisar dados de registro de várias maneiras.  Normalmente, você começa com consultas básicas e, depois, progride para utilizar funções mais avançadas na medida em que seus requisitos se tornam mais complexos.
 
 A estrutura básica de uma consulta é uma tabela de origem seguida de uma série de operadores separados por um caractere de pipe `|`.  É possível encadear várias operadores para refinar os dados e executar funções avançadas.
 

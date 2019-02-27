@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004512"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268593"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 O Analytics é a ferramenta de pesquisa e consulta avançada do [Application Insights](app-insights-overview.md). O Analytics é uma ferramenta de Web, portanto, nenhuma configuração é necessária.
@@ -31,7 +31,7 @@ Também é possível usar o [playground do Analytics](https://go.microsoft.com/f
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relação com os logs do Azure Monitor
-A análise do Application Insights se baseia no [Azure Data Explorer](/azure/data-explorer) como logs do Azure Monitor e também usa a [linguagem de consulta do Data Explorer](/azure/kusto/query). Ela usa o mesmo [portal da análise do log](../log-query/get-started-portal.md) que os logs do Azure Monitor, embora seus dados sejam armazenados em uma partição separada.
+A análise do Application Insights se baseia no [Azure Data Explorer](/azure/data-explorer) como logs do Azure Monitor e também usa a [linguagem de consulta do Kusto](/azure/kusto/query). Ela usa o mesmo [portal da análise do log](../log-query/get-started-portal.md) que os logs do Azure Monitor, embora seus dados sejam armazenados em uma partição separada.
 
 Você não pode acessar dados em um workspace do Log Analytics diretamente pela análise do Application Insights, nem pode acessar dados do aplicativo diretamente da análise do log. Para consultar os dois conjuntos de dados juntos, escreva uma [consulta na análise do log](../log-query/log-query-overview.md) e use a [expressão app()](../log-query/app-expression.md) para acessar os dados do aplicativo.
 

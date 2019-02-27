@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857747"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329312"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
 
-Você pode [configurar webhooks](container-registry-webhook.md) para o registro de contêiner que geram eventos quando certas ações são executadas em relação a ela. Por exemplo, você pode habilitar webhooks são disparados na imagem de contêiner `push` e operações `delete`. Quando um webhook é disparado, o Registro de Contêiner do Azure emite uma solicitação HTTPS ou HTTP contendo informações sobre o evento para um ponto de extremidade que você especificou. Seu ponto de extremidade pode então processar o webhook e agir em conformidade.
+Você pode [configurar webhooks](container-registry-webhook.md) para o registro de contêiner que geram eventos quando certas ações são executadas em relação a ela. Por exemplo, habilite webhooks que são disparados na imagem de contêiner `push` e operações `delete`. Quando um webhook é disparado, o Registro de Contêiner do Azure emite uma solicitação HTTPS ou HTTP contendo informações sobre o evento para um ponto de extremidade que você especificou. Seu ponto de extremidade pode então processar o webhook e agir em conformidade.
 
 As seções a seguir detalham o esquema das solicitações de webhook geradas por eventos com suporte. As seções de evento contêm o esquema de carga para o tipo de evento, um exemplo de carga de solicitação e um ou mais exemplos de comandos que disparam o webhook.
 
@@ -40,17 +40,17 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="push-event-payload"></a>Enviar carga do evento por push
 
-|Elemento|Tipo|DESCRIÇÃO|
+|Elemento|Type|DESCRIÇÃO|
 |-------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID do evento do webhook.|
-|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
 |`action`|Cadeia de caracteres|A ação que disparou o evento do webhook.|
 |[destino](#target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
 
 ### <a name="target"></a>destino
 
-|Elemento|Tipo|DESCRIÇÃO|
+|Elemento|Type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia de caracteres|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de Comprimento.|
@@ -61,7 +61,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="request"></a>solicitação
 
-|Elemento|Tipo|DESCRIÇÃO|
+|Elemento|Type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID da solicitação que iniciou o evento.|
 |`host`|Cadeia de caracteres|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
@@ -104,17 +104,17 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete-event-payload"></a>Excluir carga do evento
 
-|Elemento|Tipo|DESCRIÇÃO|
+|Elemento|Type|DESCRIÇÃO|
 |-------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID do evento do webhook.|
-|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
 |`action`|Cadeia de caracteres|A ação que disparou o evento do webhook.|
 |[destino](#delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#delete_request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
 
 ### <a name="delete_target"></a> destino
 
-|Elemento|Tipo|DESCRIÇÃO|
+|Elemento|Type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia de caracteres|O tipo MIME do objeto referenciado.|
 |`digest`|Cadeia de caracteres|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
@@ -122,7 +122,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete_request"></a> solicitação
 
-|Elemento|Tipo|DESCRIÇÃO|
+|Elemento|Type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID da solicitação que iniciou o evento.|
 |`host`|Cadeia de caracteres|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
@@ -154,10 +154,10 @@ Exemplo de comandos da [CLI do Azure](/cli/azure/acr) que disparam um webhook do
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

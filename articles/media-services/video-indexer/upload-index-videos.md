@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998579"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414737"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -29,10 +29,10 @@ O artigo mostra como usar a API [Fazer upload de vídeo](https://api-portal.vide
 Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalmente o vídeo (discutido no artigo). Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Indexador de Vídeo que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, bem como os encargos relacionados à conta de mídia. 
 
 ## <a name="uploading-considerations"></a>Carregando considerações
-    
+
 - Ao fazer o upload do seu vídeo com base no URL (preferencial), o endpoint deve ser protegido com o TLS 1.2 (ou superior)
-- O tamanho de upload com a opção de URL é limitado a 10 GB
-- O tamanho de upload com a opção de matriz de bytes é limitado a 2 GB 
+- O tamanho de carregamento com a opção de URL está limitado a 25 GB
+- O tamanho de upload com a opção de matriz de bytes é limitado a 2 GB
 - A opção de matriz de bytes atinge o tempo limite após 30 min
 - A URL fornecida no `videoURL` param precisa ser codificado
 

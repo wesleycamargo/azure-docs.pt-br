@@ -1,6 +1,6 @@
 ---
-title: Gerenciar acesso usando RBAC e API REST - Azure | Microsoft Docs
-description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e API REST. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
+title: Gerenciar acesso aos recursos do Azure usando o RBAC e a API REST - Azure | Microsoft Docs
+description: Saiba como gerenciar o acesso de usuários, grupos e aplicativos com o Azure usando o controle de acesso baseado em função (RBAC) e a API REST. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435211"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338403"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>Gerenciar acesso usando RBAC e API REST
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos no Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando RBAC e API REST.
+O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenciar o acesso aos recursos do Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando RBAC e API REST.
 
 ## <a name="list-access"></a>Relacionar acesso
 
-No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das APIs REST [Atribuições de Função - Listar](/rest/api/authorization/roleassignments/list). Para refinar seus resultados, especifique um escopo e um filtro opcional. Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo especificado. Várias [funções internas](built-in-roles.md) recebem acesso a essa operação.
+No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das APIs REST [Atribuições de Função - Listar](/rest/api/authorization/roleassignments/list). Para refinar seus resultados, especifique um escopo e um filtro opcional. Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo especificado. Várias [funções internas para recursos do Azure](built-in-roles.md) recebem acesso a essa operação.
 
 1. Comece com a solicitação a seguir:
 
@@ -38,7 +38,7 @@ No RBAC, para listar o acesso, você lista as atribuições de função. Para li
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções de atribuição.
 
-    | Escopo | type |
+    | Escopo | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -77,7 +77,7 @@ No RBAC, para conceder acesso, você cria uma atribuição de função. Para cri
     
 1. Dentro do URI, substitua *{scope}* pelo escopo da atribuição de função.
 
-    | Escopo | type |
+    | Escopo | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -105,7 +105,7 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para remoção da atribuição de função.
 
-    | Escopo | type |
+    | Escopo | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -117,4 +117,4 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 - [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Referência de API REST do Azure](/rest/api/azure/)
-- [Criar funções personalizadas usando a API REST](custom-roles-rest.md)
+- [Criar funções personalizadas para recursos do Azure usando a API REST](custom-roles-rest.md)

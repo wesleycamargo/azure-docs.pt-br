@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469491"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415503"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -54,6 +54,20 @@ Se você não conseguir encontrar certificados autoassinados usando as etapas an
 
 ## <a name="sign-in-issues"></a>Problemas de credenciais
 
+### <a name="blank-sign-in-dialog"></a>Caixa de diálogo Entrar em branco
+Caixas de diálogo de entrada em branco são normalmente causadas pelo ADFS solicitando que o Gerenciador de Armazenamento execute um redirecionamento que não é suportado pelo Electron. Para contornar esse problema, você pode tentar usar o fluxo de código de dispositivo para entrar. Para isso, execute as etapas a seguir:
+1. “Acessar Experimental” -> “Usar credenciais de código de dispositivo”.
+2. Abra a caixa de diálogo Conectar (seja por meio do ícone de tomada na barra vertical à esquerda, ou “Adicionar conta” no painel da conta).
+3. Escolha em qual ambiente você deseja entrar.
+4. Clique no botão “Entrar”.
+5. Siga as instruções no painel seguinte.
+
+Observação: esse recurso está disponível atualmente somente na Versão prévia 1.7.0.
+
+Se você estiver tendo problemas para entrar na conta que você deseja usar, pois o navegador padrão já está conectado a uma conta diferente, você pode:
+1. Copiar manualmente o link e o código para uma sessão privada do seu navegador.
+2. Copiar manualmente o link e o código para um navegador diferente.
+
 ### <a name="reauthentication-loop-or-upn-change"></a>Loop de reautenticação ou alteração de UPN
 Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma das suas contas, tente o seguinte:
 1. Remova todas as contas e, em seguida, feche o Gerenciador de Armazenamento
@@ -90,7 +104,7 @@ Se nenhum desses métodos funcionar [abra um problema no GitHub](https://github.
 Se não for possível recuperar as assinaturas após a entrada bem-sucedida, tente os métodos de solução de problemas a seguir:
 
 * Verifique se sua conta tem acesso às assinaturas que você espera. Você pode verificar se você tem acesso ao entrar no portal para o ambiente do Azure que você está tentando usar.
-* Verifique se você entrou usando o ambiente certo (Azure, Azure China, Azure Alemanha, Azure US Government nos ou Ambiente Personalizado).
+* Verifique se você entrou usando o ambiente certo (Azure, Azure China 21Vianet, Azure Alemanha, Azure US Government ou Ambiente Personalizado).
 * Se você estiver atrás de um proxy, verifique se você configurou o proxy do Gerenciador de Armazenamento apropriadamente.
 * Tente remover e readicionar a conta.
 * Se houver um link "Obter mais informações", procure e veja quais mensagens de erro estão sendo relatadas para os locatários que estão falhando. Se você não tiver certeza do que fazer com as mensagens de erro que vê, sinta-se à vontade para [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +130,7 @@ Primeiro, certifique-se de que as seguintes informações inseridas estejam corr
 * A URL do proxy e o número da porta
 * Nome de usuário e senha, caso seja solicitado pelo proxy
 
-Observe que o Gerenciador de Armazenamento não dá suporte ao arquivo .pac para definir configurações de proxy.
+Observe que o Gerenciador de Armazenamento não dá suporte aos arquivo de configuração automática de proxy para definir configurações de proxy.
 
 ### <a name="common-solutions"></a>Soluções comuns
 

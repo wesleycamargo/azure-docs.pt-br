@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: c3a737bdd9978e6cb02e3e8b7a34407eb1dd8fb6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380448"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452756"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -29,7 +29,7 @@ Este artigo apresenta os principais conceitos que fornecem armazenamento para se
 
 ## <a name="volumes"></a>Volumes
 
-Geralmente, os aplicativos precisam ser capazes de armazenar e recuperar dados. Como Kubernetes normalmente tratam pods individuais como recursos descartáveis, efêmeros, abordagens diferentes estão disponíveis para uso de aplicativos e para manter os dados conforme necessário. Um *volume* representa uma maneira de armazenar, recuperar e persistir dados entre os pods e por meio do ciclo de vida do aplicativo.
+Geralmente, os aplicativos precisam ser capazes de armazenar e recuperar dados. Como o Kubernetes normalmente trata pods individuais como recursos descartáveis e efêmeros, estão disponíveis abordagens diferentes para uso de aplicativos e para manter os dados conforme necessário. Um *volume* representa uma maneira de armazenar, recuperar e persistir dados entre os pods e por meio do ciclo de vida do aplicativo.
 
 Volumes tradicionais para armazenar e recuperar os dados são criados como recursos de Kubernetes apoiados pelo Armazenamento do Microsoft Azure. Manualmente, você pode criar esses volumes de dados a serem atribuído aos pods diretamente ou fazer com que os Kubernetes criem-nos automaticamente. Esses volumes de dados podem usar discos o Azure Disks ou os Arquivos do Azure:
 
@@ -44,7 +44,7 @@ No Kubernetes, os volumes podem representar mais do que apenas um disco tradicio
 
 ## <a name="persistent-volumes"></a>Volumes persistentes
 
-Os volumes são definidos e criados como parte do ciclo de vida de pod e existem somente enquanto o pod é excluído. Pods geralmente esperam que seu armazenamento permaneça se um pod ser reagendado em um host diferente durante um evento de manutenção, especialmente em StatefulSets. Um *volume persistente* (VP) é um recurso de armazenamento criado e gerenciado pela API do Kubernetes que pode existir além do tempo de vida de um pod individual.
+Os volumes definidos e criados como parte do ciclo de vida de pod existem somente até o pod ser excluído. Pods geralmente esperam que seu armazenamento permaneça se um pod ser reagendado em um host diferente durante um evento de manutenção, especialmente em StatefulSets. Um *volume persistente* (VP) é um recurso de armazenamento criado e gerenciado pela API do Kubernetes que pode existir além do tempo de vida de um pod individual.
 
 Arquivos ou discos do Azure são usados para fornecer o PersistentVolume. Conforme observado na seção anterior em Volumes, a escolha de discos ou arquivos geralmente é determinada pela necessidade de acesso simultâneo a dados ou o nível de desempenho.
 

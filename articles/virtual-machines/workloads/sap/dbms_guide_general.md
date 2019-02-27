@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246867"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328360"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -106,12 +106,12 @@ Embora estejamos discutindo IaaS, em geral, as instalação e a configuração d
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estrutura de armazenamento de uma VM para implantações de RDBMS
-Para seguir este capítulo, é necessário compreender o que foi apresentado [neste][deployment-guide-3] capítulo do [Guia de Implantação][deployment-guide]. O conhecimento sobre as diferentes séries de VM e suas diferenças e as diferenças do [Armazenamento Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) e Standard do Azure deve ser compreendido e conhecido antes de ler este capítulo.
+Para seguir este capítulo, é necessário compreender o que foi apresentado [neste][deployment-guide-3] capítulo do [Guia de Implantação][deployment-guide]. O conhecimento sobre as diferentes séries de VM e suas diferenças e as diferenças do armazenamento padrão e do armazenamento premium deve ser compreendido e conhecido antes de ler este capítulo. Por
 
 Em termos de Armazenamento do Azure para VMs do Azure, você deve estar familiarizado com os artigos:
 
-- [Sobre armazenamento de discos para VMs do Windows do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Sobre armazenamento de discos para VMs do Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Introdução aos discos gerenciados para VMs do Windows Azure](../../windows/managed-disks-overview.md)
+- [Introdução aos discos gerenciados para VMs do Linux Azure](../../linux/managed-disks-overview.md)
 
 Numa configuração básica, nós normalmente recomendamos uma estrutura de implantação na qual o sistema operacional, o DBMS e eventuais binários SAP são separados dos arquivos de banco de dados. Portanto, recomendamos que os sistemas SAP em execução em Máquinas Virtuais do Azure tenham a VHD base (ou disco) instalada com o sistema operacional, os executáveis do sistema de gerenciamento de banco de dados e os executáveis SAP. Os arquivos de dados e de log do DBMS são armazenados no Armazenamento do Azure (Armazenamento Standard ou Premium) em discos separados e anexados como discos lógicos à VM da imagem do sistema operacional do Azure original. Especialmente em implantações do Linux, pode haver diferentes recomendações documentadas. Especialmente em torno do SAP HANA.
 
@@ -134,10 +134,8 @@ O Azure impõe uma cota de IOPS por disco de dados. Essas cotas são diferentes 
 > [!NOTE]
 > Para se beneficiar do Azure exclusivo do [SLA de única VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) todos os discos anexados precisam ser do tipo de Armazenamento Premium do Azure, incluindo o VHD de base.
 
-
 > [!NOTE]
 > Não há suporte para a hospedagem de arquivos de dados principais (arquivos de dados e log) de bancos de dados SAP em hardware de armazenamento localizado em datacenters de terceiros colocalizados adjacentes a datacenters do Azure. Para cargas de trabalho SAP, apenas armazenamento que é representado como nativo do serviço do Azure tem suporte para os arquivos de log de transações e dados de bancos de dados SAP.
-> 
 
 O posicionamento de arquivos de banco de dados e arquivos de log/refazer e o tipo de Armazenamento do Azure usado devem ser definidos por requisitos de taxa de transferência, latência e IOPS. Para ter IOPS suficiente, você poderá ser forçado a aproveitar vários discos ou usar um disco de Armazenamento Premium maior. No caso de usar vários discos, você criaria uma distribuição de software entre discos, que contêm os arquivos de dados ou arquivos de log/refazer. Nesses casos, o IOPS e SLAs de discos do Armazenamento Premium subjacentes ou o máximo de discos de IOPS de armazenamento Standard do Azure que podem ser obtido da taxa de transferência de disco são cumulativos para o conjunto resultante de distribuição.
 

@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747485"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430566"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
-Aprenda a fazer backup e restauração do banco de dados no SQL Data Warehouse do Azure. Utilize instantâneos de data warehouse para recuperação ou copie seu data warehouse para um ponto de restauração anterior na região primária. Use backups de data warehouse com redundância geográfica para restaurar para uma região geográfica diferente. 
+Aprenda a fazer backup e restauração do banco de dados no SQL Data Warehouse do Azure. Utilize os pontos de restauração do data warehouse para recuperar ou copiar seu data warehouse para um estado anterior na região primária. Use backups de data warehouse com redundância geográfica para restaurar para uma região geográfica diferente. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>O que é um instantâneo de data warehouse?
 Um *instantâneo de data warehouse* cria um ponto de restauração que pode ser aproveitado para recuperar ou copiar seu data warehouse para um estado anterior.  Considerando que o SQL Data Warehouse é um sistema distribuído, um instantâneo do data warehouse consiste em vários arquivos localizados no armazenamento do Azure. Os instantâneos capturam as alterações incrementais dos dados armazenados no data warehouse.

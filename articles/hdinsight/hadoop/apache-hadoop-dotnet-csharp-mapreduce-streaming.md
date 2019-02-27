@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435303"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342916"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com fluxo de MapReduce no Apache Hadoop no HDInsight
 
@@ -175,7 +175,13 @@ Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/redu
 
 2. Use um dos seguintes comandos para iniciar o trabalho MapReduce:
 
-    * Se estiver usando o __Data Lake Storage__ como armazenamento padrão:
+    * Se estiver usando o __Data Lake Storage Gen2__ como armazenamento padrão:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Se estiver usando o __Data Lake Storage Gen1__ como armazenamento padrão:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/redu
     A lista a seguir descreve o que cada parâmetro faz:
 
     * `hadoop-streaming.jar`: O arquivo jar que contém a funcionalidade de streaming do MapReduce.
-    * `-files`: Adiciona os arquivos `mapper.exe` e `reducer.exe` a esse trabalho. O `adl:///` ou `wasb:///` antes de cada arquivo é o caminho para a raiz do armazenamento padrão do cluster.
+    * `-files`: Adiciona os arquivos `mapper.exe` e `reducer.exe` a esse trabalho. O `abfs:///`, `adl:///` ou `wasb:///` antes de cada arquivo é o caminho para a raiz do armazenamento padrão do cluster.
     * `-mapper`: Especifica qual arquivo implementa o mapeador.
     * `-reducer`: Especifica qual arquivo implementa o redutor.
     * `-input`: Os dados de entrada.

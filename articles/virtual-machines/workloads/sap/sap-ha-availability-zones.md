@@ -17,166 +17,165 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e319fb5bc1e0ed3354a09b685405656c7f3131bc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858798"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268304"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho do SAP com Zonas de Disponibilidade do Azure
+As [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) são um dos recursos de alta disponibilidade que o Azure oferece. Usar as Zonas de Disponibilidade melhora a disponibilidade geral das cargas de trabalho do SAP no Azure. Este recurso já está disponível em algumas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
 
-Um dos recursos de alta disponibilidade que o Azure oferece são as [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Usar as zonas de disponibilidade melhora a disponibilidade geral da carga de trabalho do SAP no Azure. As zonas de disponibilidade já são oferecidas em diversas [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Mais regiões serão adicionadas. 
+Este gráfico mostra a arquitetura básica de alta disponibilidade do SAP:
 
-A arquitetura básica de alta disponibilidade do SAP pode ser descrita como exibido neste gráfico:
+![Configuração de alta disponibilidade padrão](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-![Configuração de HA padrão](./media/sap-ha-availability-zones/standard-ha-config.png)
-
-A camada de aplicativo do SAP é implantada em um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) do Azure. Para ter uma alta disponibilidade do SAP Central Services, é preciso implantar duas VMs em um conjunto de disponibilidade separado. Use os Serviços de Cluster de Failover do Windows ou o Pacemaker (Linux) como uma estrutura de alta disponibilidade com failover automático para o caso de haver um problema de infraestrutura ou de software. Os documentos que detalham essas implantações são listados a seguir:
+A camada de aplicativo do SAP é implantada em um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) do Azure. Para ter uma alta disponibilidade do SAP Central Services, você pode implantar duas VMs em um conjunto de disponibilidade separado. Use o Cluster de Failover do Windows Server ou o Pacemaker (Linux) como uma estrutura de alta disponibilidade com failover automático para o caso de haver um problema de infraestrutura ou de software. Para saber mais sobre essas implantações, consulte:
 
 - [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
 - [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
 - [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
 - [Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
-Uma arquitetura semelhante se aplica à camada do gerenciador de banco de dados (DBMS) dos sistemas SAP NetWeaver, S/4HANA ou Hybris. Você deve implantar a camada do DBMS em um modo ativo/passivo com uma solução de cluster de failover para proteger contra falhas de infraestrutura ou de software. A solução de cluster de failover pode ser uma estrutura de failover específica do DBMS, os Serviços de Cluster de Failover do Windows ou o Pacemaker. 
+Uma arquitetura semelhante se aplica à camada do gerenciador de banco de dados (DBMS) dos sistemas SAP NetWeaver, S/4HANA ou Hybris. Você deve implantar a camada do DBMS em um modo ativo/passivo com uma solução de cluster de failover para proteger contra falhas de infraestrutura ou de software. A solução de cluster de failover pode ser uma estrutura de failover específica do DBMS, um Cluster de Failover do Windows Server ou o Pacemaker.
 
-A fim de implantar a mesma arquitetura usando as zonas de disponibilidade do Azure, algumas alterações precisam ser feitas na arquitetura descrita acima. Essas alterações estão descritas neste documento.
+Para implantar a mesma arquitetura usando as Zonas de Disponibilidade do Azure, é preciso fazer algumas alterações na arquitetura descrita anteriormente. Este artigo descreve essas alterações.
 
-## <a name="considerations-deploying-across-availability-zones"></a>Considerações sobre a implantação em Zonas de Disponibilidade
-
-Ao usar as Zonas de Disponibilidade, há alguns aspectos a serem considerados:
-
-- As Zonas de Disponibilidade do Azure não garantem uma determinada distância entre as diferentes zonas em uma região do Azure.
-- As Zonas de Disponibilidade do Azure não são uma solução ideal de DR (recuperação de desastre). Os desastres naturais podem causar danos extensos em algumas regiões do mundo, incluindo danos graves à infraestrutura de energia. A distância entre zonas diferentes pode não ser suficientemente grande para ser qualificada como uma solução de DR apropriada.
-- A latência de rede nas zonas de disponibilidade varia em diferentes região do Azure. Há casos em que você pode implantar e executar a camada de aplicativo do SAP em diferentes zonas, uma vez que a latência da rede de uma zona para a VM do DBMS ativo é aceitável de um impacto do processo empresarial. Mas em algumas regiões do Azure, a latência entre a VM do DBMS ativo e uma instância do aplicativo do SAP, implantada em diferentes zonas, poderá ser muito invasiva e inaceitável para os processos empresariais do SAP. Como resultado, as arquiteturas de implantação precisam ser diferentes com uma arquitetura ativa/ativa para o aplicativo ou uma arquitetura ativa/passiva quando a latência entre zonas é muito alta.
-- Decida em qual configuração usar as zonas de disponibilidade do Azure, com base na latência de rede que você medir entre as diferentes zonas. A latência da rede desempenha um papel importante em duas áreas:
-    - Latência entre as duas instâncias de DBMS que precisam ter uma replicação síncrona estabelecida. Quanto maior a latência de rede, maior será o potencial de escalabilidade do impacto da sua carga de trabalho
-    - A diferença na latência de rede entre uma VM que executa uma instância de diálogo do SAP na zona com a instância do DBMS ativo e uma VM semelhante em outra zona. Quanto maior for essa diferença, maior será o impacto no tempo de execução de processos de negócios e de tarefas em lote, dependendo se eles são executados na zona com o DBMS ou em uma zona diferente.
+## <a name="considerations-for-deploying-across-availability-zones"></a>Considerações sobre a implantação em Zonas de Disponibilidade
 
 
-Há algumas restrições ao implantar VMs do Azure nas zonas de disponibilidade e ao estabelecer soluções de failover dentro da mesma região do Azure. Essas restrições são abordadas na lista a seguir:
+Ao usar as Zonas de Disponibilidade, considere o seguinte:
 
-- O uso do [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) é obrigatório para a implantação em Zonas de Disponibilidade do Azure 
-- O mapeamento de enumerações de zona para as zonas físicas é fixado por assinatura do Azure. Se você estiver usando assinaturas diferentes para implantar seus sistemas do SAP, precisará definir as zonas ideais para cada assinatura.
-- Não é possível implantar conjuntos de disponibilidade do Azure em uma Zona de Disponibilidade. Escolha uma Zona de Disponibilidade do Azure ou um conjunto de disponibilidade do Azure como estrutura de implantação para máquinas virtuais.
-- Não é possível usar um [Azure Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para criar soluções de cluster de failover baseadas em Serviços de Cluster de Failover do Windows ou no Linux Pacemaker. Em vez disso, você precisará usar o [SKU do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Não há qualquer garantia em relação às distâncias entre várias Zonas de Disponibilidade dentro de uma região do Azure.
+- As Zonas de Disponibilidade não são uma solução ideal de recuperação de desastres (DR). Desastres naturais podem causar danos extensos em algumas regiões do mundo, incluindo danos graves a infraestruturas de energia. As distâncias entre várias zonas podem não ser suficientemente grandes para constituir uma solução de DR apropriada.
+- A latência de rede entre Zonas de Disponibilidade não é a mesma em todas as regiões do Azure. Em alguns casos, você pode implantar e executar a camada de aplicativo do SAP em diferentes zonas, pois a latência da rede de uma zona para a VM do DBMS ativo é aceitável. Porém, em algumas regiões do Azure, a latência entre a VM do DBMS ativo e uma instância do aplicativo SAP, quando implantada em diferentes zonas, pode não ser aceitável para os processos empresariais do SAP. Nesses casos, as arquiteturas de implantação precisam ser diferentes com uma arquitetura ativa/ativa para o aplicativo ou uma arquitetura ativa/passiva quando a latência de rede entre zonas é muito alta.
+- Ao decidir onde usar as Zonas de Disponibilidade, baseie sua decisão na latência de rede entre as zonas. A latência da rede desempenha um papel importante em duas áreas:
+    - A latência entre as duas instâncias de DBMS que precisam ter replicação síncrona. Quanto maior a latência de rede, maior a probabilidade de afetar a escalabilidade da sua carga de trabalho.
+    - A diferença na latência de rede entre uma VM que executa uma instância de diálogo do SAP na zona com a instância do DBMS ativo e uma VM semelhante em outra zona. Conforme essa diferença aumenta, a influência sobre o tempo de execução de processos de negócios e de tarefas em lote também aumenta, dependendo de eles serem executados na zona com o DBMS ou em uma zona diferente.
+
+Ao implantar VMs do Azure em Zonas de Disponibilidade e estabelecer soluções de failover na mesma região do Azure, há algumas restrições:
+
+- Use o [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) ao implantar em Zonas de Disponibilidade do Azure. 
+- O mapeamento de enumerações de zona para as zonas físicas é fixado por assinatura do Azure. Se você estiver usando assinaturas diferentes para implantar seus sistemas de SAP, precisa definir as zonas ideais para cada assinatura.
+- Não é possível implantar conjuntos de disponibilidade do Azure em uma Zona de Disponibilidade do Azure. Escolha um ou outro como uma estrutura de implantação para máquinas virtuais.
+- Não é possível usar um [Azure Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para criar soluções de cluster de failover baseadas no Cluster de Failover do Windows Server ou no Linux Pacemaker. Em vez disso, use a [SKU do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
 
-## <a name="ideal-availability-zones-combination"></a>Combinação ideal para as Zonas de Disponibilidade
-Antes de decidir como usar as zonas de disponibilidade, você precisa realizar uma investigação que revele:
+## <a name="the-ideal-availability-zones-combination"></a>Combinação ideal para as Zonas de Disponibilidade
+Antes de decidir como usar as Zonas de Disponibilidade, é preciso determinar:
 
-- A latência de rede entre as três diferentes zonas de uma região do Azure. Portanto, você pode escolher as zonas com a menor latência de rede no tráfego de rede entre zonas
-- A diferença entre a latência de VM para VM dentro de uma das zonas escolhidas por você e a latência de rede entre as duas zonas que você escolheu
-- Uma instrução indicando se os tipos de VM que precisa implantar estão disponíveis nas duas zonas escolhidas. Especialmente com máquinas virtuais da série M, você vai se deparar com situações em que diferentes SKUs de VM da série M estarão disponíveis apenas em duas ou três zonas
+- A latência de rede entre as três zonas de uma região do Azure. Isso permite que você escolha as zonas com menor latência de rede no tráfego de rede entre zonas.
+- A diferença entre a latência entre VMs em uma das zonas, de sua escolha, e a latência de rede em duas zonas de sua escolha.
+- Uma determinação indicando se os tipos de VM que você precisa implantar estão disponíveis nas duas zonas selecionadas. Com algumas VMs, especialmente VMs da série M, você pode encontrar situações em que algumas SKUs estão disponíveis em apenas duas das três zonas.
 
-### <a name="network-latency-between-zones-and-within-zone"></a>Latência de rede entre zonas e dentro da zona
-Para descobrir qual é a latência entre diferentes zonas, você precisa:
+## <a name="network-latency-between-and-within-zones"></a>Latência de rede entre e dentro de zonas
+Para determinar a latência entre as diferentes zonas, é preciso:
 
 - Implantar a SKU da VM que você deseja usar para sua instância do DBMS nas três zonas. Certifique-se de que a [Rede Acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) esteja habilitada ao executar essa medição.
-- Ao encontrar as duas zonas com menos latência de rede, implante outras três VMs da SKU da VM que você deseja usar como VM da camada de aplicativo nas três zonas de disponibilidade. Meça a latência de rede em relação às duas “VMs do DBMS” em duas zonas diferentes do “DBMS” de sua escolha. 
-- Como ferramenta para medir, use **niping**. Uma ferramenta do SAP, que funciona conforme descrito nas notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Concentre-se nos comandos do SAP documentados para medições de latência. O uso de **ping** não é recomendado, uma vez que o **ping** não funciona nos caminhos de código da rede acelerada do Azure.
+- Ao encontrar as duas zonas com menos latência de rede, implante outras três VMs da SKU da VM que você deseja usar como VM da camada de aplicativo nas três Zonas de Disponibilidade. Meça a latência de rede em relação às duas VMs do DBMS nas duas zonas do DBMS que você selecionou. 
+- Use **niping** como uma ferramenta de medição. Essa ferramenta de SAP é descrita nas notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Concentre-se nos comandos documentados para medições de latência. Como o **ping** não funciona nos caminhos de código da Rede Acelerada do Azure, não é recomendável usá-lo.
 
-Com base nas medições e na disponibilidade de suas SKUs de VM em diferentes zonas de disponibilidade, você precisará tomar as seguintes decisões:
+Com base nas medições e na disponibilidade de suas SKUs de VM em diferentes Zonas de Disponibilidade, você precisa tomar as algumas decisões:
 
-- Definir as zonas ideais para a camada do DBMS
-- Saber se deseja distribuir sua camada ativa de aplicativo do SAP em uma, duas ou em todas as três zonas, com base nas diferenças de latência de rede na zona em comparação a entre as zonas
-- Saber se você deseja implantar uma configuração ativa/passiva ou ativa/ativa do ponto de vista do aplicativo (veja mais adiante)
+- Definir as zonas ideais para a camada do DBMS.
+- Determinar se você deseja distribuir sua camada ativa de aplicativo do SAP em uma, duas ou em todas as três zonas, com base nas diferenças de latência de rede na zona versus entre as zonas.
+- Determinar se você deseja implantar uma configuração ativa/passiva ou uma configuração ativa/ativa do ponto de vista do aplicativo. (Essas configurações são explicadas mais adiante neste artigo.)
 
-Ao tomar essas decisões, lembre-se também das recomendações de latência de rede do SAP, conforme documentado na nota do SAP [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E).
-
-### <a name="be-aware-of"></a>Lembre-se
+Ao tomar essas decisões, considere também as recomendações de latência de rede do SAP, conforme documentado na nota do SAP [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E).
 
 > [!IMPORTANT]
-> As medições e decisões que você toma são válidas para a assinatura do Azure usada para fazer essas medições. Se estiver usando outra assinatura do Azure, será preciso repetir as medições porque o mapeamento de zonas enumeradas pode ser diferente em outra assinatura do Azure.
+> As medições e decisões que você toma são válidas para a assinatura do Azure usada ao fazer as medições. Se você usar outra assinatura do Azure, repita as medições. O mapeamento de zonas enumeradas pode ser diferente para outra assinatura do Azure.
 
 
 > [!IMPORTANT]
-> Espera-se que as medições executadas acima estejam mostrando resultados diferentes em todas as regiões do Azure que oferecem suporte a [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Mesmo se seus requisitos de latência de rede forem os mesmos, talvez seja necessário adotar estratégias de implantação distintas em diferentes regiões do Azure, já que a latência de rede entre as zonas pode diferir. É esperado que, em algumas regiões do Azure, a latência de rede nas as três zonas diferentes possa ser muito desigual. Enquanto, em outras regiões, a latência de rede entre as três zonas diferentes é mais uniforme. A afirmação de que **sempre** existe uma latência de rede entre zonas de 1 milissegundo a 2 milissegundos está **errada**. A latência de rede entre zonas de disponibilidade nas regiões do Azure não pode ser generalizada.
-
+> Espera-se que as medições descritas anteriormente forneçam resultados diferentes em todas as regiões do Azure que oferecem suporte a [Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Mesmo quando seus requisitos de latência de rede são os mesmos, talvez seja necessário adotar estratégias de implantação distintas em diferentes regiões do Azure, já que a latência de rede entre as zonas pode diferir. Em algumas regiões do Azure, a latência de rede entre as três zonas diferentes pode ser muito diferente. Em outras regiões, a latência de rede entre as três zonas diferentes pode ser mais uniforme. A declaração de que há sempre uma latência de rede entre 1 e 2 milissegundos não está correta. A latência de rede entre Zonas de Disponibilidade nas regiões do Azure não pode ser generalizada.
 
 ## <a name="activeactive-deployment"></a>Implantação ativa/ativa
-Essa arquitetura de implantação é chamada ativa/ativa porque você implanta suas instâncias de diálogo do SAP ativas em duas ou três zonas. O SAP Central Services que usa replicação de enfileiramento será implantado entre duas zonas. O mesmo vale para a camada de DBMS, que será implantada nas mesmas zonas que o SAP Central Service.
+Essa arquitetura de implantação é chamada ativa/ativa porque você implanta suas instâncias de diálogo do SAP ativas em duas ou três zonas. A instância do SAP Central Services que usa a replicação de enfileiramento é implantada entre duas zonas. O mesmo vale para a camada de DBMS, que é implantada nas mesmas zonas que o SAP Central Service.
 
-Para contemplar essa configuração, você precisa encontrar as duas zonas de disponibilidade em sua região que oferecem uma latência de rede entre zonas aceitável para sua carga de trabalho e para sua replicação síncrona de DBMS. Além disso, convém que o delta entre a latência de rede nas zonas selecionadas e a latência de rede entre zonas não seja muito grande. O motivo disso é que não é ideal ter variações muito grandes nos tempos de execução de seus processos de negócios ou de tarefas em lote, dependendo se uma tarefa é executada na zona com o servidor DBMS ou entre zonas. Algumas variações são aceitáveis, mas não fatores de diferença.
+Ao considerar essa configuração, você precisa encontrar as duas Zonas de Disponibilidade em sua região que oferecem uma latência de rede entre zonas aceitável para sua carga de trabalho e para sua replicação síncrona de DBMS. Também é preciso ter certeza de que o delta entre a latência de rede nas zonas selecionadas e a latência de rede entre zonas não seja muito grande. Isso ocorre porque você não deseja grandes variações, dependendo se uma tarefa é executada na zona com o servidor DBMS ou entre zonas, nos tempos de execução de seus processos de negócios ou tarefas em lote. Algumas variações são aceitáveis, mas não fatores de diferença.
 
-Um esquema simplificado de implantação ativa/ativa em duas zonas poderia ser semelhante a:
+Um esquema simplificado de implantação ativa/ativa entre duas zonas pode ser semelhante a:
 
-![active_active_xone_deployment](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Implantação de zona ativa/ativa](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
 
 As seguintes considerações se aplicam a essa configuração:
 
-- Trate as zonas de disponibilidade do Azure como falhas e atualize os domínios de todas as VMs porque os conjuntos de disponibilidade não podem ser implantados nas zonas de disponibilidade do Azure
-- Os balanceadores de carga do Azure usado para os clusters de failover do SAP Central Services, bem como a camada do DBMS, precisam ser o [balanceador de carga de SKU padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O balanceador de carga básico não funcionará entre zonas
-- A rede virtual do Azure e suas sub-redes implantadas para hospedar o sistema SAP são ampliadas entre zonas. **Não é necessário** ter redes virtuais separadas para cada zona
-- Em todas as máquinas virtuais implantadas, use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos gerenciados em implantações de zona
-- O armazenamento Premium do Azure ou o [armazenamento de SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a nenhum tipo de replicação de armazenamento entre zonas. Como resultado, fica a cargo do aplicativo (DBMS ou SAP Central Services) replicar os dados importantes
-- O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento de CIFS (Windows) ou um compartilhamento de NFS (Linux). Você precisa usar uma tecnologia que replique um disco compartilhado ou o compartilhamento entre as zonas. No momento, há suporte para as seguintes tecnologias:
-    - No Windows, há suporte entre zonas para uma solução de cluster que usa SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-    - No SUSE Linux, há suporte para o compartilhamento de NFS, conforme documentado no artigo sobre a [alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-    - No momento, **não há suporte nas zonas** para a solução que usa SOFS (Windows scale-out file services), conforme documentado no artigo [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- A terceira zona é usada para hospedar o dispositivo SBD caso você crie um [cluster do SUSE Linux pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais
-- Para atingir uma consistência de tempo de execução para processos empresariais críticos, você pode tentar direcionar determinadas tarefas em lote e usuários para instâncias de aplicativos que estejam na zona com a instância do DBMS ativo usando grupos do SAP Batch Server, grupos de Logon ou grupos de RFC. No entanto, no caso de um failover da zona, será preciso mover manualmente esses grupos para as instâncias que estejam sendo executadas nas VMs na zona com a VM do DB ativo.  
-- Decida se você deseja implantar algumas instâncias de diálogos inativas em cada uma das zonas para poder obter imediatamente a antiga capacidade de recursos, caso uma zona usada por parte de suas instâncias do aplicativo esteja fora de serviço
+- Trate as Zonas de Disponibilidade do Azure como falhas e atualize os domínios de todas as VMs, porque os conjuntos de disponibilidade não podem ser implantados nas Zonas de Disponibilidade do Azure.
+- Para os balanceadores de carga dos clusters de failover do SAP Central Services e da camada do DBMS, você precisa usar a [SKU padrão do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O Load Balancer básico não funciona entre as zonas.
+- A rede virtual do Azure que você implantou para hospedar o sistema SAP com suas sub-redes é ampliada entre as zonas. Não é necessário ter redes virtuais separadas para cada zona.
+- Em todas as máquinas virtuais implantadas, você precisa usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos não gerenciados em implantações de zona.
+- O Armazenamento Premium do Azure e o [Armazenamento SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a qualquer tipo de replicação de armazenamento entre zonas. O aplicativo (DBMS ou SAP Central Services) deve replicar dados importantes.
+- O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento CIFS (Windows) ou um compartilhamento NFS (Linux). Você precisa usar uma tecnologia que replique esses discos compartilhados ou compartilhamentos entre as zonas. Há suporte para as seguintes tecnologias:
+    - No Windows, uma solução de cluster que usa o SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+    - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+    
+    No momento, não há suporte nas zonas para a solução que usa o Servidor de Arquivos de Escalabilidade Horizontal da Microsoft, conforme documentado no artigo [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share).
+- A terceira zona é usada para hospedar o dispositivo SBD, caso você crie um [cluster do SUSE Linux Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
+- Para atingir uma consistência de tempo de execução para processos empresariais críticos, você pode tentar direcionar determinadas tarefas em lote e usuários para instâncias de aplicativos que estejam na zona com a instância do DBMS ativo usando grupos do SAP Batch Server, grupos de logon ou grupos de RFC. No entanto, no caso de um failover da zona, seria preciso mover manualmente esses grupos para as instâncias em execução nas VMs da zona com a VM do DB ativo.  
+- Talvez você queira implantar instâncias de caixa de diálogo inativas em cada uma das zonas. Isso serve para habilitar um retorno imediato à capacidade do recurso anterior se uma zona usada por parte de suas instâncias do aplicativo estiver fora de serviço.
 
 
 ## <a name="activepassive-deployment"></a>Implantação ativa/passiva
-Caso não consiga encontrar um delta aceitável entre a latência de rede dentro de uma zona e o tráfego de rede entre zonas, a arquitetura que poderá implantar terá um caráter ativo/passivo do ponto de vista da camada de aplicativo do SAP. Defina uma zona “ativa”, que é a zona em que você implantará a camada de aplicativo completa e onde você tentará executar o DBMS ativo e a instância do SAP Central Services. Com essa configuração, você garante que não haja variações extremas de tempo de execução em transações comerciais e tarefas em lote, dependendo se uma tarefa é executada na zona com a instância do DBMS ativo ou não.
+Caso não consiga encontrar um delta aceitável entre a latência de rede dentro de uma zona e a latência do tráfego de rede entre zonas, implante uma arquitetura que tem um caráter ativo/passivo do ponto de vista da camada de aplicativo SAP. Defina uma zona *ativa*, que é a zona em que você implantará a camada de aplicativo completa e onde você tentará executar o DBMS ativo e a instância do SAP Central Services. Com essa configuração, você garante que não haja variações extremas de tempo de execução, dependendo se uma tarefa é executada na zona com a instância do DBMS ativo ou não, em transações comerciais e tarefas em lote.
 
-O layout básico de tal arquitetura é semelhante a esta:
+O layout básico da arquitetura é semelhante a este:
 
-![active_active_xone_deployment](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Implantação de zona ativa/passiva](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
 
 As seguintes considerações se aplicam a essa configuração:
 
-- Não é possível implantar conjuntos de disponibilidade em Zonas de Disponibilidade do Azure. Portanto, nesse caso, você terá um domínio de atualização e falha para sua camada de aplicativo. O motivo é que ele só é implantado em uma zona. Essa configuração é um pequeno retrocesso em comparação com a arquitetura de referência que prevê a implantação da camada do aplicativo em um conjunto de disponibilidade do Azure.
-- Ao operar tal arquitetura, você precisa monitorar de perto e tentar manter as instâncias de DBMS e SAP Central Services ativas na mesma zona da sua camada de aplicativo implantada. Caso ocorra um failover do SAP Central Service ou da instância do DBMS, certifique-se de que você possa realizar o failover manual de volta para a zona com a camada de aplicativo SAP implantada o quanto antes
-- Os balanceadores de carga do Azure usado para os clusters de failover do SAP Central Services, bem como a camada do DBMS, precisam ser o [balanceador de carga de SKU padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O balanceador de carga básico não funcionará entre zonas
-- A rede virtual do Azure e suas sub-redes implantadas para hospedar o sistema SAP são ampliadas entre zonas. **Não é necessário** ter redes virtuais separadas para cada zona
-- Em todas as máquinas virtuais implantadas, você precisa usar [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos gerenciados em implantações de zona
-- O armazenamento Premium do Azure ou o [armazenamento de SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a nenhum tipo de replicação de armazenamento entre zonas. Como resultado, fica a cargo do aplicativo (DBMS ou SAP Central Services) replicar os dados importantes
-- O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento de CIFS (Windows) ou um compartilhamento de NFS (Linux). Você precisa usar uma tecnologia que replique um disco compartilhado ou o compartilhamento entre as zonas. No momento, há suporte para as seguintes tecnologias:
-    - No Windows, há suporte entre zonas para uma solução de cluster que usa SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-    - No SUSE Linux, há suporte para o compartilhamento de NFS, conforme documentado no artigo sobre a [alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-    - No momento, **não há suporte nas zonas** para a solução que usa SOFS (Windows scale-out file services), conforme documentado no artigo [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- A terceira zona é usada para hospedar o dispositivo SBD caso você crie um [cluster do SUSE Linux pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais
-- Implante VMs inativas na zona passiva (de um ponto de vista do DBMS) para poder iniciar os recursos do aplicativo em caso de falha de zona
-    - Não é possível usar o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para replicar VMs ativas para VMs inativas entre as zonas. No momento, o Azure Site Recovery não pode cumprir essa função
-- Invista na automação que permite, em caso de falha de zona, iniciar automaticamente a camada de aplicativo SAP na segunda zona
+- Não é possível implantar conjuntos de disponibilidade em Zonas de Disponibilidade do Azure. Portanto, nesse caso, você terá um domínio de atualização e falha para sua camada de aplicativo. Isso porque ele só é implantado em uma zona. Essa configuração é um pouco menos desejável do que a arquitetura de referência, o que sugere que você implante a camada de aplicativo em um conjunto de disponibilidade do Azure.
+- Ao usar essa arquitetura, monitore o status de perto e tente manter as instâncias de DBMS e SAP Central Services ativas na mesma zona da sua camada de aplicativo implantada. Caso ocorra um failover do SAP Central Service ou da instância do DBMS, certifique-se de que você possa realizar o failover manual de volta para a zona com a camada de aplicativo SAP implantada o mais rápido possível.
+- Para os balanceadores de carga dos clusters de failover do SAP Central Services e da camada do DBMS, você precisa usar a [SKU padrão do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O Load Balancer básico não funciona entre as zonas.
+- A rede virtual do Azure que você implantou para hospedar o sistema SAP com suas sub-redes é ampliada entre as zonas. Não é necessário ter redes virtuais separadas para cada zona.
+- Em todas as máquinas virtuais implantadas, você precisa usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos não gerenciados em implantações de zona.
+- O Armazenamento Premium do Azure e o [Armazenamento SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a qualquer tipo de replicação de armazenamento entre zonas. O aplicativo (DBMS ou SAP Central Services) deve replicar dados importantes.
+- O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento CIFS (Windows) ou um compartilhamento NFS (Linux). Você precisa usar uma tecnologia que replique esses discos compartilhados ou compartilhamentos entre as zonas. Há suporte para as seguintes tecnologias:
+    - No Windows, uma solução de cluster que usa o SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+    - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+    
+  No momento, não há suporte nas zonas para a solução que usa o Servidor de Arquivos de Escalabilidade Horizontal da Microsoft, conforme documentado no artigo [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share).
+- A terceira zona é usada para hospedar o dispositivo SBD, caso você crie um [cluster do SUSE Linux Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
+- Você deve implantar VMs inativas na zona passiva (de um ponto de vista do DBMS) para poder iniciar os recursos do aplicativo em caso de falha de zona.
+    - O [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) atualmente não consegue replicar VMs ativas para VMs inativas entre as zonas. 
+- Você deve investir na automação que permite, em caso de falha de zona, iniciar automaticamente a camada de aplicativo SAP na segunda zona.
 
 ## <a name="combined-high-availability-and-disaster-recovery-configuration"></a>Configuração combinada de alta disponibilidade e recuperação de desastre
-A Microsoft não compartilha nenhuma informação sobre a distância geográfica entre as instalações que hospedam diferentes zonas de disponibilidade do Azure na região do Azure. Apesar disso, alguns clientes estão utilizando as zonas para realizar uma configuração de HA e de recuperação de desastre combinadas que promete um **R**ecovery **P**oint **O**bjective - RPO (Objetivo de Ponto de Recuperação) de zero. O que significa que você não deve perder nenhuma transação de banco de dados confirmada, mesmo no caso de recuperação de desastre. 
+A Microsoft não compartilha qualquer informação sobre a distância geográfica entre as instalações que hospedam diferentes Zonas de Disponibilidade do Azure na região do Azure. Ainda assim, alguns clientes estão utilizando as zonas para realizar uma configuração de alta disponibilidade (HA) e de recuperação de desastre combinada que promete um objetivo de ponto de recuperação (RPO) zero. O que significa que você não deve perder nenhuma transação de banco de dados confirmada, mesmo no caso de recuperação de desastre. 
 
 > [!NOTE]
-> Uma configuração como essa é recomendada apenas em circunstâncias específicas. Por exemplo, casos em que os dados não podem sair da região do Azure por motivos de segurança e conformidade. 
+> Recomendamos que você use uma configuração como essa apenas em determinadas circunstâncias. Por exemplo, você pode usá-la quando os dados não podem deixar a região do Azure por motivos de segurança ou conformidade. 
 
-Um exemplo de como essa configuração pode ser exibida é demonstrado neste gráfico:
+Consulte um exemplo de como essa configuração pode ser:
 
-![combined_ha_dr_in_zones](./media/sap-ha-availability-zones/combined_ha_dr_in_zones.png)
+![Combinação de recuperação de desastres e alta disponibilidade em zonas](./media/sap-ha-availability-zones/combined_ha_dr_in_zones.png)
 
 As seguintes considerações se aplicam a essa configuração:
 
-- Você está assumindo que há uma distância significativa entre as instalações que hospedam uma zona de disponibilidade. Ou você é forçado a ficar com determinada região do Azure. Não é possível implantar conjuntos de disponibilidade em Zonas de Disponibilidade do Azure. Portanto, nesse caso, você está terminando com um domínio de atualização e falha para sua camada de aplicativo. O motivo é que ele só é implantado em uma zona. Esse é um retrocesso em comparação com a arquitetura de referência que prevê a implantação da camada do aplicativo em um conjunto de disponibilidade do Azure.
-- Ao operar tal arquitetura, você precisa monitorar de perto e tentar manter as instâncias de DBMS e SAP Central Services ativas na mesma zona da sua camada de aplicativo implantada. Caso ocorra um failover do SAP Central Service ou da instância do DBMS, certifique-se de que você possa realizar o failover manual de volta para a zona com a camada de aplicativo SAP implantada o quanto antes
-- Você tem instâncias do aplicativo de produção pré-instaladas nas VMs que executam as instâncias do aplicativo QA ativas.
-- No caso de uma falha de zona, encerre as instâncias do aplicativo QA e inicie as instâncias de produção. Lembre-se de que você precisa trabalhar com nomes virtuais para as instâncias do aplicativo para fazer isso funcionar
-- Os balanceadores de carga do Azure usado para os clusters de failover do SAP Central Services, bem como a camada do DBMS, precisam ser o [balanceador de carga de SKU padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O balanceador de carga básico não funcionará entre zonas
-- A rede virtual do Azure e suas sub-redes implantadas para hospedar o sistema SAP são ampliadas entre zonas. **Não é necessário** ter redes virtuais separadas para cada zona
-- Em todas as máquinas virtuais implantadas, você precisa usar [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos gerenciados em implantações de zona
-- O armazenamento Premium do Azure ou o [armazenamento de SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a nenhum tipo de replicação de armazenamento entre zonas. Como resultado, fica a cargo do aplicativo (DBMS ou SAP Central Services) replicar os dados importantes
-- O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento de CIFS (Windows) ou um compartilhamento de NFS (Linux). Você precisa usar uma tecnologia que replique um disco compartilhado ou o compartilhamento entre as zonas. No momento, há suporte para as seguintes tecnologias:
-    - No Windows, há suporte entre zonas para uma solução de cluster que usa SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-    - No SUSE Linux, há suporte para o compartilhamento de NFS, conforme documentado no artigo sobre a [alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-    - No momento, **não há suporte nas zonas** para a solução que usa SOFS (Windows scale-out file services) como documentado em [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- A terceira zona é usada para hospedar o dispositivo SBD caso você crie um [cluster do SUSE Linux pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais
+- Você está assumindo que há uma distância significativa entre as instalações que hospedam uma zona de disponibilidade ou é forçado a permanecer em uma determinada região do Azure. Não é possível implantar conjuntos de disponibilidade em Zonas de Disponibilidade do Azure. Portanto, nesse caso, você terá um domínio de atualização e falha para sua camada de aplicativo. Isso porque ele só é implantado em uma zona. Essa configuração é um pouco menos desejável do que a arquitetura de referência, o que sugere que você implante a camada de aplicativo em um conjunto de disponibilidade do Azure.
+- Ao usar essa arquitetura, monitore o status de perto e tente manter as instâncias de DBMS e SAP Central Services ativas na mesma zona da sua camada de aplicativo implantada. Caso ocorra um failover do SAP Central Service ou da instância do DBMS, certifique-se de que você possa realizar o failover manual de volta para a zona com a camada de aplicativo SAP implantada o mais rápido possível.
+- Você deve ter instâncias do aplicativo de produção pré-instaladas nas VMs que executam as instâncias do aplicativo QA ativas.
+- No caso de uma falha de zona, encerre as instâncias do aplicativo QA e inicie as instâncias de produção. Observe que você precisa usar nomes virtuais para as instâncias do aplicativo para fazer isso funcionar.
+- Para os balanceadores de carga dos clusters de failover do SAP Central Services e da camada do DBMS, você precisa usar a [SKU padrão do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O Load Balancer básico não funciona entre as zonas.
+- A rede virtual do Azure que você implantou para hospedar o sistema SAP com suas sub-redes é ampliada entre as zonas. Não é necessário ter redes virtuais separadas para cada zona.
+- Em todas as máquinas virtuais implantadas, você precisa usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos não gerenciados em implantações de zona.
+- O Armazenamento Premium do Azure e o [Armazenamento SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a qualquer tipo de replicação de armazenamento entre zonas. O aplicativo (DBMS ou SAP Central Services) deve replicar dados importantes.
+- O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento CIFS (Windows) ou um compartilhamento NFS (Linux). Você precisa usar uma tecnologia que replique esses discos compartilhados ou compartilhamentos entre as zonas. Há suporte para as seguintes tecnologias:
+    - No Windows, uma solução de cluster que usa o SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+    - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+
+  No momento, não há suporte nas zonas para a solução que usa o Servidor de Arquivos de Escalabilidade Horizontal da Microsoft, conforme documentado no artigo [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share).
+- A terceira zona é usada para hospedar o dispositivo SBD, caso você crie um [cluster do SUSE Linux Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
 
 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Verifique as próximas etapas para implantar em zonas de disponibilidade do Azure:
+Apresentamos abaixo algumas próximas etapas para implantar em Zonas de Disponibilidade do Azure:
 
 - [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
 - [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)

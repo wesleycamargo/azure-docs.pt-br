@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742381"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312269"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
@@ -38,6 +38,9 @@ O complemento de roteamento de aplicativos HTTP pode ser habilitado com a CLI do
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> Se você quiser ativar vários complementos, forneça-os em forma de uma lista separada por vírgulas. Por exemplo, para habilitar o roteamento e monitoramento de aplicativos HTTP, use o formato `--enable-addons http_application_routing,monitoring`.
 
 Você também pode ativar o roteamento HTTP em um cluster AKS existente usando o comando [az aks enable-addons][az-aks-enable-addons]. Para habilitar o roteamento de HTTP em um cluster existente, adicione a `--addons` parâmetro e especifique *http_application_routing* conforme mostrado no exemplo a seguir:
 

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar acesso usando RBAC e Azure PowerShell | Microsoft Docs
-description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e Azure PowerShell. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
+title: Gerenciar o acesso aos recursos do Azure usando o RBAC e o Azure PowerShell | Microsoft Docs
+description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando do Azure usando o controle de acesso baseado em função (RBAC) e o Azure PowerShell. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106164"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343767"
 ---
-# <a name="manage-access-using-rbac-and-azure-powershell"></a>Gerenciar o acesso usando RBAC e Azure PowerShell
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e o Azure PowerShell
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e o Azure PowerShell.
+O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenciar o acesso aos recursos do Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e o Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -326,6 +326,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: conceder acesso a um grupo usando o RBAC e o Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gerenciar recursos com o Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)

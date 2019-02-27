@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508361"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309312"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -58,7 +58,7 @@ O diagrama a seguir o ajudará a determinar qual estratégia deve ser usada para
 |---------|---------|---------|
 |Ambiente de servidor de arquivos com ou sem DFSR|   [Usar o Site Recovery para replicação](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    O Site Recovery não oferece suporte a clusters de discos compartilhados ou armazenamento anexado à rede (NAS). Se seu ambiente usa essas configurações, use um dos outros métodos, conforme apropriado. <br> O Site Recovery não oferece suporte a SMB 3.0. A VM replicada incorpora as alterações somente quando as alterações feitas nos arquivos são atualizadas no local original dos arquivos.
 |Ambiente de servidor de arquivos com DFSR     |  [Estender a DFSR para uma máquina virtual IaaS do Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      A DFSR funciona bem em ambientes de largura de banda extremamente fragmentada. Essa abordagem requer uma VM do Azure que esteja em execução o tempo todo. Você precisa levar em conta o custo da VM no planejamento.         |
-|VM IaaS do Azure     |     [Sincronização de Arquivos](#use-azure-file-sync-service-to-replicate-your-files)   |     Se você usar a Sincronização de Arquivos em um cenário de recuperação de desastre, durante o failover, você deve realizar ações manuais para certificar-se de que os compartilhamentos de arquivos podem ser acessados pelo computador cliente de forma transparente. A Sincronização de Arquivos requer que a porta 445 esteja aberta no computador cliente.     |
+|VM IaaS do Azure     |     Sincronização de Arquivos    |     Se você usar a Sincronização de Arquivos em um cenário de recuperação de desastre, durante o failover, você deve realizar ações manuais para certificar-se de que os compartilhamentos de arquivos podem ser acessados pelo computador cliente de forma transparente. A Sincronização de Arquivos requer que a porta 445 esteja aberta no computador cliente.     |
 
 
 ### <a name="site-recovery-support"></a>Suporte do Site Recovery

@@ -1,6 +1,6 @@
 ---
-title: Compreender atribuições de negação no RBAC do Azure | Microsoft Docs
-description: Saiba mais sobre atribuições de negação no RBAC (controle de acesso baseado em função) para recursos no Azure.
+title: Compreender atribuições de negação dos recursos do Azure | Microsoft Docs
+description: Saiba mais sobre atribuições de negação no RBAC (controle de acesso baseado em função) para recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fa1a979c01999bd79c45d24e4c7771edaf346dd8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632408"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339117"
 ---
-# <a name="understand-deny-assignments"></a>Compreender atribuições de negação
+# <a name="understand-deny-assignments-for-azure-resources"></a>Compreender atribuições de negação dos recursos do Azure
 
-Semelhante a uma atribuição de função, uma *negação de atribuição* anexa um conjunto de ações de negação a um usuário, grupo ou entidade de serviço em um escopo específico com o objetivo de negar acesso. As designações de negação impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda a eles acesso. Alguns provedores de recursos no Azure agora incluem designações de negação. Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure.
+Semelhante a uma atribuição de função, uma *negação de atribuição* anexa um conjunto de ações de negação a um usuário, grupo ou entidade de serviço em um escopo específico com o objetivo de negar acesso. As atribuições de negação impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda o acesso a eles. Alguns provedores de recursos no Azure agora incluem designações de negação. Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pela Microsoft.
 
 De certa forma, as designações de negação são diferentes das designações de função. Negar atribuições pode excluir entidades e impedir a herança para escopos filho. Negar atribuições também se aplicam a [atribuições do administrador de assinatura clássico](rbac-and-directory-admin-roles.md).
 
@@ -35,9 +35,9 @@ Este artigo descreve como as atribuições de negação são definidas.
  Uma atribuição de negação tem as seguintes propriedades:
 
 > [!div class="mx-tableFixed"]
-> | Propriedade | Obrigatório | Tipo | DESCRIÇÃO |
+> | Propriedade | Obrigatório | Type | DESCRIÇÃO |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | SIM | Cadeia de caracteres | O nome de exibição da atribuição de negação. Os nomes devem ser exclusivos para um determinado escopo. |
+> | `DenyAssignmentName` | Sim | Cadeia de caracteres | O nome de exibição da atribuição de negação. Os nomes devem ser exclusivos para um determinado escopo. |
 > | `Description` | Não  | Cadeia de caracteres | A descrição da atribuição de negação. |
 > | `Permissions.Actions` | Pelo menos um Actions ou um DataActions | String[] | Uma matriz de cadeias de caracteres que especificam as operações de gerenciamento para as quais o acesso é bloqueado pela atribuição de negação. |
 > | `Permissions.NotActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especificam as operações de gerenciamento a excluir da atribuição de negação. |
@@ -45,7 +45,7 @@ Este artigo descreve como as atribuições de negação são definidas.
 > | `Permissions.NotDataActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados a excluir da atribuição de negação. |
 > | `Scope` | Não  | Cadeia de caracteres | Uma cadeia de caracteres que especifica o escopo ao qual a atribuição de negação se aplica. |
 > | `DoNotApplyToChildScopes` | Não  | BOOLEAN | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
-> | `Principals[i].Id` | SIM | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
+> | `Principals[i].Id` | Sim | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
 > | `Principals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por Principals[i].Id. Defina como `SystemDefined` para representar todos os principais. |
 > | `ExcludePrincipals[i].Id` | Não  | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação não se aplica. |
 > | `ExcludePrincipals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por ExcludePrincipals[i].Id. |
@@ -60,5 +60,5 @@ Para suportar negar atribuições, o **Principal definido pelo sistema** foi int
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Listar atribuições de negação usando RBAC e a API REST](deny-assignments-rest.md)
-* [Compreender as definições de função](role-definitions.md)
+* [Listar atribuições de negação para recursos do Azure usando a API REST](deny-assignments-rest.md)
+* [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md)

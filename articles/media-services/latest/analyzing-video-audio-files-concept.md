@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745377"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342381"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisando os arquivos de áudio e vídeos
 
 O Azure Media Services v3 permite que você extraia insights de seus arquivos de vídeo e áudio com o Video Indexer por meio das predefinições do analisador do AMS v3 (descritas neste artigo). Se você quiser informações mais detalhadas, use o Video Indexer diretamente. Para entender quando você desejaria usar o Video Indexer vs. as predefinições de análise dos Serviços de Mídia, confira o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Para analisar o conteúdo usando predefinições do Serviços de Mídia v3, você cria uma **Transformação** e envia um **Trabalho** que usa uma destas predefinições: **AudioAnalyzerPreset** ou **VideoAnalyzerPreset**. O artigo a seguir demonstra como usar **VideoAnalyzerPreset**: [Tutorial: Analisar vídeos com os Serviços de Mídia do Azure](analyze-videos-tutorial-with-api.md).
+Para analisar o conteúdo usando predefinições do Serviços de Mídia v3, você cria uma **Transformação** e envia um **Trabalho** que usa uma destas predefinições: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) ou **AudioAnalyzerPreset**. O artigo a seguir demonstra como usar **VideoAnalyzerPreset**: [Tutorial: Analisar vídeos com os Serviços de Mídia do Azure](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Ao usar as predefinições do Video ou Audio Analyzer, use o portal do Azure para definir sua conta como 10 Unidades Reservada para Mídia S3. Para saber mais, confira [Processamento de mídia de escala](../previous/media-services-scale-media-processing-overview.md).

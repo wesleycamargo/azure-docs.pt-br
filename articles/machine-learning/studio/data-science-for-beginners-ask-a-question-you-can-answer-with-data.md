@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498141"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454048"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer uma pergunta que você possa responder com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: série de ciência de dados para iniciantes
@@ -89,7 +89,7 @@ Porém, o mais importante é fazer uma pergunta inteligente - a pergunta que voc
 
 Falamos sobre alguns princípios básicos para fazer uma pergunta que você pode responder com dados.
 
-Confira outros vídeos da série "Ciência de dados para iniciantes" no Microsoft Azure Machine Learning.
+Consulte outros vídeos da série "Ciência de dados para iniciantes" no Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](create-experiment.md)

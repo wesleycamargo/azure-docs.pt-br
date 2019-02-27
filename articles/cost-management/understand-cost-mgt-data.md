@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981750"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447456"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -61,6 +61,8 @@ A tabela a seguir mostra ofertas sem suporte.
 | **Planos de suporte** | Suporte Standard do Azure Governamental | MS-AZR-USGOV-0041P |
 | **Planos de suporte** | Suporte Pro-Direct do Azure Governamental | MS-AZR-USGOV-0042P |
 | **Planos de suporte** | Suporte Developer do Azure Governamental | MS-AZR-USGOV-0043P |
+
+Para clientes com categorias de oferta paga conforme o uso, do MSDN e do Visual Studio, os dados estão disponíveis no Gerenciamento de Custos a partir de 02/10/2018.
 
 Se não vir os dados de uma assinatura e quiser determinar se sua assinatura se enquadra nas ofertas com suporte, você poderá validar se sua assinatura tem suporte. Para validar se uma assinatura do Azure tem suporte, entre no [portal do Azure](https://portal.azure.com). Em seguida, selecione **Todos os serviços** no menu do painel esquerdo. Na lista de serviços, selecione **Assinaturas**. No menu de lista de assinaturas, clique na assinatura que deseja verificar. Sua assinatura é mostrada na guia Visão Geral e você pode ver a **Oferta** e a **ID da Oferta**. A imagem a seguir mostra um exemplo.
 

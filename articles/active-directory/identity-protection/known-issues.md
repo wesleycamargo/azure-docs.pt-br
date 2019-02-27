@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183829"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339016"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Perguntas frequentes e problemas conhecidos com o Identity Protection (atualizado) no Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183829"
 
 
 **Ignorar o risco de usuário** no Identity Protection (atualizado) define o ator no histórico de risco do usuário no Identity Protection (atualizado) para **\<nome do administrador com um hiperlink que aponta para a folha do usuário\>**.
+
+Há um problema conhecido atual causando latências no fluxo de descarte de risco de usuário. Se você tiver uma "política de risco do usuário", ela deixará de ser aplicada aos usuários descartados alguns minutos após clicar em "Ignorar o risco de usuário". No entanto, há atrasos conhecidos na experiência do usuário que atualizam o "Estado de risco" de usuários descartados. Como alternativa, atualize a página no nível do navegador para ver o "Estado de risco" mais recente do usuário.
 
 
 ## <a name="risky-users-report"></a>Relatório de usuários arriscados

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700971"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301784"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de Segurança e Conformidade do Azure: Hospedagem de Aplicativo Web de PaaS para carga de trabalho OFICIAL DO REINO UNIDO
 
@@ -23,13 +23,13 @@ Especificações técnicas do Azure consistem em documentos de diretrizes e mode
 
 ## <a name="overview"></a>Visão geral
 
-Este projeto de conformidade e segurança do Azure fornece scripts de automação e diretrizes para entregar uma plataforma do Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hospedado, arquitetura do aplicativo web apropriada para lidar com cargas de trabalho classificadas como [OFICIAL REINO UNIDO](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Essa classificação de segurança abrange a maioria das informações criada ou processada pelo setor público. Isso inclui operações de rotina de negócios e serviços, que, se perdidos, roubados ou publicados na mídia, alguns doss quais pode ter consequências graves. O perfil de ameaça típico para a classificação OFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. O OFICIAL DO REINO UNIDO prevê a necessidade de se defender contra ameaças ou o comprometimento por invasores, com os serviços ou a dados do governo do Reino Unido limitados, como funções e recursos (mas não está limitado a) hacktivistas, grupos de pressão de edição única, jornalistas investigativos, hackers individuais competentes e a maioria dos indivíduos e grupos criminosos.
+Este projeto de conformidade e segurança do Azure fornece scripts de automação e diretrizes para entregar uma plataforma do Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hospedado, arquitetura do aplicativo web apropriada para lidar com cargas de trabalho classificadas como [OFICIAL REINO UNIDO](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Essa classificação de segurança abrange a maioria das informações criada ou processada pelo setor público. Isso inclui operações de rotina de negócios e serviços, que, se perdidas, roubadas ou publicadas na mídia, podem ter consequências graves. O perfil de ameaça típico para a classificação OFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. O OFICIAL DO REINO UNIDO prevê a necessidade de se defender contra ameaças ou o comprometimento por invasores, com os serviços ou a dados do governo do Reino Unido limitados, como funções e recursos (mas não está limitado a) hacktivistas, grupos de pressão de edição única, jornalistas investigativos, hackers individuais competentes e a maioria dos indivíduos e grupos criminosos.
 
 Esta especificação técnica foi revisada pela UK NCSC National Cyber Security Centre (NCSC) e se alinha com os princípios de segurança de nuvem do NCSC 14.
 
 A arquitetura usa os componentes da plataforma do Azure [como serviço](https://azure.microsoft.com/overview/what-is-paas/) para oferecer um ambiente que permite que os clientes evitem os gastos e a complexidade de comprar licenças de software de gerenciamento da infraestrutura subjacente do aplicativo e middleware ou as ferramentas de desenvolvimento e outros recursos. Os clientes gerenciam os aplicativos e serviços que desenvolvem, concentrando-se em fornecer valor comercial, enquanto o Microsoft Azure gerencia os recursos do Azure como máquinas virtuais, armazenamento e rede, colocando mais da [divisão da responsabilidade](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) para gerenciamento de infraestrutura para a plataforma do Azure. Os [Serviços de Aplicativos do Azure](https://azure.microsoft.com/services/app-service/) oferecem dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Azure DevOps ou qualquer repositório Git como serviços padrão. Por meio de Serviços de Aplicativos, os desenvolvedores podem se concentrar em fornecer valor comercial sem a sobrecarga de gerenciamento de infraestrutura. É possível criar novos aplicativos web de Java, PHP, Node. js, Python, HTML ou C# de greenfield ou também a migração de nuvem existente ou no local de aplicativos web para Serviços de Aplicativos do Azure (embora completa devido cuidado e teste para confirmar se é necessário um desempenho).
 
-Este blueprint enfoca o provisionamento de uma [plataforma de base segura como serviço](https://azure.microsoft.com/overview/what-is-paas/) interface baseada web para o público e também usuários do back office. Nesse cenário de design do plano gráfico considera o uso dos serviços baseados na web hospedados do Azure onde um usuário público pode enviar, visualizar e gerenciar com segurança os dados confidenciais; além de um back office ou operador governamental que podem processar com segurança os dados confidenciais que o usuário público enviou. Casos de uso para esse cenário podem incluir:
+Este blueprint enfoca o provisionamento de uma interface baseada na web de uma [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) de base segura para o público e também para usuários do back office. Nesse cenário de design do plano gráfico considera o uso dos serviços baseados na web hospedados do Azure onde um usuário público pode enviar, visualizar e gerenciar com segurança os dados confidenciais; além de um back office ou operador governamental que podem processar com segurança os dados confidenciais que o usuário público enviou. Casos de uso para esse cenário podem incluir:
 
 - Um usuário que envia um retorno de imposto, com um operador do governo processando o envio;
 - Um usuário que está solicitando um serviço por meio de um aplicativo baseado na web, com um usuário de back-office validando e fornecendo o serviço; ou
@@ -43,7 +43,7 @@ Para implantar esse blueprint, é necessário uma assinatura do Azure. Se você 
 
 ## <a name="architecture-and-components"></a>Arquitetura e componentes
 
-Este blueprint fornece um solução em um ambiente de nuvem do Azure que dá suporte a cargas de trabalho do REINO UNIDO OFICIAL de hospedagem de aplicativos de web. A arquitetura oferece um ambiente seguro que aproveita a plataforma do Azure como recursos de um serviço. Dentro do ambiente, dois aplicativos do Serviço de Aplicativo do Azure web são implantados (um para os usuários públicos) e outro para usuários de back-office, com uma camada de API App fornecer os serviços de negócios para o front-end da web. Um banco de dados do SQL Azure é implantado como um repositório de dados relacionados gerenciados para o aplicativo. Conectividade com esses componentes fora da plataforma e entre todos esses componentes é criptografada por meio do protocolo TLS 1.2 para garantir os dados na privacidade de transporte, com acesso autenticado pelo Active Directory do Azure.
+Este blueprint fornece um solução em um ambiente de nuvem do Azure que dá suporte a cargas de trabalho do REINO UNIDO OFICIAL de hospedagem de aplicativos de web. A arquitetura oferece um ambiente seguro que aproveita a plataforma do Azure como recursos de um serviço. Dentro do ambiente, dois aplicativos Web do Serviço de Aplicativo do Azure são implantados (um para os usuários públicos e outro para usuários de back-office), com uma camada de Aplicativo de API para fornecer os serviços de negócios para o front-end da Web. Um banco de dados do SQL Azure é implantado como um repositório de dados relacionados gerenciados para o aplicativo. Conectividade com esses componentes fora da plataforma e entre todos esses componentes é criptografada por meio do protocolo TLS 1.2 para garantir os dados na privacidade de transporte, com acesso autenticado pelo Active Directory do Azure.
 
 ![Hospedagem de aplicativos de Web do PaaS para o diagrama de arquitetura de referência de cargas de trabalho OFICIAL do REINO UNIDO](images/ukofficial-paaswa-architecture.png?raw=true "hospedagem de aplicativos de Web do PaaS para o diagrama de arquitetura de referência de cargas de trabalho OFICIAL do REINO UNIDO")
 
@@ -182,7 +182,7 @@ O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um ser
 
 #### <a name="application-insights"></a>Application Insights
 
-O [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço APM (Gerenciamento de Desempenho de Aplicativos) extensível para desenvolvedores da Web em várias plataformas. Usado para monitorar aplicativos web em tempo real, ele detectará automaticamente anomalias de desempenho, analisará o desempenho e diagnosticará problemas e entenderá como os usuários interagem com o aplicativo. O Application Insights pode ser desenvolvido nas plataformas incluindo .NET e J2EE, hospedados localmente ou na nuvem. Ele integra-se ao seu processo DevOps e tem pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento.
+O [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço APM (Gerenciamento de Desempenho de Aplicativos) extensível para desenvolvedores da Web em várias plataformas. Usado para monitorar aplicativos web em tempo real, ele detectará automaticamente anomalias de desempenho, analisará o desempenho e diagnosticará problemas e entenderá como os usuários interagem com o aplicativo. O Application Insights pode ser implantado em plataformas incluindo .NET, Node.js e Java EE, hospedados localmente ou na nuvem. Ele integra-se ao seu processo DevOps e tem pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights neste blueprint
 
@@ -232,7 +232,7 @@ Três abordagens foram fornecidas para a implantação; Uma simples "expressa" [
 1.  Clone ou baixe [este](https://aka.ms/ukofficial-paaswa-repo) repositório GitHub na sua estação de trabalho local.
 2.  Revise o [Método 1: CLI do Azure 2 (versão Expressa)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) e execute os comandos fornecidos.
 3.  Revise o [Método 1a: CLI do Azure 2 (Configurar a implantação por meio de argumentos de script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) e execute os comandos fornecidos
-4.  Revise o [Método 2: Processo de implantação do portal do Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) e execute os comandos listados
+4.  Revise o [Método 2: Processo de Implantação no portal do Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) e execute os comandos listados
 
 ## <a name="guidance-and-recommendations"></a>Diretrizes e recomendações
 
@@ -242,7 +242,7 @@ Três abordagens foram fornecidas para a implantação; Uma simples "expressa" [
 
 ### <a name="azure-b2c"></a>B2C do Azure
 
-[Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) pode ser implementado como um controle para permitir que os usuários se registram, criem uma identidade e habilitem a autorização e controle para o aplicativo web público de acesso.
+O [Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) pode ser implementado como um controle para permitir que os usuários se registrem, criem uma identidade e habilitem a autorização e o controle de acesso para o aplicativo web público.
 
 ## <a name="disclaimer"></a>Isenção de responsabilidade
 

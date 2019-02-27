@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119000"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341072"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Como usar o SDK do Android do Azure Mapas
 
@@ -22,7 +22,7 @@ O SDK do Android do Azure Mapas é uma biblioteca de mapas vetoriais para Androi
 
 ## <a name="prerequisites-to-get-started"></a>Pré-requisitos para introdução
 
-### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Mapas 
+### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure 
 
 Para seguir as etapas deste guia, primeiro é necessário consultar [gerenciar conta e chaves](how-to-manage-account-keys.md) para criar e gerenciar a assinatura da conta com tipo de preço S1.
 
@@ -45,7 +45,7 @@ Consulte a [documentação do Android Studio](https://developer.android.com/stud
 
 ## <a name="set-up-a-virtual-device"></a>Configurar um dispositivo virtual
 
-O Android Studio permite configurar um dispositivo Android virtual no computador. Isso poderá ajudá-lo a testar o aplicativo enquanto você o desenvolve. Para configurar um dispositivo virtual, clique no ícone do Gerenciador de AVD no canto superior direito da tela do projeto. Em seguida, clique no botão **Criar Dispositivo Virtual**. Também é possível acessar o gerenciador através de Ferramentas > Android > Gerenciador de AVD na barra de ferramentas. Na categoria **Telefones**, selecione **Nexus 5X** e clique em **Avançar**.
+O Android Studio permite configurar um dispositivo Android virtual no computador. Isso poderá ajudá-lo a testar o aplicativo enquanto você o desenvolve. Para configurar um dispositivo virtual, clique no ícone do Gerenciador de AVD no canto superior direito da tela do projeto. Em seguida, clique no botão **Criar Dispositivo Virtual**. Também é possível acessar o gerenciador através de **Ferramentas > Android > Gerenciador de AVD** na barra de ferramentas. Na categoria **Telefones**, selecione **Nexus 5X** e clique em **Avançar**.
 
 Saiba mais sobre como configurar um AVD, consultando a [documentação do Android Studio](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Saiba mais sobre como configurar um AVD, consultando a [documentação do Androi
 
 Antes de avançar para a criação do aplicativo, siga as etapas abaixo para instalar o SDK do Android do Azure Mapas. 
 
-1. Adicione o seguinte ao **allprojects**, bloco de repositórios no arquivo **build.gradle**.
+1. Adicione o seguinte ao bloco de repositórios **all projects** no arquivo **build.gradle**.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Antes de avançar para a criação do aplicativo, siga as etapas abaixo para ins
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Configurar permissões, adicionando o seguinte ao `AndroidManifest.xml'
+3. Configure as permissões, adicionando o seguinte ao **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -128,7 +128,7 @@ Antes de avançar para a criação do aplicativo, siga as etapas abaixo para ins
 
     public class MainActivity extends AppCompatActivity {
         
-        static{
+        static {
             AzureMaps.setSubscriptionKey("{subscription-key}");
         }
 
@@ -187,7 +187,7 @@ Antes de avançar para a criação do aplicativo, siga as etapas abaixo para ins
 
 ## <a name="import-classes"></a>Importar classes
 
-Após concluir as etapas acima, você provavelmente receberá avisos do Android Studio sobre algum texto no código. Para tratá-los, será necessário importar algumas classes referenciadas em `MainActivity.java`.
+Após concluir as etapas acima, você provavelmente receberá avisos do Android Studio sobre algum texto no código. Para resolver esses avisos, importe as classes que estão sendo referenciadas em `MainActivity.java`.
 
 É possível importar essas classes automaticamente, pressionando `Alt`+`Enter`(`Option`+`Return` no Mac). 
 
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Execute novamente o aplicativo e você deverá ver um marcador no mapa como mostrado abaixo.
+Execute novamente o aplicativo e você deve ver um marcador no mapa como mostrado abaixo.
 
 ![Marcador de mapa do Android](./media/how-to-use-android-map-control-library/android-map-pin.png)

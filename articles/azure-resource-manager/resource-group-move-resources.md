@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108765"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417084"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -55,7 +55,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Gerenciamento de API
 * Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
 * Certificados do Serviço de Aplicativo – veja [Limitações de Certificado de Serviço de Aplicativo](#app-service-certificate-limitations)
-* Automação
+* Automação: os runbooks devem existir no mesmo grupo de recursos que a conta de automação.
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
@@ -134,6 +134,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que não podem s
 * Firewall do Azure
 * Migrações para Azure
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
+* Aplicativos clássicos
 * Instâncias de Contêiner
 * Serviço de Contêiner
 * Data Box

@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/08/19
+ms.date: 02/16/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c1496653c319b4732614cd1c8148afb5c5b06215
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178933"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456734"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
-Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Os administradores podem ser designados no portal do Azure AD para realizar tarefas como adicionar ou alterar os usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário e gerenciando nomes de domínio.
+Usando o Azure Active Directory (Azure AD), você pode designar administradores limitados para atender a funções em função com privilégios mínimos. Os administradores podem ser designados no portal do Azure AD para realizar tarefas como adicionar ou alterar os usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário e gerenciando nomes de domínio. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
 
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Apenas Administradores Globais e Administradores de Funções Privilegiadas podem delegar funções de administrador. Para reduzir o risco comercial, recomendamos que você atribua essa função apenas a algumas pessoas na empresa.
 
@@ -42,7 +42,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Desenvolvedor de Aplicativos](#application-developer)**: Os usuários nessa função podem criar registros dos aplicativos quando a configuração "Usuários podem registrar aplicativos" estiver definida como Não. Essa função também permite que os membros consintam em nome próprio quando a configuração "Usuários podem consentir em aplicativos acessando dados da empresa em seu nome" está definida como Não. Os membros dessa função são adicionados como proprietários, ao criar novos registros de aplicativo ou aplicativos empresariais.
 
-* **[Administrador de Autenticação](#authentication-administrator)**: usuários com essa função podem exibir informações do método de autenticação atual e definir ou redefinir credenciais que não são senha. Os Administradores de Autenticação podem forçar os usuários a se registrarem novamente em relação a uma credencial existente que não seja senha (por exemplo, MFA, FIDO) e revogar o prompt 'lembrar do MFA no dispositivo', solicitando a MFA no próximo logon de outros usuários não administradores ou membros somente das seguintes funções:
+* **[Administrador de Autenticação](#authentication-administrator)**: Os usuários com essa função podem definir ou redefinir as credenciais que não são de senha. Os Administradores de Autenticação podem forçar os usuários a se registrarem novamente em relação a uma credencial existente que não seja senha (por exemplo, MFA, FIDO) e revogar o prompt 'lembrar do MFA no dispositivo', solicitando a MFA no próximo logon de outros usuários não administradores ou membros somente das seguintes funções:
   * Administrador de Autenticação
   * Leitores de Diretório
   * Emissor do Convite ao Convidado

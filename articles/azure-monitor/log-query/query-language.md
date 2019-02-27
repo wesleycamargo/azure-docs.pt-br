@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989231"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343044"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
-Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log do Azure Monitor usam uma versão da mesma linguagem de consulta. A [Documentação da linguagem de consulta do Azure Data Explorer](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para saber mais sobre como escrever consultas e sobre diferenças na implementação da linguagem no Azure Monitor.
+Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log do Azure Monitor usam uma versão da mesma linguagem de consulta do Kusto. A [Documentação da linguagem de consulta do Kusto](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para saber mais sobre como escrever consultas e sobre diferenças na implementação da linguagem no Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 
 ## <a name="reference"></a>Referência
 
-- [Referência da linguagem de consulta](/azure/kusto/query) é a referência completa da linguagem de consulta do Data Explorer.
-- [Diferenças na linguagem de consulta de log do Azure Monitor](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta do Data Explorer.
+- A [Referência da linguagem de consulta](/azure/kusto/query) é a referência completa da linguagem de consulta do Kusto.
+- As [diferenças na linguagem de consulta de log do Azure Monitor](data-explorer-difference.md) descrevem as diferenças entre as versões da linguagem de consulta do Kusto.
 - [Propriedades padrão nos registros de log do Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) descreve as propriedades que são padrão para todos os dados de log do Azure Monitor.
 - [Executar consultas entre logs de recursos no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de log que usam dados de vários workspaces do Log Analytics e aplicativos do Application Insights.
 
@@ -65,4 +65,4 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
  
 ## <a name="next-steps"></a>Próximas etapas
 
-- Acesse a [documentação de referência completa da linguagem de consulta do Data Explorer](/azure/kusto/query/).
+- Acesse a [documentação de referência completa da linguagem de consulta do Kusto](/azure/kusto/query/).

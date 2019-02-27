@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497410"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341395"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Solucione erros de registro do provedor de recursos
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 A mensagem de erro deve fornecer sugestões para os locais com suporte e as versões da API. Você pode alterar o modelo para um dos valores sugeridos. A maioria dos provedores são registrados automaticamente pelo portal do Azure ou pela interface de linha de comando que você está usando, mas nem todos. Se você não usou um provedor de recursos específico antes, precisará registrar esse provedor.
 
+Ou, ao desabilitar o desligamento automático das máquinas virtuais, você pode receber uma mensagem de erro semelhante a:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Causa
 
-Você recebe esses erros por um dos três motivos:
+Você recebe esses erros por um destes três motivos:
 
-* O provedor de recursos não foi registrado para a assinatura
+* O provedor de recursos necessário não foi registrado para a sua assinatura
 * Versão da API não suportada para o tipo de recurso
 * Local não suportado para o tipo de recurso
+* Para o desligamento automático de VMs, é necessário que o provedor de recursos Microsoft.DevTestLab esteja registrado.
 
 ## <a name="solution-1---powershell"></a>Solução 1: PowerShell
 

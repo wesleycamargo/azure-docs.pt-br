@@ -1,5 +1,5 @@
 ---
-title: Configurar a inscrição e entrada com a conta do GitHub usando o Azure Active Directory B2C | Microsoft Docs
+title: Configurar a inscrição e a entrada com a conta do GitHub – Azure Active Directory B2C | Microsoft Docs
 description: Forneça a inscrição e entrada aos consumidores com contas do GitHub em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 60fd7ec53681f9b96970d8a33e5610115e579615
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f1c1ac91c08fe27445f4b9631500543d1d0287bd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166077"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427268"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do GitHub usando o Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55166077"
 > Esse recurso está em visualização.
 > 
 
-Para usar uma conta do GitHub como um provedor de identidade no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta do GitHub, obtenha uma em [https://www.github.com/](https://www.github.com/).
+Para usar uma conta do GitHub como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta do GitHub, obtenha uma em [https://www.github.com/](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>Crie um aplicativo GitHub OAuth
 

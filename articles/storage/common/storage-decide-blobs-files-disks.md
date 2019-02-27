@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509126"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327003"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
 O Microsoft Azure fornece vários recursos no Armazenamento do Azure para armazenar e acessar seus dados na nuvem. Este artigo aborda os Arquivos, Blobs e Discos do Azure e foi elaborado para ajudá-lo a escolher entre esses recursos.
@@ -67,4 +67,4 @@ Ao tomar decisões sobre como os dados são armazenados e acessados, você tamb�
   
 Alguns recursos do SMB não são aplicáveis à nuvem. Para obter mais informações, consulte [Recursos sem suporte no serviço Arquivo do Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Para obter mais informações sobre discos, consulte [Gerenciando discos e imagens](../../virtual-machines/windows/about-disks-and-vhds.md) e [Como anexar um disco de dados a uma máquina virtual Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Para saber mais sobre discos, confira [Introdução aos discos gerenciados](../../virtual-machines/windows/managed-disks-overview.md) e [Como anexar um disco de dados a uma máquina virtual Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).

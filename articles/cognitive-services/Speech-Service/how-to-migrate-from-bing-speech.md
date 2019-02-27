@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863560"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447949"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar da Fala do Bing para o Serviço de Fala
 
@@ -65,7 +65,7 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou em produç
 
 As [APIs REST](rest-apis.md) do Serviço de Fala são compatíveis com as APIs de Fala do Bing. Se no momento você estiver usando as APIs REST de Fala do Bing, basta alterar o ponto de extremidade REST e alternar para uma chave de assinatura do Serviço de Fala.
 
-Os protocolos WebSockets do Serviço de Fala também são compatíveis com os usados pela Fala do Bing. É recomendável que, para novos desenvolvimentos, você use o SDK do Serviço de Fala em vez de WebSockets. É uma boa ideia migrar o código existente para o SDK também. No entanto, da mesma forma que com as APIs REST, o código existente que usa a Fala do Bing por meio de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
+Os protocolos WebSockets do Serviço de Fala também são compatíveis com os usados pela Fala do Bing. É recomendável que você use o SDK do Speech em vez de WebSockets para o novo desenvolvimento. É uma boa ideia migrar o código existente para o SDK também. No entanto, da mesma forma que com as APIs REST, o código existente que usa a Fala do Bing por meio de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
 
 Se você estiver usando uma biblioteca de clientes de Fala do Bing para uma linguagem de programação específica, migrar para o [SDK de Fala](speech-sdk.md) exigirá alterações no seu aplicativo porque a API é diferente. O SDK de Fala pode tornar seu código mais simples e dar acesso a novos recursos.
 

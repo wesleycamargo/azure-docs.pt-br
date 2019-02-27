@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235998"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416778"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
 
@@ -22,7 +22,7 @@ Com os pré-scripts e pós-scripts, é possível executar runbooks do PowerShell
 
 ## <a name="runbook-requirements"></a>Requisitos do runbook
 
-Para um runbook ser usado como um pré-script ou um pós-script, ele precisa ser importado para sua conta de automação e publicado. Para saber mais sobre esse processo, consulte [Publicação de um runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+Para um runbook ser usado como um pré-script ou um pós-script, ele precisa ser importado para sua conta de automação e publicado. Para saber mais sobre esse processo, consulte [Publicação de um runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Usando um script pré/pós
 
@@ -52,7 +52,19 @@ Ao clicar na execução da implantação de atualização, você recebe detalhes
 
 ## <a name="passing-parameters"></a>Passagem de parâmetros
 
-Ao configurar pré-scripts e pós-scripts, você pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação da implantação de atualização. Pré-scripts e pós-scripts exigem que os parâmetros sejam do tipo `String`. Se precisar de outro tipo de objeto, você poderá convertê-lo em outro tipo usando `[System.Convert]` ou manipulá-lo com sua própria lógica.
+Ao configurar pré-scripts e pós-scripts, você pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação da implantação de atualização. Os scripts prévios e posteriores são compatíveis com os seguintes tipos:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+Se precisar de outro tipo de objeto, você poderá convertê-lo em outro tipo usando com sua própria lógica no runbook.
 
 Além dos parâmetros do runbook padrão, um parâmetro adicional é fornecido. Esse parâmetro é **SoftwareUpdateConfigurationRunContext**. Esse parâmetro é uma cadeia de caracteres JSON; se você definir o parâmetro no pré-script ou no pós-script, ele será passado automaticamente pela implantação de atualização. O parâmetro contém informações sobre a implantação de atualização, que é um subconjunto das informações devolvidas pela [API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). A tabela a seguir mostra as propriedades que são fornecidas na variável:
 

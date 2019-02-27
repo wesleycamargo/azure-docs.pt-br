@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585944"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414891"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
 
@@ -34,7 +34,7 @@ Uma única mensagem pode corresponder à condição em várias consultas de rote
 
 Um hub IoT tem um [ponto de extremidade interno](iot-hub-devguide-messages-read-builtin.md) padrão. Você pode criar pontos de extremidade personalizados para direcionar mensagens ou vinculando outros serviços em sua assinatura ao hub. O Hub IoT atualmente dá suporte aos contêineres de Armazenamento do Microsoft Azure, Hubs de Eventos, filas do Barramento de Serviço e tópicos do Barramento de Serviço como pontos de extremidade personalizados.
 
-Quando você usa e pontos de extremidade de roteamento e personalizados, as mensagens só são entregues ao ponto de extremidade interno quando não correspondem a nenhuma consulta. Para entregar mensagens ao ponto de extremidade interno, bem como a um ponto de extremidade personalizado, adicione uma rota que envia mensagens ao ponto de extremidade **eventos**.
+Quando você usa e pontos de extremidade de roteamento e personalizados, as mensagens só são entregues ao ponto de extremidade interno quando não correspondem a nenhuma consulta. Para entregar mensagens ao ponto de extremidade interno e a um ponto de extremidade personalizado, adicione uma rota que envia mensagens ao ponto de extremidade **events** interno.
 
 > [!NOTE]
 > * O Hub IoT somente dá suporte à gravação de dados em contêineres de Armazenamento do Microsoft Azure como blobs.

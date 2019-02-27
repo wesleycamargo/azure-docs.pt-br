@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204365"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417187"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Visualização: Implantar Proteção de Senha do Azure AD
 
@@ -53,15 +53,18 @@ Preferencialmente, isso é feito pela aplicação de patch totalmente a máquina
     |`https://login.microsoftonline.com`|Solicitações de autenticação|
     |`https://enterpriseregistration.windows.net`|Funcionalidade de Proteção de Senha do Azure AD|
 
+* Todos os computadores que hospedam o serviço de proxy de Proteção de Senha do Azure AD devem ser configurados para permitir o tráfego de saída HTTP do TLS 1.2.
 * Uma conta de administrador global para registrar o serviço proxy de Proteção de Senha do Azure AD e a floresta com o Azure AD.
 * Uma conta com privilégios de administrador de domínio do Active Directory no domínio raiz da floresta para registrar a floresta do Active Directory do Windows Server com o Azure AD.
 * Qualquer domínio do Active Directory que esteja executando o software de serviço do agente DC deve usar DFSR para replicação sysvol.
 
 ## <a name="single-forest-deployment"></a>Implantação florestal única
 
-O diagrama a seguir mostra como os componentes básicos da Proteção de Senha do Azure AD funcionam em conjunto em um ambiente do Active Directory local.  
+O diagrama a seguir mostra como os componentes básicos da Proteção de Senha do Azure AD funcionam em conjunto em um ambiente do Active Directory local.
 
 ![Como os componentes de Proteção de Senha do Azure AD trabalham em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Antes da implantação é uma boa ideia examinar como funciona o software; confira [Visão geral conceitual de proteção de senha do Azure AD](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Baixe o software
 

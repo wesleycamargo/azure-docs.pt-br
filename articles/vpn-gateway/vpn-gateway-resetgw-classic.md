@@ -2,25 +2,17 @@
 title: Redefinir um gateway de VPN do Azure para restabelecer túneis IPsec | Microsoft Docs
 description: Este artigo orienta você pela redefinição de seu Gateway de VPN do Azure para reestabelecer os túneis IPsec. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8db17b92208bd956bd5f9b855249f03ecd5e2c59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756692"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414920"
 ---
 # <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
 
@@ -62,11 +54,13 @@ Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Az
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
 
-O cmdlet para redefinição de um gateway é **Reset-AzureRmVirtualNetworkGateway**. Antes de realizar uma redefinição, certifique-se de possui a última versão dos [cmdlets do Resource Manager PowerShell ](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet1GW no grupo de recursos TestRG1:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+O cmdlet para redefinição de um gateway é **Reset-AzVirtualNetworkGateway**. Antes de realizar uma redefinição, certifique-se de possui a última versão dos [cmdlets do Resource Manager PowerShell ](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet1GW no grupo de recursos TestRG1:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+$gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
 Resultado:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756811"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311198"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -221,7 +221,7 @@ Para ilustrar isso, vamos supor que o UsuárioA é um administrador de uma assin
 
 3. O UsuárioB usa o Gerenciador de Armazenamento para se anexar à conta pertencente ao UsuárioA usando a SAS fornecida.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Gerar uma cadeia de conexão de SAS para a conta que você deseja compartilhar
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Gerar uma cadeia de caracteres de consulta de SAS para a conta que você deseja compartilhar
 
 1. No Gerenciador de Armazenamento, clique com o botão direito do mouse na conta de armazenamento que você deseja compartilhar e, em seguida, selecione **Obter Assinatura de Acesso Compartilhado...**.
 
@@ -231,7 +231,7 @@ Para ilustrar isso, vamos supor que o UsuárioA é um administrador de uma assin
 
     ![Caixa de diálogo Obter SAS][15]
 
-3. Ao lado da caixa de texto **Cadeia de Conexão**, selecione **Copiar** para copiá-la na área de transferência e, em seguida, clique em **Fechar**.
+3. Ao lado da caixa de texto **Cadeia de caracteres de consulta**, escolha **Copiar** para copiá-la na área de transferência e, em seguida, clique em **Fechar**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Anexar a uma conta de armazenamento usando uma Cadeia de Conexão de SAS
 

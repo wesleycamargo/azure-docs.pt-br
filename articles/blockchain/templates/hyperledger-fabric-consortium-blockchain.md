@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829922"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328020"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rede de consórcio Hyperledger Fabric
 
@@ -100,7 +100,7 @@ Em **Configurações de rede**, especifique entradas para criar ou ingressar em 
 **Configuração de rede**|Você pode optar por criar uma nova rede ou ingressar em uma existente. Se você escolher *Ingressar na existente*, você precisa fornecer valores adicionais. |Nova rede <br/> Ingressar na existente |
 **Senha de AC de HLF**|Uma senha usada para certificados gerados por autoridades de certificação que são criadas como parte da implantação. A senha precisa conter três dos seguintes tipos de caractere: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial.<br /><br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|1 a 25 caracteres |
 **Configuração da organização** |Você pode personalizar o nome da sua organização e o certificado ou usar os valores padrão.|Padrão <br/> Avançado |
-**Configurações de rede VPN**| Provisionar um gateway de túnel VPN para acessar as VMs | SIM <br/> Não  |
+**Configurações de rede VPN**| Provisionar um gateway de túnel VPN para acessar as VMs | Sim <br/> Não  |
 
 Selecione **OK**.
 
@@ -113,7 +113,7 @@ Em **Configuração da malha**, configure o tamanho da rede e o desempenho e esp
 | Nome do Parâmetro | DESCRIÇÃO | Valores permitidos |
 |---|---|---|
 **Tipo de escala**|O tipo de implantação de uma única máquina virtual com vários contêineres ou várias máquinas virtuais em um modelo de expansão.|VM individual ou várias VMs |
-**Tipo de disco da VM**|O tipo de armazenamento que suporta cada um dos nós implementados. <br/> Para saber mais sobre armazenamento, visite [ Introdução ao Armazenamento do Microsoft Azure ](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [ Armazenamento Premium ](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|SSD Standard <br/> SSD Premium |
+**Tipo de disco da VM**|O tipo de armazenamento que suporta cada um dos nós implementados. <br/> Para saber mais sobre os tipos de disco disponíveis, acesse [escolher um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Implantação de várias VMs (configurações adicionais)
 

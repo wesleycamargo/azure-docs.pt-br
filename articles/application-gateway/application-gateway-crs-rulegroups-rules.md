@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320094"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302022"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de regras e grupos de regras CRS de firewall do aplicativo Web oferecidos
 
@@ -27,6 +27,11 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 
 ## <a name="owasp30"></a>OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">Geral</p>
+
+|RuleId|DESCRIÇÃO|
+|---|---|
+|200004|Limite possivelmente incomparável de várias partes.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -239,6 +244,8 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |941290|Filtros XSS do IE - ataque detectado.|
 |941300|Filtros XSS do IE - ataque detectado.|
 |941310|Filtro XSS de codificação mal feita US-ASCII - ataque detectado.|
+|941330|Filtros XSS do IE - ataque detectado.|
+|941340|Filtros XSS do IE - ataque detectado.|
 |941350|Codificação UTF-7 IE XSS - ataque detectado.|
 |941013|Regra 941013|
 |941014|Regra 941014|
@@ -255,18 +262,29 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |942011|Regra 942011|
 |942012|Regra 942012|
 |942100|Ataque de injeção de SQL detectado via libinjection|
+|942110|Ataques de injeção de SQL: Teste de injeção comum detectado|
+|942130|Ataques de injeção de SQL: Tautologia do SQL detectada.|
 |942140|Ataque de injeção de SQL = nomes comuns do BD detectados|
 |942160|Detecta testes sqli cegos usando sleep() ou benchmark().|
 |942170|Detecta tentativas de injeção de sleep e benchmark SQL, incluindo consultas condicionais|
+|942190|Detecta tentativas de coleta de informações e de execução do código MSSQL|
+|942200|Detecta injeções de comment-/space-obfuscated e o encerramento de backticks do MySQL|
 |942230|Detecta tentativas de injeção de SQL condicionais|
+|942260|Detecta tentativas básicas de bypass de autenticação SQL 2/3|
 |942270|Procurando injeção de sql básica. Cadeia de caracteres de ataque comum para mysql oracle e outros.|
 |942290|Localiza tentativas de injeção de SQL MongoDB básica|
+|942300|Detecta comentários, condições e injeções ch(a)r do MySQL|
 |942320|Detecta injeções de função/procedimento armazenado em MySQL e PostgreSQL|
+|942330|Detecta investigações de injeção de SQL clássicas 1/2|
+|942340|Detecta tentativas básicas de bypass de autenticação SQL 3/3|
 |942350|Detecta injeção de UDF MySQL e outras tentativas de manipulação de dados/estrutura|
+|942360|Detecta injeções de SQL básicas concatenadas e tentativas de SQLLFI|
+|942370|Detecta investigações de injeção de SQL clássicas 2/2|
 |942013|Regra 942013|
 |942014|Regra 942014|
 |942150|Ataque de injeção de SQL|
 |942410|Ataque de injeção de SQL|
+|942430|Detecção restrita de anomalias de caracteres SQL (args): # de caracteres especiais excedidos (12)|
 |942440|Sequência de comentário SQL detectada.|
 |942450|Codificação hexadecimal de SQL identificada|
 |942015|Regra 942015|

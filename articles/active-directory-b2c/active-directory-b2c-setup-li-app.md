@@ -1,5 +1,5 @@
 ---
-title: Configurar a inscrição e entrada com a conta do LinkedIn usando o Azure Active Directory B2C | Microsoft Docs
+title: Configurar a inscrição e entrada com a conta do LinkedIn - Azure Active Directory B2C | Microsoft Docs
 description: Forneça a inscrição e entrada aos consumidores com contas do LinkedIn em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8388baf88f5bb723e5b0e47bc93b100d5ce8e3e2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159789"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427812"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do LinkedIn usando o Azure Active Directory B2C
 
 ## <a name="create-a-linkedin-application"></a>Criar um aplicativo do LinkedIn
 
-Para usar uma conta do LinkedIn como um provedor de identidade no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta do LinkedIn, consiga uma conta em [https://www.linkedin.com/](https://www.linkedin.com/).
+Para usar uma conta do LinkedIn como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta do LinkedIn, consiga uma conta em [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Entre no [site de Desenvolvedores do LinkedIn](https://www.developer.linkedin.com/) com suas credencias de conta do LinkedIn.
 2. Escolha **Meus Aplicativos** e clique em **Criar Aplicativo**.

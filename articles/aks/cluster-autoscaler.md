@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754633"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452994"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -27,7 +27,9 @@ Este artigo mostra como habilitar e gerenciar o dimensionador automático de clu
 
 Este artigo exige a execução da CLI do Azure versão 2.0.55 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
-Os clusters do AKS que dão suporte ao dimensionador automático de cluster precisam usar conjuntos de dimensionamento de máquinas virtuais e executar o Kubernetes versão *1.12.4* ou posterior. Esse suporte do conjunto de dimensionamento está em versão prévia. Para aceitar e criar clusters que usam conjuntos de dimensionamento, instale a extensão da CLI do Azure *aks-preview* usando o comando [az extension add][az-extension-add], conforme mostrado no seguinte exemplo:
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
+
+Os clusters do AKS que dão suporte ao dimensionador automático de cluster precisam usar conjuntos de dimensionamento de máquinas virtuais e executar o Kubernetes versão *1.12.4* ou posterior. Esse suporte do conjunto de dimensionamento está em versão prévia. Para aceitar e criar clusters que usam conjuntos de dimensionamento, primeiro instale a extensão da CLI do Azure *aks-preview* usando o comando [az extension add][az-extension-add], conforme mostrado exemplo a seguir:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Quando você instala a extensão *aks-preview*, cada cluster do AKS criado usa o modelo de implantação de versão prévia do conjunto de dimensionamento. Para recusar e criar clusters regulares com suporte total, remova a extensão usando `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Registrar o provedor de recursos do conjunto de dimensionamento
+
+Para criar um AKS que usa os conjuntos de dimensionamentos, você também deve habilitar um sinalizador de recursos em sua assinatura. Para registrar o sinalizador de recursos *VMSSPreview*, use o comando [az feature register][az-feature-register] conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft.ContainerService* usando o comando [az provider register][az-provider-register]:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Sobre o dimensionador automático de cluster
 
@@ -149,6 +171,9 @@ Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. V
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

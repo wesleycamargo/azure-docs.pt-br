@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173935"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454643"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar uma conta manualmente ao aplicativo
 Se a câmera não conseguir capturar o código QR, você poderá adicionar manualmente as informações da conta ao aplicativo Microsoft Authenticator para verificação de dois fatores. Isso funciona para contas corporativas ou de estudante e contas não Microsoft.
@@ -29,7 +29,7 @@ Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúscu
 
 ## <a name="add-your-work-or-school-account"></a>Adicionar a conta corporativa ou de estudante
 
-1. Em seu PC, observe as informações **Código** e **URL** na página **Configurar aplicativo móvel**. Mantenha essa página aberta para que você possa ver o código e a URL.
+1. Em seu computador, observe as informações **Código** e **URL** na página **Configurar aplicativo móvel**. Mantenha essa página aberta para que você possa ver o código e a URL.
     
     ![Tela que fornece o código QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
@@ -92,7 +92,7 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
 
 5. Na página **Adicionar um método de verificação de backup** em seu computador, digite o código de verificação de seis dígitos fornecido pelo seu método de verificação de backup para sua conta da Amazon e, em seguida, selecione **Verificar código e continuar**.
 
-6. Na página Quase concluído, decida se deseja tornar seu PC um dispositivo confiável e, em seguida, selecione **Entendi. Ative a verificação em duas etapas**.
+6. Na página Quase concluído, decida se deseja tornar seu computador um dispositivo confiável e, em seguida, selecione **Entendi. Ative a verificação em duas etapas**.
 
     A página **Configurações de Segurança Avançadas** é exibida, mostrando os detalhes da sua verificação de dois fatores atualizada.
 

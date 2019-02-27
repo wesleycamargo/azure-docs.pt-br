@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44712f364b434d123abe17b043f7c2309871bd12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198942"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339542"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -78,7 +78,7 @@ Este conjunto de políticas de exemplo concederá aos usuários selecionados no 
 **Conjunto de políticas de mitigação de CA:**
 
 * Política 1: Bloquear o acesso a pessoas fora dos grupos de destino
-  * Usuários e Grupos: Incluir todos os usuários. Excluir AppAccess, CoreAdmins e EmergencyAccess
+  * Usuários e Grupos: Incluir todos os usuários. Excluir AppUsers, CoreAdmins, e EmergencyAccess
   * Aplicativos de Nuvem: Incluir todos os aplicativos
   * Condições: (Nenhuma)
   * Controles de Concessão: Bloco

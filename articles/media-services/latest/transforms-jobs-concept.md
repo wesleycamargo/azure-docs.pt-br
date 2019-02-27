@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743728"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445484"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Trabalhos
  
@@ -27,6 +27,10 @@ A operação de atualização na entidade [Transformação](https://docs.microso
 Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os serviços de mídia do Azure para aplicar a **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Quando a Transformação for criada, você poderá enviar trabalhos usando as APIs dos Serviços de Mídia ou um dos SDKs publicados. O **Trabalho** especifica informações como o local do vídeo de entrada e o local para a saída. É possível especificar a localização do vídeo de entrada usando: URLs HTTPS, URLs SAS ou [Ativos](https://docs.microsoft.com/rest/api/media/assets). O progresso e o estado de trabalhos podem ser obtidos pelo monitoramento de eventos com a Grade de Eventos do Azure. Para obter mais informações, consulte [Monitorar eventos usando EventGrid](job-state-events-cli-how-to.md).
 
 A operação de atualização na entidade [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) pode ser usada para modificar as propriedades *description* e *priority* depois que o trabalho é enviado. Uma alteração na propriedade *priority* só será eficaz se o trabalho ainda estiver na fila. Se o trabalho tiver iniciado o processamento ou tiver sido concluído, a alteração da prioridade não terá qualquer efeito.
+
+O diagrama a seguir mostra o fluxo de trabalho/transformações.
+
+![Transformações](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > Propriedades de **Transformação** e **Trabalho** que são do tipo Datetime estão sempre em formato UTC.
@@ -49,10 +53,21 @@ Suponha que você deseja extrair o primeiro quadro de todos os seus vídeos como
 
 Uma **Transformação** ajuda você a criar uma vez a receita (Etapa 1) e enviar trabalhos usando essa receita (Etapa 2).
 
+## <a name="job-error-codes"></a>Códigos de erro do trabalho
+
+Confira [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ## <a name="paging"></a>Paginamento
 
 Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
+## <a name="configure-media-reserved-units"></a>Configurar unidades reservadas de mídia
+
+Para os trabalhos de análise de áudio e análise de vídeo acionados pelo Serviços de Mídia do Microsoft Azure v3 ou pelo Video Indexer, é altamente recomendável provisionar sua conta com 10 MRUs (Unidades reservadas de mídia) do S3. Se você precisar de mais de 10 MRUs do S3, abra um ticket de suporte usando o [Portal do Microsoft Azure](https://portal.azure.com/).
+
+Para obter detalhes, confira [Dimensionar o processamento de mídia com a CLI](media-reserved-units-cli-how-to.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-[Carregar, codificar e transmitir arquivos de vídeo](stream-files-tutorial-with-api.md)
+- [Tutorial: Carregar, codificar e transmitir vídeos usando .NET](stream-files-tutorial-with-api.md)
+- [Tutorial: Analisar vídeos com os Serviços de Mídia v3 usando .NET](analyze-videos-tutorial-with-api.md)

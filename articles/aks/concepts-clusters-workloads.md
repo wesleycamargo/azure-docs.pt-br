@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998085"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456513"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -52,7 +52,7 @@ O mestre do cluster inclui os seguintes componentes principais do Kubernetes:
 
 O AKS fornece um mestre de cluster de locatário único, com um servidor de API dedicado, Agendador, etc. Você define o número e o tamanho dos nós e a plataforma do Azure configura a comunicação segura entre o mestre do cluster e os nós. A interação com o mestre do cluster ocorre por meio das APIs do Kubernetes, como `kubectl` ou o painel do Kubernetes.
 
-Esse cluster gerenciado gerenciado significa que você não precisa configurar componentes como um armazenamento *etcd* altamente disponível, mas isso também significa que você não pode acessar o mestre do cluster diretamente. Os upgrades para o Kubernetes são orquestrados por meio do CLI do Azure ou do portal do Azure, que atualiza o mestre do cluster e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs de mestre do cluster por meio do Azure Log Analytics.
+Esse cluster gerenciado gerenciado significa que você não precisa configurar componentes como um armazenamento *etcd* altamente disponível, mas isso também significa que você não pode acessar o mestre do cluster diretamente. Os upgrades para o Kubernetes são orquestrados por meio do CLI do Azure ou do portal do Azure, que atualiza o mestre do cluster e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs de mestre do cluster por meio do Logs do Azure Monitor.
 
 Se você precisar configurar o mestre do cluster de uma maneira específica ou precisar de acesso direto a eles, poderá implantar seu próprio cluster do Kubernetes usando [aks-engine][aks-engine].
 
@@ -70,13 +70,13 @@ O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória 
 
 No AKS, a imagem da VM para os nós em seu cluster é atualmente baseada no Ubuntu Linux. Quando você cria um cluster AKS ou aumenta o número de nós, a plataforma do Azure cria o número solicitado de VMs e as configura. Não há configuração manual para você realizar.
 
-Se você precisar usar um SO de host diferente, um tempo de execução do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O upstream `aks-engine` libera recursos e fornece opções de configuração antes de serem oficialmente suportados nos clusters do AKS. Por exemplo, se você deseja usar contêineres do Windows ou um tempo de execução de contêiner diferente do Docker, é possível usar `aks-engine` para configurar e implantar um cluster do Kubernetes que atenda às suas necessidades atuais.
+Se você precisar usar um SO de host diferente, um tempo de execução do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você deseja usar contêineres do Windows ou um tempo de execução de contêiner diferente do Docker, é possível usar `aks-engine` para configurar e implantar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
 Você não precisa gerenciar os componentes principais do Kubernetes em cada nó, como o *kubelet*, *kube-proxy* e *kube-dns*, mas eles não consumir alguns dos recursos de computação disponíveis. Para manter o desempenho e a funcionalidade do nó, os seguintes recursos de computação são reservados em cada nó:
 
-- **CPU** - 60ms
+- **CPU** – 60 ms
 - **Memory** - 20% de até 4 GiB
 
 Essas reservas significam que a quantidade de CPU e memória disponíveis para seus aplicativos pode parecer menor do que o próprio nó contém. Se houver restrições de recursos devido ao número de aplicativos que você executa, essas reservas garantem que a CPU e a memória permaneçam disponíveis para os componentes principais do Kubernetes. As reservas de recursos não podem ser alteradas.
@@ -103,7 +103,7 @@ Quando você dimensiona ou atualizar um cluster AKS, a ação é executada no po
 
 O Kubernetes usa *pods* para executar uma instância do seu aplicativo. Um pod representa uma única instância do seu aplicativo. Os pods normalmente têm um mapeamento de 1: 1 com um contêiner, embora haja cenários avançados em que um pod pode conter vários contêineres. Esses pods de vários contêineres são agendados juntos no mesmo nó e permitem que os contêineres compartilhem recursos relacionados.
 
-Quando você cria um pod, você pode definir *limites de recursos* para solicitar uma determinada quantidade de recursos de CPU ou memória. O Kubernetes Scheduler tenta programar os pods para serem executados em um nó com recursos disponíveis para atender à solicitação. Você também pode especificar limites máximos de recursos que impedem que um determinado pod consuma muito recurso de computação do nó subjacente. Uma prática recomendada é incluir limites de recursos para todos os pods a fim de ajudar o Kubernetes Scheduler a entender quais recursos são necessários e permitidos.
+Quando você cria um pod, você pode definir *limites de recursos* para solicitar uma determinada quantidade de recursos de CPU ou memória. O Kubernetes Scheduler tenta programar os pods para serem executados em um nó com recursos disponíveis para atender à solicitação. Você também pode especificar limites máximos de recursos que impedem que um determinado pod consuma muito recurso de computação do nó subjacente. Uma prática recomendada é incluir limites de recursos para todos os pods a fim de ajudar o Agendador do Kubernetes a entender quais recursos são necessários e permitidos.
 
 Para obter mais informações, consulte [pods Kubernetes] [ kubernetes-pods] e [ciclo de vida de pod Kubernetes][kubernetes-pod-lifecycle].
 
@@ -203,7 +203,7 @@ Quando você cria um cluster do AKS, os namespaces a seguir estão disponíveis:
 
 - *padrão* -este namespace é onde os pods e implantações são criadas por padrão quando nenhum seja fornecido. Em ambientes menores, você pode implantar aplicativos diretamente no namespace padrão sem criar separações lógicas adicionais. Quando você interage com a API do Kubernetes, como com `kubectl get pods`, o namespace padrão é usado quando nenhum é especificado.
 - *kube-system* - Este namespace é o local onde os recursos principais existem, como recursos de rede como DNS e proxy, ou o painel do Kubernetes. Normalmente, você não implantar seus próprios aplicativos para esse namespace.
-- *kube-public* - esse namespace normalmente não é usado, mas pode ser usado para os recursos para ser visíveis em todo o cluster e podem ser visualizados por todos os usuários.
+- *kube-public* – esse namespace normalmente não é usado, mas pode ser usado para que os recursos sejam visíveis em todo o cluster e possam ser visualizados por todos os usuários.
 
 Para obter mais informações, consulte [Kubernetes namespaces][kubernetes-namespaces].
 

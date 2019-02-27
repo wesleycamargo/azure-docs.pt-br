@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982838"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330861"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
@@ -116,10 +116,10 @@ Se você não precisar mais da imagem Nginx, poderá excluí-la localmente com o
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Para remover as imagens de seu registro de contêiner do Azure, você pode usar o comando [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete) da CLI do Azure. Por exemplo, o comando a seguir exclui o manifesto referenciado por uma marca, quaisquer dados da camada associada e todas as outras marcas que façam referência ao manifesto.
+Para remover as imagens de seu registro de contêiner do Azure, você pode usar o comando [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete) da CLI do Azure. Por exemplo, o comando a seguir exclui o manifesto referenciado pela marca `samples/nginx:latest`, quaisquer dados da camada exclusiva e todas as outras marcas que façam referência ao manifesto.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

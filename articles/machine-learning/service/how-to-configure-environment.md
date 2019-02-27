@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 136a83c586b2f797269beff3cdd0afb9973cb7c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812898"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340511"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -357,6 +357,6 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Treinar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados do MNIST
+- [Treinar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
 - Veja a referência do [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk)
 - Saiba mais sobre o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)

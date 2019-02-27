@@ -1,7 +1,7 @@
 ---
 title: Adicionar sugestores a um índice do Azure Search
 description: Habilita os campos para ações de consulta de digitação antecipada, em que as consultas sugeridas são compostas de texto de campos em um índice do Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007694"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269919"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Adicionar sugestores a um índice do Azure Search
 
@@ -34,9 +34,12 @@ Embora um **sugestor** tenha várias propriedades, ele é principalmente uma col
 
 Você pode ter apenas um recurso **sugestor** para cada índice (especificamente, um **sugestor** na coleção de **sugestores**).
 
-Você pode criar um **sugestor** a qualquer momento, mas o impacto em seu índice varia de acordo com os campos. Novos campos adicionados a um sugestor como parte da mesma atualização são os que têm menos impacto, já que nenhuma recompilação de índice é necessária. A adição de campos existentes, no entanto, altera a definição do campo, precisando de uma recompilação completa do índice.
+## <a name="creating-a-suggester"></a>Criar um sugestor 
 
-## <a name="usage"></a>Uso  
+Você pode criar um **sugestor** a qualquer momento, mas o impacto em seu índice varia de acordo com os campos. 
+
++ Novos campos adicionados a um sugestor como parte da mesma atualização são os que têm menos impacto, já que nenhuma recompilação de índice é necessária.
++ Os campos existentes adicionados ao sugestor, no entanto, alteram a definição do campo e exigem uma recompilação completa do índice.
 
  **Sugestores** funcionam melhor quando usados para sugerir documentos específicos, em vez de termos ou frases flexíveis. Os campos de melhores candidatos são títulos, nomes e outras frases relativamente curtas que podem identificar um item. Os campos repetitivos, como categorias e marcas, ou campos muito longos, como campos de comentários ou descrições, são menos eficazes.  
 

@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354613"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340171"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -39,15 +39,21 @@ O serviço de gerenciamento de dados do Azure Data Explorer, que é responsável
 
 O Azure Data Explorer dá suporte a vários métodos de ingestão, cada um com seus próprios cenários de destino, vantagens e desvantagens. O Azure Data Explorer oferece pipelines e conectores para serviços comuns, ingestão programática usando SDKs e acesso direto ao mecanismo para fins de exploração.
 
-### <a name="ingestion-using-pipelines"></a>Ingestão usando pipelines
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Ingestão usando pipelines, conectores e plug-ins
 
-O Azure Data Explore atualmente dá suporte para pipeline de Hub de Eventos, que pode ser gerenciado usando o assistente de gerenciamento no portal do Azure. Para saber mais, confira [Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md).
+O Azure Data Explorer atualmente dá suporte ao seguinte:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Ingestão usando conectores e plug-ins
+* Pipeline de Grade de Eventos, que pode ser gerenciado usando o assistente de gerenciamento no portal do Azure. Para saber mais informações, confira [Ingerir Blobs do Azure no Azure Data Explorer](ingest-data-event-grid.md).
 
-* O Azure Data Explorer dá suporte ao plug-in do Logstash. Para obter mais informações, consulte [Plug-in de saída do Logstash para Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Pipeline de Hub de Eventos, que pode ser gerenciado usando o assistente de gerenciamento no portal do Azure. Para obter mais informações, confira [Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md).
 
-* O Azure Data Explorer dá suporte ao conector Kafka. Para saber mais, confira [Início Rápido: Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
+* Plug-in Logstash, confira [Ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md).
+
+* Conector Kafka, confira [Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Ingestão usando os serviços de integração
+
+* O Azure Data Factory (ADF), um serviço de integração de dados totalmente gerenciado para cargas de trabalho analíticas no Azure, para copiar dados para e do Azure Data Explorer. Para obter mais informações, confira [Copiar dados para ou do Azure Data Explorer usando o Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Ingestão programática
 
@@ -131,21 +137,27 @@ Para todos os métodos de ingestão diferentes da ingestão de consulta, formate
 O mapeamento de esquema ajuda a associar os campos de dados de origem às colunas da tabela de destino.
 
 * O [mapeamento de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos com base em classificação ordinal. Ele pode ser realizado usando o parâmetro do comando de ingestão ou [pré-criado na tabela](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e referenciado pelo parâmetro do comando de ingestão.
-* O [mapeamento JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e [mapeamento Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) podem ser realizados usando o parâmetro do comando de ingestão ou [pré-criados na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciados pelo parâmetro do comando de ingestão.
+* O [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e o [Mapeamento de Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) podem ser executados usando o parâmetro do comando de ingestão. Eles também podem ser [previamente criados na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciados no parâmetro do comando de ingestão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
+> [Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
+> [Ingerir dados usando a assinatura de Grade de Eventos no Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)
+> [Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados usando a biblioteca do Node do Azure Data Explorer](node-ingest-data.md)
+> [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+> [Ingerir dados usando a biblioteca do Node do Azure Data Explorer](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)

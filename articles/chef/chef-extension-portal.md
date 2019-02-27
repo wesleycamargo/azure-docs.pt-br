@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358143"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327537"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente do Chef no portal do Azure
 Você pode adicionar a extensão cliente da Chef diretamente em computador Linux ou Windows, por meio do portal do Azure. Este artigo o orienta pelo processo usando uma nova máquina virtual Linux.
@@ -53,7 +53,7 @@ Nesta seção, primeiro você usará o portal do Azure para criar uma máquina L
 1. Na guia **Básico**, especifique os valores a seguir, e em seguida, selecione **OK**.
 
     - **Nome** - Insira um nome para a nova máquina virtual.
-    - **Tipo de disco VM** - especifique o **SSD** ou **HDD** para o tipo de disco de armazenamento. Para obter mais informações sobre tipos de disco de máquina virtual no Azure, consulte o artigo [Armazenamento Premium de Alto Desempenho e discos gerenciados para VMs](/azure/virtual-machines/windows/premium-storage).
+    - **Tipo de disco VM** - especifique o **SSD** ou **HDD** para o tipo de disco de armazenamento. Para saber mais sobre tipos de disco de máquina virtual no Azure, confira o artigo [Selecionar um tipo de disco](../virtual-machines/windows/disks-types.md).
     - **Nome de Usuário** - Insira um nome de usuário que receberá privilégios de administrador na máquina virtual.
     - **Tipo de Autenticação**, Selecione **Senha**. Você também pode selecionar **chave pública SSH**e forneça um valor de chave pública SSH. Para fins desta demonstração (e nas capturas de tela), **Senha** é selecionada.
     - **Senha** e **Confirmar senha** - digite uma senha para o usuário.

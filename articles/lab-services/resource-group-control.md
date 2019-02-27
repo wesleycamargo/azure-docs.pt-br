@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55748993"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312966"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais do laboratório no Azure DevTest Labs
-Como um proprietário de laboratório, você pode configurar suas máquinas virtuais do laboratório a serem criadas em um grupo de recursos específico. Use este recurso para que você não alcance os limites de grupo de recursos em sua assinatura do Azure. Esse recurso também permite que você consolide todos os seus recursos de laboratório dentro de um único grupo de recursos. Isso também simplifica o acompanhamento desses recursos e a aplicação de [políticas](../governance/policy/overview.md) para gerenciá-los no nível do grupo de recursos.
+Como um proprietário de laboratório, você pode configurar suas máquinas virtuais do laboratório a serem criadas em um grupo de recursos específico. Esse recurso o ajuda nos seguintes cenários: 
+
+- Tem menos grupos de recursos criados por laboratórios na sua assinatura.
+- Seus laboratórios devem operar dentro de um conjunto fixo de grupos de recursos configurados por você
+- Contornar as restrições e aprovações necessárias para a criação de grupos de recursos na sua assinatura do Azure.
+- Consolidar todos os seus recursos de laboratório dentro de um único grupo de recursos para simplificar o acompanhamento desses recursos e aplicar [políticas](../governance/policy/overview.md) para gerenciá-los no nível do grupo de recursos.
 
 Com esse recurso, você pode usar um script para especificar um grupo de recursos novo ou existente em sua assinatura do Azure para todas as VMs de seu laboratório. Atualmente, o DevTest Labs dá suporte a esse recurso por meio de uma API. 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API para configurar um grupo de recursos para VMS do labs
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API para configurar um grupo de recursos para máquinas virtuais do laboratório
 Agora vamos examinar as opções disponíveis ao usar essa API como um proprietário de laboratório: 
 
 - Você pode escolher o **grupo de recursos do laboratório** para todas as máquinas virtuais.
@@ -32,7 +37,7 @@ Agora vamos examinar as opções disponíveis ao usar essa API como um propriet�
 - Você pode inserir um nome do **novo grupo de recursos** para todas as máquinas virtuais.
 - Você pode continuar com o comportamento existente, ou seja, um grupo de recursos é criado para cada VM no laboratório.
  
-Essa configuração se aplica a novas máquinas virtuais criadas no laboratório. As VMs mais antigas em seu laboratório que foram criadas em seus próprios grupos de recursos continuam não sendo afetadas. No entanto, você pode migrar essas máquinas virtuais dos seus grupos de recursos individuais para o grupo de recursos comuns para que todas as suas máquinas virtuais do laboratório estejam em um grupo de recursos comum. Para obter mais informações, veja [Mover recursos para um novo grupo de recursos](../azure-resource-manager/resource-group-move-resources.md). Ambientes criados em seu laboratório continuam em seus próprios grupos de recursos.
+Essa configuração se aplica a novas máquinas virtuais criadas no laboratório. As VMs mais antigas em seu laboratório que foram criadas em seus próprios grupos de recursos continuam não sendo afetadas. Ambientes criados em seu laboratório continuam em seus próprios grupos de recursos.
 
 ### <a name="how-to-use-this-api"></a>Como usar essa API:
 - Use a versão de API **2018_10_15_preview** enquanto usa essa API. 
@@ -86,7 +91,7 @@ Se você estiver usando o modelo do Azure Resource Manager para criar um laborat
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

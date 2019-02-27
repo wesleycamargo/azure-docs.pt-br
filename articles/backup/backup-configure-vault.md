@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382754"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310568"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer backup de um cliente ou servidor do Windows Azure usando o modelo de implantação do Gerenciador de Recursos
 Este artigo explica como fazer backup dos seus arquivos e pastas do Windows Server (ou cliente Windows) no Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de recursos.
@@ -72,7 +72,7 @@ Quando você cria um cofre dos Serviços de Recuperação, determina como o arma
 
     ![Selecionar o novo cofre da lista de cofres do Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Quando você selecionar o cofre, a folha do cofre dos Serviços de Recuperação será reduzida e a folha **Visão Geral** (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre serão abertas.
+    Quando você selecionar o cofre, a folha Serviços de Recuperação do cofre será reduzida e a folha **Visão Geral** (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre serão abertas.
 
     ![Exibir a configuração de armazenamento para um novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

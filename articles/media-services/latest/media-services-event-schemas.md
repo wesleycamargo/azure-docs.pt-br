@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243978"
+ms.locfileid: "56268780"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia
 
@@ -42,7 +42,7 @@ Você pode registrar-se para todos os eventos assinando o evento JobStateChange.
 | Microsoft.Media.JobCanceled| Obtenha um evento quando o trabalho faz a transição para um estado cancelado. Este é um estado final que inclui as saídas do trabalho.|
 | Microsoft.Media.JobErrored| Obtenha um evento quando o trabalho faz a transição para um estado de erro. Este é um estado final que inclui as saídas do trabalho.|
 
-Veja [exemplos de esquema](#event-schema-examples) a seguir.
+Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
 ### <a name="monitoring-job-output-state-changes"></a>Monitoramento de alterações de estado de saída de trabalho
 
@@ -56,7 +56,15 @@ Veja [exemplos de esquema](#event-schema-examples) a seguir.
 | Microsoft.Media.JobOutputCanceled| Obtenha um evento quando a saída do trabalho faz a transição para o estado cancelado.|
 | Microsoft.Media.JobOutputErrored| Obtenha um evento quando a saída do trabalho faz a transição para o estado de erro.|
 
-Veja [exemplos de esquema](#event-schema-examples) a seguir.
+Veja os [exemplos de esquema](#event-schema-examples) a seguir.
+
+### <a name="monitoring-job-output-progress"></a>Monitorando o progresso da saída do trabalho
+
+| Tipo de evento | DESCRIÇÃO |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| Esse evento reflete o progresso do processamento do trabalho, de 0% a 100%. O serviço tenta enviar um evento se houver um amento de 5% ou mais no valor do progresso ou se tiverem passado mais de 30 segundos desde o último evento (pulsação). Não é garantido que o valor do progresso comece em 0%, ou alcance 100%, nem que aumente a uma taxa constante com o passar do tempo. Esse evento não deve ser usado para determinar se o processamento foi concluído – em vez disso, você deve usar os eventos de alteração de estado.|
+
+Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
 ## <a name="live-event-types"></a>Tipos de evento ao vivo
 
@@ -72,7 +80,7 @@ Os eventos em nível de fluxo são acionados por conexão ou fluxo. Cada evento 
 | Microsoft.Media.LiveEventEncoderConnected | O codificador estabelece conexão com o evento ao vivo. |
 | Microsoft.Media.LiveEventEncoderDisconnected | O codificador desconecta. |
 
-Veja [exemplos de esquema](#event-schema-examples) a seguir.
+Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
 ### <a name="track-level-events"></a>Eventos no nível de rastreamento
 
@@ -87,7 +95,7 @@ Os eventos em nível de faixa são acionados por faixa. Os tipos de evento de fa
 | Microsoft.Media.LiveEventIngestHeartbeat | Publicado a cada 20 segundos para cada faixa quando o evento ao vivo está em execução. Fornece resumo de integridade de ingestão. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | O servidor de mídia detecta descontinuidade na faixa de entrada. |
 
-Veja [exemplos de esquema](#event-schema-examples) a seguir.
+Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
 ## <a name="event-schema-examples"></a>Exemplos de esquema de evento
 
@@ -245,6 +253,29 @@ Para cada alteração de estado de JobOutput, o esquema de exemplo é semelhante
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+O exemplo de esquema é semelhante ao descrito a seguir:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

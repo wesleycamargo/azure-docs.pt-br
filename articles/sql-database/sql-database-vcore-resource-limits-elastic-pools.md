@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962002"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328666"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para pools elásticos usando os limites do modelo de compras baseado no vCore
 
@@ -59,11 +59,11 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 4 (parte 2)
 
-|Tamanho de computação|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Tamanho de computação|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
@@ -85,7 +85,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 5 (parte 1)
 
@@ -111,7 +111,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 5 (parte 2)
 
@@ -136,7 +136,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço Comercialmente Crítico: Tamanhos de armazenamento e tamanhos de computação
 
@@ -164,7 +164,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 4 (parte 2)
 
@@ -190,7 +190,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 1)
 
@@ -216,7 +216,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 2)
 
@@ -242,7 +242,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* Para o máximo atual de trabalhos (solicitações) para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+\* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados no pool receberá uma quantidade igual de recursos de computação para processar as consultas. O serviço de Banco de Dados SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de vCores por banco de dados é definido com um valor diferente de zero.
 
@@ -264,4 +264,4 @@ A tabela a seguir descreve as propriedades dos bancos de dados em pool.
 - Para os limites de recursos de DTU dos pools elásticos, confira [limites de recursos para pools elásticos usando o modelo de compras baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Para os limites de recursos das instâncias gerenciadas, confira [limites de recursos para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
-- Para se informar sobre os limites de recursos em um servidor do banco de dados, confira a [visão geral dos limites de recursos em um servidor de banco de dados SQL](sql-database-resource-limits-database-server.md) e verá informações sobre limites nos níveis do servidor e da assinatura.
+- Para se informar sobre os limites de recursos em um servidor de banco de dados, confira a [visão geral dos limites de recursos em um servidor do Banco de Dados SQL](sql-database-resource-limits-database-server.md) para conferir os limites nos níveis do servidor e da assinatura.

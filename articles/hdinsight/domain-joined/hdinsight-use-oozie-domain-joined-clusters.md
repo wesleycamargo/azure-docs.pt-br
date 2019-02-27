@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436272"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343282"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package
 
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-    a. Substitua `domainuser` por seu nome de usuário para o domínio.  
-   b. Substitua `ClusterShortName` pelo nome curto para o cluster. Por exemplo, se o nome do cluster for https:// *[link do exemplo]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` é os primeiro de seis caracteres do cluster: **sechad**.  
-   c. Substitua `jdbcurlvalue` pela URL JDBC da configuração do Hive. Por exemplo, jdbc:hive2://headnodehost:10001/;transportMode=http.      
-   d. Para salvar o arquivo, selecione Ctrl+X, digite `Y`e selecione **Enter**.
+
+   * Use o URI `adl://home` para a propriedade `nameNode` se você tiver o Azure Data Lake Storage Gen1 como armazenamento de cluster principal. Se você estiver usando o Armazenamento de Blobs do Azure, altere isso para `wasb://home`. Se você estiver usando o Azure Data Lake Storage Gen2, altere isso para `abfs://home`.
+   * Substitua `domainuser` por seu nome de usuário para o domínio.  
+   * Substitua `ClusterShortName` pelo nome curto para o cluster. Por exemplo, se o nome do cluster for https:// *[link do exemplo]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` é os primeiro de seis caracteres do cluster: **sechad**.  
+   * Substitua `jdbcurlvalue` pela URL JDBC da configuração do Hive. Por exemplo, jdbc:hive2://headnodehost:10001/;transportMode=http.      
+   * Para salvar o arquivo, selecione Ctrl+X, digite `Y`e selecione **Enter**.
 
    Esse arquivo de propriedades precisa estar presente localmente durante a execução de trabalhos do Oozie.
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e533f3db8a9d40ee062e65d96fa9bf33a366e3a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206337"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456311"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Logs de atividades do Azure AD no Azure Monitor (versão prévia)
 
@@ -31,13 +31,13 @@ Agora é possível rotear logs de atividades do Azure AD (Azure Active Directory
 * Arquive os logs de atividades do Azure AD em uma conta de armazenamento do Azure para reter os dados por um longo período.
 * Transmita os logs de atividade do Azure AD para um hub de eventos do Azure para análise, usando ferramentas populares de SIEM (Gerenciamento de Eventos e Informações de Segurança) como Splunk e QRadar.
 * Integre os logs de atividades do Azure AD com suas próprias soluções de log personalizadas, transmitindo-os para um hub de eventos.
-* Logs de atividade de envio do Azure Active Directory ao Log Analytics para habilitar visualizações avançadas, monitoramento e alertas de dados conectados.
+* Envie logs de atividade do Azure AD aos logs do Azure Monitor para habilitar visualizações avançadas, monitoramento e alertas de dados conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Relatórios com suporte
 
-É possível rotear logs de auditoria e logs de entrada do Azure AD para sua conta de armazenamento do Azure, hub de eventos, Log Analytics ou solução personalizada usando esse recurso. 
+É possível rotear logs de auditoria e logs de entrada do Azure AD para sua conta de armazenamento do Azure, hub de eventos, logs do Azure Monitor ou solução personalizada usando esse recurso. 
 
 * **Logs de auditoria**: O [relatório de atividade de logs de auditoria](concept-audit-logs.md) dá acesso ao histórico de todas as tarefas executadas em seu locatário.
 * **Logs de entrada**: Com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
@@ -60,7 +60,7 @@ Dependendo do destino de encaminhamento dos dados da trilha de auditoria, você 
 
 * Uma conta de armazenamento do Azure para a qual você tem permissões *ListKeys*. Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para obter informações sobre preços de armazenamento, confira a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Um namespace dos Hubs de Eventos do Azure para integração com soluções de terceiros.
-* Um espaço de trabalho do Log Analytics do Azure para enviar logs ao Log Analytics.
+* Um workspace do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
 
 ## <a name="cost-considerations"></a>Considerações de custo
 
@@ -94,9 +94,9 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 | Audit | 1.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | US$ 10,80 |
 | Entradas | 1.000 | 178 | 53.400 | 106.8&nbsp;MB | 418 | 3.611.520 | US$ 11,06 |  
 
-### <a name="log-analytics-cost-considerations"></a>Considerações de custo do log Analytics
+### <a name="azure-monitor-logs-cost-considerations"></a>Considerações de custo dos logs do Azure Monitor
 
-Para examinar os custos relacionados ao gerenciamento de espaço de trabalho do Log Analytics, consulte [Gerenciar o custo controlando o volume de dados e a retenção no Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Para examinar os custos relacionados ao gerenciamento de logs do Azure Monitor, confira [Gerenciar o custo controlando o volume de dados e a retenção em logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -106,37 +106,37 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 **R**: Tanto os logs de atividades quanto os de auditoria estão disponíveis para encaminhamento por meio desse recurso, mas os eventos de auditoria relativos a B2C não estão incluídos no momento. Para descobrir quais tipos de logs e quais logs baseados em recursos têm suporte no momento, leia o [Esquema de trilha de auditoria](reference-azure-monitor-audit-log-schema.md) e o [Esquema de log de entrada](reference-azure-monitor-sign-ins-log-schema.md). 
 
----
+-----
 
 **P: Quanto tempo após uma ação os logs correspondentes serão exibidos no meu hub de eventos?**
 
 **R**: Os logs devem aparecer em seu hub de eventos de dois a cinco minutos depois que a ação é executada. Para obter mais informações sobre Hubs de Eventos, confira [O que são os Hubs de Eventos do Azure?](../../event-hubs/event-hubs-about.md)
 
----
+-----
 
 **P: Quanto tempo após uma ação os logs correspondentes serão exibidos na minha conta de armazenamento?**
 
 **R**: Para contas de armazenamento do Azure, a latência fica entre 5 e 15 minutos depois que a ação é executada.
 
----
+-----
 
 **P: O que acontecerá se um Administrador alterar o período de retenção de uma configuração de diagnóstico?**
 
 **R**: A nova política de retenção será aplicada a logs coletados após a alteração. Os logs coletados antes da alteração da política não serão afetados.
 
----
+-----
 
 **P: Quanto custará para armazenar meus dados?**
 
 **R**: Os custos de armazenamento dependem do tamanho dos logs e do período de retenção que você escolher. Para obter uma lista dos custos estimados para locatários, o que depende do volume de logs gerados, confira a seção [Tamanho de armazenamento para logs de atividades](#storage-size-for-activity-logs).
 
----
+-----
 
 **P: Quanto custará para transmitir meus dados por stream para um hub de eventos?**
 
 **R**: O custo de streaming depende do número de mensagens recebidas por minuto. Este artigo discute como os custos são calculados e lista as estimativas de custo, que se baseiam no número de mensagens. 
 
----
+-----
 
 **P: Como integrar os logs de atividade do Azure AD com meu sistema SIEM?**
 
@@ -146,35 +146,35 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 - Use a [API de Relatório do Graph](concept-reporting-api.md) para obter acesso aos dados, e envie-os para o seu sistema SIEM usando seus próprios scripts.
 
----
+-----
 
 **P: Quais ferramentas de SIEM têm suporte atualmente?** 
 
 **R**: Atualmente, o Azure Monitor tem suporte do [Splunk](tutorial-integrate-activity-logs-with-splunk.md), do QRadar e do [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
----
+-----
 
 **P: Como integrar os logs de atividade do Azure AD com minha instância do Splunk?**
 
 **R**: Primeiro, [encaminhe os logs de atividades do Azure AD para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md), depois, execute as etapas para [Integrar os logs de atividade ao Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
----
+-----
 
 **P: Como integrar os logs de atividade do Azure AD com meu sistema Sumo?** 
 
 **R**: Primeiro, [encaminhe os logs de atividades do Azure AD para um hub de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), depois, execute as etapas para [Instalar o aplicativo do Azure AD e exibir os painéis no SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
----
+-----
 
 **P: Posso acessar os dados de um hub de eventos sem usar uma ferramenta de SIEM externa?** 
 
 **R**: Sim. Para acessar os logs do aplicativo personalizado, você pode usar a [API dos Hubs de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
----
+-----
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Arquivar os logs de atividades em uma conta de armazenamento](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Encaminhar logs de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrar logs de atividades no Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrar logs de atividades no Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

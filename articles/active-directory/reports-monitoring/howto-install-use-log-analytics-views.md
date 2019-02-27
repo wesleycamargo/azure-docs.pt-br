@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de2aa262dff54f2b8e535aa646e9a8cac7719567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165256"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453623"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
 
@@ -33,7 +33,7 @@ As exibições do Log Analytics do Azure Active Directory ajuda você a analisar
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar as exibições do Log Analytics, você precisa:
+Para usar as exibições do Log Analytics, você precisará de:
 
 * Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu workspace do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
@@ -41,13 +41,13 @@ Para usar as exibições do Log Analytics, você precisa:
 
 ## <a name="install-the-log-analytics-views"></a>Instalar as exibições do Log Analytics
 
-1. Navegue para seu workspace do Log Analytics. Para fazer isso, primeiro navegue até o [portal do Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **Log Analytics** na caixa de texto e selecione **Log Analytics**. Selecione o workspace para o qual você roteou os logs de atividade como parte dos pré-requisitos.
+1. Navegue para seu workspace do Log Analytics. Para fazer isso, primeiro navegue até o [portal do Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **Log Analytics** na caixa de texto e escolha **workspaces do Log Analytics**. Selecione o workspace para o qual você roteou os logs de atividade como parte dos pré-requisitos.
 2. Selecione **Designer de Exibição**, **Importe** e, em seguida, **Escolher Arquivo** para importar as exibições do seu computador local.
 3. Selecione as exibições que você baixou dos pré-requisitos e selecione **Salvar** para salvar a importação. Faça isso para a exibição **Eventos de provisionamento de conta do Azure AD** e a exibição **Eventos de Entradas**.
 
 ## <a name="use-the-views"></a>Usar as exibições
 
-1. Navegue para seu workspace do Log Analytics. Para fazer isso, primeiro navegue até o [portal do Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **Log Analytics** na caixa de texto e selecione **Log Analytics**. Selecione o workspace para o qual você roteou os logs de atividade como parte dos pré-requisitos.
+1. Navegue para seu workspace do Log Analytics. Para fazer isso, primeiro navegue até o [portal do Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **Log Analytics** na caixa de texto e escolha **workspaces do Log Analytics**. Selecione o workspace para o qual você roteou os logs de atividade como parte dos pré-requisitos.
 
 2. Quando você estiver usando o workspace, selecione **Resumo do Workspace**. Você deve ver as três exibições a seguir:
 
@@ -73,5 +73,5 @@ Para usar as exibições do Log Analytics, você precisa:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como analisar logs de atividades no Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Introdução ao uso do Log Analytics no portal do Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Como analisar logs de atividade com os logs do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Introdução aos logs do Azure Monitor no portal do Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

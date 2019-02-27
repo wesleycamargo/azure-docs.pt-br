@@ -1,6 +1,6 @@
 ---
-title: Diferenças do T-SQL na Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: Este artigo aborda as diferenças do T-SQL entre uma instância gerenciada no Banco de Dados SQL do Azure e no SQL Server
+title: Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+description: Este artigo aborda as diferenças do T-SQL entre uma Instância Gerenciada do Banco de Dados SQL do Azure e no SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/20/2019
+ms.openlocfilehash: 942b1423583f663f22ced6ea8399409778b2f6de
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894302"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455120"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças do T-SQL entre uma instância gerenciada no Banco de Dados SQL do Azure e no SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
-A opção de implantação de instância gerenciada fornece alta compatibilidade com o Mecanismo de Banco de Dados do SQL Server local. A maioria dos recursos do mecanismo de banco de dados do SQL Server é compatível com uma instância gerenciada.
+A opção de implantação de Instância Gerenciada fornece alta compatibilidade com o Mecanismo de Banco de Dados do SQL Server local. A maioria dos recursos do mecanismo de banco de dados do SQL Server é compatível com uma Instância Gerenciada.
 
 ![migração](./media/sql-database-managed-instance/migration.png)
 
@@ -30,14 +30,14 @@ Como ainda há algumas diferenças no comportamento e na sintaxe, este artigo re
 - [Segurança](#security), incluindo as diferenças em [Auditoria](#auditing), [Certificados](#certificates), [Credenciais](#credential), [Provedores de criptografia](#cryptographic-providers), [Logons/usuários](#logins--users) e [Chave de serviço e chave mestra de serviço](#service-key-and-service-master-key);
 - [Configuração](#configuration), incluindo as diferenças em [Extensão do pool de buffers](#buffer-pool-extension), [Ordenação](#collation), [Níveis de compatibilidade](#compatibility-levels), [Espelhamento de banco de dados](#database-mirroring), [Opções de banco de dados](#database-options), [SQL Server Agent](#sql-server-agent) e [Opções de tabela](#tables);
 - [Funcionalidades](#functionalities), incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transações distribuídas](#distributed-transactions), [Eventos estendidos](#extended-events), [Bibliotecas externas](#external-libraries), [Fluxo de arquivos e FileTable](#filestream-and-filetable), [Pesquisa semântica de texto completo](#full-text-semantic-search), [Servidores vinculados](#linked-servers), [PolyBase](#polybase), [Replicação](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker) e [Procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-triggers);
-- [Recursos que têm um comportamento diferente em instâncias gerenciadas](#Changes)
+- [Recursos que têm um comportamento diferente em Instâncias Gerenciadas](#Changes)
 - [Limitações temporárias e problemas conhecidos](#Issues)
 
 ## <a name="availability"></a>Disponibilidade
 
 ### <a name="always-on-availability"></a>AlwaysOn
 
-A [alta disponibilidade](sql-database-high-availability.md) é interna à instância gerenciada e não pode ser controlada pelos usuários. As instruções a seguir não têm suporte:
+A [Alta disponibilidade](sql-database-high-availability.md) é um recurso interno à instância gerenciada e não pode ser controlada por usuários. As instruções a seguir não têm suporte:
 
 - [CRIAR ENDPOINT … PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CRIAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -47,20 +47,20 @@ A [alta disponibilidade](sql-database-high-availability.md) é interna à instâ
 
 ### <a name="backup"></a>Backup
 
-As instâncias gerenciadas têm backups automáticos e permitem aos usuários criar backups `COPY_ONLY` de bancos de dados completos. Não há suporte para backups de backups de instantâneo de arquivo, logs e diferenciais.
+As instâncias gerenciadas têm backups automáticos e permitem que os usuários criem backups `COPY_ONLY` de bancos de dados completos. Não há suporte para backups de backups de instantâneo de arquivo, logs e diferenciais.
 
-- Com uma instância gerenciada, você pode fazer backup de uma instância de banco de dados somente em uma conta do Armazenamento de Blobs do Azure:
+- Com uma Instância Gerenciada, você pode fazer backup de uma instância de banco de dados somente em uma conta do Armazenamento de Blobs do Azure:
   - Apenas `BACKUP TO URL` tem suporte
   - `FILE`, `TAPE` e dispositivos de backup não têm suporte  
 - A maioria das opções gerais `WITH` têm suporte
   - `COPY_ONLY` é obrigatório
   - `FILE_SNAPSHOT` não tem suporte
-  - Opções de fita: `REWIND`, `NOREWIND`, `UNLOAD` e `NOUNLOAD` não são suportadas
-  - Opções específicas de log: `NORECOVERY`, `STANDBY` e `NO_TRUNCATE` não são suportadas
+  - Opções de fita: `REWIND`, `NOREWIND`, `UNLOAD` e `NOUNLOAD` não são compatíveis
+  - Opções específicas de log: `NORECOVERY`, `STANDBY` e `NO_TRUNCATE` não são compatíveis
 
  Limitações:  
 
-- Com uma instância gerenciada, você pode fazer backup de um banco de dados de instâncias em um backup com até 32 faixas, o que é suficiente para os bancos de dados de até 4 TB, caso a compactação de backup seja usada.
+- Com uma Instância Gerenciada, você pode fazer backup de um banco de dados de instâncias em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB, caso a compactação de backup esteja em uso.
 - O tamanho máximo de faixa de backup é 195 GB (tamanho máximo de blob). Aumente o número de faixas no comando de backup para reduzir o tamanho de faixas individuais e permanecer dentro desse limite.
 
 > [!TIP]
@@ -74,7 +74,7 @@ Para obter informações sobre backups usando o T-SQL, consulte [BACKUP](https:/
 
 As principais diferenças entre a auditoria em bancos de dados no Banco de Dados SQL do Azure e em bancos de dados no SQL Server são:
 
-- Com a opção de implantação de instância gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena arquivos de log `.xel` no Armazenamento de Blobs do Azure.
+- Com a opção de implantação de Instância Gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena os arquivos de log `.xel` no armazenamento de Blobs do Azure.
 - Com as opções de implantação de banco de dados individual e pool elástico no Banco de Dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - No SQL Server local/em máquinas virtuais, a auditoria funciona no nível do servidor, mas armazena os eventos em logs de eventos do Windows/do sistema de arquivos.
   
@@ -83,7 +83,7 @@ A auditoria XEvent na Instância Gerenciada oferece suporte a destinos de armaze
 As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de blobs do Azure onde arquivos `.xel` serão colocados
-- Não há suporte para a sintaxe `TO FILE` porque uma instância gerenciada não pode acessar compartilhamentos de arquivo do Windows.
+- Não há suporte para a sintaxe `TO FILE` porque uma Instância Gerenciada não pode acessar compartilhamentos de arquivo do Windows.
 
 Para obter mais informações, consulte:  
 
@@ -93,10 +93,10 @@ Para obter mais informações, consulte:
 
 ### <a name="certificates"></a>Certificados
 
-Uma instância gerenciada não pode acessar compartilhamentos de arquivo nem pastas do Windows e, portanto, as seguintes restrições se aplicam:
+Uma Instância Gerenciada não pode acessar compartilhamentos de arquivo nem pastas do Windows e, portanto, as seguintes restrições se aplicam:
 
 - O arquivo `CREATE FROM`/`BACKUP TO` não é compatível com certificados
-- Não há suporte para o certificado `CREATE`/`BACKUP` de `FILE`/`ASSEMBLY`. Arquivos de chave privada não podem ser usados.  
+- Não há suporte para o certificado `CREATE`/`BACKUP` do `FILE` / `ASSEMBLY`. Arquivos de chave privada não podem ser usados.  
 
 Consulte [CRIAR CERTIFICADO](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) e [CERTIFICADO DE BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql).  
   
@@ -116,7 +116,7 @@ Consulte [CRIAR CREDENCIAL](https://docs.microsoft.com/sql/t-sql/statements/crea
 
 ### <a name="cryptographic-providers"></a>Provedores criptográficos
 
-Uma instância gerenciada não pode acessar arquivos e, portanto, os provedores de criptografia não podem ser criados:
+Uma Instância Gerenciada não pode acessar arquivos e, portanto, os provedores de criptografia não podem ser criados:
 
 - Não há suporte para `CREATE CRYPTOGRAPHIC PROVIDER`. Consulte [CRIAR PROVEDOR CRIPTOGRÁFICO](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - Não há suporte para `ALTER CRYPTOGRAPHIC PROVIDER`. Consulte [ALTERAR PROVEDOR CRIPTOGRÁFICO](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
@@ -124,10 +124,45 @@ Uma instância gerenciada não pode acessar arquivos e, portanto, os provedores 
 ### <a name="logins--users"></a>Logons / usuários
 
 - Logons do SQL criados `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, e `FROM SID` têm suporte. Consulte [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Logons do Active Directory (AAD) do Azure criados com a sintaxe [CRIAR LOGON](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou sintaxe [CRIAR USUÁRIO](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) tem suporte para a sintaxe (**visualização pública**).
+- Há suporte para entidades de segurança do servidor do Azure Active Directory (Azure AD) (logons) criadas com a sintaxe [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**visualização pública**). Esses são logons criados no nível do servidor.
+    - A Instância Gerenciada oferece suporte a entidades de segurança do banco de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Isso também é conhecido como usuários de banco de dados contidos do Azure AD.
 - Logons do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS` não têm suporte. Use logons e usuário do Microsoft Azure Active Directory.
-- O usuário do Microsoft Azure Active Directory (Azure AD) que criou a instância tem [privilégios irrestritos de administrador](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Usuários de nível de banco de dados não administradores do Microsoft Azure Active Directory (Azure AD) podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CRIAR USUÁRIO ... A PARTIR DE PROVEDOR EXTERNO](sql-database-manage-logins.md#non-administrator-users)
+- O usuário do Azure AD que criou a instância tem [privilégios irrestritos de administrador](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Usuários de nível de banco de dados não administradores do Microsoft Azure Active Directory (Azure AD) podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CRIAR USUÁRIO ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- Entidades de segurança do servidor do Azure AD (logons) oferecem suporte a recursos do SQL dentro de uma única instância de Instância Gerenciada. Não há suporte para recursos que exigem a interação entre instâncias, dentro do mesmo locatário do Azure AD ou em locatários diferentes, para usuários do Azure AD. Exemplos de recursos desse tipo são:
+    - Replicação transacional de SQL e
+    - Servidor de Link
+- Não há suporte para logons do Azure AD mapeados para um grupo do Azure AD como proprietário do banco de dados.
+- Não há suporte para a representação de entidades de segurança no nível do servidor do Azure AD usando outras entidades de segurança do Azure AD, como a cláusula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). Limitação de EXECUTE AS:
+    - não há suporte para EXECUTE AS USER para usuários do Azure AD quando o nome é diferente do nome de logon. Por exemplo, quando o usuário é criado por meio da sintaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], e a tentativa de representação é por meio de EXEC AS USER = _myAadUser_. Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON**.
+    - Somente as entidades de segurança no nível do SQL Server (logons) que fazem parte do `sysadmin` podem executar as seguintes operações direcionadas a entidades de segurança do Azure AD: 
+        - EXECUTE AS USER
+        - EXECUTE AS LOGIN
+- Limitações da **Visualização pública** para entidades de segurança do servidor do Azure AD (logons):
+    - Limitações do administrador do Active Directory para Instância Gerenciada:
+        - O administrador do Azure AD usado para configurar a Instância Gerenciada não pode ser usado para criar uma entidade de servidor (logon) do Azure AD dentro da Instância Gerenciada. Você deve criar a primeira entidade de servidor (logon) do Azure AD usando uma conta do SQL Server que é um `sysadmin`. Essa é uma limitação temporária que será removida depois que as entidades de segurança do servidor (logons) do Azure AD se tornarem GA. Se você tentar usar uma conta de administrador do Azure AD para criar o logon, verá o seguinte erro: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+        - Atualmente, o primeiro logon do Azure AD criado no BD mestre deve ser criado pela conta padrão do SQL Server (não do Azure AD) que é um `sysadmin` usando [ CREATE LOGIN ](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Após o GA, essa limitação será removida e um logon inicial do Azure AD poderá ser criado pelo administrador do Active Directory para a Instância Gerenciada.
+    - Não há suporte para DacFx (exportar/importar) usado com o SQL Server Management Studio (SSMS) ou SqlPackage para logons do Azure AD. Essa limitação será removida depois que as entidades de segurança do servidor (logons) do Azure AD se tornarem GA.
+    - Usar entidades de segurança do servidor do Azure AD (logons) com SSMS
+        - Não há suporte para script de logons do Azure AD (usando qualquer logon autenticado).
+        - O IntelliSense não reconhece a instrução **CREATE LOGIN FROM EXTERNAL PROVIDER** e mostra um sublinhado vermelho.
+- Somente o logon principal no nível do servidor (criado pelo processo de provisionamento de Instância Gerenciada), membros das funções de servidor (`securityadmin` ou `sysadmin`) ou outros logons com permissão ALTER ANY LOGIN no nível do servidor podem criar entidades do servidor do Azure AD (logons) no banco de dados mestre da Instância Gerenciada.
+- Se o logon for uma Entidade de Segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando create para criar logons para uma conta do Azure AD.
+- O logon do Azure AD deve ser um membro do Azure AD dentro do mesmo diretório usado para a Instância Gerenciada do SQL do Azure.
+- Entidades de segurança do servidor do Azure AD (logons) são visíveis no Pesquisador de Objetos a partir do SSMS 18.0 versão prévia 5.
+- É permitida a sobreposição de entidades de segurança do servidor (logons) do Azure AD com uma conta de administrador do Azure AD. As entidades de segurança do servidor do Azure AD (logons) têm precedência sobre o administrador do Azure AD ao resolver a entidade de segurança e aplicar permissões à Instância Gerenciada.
+- Durante a autenticação, a sequência a seguir é aplicada para resolver a entidade de segurança de autenticação:
+    1. Se a conta do Azure AD existir como mapeada diretamente para a entidade de segurança do servidor do Azure AD (logon) (presente em sys.server_principals como tipo "E"), conceda acesso e aplique permissões da entidade de segurança do servidor do Azure AD (logon).
+    2. Se a conta do Azure AD for um membro de um grupo do Azure AD mapeado para a entidade de segurança do servidor do Azure AD (logon) (presente em sys.server_principals como tipo "E"), conceda permissões de acesso e aplicação do logon do grupo do Azure AD.
+    3. Se a conta do Azure AD for uma administrador especial do Azure AD configurado para o portal para Instância Gerenciada (não existe nas exibições do sistema da Instância Gerenciada), aplique permissões fixas especiais do administrador do Azure AD para a Instância Gerenciada (modo herdado).
+    4. Se a conta do Azure AD existir como mapeada diretamente para um usuário do Azure AD em um banco de dados (em sys.database_principals como tipo "E"), conceda permissões de acesso e aplicação do usuário do banco de dados do Azure AD.
+    5. Se a conta do Azure AD for membro de um grupo do Azure AD mapeado para um usuário do Azure AD em um banco de dados (em sys.database_principals como tipo "X"), conceda permissões de acesso e aplicação do logon do grupo do Azure AD.
+    6. Se houver um logon do Azure AD mapeado para uma conta de usuário do Azure AD ou uma conta do grupo do Azure AD, resolvendo a autenticação do usuário, todas as permissões desse logon do Azure AD serão aplicadas.
+
+
+
+
+
 
 ### <a name="service-key-and-service-master-key"></a>Chave de serviço e chave mestra de serviço
 
@@ -159,7 +194,7 @@ Consulte [ALTERAR Nível de Compatibilidade do BANCO DE DADOS](https://docs.micr
 
 Não há suporte para espelhamento de banco de dados.
 
-- As opções `ALTER DATABASE SET PARTNER` e `SET WITNESS` não são compatíveis.
+- As opções `ALTER DATABASE SET PARTNER` e `SET WITNESS` não são suportadas.
 - Não há suporte para `CREATE ENDPOINT … FOR DATABASE_MIRRORING`.
 
 Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) e [CREATE ENDPOINT... FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
@@ -177,13 +212,13 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 As limitações `CREATE DATABASE` são apresentadas abaixo:
 
 - Arquivos e grupos de arquivos não podem ser definidos.  
-- A opção `CONTAINMENT` não é compatível.  
-- As opções `WITH` não são compatíveis.  
+- Não há suporte para a opção `CONTAINMENT`.  
+- Não há suporte para as opções `WITH`.  
    > [!TIP]
    > Como alternativa, use `ALTER DATABASE` depois `CREATE DATABASE` para definir opções de banco de dados para adicionar arquivos ou para definir a contenção.  
 
-- A opção `FOR ATTACH` não é compatível
-- A opção `AS SNAPSHOT OF` não é compatível
+- Não há suporte para a opção `FOR ATTACH`
+- Não há suporte para a opção `AS SNAPSHOT OF`
 
 Para saber mais, confira [CRIAR BANCO DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
@@ -191,7 +226,7 @@ Para saber mais, confira [CRIAR BANCO DE DADOS](https://docs.microsoft.com/sql/t
 
 Algumas propriedades de arquivo não podem ser definidas ou alteradas:
 
-- O caminho do arquivo não pode ser especificado na instrução `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL. Remova `FILENAME` do script porque uma instância gerenciada coloca os arquivos automaticamente.  
+- O caminho do arquivo não pode ser especificado na instrução `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL. Remova `FILENAME` do script porque uma Instância Gerenciada coloca os arquivos automaticamente.  
 - O nome do arquivo não pode ser alterado usando a instrução `ALTER DATABASE`.
 
 As opções a seguir são definidas por padrão e não podem ser alteradas:
@@ -222,34 +257,34 @@ As seguintes opções não podem ser modificadas:
 - `SINGLE_USER`
 - `WITNESS`
 
-Não há suporte para a modificação do nome.
+Não há suporte para modificação de nome.
 
 Para saber mais, confira [ALTERAR BANCO DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- As configurações do agente SQL são somente leitura. Não há suporte para o procedimento `sp_set_agent_properties` em instâncias gerenciadas.  
+- As configurações do agente SQL são somente leitura. Não há suporte para o procedimento `sp_set_agent_properties` na Instância Gerenciada.  
 - Trabalhos
   - As etapas de trabalho T-SQL têm suporte.
   - Os trabalhos de replicação a seguir têm suporte:
-    - Leitor do log de transações.  
-    - Instantâneo.
+    - Leitor do log de transações
+    - Instantâneo
     - Distribuidor
   - As etapas de trabalho SSIS têm suporte
-  - Outros tipos de etapas de trabalho não têm suporte no momento, incluindo:
+  - Não há suporte para outros tipos de etapas de trabalho no momento, incluindo:
     - Não há suporte para a etapa de trabalho de replicação de mesclagem.  
     - Não há suporte para leitor de fila.  
-    - Ainda não há suporte para o shell de comando
+    - Ainda não há suporte para o shell de comando.
   - As instâncias gerenciadas não podem acessar recursos externos (por exemplo, compartilhamentos de rede por meio do Robocopy).  
   - Ainda não há suporte para o PowerShell.
-  - O Analysis Services não é suportado
-- As notificações são parcialmente suportadas
+  - Não há suporte para o Analysis Services.
+- Há suporte parcial para notificações.
 - Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. Só pode haver um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile` na versão prévia pública (limitação temporária).  
-  - Não há suporte para pager.  
-  - Não há suporte a NetSend.
+  - Não há suporte para o Pager.  
+  - Não há suporte para o NetSend.
   - Ainda não há suporte para alertas.
   - Não há suporte para proxies.  
-- Não há suporte para Eventlog.
+- Não há suporte para o Eventlog.
 
 Atualmente, os recursos a seguir não têm suporte, mas serão habilitados no futuro:
 
@@ -262,7 +297,7 @@ Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](h
 
 ### <a name="tables"></a>Tabelas
 
-Não há suporte para os itens a seguir:
+Não há suporte para o seguinte:
 
 - `FILESTREAM`
 - `FILETABLE`
@@ -275,14 +310,14 @@ Para obter informações sobre a criação e alteração de tabelas, consulte [C
 
 ### <a name="bulk-insert--openrowset"></a>Inserção em massa / openrowset
 
-Uma instância gerenciada não pode acessar compartilhamentos de arquivo e pastas do Windows e, portanto, os arquivos precisam ser importados do Armazenamento de Blobs do Azure:
+Uma Instância Gerenciada não pode acessar compartilhamentos de arquivo e pastas do Windows e, portanto, os arquivos precisam ser importados do Armazenamento de Blobs do Azure:
 
 - `DATASOURCE` é necessário no comando `BULK INSERT` durante a importação de arquivos do armazenamento de blobs do Azure. Consulte [INSERÇÃO EM MASSA](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` é necessário na função `OPENROWSET` quando você ler um conteúdo de um arquivo do armazenamento de blobs do Azure. Consulte [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
-Uma instância gerenciada não pode acessar compartilhamentos de arquivo nem pastas do Windows e, portanto, as seguintes restrições se aplicam:
+Uma Instância Gerenciada não pode acessar compartilhamentos de arquivo nem pastas do Windows e, portanto, as seguintes restrições se aplicam:
 
 - Apenas `CREATE ASSEMBLY FROM BINARY` tem suporte. Consulte [CRIAR ASSEMBLY A PARTIR DE BINÁRIO](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - Não há suporte para `CREATE ASSEMBLY FROM FILE`. Consulte [CRIAR ASSEMBLY A PARTIR DE ARQUIVO](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
@@ -291,7 +326,7 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivo nem pas
 
 ### <a name="dbcc"></a>DBCC
 
-Não há suporte para instruções DBCC não documentadas que estão habilitadas no SQL Server em instâncias gerenciadas.
+Não há suporte para instruções DBCC não documentadas que estão habilitadas no SQL Server em Instâncias Gerenciadas.
 
 - Não há suporte para `Trace Flags`. Consulte [Sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - Não há suporte para `DBCC TRACEOFF`. Consulte [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
@@ -299,7 +334,7 @@ Não há suporte para instruções DBCC não documentadas que estão habilitadas
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-Atualmente, não há suporte para o MSDTC e [Transações Elásticas](sql-database-elastic-transactions-overview.md) em instâncias gerenciadas.
+Atualmente, não há suporte para o MSDTC e [Transações Elásticas](sql-database-elastic-transactions-overview.md) em Instâncias Gerenciadas.
 
 ### <a name="extended-events"></a>Eventos Estendidos
 
@@ -315,10 +350,10 @@ Bibliotecas externas R e Python no banco de dados ainda não têm suporte. Consu
 ### <a name="filestream-and-filetable"></a>FileStream e Filetable
 
 - Não há suporte para dados de fluxo de arquivos.
-- O banco de dados não pode conter grupos de arquivos com dados `FILESTREAM`
-- Não há suporte para `FILETABLE`
-- As tabelas não podem ter tipos `FILESTREAM`
-- As funções a seguir não têm suporte:
+- O banco de dados não pode conter grupos de arquivos com dados `FILESTREAM`.
+- Não há suporte para `FILETABLE`.
+- As tabelas não podem ter tipos `FILESTREAM`.
+- Não há suporte para as seguintes funções:
   - `GetPathLocator()`
   - `GET_FILESTREAM_TRANSACTION_CONTEXT()`
   - `PathName()`
@@ -329,11 +364,11 @@ Para obter mais informações, consulte [FILESTREAM](https://docs.microsoft.com/
 
 ### <a name="full-text-semantic-search"></a>Pesquisa semântica de texto completo
 
-A [Pesquisa semântica](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) não tem suporte.
+Não há suporte para [Pesquisa semântica](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server).
 
 ### <a name="linked-servers"></a>Servidores vinculados
 
-Os servidores vinculados em instâncias gerenciadas dão suporte a um número limitado de destinos:
+Os servidores vinculados em Instâncias Gerenciadas oferecem suporte a um número limitado de destinos:
 
 - Destinos com suporte: SQL Server e Banco de Dados SQL
 - Destinos sem suporte: arquivos, Analysis Services e outros RDBMS.
@@ -351,7 +386,7 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no Arm
 
 ### <a name="replication"></a>Replicação
 
-A replicação está disponível para a versão prévia pública em instâncias gerenciadas. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+A replicação está disponível para a visualização pública em Instâncias Gerenciadas. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>Instrução RESTAURAR
 
@@ -366,9 +401,9 @@ A replicação está disponível para a versão prévia pública em instâncias 
   - `RESTORE REWINDONLY ONLY`
 - Fonte  
   - `FROM URL` (Armazenamento de Blobs do Azure) é a única opção compatível.
-  - `FROM DISK`/`TAPE`/dispositivo de backup não é compatível.
+  - Não há suporte para `FROM DISK`/`TAPE`/dispositivo de backup.
   - Conjuntos de backup não são compatíveis.
-- As opções `WITH` não são compatíveis (nº `DIFFERENTIAL`, `STATS`, etc.)
+- Não há suporte para as opções `WITH` (No `DIFFERENTIAL`, `STATS` etc.)
 - `ASYNC RESTORE` - Restaurar continuará mesmo se houver quedas de conexão do cliente. Se a conexão for interrompida, você pode verificar a exibição `sys.dm_operation_status` do status de uma operação de restauração (bem como para CRIAR e DESCARTAR o banco de dados). Consulte [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
 
 As seguintes opções de banco de dados são definidas/substituídas e não podem ser alteradas posteriormente:  
@@ -397,35 +432,34 @@ Para obter informações sobre instruções de restauração, consulte [instruç
 Não há suporte para agente de serviços entre instâncias:
 
 - `sys.routes` - Pré-requisito: selecione o endereço em sys.routes. O endereço deve ser LOCAL em toda rota. Consulte [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` - não é possível usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [CRIAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE` não é possível `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [ALTERAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
+- `CREATE ROUTE`: não é possível usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [CRIAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: não é possível usar `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [ALTERAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="stored-procedures-functions-triggers"></a>Procedimentos, funções, gatilhos armazenados
 
 - Atualmente, não há suporte para `NATIVE_COMPILATION`.
-- As seguintes opções [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) não têm suporte:
+- Não há suporte para as seguintes opções [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql):
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
-  - `max text repl size`
   - `remote data archive`
   - `remote proc trans`
 - Não há suporte para `sp_execute_external_scripts`. Consulte [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - Não há suporte para `xp_cmdshell`. Consulte [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` não são suportados, incluindo `sp_addextendedproc`  e `sp_dropextendedproc`. Consulte [Procedimentos armazenados estendidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
-- `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` não têm suporte. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+- Não há suporte para `Extended stored procedures`, incluindo `sp_addextendedproc` e `sp_dropextendedproc`. Consulte [Procedimentos armazenados estendidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- Não há suporte para `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db`. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - Não há suporte para `sp_renamedb`. Consulte [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ## <a name="Changes"></a> Alterações de comportamento
 
 As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
-- `SERVERPROPERTY('EngineEdition')` retorna um valor 8. Essa propriedade identifica exclusivamente uma instância gerenciada. Consulte [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` retorna NULL, porque o conceito de instância existente para o SQL Server não se aplica a uma instância gerenciada. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` retorna um valor 8. Essa propriedade identifica exclusivamente uma Instância Gerenciada. Consulte [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retorna NULL, porque o conceito de instância existente para o SQL Server não se aplica a uma Instância Gerenciada. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returna o nome completo 'conectável' do DNS, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - retorna o nome completo 'conectável' do DNS, como `myinstance.domain.database.windows.net`, para propriedades 'name' e 'data_source'. Consulte [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` retorna NULL, porque o conceito de serviço existente para o SQL Server não se aplica a uma instância gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- Há suporte para `SUSER_ID`. Retorna NULL se o logon do AAD não estiver em sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
+- `@@SERVICENAME` retorna NULL, porque o conceito de serviço existente para o SQL Server não se aplica a uma Instância Gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- Há suporte para `SUSER_ID`. Retornará NULL se o logon do Azure AD não estiver em sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - Não há suporte para `SUSER_SID`. Retorna dados incorretos (problema temporário conhecido). Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` e outras funções internas de data/hora sempre retornam a hora no fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
@@ -437,14 +471,14 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos
 
-Cada instância gerenciada tem até 35 TB de armazenamento reservado para o espaço no Disco Premium do Azure, e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma instância gerenciada que não precisa de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna.
+Cada Instância Gerenciada tem até 35 TB de armazenamento reservado para o espaço em Disco Premium do Azure e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma Instância Gerenciada que não precise de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna.
 
-Por exemplo, uma instância gerenciada pode ter um arquivo de 1,2 TB colocado em um disco de 4 TB e 248 arquivos (cada um com 1 GB) colocados em discos separados de 128 GB. Neste exemplo:
+Por exemplo, uma Instância Gerenciada pode ter um arquivo de 1,2 TB de tamanho colocado em um disco de 4 TB e 248 arquivos a cada 1 GB de tamanho colocados em discos separados de 128 GB. Neste exemplo:
 
 - O tamanho do armazenamento em disco total alocado é de 1 x 4 TB + 248 x 128 GB = 35 TB.
 - O total de espaço reservado para os bancos de dados na instância é de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
 
-Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição específica de arquivos, uma instância gerenciada pode alcançar os 35 TB reservados para o Disco Premium do Azure anexado quando talvez isso não seja esperado.
+Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição específica de arquivos, uma Instância Gerenciada pode alcançar os 35TB reservados para o Disco Premium do Azure onde você não esperaria.
 
 Neste exemplo bancos de dados existentes continuarão a funcionar e pode crescer sem problemas, desde que não sejam adicionados novos arquivos. No entanto os novos bancos de dados não pode ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo se o tamanho total de todos os bancos de dados não alcançar o limite de tamanho de instância. O erro retornado nesse caso não é claro.
 
@@ -455,10 +489,10 @@ Certifique-se de remover `?` à esquerda da chave de SAS gerada usando o portal 
 
 ### <a name="tooling"></a>Ferramentas
 
-O SSMS (SQL Server Management Studio) e o SSDT (SQL Server Data Tools) podem ter alguns problemas ao acessar uma instância gerenciada.
+O SSMS (SQL Server Management Studio) e o SSDT (SQL Server Data Tools) podem ter alguns problemas ao acessar uma Instância Gerenciada.
 
-- Atualmente, não há suporte para usar logons e usuários do Microsoft Azure Active Directory (**visualização pública**) com SSDT.
-- Scripts para os logons do Microsoft Azure Active Directory e usuários (**visualização pública**) não têm suporte no SSMS.
+- Atualmente, não há suporte para o uso de entidade de segurança do servidor do Azure AD (logons) e usuários do Azure AD (**visualização pública**) com SSDT.
+- Não há suporte para scripts para entidades de segurança do servidor do Azure AD (logons) do Microsoft Azure Active Directory e usuários (**visualização pública**) no SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomes de banco de dados incorretos em algumas exibições, logs e mensagens
 
@@ -470,15 +504,15 @@ Só pode haver apenas um perfil do Database Mail e ele deve ser chamado de `Azur
 
 ### <a name="error-logs-are-not-persisted"></a>Os logs de erros não são persistentes
 
-Os logs de erros disponíveis na instância gerenciada não são persistentes e seu tamanho não está incluído no limite de armazenamento máximo. Os logs de erros podem ser apagados automaticamente no caso de failover.
+Os logs de erros disponíveis na Instância Gerenciada não são persistentes e seu tamanho não está incluído no limite de armazenamento máximo. Os logs de erros podem ser apagados automaticamente no caso de failover.
 
 ### <a name="error-logs-are-verbose"></a>Os logs de erro são detalhados
 
-Uma instância gerenciada coloca informações detalhadas em logs de erro e muitas delas não são relevantes. A quantidade de informações nos logs de erro será reduzida no futuro.
+Uma Instância Gerenciada coloca informações detalhadas em logs de erro e muitas delas não são relevantes. A quantidade de informações nos logs de erro será reduzida no futuro.
 
-**Solução alternativa**: Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter detalhes, confira [Instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solução alternativa**: Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para saber mais, consulte [Instância Gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
-### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>O escopo de transação em dois bancos de dados dentro da mesma instância não é compatível
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>O escopo de transação em dois bancos de dados dentro da mesma instância não é compatível
 
 A classe `TransactionScope` no .Net não funciona se duas consultas são enviadas para os dois bancos de dados dentro da mesma instância no mesmo escopo de transação:
 
@@ -509,9 +543,9 @@ Embora esse código funcione com os dados na mesma instância, ele precisou do M
 
 **Solução alternativa**: Usar [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para usar outro banco de dados no contexto de conexão em vez de usar duas conexões.
 
-### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Os módulos CLR e os servidores vinculados às vezes não podem fazer referência ao endereço IP local
+### <a name="clr-modules-and-linked-servers-sometime-cant-reference-local-ip-address"></a>Os módulos CLR e os servidores vinculados às vezes não podem fazer referência ao endereço IP local
 
-Os módulos CLR colocados em uma instância gerenciada e em servidores vinculados/consultas distribuídas que referenciam a instância atual às vezes não podem resolver o IP da instância local. Esse é um problema temporário.
+Os módulos CLR colocados em uma Instância Gerenciada e em servidores vinculados/consultas distribuídas que referenciam a instância atual às vezes não podem resolver o IP da instância local. Esse é um problema temporário.
 
 **Solução alternativa**: Usar conexões de contexto no módulo CLR, se possível.
 
@@ -523,6 +557,6 @@ Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais detalhes sobre as instâncias gerenciadas, confira [O que é uma instância gerenciada?](sql-database-managed-instance.md)
+- Para saber mais sobre Instâncias Gerenciadas, consulte [O que é uma Instância Gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
-- Para obter um Início Rápido que mostra como criar uma instância gerenciada, confira [Criando uma instância gerenciada](sql-database-managed-instance-get-started.md).
+- Para obter um início rápido mostrando como criar uma nova Instância Gerenciada, confira [Criando uma Instância Gerenciada](sql-database-managed-instance-get-started.md).

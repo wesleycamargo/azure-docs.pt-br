@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996998"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456071"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio
 Este tópico explica como visualizar e interpretar os resultados de previsão no Azure Machine Learning Studio. Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
 
 
-Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning:
+Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning Studio:
 
 * classificação
 * Clustering
@@ -35,11 +35,11 @@ Os módulos usados para previsão sobre esses modelos são:
 * Módulo [Atribuir aos Clusters][assign-to-clusters] para clustering
 * [Recomendação da Caixa da Pontuação][score-matchbox-recommender] para sistemas de recomendação
 
-Este documento explica como interpretar os resultados de previsão para cada um desses módulos. Para obter uma visão geral desses modelos, consulte [Como escolher parâmetros para otimizar seus algoritmos no Azure Machine Learning](algorithm-parameters-optimize.md).
+Este documento explica como interpretar os resultados de previsão para cada um desses módulos. Para obter uma visão geral desses modelos, confira [Como escolher parâmetros para otimizar seus algoritmos no Azure Machine Learning Studio](algorithm-parameters-optimize.md).
 
-Este tópico aborda a interpretação de previsão, mas não a avaliação do modelo. Para saber mais sobre como avaliar seu modelo, confira [Como avaliar o desempenho do modelo no Azure Machine Learning](evaluate-model-performance.md).
+Este tópico aborda a interpretação de previsão, mas não a avaliação do modelo. Para saber mais sobre como avaliar seu modelo, confira [Como avaliar o desempenho do modelo no Azure Machine Learning Studio](evaluate-model-performance.md).
 
-Se você for um novo usuário do Azure Machine Learning e precisar de ajuda para criar um teste simples para começar, consulte [Criar um experimento simples no Azure Machine Learning Studio](create-experiment.md) no Azure Machine Learning Studio.
+Se você for um novo usuário do Azure Machine Learning Studio e precisar de ajuda para criar um teste simples para começar, consulte no Azure Machine Learning Studio[Criar um experimento simples no Azure Machine Learning Studio](create-experiment.md).
 
 ## <a name="classification"></a>classificação
 Há duas subcategorias de problemas de classificação:
@@ -47,12 +47,12 @@ Há duas subcategorias de problemas de classificação:
 * Problemas com apenas duas classes (classificação de duas classes ou binária)
 * Problemas com mais de duas classes (classificação multiclasse)
 
-O Azure Machine Learning tem módulos diferentes para lidar com cada um desses tipos de classificação, mas os métodos para interpretar os resultados de previsão são semelhantes.
+O Azure Machine Learning Studio tem módulos diferentes para lidar com cada um desses tipos de classificação, mas os métodos para interpretar os resultados de previsão são semelhantes.
 
 ### <a name="two-class-classification"></a>Classificação de duas classes
 **Teste de exemplo**
 
-Um exemplo de problema de classificação de duas classes é a classificação de flores íris. A tarefa é classificar as flores íris com base em suas características. O conjunto de dados Íris fornecido no Azure Machine Learning é um subconjunto do popular [conjunto de dados Íris](http://en.wikipedia.org/wiki/Iris_flower_data_set), que contém exemplos de apenas duas espécies de flores (classes 0 e 1). Há quatro características para cada flor (comprimento da sépala, largura da sépala, comprimento da pétala e largura da pétala).
+Um exemplo de problema de classificação de duas classes é a classificação de flores íris. A tarefa é classificar as flores íris com base em suas características. O conjunto de dados Íris fornecido no Azure Machine Learning Studio é um subconjunto do popular [conjunto de dados Íris](http://en.wikipedia.org/wiki/Iris_flower_data_set) que contém exemplos de apenas duas espécies de flores (classes 0 e 1). Há quatro características para cada flor (comprimento da sépala, largura da sépala, comprimento da pétala e largura da pétala).
 
 ![Captura de tela do experimento íris](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Para sistemas de recomendação, você pode usar o problema de recomendação de
 * Dados de recursos do cliente
 * Dados de recurso de restaurante
 
-Há várias coisas que podemos fazer com o módulo integrado [Recomendação de caixa de treino][train-matchbox-recommender] do Azure Machine Learning:
+Há várias coisas que podemos fazer com o módulo [Recomendação de caixa de treino][train-matchbox-recommender] do Azure Machine Learning Studio:
 
 * Prever as classificações de um determinado usuário e item
 * Itens recomendados a um determinado usuário
@@ -237,7 +237,7 @@ Você pode escolher o quer fazer selecionando dentre as quatro opções no menu 
 
 ![Recomendação do Matchbox](./media/interpret-model-results/19_1.png)
 
-Um teste típico do Azure Machine Learning para o sistema de recomendação é semelhante à Figura 20. Para obter informações sobre como usar esses módulos de sistema de recomendações, confira [Recomendação da caixa de treino][train-matchbox-recommender] e [Recomendação da caixa de pontuação][score-matchbox-recommender].
+Um teste típico do Azure Machine Learning Studio para o sistema de recomendação é semelhante à Figura 20. Para obter informações sobre como usar esses módulos de sistema de recomendações, confira [Recomendação da caixa de treino][train-matchbox-recommender] e [Recomendação da caixa de pontuação][score-matchbox-recommender].
 
 ![Teste do sistema de recomendação](./media/interpret-model-results/20.png)
 

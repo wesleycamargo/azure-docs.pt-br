@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820777"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446742"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o Serviço de Aplicativo do Azure
 
-Este tutorial mostra como proteger seu aplicativo Web criando (comprando) um Certificado do Serviço de Aplicativo no [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e, em seguida, associando-o a um aplicativo do Serviço de Aplicativo.
+Este tutorial mostra como proteger seu [aplicativo do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/) ou [aplicativo de função](https://docs.microsoft.com/azure/azure-functions/) criando (comprando) um certificado do Serviço de Aplicativo no [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e vinculando-o a um aplicativo do Serviço de Aplicativo.
 
 > [!TIP]
 > Certificados do Serviço de Aplicativo podem ser usados para qualquer Serviço Azure ou não Azure e não se limitam aos Serviços de Aplicativos. Para fazer isso, você precisa criar uma cópia local do PFX de um Certificado do Serviço de Aplicativo para que possa usá-lo em qualquer lugar. Para obter mais informações, leia [Como criar uma cópia local do PFX de um Certificado do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -35,7 +35,7 @@ Este tutorial mostra como proteger seu aplicativo Web criando (comprando) um Cer
 Para seguir este guia de instruções, é necessário ter:
 
 - [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/)
-- [Mapear um nome de domínio para seu aplicativo Web](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-lo no Azure](manage-custom-dns-buy-domain.md)
+- [Mapear um nome de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-lo no Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 

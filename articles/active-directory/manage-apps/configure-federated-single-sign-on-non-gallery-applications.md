@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178202"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313119"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
 
@@ -29,13 +29,13 @@ Para configurar o logon único para um aplicativo que não seja de galeria *sem 
 ## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
 Abaixo está uma visão geral de alto nível das etapas necessárias para configurar logon único federado com SAML 2.0 para um aplicativo não de galeria (por exemplo, personalizado).
 
--   [Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)](#_Configuring_single_sign-on)
+-   Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 
 -   [Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Recuperar certificado e metadados Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#_Configuring_single_sign-on)
+-   Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)
 
 -   Atribuir usuários ao aplicativo
 

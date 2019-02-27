@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261495"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268865"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -40,7 +40,7 @@ Para monitorar alertas ou exibir dados de gerenciamento sobre um cofre dos Servi
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Na lista de cofres, clique em um cofre para abrir seu painel de **Visão geral**. 
+4. Na lista de cofres, clique em um cofre para abrir seu painel de **Visão geral**.
 
     ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Para acessar o menu Alertas de Backup, no menu Cofre dos Serviços de Recuperaç
 
 ![Alertas de Backup](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-O relatório de Alertas de Backup lista os alertas para o cofre. 
+O relatório de Alertas de Backup lista os alertas para o cofre.
 
 ![Alertas de Backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Por padrão, todos os detalhes, exceto **Última hora da ocorrência**, são exi
 
 ### <a name="change-the-filter-in-alerts-report"></a>Alterar o filtro no relatório de alertas
 
-Use o menu **Filtro** para alterar a Severidade, Status, Hora de início e Hora de término dos alertas. 
+Use o menu **Filtro** para alterar a Severidade, Status, Hora de início e Hora de término dos alertas.
 
 > [!NOTE]
 > Editar o filtro de Alertas de Backup não altera os alertas Críticos ou de Aviso no painel de Visão geral do cofre.
@@ -184,7 +184,7 @@ Para ver detalhes adicionais sobre os trabalhos, clique em **Em andamento** ou *
 
 O menu **Trabalhos de Backup** exibe informações sobre o Tipo de item, Operação, Status, Hora de início e Duração.  
 
-Para abrir o menu Trabalhos de Backup, no menu principal do cofre, clique em **Trabalhos de Backup**. 
+Para abrir o menu Trabalhos de Backup, no menu principal do cofre, clique em **Trabalhos de Backup**.
 
 ![Itens de backup das configurações](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-**P1. Quanto tempo leva para o status de trabalho do agente de backup do Azure refletir no portal?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para refletir no portal o status de trabalho do agente de backup do Azure?
+O portal do Azure pode levar até 15 minutos para refletir o status de trabalho do agente de backup do Azure.
 
-R1. O portal do Azure pode levar até 15 minutos para refletir o status de trabalho do agente de backup do Azure.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo demora para gerar um alerta?
+Um alerta é gerado em 20 minutos após a falha de backup do Azure.
 
-**P2. Quando um trabalho de backup falha, quanto tempo demora para gerar um alerta?**
-
-R2. Um alerta é gerado em 20 minutos após a falha de backup do Azure.
-
-**P3. Há um caso em que um email não será enviado se as notificações forem configuradas?**
-
-R3. Sim. Nas situações a seguir, notificações por email não serão enviadas.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
+Sim. Nas situações a seguir, notificações por email não serão enviadas.
 
 * Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
 * Quando um trabalho é cancelado

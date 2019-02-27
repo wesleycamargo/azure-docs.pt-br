@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115429"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326749"
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral de segurança do Armazenamento do Azure
 
@@ -79,7 +79,7 @@ Para muitas organizações, a [criptografia de dados em repouso](https://cloudbl
 
 Saiba mais sobre a Criptografia do Serviço de Armazenamento:
 
-* A [Criptografia do Serviço de Armazenamento do Azure](https://azure.microsoft.com/services/storage/) está disponível para [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Para obter detalhes sobre outros tipos de armazenamento do Azure, consulte [Arquivos do Azure](https://azure.microsoft.com/services/storage/files/), [Disco (Armazenamento Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [Armazenamento de tabelas](https://azure.microsoft.com/services/storage/tables/) e [Armazenamento de filas](https://azure.microsoft.com/services/storage/queues/).
+* A [Criptografia do Serviço de Armazenamento do Azure](https://azure.microsoft.com/services/storage/) está disponível para [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Para saber mais sobre outros tipos de armazenamento do Azure, consulte [Arquivos do Azure](https://azure.microsoft.com/services/storage/files/), [Armazenamento de tabelas](https://azure.microsoft.com/services/storage/tables/) e [Armazenamento de filas](https://azure.microsoft.com/services/storage/queues/).
 * [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption

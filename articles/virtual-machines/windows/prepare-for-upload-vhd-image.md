@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338695"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329772"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 Antes de carregar uma VM (máquina virtual) Windows do local para o Microsoft Azure, você deve preparar o VHD (disco rígido virtual) ou VHDX. O Azure oferece suporte a **somente VMs de geração 1** que estão no formato de arquivo VHD e possuem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1.023 GB. Você pode converter uma VM de geração 1 do sistema de arquivos VHD para VHDX e de um disco de expansão dinâmica para um disco de tamanho fixo. No entanto, não é possível alterar a geração de uma VM. Para obter mais informações, consulte [Devo criar uma VM de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -406,6 +406,10 @@ Nem toda função ou aplicativo que é instalado em um computador baseado no Win
 5. Clique em **OK**.
 6. Após a conclusão do Sysprep, desligue a VM. Não use **Reiniciar** para desligar a VM.
 7. Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar uma VM com base em um disco generalizado, consulte [Carregar um VHD generalizado e usá-lo para criar uma nova VM no Azure](sa-upload-generalized.md).
+
+
+>[!NOTE]
+> Não há suporte para um unattend.xml personalizado. Embora exista suporte à propriedade additionalUnattendContent, isso oferece apenas suporte limitado para adicionar opções do [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) ao unattend.xml que o agente de provisionamento do Azure usa. Por exemplo  é possível usar [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Consulte também o [exemplo additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-recommended-configurations"></a>Conclua as configurações recomendadas

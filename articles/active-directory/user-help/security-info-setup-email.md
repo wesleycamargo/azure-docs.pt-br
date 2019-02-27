@@ -1,6 +1,6 @@
 ---
-title: Configurar informações de segurança para usar email - Azure Active Directory | Microsoft Docs
-description: Configure suas informações de segurança para confirmar sua identidade usando seu endereço de e-mail comercial ou da escola.
+title: Configurar informações de segurança (versão prévia) para usar seu endereço de email - Azure Active Directory | Microsoft Docs
+description: Como configurar suas informações de segurança para confirmar a identidade usando seu endereço de email.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,72 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18124286d78520e8b89a61c5d12760c9ad784c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197208"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455204"
 ---
-# <a name="set-up-security-info-to-use-email-preview"></a>Configurar informações de segurança para usar o email (visualização)
+# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurar informações de segurança (versão prévia) para usar seu endereço de email
+Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
+
+Depois de configurar o método de redefinição de senha, também deverá configurar o método de verificação de dois fatores usando um [aplicativo autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md) ou uma [chamada telefônica](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-A configuração das informações de segurança exige que você faça login em sua conta do trabalho ou da escola e conclua o processo de registro. Se você nunca tiver configurado suas informações de segurança, você será solicitado a fazê-lo agora.
-
-## <a name="set-up-email"></a>Configurar email
-
-Dependendo das configurações da sua organização, você pode ser solicitado a adicionar um endereço de e-mail às suas informações de segurança ao fazer login. Caso contrário, para começar a configurar o email em informações de segurança, siga as etapas em [Gerenciar suas informações de segurança](security-info-manage-settings.md).
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurar o endereço de email na página Informações de segurança
+Dependendo das configurações de sua organização, você poderá usar seu endereço de email como um dos métodos de informações de segurança.
 
 >[!Note]
->Recomendamos o uso de uma conta de e-mail que não requeira sua senha de rede para acessar.<br>Se você não vir a opção de e-mail, é possível que sua organização não permita que você use um e-mail para verificação. Se esse for o caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
+>Recomendamos o uso de um endereço de email que não exija sua senha de rede para fazer o acesso. Se você não vir a opção de e-mail, é possível que sua organização não permita que você use um e-mail para verificação. Se esse for o caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
 
-### <a name="to-use-your-email-address"></a>Para usar seu endereço de e-mail
+### <a name="to-set-up-your-email-address"></a>Para configurar seu endereço de email
 
-1. Selecione a opção **E-mail** e digite seu endereço de e-mail na caixa. Este endereço de e-mail não pode ser seu e-mail corporativo ou escolar.
+1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
 
-     ![Página de informações de segurança, com caixa de entrada de e-mail](media/security-info/security-info-keep-secure-setup-email.png)
+    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile.png)
 
-2. Verifique se há um e-mail da Microsoft para sua organização, digite o código de verificação incluído na caixa **Verificar seu e-mail** e selecione **Concluído**.
+2. Escolha **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Em seguida, escolha **Adicionar método** na página **Informações de segurança**.
 
-     ![Página de informações de segurança, com caixa de entrada de código de verificação de e-mail](media/security-info/security-info-verify-email.png)
+    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    >[!Note]
-    >Se você não vir um e-mail da Microsoft em nome da sua organização, certifique-se de ter digitado seu endereço de e-mail corretamente e, em seguida, verifique as pastas Lixo Eletrônico ou Spam.
+3. Na página **Adicionar método**, escolha **Email** na lista suspensa e escolha **Adicionar**.
 
-3. Na página **Manter sua conta segura**, selecione **Concluído**.
+    ![Caixa Adicionar método, com o email selecionado](media/security-info/securityinfo-myprofile-addemail.png)
 
-    As informações de segurança são atualizadas para usar o endereço de email e verificar a identidade ao usar a redefinição de senha.
+4. Na página **Email**, digite seu endereço de email (por exemplo, alain@gmail.com) e escolha **Avançar**.
 
-## <a name="additional-security-info-options"></a>Opções de informações de segurança adicionais
+    ![Adicionar número de telefone e escolher chamadas telefônicas](media/security-info/securityinfo-myprofile-emailaddress.png)
 
-Você tem opções para como contatos de sua organização a verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
+    >[!Important]
+    >Este endereço de e-mail não pode ser seu e-mail corporativo ou escolar.
+
+5. Digite o código enviado para o endereço de email especificado e escolha **Avançar**.
+
+    ![Adicionar número de telefone e escolher mensagens de texto](media/security-info/securityinfo-myprofile-emailcode.png)
+
+    As informações de segurança são atualizadas e você pode usar seu endereço de email para verificar a identidade ao usar a redefinição de senha.
+
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Excluir o endereço de email de seus métodos de informações de segurança
+Se você não quer mais usar seu endereço de email como um método de informações de segurança, poderá excluí-lo na página **Informações de segurança**.
+
+>[!Important]
+>Se você excluir o endereço de email por engano, não será possível desfazer a ação. Você precisará adicionar o método novamente seguindo as etapas na seção [Configurar seu endereço de email](#set-up-your-email-address-from-the-security-info-page) deste artigo.
+
+### <a name="to-delete-your-email-address"></a>Para excluir o endereço de email
+
+1. Na página **Informações de segurança**, escolha o link **Excluir** ao lado da opção **Email**.
+
+    ![Link para excluir o método de telefone das informações de segurança](media/security-info/securityinfo-myprofile-emaildelete.png)
+
+2. Escolha **Sim** na caixa de confirmação para excluir a conta de **Email**. Depois que a conta de email for excluída, ela será removida das informações de segurança e desaparecerá da página **Informações de segurança**.
+
+## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
+Você tem opções adicionais de como sua organização entra em contato com você para confirmar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
 - **Aplicativo autenticador.** Faça o download e use um aplicativo autenticador para receber uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [Configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
 
@@ -65,8 +88,6 @@ Você tem opções para como contatos de sua organização a verificar sua ident
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Se você precisar atualizar suas informações de segurança, siga as instruções no artigo [Gerenciar informações de segurança](security-info-manage-settings.md).
 
 - Redefina sua senha se você a perdeu ou esqueceu, do [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [Redefinir sua senha de trabalho ou escola](user-help-reset-password.md).
 

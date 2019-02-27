@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105824"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428985"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
-Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [ logs de diagnóstico de recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [logs de diagnóstico de recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para os [los do Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
-![Log de diagnósticos para Armazenamento, Hubs de Eventos ou Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Log de diagnósticos para Armazenamento, Hubs de Eventos ou logs do Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>O que é registrado em log?
@@ -82,7 +82,7 @@ A categoria Métricas registra as mesmas [Métricas de servidor](analysis-servic
 
     * **Arquivar em uma conta de armazenamento**. Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gerenciador de Recursos, uma conta de finalidade geral, em seguida, selecione sua conta de armazenamento retornando para esta página no portal. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
     * **Transmitir para um hub de eventos**. Para usar essa opção, é necessário ter um namespace existente do Hub de Eventos e um hub de evento ao qual se conectar. Para saber mais, consulte [Criar um namespace de Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace e o nome da política do Hub de Eventos.
-    * **Enviar para o Log Analytics**. Para usar essa opção, use um workspace existente ou crie um novo workspace do Log Analytics seguindo as etapas para [criar um novo workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como exibir os logs no Log Analytics, consulte [Exibir logs no Log Analytics](#view-logs-in-log-analytics) neste artigo.
+    * **Enviar para o Azure Monitor (workspace do Log Analytics)**. Para usar essa opção, use um workspace existente ou [crie um novo recurso de workspace](../azure-monitor/learn/quick-create-workspace.md) no portal. Para obter mais informações sobre como exibir os logs, confira [Exibir logs no Log Analytics](#view-logs-in-log-analytics) neste artigo.
 
     * **Mecanismo**. Selecione esta opção para registrar xEvents. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Serviço**. Selecione esta opção para registrar eventos de nível de serviço. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
@@ -150,47 +150,43 @@ Os logs estão geralmente disponíveis em algumas horas após a configuração d
 * Exclua os logs que você não deseja manter em sua conta de armazenamento.
 * Certifique-se de definir um período de retenção para que logs antigos sejam excluídos da sua conta de armazenamento.
 
-## <a name="view-logs-in-log-analytics"></a>Exibir logs no Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Exibir logs no workspace do Log Analytics
 
-Os eventos de métricas e de servidor são integrados com o xEvents no Log Analytics para uma análise lado a lado. O Log Analytics também pode ser configurado para receber eventos de outros serviços do Azure, fornecendo uma exibição holística dos dados de log de diagnósticos em sua arquitetura.
+Os eventos de métricas e de servidor são integrados com o xEvents no recurso de workspace do Log Analytics para uma análise lado a lado. O workspace do Log Analytics também pode ser configurado para receber eventos de outros serviços do Azure, fornecendo uma exibição holística dos dados de log de diagnósticos em sua arquitetura.
 
-Para exibir seus dados de diagnóstico no Log Analytics, abra a página de Pesquisa de Logs no menu à esquerda ou na área de Gerenciamento, conforme mostrado abaixo.
+Para exibir seus dados de diagnóstico, no workspace do Log Analytics, abra **Logs** no menu à esquerda.
 
 ![Opções de pesquisa de logs no portal do Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Agora que você habilitou a coleta de dados, em **Pesquisa de Logs**, clique em **Todos os dados coletados**.
+No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O AzureDiagnostics inclui eventos de Mecanismo e Serviço. Veja que uma consulta é imediatamente criada. O campo EventClass\_s contém nomes de xEvents, que podem parecer familiares se você já usou xEvents para registro em log local. Clique em **EventClass\_s** ou em um dos nomes de eventos e o workspace Log Analytics continuará a criar uma consulta. Certifique-se de salvar as consultas para reutilizar posteriormente.
 
-Em **Tipo**, clique em **AzureDiagnostics** e, em seguida, clique em **Aplicar**. O AzureDiagnostics inclui eventos de Mecanismo e Serviço. Veja que uma consulta do Log Analytics é imediatamente criada. O campo EventClass\_s contém nomes de xEvents, que podem parecer familiares se você já usou xEvents para registro em log local.
+### <a name="example-query"></a>Consulta de exemplo
+Esta consulta calcula e retorna a CPU para cada evento de fim de consulta/fim de atualização para um modelo de banco de dados modelo e de servidor:
 
-Clique em **EventClass\_s** ou em um dos nomes de eventos e o Log Analytics continuará a criar uma consulta. Certifique-se de salvar as consultas para reutilizar posteriormente.
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
 
-Assegure-se de consultar o Log Analytics, que fornece um site com recursos aprimorados de consulta, painel e alertas sobre os dados coletados.
-
-### <a name="queries"></a>Consultas
-
-Há centenas de consultas que você pode usar. Veja algumas para começar.
-Para saber mais sobre como usar a nova linguagem de consulta da Pesquisa de Logs, consulte [Entender as pesquisas de log no Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
-
-* Consulta que retorna as consultas enviadas ao Azure Analysis Services que demoraram mais de cinco minutos (300.000 milissegundos) para serem concluídas.
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* Identificar réplicas de expansão.
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    Ao expandir, você pode identificar réplicas somente leitura porque os valores de campo ServerName\_s têm o número da instância de réplica anexado ao nome. O campo de recurso contém o nome de recurso do Azure, que corresponde ao nome do servidor que os usuários veem. O campo IsQueryScaleoutReadonlyInstance_s é igual a true para réplicas.
+```
 
 
-
-> [!TIP]
-> Você tem uma ótima consulta do Log Analytics e deseja compartilhar? Se você tem uma conta do GitHub, pode adicioná-la a este artigo. Basta clicar em **Editar** na parte superior direita desta página.
+Há centenas de consultas que você pode usar. Para saber mais sobre as consultas, confira [Introdução às consultas de log do Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Tutorial – ativar o registro em log usando o PowerShell
+## <a name="turn-on-logging-by-using-powershell"></a>Ativar o registro em log usando o PowerShell
+
 Neste tutorial rápido, você cria uma conta de armazenamento na mesma assinatura e mesmo grupo de recursos que o servidor do Analysis Services. Então, você usa Set-AzureRmDiagnosticSetting para ativar o log de diagnósticos, enviando a saída para a nova conta de armazenamento.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -253,7 +249,7 @@ Para habilitar o registro em log, use o cmdlet Set-AzureRmDiagnosticSetting junt
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-A saída deve ser semelhante a esta:
+A saída deve ser semelhante ao exemplo a seguir:
 
 ```powershell
 StorageAccountId            : 
@@ -292,7 +288,7 @@ Location                    :
 Tags                        :
 ```
 
-Isso confirma que o registro em log agora está habilitado para o servidor, salvando as informações na conta de armazenamento.
+Essa saída confirma que o registro em log agora está habilitado para o servidor, salvando as informações na conta de armazenamento.
 
 Você também pode definir a política de retenção para os logs, para que logs mais antigos sejam excluídos automaticamente. Por exemplo, defina a política de retenção usando o sinalizador **-RetentionEnabled** como **$true** e defina o parâmetro **-RetentionInDays** como **90**. Os logs com mais de 90 dias serão automaticamente excluídos.
 

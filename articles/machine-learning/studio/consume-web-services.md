@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998069"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452688"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Como consumir um serviço da Web do Azure Machine Learning Studio
 
-Depois de implantar um modelo de previsão de Machine Learning do Azure como um serviço Web, você pode usar uma API REST para enviar dados e obter previsões. Você pode enviar os dados em tempo real ou em modo de lote.
+Depois de implantar um modelo de previsão do Azure Machine Learning Studio como um serviço Web, você pode usar uma API REST para enviar dados e obter previsões. Você pode enviar os dados em tempo real ou em modo de lote.
 
 Você pode encontrar mais informações sobre como criar e implantar um serviço Web de Machine Learning usando o Machine Learning Studio aqui:
 
@@ -32,14 +32,14 @@ Você pode encontrar mais informações sobre como criar e implantar um serviço
 ## <a name="overview"></a>Visão geral
 Com o serviço Web do Azure Machine Learning, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho do Machine Learning em tempo real. Uma chamada do serviço Web do Machine Learning retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web do Machine Learning, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web do Machine Learning baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
-O Azure Machine Learning tem dois tipos de serviços:
+O Azure Machine Learning Studio tem dois tipos de serviços:
 
 * Serviço de Solicitação-Resposta (RRS) – Um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem monitoração de estado criados e implantados no Machine Learning Studio.
 * Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
 
 Para obter mais informações sobre os serviços Web do Machine Learning, confira [Implantar um serviço Web do Machine Learning](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>Obtenha uma chave de autorização de Azure Machine Learning
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Obter uma chave de autorização para o Azure Machine Learning Studio
 Quando você implanta seu experimento, as chaves de API são geradas para o serviço Web. Você pode recuperar as chaves de vários locais.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Por meio do portal de serviços Web do Microsoft Azure Machine Learning
@@ -103,7 +103,7 @@ Para se conectar a um serviço Web do Machine Learning, o pacote Nuget **Microso
 **Para executar o exemplo de código**
 
 1. Publique o experimento "Exemplo 1: Baixar o conjunto de dados do UCI: Conjunto de dados de classe adulto 2", parte da coleção de exemplos do Machine Learning.
-2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Azure Machine Learning** .
+2. Atribua apiKey com a chave de um serviço Web. Confira a seção **Obter uma chave de autorização para o Azure Machine Learning Studio** acima.
 3. Atribua serviceUri com o URI de solicitação.
 
 **Esta é a aparência de uma solicitação concluída.**
@@ -199,7 +199,7 @@ Para conectar-se a um serviço Web de Machine Learning, use a biblioteca **urlli
 **Para executar o exemplo de código**
 
 1. Implante o experimento "Exemplo 1: Baixar o conjunto de dados do UCI: Conjunto de dados de classe adulto 2", parte da coleção de exemplos do Machine Learning.
-2. Atribua apiKey com a chave de um serviço Web. Consulte a seção **Obter uma chave de autorização do Azure Machine Learning** perto do início deste artigo.
+2. Atribua apiKey com a chave de um serviço Web. Confira a seção **Obter uma chave de autorização do Azure Machine Learning Studio** no início deste artigo.
 3. Atribua serviceUri com o URI de solicitação.
 
 **Esta é a aparência de uma solicitação concluída.**

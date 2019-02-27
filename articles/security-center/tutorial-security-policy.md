@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114953"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343503"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
-Este artigo explica como as políticas de segurança são configuradas e como exibi-las na Central de Segurança. A Central de Segurança do Azure atribui automaticamente suas [políticas de segurança internas](security-center-policy-definitions.md) a cada assinatura que é incorporada. Você pode configurá-los em [Azure Policy](../azure-policy/azure-policy-introduction.md), que também permite definir políticas em grupos de gerenciamento e em várias assinaturas.
+Este artigo explica como as políticas de segurança são configuradas e como exibi-las na Central de Segurança. A Central de Segurança do Azure atribui automaticamente suas [políticas de segurança internas](security-center-policy-definitions.md) a cada assinatura que é incorporada. Você pode configurá-los em [Azure Policy](../governance/policy/overview.md), que também permite definir políticas em grupos de gerenciamento e em várias assinaturas.
 
-Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Início rápido: crie uma atribuição de política para identificar recursos sem conformidade usando o módulo do PowerShell no RM do Azure](../azure-policy/assign-policy-definition-ps.md).
+Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Início rápido: crie uma atribuição de política para identificar recursos sem conformidade usando o módulo do PowerShell do Azure](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > A Central de Segurança iniciou sua integração com o Azure Policy. Os clientes existentes serão migrados automaticamente para a nova iniciativa interna no Azure Policy, ao invés das políticas de segurança anteriores na Central de Segurança. Essa alteração não afetará seus recursos ou o ambiente, exceto a presença da nova iniciativa no Azure Policy.
 
 ## <a name="what-are-security-policies"></a>Quais são políticas de segurança?
-Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. No Azure Policy, você pode definir políticas para suas assinaturas do Azure e adaptá-las ao seu tipo de carga de trabalho ou à sensibilidade de seus dados. Por exemplo, os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem exigir um nível mais alto de segurança do que outras cargas de trabalho. Para definir uma política em assinaturas ou em Grupos de gerenciamento, faça-o no [Azure Policy](../azure-policy/azure-policy-introduction.md).
+Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. No Azure Policy, você pode definir políticas para suas assinaturas do Azure e adaptá-las ao seu tipo de carga de trabalho ou à sensibilidade de seus dados. Por exemplo, os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem exigir um nível mais alto de segurança do que outras cargas de trabalho. Para definir uma política em assinaturas ou em Grupos de gerenciamento, faça-o no [Azure Policy](../governance/policy/overview.md).
 
 Suas políticas de segurança direcionam as recomendações de segurança que você recebe na Central de Segurança do Azure. Você pode monitorar a conformidade com eles para ajudá-lo a identificar possíveis vulnerabilidades e atenuar ameaças. Para obter mais informações sobre como determinar a opção apropriada para você, consulte a lista de [políticas de segurança internas](security-center-policy-definitions.md).
 
@@ -52,7 +52,7 @@ A Central de Segurança cria automaticamente uma política de segurança padrão
 - Atribuir as políticas entre grupos de gerenciamento e assinaturas, que podem representar uma organização inteira ou uma unidade de negócios dentro da organização.
 - Monitorar a conformidade da política.
 
-Para obter mais informações sobre o Azure Policy, confira [Criar e gerenciar políticas para impor a conformidade](../azure-policy/create-manage-policy.md).
+Para obter mais informações sobre o Azure Policy, confira [Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md).
 
 Uma política do Azure consiste nos seguintes componentes:
 
@@ -236,4 +236,4 @@ Neste artigo, você aprendeu a editar políticas de segurança no Azure Policy. 
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): Obtenha respostas para perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Encontre postagens no blog sobre a conformidade e segurança do Azure.
 
-Para saber mais sobre o Azure Policy, confira [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
+Para saber mais sobre o Azure Policy, confira [O que é o Azure Policy?](../governance/policy/overview.md)

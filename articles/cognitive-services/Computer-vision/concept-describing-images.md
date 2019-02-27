@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864274"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312184"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descrever imagens com linguagem legível por humanos
 
-Algoritmos do pesquisa Visual computacional analisam o conteúdo em uma imagem. Essa análise constitui a base para a 'description' exibida como um idioma legível por humanos em sentenças completas. A descrição resume o que é encontrado na imagem. Os algoritmos da Computer Vision geram várias descrições baseadas nos recursos visuais identificados na imagem. Cada descrição é avaliada e uma pontuação de confiança é gerada. Uma lista é então retornada, ordenada pela pontuação de confiança mais alta à mais baixa.
+A Pesquisa Visual Computacional pode analisar uma imagem e gerar uma sentença legível por humanos que descreve seu conteúdo. De fato, o algoritmo retorna várias descrições com base em recursos visuais diferentes, e cada descrição recebe uma pontuação de confiança. A saída final é uma lista de descrições ordenadas do maior para o menor nível de confiança.
 
 ## <a name="image-description-example"></a>Exemplo de descrição de imagem
 

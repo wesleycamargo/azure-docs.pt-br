@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820956"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302056"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho
 
@@ -721,6 +721,9 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 
 ### <a name="log-tail-pattern"></a>Padrão de rastro do log
 Recupere as *n* entidades adicionadas recentemente em uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
+
+> [!NOTE]
+> Resultados de consulta retornados pela API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Portanto, esse padrão é adequado para o Armazenamento de Tabelas do Azure e não para o Azure Cosmos DB. Para obter uma lista detalhada das diferenças entre os recursos, consulte [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um requisito comum é conseguir recuperar as entidades criadas mais recentemente, por exemplo, as dez solicitações de despesas mais recentes enviadas por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  

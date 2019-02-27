@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686255"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308716"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -29,12 +29,12 @@ Para a exceção mais básica e o tratamento de erros, você pode usar uma *pol�
 
 Aqui estão os tipos de política de repetição: 
 
-| Tipo | DESCRIÇÃO | 
+| Type | DESCRIÇÃO | 
 |------|-------------| 
-| [**Padrão**](#default-retry) | Essa política envia até quatro repetições em [*cresce exponencialmente*](#exponential-retry) intervalos, que dimensionar por 7,5 segundos, mas são limitados entre 5 e 45 segundos. | 
-| [**Intervalo exponencial**](#exponential-retry)  | Essa política aguarda um intervalo aleatório selecionado de um intervalo em crescimento exponencial antes de enviar a próxima solicitação. | 
-| [**Intervalo fixo**](#fixed-retry)  | Essa política aguarda o intervalo especificado antes de enviar a próxima solicitação. | 
-| [**None**](#no-retry)  | Não reenvie o pedido. | 
+| **Padrão** | Essa política envia até quatro novas tentativas em intervalos *exponencialmente crescentes*, que são dimensionados em 7,5 segundos, mas são limitados entre 5 e 45 segundos. | 
+| **Intervalo exponencial**  | Essa política aguarda um intervalo aleatório selecionado de um intervalo em crescimento exponencial antes de enviar a próxima solicitação. | 
+| **Intervalo fixo**  | Essa política aguarda o intervalo especificado antes de enviar a próxima solicitação. | 
+| **Nenhum**  | Não reenvie o pedido. | 
 ||| 
 
 Para obter informações sobre novos limites de política, consulte [Limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,7 +71,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Obrigatório*
 
-| Valor | Tipo | DESCRIÇÃO |
+| Valor | Type | DESCRIÇÃO |
 |-------|------|-------------|
 | <*tipo de política de repetição*> | Cadeia de caracteres | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`, ou `exponential` | 
 | <*intervalo de repetição*> | Cadeia de caracteres | O intervalo de repetição em que o valor deve usar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo de padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimos e máximos diferentes. | 
@@ -80,7 +80,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Opcional*
 
-| Valor | Tipo | DESCRIÇÃO |
+| Valor | Type | DESCRIÇÃO |
 |-------|------|-------------|
 | <*intervalo mínimo*> | Cadeia de caracteres | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*intervalo máximo*> | Cadeia de caracteres | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

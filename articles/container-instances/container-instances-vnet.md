@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077464"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313476"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -35,6 +35,7 @@ Algumas limitações se aplicam ao implantar grupos de contêineres em uma rede 
 
 * Para implantar grupos de contêineres em uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remova todos os recursos existentes de uma sub-rede existente antes de implantar grupos de contêineres nela ou crie uma nova sub-rede.
 * No momento, os grupos de contêineres implantados em uma rede virtual não dão suporte a endereços IP públicos ou rótulos de nome DNS.
+* Não é possível usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantados em uma rede virtual.
 * Devido aos recursos de rede adicionais envolvidos, a implantação de um grupo de contêineres em uma rede virtual normalmente é um pouco mais lenta do que a implantação de uma instância de contêiner padrão.
 
 ## <a name="preview-limitations"></a>Limitações de visualização

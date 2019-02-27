@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 776057a177904d086974258b5221ab474f4b1bcb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030095"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416999"
 ---
 # <a name="operations-model-and-responsibilities"></a>Responsabilidades e modelo de operações
 
@@ -37,7 +37,7 @@ A lista a seguir fornece mais detalhes sobre cada uma das camadas e suas respons
 
 **Armazenamento**: o armazenamento particionado virtualizado para todos os volumes necessários aos servidores do SAP HANA, bem como para os instantâneos. 
 
-**Servidores:** os servidores físicos dedicados para executar os bancos de dados do SAP HANA atribuídos aos locatários. Os servidores de SKUs de classe do Tipo I são abstraídos do hardware. Com esses tipos de servidores, a configuração do servidor é coletada e mantida em perfis, que podem ser movidos de um hardware físico para outro hardware físico. Uma movimentação desse tipo (manual) de um perfil por operações pode ser comparada um pouco à recuperação de serviço do Azure. Os servidores das SKUs da classe do Tipo II não oferecem essa capacidade.
+**Servidores**: os servidores físicos dedicados para executar os bancos de dados do SAP HANA atribuídos aos locatários. Os servidores de SKUs de classe do Tipo I são abstraídos do hardware. Com esses tipos de servidores, a configuração do servidor é coletada e mantida em perfis, que podem ser movidos de um hardware físico para outro hardware físico. Uma movimentação desse tipo (manual) de um perfil por operações pode ser comparada um pouco à recuperação de serviço do Azure. Os servidores das SKUs da classe do Tipo II não oferecem essa capacidade.
 
 **SDDC**: o software de gerenciamento usado para gerenciar data centers como entidades definidas por software. Ele permite que a Microsoft reserve recursos em pool por motivos de desempenho, disponibilidade e escala.
 
@@ -56,17 +56,17 @@ Sua responsabilidade também inclui monitoramento e planejamento da capacidade d
 
 A infraestrutura subjacente do HANA em Instâncias Grandes fornece a funcionalidade de backup e restauração do volume do sistema operacional. Usar essa funcionalidade também é sua responsabilidade.
 
-**Middleware:** instância do SAP HANA, principalmente. Administração, operações e monitoramento são de sua responsabilidade. Você pode usar a funcionalidade fornecida para usar instantâneos de armazenamento para fins de backup, restauração e recuperação de desastre. Essas funcionalidades são fornecidas pela infraestrutura. Suas responsabilidades também incluem o projeto de alta disponibilidade ou recuperação de desastre com essas funcionalidade, aproveitando-as e monitorando para determinar se os instantâneos de armazenamento foram executados com êxito.
+**Middleware**: instância do SAP HANA, principalmente. Administração, operações e monitoramento são de sua responsabilidade. Você pode usar a funcionalidade fornecida para usar instantâneos de armazenamento para fins de backup, restauração e recuperação de desastre. Essas funcionalidades são fornecidas pela infraestrutura. Suas responsabilidades também incluem o projeto de alta disponibilidade ou recuperação de desastre com essas funcionalidade, aproveitando-as e monitorando para determinar se os instantâneos de armazenamento foram executados com êxito.
 
-**Dados:** seus dados gerenciados pelo SAP HANA e outros dados, como arquivos de backups localizados em volumes ou compartilhamentos de arquivos. Suas responsabilidades incluem monitorar o espaço livre em disco e gerenciar o conteúdo nos volumes. Você também é responsável por monitorar a execução com êxito de backups de volumes de disco e instantâneos de armazenamento. A execução com êxito da replicação de dados em sites de recuperação de desastre é de responsabilidade da Microsoft.
+**Data**: seus dados gerenciados pelo SAP HANA e outros dados, como arquivos de backups localizados em volumes ou compartilhamentos de arquivos. Suas responsabilidades incluem monitorar o espaço livre em disco e gerenciar o conteúdo nos volumes. Você também é responsável por monitorar a execução com êxito de backups de volumes de disco e instantâneos de armazenamento. A execução com êxito da replicação de dados em sites de recuperação de desastre é de responsabilidade da Microsoft.
 
 **Aplicativos:** as instâncias de aplicativos do SAP ou, no caso de aplicativos não SAP, a camada de aplicativos desses aplicativos. Suas responsabilidades incluem implantação, administração, operações e monitoramento desses aplicativos. Você é responsável pelo planejamento da capacidade de consumo de recursos de CPU, consumo de memória, consumo de armazenamento do Azure e consumo de largura de banda de rede dentro de redes virtuais. Além disso, você é responsável pelo planejamento da capacidade para consumo de recursos de redes virtuais para o SAP HANA no Azure (Instâncias Grandes).
 
-**WANs:** as conexões que você estabelece do local para implantações do Azure para cargas de trabalho. Todos os clientes com o SAP HANA em Instâncias Grandes usam o Azure ExpressRoute para conectividade. Essa conexão não faz parte da solução do SAP HANA do Azure (Instâncias Grandes). Você é responsável pela configuração dessa conexão.
+**WANs**: as conexões que você estabelece do local para implantações do Azure para cargas de trabalho. Todos os clientes com o SAP HANA em Instâncias Grandes usam o Azure ExpressRoute para conectividade. Essa conexão não faz parte da solução do SAP HANA do Azure (Instâncias Grandes). Você é responsável pela configuração dessa conexão.
 
 **Arquivar**: talvez você queira arquivar cópias de dados usando seus próprios métodos nas contas de armazenamento. O arquivamento requer gerenciamento, conformidade, custos e operações. Você é responsável por gerar cópias e backups de arquivos no Azure e armazená-los de maneira compatível.
 
-Configurações para o SAP HANA Veja o [SLA para o SAP HANA no Azure (Instâncias Grandes)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+Configurações para o SAP HANA Veja o [SLA para o SAP HANA no Azure (Instâncias Grandes)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 **Próximas etapas**
 - Confira [Arquitetura do SAP HANA (Instâncias Grandes) no Azure](hana-architecture.md)

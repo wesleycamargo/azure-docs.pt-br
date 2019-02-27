@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3daa1c7b3594de227c43d7e722ee9c6cae0902f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301604"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301019"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicativos Web no tempo de execução com o Status Monitor do Application Insights
 
@@ -27,7 +27,7 @@ O Status Monitor é usado para instrumentar um aplicativo .NET hospedado no IIS 
 
 - Se o aplicativo é implantado para os Serviços de Aplicativos do Azure, siga [estas instruções](azure-web-apps.md).
 - Se o aplicativo é implantado em uma VM do Azure, você pode alternar no monitoramento do Application Insights usando o painel de controle do Azure.
-- (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](java-live.md) e os [Serviços de Nuvem do Azure](../../azure-monitor/app/cloudservices.md).)
+- (Também há artigos separados sobre como instrumentar os [aplicativos Web Java EE dinâmicos](java-live.md) e os [Serviços de Nuvem do Azure](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Captura de tela dos gráficos de visão geral do App Insights contendo informações sobre solicitações com falha, tempo de resposta do servidor e solicitações do servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -44,14 +44,14 @@ Aqui está um resumo do que você tem com cada rota:
 
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
-| Solicitações e exceções |SIM |SIM |
-| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |SIM |
+| Solicitações e exceções |Sim |Sim |
+| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |SIM |SIM |
-| [API de telemetria personalizada][api] |SIM |Não  |
-| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |SIM |Não  |
-| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |SIM |Não  |
-| É necessário recompilar o código |SIM | Não  |
+| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
+| [API de telemetria personalizada][api] |Sim |Não  |
+| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não  |
+| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |Sim |Não  |
+| É necessário recompilar o código |Sim | Não  |
 
 
 

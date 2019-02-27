@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300724"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446657"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -26,12 +26,11 @@ Sim. Crie até 500 cofres dos Serviços de Recuperação por região com suporte
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Há limites para o número de servidores/computadores que podem ser registrados em cada cofre?
 Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se estiver usando o agente de Backup do Microsoft Azure, você poderá registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
 
-
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se a minha organização tiver um cofre, como posso isolar dados de servidores diferentes no cofre ao restaurar dados?
 Os dados do servidor que você deseja recuperar juntos devem usar a mesma frase secreta ao configurar o backup. Se você quiser isolar a recuperação para um servidor ou servidores específicos, use uma frase secreta somente para esse servidor ou servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover meu cofre entre assinaturas?
- Não. O cofre é criado em um nível de assinatura e não pode ser transferido para outra assinatura.
+Sim. Para mover um Cofre dos Serviços de Recuperação, consulte este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de backup para outro cofre?
  Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
@@ -40,7 +39,8 @@ Os dados do servidor que você deseja recuperar juntos devem usar a mesma frase 
  Não. Um cofre do Recovery Services só pode alterar as opções de armazenamento antes que os backups sejam armazenados.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
-Não, não há suporte para ILR.
+- O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
+- O ILR não é compatível com pontos de recuperação online de VMs no local com backup feito pelo Servidor de backup do Azure ou pelo System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
@@ -76,10 +76,8 @@ As versões compatíveis do DPM estão resumidas na [matriz de suporte](backup-a
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico? <br/>
 Sim.
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode usar o DPM para fazer backup de aplicativos na pilha do Azure?
  Não. Você pode usar o Backup do Azure para proteger o Azure Stack, o Backup do Azure não oferece suporte ao uso do DPM para fazer backup de aplicativos no Azure Stack.
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se eu instalei o agente do Backup do Azure para proteger meus arquivos e pastas, posso instalar o System Center DPM para fazer backup de cargas de trabalho locais no Azure?
 Sim. Mas você deve configurar o DPM primeiro e depois instalar o agente de Backup do Azure.  Instalar os componentes nesta ordem garante que o agente de Backup do Azure funcione com o DPM. Instalar o agente antes de instalar o DPM não é aconselhável e não há suporte para isso.
@@ -93,7 +91,6 @@ Sim.
 - Você faz backup de VMs do Azure uma vez por dia.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Há suporte para backup de quais sistemas operacionais?
-
 O Backup do Azure dá suporte a esses sistemas operacionais para backup de arquivos e pastas, além de aplicativos protegidos usando o Servidor de Backup do Azure e o DPM.
 
 **SO**| **SKU** |**Detalhes**
@@ -138,29 +135,23 @@ SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um f
 Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup.
 Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup.
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup em um cofre dos Serviços de Recuperação?
 Não há nenhum limite para a quantidade de dados das quais você pode fazer backup usando um cofre dos Serviços de Recuperação.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?
- Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
-
-Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
-
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
-
- Os dados dos quais é feito backup do Azure Backup Agent, DPM e Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Com a compactação e a criptografia aplicadas, os dados no cofre são 30% a 40% menores.
+Os dados dos quais é feito backup do Azure Backup Agent, DPM e Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Com a compactação e a criptografia aplicadas, os dados no cofre são 30% a 40% menores.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Posso excluir arquivos individuais de um ponto de recuperação no cofre?
 Não, o Backup do Microsoft Azure não dá suporte a exclusão ou limpeza de itens individuais de backups armazenados.
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?
-
  Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre.
+
 - O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup.
 - Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos.
 - O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
+
+Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
 
 ## <a name="retention-and-recovery"></a>Retenção e recuperação
 
@@ -177,7 +168,7 @@ Sim, você pode personalizar políticas. Por exemplo, você pode configurar os r
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Se um backup for mantido por um longo tempo, levará mais tempo para recuperar um ponto de dados mais antigo? <br/>
-Não. O tempo de recuperação do ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação se comporta como um ponto completo.
+ Não. O tempo de recuperação do ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação se comporta como um ponto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, isso afeta o armazenamento de backup total cobrável?
 Os produtos típicos de ponto de retenção de longo prazo armazenam dados de backup como pontos completos.
@@ -203,12 +194,12 @@ Não há limite para o número de recuperações do Backup do Azure.
 Quando uma nova política for aplicada, a agenda e a retenção da nova política serão seguidas.
 
 - Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política.
-- - Se a retenção for reduzida, eles serão marcados para remoção no próximo trabalho de limpeza e subsequentemente excluídos.
+- Se a retenção for reduzida, eles serão marcados para remoção no próximo trabalho de limpeza e subsequentemente excluídos.
 
 ## <a name="encryption"></a>Criptografia
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados são enviados para o Azure criptografados?
-Sim. Os dados são criptografados no computador local usando o AES256. Os dados são enviados por um link HTTPS seguro. Os dados são transmitidos na nuvem e são protegidos por um link HTTPS entre o armazenamento e o serviço de recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador de usuário. O túnel seguro é usado para proteger o canal iSCSI.
+Sim. Os dados são criptografados no computador local usando o AES256. Os dados são enviados por um link HTTPS seguro. Os dados transmitidos na nuvem são protegidos por um link HTTPS entre o armazenamento e o serviço de recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador de usuário. O túnel seguro é usado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados de backup também são criptografados no Azure?
 Sim. Os dados no Azure são criptografados em repouso.

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005243"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267573"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
 
-Este artigo destina-se a ajudar os usuários que estão familiarizados com o Splunk para aprender a linguagem de consulta do Data Explorer para escrever consultas de log no Azure Monitor. Comparações diretas são feitas entre os dois para compreender as principais diferenças e também as semelhanças em que você pode aproveitar seu conhecimento existente.
+Este artigo destina-se a ajudar os usuários que estão familiarizados com o Splunk para aprender a linguagem de consulta do Kusto para escrever consultas de log no Azure Monitor. Comparações diretas são feitas entre os dois para compreender as principais diferenças e também as semelhanças em que você pode aproveitar seu conhecimento existente.
 
 ## <a name="structure-and-concepts"></a>Estrutura e conceitos
 
@@ -218,4 +218,4 @@ Você pode usar `summarize arg_min()` para inverter a ordem da qual o registro �
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Faça uma lição nas [consultas de log de gravação no Azure Monitor](get-started-queries.md).
+- Faça uma lição sobre como [escrever consultas de log no Azure Monitor](get-started-queries.md).

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456214"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342297"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
@@ -74,10 +74,13 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
     ![Painel de navegação][8]
 
     > [!IMPORTANT]
-    > Os logs de auditoria de nível do servidor são gravados nos **Blobs Acrescentados** em um armazenamento de Blob do Azure em sua assinatura do Azure.
+    > Os logs de auditoria são gravados nos **Blobs de Acréscimo** em um armazenamento de Blob do Azure em sua assinatura do Azure.
     >
-    > * O **Armazenamento Premium** atualmente **não tem suporte** por Blobs de Acréscimo.
-    > * Atualmente, o **armazenamento na VNet** **não tem suporte**.
+    > - Há suporte para todos os tipos de armazenamento (v1, v2, blob).
+    > - Há suporte para todas as configurações de replicação de armazenamento.
+    > - Atualmente, **não há suporte** para o **Armazenamento Premium**.
+    > - Atualmente, o **armazenamento na VNet** **não tem suporte**.
+    > - Atualmente, **não há suporte** para o **Armazenamento atrás de um firewall**
 
 8. Clique em **Salvar**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767330"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456649"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -87,6 +87,9 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 1. **Posso alterar uma VM para usar minha própria licença do SQL Server se ela foi criada com base em uma das imagens pré-pagas da galeria?**
 
    Sim. Você pode alterar facilmente entre os dois modelos de licenciamento, se você iniciou originalmente com uma imagem da galeria de pago conforme o uso. No entanto, você não poderá alternar sua licença para PAYG, se você começou originalmente com uma imagem BYOL. Para obter mais informações, confira [Como alterar o modelo de licenciamento para uma VM do SQL Server](virtual-machines-windows-sql-ahb.md).
+
+   > [!Note]
+   > Atualmente, esse recurso está disponível somente para clientes de nuvem pública.
 
 1. **Deve usar as imagens BYOL ou RP de VM do SQL para criar a nova VM do SQL?**
 

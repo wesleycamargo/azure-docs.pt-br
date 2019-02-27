@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301060"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270191"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
-Este artigo explica como se preparar para backups do System Center Data Protection Manager (DPM) no Azure, usando o serviço de Backup do Azure. 
+Este artigo explica como se preparar para backups do System Center Data Protection Manager (DPM) no Azure, usando o serviço de Backup do Azure.
 
 O artigo fornece:
 
@@ -25,7 +25,7 @@ O artigo fornece:
 - Pré-requisitos e limitações para usar o Backup do Azure com o DPM.
 - Etapas para preparar o Azure, incluindo a configuração de um cofre de Backup dos Serviços de Recuperação e, opcionalmente, a modificação do tipo de armazenamento do Azure para o cofre.
 - Etapas para preparar o servidor DPM, incluindo o download de credenciais do cofre, a instalação do agente do Backup do Azure e o registro do servidor DPM no cofre.
-- Dicas de solução de problemas para erros comuns. 
+- Dicas de solução de problemas para erros comuns.
 
 
 ## <a name="why-back-up-dpm-to-azure"></a>Por que fazer backup do DPM no Azure?
@@ -42,11 +42,11 @@ Os benefícios comerciais do backup de servidores DPM para o Azure incluem:
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 
-**Configuração** | **Requisito** 
+**Configuração** | **Requisito**
 --- | ---
 DPM em uma VM do Azure | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 3 ou posterior do DPM 2012 R2.
-DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 2012 R2. 
-DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2. 
+DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 2012 R2.
+DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM do VMware | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalados.
 Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode incluir no backup.
@@ -54,7 +54,7 @@ Tipos de arquivo com suporte | É possível fazer backup destes tipos de arquivo
 Tipos de arquivo sem suporte | Servidores em sistemas de arquivos com diferenciação de maiúsculas e minúsculas; links rígidos (ignorados); pontos de nova análise (ignorados); criptografados e compactados (ignorados); criptografados e esparsos (ignorados); fluxo comprimido; fluxo de análise.
 Armazenamento local | Cada máquina da qual você deseja fazer backup deve ter armazenamento livre local com pelo menos 5% do tamanho dos dados que estão sendo armazenados em backup.  Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
 Armazenamento de cofre | Não há nenhum limite para a quantidade de dados de backup em um cofre de Backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, máquina virtual ou banco de dados) não deve ultrapassar 54400 GB.
-Agente de Backup do Azure | Se o DPM estiver sendo executado no System Center 2012 SP1, instale o pacote cumulativo de atualizações 2 ou posterior para o DPM SP1. Isso é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implantar a versão mais recente do agente do Backup do Azure, também conhecido como agente do Serviço de Recuperação do Microsoft Azure (MARS). Se você tiver uma versão anterior implantada, atualize para a versão mais recente para garantir que o backup funcione conforme o esperado. 
+Agente de Backup do Azure | Se o DPM estiver sendo executado no System Center 2012 SP1, instale o pacote cumulativo de atualizações 2 ou posterior para o DPM SP1. Isso é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implantar a versão mais recente do agente do Backup do Azure, também conhecido como agente do Serviço de Recuperação do Microsoft Azure (MARS). Se você tiver uma versão anterior implantada, atualize para a versão mais recente para garantir que o backup funcione conforme o esperado.
 
 
 Antes de começar, você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
@@ -85,14 +85,14 @@ Para editar a configuração de replicação de armazenamento:
 
 ## <a name="download-vault-credentials"></a>Baixar as credenciais do cofre
 
-Você usa credenciais do cofre quando registra o servidor DPM no cofre. 
+Você usa credenciais do cofre quando registra o servidor DPM no cofre.
 
 - O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre de backup.
 - O portal, em seguida, carrega a chave pública no ACS (Serviço de Controle de Acesso).
 - Durante o fluxo de trabalho de registro do computador, a chave privada do certificado é disponibilizada para o usuário, o que autentica o computador.
 - Com base na autenticação, o serviço de Backup do Azure envia dados para o cofre identificado.
 
- ### <a name="best-practices-for-vault-credentials"></a>Melhores práticas para credenciais do cofre
+### <a name="best-practices-for-vault-credentials"></a>Melhores práticas para credenciais do cofre
 
 Para obter as credenciais, você faz o download do arquivo da credencial do cofre por meio de um canal seguro no Portal do Azure:
 
@@ -102,7 +102,7 @@ Para obter as credenciais, você faz o download do arquivo da credencial do cofr
     - No entanto, os dados de backup são criptografados usando uma frase secreta que pertence ao cliente, por isso os dados de backup existentes não poderão ser comprometidos.
 - Salve o arquivo em um local que possa ser acessado no servidor DPM. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 - As credenciais do cofre expiram após 48 horas. Você pode fazer o download das novas credenciais do cofre tantas vezes quantas forem necessárias. No entanto, apenas o último arquivo de credencial de cofre pode ser usado durante o fluxo de trabalho de registro.
-- O serviço de Backup do Azure não tem ciência da chave privada do certificado e a chave privada não está disponível no portal ou no serviço. 
+- O serviço de Backup do Azure não tem ciência da chave privada do certificado e a chave privada não está disponível no portal ou no serviço.
 
 Faça o download do arquivo de credenciais do cofre para um computador local da seguinte maneira:
 
@@ -132,7 +132,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
     ![Baixar](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 
-4. Após o download, execute o arquivo MARSAgentInstaller.exe. para instalar o agente no computador do DPM. 
+4. Após o download, execute o arquivo MARSAgentInstaller.exe. para instalar o agente no computador do DPM.
 5. Selecione uma pasta de instalação e uma pasta de cache para o agente. O espaço livre do local do cache deve ter pelo menos 5% dos dados de backup.
 6. Se você usar um servidor proxy para se conectar à Internet, na tela **Configuração de Proxy** , insira os detalhes do servidor proxy. Se você usar um proxy autenticado, insira os detalhes de nome de usuário e senha nessa tela.
 7. O agente do Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se não estiverem instalados) para concluir a instalação.
@@ -151,7 +151,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 
     ![Credenciais do cofre](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. Em **Configuração de Limitação**, você pode opcionalmente habilitar a otimização de largura de banda para backups. Você pode definir os limites de velocidade para especificar horas e dias de trabalho. 
+10. Em **Configuração de Limitação**, você pode opcionalmente habilitar a otimização de largura de banda para backups. Você pode definir os limites de velocidade para especificar horas e dias de trabalho.
 
     ![Configuração de Limitação](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
@@ -168,12 +168,12 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
     - A frase secreta é usada para criptografar os backups na nuvem.
     - Especifique um mínimo de 16 caracteres.
     - Salve o arquivo em um local seguro, é necessário para a recuperação.
-    
+
     ![Criptografia](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
     > Você possui a frase secreta de criptografia e a Microsoft não tem visibilidade sobre ela.
-    > Se a senha for perdida ou esquecida, a Microsoft não poderá ajudar na recuperação dos dados de backup. 
+    > Se a senha for perdida ou esquecida, a Microsoft não poderá ajudar na recuperação dos dados de backup.
 
 13. Clique em **Registrar** para registrar o servidor DPM no cofre.  
 

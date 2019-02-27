@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872978"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308444"
 ---
 # <a name="face-detection-with-computer-vision"></a>Detecção facial com Pesquisa Visual Computacional
 
-A Pesquisa Visual Computacional detecta rostos humanos em uma imagem e gera a idade, o sexo e enquadra cada rosto detectado. A Pesquisa Visual Computacional oferece um subconjunto da funcionalidade que pode ser encontrado na [Detecção Facial](/azure/cognitive-services/face/), e você pode usar o serviço Detecção Facial para uma análise mais detalhada, como identificação facial e detecção de pose.  
+A Pesquisa Visual Computacional pode detectar rostos humanos em uma imagem e gerar a idade, o sexo e um retângulo para cada rosto detectado. 
+
+> [!NOTE]
+> Esse recurso também é oferecido pelo serviço Azure [Face](/azure/cognitive-services/face/). Consulte essa alternativa para obter uma análise de rosto mais detalhada, incluindo identificação de face e detecção de pose. 
 
 ## <a name="face-detection-examples"></a>Exemplos de detecção facial
 
-O primeiro exemplo demonstra a resposta JSON retornada pela Pesquisa Visual Computacional de uma imagem contendo um único rosto humano.
+O exemplo a seguir demonstra a resposta JSON retornada pela Pesquisa Visual Computacional de uma imagem contendo um único rosto humano.
 
 ![Face de mulher no teto com análise da pesquisa visual](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ O primeiro exemplo demonstra a resposta JSON retornada pela Pesquisa Visual Comp
 }
 ```
 
-O segundo exemplo demonstra a resposta JSON retornada de uma imagem contendo vários rostos humanos.
+O próximo exemplo demonstra a resposta JSON retornada de uma imagem contendo vários rostos humanos.
 
 ![Detecção facial de foto de família com análise da pesquisa visual](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ O segundo exemplo demonstra a resposta JSON retornada de uma imagem contendo vá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda conceitos sobre [ detectar conteúdo específico de domínio](concept-detecting-domain-content.md).
+Consulte a documentação de referência de [Analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para saber mais sobre como usar o recurso de detecção facial.

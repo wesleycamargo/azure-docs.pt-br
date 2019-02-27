@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007724"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456683"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure
 
@@ -50,9 +50,11 @@ O custo de computação reflete a capacidade de computação total provisionada 
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
-Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armazenamento de dados, você será cobrado pelo armazenamento provisionado baseado no tamanho máximo do banco de dados ou do pool selecionado. O custo não muda, a menos que você reduza ou aumente esse máximo. O armazenamento de backup está associado a backups automatizados de sua instância é alocado dinamicamente. Aumentar o período de retenção de backup aumenta o armazenamento de backup consumido por sua instância. Não haverá cobrança adicional se o armazenamento de backup chegar até 100% do armazenamento de servidor provisionado total. O consumo adicional de armazenamento de backup é cobrado em GB por mês. Por exemplo, se você tiver um tamanho de armazenamento de banco de dados de 100 GB, terá 100 GB de backup sem custo adicional. Mas se o backup é de 110 GB, você paga pelos 10 GB adicionais.
+Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armazenamento de dados, você será cobrado pelo armazenamento provisionado baseado no tamanho máximo do banco de dados ou do pool selecionado. O custo não muda, a menos que você reduza ou aumente esse máximo. O armazenamento de backup está associado a backups automatizados de sua instância é alocado dinamicamente. Aumentar o período de retenção de backup aumenta o armazenamento de backup consumido por sua instância. 
 
-Para o armazenamento de backup de um banco de dados individual, você é cobrado em uma base proporcional para o armazenamento que foi alocado para os backups do banco de dados menos o tamanho do banco de dados. Para o armazenamento de backup de um pool elástico, você é cobrado em uma base proporcional para o armazenamento que foi alocado para os backups do banco de dados de todos os bancos de dados no pool, menos o tamanho máximo de dados do pool elástico. Qualquer aumento no tamanho do banco de dados ou pool elástico, ou aumento na taxa de transações, requer mais armazenamento e, portanto, aumenta a sua conta de armazenamento de backup.  Quando você aumenta o tamanho máximo de dados, esse novo valor é deduzido do tamanho do armazenamento de backup cobrado.
+Sete dias de backups automatizados dos bancos de dados são copiados para o armazenamento de blobs RA-GRS Standard por padrão. O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações copiados a cada 5 minutos. O tamanho do log de transações depende da taxa de alteração do banco de dados. Uma quantidade mínima de armazenamento igual a 100% do tamanho do banco de dados é fornecida sem encargos extras. O consumo adicional de armazenamento de backup será cobrado em GB/mês.
+
+Para obter mais informações sobre preços de armazenamento, confira a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 

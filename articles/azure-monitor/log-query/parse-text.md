@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002169"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268185"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos logs do Azure Monitor
 Alguns dados de log coletados pelo Azure Monitor incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
@@ -63,7 +63,7 @@ As desvantagens desse método incluem as seguintes:
 Para obter detalhes sobre a análise de dados conforme eles são coletados, confira [Criar campos personalizados no Azure Monitor](../platform/custom-fields.md). Isso cria propriedades personalizadas na tabela que podem ser usadas pelas consultas como qualquer outra propriedade.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Analisar dados na consulta usando padrões
-Quando os dados que você deseja analisar podem ser identificados por um padrão repetido nos registros, você pode usar operadores diferentes na [linguagem de consulta do Data Explorer](/azure/kusto/query/) para extrair os dados específicos em uma ou mais propriedades novas.
+Quando os dados que você deseja analisar podem ser identificados por um padrão repetido nos registros, use operadores diferentes na [linguagem de consulta Kusto](/azure/kusto/query/) para extrair os dados específicos em uma ou mais propriedades novas.
 
 ### <a name="simple-text-patterns"></a>Padrões de texto simples
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Analisar estruturas predefinidas em uma consulta
-Se os dados estão formatados em uma estrutura conhecida, você pode usar uma das funções na [linguagem de consulta do Data Explorer](/azure/kusto/query/) para a análise de estruturas predefinidas:
+Se os dados estão formatados em uma estrutura conhecida, use uma das funções na [linguagem de consulta Kusto](/azure/kusto/query/) para a análise de estruturas predefinidas:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

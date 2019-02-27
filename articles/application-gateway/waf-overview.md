@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425141"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454252"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
@@ -133,7 +133,7 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 
 ### <a name="application-gateway-waf-reports"></a>Monitoramento de WAF
 
-É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall do aplicativo Web e dos aplicativos que ele protege é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure e o Log Analytics.
+É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall do aplicativo Web e dos aplicativos que ele protege é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure e logs do Azure Monitor.
 
 ![diagnóstico](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ A [Central de Segurança do Azure](../security-center/security-center-intro.md) 
 
 #### <a name="logging"></a>Registro em log
 
-O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça detectada. O registro em log é integrado aos Logs de diagnóstico do Azure e os alertas são registrados em um formato json. Esses logs podem ser integrados ao [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça detectada. O registro em log é integrado aos Logs de diagnóstico do Azure e os alertas são registrados em um formato json. Esses logs podem ser integrados aos [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

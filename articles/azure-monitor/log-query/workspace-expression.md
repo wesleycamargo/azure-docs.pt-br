@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 933d37f576d0b8507d2311a3e31e34182a0a2e69
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992969"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269828"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expressão workspace() nas consultas de log do Azure Monitor
 
@@ -73,4 +73,4 @@ union
 
 - Confira a [expressão app](app-expression.md) para se referir a um aplicativo do Application Insights.
 - Leia mais sobre como os [dados do Azure Monitor](log-query-overview.md) são armazenados.
-- Acesse a documentação completa da [linguagem de consulta do Data Explorer](/azure/kusto/query/).
+- Acesse a documentação completa da [linguagem de consulta do Kusto](/azure/kusto/query/).

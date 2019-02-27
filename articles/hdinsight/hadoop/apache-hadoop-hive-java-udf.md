@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814139"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341991"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usar um Java UDF com Apache Hive no HDInsight
 
@@ -213,7 +213,7 @@ Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que f
     ```
 
     > [!NOTE]
-    > Este exemplo assume que o Armazenamento do Azure é o armazenamento padrão do cluster. Se o cluster usar o Data Lake Storage em vez disso, altere o valor `wasb:///` para `adl:///`.
+    > Este exemplo assume que o Armazenamento do Azure é o armazenamento padrão do cluster. Se o cluster usar o Data Lake Storage Gen2 em vez disso, altere o valor `wasb:///` para `abfs:///`. Se o cluster usar o Data Lake Storage Gen1, altere o valor `wasb:///` para `adl:///`.
 
 3. Use o UDF para converter valores recuperados de uma tabela em cadeias de caracteres de letras minúsculas.
 

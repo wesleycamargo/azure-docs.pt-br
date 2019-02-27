@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979166"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416268"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java Async do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Direct GA.
+* Agora a conectividade de modo direto está GA (Geralmente Disponível). Para obter um exemplo que usa a conectividade de modo direto, consulte o repositório do GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
 * Adicionado suporte para QueryMetrics.
-* Alteração das APIs aceitando o java.util.Collection para o qual a ordem é importante para aceitar java.util.List no lugar.
-  Agora o ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) aceitam listas.
+* Alteração das APIs aceitando o java.util.Collection para o qual a ordem é importante para aceitar java.util.List no lugar. Agora o ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) aceitam listas.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-Beta-1
-* Adição de suporte ao Direct.
+* Adicionado suporte para conectividade de modo direto.
 * Alteração das APIs aceitando o java.util.Collection para o qual a ordem é importante para aceitar java.util.List no lugar.
   Agora o ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) aceitam listas.
 * Correção de um bug de sessão para consulta de documento no modo de gateway.

@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300057"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311215"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Saiba como: depurar contêineres do Windows no Azure Service Fabric usando o Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Como: Depurar contêineres do Windows no Azure Service Fabric usando o Visual Studio 2017
 
 Com o Visual Studio 2017 Update 7 (15.7), você pode depurar aplicativos .NET em contêineres como serviços do Service Fabric. Este artigo mostra como configurar seu ambiente e, em seguida, depurar um aplicativo .NET em um contêiner em execução em um cluster do Service Fabric local.
 
@@ -37,10 +37,10 @@ Com o Visual Studio 2017 Update 7 (15.7), você pode depurar aplicativos .NET em
 1. Para dar suporte à resolução DNS entre contêineres, você precisará configurar o cluster de desenvolvimento local, usando o nome do computador. Essas etapas também são necessárias para serviços de endereço por meio do proxy reverso.
     1. Abra o PowerShell como administrador
     2. Navegue até a pasta de instalação do Cluster do SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Execute o script `DevClusterSetup.ps1` com o parâmetro `-UseMachineName`
+    3. Execute o script `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -60,12 +60,12 @@ Abaixo está uma lista de limitações conhecidas com contêineres de depuraçã
     * Observe que isso prejudicará o desempenho da rede na máquina.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Resolver serviços no mesmo aplicativo usando o nome de serviço de DNS não funcionará no Windows10, se o aplicativo tiver sido implantado usando o Docker Compose
-    * Resolução: use servicename.applicationname para resolver pontos de extremidade de serviço
+    * Resolução: usar servicename.applicationname para resolver pontos de extremidade de serviço
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Se estiver usando o endereço IP para ClusterFQDNorIP, alterar o IP primário no host interromperá a funcionalidade DNS.
-    * Resolução: recrie o cluster usando o novo IP primário no host ou use o nome do computador. Esse comportamento é intencional.
+    * Resolução: recriar o cluster usando o novo IP primário no host ou usar o nome do computador. Esse comportamento é intencional.
 * Se o FQDN com o qual o cluster foi criado não puder ser resolvido na rede, o DNS falhará.
-    * Resolução: recrie o cluster local usando o IP primário do host. Esse comportamento é intencional.
+    * Resolução: recriar o cluster local usando o IP primário do host. Esse comportamento é intencional.
 * Durante a depuração de um contêiner, os logs de docker só estarão disponíveis na janela de saída do Visual Studio, não por meio de APIs do Service Fabric, incluindo o Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Depurar um aplicativo .NET em execução em contêineres do docker no Service Fabric
@@ -81,4 +81,4 @@ Abaixo está uma lista de limitações conhecidas com contêineres de depuraçã
     O Visual Studio oferece suporte ao console e aos tipos de projeto de ASP.NET para .NET e .NET Core.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os recursos do Service Fabric e de contêineres, siga este link: [visão geral de contêineres do Service Fabric](service-fabric-containers-overview.md).
+Para saber mais sobre os recursos do Service Fabric e de contêineres, siga este link: [Visão geral de contêineres do Service Fabric](service-fabric-containers-overview.md).

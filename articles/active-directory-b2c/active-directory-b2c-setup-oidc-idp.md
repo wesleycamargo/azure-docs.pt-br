@@ -1,5 +1,5 @@
 ---
-title: Configurar a inscrição e entrada com a OpenID Connect usando o Azure Active Directory B2C | Microsoft Docs
+title: Configurar a inscrição e entrada com a OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Configurar a inscrição e entrada com a OpenID Connect usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c609ac5ebb6c0516472f00a5625a26459f49d131
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: de0c866889f15f096bea26915f58cd4e268dfed3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171687"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428748"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a OpenID Connect usando o Azure Active Directory B2C
 
@@ -23,8 +23,7 @@ ms.locfileid: "55171687"
 > Esse recurso está em uma versão prévia. Não use o recurso em ambientes de produção.
 
 
-O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser usado para que os usuários entrem com segurança. A maioria dos provedores de identidade que usam esse protocolo, como o [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), é compatível com o Azure AD B2C. Este artigo explica como você pode adicionar provedores de identidade do OpenID Connect personalizados em seus fluxos de usuário.
-
+O [OpenID Connect](active-directory-b2c-reference-oidc.md) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser usado para que os usuários entrem com segurança. A maioria dos provedores de identidade que usa esse protocolo é compatível com o Azure AD B2C. Este artigo explica como você pode adicionar provedores de identidade do OpenID Connect personalizados em seus fluxos de usuário.
 
 ## <a name="add-the-identity-provider"></a>Adicionar o provedor de identidade
 

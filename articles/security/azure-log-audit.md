@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 51376661530d5de67e0efeacbcfd0d3a56078511
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117945"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301580"
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 
@@ -246,7 +246,7 @@ O [Azure Application Insights](https://docs.microsoft.com/azure/application-insi
 
 O Application Insights foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo.
 
-Ele funciona com aplicativos em uma ampla variedade de plataformas incluindo .NET, Node.js e J2EE, estejam eles hospedados localmente ou na nuvem. Ele é integrado ao seu processo de DevOps e tem pontos de conexão com várias ferramentas de desenvolvimento.
+Ele funciona com aplicativos em uma ampla variedade de plataformas incluindo .NET, Node.js e Java EE, estejam eles hospedados localmente ou na nuvem. Ele é integrado ao seu processo de DevOps e tem pontos de conexão com várias ferramentas de desenvolvimento.
 
 ![Diagrama do Application Insights](./media/azure-log-audit/azure-log-audit-fig6.png)
 

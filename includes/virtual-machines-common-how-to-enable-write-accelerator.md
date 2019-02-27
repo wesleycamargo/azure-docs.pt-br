@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985367"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458391"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar acelerador de gravação
 
@@ -42,17 +42,17 @@ Ao utilizar o Acelerador de Gravação para um VHD/disco do Azure, estas restri�
 
 - O armazenamento em cache do disco Premium deve ser definido como 'Nenhum' ou ‘Somente leitura’. Todos os outros modos de armazenamento em cache não têm suporte.
 - Instantâneo não têm suporte atualmente para discos do Acelerador de Gravação habilitados. Durante o backup, o serviço de Backup do Microsoft Azure exclui automaticamente os discos habilitados do Acelerador de Gravação anexados à VM.
-- Somente E/S menores (<=32 KiB) estão tomando o caminho mais rápido. Em situações de carga de trabalho em que os dados estão sendo carregados em massa ou quando buffers de log de transação dos diferentes DBMS são preenchidos a um maior grau antes de serem retidos no armazenamento, é provável que a E/S gravada em disco não esteja fazendo o caminho mais rápido.
+- Somente E/S menores (<=512 KiB) estão tomando o caminho mais rápido. Em situações de carga de trabalho em que os dados estão sendo carregados em massa ou quando buffers de log de transação dos diferentes DBMS são preenchidos a um maior grau antes de serem retidos no armazenamento, é provável que a E/S gravada em disco não esteja fazendo o caminho mais rápido.
 
 Há limites de VHDs de Armazenamento Premium do Azure por VM que podem ter suporte pelo Acelerador de Gravação. Os limites atuais são:
 
 | SKU da VM | Número de discos do Acelerador de Gravação | IOPS do Disco Acelerador de Gravação por VM |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5.000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 São os limites de IOPS por VM e *não* por disco. Todos os discos do Acelerador de Gravação compartilham o mesmo limite IOPS por VM.
 

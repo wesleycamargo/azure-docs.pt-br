@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977111"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428083"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -53,14 +53,14 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Você pode atualizar essas configurações diretamente no arquivo daemon.json em seu caminho de instalação do Docker.
+    Você pode atualizar essas configurações diretamente no arquivo daemon.json em seu caminho de instalação do Docker. Você pode modificar diretamente as definições de configuração do daemon no Docker. Selecione o **ícone do Docker** e então selecione **Preferências** > **Daemon** > **Avançado**.
     
     >[!NOTE]
     >
-    >O local do arquivo daemon.json pode variar de computador para computador. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >É recomendado modificar o daemon diretamente no Docker porque o local do arquivo daemon.json pode variar de máquina para máquina. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
-    >A abordagem recomendada é modificar diretamente as definições de configuração de daemon no Docker. Selecione o **ícone do Docker** e então selecione **Preferências** > **Daemon** > **Avançado**.
-    >
+
+    >[!TIP]
     >Ao testar aplicativos grandes, recomendamos aumentar os recursos alocados para o Docker. Isso pode ser feito selecionando o **ícone do Docker** e depois selecionando **Avançado** para ajustar a quantidade de núcleos e memória.
 
 2. Em um novo diretório, crie um arquivo chamado `Dockerfile` para criar sua imagem do Service Fabric:
@@ -110,7 +110,7 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. O cluster levará pouco tempo para iniciar e é possível exibir logs usando o comando a seguir ou ir até o painel para exibir a integridade dos clusters [http://localhost:19080](http://localhost:19080):
+5. O cluster levará algum tempo para iniciar. Quando estiver sendo executado, será possível exibir logs usando o comando a seguir ou ir até o painel para exibir a integridade dos clusters [http://localhost:19080](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -118,7 +118,7 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
 
 
 
-6. Ao terminar, pare e limpe o contêiner com este comando:
+6. Para interromper e limpar o contêiner, use o comando a seguir. No entanto, vamos usar esse contêiner na próxima etapa.
 
     ```bash 
     docker rm -f sftestcluster
@@ -173,6 +173,9 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
     brew cask install java
     brew install gradle
     ```
+
+    >[!TIP]
+    > Lembre-se de verificar se você tem a versão correta do JDK instalada. 
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Implantar seu aplicativo no Mac desde o terminal
 

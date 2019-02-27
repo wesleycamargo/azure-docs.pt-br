@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537215"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417475"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Use pontos de extremidade de serviço e regras da Rede virtual para o Banco de Dados do Azure para PostgreSQL
 
@@ -23,6 +23,7 @@ Para criar uma regra de rede virtual, deve haver primeiro uma VNet ([rede virtua
 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões da nuvem pública do Azure nas quais o Banco de Dados do Azure para PostgreSQL é implantado para servidores de Finalidade Geral e Otimizado por Memória.
+> No caso de emparelhamento de VNet, se o tráfego estiver fluindo através de um Gateway VNet comum com pontos de extremidade de serviço e deve fluir para o par, crie uma regra ACL/VNet para permitir que Máquinas Virtuais do Azure acessem o Banco de Dados do Azure para servidor PostgreMySQL.
 
 <a name="anch-terminology-and-description-82f" />
 
