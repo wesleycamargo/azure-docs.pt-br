@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem remota – REST, Python'
+title: 'Início Rápido: Analisar uma imagem remota – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem remota usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5bfd1c2af5b5dfc651674e44e623eea761730697
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e63ce8a7c047ecdede9ce72527f590f5fec7c5b4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313006"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652825"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST e o Python na Pesquisa Visual Computacional
 
@@ -26,7 +26,7 @@ Você pode executar este início rápido passo a passo usando um Jupyter Noteboo
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

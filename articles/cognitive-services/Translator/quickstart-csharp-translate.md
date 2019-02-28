@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Traduzir texto, C# – Tradução de Texto'
+title: 'Início Rápido: Traduzir texto, C# – Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com C#.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 81069fde39eb2650082051b5f8b55431d8b32916
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fce3a2f11aa168c669899d8ff7980a8288e10924
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884708"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731218"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando C#
 

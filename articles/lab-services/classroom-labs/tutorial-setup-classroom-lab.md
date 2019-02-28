@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998511"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649571"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -69,10 +69,8 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
     ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Na página **Configurar modelo**, execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
-    1. Inicie a VM modelo selecionando **Iniciar**.
     2. Conecte-se à VM modelo selecionando **Conectar**. 
-    3. Instale e configure software em sua VM modelo. 
-    4. **Pare** a VM.  
+    3. Instale e configure software em sua VM modelo.     
     5. Insira uma **descrição** do modelo
 9. Selecione **Avançar** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as seguintes ações. 
