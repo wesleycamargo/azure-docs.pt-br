@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884453"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984179"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início Rápido: Criar uma conta de armazenamento do Azure Data Lake Storage Gen2
 
@@ -83,7 +83,7 @@ Para criar um grupo de recursos no portal do Azure, siga estas etapas:
 Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga estas etapas:
 
 > [!NOTE]
-> O namespace hierárquico está disponível atualmente em todas as regiões públicas. No momento, ele não está disponível em nuvens soberanas.
+> O namespace hierárquico está disponível atualmente em todas as regiões públicas.
 
 1. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **Todos os serviços**. Em seguida, role para baixo até **Armazenamento** e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que aparece, escolha **Adicionar**.
 2. Selecione sua **Assinatura** e o **Grupo de recursos** criado anteriormente.
@@ -141,7 +141,7 @@ Login-AzAccount
 Para criar um novo grupo de recursos com o PowerShell, use o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
 
 > [!NOTE]
-> O namespace hierárquico está disponível atualmente em todas as regiões públicas. No momento, ele não está disponível em nuvens soberanas.
+> O namespace hierárquico está disponível atualmente em todas as regiões públicas.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -201,7 +201,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > O namespace hierárquico está disponível atualmente em todas as regiões públicas. No momento, ele não está disponível em nuvens soberanas.
+> > O namespace hierárquico está disponível atualmente em todas as regiões públicas.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Criar uma conta de armazenamento de uso geral v2
 

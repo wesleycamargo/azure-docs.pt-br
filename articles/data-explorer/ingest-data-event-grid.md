@@ -8,14 +8,14 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743677"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804631"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início Rápido: Ingerir Blobs do Azure no Azure Data Explorer assinando notificações da Grade de Eventos
+# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início rápido: Ingerir Blobs do Azure no Azure Data Explorer assinando notificações da Grade de Eventos
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão contínua (carregamento de dados) de blobs gravados nos contêineres de blob. Isso é feito definindo uma assinatura da [Grade de Eventos do Azure](/azure/event-grid/overview) para eventos de criação do blob e encaminhando esses eventos para o Kusto por meio de um Hub de Eventos. Para este guia de início rápido, você precisa ter uma conta de armazenamento com uma assinatura da Grade de Eventos que envia notificações para o Hub de Eventos. Você poderá, então, criar uma conexão de dados da Grade de Eventos e ver o fluxo dos dados pelo sistema.
 
@@ -58,7 +58,7 @@ Crie uma tabela no Azure Data Explorer para a qual os Hubs de Eventos enviarão 
 
 1. No portal do Azure, em seu cluster, selecione **consulta**.
 
-    ![Link do aplicativo de consulta](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Link do aplicativo de consulta](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Copie o seguinte comando na janela e selecione **Executar** para criar a tabela (TestTable) que receberá os dados ingeridos.
 
@@ -82,11 +82,11 @@ Agora você se conecta à Grade de Eventos do Azure Data Explorer, de modo que o
 
 1. Em um cluster que você criou, selecione **bancos de dados** , em seguida, **TestDatabase**.
 
-    ![Banco de dados de testes](media/ingest-data-event-hub/select-test-database.png)
+    ![Banco de dados de testes](media/ingest-data-event-grid/select-test-database.png)
 
 1. Selecione **ingestão de dados** , em seguida, **Adicionar conexão de dados**.
 
-    ![Ingestão de dados](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Ingestão de dados](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Selecionar tipo de conexão: **Armazenamento de Blobs**.
 
@@ -185,9 +185,9 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 
 1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda, depois selecione o recurso de grupo que você criou.  
 
-    Se o menu à esquerda estiver recolhido, selecione ![botão Expandir](media/ingest-data-event-hub/expand.png) para expandi-lo.
+    Se o menu à esquerda estiver recolhido, selecione ![botão Expandir](media/ingest-data-event-grid/expand.png) para expandi-lo.
 
-   ![Selecione o grupo de recursos para excluir](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Selecione o grupo de recursos para excluir](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. Em **test-resource-group**, selecione **Excluir grupo de recursos**.
 
