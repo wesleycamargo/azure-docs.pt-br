@@ -3,7 +3,7 @@ title: Exemplo de script de CLI do Service Fabric – Atualizar um aplicativo em
 description: Exemplo de script de CLI do Service Fabric – Atualize um aplicativo com uma nova versão. Este exemplo também atualiza um aplicativo implantado com os novos bits.
 services: service-fabric
 documentationcenter: ''
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: twhitney
+ms.author: aljo
 ms.custom: ''
-ms.openlocfilehash: bd0941cc6e67a759dd5fcb2e8912f8fcd6e9b18c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c6b4b6214f5fc2788827ae34aad4019dad1d8ae
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071157"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806956"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicativo a um cluster do Service Fabric
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Traduzir texto, Node.js – API de Tradução de Texto'
+title: 'Início rápido: Traduzir texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com Node.js.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 5eba927b2080e7a7f98d6ea9de593edf846c3c02
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e89593e33dd7330ce64c46c826c9d0437c4c27d2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978486"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738038"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Início rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres com Node.js
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres com Node.js
 
 Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando Node.js e a API REST de Tradução de Texto.
 

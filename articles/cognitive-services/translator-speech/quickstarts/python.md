@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872043"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673268"
 ---
-# <a name="quickstart-translator-speech-api-with-python"></a>Início Rápido: API de Tradução de Fala com Python
+# <a name="quickstart-translator-speech-api-with-python"></a>Início rápido: API de Tradução de Fala com Python
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -30,7 +31,7 @@ Você precisará do [Python 3.x](https://www.python.org/downloads/) para executa
 
 Você precisará instalar o [pacote de cliente do websocket](https://pypi.python.org/pypi/websocket-client) para Python.
 
-É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono. 
+É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono.
 
 É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Tradução de Fala da Microsoft**. Você precisará de uma chave de assinatura paga no [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -132,7 +133,7 @@ Um resultado com êxito é a criação de um arquivo chamado "speak2.wav". O arq
 > [!div class="nextstepaction"]
 > [Tutorial de Tradução de Fala](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
 [Visão geral da Tradução de Fala](../overview.md)
 [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

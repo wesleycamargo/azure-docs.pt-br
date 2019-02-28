@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663784"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817415"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipe com Azure Dev Spaces
 
@@ -125,9 +125,9 @@ Aqui está um diagrama que ajudará você a entender como os diferentes espaços
 Essa funcionalidade interna do Azure Dev Spaces permite que você teste o código de ponta a ponta em um ambiente compartilhado, sem a necessidade de cada desenvolvedor recriar a pilha completa de serviços em seus espaços. Esse roteamento exige que cabeçalhos de propagação sejam encaminhados em seu código de aplicativo, conforme ilustrado na etapa anterior deste guia.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Testar o código em execução no espaço _dev/scott_
-Para testar a nova versão de *mywebapi* em conjunto com *webfrontend*, abra o navegador na URL de ponto de acesso público de *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eastus.aksapp.io), e acesse a página Sobre. Você deve ver a mensagem original “Hello from webfrontend and Hello from mywebapi”.
+Para testar a nova versão de *mywebapi* em conjunto com *webfrontend*, abra o navegador na URL de ponto de acesso público de *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io), e acesse a página Sobre. Você deve ver a mensagem original “Hello from webfrontend and Hello from mywebapi”.
 
-Agora, adicione a parte “scott.s.” à URL para que ela leia algo como http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto *mywebapi* deverá ser atingido. Clique em F5 para continuar e, em seu navegador, agora você deve ver a nova mensagem “Hello from webfrontend and mywebapi now says something new”. Isso ocorre porque o caminho para o código atualizado em *mywebapi* está em execução no espaço _dev/scott_.
+Agora, adicione a parte “scott.s.” à URL para que ela leia algo como http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto *mywebapi* deverá ser atingido. Clique em F5 para continuar e, em seu navegador, agora você deve ver a nova mensagem “Hello from webfrontend and mywebapi now says something new”. Isso ocorre porque o caminho para o código atualizado em *mywebapi* está em execução no espaço _dev/scott_.
 
 Quando tiver um espaço _dev_ que sempre contém suas alterações mais recentes e supondo que seu aplicativo tenha sido projetado para aproveitar o roteamento baseado em espaço do Dev Space, conforme descrito nesta seção do tutorial, deverá ser fácil ver como o Azure Dev Spaces podem ajudar bastante com o teste de novos recursos dentro do contexto do aplicativo maior. Em vez de precisar implantar _todos_ os serviços em seu espaço privado, você poderá criar um espaço privado derivado de _dev_ e apenas "aumentar" os serviços em que de fato está trabalhando. A infraestrutura de roteamento do Azure Dev Spaces cuidará do restante utilizando tantos serviços de seu espaço privado quantos puder encontrar, e usando como padrão a versão mais recente em execução no espaço _dev_. E ainda melhor, _vários_ desenvolvedores podem desenvolver ativamente serviços diferentes ao mesmo tempo em seu próprio espaço sem interromper uns aos outros.
 

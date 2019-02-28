@@ -6,17 +6,17 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 61e02a1c85e89e207a96ba56e068eaa96bff6b94
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 25ff375b3b29729270b23372d82d1978c4ae37be
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205853"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734992"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início Rápido: Compilar, implantar e usar um modelo personalizado para tradução
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início rápido: Compilar, implantar e usar um modelo personalizado para tradução
 
 Este artigo fornece instruções passo a passo para criar um sistema de tradução com o Tradutor Personalizado.
 

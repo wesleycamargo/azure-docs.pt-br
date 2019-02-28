@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Procure palavras com o dicionário bilíngue, Go – API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Go – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com Go.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d923dee2c1bad70183d2c0fadbc1beebe7ef3cbe
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b9f1b3b7ab99ca878227d8bf618545ec90aca4ac
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872417"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732034"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Início rápido: Procure palavras com o dicionário bilíngue Go
 

@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876905"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673744"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicativo de Tradução de Fala em C#
 
@@ -33,7 +34,7 @@ Um arquivo de solução do Visual Studio para este aplicativo está [disponível
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para esse tutorial, você precisa de qualquer edição do Visual Studio 2017, incluindo a Community Edition. 
+Para esse tutorial, você precisa de qualquer edição do Visual Studio 2017, incluindo a Community Edition.
 
 A solução do Visual Studio também cria um instalador para o aplicativo. É necessário o [WiX Toolset](http://wixtoolset.org/) e [extensão do Visual Studio WiX Toolset](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) para dar suporte a essa funcionalidade.
 
@@ -63,7 +64,7 @@ Atualmente, o serviço Tradução de Fala dá suporte a mais de cinco dúzias de
 
 Em outras palavras, para a tradução de fala, o idioma de origem deve ser um suporte para a transcrição. O idioma de saída pode ser qualquer um dos idiomas com suporte para conversão de texto, supondo que você deseje um resultado de texto. Se desejar a saída de fala, você só pode se transformar em um idioma com suporte para texto em fala.
 
-A Microsoft pode adicionar suporte para novos idiomas de tempos em tempos. Por esse motivo, não codifique qualquer conhecimento de idiomas com suporte em seu aplicativo. Em vez disso, a API de Tradução de Fala fornece um ponto de extremidade de idiomas que permite que você recupere os idiomas com suporte no tempo de execução. Você pode optar por receber uma ou mais listas de idiomas: 
+A Microsoft pode adicionar suporte para novos idiomas de tempos em tempos. Por esse motivo, não codifique qualquer conhecimento de idiomas com suporte em seu aplicativo. Em vez disso, a API de Tradução de Fala fornece um ponto de extremidade de idiomas que permite que você recupere os idiomas com suporte no tempo de execução. Você pode optar por receber uma ou mais listas de idiomas:
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ A Microsoft pode adicionar suporte para novos idiomas de tempos em tempos. Por e
 
 O ponto de extremidade de idiomas não requer uma chave de assinatura e seu uso não conta em relação à cota. Seu URI é `https://dev.microsofttranslator.com/languages` e retorna os resultados no formato JSON.
 
-O método `UpdateLanguageSettingsAsync()` em `MainWindow.xaml.cs`, conforme mostrado aqui, chama o ponto de extremidade de idiomas para obter a lista de idiomas com suporte. 
+O método `UpdateLanguageSettingsAsync()` em `MainWindow.xaml.cs`, conforme mostrado aqui, chama o ponto de extremidade de idiomas para obter a lista de idiomas com suporte.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ Esse método primeiro constrói uma solicitação HTTP para o ponto de extremida
 
 O ponto de extremidade de Idiomas usa o cabeçalho de solicitação `Accept-Languages` para determinar o idioma no qual os nomes dos idiomas são representados. Por exemplo, o idioma conhecido para falantes de inglês como “Alemão” é chamado de “Deutsch” em alemão e “Alemán” em espanhol, e a lista de idiomas reflete essas diferenças. Idioma padrão do sistema é usado para esse cabeçalho.
 
-Depois que a solicitação foi enviada e a resposta JSON foi recebida, a resposta é analisada em estruturas de dados internas. Essas estruturas são usadas para construir os os menus Do Idioma e Para o Idioma. 
+Depois que a solicitação foi enviada e a resposta JSON foi recebida, a resposta é analisada em estruturas de dados internas. Essas estruturas são usadas para construir os os menus Do Idioma e Para o Idioma.
 
-Como as vozes disponíveis dependem do idioma escolhido pelo usuário, não é possível configurar o menu de voz ainda. Em vez disso, as vozes disponíveis para cada idioma são armazenadas para uso posterior. O `ToLanguage_SelectionChanged` manipulador (no mesmo arquivo de origem) posterior atualiza o menu de voz chamando `UpdateVoiceComboBox()` quando o usuário escolhe um Para o Idioma. 
+Como as vozes disponíveis dependem do idioma escolhido pelo usuário, não é possível configurar o menu de voz ainda. Em vez disso, as vozes disponíveis para cada idioma são armazenadas para uso posterior. O `ToLanguage_SelectionChanged` manipulador (no mesmo arquivo de origem) posterior atualiza o menu de voz chamando `UpdateVoiceComboBox()` quando o usuário escolhe um Para o Idioma.
 
 Apenas por diversão, um idioma é selecionado aleatoriamente se o usuário não tiver executado o aplicativo antes. (as configurações de menu são armazenadas entre sessões).
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ Aqui está o `ConnectAsync()` método que instancia a `speechClient` classe e bu
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

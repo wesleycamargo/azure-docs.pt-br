@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: b9d54dc1483da20b4c411047af0b44b681fe197c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429269"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734261"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
@@ -55,7 +55,7 @@ As próximas etapas ajudarão você a preencher a tela de dimensionamento autom�
 
    ![Salvar a configuração de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
- ## <a name="configure-default-profile"></a>Configurar o perfil padrão
+## <a name="configure-default-profile"></a>Configurar o perfil padrão
 1. Forneça um **Nome** para a configuração de dimensionamento automático.
 2. No perfil padrão, verifique se o **Modo de dimensionamento** está definido como “Dimensionar para uma contagem de instância específica”.
 3. Defina a contagem de instâncias como **1**. Essa configuração garante que, quando nenhum outro perfil está ativo ou em vigor, o perfil padrão retorna a contagem de instâncias como 1.
