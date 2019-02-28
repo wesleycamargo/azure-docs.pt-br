@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6e3f0613e89ef7d6e9b44e519226a793940d41f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006233"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823783"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutorial 3: Implantar modelo de risco de crédito – Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvi
 
 Suponha que você precisa prever o risco de crédito de uma pessoa com base nas informações dadas em um aplicativo de crédito.  
 
-A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como um exemplo de como criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning. Você usará o Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução. 
+A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como exemplo de como criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning Studio. Você usará o Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução. 
 
 Neste tutorial de três partes, você começará com os dados de risco de crédito disponíveis publicamente.  Em seguida, você desenvolverá e treinará um modelo preditivo.  Por fim, você implantará o modelo como um serviço Web.
 
@@ -234,7 +234,7 @@ A maneira mais rápida e fácil de acessar um serviço Web Clássico é por meio
 
 Esses modelos de aplicativo Web podem compilar um aplicativo Web personalizado que conhece os dados de entrada do seu serviço Web e o que ele retornará. Basta fornecer acesso aos dados e ao serviço Web, para que o modelo faça o resto.
 
-Para obter mais informações sobre como usar modelos de aplicativos Web, consulte [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](consume-web-service-with-web-app-template.md).
+Para obter mais informações sobre como usar modelos de aplicativos Web, consulte [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](/azure/machine-learning/studio/consume-web-services).
 
 
 

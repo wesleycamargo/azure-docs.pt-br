@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 18c4fd3fff244ac180ac0129f100a7d5b2472cab
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889827"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984825"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização da pilha 1901 do Azure
 
@@ -71,6 +71,8 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
+- Quando o Azure Stack é gerenciado pelo SCOM System Center Operations Manager (), certifique-se de atualizar o pacote de gerenciamento para Microsoft Azure Stack para versão 10.0.3.11 antes de aplicar 1901.
+
 ## <a name="new-features"></a>Novos recursos
 
 Esta atualização inclui os seguintes novos recursos e melhorias para o Azure Stack:
@@ -91,9 +93,9 @@ Esta atualização inclui os seguintes novos recursos e melhorias para o Azure S
    * **AzureRm.Insights**  
          Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.1.5 com suporte a **api-version 2018-01-01** para métricas, tipos de recursos de definições de métrica.
 
-- **AzureStack 1.7.0** esta versão uma alteração significativa. Para obter detalhes sobre as alterações significativas, consulte https://aka.ms/azspshmigration170
+- **AzureStack 1.7.0** esta versão uma alteração significativa. Para obter detalhes sobre as alterações de falhas, confira https://aka.ms/azspshmigration170
    * **Módulo Azs.Backup.Admin**  
-         Alterações da falha: Alterações de backup para o modo de criptografia baseada em certificado. Suporte para chaves simétricas é preterido.  
+         Alterações da falha: Alterações de backup do modo de criptografia baseada em certificado. O suporte para chaves simétricas está preterido.  
    * **Módulo Azs.Fabric.Admin**  
          `Get-AzsInfrastructureVolume` foi preterido. Usar o novo cmdlet `Get-AzsVolume`.  
          `Get-AzsStorageSystem` foi preterido.  Usar o novo cmdlet `Get-AzsStorageSubSystem`.  

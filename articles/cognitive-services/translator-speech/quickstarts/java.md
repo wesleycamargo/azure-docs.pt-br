@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b9a20439bd1c926753921e2ece5dfc083128be92
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: b56e4715e77129f228967ef595e506d26d33fc66
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869918"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674116"
 ---
-# <a name="quickstart-translator-speech-api-with-java"></a>Início rápido: API de Tradução de Fala com Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Início rápido: API de Tradução de Fala com Java
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -277,7 +278,7 @@ Um resultado com êxito é a criação de um arquivo chamado "speak2.wav". O arq
 > [!div class="nextstepaction"]
 > [Tutorial de Tradução de Fala](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
 [Visão geral da Tradução de Fala](../overview.md)
 [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

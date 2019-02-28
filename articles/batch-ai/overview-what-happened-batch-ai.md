@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447796"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961339"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>O que está acontecendo com IA do Lote do Azure?
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Saiba mais sobre como registrar contas de armazenamento adicionais ou obter uma referência a outro armazenamento de dados registrado na [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Saiba mais sobre como registrar contas de armazenamento adicionais ou obter uma referência a outro armazenamento de dados registrado na [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Baixando e carregando dados 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-Encontre as informações completas sobre este snippet de código de treinamento (incluindo o arquivo mnist_replica.py) no [repositório GitHub de notebooks de exemplo do Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). O armazenamento de dados propriamente dito pode ser montado em nós individuais ou os dados de treinamento podem ser baixados no próprio nó. Encontre mais detalhes sobre como referenciar o armazenamento de dados no avaliador na [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+Encontre as informações completas sobre este snippet de código de treinamento (incluindo o arquivo mnist_replica.py) no [repositório GitHub de notebooks de exemplo do Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). O armazenamento de dados propriamente dito pode ser montado em nós individuais ou os dados de treinamento podem ser baixados no próprio nó. Encontre mais detalhes sobre como referenciar o armazenamento de dados no avaliador na [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#access). 
 
 O envio de uma execução no Azure ML é feito por meio da função de envio.
 
