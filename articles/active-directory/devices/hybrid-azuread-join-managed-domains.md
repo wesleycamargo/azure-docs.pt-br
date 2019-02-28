@@ -17,12 +17,12 @@ ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6618c5f2ab26c70325ef65c84527c7a5c3734bb9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8a22b2fe7da22365c6414da9babe73488a499fb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166168"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651848"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -55,8 +55,6 @@ Este tutorial assume que você está familiarizado com:
   
 
 Para configurar o cenário neste artigo, é necessário ter:
-
-- Um AD (Active Directory) local com um nível de esquema de 85 ou posterior. Para saber mais, confira [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema) (Atualizar o esquema do Active Directory).
 
 - A [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) a ser instalada. 
 

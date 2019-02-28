@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207646"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Microsoft Azure Active Directory ao dmarcian
 
@@ -143,15 +143,15 @@ Para configurar o logon único do Azure AD com o dmarcian, execute as seguintes 
 
 2. Clique em **Perfil** no canto superior direito canto e navegue até **Preferências**.
 
-    ![As preferências ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![As preferências](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Role para baixo e clique na seção **Logon Único** e, em seguida, clique em **Configurar**.
 
-    ![Único ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![Único](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. Na página **Logon Único de SAML**, defina o **Status** como **Habilitado** e execute as seguintes etapas:
 
-    ![A de autenticação ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![A de autenticação](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * Na seção **Adicionar dmarcian ao seu provedor de identidade**, clique em **Copiar** para copiar a **URL de serviço do consumidor de declaração** para sua instância e colá-lo na caixa de texto **URL de Resposta** na **seção de Configuração SAML Básica** no portal do Azure.
 
@@ -229,15 +229,15 @@ Para permitir que os usuários do Azure AD entrem no dmarcian, eles devem ser pr
 
 2. Clique em **Perfil** no canto superior direito e navegue até **Gerenciar Usuários**.
 
-    ![O usuário ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![O usuário](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. No lado direito da seção **Usuários de SSO**, clique em **Adicionar Novo Usuário**.
 
-    ![A ação de adicionar usuário ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![A ação de adicionar usuário](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. Na janela pop-up **Adicionar Novo Usuário**, realize as seguintes etapas:
 
-    ![O novo usuário ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![O novo usuário](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
      a. Na caixa de texto **Email do Novo Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
 
@@ -253,9 +253,9 @@ Ao clicar no bloco do dmarcian no Painel de Acesso, você deve ser conectado aut
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
