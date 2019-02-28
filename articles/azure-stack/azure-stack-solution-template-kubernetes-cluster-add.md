@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997067"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986049"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar Kubernetes para o Azure Stack Marketplace
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997067"
 
 Você pode oferecer Kubernetes como um item do Marketplace para seus usuários. Os usuários podem, em seguida, implante o Kubernetes em uma única operação coordenada.
 
-O seguinte artigo examinar usando um modelo do Azure Resource Manager para implantar e provisionar os recursos para um cluster de Kubernetes autônomo. O item do Marketplace de Cluster do Kubernetes 0.3.0 que requer a versão do Azure Stack 1808. Antes de começar, verifique suas configurações de locatário do Azure global e o Azure Stack. Colete as informações necessárias sobre o Azure Stack. Adicione recursos necessários para seu locatário e o Azure Stack Marketplace. O cluster depende de um servidor do Ubuntu, script personalizado e os itens de Kubernetes, seja no marketplace.
+O seguinte artigo examinar usando um modelo do Azure Resource Manager para implantar e provisionar os recursos para um cluster de Kubernetes autônomo. Antes de começar, verifique suas configurações de locatário do Azure global e o Azure Stack. Colete as informações necessárias sobre o Azure Stack. Adicione recursos necessários para seu locatário e o Azure Stack Marketplace. O cluster depende de um servidor do Ubuntu, o script personalizado e o item do Marketplace de Cluster do Kubernetes seja no marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Criar um plano, uma oferta e uma assinatura
 

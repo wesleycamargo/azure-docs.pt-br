@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72449833da1ebb5353bd49ba950950e7b22255c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d070b9f473c4e1622c0c9a524cd053a6f21edabf
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179630"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oracle-fusion-erp"></a>Tutorial: Integração do Azure Active Directory ao Oracle Fusion ERP
 
@@ -193,9 +193,9 @@ Quando você clica no bloco do Oracle Fusion ERP no Painel de Acesso, deve ser c
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

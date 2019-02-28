@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 86a3542c39fe81607187442799ef7b546e053a8e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888739"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985828"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Marketplace do Azure disponíveis para o Azure Stack
 
@@ -166,7 +166,6 @@ O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marke
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | Alto desempenho livre banco de dados NoSQL escrito em C++. | Bitnami |
 | ![MongoDB com replicação](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB com replicação](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | Alto desempenho livre banco de dados NoSQL escrito em C++. **Esse modelo de solução requer o Azure Stack para estar na versão 1807 ou posterior e também requer Debian 8 e o Script personalizado para a extensão do Linux 2.0.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Projetado para comunidades de aprendizado online de CMS em vigor. | Bitnami |
-| ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Servidor do Minecraft painel de controle e de solução de hospedagem. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Software de fórum livre e de código-fonte aberto. | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | O sistema de banco de dados mais popular. | Bitnami |
 | ![MySQL com a replicação](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL com a replicação](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | O MySQL é um sistema rápido, confiável, dimensionável e fácil de usar código-fonte aberto banco de dados relacional. Servidor MySQL destina-se a sistemas de produção de missão crítica, com uso intenso de carga, bem como para inserir em software implantado em massa. Esta solução usa várias VMs para replicar os bancos de dados do nó mestre para um número configurável de réplicas. **Esse modelo de solução também requer Debian 8 e o Script personalizado para a extensão do Linux 2.0.** | Bitnami |

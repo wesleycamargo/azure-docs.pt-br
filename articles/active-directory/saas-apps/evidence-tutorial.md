@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84ea41388151087a0da965e3f8724907b615dee0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc6bcd30a9835fe3cece103b9a773fb24cadbe4a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161567"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Azure Active Directory ao Evidence.com
 
@@ -77,10 +77,10 @@ Para que o logon único funcione, é necessário estabelecer uma relação de v�
 Para configurar e testar o logon único do Azure AD com o Evidence.com, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Evidence.com](#configure-evidence.com-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+2. **[Configurar o logon único do Evidence.com](#configure-evidencecom-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Evidence.com](#create-evidence.com-test-user)** – para ter um equivalente de Brenda Fernandes no Evidence.com que esteja vinculado à representação de usuário do Azure AD.
+5. **[Criar um usuário de teste do Evidence.com](#create-evidencecom-test-user)** – para ter um equivalente de Brenda Fernandes no Evidence.com que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -215,9 +215,9 @@ Ao clicar no bloco do Evidence.com no Painel de Acesso, você deverá ser conect
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

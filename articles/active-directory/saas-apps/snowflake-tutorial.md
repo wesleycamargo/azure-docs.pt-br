@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191309"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Azure Active Directory ao Snowflake
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Snowflake, execute as seguintes
     > [!NOTE]
     > Isso é separado do contexto selecionado no canto superior direito em seu nome de usuário
     
-    ![O administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![O administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Abra o **certificado de Base 64 baixado** no bloco de notas. Copie o valor insira "---BEGIN CERTIFICATE---" e "---END CERTIFICATE---" e cole em aspas lado **certificado** abaixo. Em **ssoUrl**, cole **URL de logon** valor que você copiou do portal do Azure. Selecione o **Todas as consultas** e clique em **Executar**.
 
@@ -219,11 +219,11 @@ Para habilitar usuários do Microsoft Azure Active Directory para fazer logon no
 
 2. **Alterne a função** à **ACCOUNTADMIN**, clicando no **perfil** no lado superior direito da página.  
 
-    ![O administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![O administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Crie o usuário executando o abaixo de consulta SQL, garantindo que o "Nome de logon" é definido como o nome de usuário do Microsoft Azure Active Directory na planilha conforme mostrado abaixo.
 
-    ![O adminsql Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![O adminsql Snowflake](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,9 +238,9 @@ Ao clicar no bloco do Snowflake no Painel de Acesso, você deverá ser conectado
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

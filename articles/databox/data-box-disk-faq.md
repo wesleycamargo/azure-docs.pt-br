@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301478"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729807"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -132,8 +132,8 @@ O conjunto de ferramentas está disponível para Windows e Linux. Você pode bai
  - [Baixe o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
  - [Baixe o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
  
- ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Posso usar o Data Box Disk para transferir dados para os Arquivos do Azure e, em seguida, usar os dados com a Sincronização de Arquivos do Azure? 
- a. Não há suporte para os Arquivos do Azure no Data Box Disk. Os metadados também não serão mantidos se os dados de arquivo forem usados posteriormente com a Sincronização de Arquivos do Azure.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Posso usar o Data Box Disk para transferir dados para os Arquivos do Azure e, em seguida, usar os dados com a Sincronização de Arquivos do Azure? 
+a. Não há suporte para os Arquivos do Azure no Data Box Disk. Os metadados também não serão mantidos se os dados de arquivo forem usados posteriormente com a Sincronização de Arquivos do Azure.
 
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
