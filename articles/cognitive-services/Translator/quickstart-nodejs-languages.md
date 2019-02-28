@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter lista de idiomas compatíveis, Node.js – API de Tradução de Texto'
+title: 'Início Rápido: Obter lista de idiomas compatíveis, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Node.js.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: eb852f0449a7f59ba0235ffc8ad7c8aff6f3babc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0d092b6dfbd453d5583fed8d993da6aec633ac1b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892740"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731490"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte com Node.js
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Início rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte com Node.js
 
 Neste início rápido, você aprenderá a fazer uma solicitação GET que retorna uma lista dos idiomas com suporte usando o Node.js e a API REST de Tradução de Texto.
 

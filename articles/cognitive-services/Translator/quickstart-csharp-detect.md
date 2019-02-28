@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 5ba695bd2ed630d7cd4e32e34b6250513f45c83b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d27d385fa6fba93b7221d241f46894e9cfb9dea6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884742"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729451"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com C#
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com C#
 
 Neste início rápido, você aprenderá a detectar o idioma do texto fornecido usando o .NET Core e a API REST de Tradução de Texto.
 

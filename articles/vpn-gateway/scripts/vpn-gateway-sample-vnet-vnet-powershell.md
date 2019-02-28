@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: f13c31b0c7a85ea4e24f73bdc1fee9c96e51ab35
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0d49e65ccfd13637a2e7313a5ec3a48b2ce900ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417186"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727444"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name TestRG2
 ```
  
  
- ## <a name="script-explanation"></a>Explicação sobre o script
+## <a name="script-explanation"></a>Explicação sobre o script
 
 Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
 

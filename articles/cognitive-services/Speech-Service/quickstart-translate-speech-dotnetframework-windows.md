@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: db0ff8b8cc305bb9f7b4625cf060de72a5c7d276
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf7c92b0c9b143f9622cf1698fa39b0f45843f1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109785"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874521"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Início Rápido: Traduzir fala com o Speech SDK para .NET Framework
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Início rápido: Traduzir fala com o Speech SDK para .NET Framework
 
 Neste início rápido, você criará um aplicativo .NET Framework simples que captura a fala do usuário do microfone do seu computador, converte a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado no Windows de 64 bits e é criado com o [pacote NuGet do Speech SDK](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017.
 
@@ -32,7 +32,7 @@ Este início rápido requer:
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
