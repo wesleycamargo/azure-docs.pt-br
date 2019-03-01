@@ -70,10 +70,10 @@ Alguns diretórios, que começaram usando grupos de gerenciamento na versão pr�
 Há duas opções para resolver esse problema.
 
 1. Remover todas as atribuições de Função e Política do grupo de gerenciamento raiz
-    1. Ao remover as atribuições de função e política do grupo de gerenciamento raiz, o serviço preencherá todas as assinaturas na hierarquia no próximo ciclo de 24h.  Esse processo é usado para que não haja acesso acidental ou atribuição de política a todas as assinaturas de locatários.
-    1. A melhor maneira de fazer esse processo sem afetar seus serviços é aplicar as atribuições de função ou política um nível abaixo do grupo de gerenciamento raiz. Em seguida, você pode remover todas as atribuições do escopo raiz.
+   1. Ao remover as atribuições de função e política do grupo de gerenciamento raiz, o serviço preencherá todas as assinaturas na hierarquia no próximo ciclo de 24h.  Esse processo é usado para que não haja acesso acidental ou atribuição de política a todas as assinaturas de locatários.
+   1. A melhor maneira de fazer esse processo sem afetar seus serviços é aplicar as atribuições de função ou política um nível abaixo do grupo de gerenciamento raiz. Em seguida, você pode remover todas as atribuições do escopo raiz.
 1. Chamar a API diretamente para iniciar o processo de preenchimento
-    1. Qualquer cliente no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, ela inicia o processo de configuração inicial de mover todas as assinaturas para a hierarquia. Esse processo também inicia a imposição de que a nova assinatura seja filha do grupo de gerenciamento raiz. Esse processo pode ser feito sem alterar as atribuições no nível raiz. Ao chamar a API, você informa não ter problemas que qualquer atribuição de política ou acesso na raiz possa ser aplicada a todas as assinaturas.
+   1. Qualquer cliente no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, ela inicia o processo de configuração inicial de mover todas as assinaturas para a hierarquia. Esse processo também inicia a imposição de que a nova assinatura seja filha do grupo de gerenciamento raiz. Esse processo pode ser feito sem alterar as atribuições no nível raiz. Ao chamar a API, você informa não ter problemas que qualquer atribuição de política ou acesso na raiz possa ser aplicada a todas as assinaturas.
 
 Se você tiver dúvidas sobre esse processo de preenchimento, entre em contato com: managementgroups@microsoft.com  
   
@@ -116,6 +116,6 @@ Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
-- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
-- [Revisar grupos de gerenciamento na API REST](https://aka.ms/mgAPIdocs)
-- [Revisar grupos de gerenciamento na CLI do Azure](https://aka.ms/mgclidoc)
+- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
+- [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
+- [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)

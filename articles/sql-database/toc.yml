@@ -247,12 +247,12 @@ items:
       href: sql-database-aad-authentication.md
     - name: Auditoria
       items:
-      - name: Auditoria – bancos de dados individuais e pools elásticos
+      - name: Introdução à auditoria do Banco de Dados SQL
         href: sql-database-auditing.md
       - name: Auditoria – instância gerenciada
         href: sql-database-managed-instance-auditing.md
-      - name: Auditoria de tabela (preterida)
-        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: Formato do log de auditoria
+        href: sql-database-audit-log-format.md
     - name: Mascaramento de dados dinâmicos
       href: sql-database-dynamic-data-masking-get-started.md
     - name: Always Encrypted
@@ -716,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0d518613897f550af5dabe073f5baf4550a0dcf9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e9e048d8c27a0d1accfbd029892bebad6a5ffba6
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672963"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011051"
