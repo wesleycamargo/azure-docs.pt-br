@@ -77,7 +77,7 @@ Não, o Azure AD Connect não oferece suporte a florestas locais que contêm nam
 **P: Há suporte para ambiente puro do IPv6?**  
 Não, o Azure AD Connect não oferece suporte ao ambiente puro do IPv6.
 
- **P: Eu tenho um ambiente de várias florestas e a rede entre as duas florestas está usando NAT (Network Address Translation). Está usando o Azure AD Connect entre essas duas florestas com suporte?**</br>
+**P: Eu tenho um ambiente de várias florestas e a rede entre as duas florestas está usando NAT (Network Address Translation). Está usando o Azure AD Connect entre essas duas florestas com suporte?**</br>
  Não, o uso do Azure AD Connect via NAT não é suportado. 
 
 ## <a name="federation"></a>Federação

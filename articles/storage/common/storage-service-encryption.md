@@ -65,7 +65,7 @@ Sim, se você [usar suas próprias chaves de criptografia](storage-service-encry
 **Qual é a diferença entre a Criptografia de Serviço de Armazenamento e a Criptografia de Disco do Azure?**  
 A Criptografia de Disco do Azure fornece integração entre soluções baseadas em SO, como BitLocker e DM-Crypt, e o Azure KeyVault. A Criptografia de Serviço de Armazenamento fornece criptografia nativamente na camada da plataforma de armazenamento do Azure, abaixo da máquina virtual.
 
- **Eu tenho uma conta de armazenamento clássica. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**  
+**Eu tenho uma conta de armazenamento clássica. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**  
 A Criptografia de Serviço de Armazenamento está habilitada para todas as contas de armazenamento (clássica e Gerenciador de Recursos).
 
 **Como posso criptografar dados em minha conta de armazenamento clássica?**  

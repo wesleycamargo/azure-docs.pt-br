@@ -470,7 +470,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de uso | 
 | --- | --- |
-| **Nos nós mestre, de trabalho e de espera**|
+|**Nos nós mestre, de trabalho e de espera**|
 |/hana/shared | Instalação do HANA para produção SID | 
 |/hana/data/SID/mnt00001 | Arquivos de dados são instalados para o SID de produção | 
 |/hana/log/SID/mnt00001 | Arquivos de log são instalados para o SID de produção | 
