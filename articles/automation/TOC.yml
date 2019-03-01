@@ -149,16 +149,16 @@ items:
     - name: Executar runbooks em um Hybrid Runbook Worker
       displayName: signed runbooks
       href: automation-hrw-run-runbooks.md
-  - name: Configuração do Estado
+  - name: State Configuration
     displayName: DSC
     items:
-    - name: Visão geral de Configuração de Estado
+    - name: Visão geral de State Configuration
       displayName: DSC
       href: automation-dsc-overview.md
     - name: Introdução
       displayName: DSC
       href: automation-dsc-getting-started.md
-    - name: Configurar servidores para um estado desejado e gerenciar o descompasso com a Configuração do Estado
+    - name: Configurar servidores para um estado desejado e gerenciar o descompasso com a State Configuration
       displayName: DSC, compliance
       href: tutorial-configure-servers-desired-state.md
     - name: Integração de computadores para gerenciamento
@@ -225,7 +225,7 @@ items:
   - name: Runbooks
     displayName: troubleshoot
     href: troubleshoot/runbooks.md
-  - name: Configuração do Estado (DSC)
+  - name: State Configuration (DSC)
     displayName: Desired State Configuration, troubleshoot
     href: troubleshoot/desired-state-configuration.md
   - name: Hybrid Runbook Worker

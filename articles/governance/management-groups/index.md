@@ -1,22 +1,12 @@
 ---
 title: Organizar seus recursos com grupos de gerenciamento do Azure – Governança do Azure
-description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
+description: 'Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.'
 author: rthorn17
-manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339280"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -30,9 +20,9 @@ Por exemplo, aplique políticas a um grupo de gerenciamento que limite as regiõ
 
 ![árvore](./media/tree.png)
 
-Criar uma hierarquia para que você possa aplicar uma política, por exemplo, limitar locais de VMs à Região Oeste dos EUA no grupo de “Gerenciamento da Equipe de Infraestrutura”. Essa política herdará as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs nessas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
+Crie uma hierarquia para que você possa aplicar uma política. Por exemplo, limitar as localizações de VM à região Oeste dos EUA no grupo "Produção". Essa política herdará as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs nessas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
 
-Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você poderá criar uma atribuição de [controle de acesso baseado em função](../../role-based-access-control/overview.md) (RBAC) no grupo de gerenciamento, que herdará o acesso a todas as assinaturas.
+Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você poderá criar uma atribuição de [RBAC](../../role-based-access-control/overview.md) (controle de acesso baseado em função) no grupo de gerenciamento, que herdará esse acesso a todas as assinaturas.
 Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo o que precisam em vez de fazer script de atribuições de RBAC em várias assinaturas.
 
 ### <a name="important-facts-about-management-groups"></a>Fatos importantes sobre os grupos de gerenciamento
@@ -42,12 +32,12 @@ Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham
   - Esse limite não inclui o nível Raiz nem o nível da assinatura.
 - Cada grupo de gerenciamento e assinatura pode dar suporte a apenas um pai.
 - Cada grupo de gerenciamento pode ter vários elementos filhos.
-- Todas as assinaturas e todos os grupos de gerenciamento estão em uma única hierarquia em cada diretório. Confira [Fatos importantes sobre o Grupo de gerenciamento raiz](#important-facts-about-the-root-management-group) para obter as exceções durante a Versão Prévia.
+- Todas as assinaturas e todos os grupos de gerenciamento estão em uma única hierarquia em cada diretório. Confira [Fatos importantes sobre o grupo de gerenciamento raiz](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 
 Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento "Raiz".
-Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicadas no nível de diretório. O Administrador de Diretório [precisa elevar-se](../../role-based-access-control/elevate-access-global-admin.md) para ser o proprietário desse grupo raiz inicialmente. Quando o administrador for o proprietário do grupo, ele poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia.
+Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicadas no nível de diretório. O [administrador global do Azure AD precisa elevar-se](../../role-based-access-control/elevate-access-global-admin.md) para ser o proprietário desse grupo raiz inicialmente. Quando o administrador for o proprietário do grupo, ele poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Fatos importantes sobre o grupo de gerenciamento raiz
 
@@ -60,7 +50,7 @@ Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os gr
   - As novas assinaturas usam como padrão automaticamente o grupo de gerenciamento raiz quando criadas.
 - Todos os clientes do Azure podem ver o grupo de gerenciamento raiz, mas nem todos os clientes têm acesso para gerenciá-lo.
   - Qualquer pessoa que tenha acesso a uma assinatura pode ver o contexto no qual essa assinatura está na hierarquia.  
-  - Ninguém recebeu o acesso padrão ao grupo de gerenciamento raiz. Os Administradores Globais do Diretório são os únicos usuários que podem se elevar para obter acesso.  Depois de terem acesso, os administradores de diretório podem atribuir qualquer função RBAC a outros usuários para gerenciamento.  
+  - Ninguém recebeu o acesso padrão ao grupo de gerenciamento raiz. Os administradores globais do Azure AD são os únicos usuários que podem se elevar para obter acesso.  Depois de obter acesso, os administradores globais podem atribuir qualquer função de RBAC a outros usuários para o gerenciamento.  
 
 > [!IMPORTANT]
 > Qualquer atribuição de acesso de usuário ou atribuição de política no grupo de gerenciamento raiz **se aplica a todos os recursos do diretório**.
@@ -69,11 +59,11 @@ Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os gr
 
 ## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gerenciamento
 
-Quando um usuário começa a usar grupos de gerenciamento, ocorre um processo de configuração inicial. A primeira etapa é a criação do grupo de gerenciamento raiz no diretório. Depois que esse grupo é criado, todas as assinaturas existentes no diretório se tornam filho do grupo de gerenciamento raiz. O motivo para esse processo é verificar se há apenas uma hierarquia de grupo de gerenciamento em um diretório. A única hierarquia dentro do diretório permite que os clientes administrativos apliquem políticas e o acesso global que outros clientes no diretório não podem ignorar. Tudo o que foi atribuído na raiz será aplicado a todos os grupos de gerenciamento, todas as assinaturas, todos os grupos de recursos e todos os recursos do diretório, tendo uma hierarquia dentro do diretório.
+Quando um usuário começa a usar grupos de gerenciamento, ocorre um processo de configuração inicial. A primeira etapa é a criação do grupo de gerenciamento raiz no diretório. Depois que esse grupo é criado, todas as assinaturas existentes no diretório se tornam filho do grupo de gerenciamento raiz. O motivo para esse processo é verificar se há apenas uma hierarquia de grupo de gerenciamento em um diretório. A única hierarquia dentro do diretório permite que os clientes administrativos apliquem políticas e o acesso global que outros clientes no diretório não podem ignorar. Tudo que for atribuído na raiz será aplicado à hierarquia inteira, o que inclui todos os grupos de gerenciamento, as assinaturas, os grupos de recursos e os recursos desse locatário do Azure AD.
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas as assinaturas
 
-Alguns diretórios, que começaram a usar os grupos de gerenciamento no início na versão prévia (25 de junho de 2018), podiam ter um problema em que todas as assinaturas não são impostas na hierarquia.  Esses processos para impor as assinaturas na hierarquia foram implementados depois que uma atribuição de função ou política foi feita no grupo de gerenciamento raiz no diretório.
+Alguns diretórios, que começaram usando grupos de gerenciamento na versão prévia antes de 25 de junho de 2018, podiam encontrar um problema em que nem todas as assinaturas estavam na hierarquia.  Os processos para colocar todas as assinaturas na hierarquia entrava em vigor depois que era feita uma atribuição de função ou de política no grupo de gerenciamento raiz no diretório.
 
 ### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
 
@@ -95,17 +85,18 @@ Por exemplo, o colaborador da VM com a função RBAC pode ser atribuído a um gr
 
 O gráfico a seguir mostra a lista de funções e as ações compatíveis nos grupos de gerenciamento.
 
-| Nome da função RBAC             | Criar | Renomear | Mover | Excluir | Atribuir acesso | Atribuir política | Ler  |
-|:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Proprietário                       | X      | X      | X    | X      | X             | X             | X     |
-|Colaborador                 | X      | X      | X    | X      |               |               | X     |
-|Colaborador de MG*             | X      | X      | X    | X      |               |               | X     |
-|Leitor                      |        |        |      |        |               |               | X     |
-|MG leitor*                  |        |        |      |        |               |               | X     |
-|Colaborador da política de recurso |        |        |      |        |               | X             |       |
-|Administrador de Acesso do Usuário   |        |        |      |        | X             |               |       |
+| Nome da função RBAC             | Criar | Renomear | Mover** | Excluir | Atribuir acesso | Atribuir política | Ler  |
+|:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
+|Proprietário                       | X      | X      | X      | X      | X             | X             | X     |
+|Colaborador                 | X      | X      | X      | X      |               |               | X     |
+|Colaborador de MG*             | X      | X      | X      | X      |               |               | X     |
+|Leitor                      |        |        |        |        |               |               | X     |
+|MG leitor*                  |        |        |        |        |               |               | X     |
+|Colaborador da política de recurso |        |        |        |        |               | X             |       |
+|Administrador de Acesso do Usuário   |        |        |        |        | X             |               |       |
 
 *: O Colaborador de MG e o Leitor de MG só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
+**: Não são necessárias atribuições de função no grupo de gerenciamento raiz para mover uma assinatura ou um grupo de gerenciamento dele e para ele.  Confira [Gerenciar seus recursos com grupos de gerenciamento](manage.md) para obter detalhes de como mover itens dentro da hierarquia.
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e definição de função RBAC personalizada
 
@@ -113,17 +104,11 @@ No momento, não há suporte para funções RBAC personalizadas em grupos de ger
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar grupos de gerenciamento usando logs de atividades
 
-Para controlar os grupos de gerenciamento por meio desta API, use a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs). No momento não é possível usar o PowerShell, a CLI ou o portal do Azure para controlar a atividade de grupos de gerenciamento.
+Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md). Você pode pesquisar todos os eventos que ocorrem para um grupo de gerenciamento no mesmo local central que os outros recursos do Azure.  Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
-1. Como um administrador de locatários do locatário do AD do Azure, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md), em seguida, atribua uma função de leitor para o usuário de auditoria sobre o escopo `/providers/microsoft.insights/eventtypes/management`.
-1. Como o usuário de auditoria, chame a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs) para ver as atividades do grupo de gerenciamento. Convém filtrar pelo Provedor de Recursos **Microsoft.Management** para todas as atividades do grupo de gerenciamento.  Exemplo:
+![Logs de atividades com grupos de gerenciamento](media/al-mg.png)
 
-```http
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
-```
-
-> [!NOTE]
-> Para chamar convenientemente esta API da linha de comando, tente [ARMClient](https://github.com/projectkudu/ARMClient).
+Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o escopo de destino dos grupos de gerenciamento é semelhante a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
