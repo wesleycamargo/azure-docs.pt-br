@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447058"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991335"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure Stack protegido pelo AD FS
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar 1.4 de serviço de aplicativo do Azure.
+> Aplicar a atualização de 1901 ao seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar 1.5 de serviço de aplicativo do Azure.
 
 Seguindo as instruções neste artigo, você pode instalar o [provedor de recursos do serviço de aplicativo](azure-stack-app-service-overview.md) em um ambiente do Azure Stack que é:
 
 - não conectado à Internet
 - protegido pelos serviços de Federação do Active Directory (AD FS).
 
- > [!IMPORTANT]
- > Antes de implantar o provedor de recursos, revise as notas de versão para saber mais sobre a nova funcionalidade, correções e problemas conhecidos que podem afetar sua implantação.
- 
+> [!IMPORTANT]  
+> Antes de executar o instalador do provedor de recursos, certifique-se de que você seguiu as orientações [antes de começar](azure-stack-app-service-before-you-get-started.md) e que leu o [notas de versão](azure-stack-app-service-release-notes-update-five.md) que acompanham o 1.5 versão Saiba mais sobre as novas funcionalidade, correções e problemas conhecidos que podem afetar sua implantação.
+
 Para adicionar o provedor de recursos do serviço de aplicativo para sua implantação offline do Azure Stack, você deve concluir essas tarefas de nível superior:
 
 1. Conclua o [etapas de pré-requisito](azure-stack-app-service-before-you-get-started.md) (como comprar certificados, que pode levar alguns dias para receber).
@@ -105,7 +105,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
 
     ![Instalador do serviço de aplicativo][5]
 
-9. Insira as informações para o compartilhamento de arquivos e, em seguida, clique em **próxima**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado ou endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites
+9. Insira as informações para o compartilhamento de arquivos e, em seguida, clique em **próxima**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado ou endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Se você estiver usando um servidor de arquivos que está ingressado no domínio, você deve fornecer o nome de usuário completo, incluindo o domínio, por exemplo, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > O instalador tenta testar a conectividade com o compartilhamento de arquivos antes de continuar.  No entanto, se você optar por implantar em uma rede Virtual existente, o instalador pode não conseguir se conectar ao compartilhamento de arquivos e exibe um aviso, perguntando se deseja continuar.  Verifique as informações de compartilhamento de arquivos e continuar se elas estão corretas.
@@ -195,6 +195,11 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     2. Depois que o instalador foi concluída com êxito, clique em **Exit**.
 
     ![Instalador do serviço de aplicativo][18]
+
+## <a name="post-deployment-steps"></a>Etapas de pós-implantação
+
+> [!IMPORTANT]  
+> Se você tiver fornecido a RP de serviço de aplicativo com uma sempre na instância do SQL, você deve [adicionar os bancos de dados appservice_hosting e appservice_metering a um grupo de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizar os bancos de dados para evitar a perda de serviço no evento de um failover de banco de dados.
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicativo na instalação do Azure Stack
 
