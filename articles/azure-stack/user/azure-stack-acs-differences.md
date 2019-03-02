@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44fc096fa95be3a469ada7c7dc212ce4fc04e83b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486531"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218049"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure Stack: Diferenças e considerações
 
@@ -44,6 +44,7 @@ Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos
 |Tamanho máximo do blob de blocos|4,75 TB (100 MB X 50.000 blocos)|4,75 TB (100 MB x 50.000 blocos) para a atualização 1802 ou a versão mais recente. 50.000 x 4 MB (aproximadamente 195 GB) para versões anteriores.
 |Cópia de instantâneo de blob de página|Backup do Azure não gerenciado VM discos anexados a uma VM em execução com suporte|Ainda não tem suporte.
 |Cópia de instantâneo incremental de blob de página|Premium e blobs de página padrão do Azure com suporte|Ainda não tem suporte.
+|A cobrança de blob de página|Cobranças são incorridas para páginas exclusivas, estejam eles no blob ou no instantâneo. Não seria incorrer em encargos adicionais para instantâneos associados a um blob até que o blob de base que está sendo atualizado.|Cobranças são incorridas para instantâneos de blob e assiociated base. Poderia incorrer em encargos adicionais para cada instantâneo individual.
 |Camadas de armazenamento para o armazenamento de BLOBs|Frequente, esporádica ou de camadas de armazenamento de arquivos.|Ainda não tem suporte.
 |Exclusão reversível para o armazenamento de BLOBs|Geral disponível|Ainda não tem suporte.
 |Tamanho máximo do blob de página|8 TB|1 TB
@@ -67,8 +68,8 @@ APIs de serviços de armazenamento do Azure:
 
 1811 ou versões mais recentes de atualização:
 
-- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
-- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+- [09-11-2017](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [29-07-2017](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [17-04-2017](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [31-05-2016](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [11-12-2015](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
